@@ -47,7 +47,8 @@ def create_summary(sentences, max_length):
     size = 0
     for sentence in sentences:
         summary.append(sentence)
-        size += len(sentence)
+        #size += len(sentence)
+        size += 1
         if size >= max_length:
             break
 
@@ -95,6 +96,6 @@ Admissions to the MSIT programme run at this institute are based on a test condu
 
 
 
-_test(10)
+_test(5)
 
-print summarize(open("/tmp/out").read())
+#print summarize(open("/tmp/out").read())

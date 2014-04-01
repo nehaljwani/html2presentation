@@ -85,7 +85,8 @@ def summarize_page(url):
     import re
     import requests
 
-    html = bs4.BeautifulSoup(requests.get(url).text)
+    #html = bs4.BeautifulSoup(requests.get(url).text)
+    html = bs4.BeautifulSoup(open(url, "r").read())
     b = find_likely_body(html)
     summaries = map(lambda p: re.sub('\s+', ' ', summarize_block(p.text) or '').strip(), b.find_all('p'))
     summaries = sorted(set(summaries), key=summaries.index)  # deduplicate and preserve order
