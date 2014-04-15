@@ -113,10 +113,24 @@ def genImgSlide(image):
             left_column_width=0.8)
     return slide
 
+def extractTable(rawTable):
+    table = []
+
+    for row in rawTable:
+        for col in row:
+            tmpRow = ""
+            for element in col:
+                if 'text' in element:
+                    tmpRow += element['text']
+            table.append(tmpRow)
+
+    return table
+
 def genTableSlide(table):
     slide = latexslides.TableSlide(
-            table = [["1","2"],["3","4"]],
-            block_heading = "Testing",
+            title = table['section'],
+            table = extractTable(table['table']),
+            block_heading = table['title'],
             )
     return slide
 
