@@ -189,6 +189,7 @@ printHeaders(ptrStore *myPtrStore, section *mySection)
         mySection = tmpStore->ptrs[0];
     section *currTitle = mySection->next;
     json_object *jarray = json_object_new_array();
+    json_object *jobj;
 
     while (mySection->next != NULL) {
         if (mySection->isTag) {
@@ -218,32 +219,39 @@ printHeaders(ptrStore *myPtrStore, section *mySection)
                 json_object *jarray_rows = json_object_new_array();
                 while(1) {
                     if (tmpSection->isTag) {
+                        if (!tmpSection)
+                            goto safeHouse;
                         if (!strcmp(tmpSection->tag, "tr")) {
                             json_object *jarray_cols = json_object_new_array();
                             while (1) {
+                                if (!tmpSection)
+                                    goto safeHouse;
                                 if (tmpSection->isTag) {
                                     json_object *jarray_cell = json_object_new_array();
                                     if (!strcmp(tmpSection->tag, "td")
                                         || !strcmp(tmpSection->tag, "th")) {
                                         while(1) {
+                                            if (!tmpSection)
+                                                goto safeHouse;
                                             if ((tmpSection->isTag
                                                  && (!strcmp(tmpSection->tag, "/td")
                                                      || !strcmp(tmpSection->tag, "/th")))
                                                 || ((tmpSection->next->isTag)
                                                     && (!strcmp(tmpSection->next->tag, "tr")
-                                                        || !strcmp(tmpSection->next->tag, "/tr")
                                                         || !strcmp(tmpSection->next->tag, "/table")))) {
                                                 json_object_array_add(jarray_cols, jarray_cell);
                                                 break;
                                             }
-                                            json_object *jobj = text2json(tmpSection, secBuf, currTitle);
+                                            jobj = text2json(tmpSection, secBuf, currTitle);
                                             if (jobj) {
                                                 json_object_array_add(jarray_cell, jobj);
                                             }
                                             tmpSection = tmpSection->next;
                                         }
                                     }
-                                    if (!strcmp(tmpSection->tag, "/tr")) {
+                                    if (tmpSection->isTag
+                                        && (!strcmp(tmpSection->tag, "/tr")
+                                            || !strcmp(tmpSection->tag, "/table"))) {
                                         break;
                                     }
                                 }
@@ -259,7 +267,7 @@ printHeaders(ptrStore *myPtrStore, section *mySection)
                 }
                 if (jarray_rows) {
                     char titleBuf[255];
-                    json_object *jobj = json_object_new_object();
+                    jobj = json_object_new_object();
                     json_object_object_add(jobj, "table", jarray_rows);
                     json_object *jsection = json_object_new_string(secBuf);
                     json_object_object_add(jobj, "section", jsection);
@@ -271,8 +279,8 @@ printHeaders(ptrStore *myPtrStore, section *mySection)
                 mySection = tmpSection;
             }
         }
-
-        json_object *jobj = text2json(mySection, secBuf, currTitle);
+safeHouse:
+        jobj = text2json(mySection, secBuf, currTitle);
         if (jobj)
             json_object_array_add(jarray, jobj);
         mySection = mySection->next;
