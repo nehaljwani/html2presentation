@@ -1,0 +1,1590 @@
+<html>
+
+<head>
+
+<title>Systematic Design of Spoken Prompts</title>
+
+</head>
+
+
+<body>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<P><IMG SRC="./../../graphics/papers.JPG" ALT="papers" HEIGHT=35 WIDTH=249><A HREF="./../../papers.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+
+<a name="105676">
+
+<center><h1> Systematic Design of Spoken Prompts</h1></center>
+
+</a>
+
+<hr><p><a name="111815">
+
+<i> Brian Hansen, David G. Novick, Stephen Sutton</i>
+
+</a>
+
+<a name="111816">
+
+<dl>
+<dt>Center for Spoken Language Understanding
+<dt>Oregon Graduate<dt>Institute of Science &amp; Technology
+<dt>20000 N.W. Walker Road
+<dt>Beaverton, OR, 97006
+<dt>brianh@jib.cse.ogi.edu
+<dt>novick@cse.ogi.edu
+<dt>sutton@cse.ogi.edu
+<dt> (503) 690-1121
+</dl><p><hr>
+
+<h2> ABSTRACT</h2>
+
+
+<a name="106357">
+
+Designers of system prompts for interactive spoken-language systems
+typically seek 1) to constrain users so that they say things that the
+system can understand accurately and 2) to produce ``natural''
+interaction that maximizes users' satisfaction. Unfortunately, these
+goals are often at odds. <p>
+
+</a>
+
+<a name="112772">
+
+We present a set of heuristics for choosing appropriate prompt styles
+and show that a set of dimensions can be formulated from these
+heuristics. A point (or region) in the space formed by these
+dimensions is a ``style'' for prompts. We develop and apply metrics
+for empirically testing different prompt styles. Finally, we describe
+a toolkit that automatically generates prompts in a variety of styles
+for spoken-language dialogues.<p>
+
+</a>
+
+<a name="111492">
+
+<h3> Keywords</h3>
+
+</a>
+
+<a name="105704">
+
+Interaction design, auditory I/O, dialog analysis, design techniques,
+evaluation, toolkits<p>
+
+</a>
+
+<a name="111497">
+
+<h2> INTRODUCTION</h2>
+
+</a>
+
+<a name="106374">
+
+Between the attainable practicality of command-based speech
+recognition and the elusive attraction of ``natural'' spoken-language
+interaction lies the growing use of spoken dialogue systems (SDSs).
+This middle ground includes applications such as the AT&amp;T
+long-distance billing system, the OGI automated spoken questionnaire
+for the U.S. Census [6], and systems performing the ATIS travel
+information task [15]. These systems engage in relatively simple
+task-based dialogues, often expecting users' utterances to consist of
+a single word or a short phrase; they are analogous in complexity to
+graphical user interfaces (GUIs). Like GUIs, SDSs generally do not
+generate their output at run time; they instead use pre-specified
+phrases or templates as prompts. Development of these prompts is
+usually taken to be more art than science; to create the system's
+prompts, designers most often rely on expert intuition and tacit
+experience. But beyond intuition and experience we propose systematic
+methods for characterizing and generating spoken-dialogue prompts. In
+this paper, we present these methods and show their usefulness for
+developing effective SDSs. Although we concentrate on SDS development,
+these methods have a natural extension to the speech component of
+multimedia systems.<p>
+
+</a>
+
+<a name="106375">
+
+For effective interaction, SDSs must rely on directive prompts [7] to
+increase user compliance with system requirements. The best
+intuitively-designed prompts serve two functions though: they not only
+constrain the user's response so that speech recognizers--all too
+fallible--stand a better chance of success, but also provide a feeling
+of ``natural'' dialogue for the user so that the overall interaction
+is not aversive. These two functions provide a basis for a more
+systematic approach to generation of prompts. From our own experiences
+in designing SDSs, we have developed a set of heuristics for designing
+system output. From these heuristics, we have further developed a
+framework for analyzing and designing prompts in terms of dimensions,
+features and styles. <p>
+
+</a>
+
+<a name="112470">
+
+Our interest in identifying dimensions of dialogue variation grew out
+of our need to translate a written questionnaire for the US Census
+(the 1990 Census Short Form) into a configuration usable with a SDS.
+The first problem we encountered was a proliferation of possible ways
+of structuring and phrasing census questions. For each written
+question, there seemed a nearly infinite variety of ways of expressing
+its underlying meaning to users. We needed a way to choose only a few
+representatives from the profusion of conceivable treatments; we could
+not test the effectiveness of every variation and needed to converge
+quickly on solutions better suited to SDS technology. Unfortunately we
+did not know, a priori, which solutions would be best. To ensure
+adequate performance of the speech recognition component of a SDS,
+while avoiding confusing or alienating users, we needed to find a way
+to characterize the ``space'' of ways to formulate questions, and to
+predict the results obtained by using prompts in different points of
+that space.<p>
+
+</a>
+
+<a name="108740">
+
+We derive a space of possible system prompts by first producing and
+analyzing heuristics offering different treatments, or styles, for
+handling various aspects of spoken interaction. These styles suggest
+several ways to present automated human-computer dialogues, with an
+emphasis on the ways of phrasing system prompts. By abstracting across
+the heuristics, we have identified a set of features associated with
+each style, and a set of dimensions covering and containing the
+feature set. A point in the space described by the dimensions is a
+``style'' for prompts. <p>
+
+</a>
+
+<a name="112476">
+
+In this paper, we present a framework of heuristics, dimensions and
+styles for spoken dialogue prompts. We define the notion of a SDS's
+overall stylistic consistency. We outline metrics for empirically
+testing different prompt styles in terms of their effects on
+constraint of user speech and on user satisfaction, and briefly
+present results of our use of this approach. Finally, we describe a
+SDS toolkit we are developing that incorporates some of this framework
+in the automated generation of system prompts.<p>
+
+</a>
+
+<a name="106391">
+
+<h2> THE PROBLEM</h2>
+
+</a>
+
+<a name="106393">
+
+Current speech recognition algorithms match the features of a speech
+signal with models of the features of known phonemes via a statistical
+process. One effect of this statistical matching is that recognition
+is probabilistic. In a GUI, only the set of relevant user actions are
+defined at any given moment. This is equivalent to imposing a
+vocabulary of legal actions. It is generally not possible to enforce
+the same rigid constraints in a spoken interface. Unfortunately, the
+need for a high-degree of recognition accuracy in speaker-independent
+speech recognition imposes the requirement that the words to be
+recognized come from a relatively small set of candidates. The overall
+effectiveness [8] of a SDS, then, is dependent upon the ability of
+dialogue designers to produce prompts that constrain users' possible
+responses. One of the subtleties of dialogue design lies in giving
+users a feeling of naturalness and freedom of response although
+underlying constraints exist. <p>
+
+</a>
+
+<a name="111146">
+
+In an ideal SDS, the naturalness and accuracy criteria would both be
+satisfied. Users would be free from artificial constraints on their
+use of vocabulary, grammar, or the interactional fluidity that
+characterize routine task-based human-human telephone speech.
+Unfortunately, this ideal is unrealistic given current technology
+[5,12,13]. Indeed, given the limitations inherent in current speech
+recognition technology and the need for near-perfect recognition
+accuracy, dialogue designers must often make compromises between
+accuracy and naturalness. While these criteria may sometimes agree on
+the best way to present system prompts, most often a tension exists
+between them.<p>
+
+</a>
+
+<a name="112760">
+
+We have used different versions of dialogues to refine our
+understanding of this tension. Consider, for example, a dialogue in
+which the system sought to elicit certain information from the user by
+asking only yes/no questions. Such an approach would likely be very
+accurate from a speech recognition standpoint, yet fairly unnatural
+and inappropriate for many situations. Determining a user's age by
+means of yes/no questions, for example, would most certainly be a
+laborious and unacceptable approach, unpleasant for the user and
+time-consuming for both user and system. <p>
+
+</a>
+
+<a name="112761">
+
+Finally, where limits of speech recognition technology force dialogue
+designers to adopt solutions that are not maximally pleasing or
+natural, it is essential that they have a clear understanding of the
+implications of the compromises they make. Only then are they in a
+position to take advantage of improvements in the accuracy and
+robustness of that technology as they become available.<p>
+
+</a>
+
+<a name="106398">
+
+<h2> HEURISTICS, DIMENSIONS AND STYLES</h2>
+
+</a>
+
+<a name="107519">
+
+To advance the production of voice-response questionnaires from an ad
+hoc, mostly intuitive ``craft'' into more of an engineering
+discipline, we have developed a method using a set of heuristics for
+transforming [16] a written version of a questionnaire into a script
+(or protocol) for use with speech-recognition systems. From these
+heuristics, we then developed a systematic approach to the design of
+spoken prompts; this approach is based on defining a space of possible
+system prompts that can be described by a set of task-independent
+descriptive dimensions. We identify a set of fourteen dimensions of
+system prompts, and define a point in the space they form as a
+``style'' for prompts. <p>
+
+</a>
+
+<a name="106455">
+
+<h2> Heuristics for Designing Dialogues</h2>
+
+</a>
+
+<a name="106457">
+
+In designing prompts for the census task, we quickly saw that for each
+question there was a myriad of ways of expressing its underlying
+intent. To converge on a practical number of dialogue designs to test,
+we needed a principled way of deciding which, out of thousands of
+wording variations, we should use. One limiting factor for this
+particular project derived from the nature of the census task itself:
+we needed the spoken questionnaire to be as true to the original
+written form as possible in order to avoid distorting census results.
+This concern led us to examine ways of transforming the original
+written questionnaire into a form suitable for use with a SDS. One
+result of our investigation was a set of heuristics for translating
+from written to spoken media.<p>
+
+</a>
+
+<a name="106458">
+
+Associated with each heuristic are 1) a pattern, or a set of
+pre-conditions, specifying where the heuristic may be used; 2) a set
+of styles into which a question (or other aspect of the interaction)
+can be transformed; and 3) a discussion of the trade-offs between the
+styles. The discussions of the trade-offs constitute informal
+hypotheses about the effects of the different styles on the accuracy
+of speech recognition, the naturalness of the interaction, and the
+interaction's length. As an example, consider a heuristic applicable
+to multiple-choice questions (described below). This heuristic applies
+when transforming, from written to spoken form, questions involving a
+choice among three to six options. We have informally specified five
+different styles of structuring and phrasing such questions, and have
+analyzed their implications on speech recognition accuracy as well as
+their expected effect on the naturalness and length of the
+interaction. <p>
+
+</a>
+
+<a name="106459">
+
+The styles associated with each heuristic are representative samples,
+depicting not every way of phrasing or presenting prompts but rather a
+reasonable breadth of approaches. Although many of the heuristics are
+associated with the forms that questions may take, some are applicable
+to the interaction as a whole or to a particular aspect of
+interaction, such as ways of accomplishing turn-taking. Multiple
+heuristics may apply to a single prompt and, in the case of heuristics
+describing the re-structuring of complex questions, may be cascaded;
+one heuristic may partially break down the question while another may
+finish the translation. <p>
+
+</a>
+
+<a name="106460">
+
+We developed these heuristics in order to provide a principled
+starting point for an iterative dialogue design prototyping effort,
+but their value is not limited to this particular usage. In general,
+the prompt heuristics have several important uses, including: <p>
+
+</a>
+
+<ul>
+
+<ul>
+
+<a name="112504">
+
+<li>developing designs for a set of initial dialogues,
+
+</a>
+
+<a name="112505">
+
+<li>categorizing existing dialogues,
+
+</a>
+
+<a name="112506">
+
+<li>testing hypotheses about the effectiveness and naturalness of
+different styles, and
+
+</a>
+
+<a name="112539">
+
+<li>implementation via rapid prototyping toolkits.
+
+</a>
+
+</ul>
+
+</ul>
+
+<a name="112540">
+
+<p>
+
+</a>
+
+<a name="112541">
+
+In our efforts, these heuristics have been useful for reducing the
+expected user vocabulary, reducing the effects of user intonation,
+mitigating the reduced level of system's understanding and interactive
+abilities, and compensating for the loss of visual access to the
+written form (including the ability to scan ahead) [3]. Perhaps the
+greatest benefit of this framework is that it encourages an empirical
+approach to dialogue design. By making and testing predictions about
+the effects of various styles, we can reject inappropriate dialogue
+styles and reduce the dialogue designer's reliance on intuition and
+hand-crafting.<p>
+
+</a>
+
+<a name="106466">
+
+The following sections describe individual heuristics we devised in
+the course of the census project. In many cases the styles associated
+with a heuristic are presented as hypothetical interactions between
+the system (``S'') and a user (``U'').<p>
+
+</a>
+
+<a name="106487">
+
+<h3> Questions Containing Presuppositions</h3>
+
+</a>
+
+<a name="106503">
+
+Figure 1 depicts two different styles for dealing with questions
+containing presuppositions. Style 1.1 ignores the possibility of a
+question eliciting an unexpected response due to an invalid
+presupposition on the systems's part.<p>
+
+<P><HR>
+
+<pre>
+Style 1.1:	S: What is your home phone number (including area code)?
+		U: I don't have a phone.
+
+Style 1.2:	S: Do you have a home phone number?
+		U: Yes.
+		S: What is your home phone number (including area code)?
+		U: &lt;telephone number&gt;
+</pre>
+<h3> Figure 1: Questions containing presuppositions</h3>
+
+<p><hr><P>
+
+</a>
+
+<a name="110343">
+
+Alternately, style 1.2, employs a ``guard question'' that reduces the
+difficulty of interpreting a response where the precondition does not
+hold. It also increases the length of the interaction, though it may
+be relevant for only a fraction of the cases encountered. In those
+cases, guard questions may reduce the chance of communication
+breakdown. In the context of a large number of yes/no questions,
+however, style 1.2 could become tedious for users. <p>
+
+</a>
+
+<a name="108260">
+
+<h3> Questions Eliciting Compound Answers</h3>
+
+</a>
+
+<a name="108287">
+
+Figure 2 shows different styles of structuring questions to elicit
+compound, or multi-part, answers. Style 2.1 offers the fewest
+constraints as to how the user may answer and, if successful, is the
+quickest and most efficient. The lack of expressed constraints on the
+form of the expected reply may not be too damaging where a standard
+way of specifying the information is already well-established in the
+minds of most users. Style 2.2 breaks the question down into an
+explanatory sentence and several prompts, a pattern that style 2.3
+takes one step further. The extreme of this approach would be to ask
+for each digit of the number separately, clearly an arduous task
+especially considering the costs of turn-taking. It is, however,
+likely to be the style having the highest recognition accuracy. <p>
+
+<P><HR>
+
+<pre>
+Style 2.1:	S: What is your home phone number 
+		U: 503...um... 690...
+
+Style 2.2:	S: We need to know your home phone number.
+		S: What is the area code?
+		U: 503
+		S: and the number?
+		U: &lt;tel number&gt;
+
+Style 2.3:	S: We need to know your home phone number.
+		S: What is the area code?
+		U: 503
+		S: and the exchange?
+		U: 226
+		S: and...
+
+Style 2.4:	S: We need to know your home phone number.
+		S: Please state the area code &lt;pause&gt; 3-digit exchange, and 4-digit...
+		U: 503    226   2...
+
+Style 2.5:	S: We need to know your home phone number.
+		Please state your number, area code first.
+		U: 503
+		S: Mmm-hmm
+		U: 690
+		S: Yes.
+		U: 1121
+		S: 1121. Ok.
+</pre>
+<h3> Figure 2: Questions eliciting compound answers</h3>
+</a>
+
+<p><hr><P>
+
+</a>
+
+<a name="108802">
+
+Style 2.4, like style 2.3, specifies each component the user is
+expected to provide, sharing with style 2.3 the danger of confusing
+people unfamiliar with the notion of a telephone ``exchange'' or, more
+generally, the names of the individual components. Style 2.4
+encourages the user, however, to supply all components within a single
+turn at speech. The need to forestall extended repair sub-dialogues
+may require that the system offer acceptances [4] of users' utterances
+after the components of multi-part answers are received. Style 2.5
+depicts such a case in which the system provides feedback in the form
+of acknowledgments and echoing [2,10].<p>
+
+</a>
+
+<a name="106505">
+
+<h3> Questions Involving Choice Between Two Options</h3>
+
+</a>
+
+<a name="106526">
+
+The heuristic depicted in Figure 3 describes the different ways of
+asking questions where only two responses are expected (for example
+``Are you male or female?''). Style 3.1 invites uncooperative users to
+answer ``Yes'' or ``No'', especially if minimal or non-intuitive
+intonation is used in presenting the question. This may require a
+clarifying repair sub-dialogue perhaps employing a style-3.2 type
+interaction. <p>
+
+<P><HR>
+<pre>
+Style 3.1:	S: A or B?
+		U: B
+
+Style 3.2:	S: A?
+		U: No.
+		S: B?
+		U: Yes.
+
+Style 3.3:	S: A?
+		U: No.
+		S: Then B, correct?
+		U: Yes/No.
+</pre>
+<h3> Figure 3: Questions involving choice between two options</h3>
+</a>
+
+<p><hr><P>
+
+
+</a>
+
+<a name="108223">
+
+Style 3.2 increases the number of interactions required in the average
+case, subsequently increasing the survey time overall. Further, if the
+two options are truly mutually exclusive, users, recognizing the
+overall intent of the series of questions, and volunteer the answer to
+the underlying question (e.g., U: ``No, I'm a B.''), or worse (U: ``If
+I said I wasn't female, then what else could I be but male?''). In
+both cases the variety and complexity of expressions that must be
+recognized are greatly increased.<p>
+
+</a>
+
+<a name="106531">
+
+<h3> Questions Involving Choice Among Three to Six Options</h3>
+
+</a>
+
+<a name="110224">
+
+Figure 4 depicts a heuristic for multiple choice questions having more
+than two but still only a few alternatives. We judge that among the
+different treatments, style 4.1 is somewhat less natural than styles
+4.2 and 4.3. This is especially true for questions having
+stereotypical answers (E.g. ``What's your marital status?''
+``Single''). It is slightly less natural than Style 4.2, because a
+human operator can compensate for the user's not mentioning an option
+name directly and can either interpret a response as indicating a
+category, or can move toward a Style 4.3 interaction if necessary.
+While style 4.1 may be expected to elicit more constrained responses,
+it may suggest that the user cannot be trusted to recognize the
+choices, an indication that may appear to be insulting or
+condescending if obvious choices are spelled out.<p>
+
+<P><HR><P>
+<pre>
+Style 4.1:	S: &lt;ask question, give options&gt;
+		U: &lt;option-name&gt;
+
+Style 4.2:	S: &lt;ask question without giving options&gt;
+		U: &lt;option-name&gt;
+
+Style 4.3:	&lt;transform question into series of sub-questions
+		(a decision tree) having yes/no answers&gt;
+
+Style 4.4: 	&lt;for each option, ask if it is the case&gt;
+
+Style 4.5: 	Similar to style 3, except when number of options
+		is reduced to 2-3, ask for the option-name
+</pre>
+
+<h3> Figure 4: Questions involving choice among three to six options</h3>
+<HR><P>
+
+</a>
+
+<a name="110246">
+
+Style 4.2 constrains the response the least (e.g., S: ``What is your
+current marital status?'') and would therefore be presumed to elicit
+answers having greater variability (U: ``I've been living with X
+for...''), again tending to reduce recognition accuracy.<p>
+
+</a>
+
+<a name="106556">
+
+Style 4.4 takes the longest to achieve but does employ only yes/no
+questions, as does style 4.3. Both invite the user to anticipate the
+line of reasoning implied by the sequence and to volunteer the
+response that the sequence of questions suggests, increasing
+variability and reducing recognition accuracy.<p>
+
+</a>
+
+<a name="106557">
+
+Style 4.5 may be a good compromise between styles 4.1 and 4.3,
+allowing recognition of only a few keywords at any one time, without
+the rigidity of a strict binary tree style.<p>
+
+</a>
+
+<a name="111266">
+
+<h3> Questions Involving Choice Among More Than Six Options</h3>
+
+</a>
+
+<a name="106561">
+
+The analysis here is similar to that for styles presented in the
+previous section except that with more choices the problems become
+more severe. Use of style 4.1 for more than six options may put a
+severe strain on the user's short- term memory, while style 4.2 may
+leave the user even more adrift as to what exactly constitutes a
+proper answer. The decision tree of style 4.3 becomes deeper, though
+not so quickly as the option-checking sequence of style 4.4, which
+becomes clearly unnatural as the number of options increases.<p>
+
+</a>
+
+<a name="106572">
+
+Figure 5 shows two more styles that may be useful in cases where there
+are a large number of options. Style 5.1 is quite similar to style
+4.5, with 5.1's ``other'' serving to help control the flow of the
+dialogue. In style 5.1 and 5.2, recognition of the word ``other'' must
+already be in place. Using style 5.1, the overall gains in automation
+may be reduced by requiring human interpretation.<p>
+
+<P><HR>
+<pre>
+Style 5.1:	&lt;reduce problem to fewer options and include
+		``other'', then use more choice-constrained
+		heuristics, in the case of ``other'', either store
+		what the user says for later interpretation, or ask
+		the same question with the next group of options&gt;
+
+Style 5.2:	S: &lt;ask question, give explanation of n-at-a-time
+		style, loop through the options n at a time&gt;
+
+		U:  &lt;option name, or special phrases for user
+		initiated repair&gt;
+</pre>
+
+<h3> Figure 5: Questions involving choice among more than six options</h3>
+<p><hr>
+</a>
+
+<a name="111362">
+
+<h3> Encouraging Brief Answers</h3>
+
+</a>
+
+<a name="111363">
+
+Figure 6 shows three different styles for eliciting brief, concise
+answers.Of these, style 6.1 is quick and formal, though not
+particularly ``friendly,'' and is likely to evoke a reasonably
+focussed response. Style 6.2 takes longer but is likely to elicit
+fewer open-ended responses. It is also likely to be frustrating for
+expert users. Style 6.3 is most natural in presentation but does
+little to constrain the response. Style 6.3 might require increasing
+the coverage of grammar to accommodate more verbose or non-standard
+responses, thereby decreasing recognition accuracy<p>
+
+<P><HR>
+<pre>
+Style 6.1: 	Give ``telegraphic'' questions. For example,
+
+		S: Date of birth?
+
+Style 6.2:	Explicitly state what information is wanted, and what
+		form it should take as a parenthetical to the
+		question. for example,
+
+		S: ``We now ask about your date of birth. Please say
+		the month, the day and then the year or your birth.''
+
+Style 6.3:	Phrase question ``naturally'' and hope user provides a
+		short, appropriate response. For example,
+
+		S: ``What is your date of birth?''
+</pre>
+
+<h3> Figure 6: Encouraging brief answers</h3>
+
+<p><hr>
+
+</a>
+
+<a name="111918">
+
+<h3> Other Heuristics</h3>
+
+</a>
+
+<a name="106644">
+
+In this section we briefly describe some additional heuristics that
+serve to illustrate the breadth and utility of this approach. In
+particular, we sketch the expected trade-offs of using: <p>
+
+</a>
+
+<ul>
+
+<ul>
+
+<a name="107408">
+
+<li>different techniques for turn-taking
+
+</a>
+
+<a name="112011">
+
+<li>more or less explanatory text in prompts,
+
+</a>
+
+<a name="107407">
+
+<li>human versus computer voice,
+
+</a>
+
+<a name="107406">
+
+<li>different personas (such as a spokesperson or, in the case of the
+census, a particular census taker),
+
+</a>
+
+<a name="107405">
+
+<li>faster or slower rate of speech, and
+
+</a>
+
+<a name="107402">
+
+<li>stronger or weaker confirmation requirements after giving user
+information.
+
+</a>
+
+</ul>
+
+</ul>
+
+<a name="106874">
+
+<p>
+
+</a>
+
+<a name="106645">
+
+It is difficult, using current speech recognition methods, to
+accurately gauge when a user has finished his or her turn at speech.
+Moreover, it is difficult to provide timely feedback to the user as to
+whose turn it is. We have identified at least three possible
+implementations of turn-taking. If the system employs ``natural''
+intonation patterns to signal end-of-turn, it may encourage users to
+encode information in intonation, possibly causing misunderstanding.
+If it relies only on illocutionary expectations, the dialogue may be
+vulnerable to communication breakdowns following turn confusion. If it
+uses beeps or other tone patterns to indicate turn completion, it may
+require some explanation to the user, increasing the number of
+utterances made by the system.<p>
+
+</a>
+
+<a name="112010">
+
+For questions that require prior explanations, there are two general
+styles: 1) provide as short an explanation as possible, or 2) provide
+longer explanations. Longer or more frequent explanatory text
+describing the intent of the question or the form of the expected
+answer tends to increase the output time and the output vocabulary.
+Increasing the output vocabulary may serve to entrain users into
+believing the system is able to recognize a large vocabulary, leading
+them to use out-of-vocabulary keywords or complex grammatical
+constructs.<p>
+
+</a>
+
+<a name="106646">
+
+In the case of the system's voice (either recorded human or computer
+synthesized), we expect to find that users react negatively to the use
+of synthesized speech. Not only is such technology not ``natural,''
+but often difficult for human hearers to understand. We expect,
+however, that users provide more concise answers when prompted by a
+synthesized voice. In the course of developing the census system, this
+heuristic was tested [11] with mixed results.<p>
+
+</a>
+
+<a name="106647">
+
+Related to system voice is the choice of the persona within which the
+system interacts [9]. Although we make no clear prediction as to the
+effects of varying the persona on speech recognition accuracy, the
+choice of persona may affect users' acceptance of the system.
+Different personas in our case included the government, a census
+taker, or a spokesperson. In the census project, the system persona
+was an anonymous census enumerator.<p>
+
+</a>
+
+<a name="106648">
+
+An area not explicitly tested in the census project was to vary the
+rate of speech of the system voice. On one hand, we predict that
+faster speech may be more compelling but entrains users to use faster
+speech in response, possibly degrading speech recognition accuracy. A
+slower rate of speech, on the other hand, may increase user
+frustration and lead to users interrupting (or ``barging in on'') the
+system voice, again degrading recognition accuracy. <p>
+
+</a>
+
+<a name="106649">
+
+Finally, as the census project was concerned primarily with asking
+questions, we did not develop extensive heuristics addressing how best
+to convey information to, or answer questions of, the users. Where the
+objective is primarily to convey information to the user, the quickest
+style for presenting information would be simply to present it and go
+on to the next stage of the dialogue. If it were critical that the
+information be understood, the system might ask for confirmation and
+go on if confirmed. Alternately, if the system detected silence or
+sounds indicating that the user was uncertain or did not understand,
+it could present the information again or inquire as to possible
+sources of misunderstandings.<p>
+
+</a>
+
+<a name="106679">
+
+<h2> Dimensions of Prompts</h2>
+
+</a>
+
+<a name="106681">
+
+Although the heuristics described above were useful in the initial
+stages of our project, they still did not capture what we term the
+dimensions of spoken prompts. By examining the ways in which styles
+varied within a single heuristic, we were able to identify different
+``features'' that characterized the various styles. By examining
+features used in different heuristics, we distinguished which features
+were in opposition. These mutually exclusive features formed points
+within a single dimension. <p>
+
+</a>
+
+<a name="106682">
+
+The dimensions may be thought of as naming a way of varying a system
+prompt. The dimension PreExplanation, for example, denotes the degree
+to which the intent behind the prompt is described to the user before
+the question is actually given. Although in this case, as in many of
+the other dimensions, a whole continuum could be imagined, we often
+limited our analysis to polar opposites (e.g. +PreExplanation and
+-PreExplanation). In other cases, such as Decomposition, ordering the
+points within the dimension was less clear.<p>
+
+</a>
+
+<a name="106683">
+
+By revisiting the various styles for each of the heuristics, we
+identified a set of dimensions characterizing the phrasing of system
+prompts. These dimensions include the following ten:<p>
+
+</a>
+
+<ul>
+
+<ul>
+
+<a name="106684">
+
+<li>PreExplanation. Should preparatory text be included before posing
+the question(s)?
+
+</a>
+
+<a name="106685">
+
+<li>Terse. Should the question be posed as tersely as possible?
+
+</a>
+
+<a name="106686">
+
+<li>ListOptions. Should we list the set of words from which we expect
+an answer?
+
+</a>
+
+<a name="106687">
+
+<li>CompoundQuestion. Should we break the question down into its
+component parts or leave it as one question?
+
+</a>
+
+<a name="106688">
+
+<li>Polite. Should the question be phrased politely [9]?
+
+</a>
+
+<a name="106689">
+
+<li>Decomposition.  Should we break down the selection from a list of
+options into a decision tree, a partial decision tree, a decision
+list, or not at all?
+
+</a>
+
+<a name="106690">
+
+<li>AllowOther. Should we formulate the question so as to allow the
+user to specify ``other'' as an option?
+
+</a>
+
+<a name="106691">
+
+<li>Indirection. Should we ask the question indirectly (for example
+``Could you spell that?) or should we require that questions be posed
+directly, perhaps as commands (for example, ``Please spell that.'')?
+
+</a>
+
+<a name="106692">
+
+<li>GiveOptionName. Should we mention the ``name'', or topic, of the
+information desired (for example ``Are you married or single'' does
+not mention ``marital status'')?
+
+</a>
+
+<a name="110711">
+
+<li>GuardQuestion. Should we ask initial questions to rule out
+incorrect presuppositions?
+
+</a>
+
+</ul>
+
+</ul>
+
+<a name="110700">
+
+<p>
+
+</a>
+
+<a name="110719">
+
+In addition, we also identified a number of dimensions characterizing
+the interaction as a whole, including:<p>
+
+</a>
+
+<ul>
+
+<ul>
+
+<a name="111528">
+
+<li>Voice (human or synthesized),
+
+</a>
+
+<a name="111529">
+
+<li>Intonation (minimal or natural),
+
+</a>
+
+<a name="111530">
+
+<li>Persona, and
+
+</a>
+
+<a name="111531">
+
+<li>Turn-taking cues.
+
+</a>
+
+</ul>
+
+</ul>
+
+<a name="111532">
+
+<p>
+
+</a>
+
+<a name="111533">
+
+In total, these dimensions define a fourteen-dimensional space of
+system prompts.<p>
+
+</a>
+
+<a name="106696">
+
+<h2> Dialogue Styles</h2>
+
+</a>
+
+<a name="106698">
+
+Having defined the dimensions of spoken prompts in terms of the
+features of styles, we can now define more formally the concept of a
+style as being a collection of points within a number of dimensions.
+Since each style within a heuristic uses only a few of the identified
+dimensions, a style can be described as a region in the space of
+possible ways of expressing prompts. Figure 7 shows different styles
+(described in terms of features) for eliciting the user's marital
+status. Again, not all dimensions are explored equally. Instead, we
+examine those regions in the space of system prompts that best suit
+the needs of our dialogue evaluation effort. <p>
+
+<P><HR><P>
+<PRE>
+Style 1:	(+Terse, -PreExplanation, -ListOptions)
+		S: Marital status?
+
+Style 2: 	(+Terse, -PreExplanation, +ListOptions)
+		S: Marital status? Now married, widowed, divorced, separated, 
+		or never married?
+
+Style 3: 	(-Terse, -PreExplanation, +ListOptions)
+		S: What is your marital status, now married, widowed,
+		divorced, separated, or never married?
+
+Style 4: 	(+PartialDecisionTree, -Terse, +GiveOptions, -PreExplanation)
+		S: Are you now married (yes or no)?
+		if no, then 
+		S: Have you ever been married (yes or no)?
+		if yes, then 
+		S: Were you widowed, divorced or separated (please say one)?
+
+Style 5: 	(+PreExplanation, +ListOptions, -Terse, +GiveOption)
+		S: The next question will determine your marital
+		status. The categories are: now married, widowed,
+		divorced, separated, and never married.  What is your
+		marital status?
+</pre>
+<h3> Figure 7: Examples of styles for marital status questio</h3>
+
+<p><hr><P>
+</a>
+
+<a name="106923">
+
+One of the advantages of using styles defined in terms of features is
+that it allows us to characterize the overall style of the interaction
+rather than limiting our analysis to identifying the style of a single
+prompt. We thus define overall stylistic consistency of a SDS as the
+property of a dialogue in which the styles associated with each prompt
+do not conflict.<p>
+
+</a>
+
+<a name="106174">
+
+<h2> EVALUATING DIALOGUE STYLES</h2>
+
+</a>
+
+<a name="107644">
+
+In our development of the census dialogue model, we went through
+several iterations of dialogue design, using up to four competing
+designs in a test of which worked best. In order to converge quickly
+on reasonable solutions, we started by identifying criteria that the
+various dialogue models should meet. In particular, we considered
+potential dialogues that were (a) closest to original form, (b) most
+constrained, (c) most ``natural'', (d) clearest to the hearer, (e)
+tersest, (f) most polite, (g) most open-ended, and (h) most
+recognizable. By identifying the features that best met each
+criterion, we were able to characterize the region in the space of
+dialogue prompts best suiting our needs. <p>
+
+</a>
+
+<a name="111313">
+
+The iterative approach required us to produce a method for assessing
+the merit of each design as a basis for further refinement. We
+addressed this problem from two perspectives: accuracy of recognition
+and naturalness of interaction. To evaluate our dialogue designs we
+used an objective measure of the conciseness of users' responses in
+combination with a subjective measure of naturalness as reflected in
+users' feedback to evaluation questions. Together these metrics
+supplied grounds for making a wide range of dialogue design decisions,
+including evaluating candidate styles. In addition, these evaluation
+metrics provided a means to test the predictions made by our
+heuristics. These predictions effectively narrowed the search space of
+subsequent prompt refinements.<p>
+
+</a>
+
+<a name="112288">
+
+We now briefly present a behavioral coding scheme, a subjective
+evaluation metric, and some results from using our approach to
+dialogue development for the census system.<p>
+
+</a>
+
+<a name="106180">
+
+<h2> Behavioral Coding Scheme</h2>
+
+</a>
+
+<a name="106181">
+
+The need to refine our system prompts so as to elicit only the most
+concise and recognizable user responses led us to develop a behavioral
+coding scheme (BCS) as an evaluation metric [11]. The BCS is used to
+characterize a user's utterance into one of eleven classes. Each class
+has an associated code which is used to label users' responses during
+transcription. Table 1 provides a summary of the behavioral coding
+scheme showing the eleven response classes, a brief description of
+each, and an example system prompt and user response.<p>
+
+</a>
+
+<P><HR><P>
+<a name="996750">
+<pre><strong>Response Class		Description					System prompt			User response
+</strong></pre>
+</a>
+<a name="996805">
+<pre>Adequate Answer 1	Answer is concise and responsive.			Have you ever been 
+married?		Yes
+</pre>
+</a>
+</a>
+<a name="996754">
+<pre>Adequate Answer 2	Answer is usable but not concise.			Have you ever been 
+married?		No I haven't
+</pre>
+</a>
+<a name="996756">
+<pre>Adequate Answer 3	Answer is responsive but not usable.			Have you ever 
+been married?		Unfortunately
+</pre>
+</a>
+<a name="996758">
+<pre>Inadequate Answer 1	Answer does not appear to be responsive.		What is 
+your sex, female or male?	Neither
+</pre>
+</a>
+<a name="996760">
+<pre>Inadequate Answer 2	User says nothing at all.				What is your sex, female 
+or male?	&lt;silence&gt;
+</pre>
+</a>
+<a name="996762">
+<pre>Qualified Answer	User expresses uncertainty 				What year were you born?		
+Nineteen fifty five I think
+</pre>
+</a>
+<a name="996764">
+<pre>Req for Clarification	User reqs clarification of the meaning of a 
+question.	Are you black, white or other?		What do you mean?
+</pre>
+</a>
+<a name="996766">
+<pre>Interruption		User interrupts the speaking of the question.		What year 
+were you born?		*teen fifty five
+</pre>
+</a>
+<a name="996768">
+<pre>Don't Know		User responds ``I don't know'' or equivalent.		Are you black, 
+white or other?		 I'm not sure
+</pre>
+</a>
+<a name="996770">
+<pre>Refusal			User refuses to answer.					What year were you born?		I'm not 
+telling you
+</pre>
+</a>
+<a name="996772">
+<pre>Other			User behavior not captured by the above codes		What year were you 
+born?		Thirt... &lt;noise&gt;
+</pre>
+</a>
+<a name="996747">
+<h3> Table 1: Summary of behavioral coding scheme</h3>
+</a>
+<a name="996788">
+<h3> </h3>
+</a>
+<a name="996792">
+<h3> <strong></strong></h3>
+</a>
+
+<p><hr><P>
+
+<a name="106183">
+
+The BCS can characterize a set of utterances; the distribution of BCS
+codes associated with responses to a given question in different
+treatments, or regions of the space of dialogue prompts, can be used
+as a basis for evaluation. For example, suppose we have three
+candidate prompt styles and wish to select the one that is the most
+constraining. First, we collect data for the three prompt styles, then
+label these data according to the BCS. Comparing the frequency of
+class ``Adequate Answer 1'' for the three styles shows which style
+elicited the most constrained responses.<p>
+
+</a>
+
+<a name="106184">
+
+<h2> Subjective Evaluation Questions </h2>
+
+</a>
+
+<a name="106185">
+
+Given the potential trade-off between recognition accuracy and
+naturalness of interaction, reliance on the BCS as our sole criterion
+when designing prompts might lead us to dialogues that were very
+effective from the standpoint of eliciting highly recognizable
+responses but rather awkward or frustrating for users. We balance the
+behavioral coding evaluation of prompt styles with feedback from
+users. We solicited this feedback through evaluation questions
+presented at the end of the questionnaire providing users the
+opportunity to express their likes and dislikes regarding any aspect
+of the dialogue, including question topics, the wording of prompts,
+and the manner in which the prompts were presented. <p>
+
+</a>
+
+<a name="112059">
+
+<h2> Results of Evaluations</h2>
+
+</a>
+
+<a name="112139">
+
+We used the behavioral coding scheme (and its predecessor versions),
+task completion rates, and responses to evaluation questions in three
+formal rounds of dialogue development in the Census project. The first
+round (based on roughly 100 callers) involved comparisons of the
+strongest differences among three overall styles. Our evaluation
+enabled us to pursue only those designs that elicited constrained
+answers and were generally acceptable to users.<p>
+
+</a>
+
+<a name="112152">
+
+Subsequent rounds focused on increasingly smaller differences among
+dialogue styles and thus required greater numbers of respondents. By
+round three (involving nearly 4000 callers) the differences between
+proposed dialogue designs were quite small and concise (AA1) responses
+were elicited over 90 percent of the time for all census questions.<p>
+
+</a>
+
+<a name="106187">
+
+<h2> DEPLOYMENT OF STYLES IN CSLURP TOOLKIT</h2>
+
+</a>
+
+<a name="106188">
+
+The styles developed in the census project are proving useful in a
+broad range of applications. As part of on-going research in SDSs we
+have incorporated the notion of dialogue style into a toolkit [1] for
+creating spoken-language applications. This toolkit provides
+state-of-the-art speaker- and vocabulary-independent spoken-language
+recognition technology allowing developers to design, test and deploy
+spoken language interfaces rapidly for useful (real world)
+applications. The toolkit greatly simplifies the process of specifying
+a SDS by use of the Center for Spoken Language Understanding's rapid
+prototyper (CSLUrp), a graphically-based SDS authoring environment.
+CSLUrp currently provides a small set of style templates which a
+developer may use to generate a prompt. A corresponding template is
+displayed and slots in the template are filled with current vocabulary
+items. <p>
+
+</a>
+
+<a name="110563">
+
+If, for example, a dialogue designer were given the task of developing
+an automated pizza-ordering system, and needed to generate a prompt to
+elicit the size of pizza the user wanted, they would first specify the
+vocabulary to be recognized (small, medium, or large). He or she would
+then specify the style to be used in expressing the question (Polite1,
+Polite2, or Terse). CSLUrp would then generate a prompt incorporating
+both the vocabulary words and the style specification. Table 2 shows
+the prompts generated in this case. After the prompt has been
+generated, the designer is free to modify the text to better serve the
+situation. Although its implementation of our framework is incomplete,
+the repertoire of styles provided by CSLUrp has been used in the
+development of a variety of SDSs, including e-mail browsers, ordering
+and other form-filling systems, and even games.<p>
+
+</a>
+
+<P><HR><P>
+<a name="996752">
+<pre><strong>Style		Generated prompt
+</strong></pre>
+</a>
+<a name="996756">
+<pre>Polite1		Please choose one of the following options: small, medium or 
+large.
+</pre>
+</a>
+<a name="996760">
+<pre>Polite2		Please say: small, medium or large.
+</pre>
+</a>
+<a name="996764">
+<pre>Terse		Small, medium or large?
+</pre>
+</a>
+<a name="996768">
+<h3> Table 2: CSLUrp generated prompts</h3>
+</a>
+
+<p><hr><P>
+
+
+
+<a name="107897">
+
+<h2> CONCLUSION</h2>
+
+</a>
+
+<a name="110038">
+
+In this paper we have presented a set of heuristics describing
+different styles of transforming a written questionnaire into a form
+usable with a SDS. We have identified a set of features that
+characterize these styles and a set of dimensions that cover and
+contain the feature set. Taken together, the fourteen dimensions we
+have presented define a space of system prompts. We refine the notion
+of ``style'' as being a set of features characterizing a prompt.
+Alternately, we define a prompt style as being a region in a space of
+prompts.<p>
+
+</a>
+
+<a name="111457">
+
+In order to evaluate the degree to which different prompt styles
+constrain users' responses while maintaining a sense of natural
+interaction, we have devised a behavioral coding scheme. Additionally,
+we have sketched our initial efforts at incorporating prompt styles in
+a rapid-prototyping toolkit. <p>
+
+</a>
+
+<a name="112662">
+
+Scope for further integrating dimensions into the dialogue design
+process, especially during prompt specification and dialogue
+critiquing, offer promising areas for further research. It is our hope
+that others will find this framework helpful, and we invite dialogue
+designers to develop their own heuristics, features, dimensions, and
+styles.<p>
+
+</a>
+
+<a name="106235">
+
+<h2> ACKNOWLDEGMENTS</h2>
+
+</a>
+
+<a name="112580">
+
+This research was funded by the U.S. Bureau of the Census, U S WEST,
+the Office of Naval Research, the National Science Foundation, ARPA
+and the OGI CSLU.<p>
+
+</a>
+
+<a name="112581">
+
+<h2> REFERENCES</h2>
+
+</a>
+
+<a name="112205">
+
+Colton, D., Cole, R., Novick, D., &amp; Sutton, S. A laboratory course
+for designing and testing spoken dialogue systems, Proceedings of
+ICASSP-96, Atlanta, GA, May, 1996 (in press).<p>
+
+</a>
+
+<a name="106242">
+
+Clark, H. &amp; Brennan, S.<em> </em>Grounding in communication,
+<em>Shared Cognition: Thinking as Social Practice</em>, APA Books
+(1991).<p>
+
+</a>
+
+<a name="106243">
+
+Clark, H. &amp; Marshall, C. Definite reference and mutual knowledge,
+<em>Elements of Discourse Understanding</em>, Cambridge University
+Press, 1981, 10-63.<p>
+
+</a>
+
+<a name="111057">
+
+Clark, H. &amp; Shaefer, E. Contributing to Discourse, <em>Cognitive
+Science</em>, 13 (1989), 259-294.<p>
+
+</a>
+
+<a name="110452">
+
+Cole, R., Hirschman, L., et al. Workshop on Spoken Language
+Understanding, 1992, Technical Report CSE92-014, Department of
+Computer Science and Engineering, Oregon Graduate Institute, 1992.<p>
+
+</a>
+
+<a name="110458">
+
+Cole, R., Novick, D.G., Burnett, D., Hansen, B., Sutton, S. &amp;
+Fanty, M. Towards automatic collection of the U.S. Census,
+<em>Proceedings of the 1994 International Conference on Acoustics,
+Speech and Signal Processing (</em>1994), I:93-96.<p>
+
+</a>
+
+<a name="112213">
+
+Kamm, C. User interfaces for voice applications, Voice Communications
+between Humans and Machines, National Academy Press, 1994, 422-442.
+<p>
+
+</a>
+
+<a name="110539">
+
+Marshall, C., &amp; Novick, D. G. Conversational effectiveness in
+multimedia communications, Information, Technology &amp; People, 8 (1)
+(1995), 54-79.<p>
+
+</a>
+
+<a name="112222">
+
+Nass, C. Steuer, J. &amp; Tauber, E.R. Computers are social actors,
+Proceedings of Computer Human Interaction (1994), 72-78.<p>
+
+</a>
+
+<a name="110943">
+
+Novick, D. &amp; Hansen, B. Mutuality strategies for reference in
+task-oriented dialogue, <em>Twente Workshop on Language Technology,
+Corpus-Based Approaches to Dialogue Modeling </em>(TWLT 9), Enschede,
+The Netherlands (June, 1995), 83-93.<p>
+
+</a>
+
+<a name="110462">
+
+Novick, D.G., Sutton, S., Vermeulen, P. &amp; Fanty, M. <em>Rapid
+design and deployment of spoken dialogue systems</em>, Technical
+Report CSLU95-008, Department of Computer Science and Engineering,
+Oregon Graduate Institute, 1995.<p>
+
+</a>
+
+<a name="112209">
+
+Rudnicky, A., Hauptmann, A. &amp; Lee, K. Survey of current speech
+technology, Communications of the ACM (March 1994), 37(3), 52-57.<p>
+
+</a>
+
+<a name="112217">
+
+Schmandt, C. Voice communication with computers, Van Nostrand
+Reinhold, 1994.<p>
+
+</a>
+
+<a name="110466">
+
+Sutton, S., Hansen, B., Lander, T., Novick, D.G. &amp; Cole, R.
+<em>Evaluating the effectiveness of dialogue for an automated spoken
+questionnaire</em>, Technical Report CSE95-12, Department of Computer
+Science and Engineering, Oregon Graduate Institute, 1995.<p>
+
+</a>
+
+<a name="110530">
+
+Ward, W. The CMU Air Travel Information Service: Understanding
+spontaneous speech, Proceedings of the DARPA Speech and Natural
+Language Workshop (1990), 127-129.<p>
+
+</a>
+
+<a name="112070">
+
+Yankelovich, Levow, G &amp; Marx, M. Designing SpeechActs: Issues in
+speech user interfaces, Proceedings of Computer Human Interaction
+(1995), 369-376.<p>
+
+</a>
+
+
+
+<p><hr>
+
+
+
+<h5>Last Modified: 02:03pm PST, January 04, 1996</h5>
+
+</body>
+
+</html>
+
+
+

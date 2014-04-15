@@ -1,0 +1,249 @@
+<!doctype html public "-//IETF//DTD HTML//EN">
+<HTML>
+
+<HEAD>
+
+<TITLE>Adaptive User Interfaces with Force Feedback</TITLE>
+
+</HEAD>
+
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/videos.JPG" ALT="videos" HEIGHT=35 WIDTH=249><A HREF="../../videos.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+
+<H1><B>Adaptive User Interfaces with Force Feedback</B> </H1>
+
+<P>
+Christophe Ramstein, Jean-Fran&ccedil;ois Arcand, Martin Deveault
+<P>
+Performance Support Systems Group, Centre for Information Technology
+Innovation
+<P>
+1575, Chomedey Blvd, Laval (Qu&eacute;bec), Canada
+<P>
+{cramstein, jarcand, mdeveault}@citi.doc.ca
+<H2>ABSTRACT</H2>
+
+<P>
+A software and hardware system related to the design of a force
+feedback assistance service (FAS) for human-computer interfaces
+is described. FAS is a service which can be applied to human-computer
+interfaces utilizing a force feedback pointing device. The force
+feedback device guides the user's hand in order to facilitate
+direct manipulation tasks either for training or for improving
+performance and comfort. Artificial neural networks are used to
+adapt, in real-time, to the user's task. In order to facilitate
+the design and understanding of the FAS, a Wizard of Oz technique
+was designed.
+<H2>KEYWORDS</H2>
+
+<P>
+Adaptive multimodal user interface, force feedback, human-computer
+interface design, artificial neural networks.
+<H2>INTRODUCTION</H2>
+
+<P>
+Current research is investigating the feasibility of a new kind
+of user interface designed to act as an assistant, rather than
+as a rigid tool, in order to find ways to make human machine processes
+more productive. The goal of adaptive systems is to increase system
+suitability for specific tasks; facilitate handling the system
+for specific users, thus enhancing user productivity; and optimize
+workload and increase user satisfaction. Traditional adaptivity
+in the form of an adaptive system is based on the assumption that
+a system is able to adapt itself to the wishes and tasks of the
+user through an evaluation of user behaviour.
+<P>
+Force feedback technology offers a new performance support system
+paradigm: since a force feedback device is used as the pointing
+device, it allows a system to physically guide the user's hand.
+This video presents underlying principles and systems investigated
+for designing such a service: the Pantograph device, a Wizard
+of Oz technique and an artificial neural network.
+<H2>APPROACH</H2>
+
+<P>
+The Pantograph is a force feedback device intended for direct
+manipulation. Its mechanical structure is based on a five bar
+linkage that guarantees stability, little friction and provides
+a comfortable 10x16 cm workspace with a 10 newton peak-force [3].
+<P>
+The Pantograph is mainly used for providing visually impaired
+users with access to GUIs [4], i.e. for pointing, selecting and
+resizing graphical objects while returning a haptic translation
+of the graphics to the user.
+<P>
+Since Pantograph offers force feedback, it can also be used to
+guide the hand of the user: for instance, quickly pointing to
+small icons, selecting the thin window frames, opening pop-up
+menus and selecting items. It is assumed that during learning
+stages, users will benefit from such physical help: the learning
+stage would be quicker and comfort would be improved.
+<H2>THE WIZARD OF OZ TECHNIQUE</H2>
+
+<P>
+In order to design the physical guide, a Wizard of Oz technique
+(WOz) was investigated. WOz is an experimental evaluation mechanism
+which allows observation of a user operating an apparently fully
+functioning system whose missing services are supplemented by
+a hidden wizard. In the absence of generalizable theories and
+models, the WOz technique is an appropriate approach to the identification
+of design solutions [2,6].
+<P>
+Our WOz system is composed of two workstations linked via a local
+network (using Network Dynamic Data Exchange under Microsoft Windows).
+A user (visually impaired or sighted) is put into a work situation
+and uses Pantograph as a pointing device. An observer (the Wizard)
+monitors the user via a second machine which reproduces all or
+part of the first machine's reciprocal objects and actions. Thus,
+the Wizard is able to analyze and estimate, in real time, how
+and when it should take control of the Pantograph and guide or
+suggest actions to the user. For instance, in a training stage,
+the Wizard may notice that the user has difficulties with pointing
+tasks. The Wizard will then realize these tasks using the mouse.
+Meanwhile, Pantograph will move according to mouse motions, giving
+the user physical guidelines.
+<H2>ARTIFICIAL NEURAL NETWORK (ANN)</H2>
+
+<P>
+The user interface is the part of a system responsible for getting
+input from the user and for presenting system output to the user.
+A system that adapts either of these functions to the user's task
+or user characteristics or user preferences is an adaptive interface
+[1]. Current research proposes the use of ANNs as the kernel of
+a user model for adapting the haptic channel. ANNs have been developed
+to simulate human problem solving resources and mechanisms and
+have shown stronger abilities in learning and flexible knowledge
+processing (e.g., generalizing knowledge to novel situations)
+than conventional AI techniques, such as symbolic processing [2].
+<H3>How the ANN works</H3>
+
+<P>
+The ANN designed for the FAS presents itself to the user as a
+box of knowledge. The box receives a coordinate (Xn,Yn) representing
+Pantograph's position, supplies a coordinate (Xn+1,Yn+1) and then
+auto-organizes according to these last coordinates.
+<P>
+In this way, the ANN realizes two functions:
+<P>
+1. location of a coordinate: this consists of offering the user
+a means of using the interface in a quasi-natural manner, thereby
+allowing the user to better effect a task.
+<P>
+2. learning: this consists of restructuring information concerning
+the force parameters returned to the user.
+<P>
+A single layer of neurons is used. It grids-off the interface,
+with a neuron located in each space, according to graphic complexity.
+The layer contains all the possible positions within the interface.
+According to the granularity of the grid, a neuron could represent
+a coordinate on the user's path.
+<P>
+The underlying principle is to reward the neurons which compose
+the last path the user followed when accomplishing a task, and
+punish those not along the path. This has the effect of increasing
+the links between the selected neurons while decreasing the links
+with the neurons of their neighbours. In this way, the force parameters
+associated with the path are augmented, literally using force-feedback
+to pull the user from point A to point B in the interface.
+<H3>Mathematical Model of the Metaphor</H3>
+
+<P>
+We define:
+<P>
+Px,y representing the vector of the coordinates making up the
+path used by Pantograph.
+<P>
+Mx,y the matrix corresponding to the screen's neuron grid
+<P>
+Nij(Px,y) represents the vector of the value nij (nul except for
+value nij)
+<H3>The ANN Activation Algorithm</H3>
+
+<P>
+<B>1. <I>Initialization</I>.</B> Select random values to initialize
+the weight vectors of each neuron wij(0). The only restriction
+is that weight be randomly negative or positive.
+<P>
+<B>2. <I>Activity vector</I>.</B> Create vector position Px,y=
+[(x1,y1), (x2,y2), (x3,y3), (x4,y4), (x5,y5), (x6,y6), ..... (xn,yn),
+representing Pantograph's activity during a period of time S.
+<P>
+<B>3. <I>Similarity framework</I>.</B> Activation of neuron nij
+is propagated using element h of Nij(Px,y) = Mx,y = nij using
+the following formula:
+<P>
+xij(t)= k * Nij(Px,y) * W(t)
+<P>
+where xij(t-1) OE]0,1].
+<P>
+<B>4. <I>Next coordinate Px,y.</I></B> To determine the next coordinate
+Px,y: Px,ynew = MAX Nij(Px,y)
+<H3>Learning Algorithm</H3>
+
+<P>
+For each element of vector Px,y
+<P>
+Determine nij : the element h of Nij(Px,y) = Mx,y = nij
+<P>
+Determine nkh : the element h+1 of Nij(Px,y)=Mx,y = nij
+<P>
+Apply the following function to the links of matrix W:
+<P>
+For all wij linking neuron nij to neuron nkh
+<P>
+wij(t) = wij(t-1) + b(1 - wij(t-1)) where 0&#163;b&#163;1.
+<P>
+For all wij linking nij to all other neurons
+<P>
+wij(t) = - wij(t-1) - b(1 - wij(t-1)) where 0&#163;b&#163;1.
+<H2>CONCLUSION</H2>
+
+<P>
+The introduction of an adaptive mechanism reduces iteration at
+a number of levels: 1) the interface is designed and programmed
+to be modifiable during interaction time, and 2) all or part of
+the modifications are left to the system, including 3) evaluation
+of the adaptive mechanism. As for the FAS, the ANN evaluates and
+defines manipulation parameters-force, speed and direction-without
+modifying the graphic interface. The FAS considers the ergonomic
+reality of the interface, without directly changing it, and offers
+the user the means to bypass design errors as if they were physical
+obstacles. At the same time, it becomes an indicator of design
+problems.
+<H2>REFERENCES</H2>
+
+<P>
+1. Arcand, J.F, Ramstein, C. (1995). An Artificial Neural Network
+for the Design of an Adaptive Multimodal Interface, in proceedings
+of IEEE 7th International Conference on Tools with Artificial
+Intelligence, november 5-8, Washington.
+<P>
+2. Arcand, J.F., (1994). An Artificial Neural Network for the
+Ergonomic Evaluation of a Human-Computer Interface, in proceedings
+of IEEE 6th International Conference on Tools with Artificial
+Intelligence, New-Orleans, Louisiana. pp. 606-608
+<P>
+3. Hayward, V., Choksi, J., Lanvin, G., &amp; Ramstein, C. (1994).
+&quot;Design and multi-objective optimization of a linkage for
+a haptic device.&quot; in proc. of the 4th workshop on Advances
+in Robot Kinematics, ARK'94, Ljubljana, Slovenia:Kluver academic
+<P>
+4. Ramstein, C., Martial, O., Dufresne, A., Carignan, M., Chasse,
+P., Mabilleau, P. (1996) &quot;Touching and Hearing GUIs. Design
+Issues in PC-Access System&quot;, in proc. of ACM ASSETS'96 conference,
+Vancouver, April 14-17 1996.
+<P>
+5. Salber, D., Coutaz, J. (1993) Applying the Wizard of Oz Technique
+to the Study of Multimodal Systems, in EWHCI'93, pp219-230, Springer-Verlag,
+Berlin 
+</BODY>
+
+</HTML>

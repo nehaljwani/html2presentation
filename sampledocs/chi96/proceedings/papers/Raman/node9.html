@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3O//DTD W3 HTML 2.0//EN">
+<!- Converted with LaTeX2HTML 0.6.4 (Tues Aug 30 1994) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds ->
+<P>
+<HEAD>
+<TITLE>3.2 Spell Checking </TITLE>
+<meta name="description" value="3.2 Spell Checking ">
+<meta name="keywords" value="paper">
+<meta name="resource-type" value="document">
+<meta name="distribution" value="global">
+</HEAD>
+<BODY><P>
+ <BR> <HR><A NAME=tex2html124 HREF="node10.html">[Next]</A> <A NAME=tex2html122 HREF="node7.html">[Up]</A> <A NAME=tex2html116 HREF="node8.html">[Previous]</A> <BR>    <BR>
+<B> Next:</B> <A NAME=tex2html125 HREF="node10.html">3.3 Electronic Mail</A>
+<B>Up:</B> <A NAME=tex2html123 HREF="node7.html">3 Examples Of Common </A>
+<B> Previous:</B> <A NAME=tex2html117 HREF="node8.html">3.1 Editing Documents</A>
+<BR> <HR> <P>
+<H2><A NAME=SECTION00032000000000000000>3.2 Spell Checking </A></H2>
+<P>
+<A NAME=secspellcheck>&#160;</A>
+<P>
+Emacspeak provides a fluent aural
+interface to  <b>ispell</b>, a
+powerful interactive spell checker.  Here is a brief description of the visual
+interface provided by the spell checker for those unfamiliar with this system.
+<P>
+Typically, a file opened with  Emacs can be spell-checked by invoking  <b>ispell</b>. Errors are  visually highlighted,
+with a separate window showing a list of possible corrections.  The user can
+type a number to pick a choice from the list of corrections; alternatively, a
+replacement can be directly typed in.
+<P>
+Using this interface with a traditional screen-reader is painful to say the
+least<A NAME=tex2html7 HREF="footnode.html#109">[+]</A>.
+A user of a screen-reader   needs to query the position of the cursor to find out the erroneous
+word, then locate the window of corrections on the screen before continuing.
+<P>
+With Emacspeak, the fact that the list of possible corrections appears in 
+a separate window is completely hidden from the listener.
+When running the spell checker, Emacspeak speaks the line containing the
+erroneous text with the incorrect word <em>aurally</em> highlighted.
+Next, the list of possible corrections is spoken; the user can pick a choice
+at any time. Based on the user action, the spell checker inserts the
+appropriate correction  and continues to the next error.
+<P>
+A similar approach is used to provide aural feedback to the common editing
+task of interactively replacing a string by another.
+Emacspeak speaks the line containing the instance of the
+text being replaced, with the instance that will be replaced <em>aurally</em>
+highlighted.
+This allows the listener to respond correctly when there are multiple
+occurrences of the text being replaced within a line.
+Thus,  the task of replacing the first occurrence of <b>foo</b>
+with <b>bar</b>  while leaving the second instance of <b>foo</b> intact
+in the example
+<quote>
+ Change this food, but do not touch this fool.
+</quote>
+is trivial; the same task using a screen-reader is much harder.
+<P>
+<BR> <HR><A NAME=tex2html124 HREF="node10.html">[Next]</A> <A NAME=tex2html122 HREF="node7.html">[Up]</A> <A NAME=tex2html116 HREF="node8.html">[Previous]</A> <BR>    <BR>
+<B> Next:</B> <A NAME=tex2html125 HREF="node10.html">3.3 Electronic Mail</A>
+<B>Up:</B> <A NAME=tex2html123 HREF="node7.html">3 Examples Of Common </A>
+<B> Previous:</B> <A NAME=tex2html117 HREF="node8.html">3.1 Editing Documents</A>
+<BR> <HR> <P>
+<BR> <HR>
+<P><ADDRESS>
+<I> Raman T. V. <BR>
+Tue Nov 21 15:57:11 PST 1995</I>
+</ADDRESS>
+</BODY>

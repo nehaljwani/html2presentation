@@ -1,0 +1,93 @@
+<html><head>
+<title>
+Structuring Voice Records Using Keyword Labels
+</title>
+
+<body>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<P><IMG SRC="./../../graphics/intpost.JPG" ALT="intpost" HEIGHT=35 WIDTH=249><A HREF="./../../intpost.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<h1>Structuring Voice Records Using Keyword Labels</h1>
+<p>
+
+<dl>
+<dt>Nick Haddock 
+<dt>Hewlett-Packard Laboratories
+<dt>Bristol BS12 6QZ, U.K.
+<dt>njh@hplb.hpl.hp.com
+</dl>
+<p>
+<hr>
+
+<h2>ABSTRACT</h2>
+The paper proposes an interaction technique which allows some structure and content to be extracted from a voice record, thus making it easier to review the recording and integrate it with other data.  Silence detection and speech recognition are employed to pick out intentionally uttered keyword labels, in order to create a form-field view of the voice recording.
+
+<h3>Keywords</h3>
+Speech as data, speech recognition, form-filling, multi-modal interfaces, portable computing.
+
+<h2>INTRODUCTION</h2>
+As computing appliances shrink in size, voice will be an increasingly natural medium for entering and capturing information.  The benefits of speech as an input medium are well-documented [4]; it is suitable in hands/eyes busy situations, and it is a quick way of capturing information.  A growing range of pocket-size products allow the user to capture, store and play back voice messages, "as data", in a digital form [5].  However, recorded speech can be arduous to review later.  This paper introduces an interaction technique which allows some structure and content to be extracted from a voice record, thus making it easier to review the recording and integrate it with other data.
+<p>
+Under our approach, the user can insert keywords into their speech in order to categorise and structure the recording.  For example, if while driving on the highway you are over-taken by a truck laden with useful looking contact information, you could quickly record: 
+"<u>Phone book entry</u> ... <u>Business number is</u>  408 927 6353 ... <u>Name is</u> Hamilton & Co Removals ... <u>Comment is</u> the truck says something about extra heavy items a speciality, could get that piano shifted at last". 
+<p>
+Given the spoken keywords (underlined), the recorded note will be added as a new entry in an electronic phone book, and the speech segmented into different fields in the contact form.
+This interaction technique could also be applied to interpersonal voice messaging.  Although previous work in the literature has promoted semi-structured text messages, there has been little research on the extraction of form structure from a voice record.  VoiceNotes [4] allowed speech items to be sorted into named lists, but did not provide for structuring within voice notes.  A number of projects have shown how manual and keyword indices can be assigned to a recording [1], but do not derive further structure from the set of index points.  Perhaps the closest analogue to our method is in telephone answering services which generate voice prompts to structure a caller's voice message [3].  In our approach, the user volunteers these prompts as part of single voice recording operation ("capture now, and help to organise later"), rather than entering into a dialogue with the system.
+
+<h2>SYSTEM DESIGN</h2>
+We have developed a software prototype of these ideas under Windows, visually presented as if the user is interacting with a palmtop PC (see Figure 1).  For our purposes, the palmtop organiser contains four data areas, or "applications": a phone/address book, diary, to-do list, and outgoing messages.   Each application is a list of entries, and each entry in the list is a form with N fields.   Text can be optionally entered into each field.
+<p>
+Our goal is to translate recorded voice items into this format.  This consists of three tasks:
+<ul>
+<li>File the voice record into the right application;
+<li>Segment the speech into the form fields of this application;
+<li>Where possible, recognise the speech of the field entries.
+</ul>
+<p>
+Our design assumes that the user explicitly signals these filing and segmentation operations; however, it is up to the user to choose how much indexing information to use in a voice note.
+<p>
+New voice recordings are by default added to a 'general' list, which displays simple header information about the items. Further to this, if the voice record begins with the name of a recognised application, such as "Phone book entry", then the voice record is filed into that area; if not, it remains in the general list.  If an application name is recognised, then the rest of the voice record is searched for any keyword labels corresponding to form fields. Key word (or phrase) labels are assumed to be preceded by a pause.  The speech content following the label, up to the next recognised field name, is then associated with this field in the form.
+<p>
+<center>
+<IMG SRC="hn_fg1.gif" ALT=Figure 1">
+<p>
+
+Figure 1:  Voice clips assigned to form fields
+</center>
+<hr>
+<p>
+Figure 1 shows a form-based phone book entry which has been derived from the example speech input described above.  An audio icon indicates that a field contains speech.  Speech can be played back in clips according from its field location, or as the original whole record.  Notice that the order of field entries in the original voice input does not have to correspond to their ordering in the form; furthermore, the user chooses which fields to fill in.
+<p>
+In some fields, for example where known items are expected, the field contents are also recognised.
+
+<h2>SPEECH PROCESSING</h2>
+Speech recognition is performed using a continuous, speaker-independent recogniser based on sub-word Hidden Markov Models.  Recorded voice files are first scanned for any pauses longer than 1 second.  If an application name is recognised in the initial sections of speech, then the recogniser looks for a keyword field label after each detected pause.
+<p>
+In general, we do not aim to recognise the speech immediately following a keyword label, and so characterise this with a "garbage" model consisting of any sequence of phonemes.  The garbage model also detects the non-keywords which may follow natural juncture pauses within the speech.
+
+<h2>DISCUSSION</h2>
+The expected advantage of using keyword labels is their relative speed of capture: the speaker can add structure to a stream of spoken input without entering into a more time-consuming interaction with the system.  Informal experiments suggest that people understand how to apply keyword labels, and that speech recognition works reliably in this context.
+<p>
+We plan to explore user benefits in the context of a broader multi-modal design which allows interaction trade-offs between speech commands and button presses.  For instance, when recording with the palmtop lid closed, speech is used to identify the target application.  If the application has already been accessed, only field labels and content are needed.  Finally, if the user manually selects the field focus, only speech content for that field is required.
+<p>
+An advantage of form-structured input is that it focuses the requirements of speech recognition: detecting unknown names is a problem for speech-to-text systems, but for our phone book's Name field we expect an unknown word, and can design a recognition strategy accordingly.  A more general goal of our research is to understand how structured, multi-modal input may lead to a better overall transcription of speech than we would get from a straightforward application of  speech-to-text (cf. [ 2]).
+
+<h2>ACKNOWLEDGEMENTS</h2>
+Roger Tucker implemented the silence detection and integration with the speech recogniser.
+
+<h2>REFERENCES</h2>
+<ol>
+<li>Degen, L.,  Mander,R., and Salomon, G. 1992. Working with Audio: Integrating Personal Tape Recorders and Desktop Computers.  Proc. CHI '92, ACM, New York.
+<li>Oviatt, S.L., Cohen, P. R., and Wang, M. Q.  1994. Toward Interface Design for Human Language Technology: Modality and Structure as Determinants of Linguistic Complexity. Speech Communication, 15(3-4), December.
+<li>Schmandt, C. and Arons, B.  1985.  Phone Slave: A Graphical Telecommunications Interface. Proc. Soc. Information Display, 26(1).
+<li>Stifelman, L. J. et al   1993.  VoiceNotes: A speech interface for  a hand-held voice notetaker.  Proc. InterCHI '93, ACM, New York.
+<li>Voice Organizer.  1993. Owner's manual, Voice Powered Technology Inc.
+</ol>
+
+</body>

@@ -1,0 +1,180 @@
+<html><head><!-- This document was created from RTF source by rtftohtml version
+2.5 --><title>NEIMO, a Multiworkstation Usability Lab for Observing and Analyzing Multimodal
+Interaction</title></head>
+<body>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/videos.JPG" ALT="videos" HEIGHT=35 WIDTH=249><A HREF="../../videos.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<h1>
+NEIMO, a Multiworkstation Usability Lab for Observing and Analyzing Multimodal
+Interaction</h1>
+	<b><p>
+Jo&euml;lle Coutaz, Daniel Salber, Eric Carraux</b><br>
+CLIPS-IMAG, BP 53<br>
+38041 Grenoble Cedex 9, France		<br>
++33 76 51 48 54<br>
+{<A HREF="mailto:joelle.coutaz@imag.fr">joelle.coutaz</A>,
+<A HREF="mailto:daniel.salber@imag.fr">daniel.salber</A>,
+<A HREF="mailto:eric.carraux@imag.fr">eric.carraux</A>}@imag.fr<br>
+<b><p>
+Nathalie Portolan</b><br>
+CCETT, BP 59<br>
+35512 Cesson S&eacute;vign&eacute;<br>
++33 99 12 43 84<br>
+<A HREF="mailto:portolan@ccett.fr">portolan@ccett.fr</A><p>
+
+<h2>
+ABSTRACT</h2>
+NEIMO is a generic and flexible multiworkstation usability lab that supports
+the observation and analysis of multimodal interaction as well as Wizard of Oz
+experiments. It captures behavioral data at multiple levels of abstraction from
+keystroke to high level tasks. In the near future, it will be used to study the
+relevance of multimodality for telecommunication tasks.
+<h3>
+Keywords</h3>
+Usability testing, usability lab, multimodal interaction, Wizard of Oz
+usability testing.
+<h2>
+INTRODUCTION</h2>
+The combined use of multiple interaction techniques such as speech and gesture
+opens a new world of experience. Although the potential for innovation is high,
+our current understanding about how to design and evaluate multimodal user
+interfaces is still primitive. <p>
+Current theoretical and heuristic frameworks for evaluating interactive systems
+do not cover multimodal interaction properly. At CLIPS-IMAG, we have developed
+NEIMO, a generic and flexible multiworkstation usability lab, to observe and
+analyze multimodal interaction experimentally [2]. This video shows NEIMO
+applied to a multiservice telecommunication terminal to elicit the usage of
+multimodality in the context of telecommunication tasks.
+<h2>
+Structure of a NEIMO Experiment</h2>
+As shown in Figure 1, using the NEIMO platform involves a two-step process: the
+experimentation session followed by an analysis phase.
+<h3>
+Phase 1: Experimentation session</h3>
+In phase 1, a subject executes a set of scenarios on a dedicated workstation.
+In a different room, human factor experts observe the subject, make
+annotations, or simulate the missing functions of the system (e.g., speech
+recognition) using their own workstation. <p>
+Meanwhile, behavioral data about the subject as well as experimenters'
+annotations are recorded automatically. NEIMO captures information at various
+levels of abstraction from keystroke level such as mouse events and speech
+acts, to high level tasks such as sending a fax.<p>
+In its current version, the NEIMO platform includes 4 Apple Macintosh Quadras
+connected by Ethernet. The user interfaces for the subject and the wizards
+workstations are prototyped with HyperCard. Apple Events are used as the
+standard communication mechanism but a specific tool has been developed for
+efficient transmission of video over Ethernet. (Sound is not yet transferred
+over the network.) Behavioral data are recorded using the QuickTime format.
+<p><IMG SRC="jc_fg1.gif" ALT="Figure 1">
+<b><p>
+Figure 1</b>. Configuration of the NEIMO platform. 
+<h3>
+Phase 2: Analysis of Behavioral Data</h3>
+In phase 2, behavioral data are used by specialists to assess the usability of
+the system. In the context of our research, the motivation is to elicit the
+usage of modalities according to our CARE framework [1]: Complementarity (i.e.,
+combined used of multiple modalities as in the "put that there" paradigm),
+Assignment (i.e., systematic use of a particular modality), Redundancy (i.e.,
+simultaneous use of multiple modalities with identical semantic content as in
+uttering "Call Jo Smith" while clicking Jo's direct phone number), and
+Equivalence (i.e., multiple modalities used alternatively to reach a given
+goal).
+<h2>
+An example of experimentation</h2>
+In the task scenario shown in the video, the subject calls Daniel using speech
+and direct manipulation in a complementary way as in "Call this person" while
+clicking Daniel's name in the directory. <p>
+The speech-wizard translates the multimodal command into actions understandable
+by the system. To accomplish this, he can hear the subject talking and a
+miniature reproduction of the subject's screen allows the speech-wizard to
+track the user's mouse and keyboard actions.  <p>
+If the subject makes a linguistic mistake such as uttering a wrong command
+name, the speech-wizard sends an error message through a dedicated tool. As
+shown in Figure 2, error messages are predefined and organized into categories
+(lexical&amp;syntactic and domain-dependent errors), or may be customized on
+the fly. In the normal case, the speech-wizard simulates the subject's actions
+using direct manipulation on the miniature screen which, in this example,
+triggers a phone call at the task-wizard's. <p>
+The task-wizard, who plays the called person, incites the subject to use
+advanced features such as the Vphone and mirror facilities of the multiservice
+terminal. The subject hesitates. The annotation-wizard who can observe the
+subject's behavior through his own workstation (sound+ miniature screen),
+records a comment about the subject's hesitation. This information, which
+complements the subject's wrong mouse clicks, will be pointed out by the
+analysis tool in the next phase. <em>
+</em><p><IMG SRC="jc_fg2.gif" ALT="Figure 2">
+<b><p>
+Figure 2</b>. The screen of the speech-wizard: on the left, a miniature of the
+subject's screen; on the right, the error messages tool (enlarged artificially
+for the purpose of readability).
+<h2>
+The Analysis Tool</h2>
+In its current form, the analysis tool provides quantitative data such as the
+duration of scenarios as well as statistical information through the facilities
+provided by a spreadsheet program. It does not yet support editing facilities
+nor the rendering of multimodal usage. It does however replay the set of
+scenarios (just like a VCR) and provides browsing facilities such as rewinding
+the "VCR to the previous lexical error". <p>
+In addition, the tool makes tasks interleaving explicit using a Gantt diagram
+laid out on a perspective wall. The diagram is enhanced with clickable
+"bubbles" that reveal the annotations recorded on the fly by the
+annotation-wizard.
+<h2>
+NEIMO's Key Features and the state of the art</h2>
+Most usability labs are not computer-supported. NEIMO, which is able to
+<i>digitally record behavior</i> at various levels of abstraction, opens the
+way to the development of automated analysis tools that alleviate the
+time-consuming manual analysis of a large body of data such as repetitive
+pattern of behavior.<p>
+In addition to observation and annotation, NEIMO supports Wizard of Oz
+experiments. Most existing Wizard of Oz systems support the observation of one
+modality only or are limited by technical constraints. NEIMO has been designed
+from scratch to support <i>multimodality</i>. A significant amount of effort
+has been dedicated to implementation issues to satisfy performance
+requirements.<p>
+NEIMO is <i>multiworkstation</i>, <i>generic and flexible</i>: 1) It supports
+any number of wizards; 2) It is organized around a reusable and extensible
+kernel of common services onto which specific user interfaces can be plugged;
+3) Workstations are configurable at start up time: wizards roles (e.g., speech
+recognition, annotations, etc.) can be freely allocated among the workstations.
+In addition, data capture can be set up at the appropriate level of
+abstraction. 
+<h2>
+Perspectives</h2>
+In the near future, we will conduct full-fledged experiments to study the
+relevance of multimodality for telecommunication tasks (preliminary results for
+drawing tasks show that in deictic expressions, pointing is often performed
+first [4]). We also need to find the balance between digital and analog
+recording in order to conciliate precision, volume of recorded data, and
+potentiality for automatic evaluation.  Having primarily developed NEIMO for
+capturing behavior, we need now to augment our analysis tool with new
+computation and visualization facilities.
+<h2>
+Acknowledgments</h2>
+Our thanks to France Telecom and ESPRIT BR AMODEUS project for the financial
+and scientific support.
+<h2>
+References</h2>
+1.	Coutaz, J., Nigay, L., Salber, D., Blandford, A., May, J. &amp; Young, R.
+Four Easy Pieces for Assessing the Usability of Multimodal Interaction: The
+CARE Properties. in <i>Proc. of INTERACT'95</i>, 1995, Chapman&amp;Hall,
+115-120.<p>
+2.	Salber, D. &amp; Coutaz, J. Applying the Wizard of Oz Technique to the Study
+of Multimodal Systems. In <i>Human Computer Interaction, 3rd International
+Conference EWHCI'93</i>, L. Bass, J. Gornostaev, C. Unger Eds., Springer
+Verlag, Lecture notes in Computer Science, Vol. 753, 1993, 219-230.<p>
+3.	Salber, D. &amp; Coutaz, J. A Wizard of Oz Platform for the Study of
+Multimodal Systems. in <i>Proc. INTERCHI'93 Adjunct Proceedings</i>, S.
+Ashlung, K. Mullet, A. Henderson, E. Hollnagel, T. White Eds., ACM New York,
+1993, 95-96.<p>
+4.	Catinis, L &amp; Caelen, J. Analyse du comportement multimodal de l'usager
+humain dans une t&acirc;che de dessin. in <i>Proc. IHM'95</i>, Cepadues Eds:
+Toulouse, 1995, 123-129.<p>
+</body></html>

@@ -1,0 +1,198 @@
+<HTML>
+<HEAD><TITLE>Common Ground for Critical Shuttle and 
+Space Station User Interfaces:  
+An Independent Verification and Validation Approach</TITLE></HEAD>
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<P><IMG SRC="./../../graphics/intpost.JPG" ALT="intpost" HEIGHT=35 WIDTH=249><A HREF="./../../intpost.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<CENTER><H1>Common Ground for Critical Shuttle and 
+Space Station User Interfaces:<BR>
+An Independent Verification and Validation Approach</H1></CENTER>
+<HR SIZE=3 WIDTH=75%>
+<CENTER><TABLE WIDTH="100%" BORDER=0>
+<TR ALIGN=CENTER><TD WIDTH="40%">
+<STRONG>Mihriban Whitmore</STRONG><TD WIDTH="20%"></TD><TD WIDTH="40%"><STRONG>Andrea H. Berman</STRONG></TD></TR>
+<TR ALIGN=CENTER><TD>Lockheed Martin</TD><TD></TD><TD>Lockheed Martin</TD></TR>
+<TR ALIGN=CENTER><TD>Engineering and Sciences Services</TD><TD></TD><TD>Engineering and Sciences Services</TD></TR>
+<TR ALIGN=CENTER><TD>2400 NASA Road 1, C81</TD><TD></TD><TD>2400 NASA Road 1, C81</TD></TR>
+<TR ALIGN=CENTER><TD>Houston, TX 77058-3799</TD><TD></TD><TD>Houston, TX 77058-3799</TD></TR>
+<TR ALIGN=CENTER><TD>+1 713 483 9725</TD><TD></TD><TD>+1 713 483 9709</TD></TR>
+<TR ALIGN=CENTER><TD>mihriban.whitmore@spmail.jsc.nasa.gov</TD><TD></TD><TD>andrea.berman@spmail.jsc.nasa.gov</TD></TR></TABLE>
+<P>
+Human Factors and Ergonomics Laboratory<BR>
+Frances E. Mount, Manager<BR>
+NASA Johnson Space Center</CENTER>
+<HR SIZE=3 WIDTH=75%>
+<H2><STRONG>ABSTRACT</STRONG></H2>
+The Human Factors and Ergonomics Laboratory (HFEL) at the 
+NASA Johnson Space Center is in the process of 
+developing an automated software interface checking tool to 
+assess the degree to which space-related  
+critical and high risk software system user interfaces meet 
+objective human factors standards across each NASA 
+program and project.  A prototype tool has been identified, 
+and usability testing is underway.  Testing compares analysis time and similarity of results for the automated tool and for human-computer interface experts.  The results of the evaluation will be included in the poster.
+<H3>Keywords</H3>
+Computer-based tool, usability testing, HCI evaluation
+<P>
+<H2><STRONG>INTRODUCTION</STRONG></H2>
+The user interface is a critical part of any computer system 
+and merits careful evaluation before it is released.  
+Independent Verification and Validation (IV&V) is one way 
+to carefully ensure quality software throughout a complete 
+system.  The Human Factors and Ergonomics Laboratory at the 
+NASA Johnson Space Center is in the process of 
+developing an automated IV&V  
+tool which will assess the degree to which space-related 
+critical and high risk software system user 
+interfaces meet human factors standards across each NASA 
+program and project, such as International Space Station 
+(ISS).  The primary goal of this tool is to check objective 
+interface characteristics such as button size, labeling and 
+location, fonts, point sizes, and the use of colors for confomance to standards.  The human-computer interface (HCI) 
+expert is then spared those time-consuming, monotonous 
+tasks and can concentrate on more cerebral 
+interface issues, such as functionality and interaction styles. 
+This IV&V methodology as a whole represents a series of 
+activities which strive to improve the quality and the 
+reliability of HCIs and to ensure that the delivered interfaces 
+satisfy the users' operational needs.
+<P>
+IV&V efforts are currently in the early stages.  Several existing 
+software metric tools have been identified and researched:  
+1) the KRI/AG tool, 2) a University of Maryland tool, and 3) CHIMES, a 
+tool developed at NASA Goddard Space Flight Center.  Table 1 outlines the advantages, disadvantages, and relevance of each tool to this IV&V effort.  
+KRI/AG is fairly interactive and fully developed, but it only 
+runs on Motif interfaces and verifies highly subjective 
+guidelines [2, 3, 4].  The University of Maryland tool 
+assesses objective characteristics (e.g., button size and 
+labeling, fonts, and colors), but it is still in development 
+and is not yet interactive nor automatic [5, 6].  Computer-
+Human Interaction Models (CHIMES) is fairly interactive, 
+fully developed, and assesses objective interface 
+characteristics [1].  CHIMES therefore fits the needs of the 
+NASA IV&V process best, and, as NASA-developed 
+software, is easily accessible. 
+<P>
+TABLE 1.  Advantages and disadvantages of three existing automated IV&V tools
+<CENTER><TABLE WIDTH="100%" BORDER=3>
+<TR ALIGN=CENTER><TD WIDTH="10%"><STRONG>Software</STRONG></TD><TD WIDTH="30%"><STRONG>Advantages</STRONG></TD><TD WIDTH="30%"><STRONG>Disadvantages</STRONG></TD><TD WIDTH="30%"><STRONG>How well does it meet our IV&amp;V requirements?</STRONG></TD></TR>
+<TR><TD><STRONG>KRI/AG</STRONG></TD><TD>- Fairly interactive<BR>- Multiple comments on the same topic are aggregated into one comment</TD><TD>- Only runs on Motif interfaces<BR>- Attempts to verify highly subjective guidelines, resulting in trivial or irrelevant comments</TD><TD>- Not very well -- the IV&amp;V tool will only verify objective interface characteristics.  This tool attempts to cover more ground than is necessary for NASA IV&am;V efforts.</TD></TR>
+<TR><TD><STRONG>Univ. of Maryland tool</STRONG></TD><TD>- Any type of interface can be translated into the canonical form read by the tool<BR>- Assesses consistency of objective interface characteristics such as:  fonts, button labeling, and button layout</TD><TD>- Still in development<BR>- Not yet interactive or automatic<BR>- Currently only checks dialog boxes</TD><TD>- Moderately well -- this tool concentrates on objective interface characteristics and will accept interfaces developed under any system, but it is still in developement.</TD></TR>
+<TR><TD><STRONG>CHIMES</STRONG></TD><TD>- Fairly interactive<BR>- In some instances, CHIMES is able to make the changes that it suggests<BR>- Easily accessible</TD><TD>- Only runs on a Sun workstation with SunOS and Motif, under the TAE+ User Interface Management System</TD><TD>- Well -- CHIMES verifies more  objective guidelines than KRI/AG and is fully developed already.</TD></TR>
+</TABLE></CENTER>
+<P>
+<H2><STRONG>IV&V TOOL DESCRIPTION</STRONG></H2>
+CHIMES  has the unique quality of being able to switch 
+between two modes, depending on whether an alphanumeric 
+interface or a graphical user interface (GUI) is being 
+checked. In the demand-modeling mode used for 
+alphanumeric interfaces, CHIMES estimates the demands 
+that the interface will place on an experienced operator's 
+multiple cognitive resources.  In the guidelines-based GUI 
+mode, CHIMES checks for compliance with human factors 
+guidelines and toolkit style requirements.  Furthermore, the 
+latest version of CHIMES allows users to customize its rules and to focus on particular interface components (e.g., button sizes) [1].
+<P>
+The HFEL's usability testing of CHIMES concentrates on 
+its guidelines-based GUI mode and will help the NASA 
+IV&V team members refine their concept of the future tool 
+and its proposed functionality.  If, after usability testing is 
+completed, CHIMES is found to be directly applicable to 
+our needs, it will become the IV&V software tool; 
+otherwise, an in-house tool will be developed based on 
+lessons learned from the CHIMES evaluations. 
+<H2><STRONG>USABILITY TESTING OF CHIMES</STRONG></H2>
+Initial subjective investigations showed that CHIMES was 
+faster than an HCI expert at checking objective interface 
+characteristics:  number of typefaces per display, type size, 
+type style, line thickness, line style, color usage, and 
+consistency of each across multiple interfaces.
+<P>
+Formal usability testing is currently underway.  Five fairly 
+mature ISS interface designs from five different space 
+station subsystems are being checked.  ISS interfaces were 
+selected for their highly complex nature; figure 1 shows excerpts of two of these interfaces. Click on either graphic excerpt to see the entire interface.  CHIMES 
+analyzes the conformance of the interfaces' objective HCI 
+characteristics listed above to HCI standards and checks 
+across interfaces for continuity.  The time required for the 
+complete analysis is recorded.  Four in-house HCI experts 
+then individually perform the same objective analysis on 
+each interface and the continuity check across interfaces, 
+following a formal protocol to ensure that the experts and 
+CHIMES are checking the same objective characteristics.  
+Each expert’s total time is also recorded.  Their mean 
+completion time is then compared to the total CHIMES 
+time.  The results of each expert’s analysis are also cross-
+checked with each CHIMES analysis to see where the 
+results match.  Preliminary findings show that CHIMES 
+appears to perform the analyses more quickly and reports guideline conformance and discrepancy in as much detail as the 
+experts.  Detailed analysis and results will be included in 
+the poster.
+<P>
+<CENTER><TABLE BORDER=3><TD>
+<A HREF="interface1.gif"><IMG SRC="interface1_small.gif"></A></TD><TD><A HREF="interface2.gif"><IMG SRC="interface2_small.gif"></A></TD>
+</table>
+<BR>
+<STRONG>Figure 1.</STRONG> Excerpts of two sample space station displays.  Click on them to see an entire interface.</CENTER>
+<P>
+<H2><STRONG>DISCUSSION-COMMON GROUND</STRONG></H2>
+IV&V of NASA's critical and high risk 
+system interfaces is a profound task.  It involves the 
+analysis of both mission control and vehicle interfaces from 
+the space shuttle and the International Space Station (ISS) 
+programs. The ISS program alone consists of ten main display development teams (e.g., 
+Systems, Operations, Safety & Mission Assurance), each 
+of which is subdivided into at least five smaller teams.  
+These teams are all responsible for different systems that are  
+developed in parallel; inter-team communication regarding 
+standardization of software user interfaces is quite a 
+challenge.  This IV&V software tool is being proposed as 
+the mechanism for achieving common ground between these 
+diverse systems.
+<P>
+On the shuttle side, the Multifunction Electronic Display 
+Subsystem (MEDS) project is redesigning shuttle displays 
+and researching the automation of some ground and crew 
+tasks.  This project alone could benefit greatly from a 
+software tool that could check interfaces for continuity; one 
+can see how such a tool could revolutionize interface 
+standardization efforts across the entire shuttle program.
+<P>
+The goal of conformance of space-related critical software 
+displays to human factors and HCI standards is an important 
+one.  Such a common ground will indeed provide a unifying 
+framework for future crews of both the space shuttle and 
+ISS.  Standardizing interfaces will allow the crews to 
+perform necessary tasks without having to shift mental 
+paradigms between systems.  Updates to the software 
+tool will also ensure that new HCI concepts and 
+technologies will always have an opportunity to be 
+incorporated.
+<H2><STRONG>REFERENCES</STRONG></H2>
+1.	Jiang, J., Murphy, E., and Carter, L.  <I>Computer-
+Human Interaction Models (CHIMES): Revision 3, May 1994</I>.  Technical 
+Report, National Aeronautics and Space 
+Administration, DSTL-94-008. 
+<P>
+2.	Lowgren, J., and Lauren, U.  Supporting the use of guidelines and style guides in professional user interface design.  <I>Interacting With Computers</I>, 5, 
+4, (1993) 385-396.
+<P>
+3.	Lowgren, J., and Nordquist, T.  A knowledge-based tool for user interface evaluation and its integration in a UIMS, in <I>Proceedings IFIP 
+INTERACT '90</I>, 395-400.
+<P>
+4.	Lowgren, J., and Nordquist, T.  Knowledge-based evaluation as design support for graphical user interfaces, in <I>Proceedings of CHI '92</I>, 181-188.
+<P>
+5.	Mahajan, R., and Shneiderman, B. (1995). <I>A Family of User Interface Consistency Checking Tools</I>.  Technical Report University of Maryland, College 
+Park, CAR-TR-770.
+<P>
+6.	Shneiderman, B., Chimera, R., and Jog, N. (1995). <I>Evaluating Spatial and Textual Style of Displays</I>. Technical Report University of Maryland, College Park, CAR-TR-763.
+</BODY>
+</HTML>

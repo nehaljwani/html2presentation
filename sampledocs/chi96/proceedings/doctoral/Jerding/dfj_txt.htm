@@ -1,0 +1,228 @@
+<HTML>
+<HEAD>
+<TITLE>Visualizing Patterns in the Execution of Object-Oriented Programs</TITLE>
+<!-- Changed by: Dean Jerding, 11-Jan-1996 -->
+</HEAD>
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/doctoral.JPG" ALT="Doctoral" HEIGHT=35 WIDTH=249><A HREF="../../doctoral.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<CENTER>
+<H1>Visualizing Patterns in the Execution of Object-Oriented Programs</H1>
+
+<B>Dean F. Jerding</B><BR>
+Graphics, Visualization, and Usability Center<BR>
+College of Computing <BR>
+Georgia Institute of Technology<BR>
+Atlanta, GA  30332-0280<BR>
+E-mail:  dfj@cc.gatech.edu<BR>
+URL:  http://www.cc.gatech.edu/gvu/people/Phd/Dean.Jerding/<P>
+
+<B><I>Copyright on this material is held by the author(s).</I></B>
+
+</CENTER>
+
+<H2>ABSTRACT</H2>
+
+The purpose of this research is to assist with the development and
+maintenance of object-oriented software by visualizing patterns of
+behavior in program executions.  These patterns are manifested as
+repeated sequences of messages between objects and recurring
+instantiation of objects.  It is hypothesized that interactive
+visualizations of the dynamic patterns in object-oriented systems will
+increase program understanding, allowing programmers to better perform
+design recovery and reengineering tasks. <P>
+
+<H3>Keywords</H3>
+
+Software visualization, information visualization, object-oriented
+programming, design patterns <P>
+
+<H2>INTRODUCTION</H2>
+
+Object-oriented (OO) methodologies provide software developers with a
+powerful means for designing and implementing applications.
+Programmers have adopted the object-oriented approach to take
+advantage of better data abstraction, improved encapsulation and
+modularity, polymorphism, and code and design reuse. These
+characteristics can potentially benefit both software development and
+software maintenance.  <P>
+
+However, the object-oriented paradigm is somewhat of a double-edged
+sword.  The powerful features of inheritance, dynamic binding, and
+polymorphism make object-oriented programs harder to understand and
+maintain.  Functionality is distributed among classes, often through
+collaborations that may not be implicit in the static code.  The
+behavior of object-oriented systems can only be completely determined
+at run-time.  It is the dynamics of the program, in terms of object
+interactions, associations, collaborations, or whatever you want to
+call them that are of first-class importance. <P>
+
+Recent research in the area of program comprehension has identified the
+important role of program understanding in debugging, testing,
+maintenance, reuse, and reverse engineering of software.  In the
+object-oriented arena, program understanding typically evolves from an 
+analysis of the relationships or dependencies between objects in the 
+program, often in terms of inheritance, aggregation, and association.  
+Current tools that provide such information do so through textual lists 
+and graphs.  Graphical visualization techniques, which have proven useful
+for depicting information about computer algorithms, multi-dimensional data,
+networks, etc., have not yet been fully exploited in this area.  <P>
+
+This work proposes that visualizing patterns in the dynamic behavior
+of object-oriented systems can increase program understanding.  By
+analyzing program executions, patterns of interaction can be
+uncovered.  These patterns are manifested as repeated sequences of
+messages and recurring instantiation of objects.  Message patterns
+will occur when similar semantic operations are performed on the same
+or different objects, or as a result of iteration.  (Recent
+work in uncovering pattern languages in program design corroborates
+the existence of these implementation patterns[1].)   <P>
+
+Using various filtering and abstraction techniques, the high-level
+program behavior can be abstracted from the low-level patterns.
+Interactive visualizations can present this voluminous information
+much more effectively than textual representations, allowing the user
+to control the filtering and abstraction of available information.
+Visualizations of abstract behavior can then be compared with design
+level information, such as execution scenarios or interaction
+diagrams.  Through the interactive views of the program, understanding
+may then proceed in a selective top-down manner as high-level behavior
+is broken down into successively lower-level patterns.     <P>  
+
+<H2>PROPOSED THESIS</H2>
+
+This research seeks to support understanding of object-oriented
+software by visualizing interaction and instantiation patterns in a
+program's execution.  To narrow the focus of the work, two related
+design recovery and reengineering tasks which require program
+understanding have been chosen: 1) reverse engineering design level
+concepts from the current implementation, looking for possible
+refactorings and optimizations, and 2) comparing existing design or
+mental model specifications with design-level specifications reverse
+engineered from the implementation.  It should be noted that this work
+concentrates more on the dynamic aspects of the design, as opposed to
+the more static aspects of the architecture. <P>
+
+The following list summarizes goals of this research:<P>
+<UL>
+<LI>visualize patterns of behavior in OO program executions,
+including patterns of interaction (message sequences) and patterns of
+instantiation (object creation)<P>
+<LI>create visualizations/techniques which can handle large,
+real-world software systems<P>
+<LI>develop visualizations which allow users to see both the global
+picture and interesting subsets, at variable levels of abstraction<P>
+<LI>provide graphical mechanisms for query and comparison of
+information<P>
+<LI>construct the visualizations unobtrusively, without user
+modification of source code<P>
+</UL>
+
+
+<H3>Task Benefits</H3>
+
+The visualization tools which result from this work will provide a
+means for reverse engineering design level concepts from an existing
+implementation, exposing the mapping from design to implementation.
+This will allow the implementation to be verified with respect to design
+scenarios, candidates for refactoring and optimization to be
+identified, dependencies and inter-relationships to be exposed, parts
+of the design and implementation to be identified as reusable, and the
+mapping from design to implementation to be explained.<P>
+
+<H3>Process</H3>
+
+The visualization of interaction and instantiation patterns requires
+several steps.  First, the subject program must be statically analyzed
+and annotated to allow the tracing of interesting events that occur
+during its execution.  Second, the dynamic events must be generated and
+stored in a trace file or data structure.  Next, the program
+information must be analyzed.  The final stage is the interactive
+visualization of the program information, to support the user's
+program understanding tasks.  <P>
+
+<H2>CURRENT STATUS</H2>
+
+Three generations of object-oriented program visualizations have been
+built thus far.  The first prototype was a single animated view which
+showed the message passing between objects in small, toy programs.
+The source code of the program was annotated by hand in order to trace
+interesting events that occur during execution.  These events were
+stored in a trace file which was read by the visualization.<P>
+
+The second generation used multiple views to present various aspects
+of the program, including inheritance and association relationships
+between classes, message traffic, and object
+instantiation[2].  This system was still animated, and while
+the gathering of the static and dynamic program information was still
+done by hand, larger programs were used.<P>
+
+In the third generation it was recognized that step-wise animation of
+program execution is not really required to understand the program's
+behavior.  It is more important to have views that inherently capture
+the historical nature of the execution by displaying information about
+the entire execution.  To handle real-world sized software systems,
+this requires a means for displaying large amounts of information in
+the limited space on the screen.<P>
+
+As one means to accomplish this, a display and navigation technique
+for large information spaces called the <I>Information Mural</I> has
+been developed[3].  An Information Mural is a reduced
+representation of an entire information space that fits entirely
+within a display window or screen.  Intensity, pixel size, and color
+variation are used along with anti-aliasing techniques to encode the
+overlap and compression of information as it is scaled into the
+available space.  An Information Mural should convey the same visual
+patterns as would a view of the entire information space, if one could
+be created.   <P>
+
+Information Murals have been used to display and navigate several
+different types of information, not only related to software.  Murals of
+sun spot numbers, river flows, and stock market prices show large
+amounts of data in a small space without discarding information.  A
+Mural of a text file drawn in a scrollbar can be used to display the
+position of various attributes throughout the entire file.  A Mural of
+an entire data set in a &quot;data slider&quot; gives the observer a feel for
+the distribution of data visible in the focus area relative to the
+rest of the data not currently shown on the screen.<P>
+
+Most of the current prototypical views utilize the Information Mural
+technique.  The <A HREF="./dfj_fg1.gif"><I>Execution Mural</I></A> shows a 
+graphical depiction of
+the messages sent during the program's execution.  A Mural is used to
+present a global overview of this sequence, which can easily number in
+the hundreds of thousands.  A <A HREF="./dfj_fg2.gif"><I>Pattern Mural</I></A>
+view depicts the
+execution in terms of message patterns rather than individual
+messages.  These patterns are repeated sequences of messages that are
+automatically identified in the message trace.  In order to relate the
+higher level abstractions found in the views back to the source code,
+a <A HREF="./dfj_fg3.gif"><I>Code View</I></A> shows the source code of the
+system at the class and
+function level.  All of the views are interdependent; interaction with
+one view can be seen in the others as well. <P>
+
+<H2>REFERENCES</H2>
+
+<OL>
+<LI>Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides.  <I>Design
+Pattterns:  Elements of Reusable Object-Oriented Software</I>.  Addison-Wesley,
+1995. <P>
+<LI>Dean F. Jerding and John T. Stasko.  <I>Using Visualization to Foster
+Object-Oriented Program Understanding</I>.  Technical Report GIT-GVU-94-33,
+Georgia Institute of Technology, July 1994.<P>
+<LI>Dean F. Jerding and John T. Stasko.  <I>The Information Mural:  A Technique
+for Displaying and Navigating Large Information Spaces</I>. In
+Proceedings of the IEEE Visualization `95 Symposium on Information 
+Visualization, pages 43-50, Atlanta, GA, October 1995. <P>
+</OL>
+
+</BODY>
+</HTML>

@@ -1,0 +1,752 @@
+<HTML>
+<HEAD>
+<TITLE>Differences in Movement Microstructure of the Mouse and the 
+Finger-Controlled Isometric Joystick
+</TITLE>
+</HEAD>
+
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<P><IMG SRC="./../../graphics/papers.JPG" ALT="papers" HEIGHT=35 WIDTH=249><A HREF="./../../papers.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+
+<H1><CENTER>Differences in Movement Microstructure of the Mouse
+and the Finger-Controlled Isometric Joystick</CENTER></H1>
+
+<TABLE>
+<TR><TD WIDTH=343><CENTER><B>
+<A HREF="http://www.cs.uoregon.edu/~akm">Anant Kartik Mithal</A></B><BR>
+Sunsoft Developer Products<BR>
+2550 Garcia Ave MS MPK16-303<BR>
+Mountain View CA 94043<BR>
+<A HREF="mailto:anant.mithal@eng.sun.com">anant.mithal@eng.sun.com</A>
+</CENTER></TD>
+
+<TD WIDTH=343><CENTER><B><A HREF="http://www.cs.uoregon.edu/CIS/faculty_staff/douglas.html">Sarah A. Douglas</B></A><BR>
+Department of Computer Science <BR>
+University of Oregon <BR>
+Eugene, OR 97403-1202 <BR>
+<A HREF="mailto:douglas@cs.uoregon.edu">douglas@cs.uoregon.edu</A>
+</CENTER></TD>
+
+</TR> </TABLE>
+
+<H2>ABSTRACT</H2>
+
+<P>
+This paper describes a study comparing
+the movement characteristics of the mouse and the velocity-control
+isometric joystick. These characteristics are called the microstructure
+of movement. The comparison found random variations in the velocity
+of the isometric joystick that make it hard to control. The study
+shows that the microstructure of movement can explain differences
+in performance among devices.
+
+<H2>KEYWORDS: </H2>
+
+Fitts' law, pointing devices, mouse, isometric joystick, psychomotor 
+models, movement microstructure, characteristics of movement, 
+performance differences
+
+<H2>INTRODUCTION</H2>
+
+Since the early work by Card [2] extending
+Fitts' law [6] to pointing devices, extensive research has shown
+that it is a valuable tool for comparing pointing devices [9].
+Fitts' law holds across a wide range of devices and conditions
+[1, 3, 5, 10]. While Fitts' law is unquestionably the best available
+tool to compare pointing device performance [9], it is not much
+help in understanding why such differences in performance exist. <P>
+
+For instance, a number of studies have
+shown that the mouse is substantially faster than the isometric
+joystick [2, 3, 5, 13]. For example, in an earlier study, we,
+reported that the isometric joystick was 70% slower than the mouse
+[4], but none of the studies explains the reason for the performance
+difference.  <P>
+
+A possible explanation for this is
+that all these studies examine the gross characteristics of movement,
+such as target width, target distance and movement time, which
+are the variables in the Fitts' law equation. In doing so, they
+ignore the path the cursor follows in its movement towards the
+target, and so cannot describe the manner in which movement occurs.
+<P>
+
+For example, Figure 1 illustrates two
+hypothetical movements. It plots the velocity towards the target
+on the Y-axis, and distance from the start on the X-axis. From
+the plot, we can see the speed at which the cursor was moving
+at any point towards the target. Both trials have the same target
+distance and width, and take the same amount of time. From the
+point of view of a Fitts' law analysis, they are identical, but
+they have different movement microstructures. The first trial
+is made up of three submovements, all in the direction of the
+target. The second trial has two submovements, the first of which
+overshoots the target, and the second doubles back. <BR>
+
+<P>
+<CENTER><IMG SRC="akm_fg1.gif"></CENTER><BR>
+Figure 1: Two trials (not to scale) which are identical from the point of
+view of Fitts' law, but have different microstructures of movement.
+<P>
+In addition, to ignoring the structure of movement, the Fitts'
+law analysis is performed by averaging the movement times for
+a given target and width combination. What happens during a single
+movement of the cursor towards a target is ignored both by the
+type of data gathered and by the analysis technique used. As a
+result, current research on pointing devices has no way to explain
+why performance differences exist between pointing devices.
+<P>
+In building models that describe movement, psychomotor research
+examines the microstructure of movement. As the cursor moves towards
+the target, time and displacement data is gathered for each trial.
+Velocity is then derived and plotted as a function of time as
+shown in Figure 1. From this the pattern of submovements is studied.
+<P>
+This methodology can be used to study pointing devices as shown
+in this paper. We describe here the results obtained from comparing
+the movement microstructure of two devices, the mouse and the
+isometric joystick. Our analysis shows that there are random variations
+in the velocity of the cursor which are evident in the microstructure
+of the joystick but not the mouse. These variations would make
+fine control difficult with the isometric joystick. Thus differences
+in performance can be attributed directly to differences observed
+in their movement microstructures.
+
+<H2>PREVIOUS RESEARCH</H2>
+
+<P>
+The mouse is the ubiquitous pointing
+device. Early work [2] showed that it was very fast and had few
+errors. Since then numerous studies have supported its superiority
+and only the touch tablet seems to have similar performance [10].
+
+<P>
+The isometric joystick is a device that does not move when force
+is applied to it, but is able to sense the applied force and translate
+that into a velocity of the cursor on the screen. It has attracted
+a great deal of research interest because its small size makes
+it ideal for notebook computers where space is at a premium making
+it popular in current PC-compatible notebook computers. 
+<P>
+However, research dating back to the early Card study has consistently
+shown it to be slower and have more errors than the mouse. Epps
+[5] and Rutledge and Selker [13] similarly found poor performance
+with the joystick. Subjects in one study complained that the isometric
+joystick &quot;was hard to control&quot; [4]. Thus there is ample
+evidence that there is a substantial difference in performance
+between mice and isometric joysticks, but the literature does
+not explain why. 
+<P>
+There are three major differences between the mouse and the isometric
+joystick that can account for differences in performance, the
+isometricity of the joystick, the order of control and finger
+vs. wrist control. Because the isometric joystick does not move
+when pressure is applied to it, the amount of kinesthetic feedback
+that the user gets is drastically reduced. [12]
+<P>
+The second major difference is that the joystick controls the
+velocity of the cursor on the screen [12]. The harder that a user
+pushes, the faster the cursor moves, like a car's accelerator.
+This is referred to as first order control, while the mouse's
+mapping of mouse displacement to cursor displacement is called
+zero order control. Jagacinski showed that for isotonic joysticks,
+displacement control is better for stationary targets, while velocity
+control is better for targets moving at constant velocity [7].
+These results have not been tested for isometric joysticks, possibly
+because it is difficult if not impossible to construct a displacement
+control isometric joystick.
+<P>
+In addition, most isometric joysticks in use today are controlled
+by the tip of the index finger, while the mouse is controlled
+by the wrist. Langolf showed that the finger had a higher Fitts'
+law index of performance than the wrist, but again, he was studying
+isotonic movement. Any of these differences could cause the performance
+differences between the devices.
+<P>
+The characteristics of movement have been of interest to psychomotor
+researchers for a while, and were first used in the Langolf study
+[8]. The term microstructure of movement was coined by Jagacinski
+in his study of isotonic joysticks [7]. Figure 1 indicates what
+the microstructure might be. The upper figure shows a trial consisting
+of a rapid submovement that covers most of the distance to the
+target, followed by two smaller, relatively less accurate submovements.
+Jagacinski's data showed that a single movement towards a target
+is made up of a sequence of one or more submovements (rarely more
+than three), and the first submovement tends to be much larger
+and faster than the rest of the submovements.
+<P>
+Meyer et al. developed a model, the stochastic optimized submovement
+model based on the idea that a movement is made up of submovements,
+and optimizes the conflicting goals of rapid movement and low
+error rates [11]. The model predicts a close approximation to
+Fitts' law and also predicts that the first submovement is faster
+and more accurate than the rest of the submovements. This was
+verified for wrist movements, supporting Jagacinski's observations,
+and subsequent research has extended this model to movement with
+the mouse [15]. 
+<P>
+The present study gathered data on the microstructure of movement
+for mouse and isometric joystick to see if the observations about
+movement characteristics of the mouse were applicable to the isometric
+joystick, and to see whether differences in the movement microstructure
+could be used to explain differences in performance.
+
+<H2>METHOD</H2>
+
+This study was performed in two parts,
+a pilot study to test the equipment and software, and the main
+study. Data from both parts is presented here.
+
+<H3>Subjects</H3>
+For the main study there were 6 subjects,
+all from the University of Oregon, volunteers who were promised
+a home cooked Indian meal on completion of the study. Four subjects
+were from the Computer Science department, two were staff  and
+two were graduate students. The remaining two were graduate students
+from the College of Business. There were two women among the subjects.
+All subjects were right handed and used the pointing devices with
+their preferred hand. Five of the subjects were expert mouse users
+prior to the study and used a mouse every day. Similarly, two
+subjects were expert with the kind of isometric joystick used
+in the experiment, using it every day in their work.<P>
+
+<CENTER><IMG SRC="akm_fg2.gif"></CENTER><BR>
+<A NAME="_Toc331779472">Figure 2</A>. The IBM TrackPoint II keyboard.
+
+<H3>Equipment</H3>
+
+The mouse used was a Microsoft Mouse
+ver. 2.0, FCC ID C3KSMP1. It mapped displacement on the
+mousepad to displacement on the screen using the default non-linear
+display control function in the Windows NT 3.5 mouse driver. The
+isometric joystick used was an IBM TrackPoint II keyboard with
+embedded pointing device, shown in Figure 2. The keyboard has
+an isometric joystick embedded between the 'G', 'H' and 'B' keys.
+It protrudes 1 mm above the keycaps and thus does not interfere
+with typing. There are two buttons below the space bar that correspond
+to the two buttons on a mouse. Users control the cursor by pushing
+on the joystick. The joystick maps force into the velocity of
+the cursor on the screen. It picks up the magnitude and direction
+of the applied force and moves the cursor correspondingly. Its
+hardware uses a discontinuous non-linear display control function
+that is fed to the Windows NT mouse driver [13]. 
+<P>
+Both devices were connected to an MS-DOS compatible 90 Mhz Pentium
+running Windows NT 3.5. An MS-DOS computer has one connection
+for keyboard data. A pointing device can be connected either through
+a PS/2 mouse port, or through a serial port (Figure 3). The TrackPoint
+keyboard has two cables that come out of it, one going to the
+PS/2 keyboard port, and the other going to the PS/2 mouse port.
+In addition, there is a PS/2 mouse port on the keyboard that allows
+a user to attach a mouse to the keyboard for use in addition to
+the TrackPoint joystick. This configuration was used in the study,
+and is shown in Figure 3. <P>
+
+<CENTER><IMG SRC="akm_fg3.gif"></CENTER><BR>
+<A NAME="_Toc331779474">Figure 3</A>.
+Connections for the TrackPoint keyboard.
+
+<H3>Experimental Task</H3>
+The experimental program presented
+subjects with the screen shown in Figure 4. A trial began when
+the subject clicked in the home square, and ended when the subject
+clicked in the target ribbon. The time at the start of the trial
+and the time at the end of the trial were recorded. In addition,
+the software sampled the position of the mouse cursor between
+the clicks every 16 ms, keeping track of position and time.
+<P>
+After the completion of a trial, the screen was blanked, and the
+data from the trial was written to disk and then the next trial
+was presented. If the subject missed the target, the computer
+beeped, and the subjects was made to complete the trial. The trial
+was marked as an error and written to the data file, and presented
+again to the subject at the end of the block.<P>
+
+<CENTER><IMG SRC="akm_fg4.gif"></CENTER><BR>
+<A NAME="_Toc331779475">Figure 4</A>.
+The experimental task
+<P>
+The cursor was re-centered on the home
+square prior to each trial, and the home square always appeared
+in the same location. The width and location of the target ribbon
+were varied as indicated in Table 1. These values generated the
+following six amplitude to width ratios (A/W): 48, 24, 12, 6,
+3, 1.5.<A NAME="_Toc331779181">Table 1</A>. Values distance to
+target and width of target used.
+
+<TABLE BORDERCOLOR=#000000 BORDER=1>
+
+<TR><TD COLSPAN=2 WIDTH=162><CENTER><I>Amplitude (A)</I></CENTER>
+</TD><TD WIDTH=0></TD><TD COLSPAN=2 WIDTH=156><CENTER><I>Width (W)</I></CENTER>
+</TD><TD WIDTH=0></TD></TR>
+
+<TR><TD WIDTH=72><CENTER>Pixels</CENTER></TD><TD WIDTH=90><CENTER>mm</CENTER>
+</TD><TD WIDTH=83><CENTER>Pixels</CENTER></TD><TD WIDTH=72><CENTER>mm</CENTER>
+</TD></TR>
+
+<TR><TD WIDTH=72>768</TD><TD WIDTH=90>232.5</TD><TD WIDTH=83>16
+</TD><TD WIDTH=72>4.84</TD></TR>
+
+<TR><TD WIDTH=72>384</TD><TD WIDTH=90>116.3</TD><TD WIDTH=83>32
+</TD><TD WIDTH=72>9.69</TD></TR>
+
+<TR><TD WIDTH=72>192</TD><TD WIDTH=90>58.1</TD><TD WIDTH=83>64
+</TD><TD WIDTH=72>19.38</TD></TR>
+
+<TR><TD WIDTH=72>96</TD><TD WIDTH=90>29.1</TD><TD WIDTH=83></TD>
+<TD WIDTH=72></TD></TR>
+
+</TABLE>
+
+<H3>Experimental Design</H3>
+Subjects completed the experiment in
+six sessions, three with each device. Three subjects did the three
+mouse sessions before the joystick sessions, and the other three
+reversed the order of the experiment. Subjects were randomly assigned
+to the orders. This was done to control for order effects. 
+<P>
+One area of concern was that the subjects on the average had more
+experience with the mouse than the isometric joystick. In order
+to counteract this, subjects were given a large number of trials
+with each device, 600 randomly presented trials per session, or
+1800 trials with each device. Earlier work indicates that after
+approximately 1200 trials, subjects do not have significant improvement
+in performance from one block of 120 trials to the next [2, 4].
+Subjects were given 1800 trials so that the data from the last
+block of 120 trials would represent practiced performance.
+
+<H2>RESULTS</H2>
+
+The data from the experiment was analyzed
+in two ways, a gross level analysis, and a micro level analysis.
+The gross level analysis helped to validate the data and examined
+learning effects and did a Fitts' law analysis. In order to see
+the effect of learning, the data was grouped into blocks of 120
+trials, 5 per session, and 15 per device. A pair-wise <I>t</I>-test
+between successive blocks showed that there was no significant
+learning (p  0.5) after block 3 for the mouse and block 7 for
+the joystick. Thus we can assume that by the end of the experiment
+subjects were sufficiently practiced on both devices.
+<P>
+An analysis of the last block of 120 trials for all subjects showed
+that both devices followed Fitts' law, with an r<SUP>2</SUP> of
+.998 for the mouse, .991 for the joystick, and IP of 8.13 for
+the mouse, and 5.75 for the joystick. 
+
+<H3>Movement Microstructure for the Mouse</H3>
+
+The second part of the analysis was
+of the movement microstructure for each device. Figure 5 represents
+a single trial from the pilot study, with the time in milliseconds
+on the x-axis, and distance from the start on the first y-axis.
+This curve is difficult to interpret, and is generally not used
+for analysis. Velocity is plotted on the second y-axis and provides
+more information. We can see how the velocity varied over the
+duration of the trial. There was almost no movement for 200 milliseconds,
+which corresponds well to the reaction time found in other studies
+[2]. There was then a large, rapid submovement, followed by a
+two smaller submovements. The first of these overshot the target
+(which was at 768 pixels), and the second was a corrective submovement
+that moved back to the target. <P>
+
+<CENTER><IMG SRC="akm_fg5.gif"></CENTER><BR>
+Figure 5. PS/2 mouse  trial from pilot study, A = 768 pixels. <P>
+
+<CENTER><IMG SRC="akm_fg6.gif"></CENTER><BR>
+Figure 6. PS/2 mouse trial with
+velocity as a function of distance. A = 768 pixels. <P>
+
+A better way of looking at these data
+is shown in Figure 6, with displacement on the x-axis, and velocity
+on the y-axis. From this graph, we can see the speed of the cursor
+at any point along the path to the target. This graph shows that
+the movement is a sequence of three submovements. The first submovement
+covers most of the distance to the target and reaches a high peak
+velocity. The next two submovements are smaller, covering smaller
+proportions of the distance to the target. The second submovement
+overshot the target and the third submovement was a correction,
+bringing the cursor back to the target. <P>
+
+The plot in Figure 6 is a prototypical trial, that supports earlier
+findings that the first submovement tends to be larger and faster
+than the subsequent submovements. It is representative of the
+data obtained for a number of different types of mice in the pilot
+study, as well as in the data from the main study.  <P>
+
+Mouse data from the main study was similar. Figure 7 and  Figure 8
+represent mouse movement data from the main experiment. They trials
+have been selected because they are representative of mouse trials
+from the main study.  <P>
+
+<CENTER><IMG SRC="akm_fg7.gif"></CENTER><BR>
+Figure 7. First mouse trial subject
+DD5 - raw data. A = 768 pixels <P>
+
+<CENTER><IMG SRC="akm_fg8.gif"></CENTER><BR>
+Figure 8. Middle mouse trial subject DD1 - raw data. A = 192 pixels <P>
+
+Figure 7 shows that the subject made
+a rapid primary submovement towards the target that overshot.
+The subject doubled back with the second submovement and overshot
+again. The third submovement also overshot, and the subject oscillated
+around the target till it was reached. This trial also has a large
+primary submovement, followed by smaller secondary submovements.
+Figure 8 deviates from the prototype in that there appear to be
+two large movements followed by smaller movements. <P>
+
+These figures show that in general,
+mouse movements have a large primary submovement, followed by
+smaller submovements, which is consistent with the data from earlier
+studies. This characteristic held throughout the experiment, from
+the early trials to the end of the study, and across all subjects.
+Note that each graph has been picked out of 3600 such graphs of
+mouse movement for each session. (Each of 6 subjects did 600 trials
+per session, and only one graph from each session has been shown.)
+
+<H3>Movement Microstructure for the Isometric Joystick</H3>
+
+Data for the isometric joystick was
+also obtained both pilot and main studies, and revealed an unexpected
+characteristic. <P>
+
+Figure 9 and Figure 10 show a joystick trial from the pilot study.
+The distance vs. time sub-plot in Figure 9 does not reveal anything
+out of the ordinary, but the velocity vs. time sub-plot shows
+a strange pattern of jitter in the velocity. <P>
+
+<CENTER><IMG SRC="akm_fg9.gif"></CENTER><BR>
+Figure 9. Isometric joystick - trial from preliminary tests. A = 768 pixels. <P>
+
+This jitter is more clearly evident
+when the velocity vs. distance plot (Figure 10) is examined. The
+jitter appeared in all the isometric joystick trials. This particular
+trial was one of the first attempted by the test subject, but
+persisted after 50 trials, and also occurred in trials by others. <P>
+
+<CENTER><IMG SRC="akm_fg5.gif"></CENTER><BR>
+Figure 10. Isometric joystick preliminary
+ tests. (Same trial as Figure 9.)  A = 768 pixels. <P>
+
+There are a number of things that could
+account for this jitter. Among other things, it could be caused
+by an interaction between the joystick and the computer, it could
+be an artifact of the program gathering the data, it could be
+the subject, and it could be caused by the computer.  <P>
+
+To eliminate the possibility that the error was caused by an interaction
+between the computer and the joystick, the TrackPoint keyboard
+was connected to another computer, with the same result, i.e.,
+the jitter was still present.  <P>
+
+Figure 3 showed the different ways in which pointing devices can
+be connected to MS-DOS computers. To eliminate the possibility
+that the jitter was due to the PS/2 connection used by the isometric
+joystick, tests were performed with four different pointing device
+configurations with the TrackPoint keyboard or a separate keyboard
+as appropriate. These configurations were the TrackPoint keyboard
+by itself, the PS/2 mouse by itself, the PS/2 mouse connected
+through the TrackPoint's PS/2 port, and an identical RS-232c serial
+mouse. In all cases, graphs for the mouse did not show jitter,
+with graphs similar to Figure 6, and jitter was present in the
+TrackPoint joystick. <P>
+
+To eliminate the possibility that there was a flaw in this particular
+joystick, the software was recompiled to run on a smaller screen
+(640x480, the standard size for notebook computers), and the test
+carried out on two IBM ThinkPads (which have built-in TrackPoints)
+and on an NEC Versa notebook (that has a similar isometric joystick,
+but is not called a TrackPoint), and the tremor was still present. <P>
+
+<CENTER><IMG SRC="akm_fg11.gif"></CENTER><BR>
+Figure 11. PortaPoint trial showing jitter. A = 768 pixels. <P>
+
+The last isometric device tested was
+a PortaPoint. It  is a separate isometric joystick that uses the
+same electronics that are used in the Home Row 'J' mouse keyboard
+[4, 3]. The PortaPoint is mounted in a housing similar in shape
+to a mouse, and attaches to the computer through the PS/2 mouse
+port. Figure 11 is a trial from this device, showing jitter. <P>
+
+In all the tests conducted, none of
+the mouse configurations showed jitter, and all of the isometric
+joystick configurations showed jitter. If we go back to the base
+condition, the PS/2 mouse, by being connected to the TrackPoint's
+PS/2 connector, feeds data to the CPU through the same cable to
+the same software. Therefore there is something about the isometric
+joystick that causes the jitter. <P>
+
+After carefully considering all possible sources that could cause
+this jerkiness, the only explanation we found that fit all the
+available data was that the isometric joystick, which is force
+sensitive, was picking up physiological tremor in the finger.
+Tremor is a series of random variations in force that occur in
+the finger (and the rest of the human body), and the isometric
+joystick translates these changes into variations in cursor velocity.
+Tremor occurs during the application of force, during steady movement,
+and even at rest. It tends to increase with increased force [14].<P>
+
+The effect of tremor on the joystick's movement microstructure
+was a totally unexpected phenomenon. When the main study was conducted,
+jitter continued to be evident in joystick trials throughout the
+experiment.
+<P>
+The graphs shown in Figure 12, Figure 13 and Figure 14 are representative
+samples of joystick trials from the main study. Figure 12 shows
+that the movement towards the target was made up of a sequence
+of movements that had rapidly changing velocity. Figure 13 shows
+a period in the beginning of the movement which might represent
+a primary submovement with rapid movement towards the target,
+relatively unaffected by tremor. The rest of the movement is quite
+badly obscured by tremor. <P>
+
+<CENTER><IMG SRC="akm_fg12.gif"></CENTER><BR>
+Figure 12. First joystick trial subject DD4 - raw data. <P>
+
+<CENTER><IMG SRC="akm_fg13.gif"></CENTER><BR>
+Figure 13. Middle joystick trial subject DD2 - raw data. A = 768 pixels.
+<P>
+
+Joystick trials were thus characterized
+by jerkiness that is visible only when the velocity of the trial
+is studied either over time or over movement distance. The jerkiness
+was evident in early trials in the pilot study and persisted throughout
+the duration of the main study. 
+<P>
+
+<CENTER><IMG SRC="akm_fg14.gif"></CENTER><BR>
+Figure 14. Last joystick trial subject DD1 - raw data.<P>
+
+<CENTER><IMG SRC="akm_fg15.gif"></CENTER><BR>
+Figure 15</A>. Comparison of spectrograms
+from mouse and isometric joystick for all trials from last block
+for all subjects. <P>
+
+The presence of the jitter in the isometric
+joystick trials suggests higher frequency components in joystick
+trials than mouse trials. This was verified through spectral analysis.
+Figure 15 presents the frequency data for the mouse for all subjects
+compared to the frequency data for the joystick all subjects.
+It clearly shows a that there is a greater percentage of the power
+for higher frequencies (between 3 and 10 Hz) for the joystick
+than for the mouse, which is consistent with higher frequencies
+in the jitter.
+
+<H2>DISCUSSION</H2>
+
+<H3>Tremor and the Isometric Joystick</H3>
+
+The jerkiness in the velocity domain
+did not appear either in the analyses of mouse movement, nor in
+plots of cursor position vs. time for the joystick. But when the
+velocity of the joystick was plotted, either against time or against
+distance, the jitter leapt out. On reflection, this is not surprising.<P>
+
+Consider Figure 16 which shows a block diagram of an isometric
+joystick. The joystick is a force sensitive device that translates
+input force into changes in cursor velocity. Note that because
+the joystick is using the same hardware connections and software
+drivers as the mouse, it must send data to the OS in the same
+form as the mouse. The mouse sends the OS data about displacement,
+and so the isometric joystick performs an integration of velocity
+over time in order to send similar displacement information. <P>
+
+<CENTER><IMG SRC="akm_fg16.gif"></CENTER><BR>
+Figure 16. Block diagram of isometric joystick. <P>
+
+When there is tremor present in the
+finger, the tremor is perceived as changes in applied force. These
+in turn are mapped onto changes in velocity which of course get
+integrated into displacements and sent to the OS. As long as we
+look at plots of displacement, nothing is apparent. The moment
+we look at plots in the velocity domain, the tremor appears.  <P>
+
+The isometric joystick happens to be unique in the manner in which
+it picks up tremor and the way in which it is affected by it.
+Consider for a moment the finger that controls the joystick. It
+is applying a lateral force on the joystick, and it is unsupported.
+It also does not move. Therefore there is little to damp the tremor.
+In other types of movement, tremor is damped by two things, inertial
+mass and friction. Because the finger does not move, inertial
+mass does not play a role and so does not damp tremor. Again,
+because nothing moves, friction does not play a role. In fact,
+the only damping factor that we have been able to uncover is the
+friction that exists between adjacent muscle fibers in the finger
+[14].
+<P>
+Tremor also occurs during mouse movement, but it does not have
+the same effect for two reasons. First, the mouse operates in
+the displacement domain, and is not sensitive to changes in applied
+force in the manner that the joystick is. It responds only to
+changes in displacement. The mouse is therefore not directly affected
+by tremor. Second, when a mouse is moving across a mousepad, any
+tremor is damped by the friction of the mouse and the hand on
+the mousepad, as well as by the mass of the hand, wrist and mouse
+(and perhaps the forearm). Due to these reasons, tremor does not
+appear in plots of mouse movement. So the physical construction
+of the joystick makes it susceptible to tremor in a manner that
+devices such as the mouse are not.
+<P>
+The effect of tremor on other pointing devices is still an open
+question. Two devices that use relatively unsupported limbs are
+the trackball and the touch tablet. The trackball is typically
+controlled by a single thumb or single finger, while touch tablets
+are controlled either by a finger, or by a stylus. While inertial
+mass and friction still play a role in these devices, the lack
+of support for the controlling limb suggests that a similar study
+needs to be performed on these devices to determine how they are
+affected by tremor. 
+<P>
+The joystick also accentuates tremor. This tremor is picked up
+by the joystick and passed on to the joystick's hardware controller.
+The joystick's controller employs an 'accelerated' design, i.e.
+it employs a non-linear translation between input force and output
+displacement. This transfer function accentuates the effect that
+changes in input have on the output. So the changes caused by
+tremor are exaggerated in the displacement data that is sent to
+the software driver. The software driver is in turn accelerated,
+and accentuates changes in displacement into larger changes in
+the position of the cursor. The net result is that the velocity
+of the cursor varies widely as it moves across the screen. Thus
+the design of the joystick makes it unique in the way that it
+amplifies tremor.
+<P>
+The effect of tremor might be reduced by introducing digital signal
+processing routines into the joystick's hardware or in its software
+drivers. These routines could filter out the tremor. Making the
+joystick slightly deformable might introduce enough inertia into
+the system to damp the tremor. Additionally, a support for the
+finger might also reduce tremor.
+<P>
+To summarize, studying the movement microstructure for the joystick
+revealed that tremor causes involuntary changes in cursor velocity.
+Taking a closer look at the characteristics of the joystick and
+its connections to the computer showed that the isometric joystick
+is unique in the way that it is affected by tremor and the way
+in which it accentuates the effects of tremor. 
+
+<H2>CONCLUSIONS AND FURTHER RESEARCH
+</H2>
+
+The study leads to a number of conclusions:
+about the effect of tremor on controlling pointing devices, about
+the value of the microstructure level analysis, and about the
+importance of examining the variable being controlled.
+
+<H3>Tremor Makes Isometric Devices Difficult to Control</H3>
+
+During an earlier study with a finger-controlled
+isometric joystick [4], subjects were interviewed to get qualitative
+feedback from them about their experience. A surprisingly large
+number of them said that they had a lot of trouble getting the
+joystick to stop in small targets (the smallest target was 8 pixels
+across).  <P>
+
+The reason for this is now easy to
+understand. Tremor causes involuntary changes  in the velocity
+at which the cursor moves. This makes it difficult for users to
+achieve fine control over the cursor making it difficult to stop
+the cursor at a desired point on the screen and explains why isometric
+joysticks are hard to control. 
+
+<H3>The Need to Examine the Variable Being Controlled</H3>
+
+<P>
+A simple lesson from this study is
+that when a pointing device is being studied, we need to examine
+its effect on the variable it controls. The isometric joystick
+controls the velocity of the cursor (even though it integrates
+the velocity over time and sends the computer displacement information).
+The effect of tremor was visible only when velocity was plotted
+against time or displacement. 
+<P>
+Taking this argument to the next stage, the implication is that
+we should look at graphs of the appropriate variable. For example,
+if we control acceleration, we should look at graphs of acceleration.
+
+<H3>Future Research</H3>
+
+<P>
+This study opened avenues of additional
+research, some of which has been completed and is outside the
+scope of this paper. A more extensive Fourier analysis has been
+completed, which revealed patterns of individual differences and
+learning. One of our originals goal was to model movement with
+the isometric joystick, but we were confounded by the problems
+that we were unable to differentiate voluntary from involuntary
+submovements in the case of the isometric joystick. We believe
+that studying muscle activations and neuron firings will help
+in this area. While our goal was understanding movement with the
+isometric joystick, our study has suggested ways in which it can
+be improved. These improvements have to be incorporated and tested.
+<H2>The Microstructure Level Analysis
+as a Research Tool</H2>
+
+<P>
+The microstructure level analysis was
+extremely effective in providing information about what happened
+during joystick trials. The next step in the development of research
+on pointing devices should be to study movement microstructure
+in the manner that a Fitts' law analysis is routinely done. The
+manner in which this study uncovered tremor in the isometric devices
+strongly supports this suggestion. 
+<P>
+Fitts' law, which is the tool most often used in understanding
+pointing devices, is excellent for comparing devices, but does
+not help explain why some devices perform better than others.
+The study of the microstructure of movement of a device helps
+explain device performance. 
+<P>
+We need inventories of knowledge of the microstructure of movement
+with different devices just like we have a corpus of knowledge
+about gross movement and the applicability of Fitts' law. 
+<P>
+Research on pointing devices will feed off research on the human
+psychomotor system, and is likely provide an impetus for new discoveries
+about how humans move. In this effort, Fitts' law must be augmented
+by microstructure level analysis as the primary research and design
+tool for pointing devices [9]. This work is the first step in
+that direction.
+
+<H2>REFERENCES</H2>
+
+<OL>
+<LI>Boritz, J., Booth, K.S. and Cowan, W.B. Fitts' Law Studies of Directional Mouse Movement. in Graphics Interface '91. 1991. Toronto, Ontario, Canada: Canadian Man-Computer Communications Society p. 216-233. </LI>
+
+<LI>Card, S.K., English, W.K., and Burr, B.J. Evaluation of Mouse, Rate-Controlled Isometric Joystick, Step Keys, and Text Keys for Text Selection on a CRT. Ergonomics, 1978. 21(8): p. 601-613.</LI>
+
+<LI>Douglas, S.A. and Mithal, A.K. The Effect of Reducing Homing Time on the Speed of a Finger-Controlled Isometric Pointing Device. Proc. CHI '94. 1994. Boston: ACM p. 411-416.</LI>
+
+<LI>Douglas, S.A. and Mithal, A.K. Human Performance Evaluation of a Finger-Controlled Pointing Device. 1993, TR 93-11, Dept. of Computer Science, University of Oregon, Eugene, OR 97403-1202.</LI>
+
+<LI>Epps, B.W., Comparison of Six Cursor Control Devices Based on Fitts' Law Models. Proc. of the Annual Meeting of the Human Factors Society, 1986: p. 327-331.</LI>
+
+<LI>Fitts, P.M., The Information Capacity of the Human Motor System in Controlling the Amplitude of Movement. Journal of Experimental Psychology, 1954. 47(6): p. 381-391.</LI>
+
+<LI>Jagacinski, R.J., Repperger, D.W., Moran, M.S., Ward, S.L., and Glass, B., Fitts' Law and the Microstructure of Rapid Discrete Movements. Journal of Experimental Psychology: Human Perception and Performance, 1980. 6(2): p. 309-320.</LI>
+
+<LI>Langolf, G.D., Chaffin, D.B., and Foulke, J.A. An investigation of Fitts' Law using a wide range of movement amplitudes. Journal of Motor Behavior, 1976. 8(2): p. 113-128.</LI>
+
+<LI>MacKenzie, I.S., Fitts' Law as a Research and Design Tool in Human-Computer Interaction. Human-Computer Interaction, 1992. 7(1): p. 91-139.</LI>
+
+<LI>MacKenzie, I.S., Sellen, A. and Buxton, W. A Comparison of Input Devices in Elemental Pointing and Dragging Tasks. in Human Factors in Computing Systems: Proc. CHI '91. 1991. New Orleans: ACM p. 161-166.</LI>
+
+<LI>Meyer, D.E., Smith, K.J.E., Kornblum, S., Abrams, R.A., and Wright, C.E., Speed-Accuracy Tradeoffs in Aimed Movements: Toward a Theory of Rapid Voluntary Action. in Attention and Performance XIII. M. Jeanerod, Ed. 1990, Erlbaum: Hillsdale, NJ. p. 173-226.</LI>
+
+<LI>Mithal, A.K., Using Psychomotor Models of Movement in the Analysis and Design of Computer Pointing Devices. Doctoral Dissertation, Computer and Information Science. 1995, University of Oregon: Eugene. p. 176.</LI>
+
+<LI>Rutledge, J.D. and T. Selker. Force-to-Motion Functions for Pointing. in Human-Computer Interaction - INTERACT '90. 1990. Amsterdam: North-Holland p. 701 706.</LI>
+
+<LI>Stein, R.B. and R.G. Lee, Tremor and Clonus, in Handbook of Physiology: The Nervous System II. 1989. p. 325-342.15. Walker, N., Meyer, D.E., and Smelcer, J.B. Spatial and Temporal Characteristics of Rapid Cursor Positioning Movements with Electromechanical Mice in Human Computer Interaction. Human Factors, 1993. 35(3): p. 431-458.
+<P>
+</OL>
+</BODY>
+
+</HTML>

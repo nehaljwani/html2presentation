@@ -1,0 +1,179 @@
+<html><head>
+<TITLE>Using Animation to Aid Process Flow Visualization</TITLE>
+</head>
+
+<body>
+
+<TABLE WIDTH="100%" >
+<TR>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/demo.JPG" ALT="Demo" HEIGHT=35 WIDTH=249><A HREF="../../demos.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<h1>Using Animation to Aid Process Flow Visualization</h1>
+
+<p>
+<CENTER>
+<TABLE BORDER=2 cellspacing=3 cellpadding=3>
+<TR><TD align=center valign=center><B>Brenda J. Burkhart</B> <BR>
+Bellcore<BR>444 Hoes Lane<BR>Room 1N-211<BR>Piscataway, NJ 08854 USA<BR>+1-908-699-2408<BR>bjb1@cc.bellcore.com</TD>
+<TD align=center valign=center><B>Marc E. Fusco</B> <BR>
+Bellcore<BR>444 Hoes Lane<BR>Room 1C-217<BR>Piscataway, NJ 08854 USA<BR>+1-908-699-4924<BR>mf@cc.bellcore.com</TD></TR>
+</TABLE>
+</CENTER>
+
+<h2>ABSTRACT</h2>
+Process flows are difficult to communicate to customers effectively,
+particularly if they are complex or involve multiple systems.  We introduce
+some animation techniques that we rapidly prototyped so that systems
+engineering or system design proposals or decisions can be effectively
+communicated to customers.
+<h2>Keywords</h2>
+Animation, visualization, simulation, prototyping, process flow.
+<HR>
+<h2>INTRODUCTION</h2>
+Creating a solution for our customers usually involves the engineering and
+design (and implementation) of large scale software systems.  These software
+solutions often involve multiple systems that are either new or provide new
+interfaces to existing systems.  Prior to determining a mutually agreeable
+solution, a significant amount of time is spent in meetings to outline a
+high-level design proposal that addresses the issue.  These meetings typically
+include a few subject matter experts who put together a system design proposal,
+e.g., a process flow of the solution.  Recently, our expertise was requested to
+help engineers and customers better visualize these proposed system design
+solutions.  Our strategy was to use computer-generated animation to communicate
+process flows to customers or potential users in a manner which is easy to
+comprehend.
+<p>
+These process flows usually involve complex interactions among various
+computing systems (new operations systems, existing systems, and databases, for
+example). In our environment, the typical method for communicating these
+complex process flows is a diagram (e.g., an architecture diagram or data flow
+diagram) that contains the many components of the proposed solution with
+interfaces shown by lines and the direction of flow shown by arrows.  These
+diagrams typically must be explained in-person by an engineer in order to be
+fully understood.  In addition, sometimes the lines depicting the interfaces
+are numbered to indicate the order of the flows.
+The more complex these diagrams become, the harder it can be for
+our customers to understand the overall solution.  (When they focus on
+individual parts, they can lose sight of the whole solution.)<p>
+We have found that using animation is an effective way to communicate concepts
+which may otherwise be difficult to visualize.  The animations that we
+developed show the interconnections or interfaces among the various systems or
+system components by simulating a flow of information from one component to
+another.  The order of the flows is inherent in the animation.  Triggers that
+cause the initiation of flows are also shown in our animations, and where the
+trigger is user input, we have incorporated user interface prototypes in our
+animation sequences.  We have found this to be a very useful technique for
+demonstrating process flows, particularly to clients who want a conceptual
+understanding of a complex solution.  Process flow visualization also enables
+engineers or designers to detect inefficiencies or bottlenecks in the flow,
+since they are very apparent and can result in repetitive loops.
+<h2>RECENT USES IN OTHER DOMAINS</h2>
+A recent review of the literature shows that this visualization approach has
+been used in a variety of areas.  The key questions that visualization is
+addressing across multiple domains are: "What might it look like?" and "What
+are the impacts?"  Ervin (1992) has used three-dimensional simulations to link
+Geographical Information System (GIS) data and environmental models for
+visualizing design proposals to study the environmental impact of these designs
+[1].  Hall (1993) also used computer visualization for assisting the control of
+urban design by planning authorities and studying the impact of proposed
+developments [2].  Jenvey (1994) reports on the use of multimedia (i.e.,
+computer graphic simulations) in an electrical engineering course on the study
+of electromagnetics to enable students to visualize what is invisible (e.g.,
+voltages, currents)[3].  Jenvey claims this approach proved to be a great
+instructional aid to students who sometimes have a difficult time connecting
+theory and measurement.<p>
+Each of these cases demonstrate the efficacy of using computer visualizations
+to enable people to view what is sometimes difficult to understand, assess the
+impact of proposed design solutions, and improve the quality of decision
+making.  Our animations provided similar results from users.
+<h2>OUR DEMONSTRATIONS</h2>
+Our demonstrations show several examples of computer animations we developed
+[rapidly] to enable our customers to visualize our proposed solution to their
+problem.  Our technique sometimes involves the design of a prototypical
+Graphical User Interface (GUI) that triggers the process flow or helps to
+communicate interactions within the process flow.  We will provide examples of
+both a system-to-system flow and one in which system-to-system flows are
+integrated with user interface prototypes.  Technical staff and technical
+managers from our customer organizations were the intended audience for these
+animations.
+<p>
+Our last example demonstrates a visualization which was incorporated into a
+multimedia marketing presentation.  Top level executives were the intended
+audience for this presentation.  Because this was a marketing presentation, it
+offers different examples of level of detail and concreteness (e.g., less
+detail on systems and more realism to enable the audience to relate the flow to
+actual world events, such as viewing a movie-on-demand).  This presentation
+depicts a customer-oriented service delivery scenario, i.e., it focuses on the
+customer in their home requesting a particular video service via the TV.  It
+presents the issues involved in delivering a broadband-based video service to a
+customer, and includes a brief animation showing interactions among several
+systems, that make this delivery solution possible.
+<p>
+The simulations we developed were designed as standalone applications and
+provide a rather simple user interface for the user to control the flow of the
+animations.  Even though the animations were designed in an intuitive manner,
+they required some training to operate.  To facilitate training we created an
+intuitive interface with a look-and-feel with which the user might be familiar.
+For all of the animations we developed, we required feedback from our users and
+incorporated that feedback in our iterative design process.
+<h2>INTEGRATING PROCESS FLOW ANIMATION WITH GUI PROTOTYPING</h2>
+If process flows are a result of user actions, integrating an animated process
+flow with a user interface prototype can help in further describing to
+customers how a given user action will result in underlying system processing
+and flow-through to other related systems.
+<p>
+In our second demonstration we incorporated a GUI by prototyping it and
+interspersing GUI inputs and outputs at the appropriate points in the
+processing flow of the system.  This provided our customers a more realistic
+view of the system, and how background processes would be started and, more
+importantly, at what point.  Within the GUI we keyed the background processing
+animation windows to appear when the user selected the "Help" button in the
+appropriate window or dialog box of the GUI.  If the user has an understanding
+of the underlying processing, the animation windows could be considered as a
+processing indicator (or processing status display) in the delivered system.
+<p>
+The animations were designed to run automatically; however, the user had the
+option to control the flow of the animation with special commands we built into
+the system.  This control provided the presenter with the flexibility to review
+critical flows or emphasize specific sections of it to the customer.  For the
+animations and the GUI design prototypes we developed, we required feedback
+from our users and incorporated that feedback in our iterative design process.
+<h2>CONCLUSION</h2>
+We feel that we have been providing a service of great value to our customers
+(both the systems engineers designing these solutions and their customers) by
+utilizing computer animation techniques in the early stage of a high-level
+design proposal.  Viewers of the system have expressed immense satisfaction
+with the ability of these animations to communicate complex process flows or
+hard-to-visualize material effectively.  Furthermore, all of these cases
+demonstrate the efficacy of using computer visualizations to reduce the cost
+and improve the quality of technical communication.  Viewers are able to easily
+understand complex process flows, assess the impact of proposed design
+solutions, and the quality of decisions regarding the proposed solution is
+improved.
+<h2>ACKNOWLEDGMENTS</h2>
+We would like to thank the people who reviewed this document and provided
+constructive input to earlier versions.
+<h2>REFERENCES</h2>
+1.	Ervin, S. M. A Methodology for Integrating Visualization, Geographic
+and Environmental Analysis in Site Planning and Design.  <i>Proceedings of
+VIDEA 93. Visualization and Intelligent Design in Engineering and
+Architecture</i>, 1 (1992), 277-289.
+<p>
+2.	Hall, A. C.  Computer visualisation in planning control: some case studies
+and issues.  <i>URISA Proceedings: Papers from the  Annual Conference on Urban
+and Regional Information System Association</i>, April 28-30, 1993, 505-522.
+<p>
+3.	Jenvey, S. Multi-Media in an Electromagnetics Laboratory,
+<i>Proceedings IEEE 1st International Conference on Multi Media Engineering
+Education</i>, July 6-8, 1994, 333-338.
+<p>
+<HR>
+
+</body>

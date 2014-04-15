@@ -1,0 +1,98 @@
+<html><head>
+<title>The usability of scribble matching</title>
+</head>
+
+<body>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/shortpap.JPG" ALT="shortpap" HEIGHT=35 WIDTH=249><A HREF="../../shortpap.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<h1>The usability of scribble matching</h1>
+<p>
+
+<i>David Frohlich *, Richard Hull**</i><p>
+<dl>
+<dt>*Hewlett Packard Laboratories
+<dt>Filon Road, Stoke Gifford
+<dt>Bristol BS12 6QZ, UK
+<dt>+44 117 922 8800
+<dt>dmf@hplb.hpl.hp.com
+</dl><p>
+
+<dl>
+<dt>**Hewlett Packard Laboratories
+<dt>Filon Road, Stoke Gifford
+<dt>Bristol BS12 6QZ, UK
+<dt>+44 117 922 8070
+<dt>rh@hplb.hpl.hp.com
+</dl><p><hr>
+
+<h2>ABSTRACT</h2>
+Scribble matching is a facility developed for pen-computers which allows users to search electronic ink.  Here we report our first user evaluation of scribble matching in a scribble phonebook application. 12 users each retrieved 40 phone numbers using combinations of scribble look-up, text look-up and manual browsing. Scribble look-up was preferred to the other two methods despite problems in remembering original handwritten labels in the phonebook.
+
+<h3>KEYWORDS:</h3>
+Pen, handwriting,  retrieval, usability
+
+<h2>INTRODUCTION</h2>
+The predominant paradigm in pen computing is to use the pen as an alternative to the keyboard on small portable appliances. Handwriting recognition technology is central to this paradigm as the means by which handwritten input is converted to ascii text.  However, current handwriting recognition software is only appropriate for certain tasks [3], and has created considerable market resistance to the use of pen computers in general.<p>
+
+In our group we have been exploring an alternative paradigm which we call 'handwriting-as-data'.  Within this view the pen is used to input handwriting, drawings or gestures which remain unprocessed by the computer and yet available for manipulation by the user.  The job of the computer is then to assist the user in this task.  To this end we have developed an algorithm for searching electronic ink called scribble matching [2] This takes a fragment of unrecognised  handwriting (or scribble) and compares it to a larger set in order to return one or more similar fragments. The algorithm currently returns a single correct match 97% of the time, from a 200 word dictionary.  Scribble matching can therefore be used to perform scribble look-up in a variety of pen-based applications including notetaking, form-filling, messaging, and PIM.<p>
+
+Two other research groups have reported attempts to develop a similar facility within the same paradigm [3,4], but there is as yet no published data on the usability or usefulness of scribble look-up in a real application. In the rest of this paper we describe an experiment to collect such data.
+
+<h2>PHONEBOOK  APPLICATION</h2>
+A scribble phone-book application was developed on a 486 PC running Windows for Pen. An active Wacom PL-100V tablet was used instead of a CRT monitor. A three column phonebook formed the core of the application.  Each row was a phonebook entry with an alphanumeric phone number shown in the right hand column. The middle column contained a textual name for the number while the left hand column contained a handwritten label. The entire phonebook was organised in pages containing 9 entries each and arrows to turn forwards or backwards in the book.  
+
+<h2>USER TASKS AND METHODS</h2>
+For the purposes of the experiment further features were added to the application to present it as a pen-based fax appliance supporting 2 tasks: phoning and faxing out.  Thus two icons for phoning and faxing appeared on the tablet together with a phonebook icon. When users clicked on these icons the system displayed a phone dialing form and a fax cover sheet respectively (see Figure 1).       
+
+<center>
+<IMG SRC="fd_fg1.gif" ALT=fg. 1><p>
+Figure 1. An example fax cover sheet
+</center><p>
+
+For both phoning and faxing users had to retrieve a number from the phonebook. They could do this in three ways:<br>
+(a) Browsing: by clicking on the phonebook icon to open the phonebook from which they could select numbers directly before returning to the phone or fax forms.<br>
+(b) Text look-up: by clicking the keyboard icon next to the 'Full name' field on either form, typing a textual label on a soft keyboard display and then pressing the 'Look up' button.<br>
+(c) Scribble look-up: by writing the scribble label into the 'Short name' field on either form and pressing  'Look-up'. <br>
+
+<h2>EXPERIMENTAL DESIGN AND PROCEDURE</h2>
+A single group of 6 male and 6 female members of non-technical staff from HP Labs Bristol took part in the study.  All subjects supplied us with the first 40 entries from their own personal phonebooks for prior entry into the textual name and number columns of the electronic phonebook.  At the beginning of each experimental session, subjects added a handwritten label to each textual entry in the 5 page phonebook. <p>
+
+A two factor repeated measures design was used to vary the task type (phone or fax) and the task methods (browsing, text, scribble or all) during the main session. Thus, each subject performed alternating phone and fax tasks on all 40 numbers in the phonebook. The numbers were selected in random order by the system and prompted using the corresponding textual label.  The trials were organised into 4 blocks of 10 to vary the methods available. In the first three blocks subjects were constrained to use either browsing, text or scribble look-up alone (in randomised order across the group).  In the final block of 10 trials subjects were allowed to chose between all these methods. A combination of objective and subjective measures were recorded for analysis.
+
+<h2>RESULTS</h2>
+There was no main effect of task type on any of the measures. However, there were several significant differences in user preferences across methods. All of these favoured Scribble look-up over Browsing and Text look-up (see Table 1). For example, the Scribble method was chosen more often than both the Text (c2=55.40, df=1, p<.001) and the Browsing method (c2=24.58, df=1, p<.001) in the All condition. Also, subjects tended to consistently rank the methods in the order; Scribble, Browsing, Text (W=0.55, p<.01). Finally, Scribble was rated more positively overall than both Browsing (t=5.42, df=23, p<.0001) and Text look-up (t=5.43, df=23, p<.0001), which were not significantly different from each other. <p>
+
+<center>
+<TABLE COLSPEC="C20 C20 C20 L20" BORDER=1>
+<CAPTION ALIGN=bottom>Table 1. Preference scores across retrieval methods</CAPTION>
+<TR><TH>METHOD</TH><TH>Scribble</TH><TH>Browsing</TH><TH>Text</TH></TR>
+<TR><TH>Look-up choices<br>('All' block)</TH><TD>98</TD><TD>32</TD><TD>12</TD></TR>
+<TR><TH>Mean Rank</TH><TD>1.17</TD><TD>2.25</TD><TD>2.58</TD></TR>
+<TR><TH>Mean Rating (%)</TH><TD>83</TD><TD>67</TD><TD>59</TD></TR>
+</TABLE></center><p>
+
+Such preference for Scribble look-up is especially interesting in the light of the actual efficiency of each method. In fact, Scribble and Browsing were faster than Text look-up (main effect on times F=12.91, df=2, p<0.001), but Browsing was more reliable than Scribble and Text (main effect on errors c2=23.8, df=2, p<0.001).  One reason subjects still preferred Scribble look-up to Browsing is that it involved less cognitive effort:<br>
+CS <i>"I hate looking at a screen. It's much easier to have the machine do it for me".</i>
+Another reason is that Scribble look-up was seen to be more appropriate than the other two methods. This was especially noticed on the fax task where writing the recipients name was seen as part and parcel of writing the cover note:
+KS <i>"To be able to sit and extract the number and do the text all in one go.. that certainly is brilliant"</i><p>
+
+Further analysis of the reasons for errors in Scribble look-up revealed a common information retrieval problem.  Subjects tended to forget their original handwritten phonebook labels, and attempted to search on the wrong target scribble.  For example, they searched on Doctors for Docs., Bob C  for Bob Coombes, and Budget for Car hire rtn.  In these cases, comprising 17% of all Scribble look-ups, the required entry would not even appear in the top 5 nearest match list (behind the 'Correct' button) because the referent scribble was so different to the desired scribble. In another 3% of cases, the system returned the wrong match from the correct target input; leading to an 80% success rate for each Scribble look-up. However, both types of errors were usually repaired through follow-up Scribble searches. These typically involved the user re-writing the previous target label.  If the input label was correct the system would usually get it right second time, whereas if it was incorrect the user would realise their own mistake on the second failed output and correct it on a third attempt.  Overall this resulted in a 97% task success rate using Scribble look-up.<p>
+
+These findings demonstrate enthusiastic user acceptance of scribble matching whilst flagging a human memory limitation common to all retrieval methods. Within our group they have encouraged us to think of ways of minimising the effect of wrong target entries and to research other applications of scribble matching.<p>
+
+<h2>REFERENCES</h2>
+<ol>
+<li>Frankish C., Hull R. & Morgan P. (1995) Recognition accuracy and user acceptance of pen interfaces. Proceedings of CHI '95: 503-510. New York: ACM SIGCHI.
+<li>Hull R., Reynolds D. & Gupta D. (1994) Scribble matching. Proceedings of the 4th International Workshop on Frontiers in Handwriting Recognition: 285-295. 
+<li>Lopresti D. & Tomkins A. (1994) On the searchability of electronic ink. Proceedings of the 4th International Workshop on Frontiers in Handwriting Recognition: 156-65.
+<li>Poon A., Weber K. & Cass T. (1995) Scribbler: A tool for searching electronic ink. Companion Proceedings of CHI '95: 252-253. New York: ACM SIGCHI.
+</ol>
+
+</body></html>

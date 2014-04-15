@@ -1,0 +1,181 @@
+
+<HTML>
+<HEAD>
+<TITLE>SHK: Single Hand Key Card for Mobile Devices </TITLE>
+</HEAD>
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/demo.JPG" ALT="Demo" HEIGHT=35 WIDTH=249><A HREF="../../demos.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<H1>SHK: Single Hand Key Card for Mobile Devices</H1>
+<P>
+<EM>
+Masakatsu Sugimoto*, Kimiyo Takahashi** 
+</EM>
+<P>
+<DL>
+<DT>*Fujitsu Laboratories Ltd.
+<DT>1015 Kamikodanaka, Kawaski 211 Japan
+<DT>+81 44 777 1111
+<DT>nab03277@niftyserve.or.jp
+</DL>
+<P>
+<DT>**Shinano Fujitsu Ltd.
+<DT>935 Nosakada, Iiyama, Nagano, 389-22 Japan
+<DT>+81 269 62 1155
+</DL>
+<P>
+<H2>ABSTRACT </H2>
+A new input unit for mobile devices is discussed. High speed text input 
+through touch typing and mouse data input is possible through an SHK: 
+Single Hand Key card, "castanets operation", an ambiguity resolution logic 
+applied word by word, and the other support software.
+<P>
+<H3>KEYWORDS: </H3>
+Single hand keyboard, mobile device, input device, input unit, touch 
+typing, ambiguity resolution 
+<P>
+<H2>INTRODUCTION </H2>
+We are going to propose a new input unit, a new way of operation and the 
+support software by which we can input text at high speed and can also 
+input mouse data, with single hand.
+<P>
+<H2>PROBLEM TO ATTACK </H2>
+The mobile devices such as notebook PC, palmtop PC, PDA are becoming 
+smaller and smaller, and also are becoming light weight. We have a lot of 
+potential for much smaller and much lighter mobile devices. However, input 
+unit for text and for the other operations is really a problem. 
+<P>
+A conventional keyboard is not suited for mobile devices. Touch typing on 
+conventional keyboard requires both hands operation. It is not suited for 
+mobile environments: when a user is in standing position, while he or she 
+is walking, while he or she is in a car, etc.[3], [4].
+<P> 
+<H2>PROPOSED SOLUTION </H2>
+We propose an SHK: Single Hand Key card which enables us touch typing text 
+input and mouse data input. We can operate the SHK card using only one hand 
+through "castanets operation" and applying an ambiguity resolution logic 
+word by word, and the other support software.
+<P>
+"Castanets operation" is shown in Figure 1. One is holding a card with the 
+thumb and a part of his palm. On the card there are keys for text input and 
+a stick and switches for mouse data input. One can input text and mouse 
+data with the other four fingers: the index finger, the middle finger, 
+the ring finger and the little finger. Thus one is able to operate a mobile 
+device using only one hand.
+<P>
+<STRONG>&COPY; Copyright on this material is held by the authors</STRONG>
+<P>
+<IMG SRC="ms_fg1.gif" ALT="Figure 1" ALIGN=middle > 
+<H3>Spatial Arrangement of Keys </H3>
+Figure 2 shows an SHK card with eighteen keys for touch typing by a single 
+hand. The eighteen keys are in three row and six columns. The reason for 
+this key arrangements is that assume we position our four fingers: the 
+index finger, the middle finger, the ring finger and the little finger at 
+a home position, the area where these four fingers will cover easily in 
+touch typing is those eighteen keys, in three rows: the home position row, 
+the upper row and the lower row.
+<P>
+<IMG SRC="ms_fg2.gif" ALT="Figure 2" ALIGN=middle > 
+<P>
+Each row has six keys. At the home position row, the index finger covers a 
+home position key and a key to the left of the home position key. A little 
+finger covers two keys: the home position key and a key to the right of it. 
+Other two fingers: the middle finger and the ring finger covers only one 
+key each. For the upper row and the lower row, same is applied as for the 
+home position row.
+<P>
+Next step is to divide these eighteen keys into keys for alphabetic 
+characters input and keys for control. Fourteen keys among the eighteen 
+keys are for alphabetic characters. If we would assign one key for an 
+alphabetic character, we would have twelve key less in the card, because 
+twenty six alphabetic characters are needed for English text. So our key 
+assignment scheme is as follows; two alphabetic characters for a key for 
+twelve keys and one alphabetic character for a key for the remaining two 
+keys.
+<P>
+The actual assignment of  each of the alphabetic characters to the keys was 
+done according to the frequency of appearance of each alphabetic character 
+in ordinary English text, for easiness of fingers' movement[1].
+<P>
+<H3>Ambiguity Resolution Logic Applied Word by Word </H3>
+We have assigned two alphabetic characters for a key to most of the 
+fourteen keys in the above arrangement. A user must somehow specify which 
+of the two alphabetic characters assigned to a key, he or she intends to 
+input[3], [4].
+<P>
+We have adopted quite a new scheme. No selection operation needed when a 
+user push a key for which two alphabetic characters are assigned. We will 
+apply an ambiguity resolution logic, word by word. That is, after a user 
+types a string of alphabetic characters which consists of a word, he will 
+push a control key: AR-key. AR means ambiguity resolution. At this moment, 
+some characters in the string have ambiguity, because the user hasn't 
+specify which one of two alternatives he intends to input.
+<P>
+The AR-key is pushed by the little finger at its home position, for typing 
+convenience. When the key is pushed, the ambiguity resolution logic will 
+retrieve a set of words which the logic infers that the user might have 
+intended to, by the input string. The set will be accessed through internal 
+word dictionaries and rules for English words. Then the set of words are 
+displayed on a screen. Interactively, the user selects what word he intends 
+to input among the set. He will use the AR-key again, for this selection 
+process, for input convenience.
+<P>
+The ambiguity resolution logic is realized in the SHK support software[2], 
+[5].
+
+<H2>IMPLEMENTATION </H2>
+The current prototype is designed to be used with IBM PC compatible 
+machines. The input unit: SHK card has PS/2 interface. 
+<P>
+The support software is working on MS Windows.
+<P>
+<H2>ATTAINMENTS </H2>
+No special training for text input and for mouse data input is required for 
+the SHK card, because key pushing is one key at a time operation; no need 
+for pushing two keys or more simultaneously, for text input. So a user with 
+various stage of experience at SHK will find himself  using it, according 
+to his or her skill level.
+<P>
+We start gathering data on typing speed. We are sure that an experienced 
+user will be typing more that forty words per minute.
+<P>
+<H2>APPLICATIONS </H2>
+The SHK card and the support software is suitable for input units for 
+mobile devices. It will also be conveniently used for presentation with a 
+data projector. It will surely be a good tool for some of the handicapped 
+persons.
+<P>
+<H3>FUTURE DEVELOPMENTS </H2>
+The SHK card is really a human machine interface. We are thinking of at 
+least three types of the card with different size. Because length of 
+fingers are different for individuals and the fitness of one's fingers to 
+the SHK card is very important for easiness of operation.
+<P>
+By combining advances in microprocessors and display units for mobile 
+devices with SHK cards, we will be able to attain very powerful information 
+and communication media which we will use in everyday life, anytime, 
+anywhere.
+<P>
+<H2>REFERENCES </H2>
+<OL>
+<LI>
+1. Beeching, W. Century of the Typewriter, Heinemann, 1974
+<LI>
+2. Darragh,  J., Witten, I. The Reactive Keyboard, Cambridge, 1992
+<LI>
+3. Endfield, C. Portable Word-Processor, US Patent, Appl. No. 188,571
+<LI>
+4. Matias, E., et., al. Half-QWERTY: Typing With One Hand Using Your 
+Two-hand Skills, <EM>Conference Companion</EM>, CHI '94, pp.51-52   
+<LI>
+5. Sugimoto, M. Keyboard with ambiguity resolution logic, filed at 
+US Patent and Trademark Office, #382,781, January 31, 1995
+</OL>
+</BODY>

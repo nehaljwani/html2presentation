@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3O//DTD W3 HTML 2.0//EN">
+<!- Converted with LaTeX2HTML 0.6.4 (Tues Aug 30 1994) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds ->
+<P>
+<HEAD>
+<TITLE>3.6 Navigating The File System</TITLE>
+<meta name="description" value="3.6 Navigating The File System">
+<meta name="keywords" value="paper">
+<meta name="resource-type" value="document">
+<meta name="distribution" value="global">
+</HEAD>
+<BODY><P>
+ <BR> <HR><A NAME=tex2html182 HREF="node16.html">[Next]</A> <A NAME=tex2html180 HREF="node7.html">[Up]</A> <A NAME=tex2html176 HREF="node14.html">[Previous]</A> <BR>    <BR>
+<B> Next:</B> <A NAME=tex2html183 HREF="node16.html">4 Conclusion</A>
+<B>Up:</B> <A NAME=tex2html181 HREF="node7.html">3 Examples Of Common </A>
+<B> Previous:</B> <A NAME=tex2html177 HREF="node14.html"> Interactive WWW Documents.</A>
+<BR> <HR> <P>
+<H2><A NAME=SECTION00036000000000000000>3.6 Navigating The File System</A></H2>
+<P>
+<A NAME=secdired>&#160;</A>
+<P>
+Emacs' <b>dired</b> mode, which is used to navigate the file system and perform
+operations such as moving, copying and deleting files, is extended to provide
+succinct aural feedback.  When navigating through the file listing, the user
+hears the name of the current file or directory spoken; different <em>file
+  types</em> <em>e.g.,</em> directories, executables and symbolic links are distinguished
+by speaking their names in different voices.  Opening a file plays the
+auditory icon for opening an object, and then speaks the name of the file just
+opened. Marking a file for later processing, deleting a file etc. all produce
+auditory icons.
+<P>
+The auditory icons in this context are very useful because typically,
+performing an action such as deleting a file when using <b>dired</b> affects
+the current object and moves the focus.  Visually,  the file marked for
+deletion is set apart and the focus is moved.  Combining the sound of a file
+being deleted with the speaking of the current object introduces the same
+level of parallelism in the aural interaction.
+<P>
+When navigating the <em>dired</em> buffer for the directory containing this
+paper, a screen-reader would speak a typical line shown below
+<pre>
+-rw-r--r-- 1 raman users 11905 Aug 17 16:04 ex-
+</pre>
+as `` dash rw dash r dash dash r dash dash 1 raman users 11905 Aug 17 16:04
+examples.tex'',  an utterance that is hard to parse and comprehend.  In
+contrast, Emacspeak merely speaks the filename; the listener can repeatedly
+press the <i>tab</i> key to hear the various fields of the file listing.
+Below, we list the utterances produced by each repeated press of the <i>tab</i> key.
+<P>
+<pre>
+        Permissions             rw r r
+        Links           1
+        Owner           raman
+        Group           users
+        Size            11905
+        Last Modified   Aug 17 16:04
+        Filename        examples.tex
+</pre>
+<BR>
+<a name=FIGDIRED>
+<STRONG>Figure 2:</STRONG> Tabbing through a file listing.<BR>
+</a>
+<P>
+
+Notice that Emacspeak infers the meaning of each field in the file listing.
+Pressing the <i>tab</i> key while a field is being described interrupts
+speech immediately and moves to the next field.
+<P>
+<BR> <HR><A NAME=tex2html182 HREF="node16.html">[Next]</A> <A NAME=tex2html180 HREF="node7.html">[Up]</A> <A NAME=tex2html176 HREF="node14.html">[Previous]</A> <BR>    <BR>
+<B> Next:</B> <A NAME=tex2html183 HREF="node16.html">4 Conclusion</A>
+<B>Up:</B> <A NAME=tex2html181 HREF="node7.html">3 Examples Of Common </A>
+<B> Previous:</B> <A NAME=tex2html177 HREF="node14.html"> Interactive WWW Documents.</A>
+<BR> <HR> <P>
+<BR> <HR>
+<P><ADDRESS>
+<I> Raman T. V. <BR>
+Tue Nov 21 15:57:11 PST 1995</I>
+</ADDRESS>
+</BODY>

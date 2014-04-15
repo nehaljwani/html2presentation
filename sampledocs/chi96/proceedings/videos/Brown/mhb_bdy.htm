@@ -1,0 +1,177 @@
+<html><head>
+<title>The DeckScape Web Browser</title>
+<body>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/videos.JPG" ALT="videos" HEIGHT=35 WIDTH=249><A HREF="../../videos.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+
+<h1>The DeckScape Web Browser</h1>
+
+<P>  
+<em>Marc H. Brown and Robert A. Shillner</em>  
+<P>  
+<DL>  
+<DT> <A HREF="http://www.research.digital.com/SRC/people/Marc_Brown/bio.html">  
+     Marc H. Brown</A>  
+<DT> DEC Systems Research Center
+<DT> 130 Lytton Avenue  
+<DT> Palo Alto, CA 94301  
+<DT> mhb@src.dec.com  
+</DL>  
+<DL>  
+<DT> <A HREF="http://www.cs.Princeton.EDU/~ras">  
+     Robert A. Shillner</A>  
+<DT> Department of Computer Science  
+<DT> Princeton University  
+<DT> Princeton, NJ 08544  
+<DT> ras@cs.princeton.edu  
+</DL>  
+
+<p>
+&copy; ACM
+<p>
+
+<a name="pprintro"> 
+<h2>Abstract</h2>  
+
+This video shows DeckScape, an experimental World-Wide Web browser.
+DeckScape uses the metaphor of a deck of playing cards, where each
+card is a Web page, and each deck is displayed in its own window.  As
+the user traverses links, new pages appear on top of the deck. Users
+can circulate through the pages in a deck, move and copy pages between
+decks, and so on. The primary contributions of DeckScape are
+&quot;away&quot; pages and a general-purpose way to organize Web pages
+such as hotlists, page expansions, and query results.
+
+<h2>Keywords</h2>
+
+Interactive user interfaces, information navigation, interaction
+techniques, World-Wide Web, Mosaic.
+
+
+<h2>DeckScape</h2>
+
+DeckScape [1,2] is an experimental Web browser that centers on the
+metaphor of a deck of playing cards, where each card is a Web
+page. Each deck is displayed in its own window, with its top page
+visible. DeckScape consists of multiple decks, all in a single
+top-level window. Users can move, resize, iconify or rename decks,
+move or copy pages between decks, start new decks, delete decks or
+pages, and so on. The contents of decks persist between invocations of
+DeckScape, as an ASCII file containing the URLs of the pages in each
+deck.
+
+<p>When the user clicks on a link on a Web page, a new page appears on
+top of the deck, obscuring the page that was previously visible. The
+user can leaf through a deck's pages one at a time, jump to the top or
+bottom of the deck, or move to any particular page by choosing its
+name from a list of the deck's current contents. DeckScape retains all
+pages until the user explicitly discards them.  For example, consider
+a user who starts at page A, then traverses some pages (including B)
+and ends at C. If the user then backs up to B and chooses a new link,
+DeckScape will insert the new page into the deck just after B, whereas
+traditional browsers discard all of the pages after B up to and
+including C.
+
+
+<h3>Decks For Organizing Web Pages</h3>
+
+The deck abstraction provides a way for users to organize
+material. For example, a user can keep the home pages of all of his or
+her colleagues together in a deck named &quot;Colleagues,&quot; or
+keep several hotlists, each in its own deck. DeckScape provides a deck
+named &quot;HotList,&quot; and any page can be copied into that deck
+with a mouse click.
+
+
+<h3>Decks For Away Pages</h3>
+
+DeckScape allows users to drag pages from their home decks and
+temporarily display them in separate windows.
+When the user clicks on a link in such an &quot;away&quot; page, the
+new page appears back on the home deck rather than obscuring the away
+page.  Thus, the user can have a page, such as a table of contents or
+index, visible for an extended period, even while following another
+chain of links on the main body of the deck. Because the system is
+multi-threaded, users can &quot;click-ahead&quot; on links visible in
+any away page.
+
+<p>The following screen dump shows DeckScape with three decks:
+&quot;Home Deck,&quot; &quot;Search Engines,&quot; and &quot;Local
+Restaurants.&quot; The &quot;Home Deck&quot; deck contains 7 pages,
+and the 4th page is currently being displayed. In the &quot;Search
+Engines&quot; deck, the user split the window horizontally; each pane
+can be scrolled independently.  The small window in the lower-left is
+showing an &quot;away&quot; page from the &quot;Local
+Restaurants&quot; deck.
+<center>
+<img src="mhb_fg1a.gif" alt="Figure 1">
+(<a href="mhb_fg1b.gif">larger</a>)
+(<a href="mhb_fg1c.gif">full size</a>)
+</center>
+
+<h3>Decks For Advanced Commands</h3>
+
+DeckScape also uses decks to return the results of certain operations.
+For example, there is a global search command that searches all decks
+and copies pages with hits into a new deck. The &quot;Expand One
+Level&quot; command traverses every link on a particular page, and
+returns all resulting pages in a new deck. This &quot;auto-surf&quot;
+feature is particularly useful when applied to a page a links returned
+by a search engine.  Because DeckScape is multi-threaded, the user can
+start browsing the contents of the resulting deck before all of the
+resulting pages are retrieved.
+
+<p>When the following screen dump was taken, the user had issued the &quot;Expand One
+Level&quot; command in the deck &quot;Home Pages&quot; while it was displaying the
+SRC home page. This command caused DeckScape to traverse each link on
+the page and place the resulting documents in a new deck. When this
+screen dump was taken, 65 of the 79 links on the home page had already
+been followed, and the user had browsed pages in the deck, stopping at
+the 22nd page.
+<center>
+<img src="mhb_fg2a.gif" alt="Figure 2">
+(<a href="mhb_fg2b.gif">larger</a>)
+(<a href="mhb_fg2c.gif">full size</a>)
+</center>
+
+
+<h2>Status</h2>
+
+DeckScape was initially implemented during the summer of 1994 while
+Rob Shillner was an intern at the Systems Research Center. It handles
+HTML 2.0, except forms; currently, DeckScape does not support external
+views. The system is available as part of the standard Modula-3
+release [3].
+
+
+<p> 
+<a name="pprrefs"> 
+<p> 
+<h2>References</h2>  
+  
+[1] Brown, M. H. and Shillner, R. A.<br>
+A New Paradigm for Browsing the Web.<br>
+<em>CHI'95 Conference Companion</em> (May 1995) 320-321.
+
+<p>
+[2] Brown, M. H. and Shillner, R. A.<br>
+DeckScape: An Experimental Web Browser.<br>
+<i>Computer Networks and ISDN Systems</i> <b>27</b> (1995) 1097-1104.
+
+<p>
+[3] Modula-3 home page.<br>  
+<KBD><A HREF=  
+"http://www.research.digital.com/SRC/modula-3/html">  
+http://www.research.digital.com/SRC/modula-3/html
+</A></KBD>  
+
+</body>
+</html>
+

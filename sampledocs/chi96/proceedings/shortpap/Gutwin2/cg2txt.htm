@@ -1,0 +1,121 @@
+<HTML>
+<HEAD>
+<TITLE>Workspace Awareness for Groupware</TITLE>
+</HEAD>
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/shortpap.JPG" ALT="shortpap" HEIGHT=35 WIDTH=249><A HREF="../../shortpap.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+
+<H1>Workspace Awareness for Groupware</H1>
+<BR>
+
+<EM>Carl Gutwin and Saul Greenberg<BR>
+<P>Dept. of Computer Science, University of Calgary<BR>
+Calgary, Alta, Canada  T2N 1N4<BR>
+Tel: +1-403-220-3532<BR>
+E-mail: [gutwin, saul]@cpsc.ucalgary.ca<BR></EM>
+
+<H2>ABSTRACT</H2> 
+
+Shared physical workspaces allow people to maintain up-to-the minute knowledge about others' interaction with the workspace. This knowledge is workspace awareness, part of the glue that allows groups to collaborate effectively. In this paper, we present the concept of workspace awareness as a key for groupware systems that wish to support the fluid interaction evident in face-to-face collaboration. We discuss why workspace awareness is difficult to support in groupware systems, and then present a conceptual framework that groupware designers can use as a starting point for thinking about and supporting awareness. 
+
+<H3>KEYWORDS:</H3>
+
+<P>Workspace awareness, groupware, CSCW
+
+<H2>INTRODUCTION</H2>
+
+<P>Shared physical workspaces (such as a chalkboard, a control panel, or a tabletop) and the artifacts in them act as stage and props for rich person-to-person interaction (e.g. [1]). The affordances of physical workspaces allow people to maintain awareness of others' locations, activities, and intentions relative to the task and to the space-awareness that enables them to work together more effectively. We call this <EM>workspace awareness</EM>: the collection of up-to-the minute knowledge a person uses to capture another's interaction with the workspace. 
+
+<P>Real-time distributed groupware often provides shared virtual workspaces. However, interactions within virtual workspaces are impoverished when compared with their physical counterparts. We want to enrich this interaction, and so we are exploring the concept of workspace awareness. The following sections describe workspace awareness, outline the problems faced in supporting it, and present a framework that organizes knowledge about the concept into a form usable by groupware designers.
+
+<H2>WORKSPACE AWARENESS</H2>
+
+<P>In our own observational studies of collaboration over physical workspaces, we have looked at how workspace awareness operates in mixed-focus situations, where group members shift their attention back and forth between individual and shared activity. In these situations, the workspace allows lightweight information gathering such as quick glances over at another person's work area. This information is integrated with existing knowledge to maintain a sense of awareness of where the other person is and what they are doing. Workspace awareness aids coordination of tasks and resources, and assists transitions between individual and shared activities. People can use their knowledge to anticipate others' actions, assist them with their tasks, and interpret deictic references to objects. The benefits of workspace awareness are subtle, but over the course of a collaborative interaction, they can markedly improve a group's effectiveness.
+
+<H3>The Problem of Workspace Awareness in Groupware</H3>
+
+<P>Workspace awareness comes naturally in a face-to-face situation, but it is far more difficult to maintain in a real-time groupware system. In groupware, people may only see a fraction of the workspace, and may not see the same part as other group members. A groupware system also reduces the richness of communication, and its interface may hide many actions that are visible in a physical workspace. Furthermore, perceptual and physical abilities that we use to maintain workspace awareness (such as glances) are often replaced with mechanisms that are comparatively slow and clumsy (such as scrolling).
+<P>Within this different environment, the groupware designer must try and recreate the conditions and cues that allow people to keep up a sense of workspace awareness. Whereas face-to-face interaction has inherent mechanisms and affordances for maintaining workspace awareness, the groupware designer is faced with a blank slate-any support for building or maintaining workspace awareness must be explicitly determined and built into the groupware system, and it is not obvious what that support should be.
+
+<H2>A FRAMEWORK OF WORKSPACE AWARENESS</H2>
+
+<P>Groupware designers face two problems in designing awareness support. First, what information should a groupware system capture about another's interaction with the workspace? Second, how should this information be presented to other participants? We have built a framework of workspace awareness to address these issues. It presents a set of basic ideas that are central for designing awareness support, and that allow different techniques to be identified, described, and compared. The framework considers both the elements that make up people's workspace awareness, and the mechanisms they use to gather awareness information.
+
+<H4>Elements and Relevant Questions</H4>
+
+<UL>
+
+<LI>Presence: Who is participating in the activity?
+<LI>Location: Where are they working?
+<LI>Activity Level: How active are they in the workspace? 
+<LI>Actions: What are they doing? 
+<LI>What are their current activities and tasks?
+<LI>Intentions: What will they do next? Where will they be?
+<LI>Changes: What changes are they making, and where?
+<LI>Objects: What objects are they using?
+<LI>Extents: What can they see? How far can they reach?
+<LI>Abilities: What can they do?
+<LI>Sphere of Influence: Where can they make changes?
+<LI>Expectations: What do they need me to do next?
+
+</UL>
+
+<P>Table 1. Elements of workspace awareness
+
+<P>The table shows a set of elements that we consider to be part of workspace awareness, and lists questions that a participant might ask themselves during a shared activity. Many of the elements fall into two rough groups: those that deal with <EM>what</EM> is happening with another person (e.g. amount of activity, nature of actions, changes, and expectations), and those that deal with <EM>where</EM> it is happening (location of focus, view extents, area of influence, or objects in use).
+
+<P>These elements provide a basic vocabulary for thinking about awareness requirements and groupware support. Designers can use the framework to analyze existing face-to-face situations. As a simple example, a group activity like a jigsaw puzzle may require that people stay aware of where in the puzzle others are working, but not the particular objects that they are manipulating. In addition to considering which elements are more or less important in a particular situation, there are several ways that a designer can assess how elements are used. For example:
+
+<UL>
+
+<LI>elements may consider a person's interaction with the workspace in the past instead of the present (e.g., where others have been and what they have been doing);
+
+<LI>elements may constrain one another (e.g., someone's location may also indicate what they are doing)
+
+<LI>elements may imply different information granularity (e.g. in loosely-coupled collaboration, people may need only a general idea of where others are working).
+
+</UL>
+
+<P>The framework also considers how people gather information to maintain workspace awareness. However, determining precise mechanisms in face-to-face situations is difficult, since they can be subtle, hard to observe (sound cues, for example), or buried within layers of inference. Instead, we have determined a general set of information-gathering mechanisms that have been discussed in previous literature, basic mechanisms through which workspace awareness is maintained.
+
+<UL>
+
+<LI>Direct communication: explicit communication through speech or gesture [1], often employing deictic reference.
+<LI>Indirect productions: utterances, expressions, or actions that are not explicitly directed at others, but that are intentionally public.
+<LI>Consequential communication: the visible or audible signs of interaction with a workspace [4]. Watching someone work provides clues about their actions. 
+<LI>Feedthrough: the observable effects of someone's actions on the workspace's artifacts. Seeing an object move indicates that someone is moving it.
+<LI>Environmental feedback: feedback from the environment or overall workspace caused by the indirect effects of someone's actions. 
+
+</UL>
+
+<P>Groupware designers must consider how information about various elements is transmitted and gathered, and must allow people to continue using natural mechanisms like those listed above, or others specific to particular domains and situations. With knowledge of these mechanisms, and of how they are used to maintain different elements of awareness, a designer can begin to create techniques and widgets that provide people with appropriate information about others in a virtual workspace.
+
+<H2>CONCLUSION</H2>
+
+<P>Workspace awareness is an important concept for real-time distributed groupware. By setting out elements and mechanisms of workspace awareness, the conceptual framework above provides a vocabulary and a starting point for thinking about and designing groupware support. We currently use the framework to inform the design of awareness widgets for a groupware toolkit. In future, we plan to expand and validate the framework through additional studies of face to face groups, to continue building awareness widgets for particular situations, and to investigate other issues raised in applying the framework to groupware.
+
+<H2>REFERENCES</H2>
+
+<OL>
+
+<LI>Tang, J. Findings from Observational Studies of Collaborative Work. <EM>IJMMS</EM> 34,2 (1991), 143-160.
+
+<LI>Gutwin, C., Stark, G., and Greenberg, S. Supporting Workspace Awareness in Educational Groupware. In <EM>Proc. CSCL'95</EM>, Bloomington, IN, (1995), 147-156.
+
+<LI>Dourish, P. and Bellotti, V. Awareness and Coordination in Shared Workspaces. In <EM>Proc. CSCW'92</EM> (Toronto, 1992), 107-114.
+
+<LI>Segal, L. Actions Speak Louder Than Words: How Pilots Use Nonverbal Information. In <EM>Proc. Human Factors '94</EM> (1994), 21-25.
+
+</OL>
+</BODY>
+</HTML>
+
+

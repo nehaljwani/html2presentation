@@ -1,0 +1,827 @@
+<!doctype html public "-//IETF//DTD HTML//EN">
+<HTML>
+
+<HEAD>
+
+<TITLE>Homunculus</TITLE>
+
+</HEAD>
+
+<BODY>
+<P><IMG SRC="./../../graphics/papers.JPG" ALT="papers" HEIGHT=35 WIDTH=249><A HREF="./../../papers.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+
+<H1>The Influence of Muscle Groups on Performance of Multiple
+Degree-of-Freedom Input</H1>
+
+<P>
+<B><A HREF= "http://vered.rose.toronto.edu/people/shumin.html">Shumin Zhai</B></A><P>
+Department of Industrial Engineering and Department of Computer
+Science, University of Toronto, Toronto, Ontario, Canada, MS4 1A4. 
++1-416-978-1976 / zhai@dgp.toronto.edu <P>
+
+<B><A HREF= "http://vered.rose.toronto.edu/people/Paul.html">Paul Milgram</B></A><P>
+
+
+<P>
+Department of Industrial Engineering, University of Toronto, Toronto, Ontario, 
+Canada, MS4 1A4. +1-416-978-1976 / milgram@ie.toronto.edu <P>
+
+<A HREF= "http://www.dgp.toronto.edu/people/BillBuxton/billbuxton.html"><B>William Buxton</B></A>
+
+
+<P>
+Department of Computer Science, University of Toronto, Toronto, Ontario, Canada, MS4 1A4. 
++1-416-978-1961 / buxton@dgp.toronto.edu
+
+
+<H1>ABSTRACT</H1>
+
+<P>
+The literature has long suggested that the design of computer
+input devices should make use of the fine, smaller muscle groups
+and joints in the fingers, since they are richly represented in
+the human motor and sensory cortex and they have higher information
+processing bandwidth than other body parts. This hypothesis, however,
+has not been conclusively verified with empirical research. The
+present work studied such a hypothesis in the context of designing
+6 degree-of-freedom (DOF) input devices. The work attempts to
+address both a practical need - designing efficient 6 DOF input
+devices - and the theoretical issue of muscle group differences
+in input control. Two alternative 6 DOF input devices, one including
+and the other excluding the fingers from the 6 DOF manipulation,
+were designed and tested in a 3D object docking experiment. Users'
+task completion times were significantly shorter with the device
+that utilised the fingers. The results of this study strongly
+suggest that the shape and size of future input device designs
+should constitute affordances that invite finger participation
+in input control.
+<H2>Keywords</H2>
+
+<P>
+Input devices, 3-D interface, 6 DOF input, motor control, muscle
+group differences, hand, fingers, arm, homunculus model.
+<H1>INTRODUCTION</H1>
+
+<P>
+This paper studies the effects of using different muscle groups
+in 6 degree-of-freedom (DOF) manipulation. In particular, it investigates
+human performance differences in 6 DOF input control with and
+without the involvement of the small muscle groups and joints
+in the user's fingers. 
+<P>
+Increasingly, the user interfaces that we are designing and using
+involve higher degrees of freedom than were found in first generation
+GUIs. This places a higher load on the operators of such systems.
+Consequently, it is all the more important that the motor and
+cognitive resources of the operator be used to their greatest
+effect. Many studies have already been conducted which address
+issues in multiple DOF input (e.g. [11], [12], [14], [25], [26]
+and [27]). 
+<P>
+The study reported in this paper adds to this literature. It investigates
+how human performance in 6 DOF tasks varies according to the muscle
+groups employed. The implications of this research are very practical.
+If performance for a given task is higher when a particular muscle
+group is employed, then future input devices can be tailored accordingly,
+with affordances [8] that encourage the use of that group.
+<P>
+The present study was inspired by Card, Mackinlay and Robertson's
+&quot;morphological analysis&quot; of the design space of input
+devices, which suggested &quot;a promising direction for developing
+a device to beat the mouse by using the bandwidth of the fingers&quot;
+[2]. This prediction was based upon the well-established &quot;homunculus
+model&quot; from neurophysiology (Figure 1) and some motor bandwidth
+studies using Fitts' law tasks. However, empirical HCI studies
+that support such a prediction have not been conclusive. One candidate
+device which affords finger based manipulation and could therefore
+conceivably &quot;beat&quot; the mouse is a pen shaped 2 DOF input
+device such as the stylus studied by MacKenzie, Sellen and Buxton
+[19]. In their comparison of a stylus with a mouse, however, the
+results were inconclusive: the stylus outperformed the mouse in
+dragging but not in pointing tasks. Furthermore, in the context
+of conventional GUIs, even if the stylus were shown to result
+in higher performance, the issue may well be moot. This is because
+the time to acquire the device (i.e. the time for moving between
+the keyboard and pointing device, which is much longer with the
+stylus) may dominate the overall performance. We feel that such
+&quot;side effects&quot; and the collective user experience with
+the mouse as the &quot;standard&quot; 2 DOF computer input device
+may make the replacement of the mouse with a finger operated device
+a futile pursuit. 
+<P>
+<center>
+<img src="sz_fg1.gif" alt="Figure 1"><p>
+
+<B>Figure 1</B> Homunculus model of somatosensory (left) and motor (right) cortex
+(Adapted from [23], G. H . Sage, Introduction to Motor Behavior,
+&#169;1977 Addison-Wesley Publishing Company Inc. Reprinted by
+permission of Addison-Wesley Publishing Company, Inc.)<p>
+</center>
+
+In the present study, for several reasons, we have chosen to focus
+on 6 DOF tasks. First of all, there is not yet an accepted standard
+6 DOF input device. Secondly, few would disagree that 6 DOF input
+tasks are much more demanding than 2 DOF input tasks. Consequently,
+if one particular design factor results in a slight advantage
+in a 2 DOF input task, that same subtle advantage may manifest
+itself to a much larger extent in 6 DOF input tasks.<p>
+
+<H1>THE LITERATURE</H1>
+
+<P>
+As mentioned earlier, neurophysiological studies have shown that
+various parts of the human body are anatomically reflected in
+the brain disproportionately relative to their physical size and
+mass, as illustrated by the homunculus model (Figure 1). Of particular
+interest to the present study is the fact that representations
+of the fingers and the hands in both the somatosensory cortex
+and the motor cortex are much richer than those of the wrists,
+elbows and shoulders. We may therefore expect performance enhancement
+if fine muscle groups (i.e. fingers) are allowed to take part
+in handling an input device. On the other hand, one should note
+that the relationship between the size of cortical area and dexterity
+has not been definitively proven in the field of neuroscience.
+
+<P>
+One of the first studies on the effects of different body parts
+in manual control was done by Gibbs [6]. In a one dimensional
+target acquisition task, Gibbs studied task performance of three
+different body parts: the thumb (activated by the carpometacarpal
+joint), the hand (activated by the wrist), and the forearm (activated
+by the elbow), in both position and rate control systems with
+various control gains and time delays. The performance ranking
+in Gibbs&#146; study was, in decreasing order: hand, forearm,
+thumb. 
+<P>
+Hammerton and Tickner later replicated Gibbs' study in a 2 DOF
+target acquisition task [9]. Although Gibbs and Hammerton <I>et
+al</I> subsequently argued about their experimental methodology
+[7][10], the two studies in fact arrived at very similar conclusions,
+that performance with the hand (wrist movement) was superior to
+that of the thumb and the forearm. This advantage was greater
+for more difficult tasks, such as those with long time delays
+[9]. Note that both studies found that the wrist was more effective
+than the thumb. Neither Gibbs nor Hammerton and Ticker included
+fingers in their studies, however.
+<P>
+The motor performance of different limbs has also been investigated
+in various Fitts' law studies. Fitts' law established the simple
+linear relationship: MT = a + b ID in repetitive tapping tasks,
+where MT is the movement time, ID = log2(2A/W) is the Index of
+Difficulty, A is the movement amplitude and W is the width of
+the target area [4]. The slope parameter b, in units of seconds/bit,
+is the inverse of the motor system information processing rate.
+Fitts' law studies have typically found this rate (1/b) to be
+in the vicinity of 10 bits/second when the arm is involved in
+the movement. 
+<P>
+Fitts speculated that other limbs, such as fingers, may show different
+processing rates [4]. Subsequent studies in fact supported this
+hypothesis. Langolf, Chaffin, and Foulke investigated the Fitts'
+law relationship using amplitudes of A = 0.25 cm, A = 1.27 cm
+and A &gt; 5.08 cm [16]. For the first two amplitudes, the experiment
+was carried out using a microscope. For the large amplitude (&gt;5.08
+cm), the experiment was carried with direct vision. Langolf and
+colleagues observed that for A = 0.25 cm subjects moved the stylus
+tip (a 1.1 mm peg) primarily with finger flexion and extension.
+For A = 1.27 cm, flexion and extension of both wrist and fingers
+occurred. For A &gt; 5.08 cm, the forearm and upper arm were involved
+in the movements. On the basis of this method of allocating actuation
+to different muscle groups by controlling the range of movement,
+Langolf and colleagues concluded that the information processing
+rates (1/b) for the fingers, wrist, and arm were 38 bits/sec,
+23 bits/sec and 10 bits/sec respectively (see Figure 6 in [16]).
+This study has been widely cited in the literature (e.g. [1];
+[15]; [2]) as evidence that fingers are among the most dextrous
+organs. Card and colleagues recently reviewed Fitts' law studies
+with various body parts (finger, wrist, arm, neck) and pointed
+out the limitations of the widely used computer input device -
+the mouse [2]. 
+<P>
+In summary, both neurophysiological studies (the homunculus model)
+and Fitts&#146; law studies suggest that use of the small muscle
+groups (fingers and thumbs) should result in better performance
+than the large muscle groups (arm and shoulder). However some
+studies in manual control, such as Gibbs' study [6] and Hammerton
+and Tickner's study [9], are not completely consistent with such
+a prediction.
+<P>
+Due to the theoretical motivation, most studies in the literature
+tend to compare performance of different muscle groups <I>against</I>
+each other. From a practical and ecological point of view, such
+a contrast is not necessary for the design of 6 DOF input devices.
+The human upper limb as a whole (from shoulder to finger tips)
+has evolved to be highly dextrous yet powerful. Every part of
+it has its purpose and function. What is needed in input device
+design is to make use of all parts of the associated limb, according
+to their respective advantages. The larger muscle groups that
+operate the wrist, elbow, and shoulder have more power and a larger
+range of movement. The smaller muscle groups that operate the
+fingers and thumb have more dexterity. When all the parts work
+in synergy, movement range and dexterity can both be maximised.
+
+<H1>TWO ALTERNATIVE DESIGNS</H1>
+
+<P>
+The preceding discussion suggests that performance improvement
+in 6 DOF input does not necessarily lie simply in moving operations
+from the large muscle groups to the smaller ones, but rather in
+using the small muscle groups <I>in addition to</I> the large
+ones. Motivated by this hypothesis, we designed and implemented
+two alternative 6 DOF devices for this experiment: the Glove and
+the FingerBall. The two designs were based on a single common
+sensing technology, an Ascension Bird&#153;, and both were free
+moving, isotonic devices operating in position control mode [27].
+The critical difference between the two devices, therefore, lay
+in the involvement of fingers in the manipulation of the 6 degrees
+of freedom. 
+<H2>The Glove</H2>
+
+<P>
+The first design was an instrumented glove (Figure 2) that had
+been used in previous experiments [e.g. 28]. An Ascension Bird&#153;
+magnetic tracker was attached to the centre of the palm of the
+glove, the rotational centre of the hand. Also mounted on the
+palm of the glove was a button with a T-bar. The clutch could
+easily be pressed down by closing the fingers. The entire glove
+device weighs 70g.
+<center>
+<P><img src="sz_fg2.gif" alt="Figure 2"><p>
+<P>
+<B>Figure 2</B> The 6 DOF glove <B><!--Figure 2 The 6 DOF glove --></B>
+</center>
+<P>
+The Glove design resembles many of the common virtual reality
+input devices. When using the Glove, all translation and rotation
+operations are carried out by the user's shoulder, elbow and wrist,
+i.e., the gross joints and muscle groups in the human limb. Other
+than pressing the T-button, the smaller, finer joints and muscle
+groups on the fingers were not utilised for the 6 DOF manipulation.
+
+<P>
+The T-button was an essential component of the input glove. Since
+the Glove requires rotation to be made with the wrist, the elbow
+and the shoulder, its range of rotation is limited. Whenever a
+limit is reached, the user needs the clutch to disengage the manipulated
+object (by releasing the T-button under the fingers) and restore
+the hand to a more comfortable posture, and then recommence the
+manipulation (by re-closing the fingers). This is very similar
+to lifting a 2 DOF mouse and starting from a new position on the
+mouse pad. We refer to this process as &#147;re-clutching&#148;.
+
+<P>
+The majority of existing designs of freely moving 6 DOF devices,
+such as the &#147;Bat&#148; [25], the &#147;Cricket&#148; [3]
+and the 3D mouse [17] are similar to the glove design in assigning
+wrist, elbow and shoulder muscle groups for manipulating the six
+degrees of freedom; however, none of these make use of the fingers.
+
+<H2>The FingerBall</H2>
+
+<P>
+The second design is shown in Figure 3. This device has been dubbed
+the FingerBall, to reflect the ability to operate it with both
+arm and fingers. 
+<P>
+<center>
+<P><img src="sz_fg3.gif" alt="Figure 3"><p>
+<B>Figure 3</B> The FingerBall<B><!--Figure 3 The FingerBall--></B>
+</center>
+<P>
+The ball shape was chosen because a symmetrical ball shape can
+easily be grasped and manipulated by the fingers in all directions.
+The FingerBall is designed to be held and moved (rolled) by the
+fingers, wrist, elbow and shoulder, in postures that have been
+classified as &quot;precision grasp&quot;, as opposed to &quot;power
+grasp&quot; [18]. Precision grasping, while holding objects with
+the finger tips, places emphasis on dexterity and sensitivity.
+In contrast, power grasping, while holding objects against the
+palm, puts emphasis on security and power. The FingerBall has
+been designed with a versatile shape that is compatible with a
+variety of virtual object shapes. This approach of choosing a
+versatile shape is an alternative to the approach of making &quot;props&quot;
+that are designed to resemble features of virtual objects being
+manipulated [11]. The FingerBall instead is similar to the concept
+of &quot;bricks&quot; [5],  which are universal physical handles
+to various virtual objects.
+<P>
+To take maximum advantage of finger operations, two additional
+features would be desirable. One is to make the ball <I>tetherless</I>,
+so that the user can roll it freely between her fingers without
+interference. The second desirable feature is that the ball be
+made of an elastic, conductive material, so that the entire ball
+functions as a button that can be squeezed from any direction.
+Since enabling technology for wireless design is not easily available,
+the FingerBall currently uses the Ascension Bird&#153; tracker
+mounted in the centre of a sponge filled ball 6 cm in diameter.
+The entire FingerBall weighs 66g. The cord of the Bird is pointed
+away from the hand in the null position, so as to maximise the
+range of rotation without interference from the cord (Figure 3).
+Furthermore, since the FingerBall can be rotated up to 180 degrees
+in any direction, it did not require a clutch as in the glove
+design for the task used in the following experiment. It was therefore
+not necessary to implement a button for the FingerBall in the
+experiment.
+<P>
+The 3BallTM, manufactured by Polhemus [20], is a commercial product
+similar to the FingerBall design. The limitation of the 3Ball
+is its fixed button location. In order to access this button,
+users can not freely roll the ball between their fingers. Another
+spherical implementation of a 6 DOF tracker, the &quot;Cue Ball,&quot;
+was demonstrated by Dan Venolia at the CHI'90 Interactive Experience.
+<H1>EXPERIMENT</H1>
+
+<H2>Experimental Set-up</H2>
+
+<H3>Experimental Platform and Display </H3>
+
+<P>
+The experiment was conducted with a desktop stereoscopic virtual
+environment, MITS (Manipulation In Three Space). As illustrated
+in Figure 4, MITS consists of a SGI IRIS 4D/310 GTX graphics workstation,
+CrystalEyes&#153; stereoscopic glasses, several 6 DOF input devices
+and a software system developed by the first author.
+<P>
+<center>
+<P><img src="sz_fg4.gif" alt="Figure 4"><p>
+<B>Figure 4</B>  Experiment Set-up
+</center>
+<P>
+Since the overall objective of this experiment was to evaluate
+6 DOF input interfaces, the emphasis in designing the display
+was to provide the largest possible number of 3D spatial cues.
+This was to ensure that the task performance was driven predominantly
+by differences in input controller conditions rather than by difficulties
+in perceiving depth information. A 120 Hz sequential switching
+stereoscopic display was employed, which has been shown to be
+a necessary feature for this kind of experiment. To enhance the
+3D effect, perspective projection and interposition cues were
+also implemented. The tetrahedra were drawn in wireframe so that
+all edges and corners of the objects could be perceived simultaneously.
+Subjects were asked to sit on a chair approximately 60 cm away
+from the computer screen for all experimental conditions (Figure
+4).
+<H3>Experimental Conditions</H3>
+
+<P>
+Two experimental conditions, the Glove and the FingerBall, were
+used in this experiment. A pilot study showed that the best performances
+for both conditions were achieved when the control display ratio
+(control gain) was 1 (both translation and rotation). In such
+cases, subjects can take the advantage of the direct, one-to-one
+correspondence between the input and the display.
+<H3>Experimental Task</H3>
+
+A 6 DOF docking task, illustrated in Figure 5, was used for this
+experiment. This represents a common elemental task that is involved
+in many higher level interactions. In the experiment, subjects
+were asked to move a 3D cursor as quickly as possible to align
+it with a 3D target. The cursor and the target were two tetrahedra
+of equal size (4.2 cm from the centre to each vertex). The edges
+and vertex markers (bars and spherical stars) of both tetrahedra
+were coloured so that there was only one correct match in orientation.
+The markers superimposed on each corner of the tetrahedra served
+multiple purposes. The stars on the target indicated the acceptable
+3D error tolerance for each vertex (0.84 cm). The two types of
+markers (stars and bars) served also to differentiate the target
+from the cursor.
+<P>
+<center>
+<P><img src="sz_fg5.gif" alt="Figure 5"><p>
+<B>Figure 5</B> The Experimental Task
+</center>
+<P>
+At the beginning of each experimental trial the cursor appeared
+in the centre of the 3D space while the target randomly appeared
+in one of five pre-set locations (14 cm, 11.5 cm, 12 cm, 7 cm,
+and 10 cm away from the centre of the cursor in five arbitrary
+directions) and orientations (110, 98, 106, 140, and 115 degrees
+mismatched with the cursor about five arbitrary axes). In contrast
+to the data gathering trials, during practice sessions the target
+appeared in completely random locations and orientations. 
+<P>
+During the trial, whenever a corner of the cursor entered into
+the tolerance volume surrounding the <I>corresponding</I> corner
+of the target, the star on that corner changed its colour as an
+indication of capture. Whenever all four corresponding corners
+stayed concurrently matched for 0.7 seconds, the trial was deemed
+completed. At the end of each trial, the trial completion time
+was printed on the screen. The beginning of each trial was signalled
+with a long auditory beep and the end of each trial was signalled
+with a short beep.
+<H3>Experimental Design</H3>
+
+<P>
+A within-subjects design was used in this experiment, in consideration
+of efficiency. Each subject was tested with both of the two conditions,
+Glove and FingerBall, on the same day. According to the results
+of our previous research in [27-29], users' performance with 6
+DOF isotonic position control inputs tended to stabilise after
+20 minutes of practice. In this experiment, each condition was
+given about 25 minutes of exposure, which comprised a short demonstration,
+two warm-up trials, five tests and some practice trials between
+tests. Each test consisted of two identical blocks of trials.
+Each block had 5 trials with 5 distinctive initial target locations
+in random order. Test 1 started after a short demonstration and
+two warm-up trials. Test 2, Test 3, Test 4 and Test 5 started
+5, 10, 15, and 20 minutes after the beginning of Test 1 respectively.
+Subjects were alternatively assigned to one of the two experiment
+orders: Glove first (GB) and FingerBall first (BG). After completing
+the first condition, each subject received a short break before
+proceeding to the second condition. 
+<H3>Subjects </H3>
+
+<P>
+Twelve paid volunteers who had no previous experience with 6 DOF
+input devices were recruited. Two of them failed to pass the screening
+test due to weak stereopsis (using a Baush and Lomb Orthorator).
+The remaining 10 participated in the complete experiment. Their
+ages ranged from 22 to 33, with a median of 29. Eight of the subjects
+were right handed and two were left handed. Subjects were asked
+to use their dominant hand with both input devices (FingerBall
+or Glove).
+<H2>Experimental Results and Discussion</H2>
+
+<H3>First Analysis of the Overall Results</H3>
+
+<P>
+In the following data analyses, statistical model residuals were
+analysed first and it was found that the residual distributions
+were skewed towards lower scores. This is typical when completion
+time is used as a performance measure. Data with such skewed distributions
+do not strictly meet the assumption of analysis of variance (ANOVA).
+We therefore applied a common correction technique, log transformation
+[13], to all time data in the following ANOVA significance tests.
+For ease of comprehension, however, all numbers and figures illustrating
+results are still presented according to the original, untransformed
+scale.
+<P>
+Figure 6 shows the subjects' mean trial completion times for each
+of the five tests. On average, task completion times were clearly
+shorter for the FingerBall than for the glove in each of the five
+tests. Repeated measure variance analysis showed that overall
+performance scores for the two devices were significantly different:
+F(1, 8) = 26.554, p &lt; 0.005. 
+<P>
+<center>
+<P><img src="sz_fg6.gif" alt="Figure 6"><p>
+<B>Figure 6</B> Task completion times with FingerBall and Glove
+(data from all 10 subjects)
+</center>
+<P>
+With both modes, subjects significantly improved their performances
+over the course of the five experimental phases: F(4, 32) = 34.04,
+p &lt; 0.0001. In addition, the performance differences between
+the two modes were independent of experimental phase, as indicated
+by the absence of a significant Device x Phase interaction: F(4,
+32) &lt; 1, p &gt; 0.5. The performance differences between the
+two modes were also independent of initial target location / orientation:
+F(4, 32) = 1.28, p = 0.3. <!--With both modes, subjects significantly improved their performances over the course of the five experimental phases F(4, 32) = 34.04, p &lt; 0.0001. In addition, the performance differences between the two modes were independent of experimental phase, a-->
+<P>
+Other significant factors included Block: F(1,8) = 26.44, p &lt;
+0.001. As stated earlier, each test consisted of two blocks of
+trials. Completion times in the second block were significantly
+shorter than for the first block, due to an obvious learning effect.
+
+<P>
+The presentation order of the two modes was not significant: F(1,8)
+= 2.2, p = 0.17, but the Order x Device interaction was significant:
+F(1,8) = 22.587, p &lt; 0.005. This could imply the presence of
+an <I>asymmetrical</I> <I>skill transfer</I> as an artifact of
+the within-subjects design, a factor which is an often overlooked
+and which can result in misleading conclusions in such experimental
+research. As Poulton [21, 22] argued, with a within-subjects design,
+the actual skill transfer from one condition to another might
+not be symmetrical, even though subjects&#146; exposures to the
+two conditions are ostensibly equalised. 
+<P>
+In the present experiment, the Order x Device x Phase interaction
+is also significant (F(4,32) = 8.7, p &lt; 0.0001) indicating
+that, if there was an asymmetrical transfer effect, it varied
+with experimental phase. It is thus very likely that asymmetrical
+transfer might have been a significant factor in the early experimental
+phases but not in the later phases. Two approaches were therefore
+taken, respectively described in the following two subsections,
+to test if asymmetrical skill transfer was likely to have been
+the only cause of the performance difference between the FingerBall
+and the Glove.
+<H3>A Between-Subjects Analysis </H3>
+
+<P>
+In order to remove the possibility that the preceding results
+were due solely to asymmetrical skill transfer, an equivalent
+between subjects analysis was carried out using only the data
+for the first device used by each group of subjects, thereby eliminating
+any potential asymmetrical ordering effects. In other words, subjects
+were divided into two groups, where members of the FingerBall
+group were the subjects who were tested with the FingerBall first
+and the Glove later. Their data with the Glove were discarded
+for the between subject analysis. Similarly, the FingerBall data
+were discarded for the group who tested the Glove first. This
+approach was expected to be much less sensitive than the within
+subject analysis in the preceding section. 
+<P>
+Figure 7 shows the results after discarding half of the data in
+this fashion. Results of a repeated measure variance analysis
+based on these between-subjects data were consistent with the
+early analysis, i.e., completion times with the FingerBall were
+significantly shorter than the glove: F(1,8) = 3.6, p &lt; 0.05.
+Learning apparently did not reduce this difference, as the Phase
+x Device interaction was not significant: F(4, 32) &lt; 1, p &gt;
+0.5. 
+<P>
+<center>
+<P><img src="sz_fg7.gif" alt="Figure 7"><p>
+<B>Figure 7</B> The FingerBall vs. the glove with 5 subjects in
+each group (between-subjects)
+</center>
+<H3>Performance Analysis of the Final Test</H3>
+
+<P>
+As an additional verification that asymmetrical skill transfer
+effect was indeed not the fundamental cause of the performance
+difference between the Glove and the FingerBall, we also analysed
+users' performance in the final test for each condition. As implied
+by the significant Order x Device x Phase interaction in the initial
+within-subjects analysis, it was very unlikely that asymmetrical
+skill transfer was still in effect in Test 5, after 4 tests and
+20 minutes of practice with the second device. Indeed, a repeated
+measure within-subjects variance analysis on the data from Test
+5 again confirmed the previous conclusions: completion time was
+significantly shorter with the FingerBall than with the Glove:
+F(1, 8) = 15.8, p &lt; 0.005. Furthermore, neither Order of presentation
+nor Order x Device interaction was significant, implying that
+any possible skill transfer effect between conditions did not
+significantly affect performance in the final test. 
+<P>
+On the basis of all three of the above analyses, we can therefore
+confidently conclude that the FingerBall significantly outperformed
+the Glove in the experiment.
+<H3>The Effect of Clutching vs. Muscle Groups</H3>
+
+<P>
+From a practical point of view, the above analyses have concluded
+that the FingerBall is a more efficient device than the Glove.
+However, from a more theoretical point of view, the cause of the
+performance differences is still not clear. As described earlier,
+the FingerBall differs from the glove in two major aspects: the
+use of finger joints and the absence of a button (and the accompanying
+re-clutching processes). With the Glove, the re-clutching process
+takes time to complete. Subjects usually carried out 1 to 3 clutches
+/ declutches in each trial. This could therefore have been the
+sole cause of the performance differences in the above analyses,
+while obfuscating any effects of using finger joints / muscle
+groups. 
+<P>
+This issue had in fact been considered during the design stage
+of the experiment, however, and the re-clutching times (from the
+moment of disengaging to the moment of re-engaging) accumulated
+in each trial were measured and recorded during each trial. In
+the following analysis, the re-clutching times were subtracted
+from the trial completion times for the Glove condition. The resulting
+net score is labelled as &quot;C-R time&quot;. For the FingerBall
+condition, for which no clutching was necessary, C-R time was
+identical to the original completion time itself. Figure 8 shows
+the mean completion time with the FingerBall, the mean completion
+time with the Glove, and the re-clutching time with the Glove,
+all from Test 5. The mean re-clutching time in Test 5 was 1.06
+seconds, accounting for 10.7% of the mean completion time with
+the Glove (Figure 8). 
+<P>
+<center>
+<P><img src="sz_fg8.gif" alt="Figure 8"><p>
+<B>Figure 8</B> Mean completion time in Test 5 
+</center>
+<p>
+Note that the C-R time measure is biased against the FingerBall
+condition, for two reasons. First, with the FingerBall, the re-clutching
+process still exists effectively, although not explicitly. From
+time to time subjects had to move their fingers to different parts
+of the ball's surface to make further rotation. This effort (and
+associated time) was not taken into account by the adjusted C-R
+time measure, since no explicit re-clutching time could be measured.
+Second, during the re-clutching time with the Glove, subjects
+were not necessarily idle but probably were instead engaged in
+mentally making decisions about what to do next. Since it is known
+that mental rotation takes up a certain amount of time [24], this
+time may overlap with the re-clutching time in the Glove condition
+and is therefore reduced in the C-R time measure. Nevertheless,
+C-R time serves as a conservative measure to test if the use of
+fingers really was advantageous. If the FingerBall still outperformed
+the Glove, as measured by C-R time, the advantage of using fine
+joints must therefore exist. The converse may not be true, however.
+<P>
+Figure 9 shows the performance differences between the FingerBall
+and the Glove as measured by C-R time. As can be seen, the mean
+completion times with the FingerBall were still shorter than the
+mean C-R times with the Glove. Repeated measure variance analysis
+of C-R times collected in Test 5 (final phase of the experiment)
+showed that the difference between completion times with the FingerBall
+and the C-R times with the Glove was still significant: F(1,8)
+= 5.324, p &lt; 0.05. Neither the order of presentation nor its
+interaction with the device was statistically significant, suggesting
+that this difference was not caused by asymmetrical skill transfer.
+This analysis therefore further supports the conclusion that the
+use of different muscle groups was indeed a major cause of the
+superior performance of the FingerBall as compared to the Glove.
+<P>
+<center>
+<P><img src="sz_fg9.gif" alt="Figure 9"><p>
+<B>Figure 9</B> Comparison between the FingerBall and the Glove
+after discounting re-clutching time with the Glove<B><!--Figure 9 Comparison between the FingerBall and the Glove after discounting re-clutching time with the Glove--></B>
+</center>
+
+<H3>Subjective Evaluation</H3>
+
+<P>
+Upon completing the experimental trials, subjects subjectively
+rated each of the devices on a continuous scale ranging from -2
+to +2 (-2: very low, -1: low, 0: OK, 1: high, 2: very high). On
+average, the FingerBall received higher ratings than the Glove
+(mean value: 0.78 vs. 0.60). Of the 10 subjects, however, only
+6 rated the FingerBall higher than the Glove<B>;</B> the other
+4 subjects rated the Glove higher than the FingerBall (Figure
+10). This is an interesting contrast to the task performance measures.
+In the final test, all subjects, except subject A, had shorter
+task completion times with the FingerBall than with the Glove.
+It appeared, therefore, that subjective preferences were strongly
+affected by some salient features of the devices other than performance.
+Subjects were encouraged to jot down comments on features about
+which they felt strongly. Seven subjects felt that the cord with
+the FingerBall got in the way. Three subjects did not like the
+wrist rotations imposed by the Glove. Two subjects wrote that
+the FingerBall was less natural than the Glove. Surprisingly,
+one subject particularly liked the clutch function with the Glove.
+One subject reported fatigue with both devices. The fact that
+the Glove device is closer to what is typically encountered in
+&quot;virtual reality&quot; systems could also have been an influential
+factor in subjects' preferences.<!--.-->
+<P>
+<center>
+<P><img src="sz_fg10.gif" alt="Figure 10"><p>
+
+<B>Figure 10</B> Subjective Ratings of FingerBall vs. Glove<B>
+</B>
+<P>
+Upward arrows indicate that the FingerBall was preferred</center>
+
+<H1>CONCLUSIONS</H1>
+
+<P>
+On the basis of neurophysiological findings (the homunculus model)
+and Fitts' law studies, researchers have hypothesised that computer
+input devices that are manipulated by fingers (the small muscle
+groups) should have performance advantages over devices that are
+operated by the wrist and/or elbow and/or shoulder (the large
+muscle groups) [2]. It was believed that devices designed to conform
+to such a hypothesis would outperform the mouse - the standard
+2 DOF computer input device. Follow- up studies that test such
+a hypothesis or apply it to new designs have not been reported
+in the literature, however<!--due the fact that the mouse has been well accepted as the standard 2 DOF input device-->.
+Designing efficient 6 DOF input devices thus presents a practical
+need, as well as a research opportunity to test the hypothesis
+of muscle group differences. Through an empirical study it was
+found that assignment of the muscle groups in manipulating an
+input device was indeed a very critical factor determining user
+performance. Our results show that in a 6 DOF docking task, trial
+completion times for an input device that included fingers during
+6 DOF manipulation (the FingerBall) were significantly shorter
+than those of a device that excluded the fingers from the 6 DOF
+manipulation (the Glove). The results of our study strongly suggest
+that future designers of such input devices should design the
+affordances of input devices (i.e. shape and size) such that the
+fingers are included in their operation to whatever extent is
+feasible. 
+<H1>ACKNOWLEDGEMENTS</H1>
+
+<P>
+This paper is based on Chapter 4 of the first author's doctoral
+thesis [27]. We would like to thank George Fitzmaurice and other
+members of the ETC Lab and the IRG group at the University of
+Toronto for their comments, advice and assistance. Primary support
+for this work has come from the Information Technology Research
+Centre (ITRC) of Ontario, the Defence and Civil Institute of Environmental
+Medicine (DCIEM), and the Natural Sciences and Engineering Research
+Council of Canada (NSERC). 
+<H1>REFERENCES</H1>
+
+<P>
+1. Boff, K. R. and Lincoln, J. E. <I>Engineering Data Compendium
+- Human Perception and Performance</I>. Armstrong Aerospace Medical
+Research Laboratory, Wright-Patterson Air Force Base, Ohio, 1988.
+<P>
+2. Card, S. K., Mackinlay, J. D., and Robertson, G. G. A morphological
+analysis of the design space of input devices. <I>ACM Transactions
+on Information Systems, 9, </I>2 (1991), 99-122.
+<P>
+3. Digital Image Design Inc. The Cricket, product information.
+New York, NY., 1993.
+<P>
+4. Fitts, P. M. The information capacity of the human motor system
+in controlling the amplitude of movement. <I>Journal of Experimental
+Psychology, 47, </I>(1954), 381-391.
+<P>
+5. Fitzmaurice, G. W., Ishii, H., and Buxton, W. Bricks: Laying
+the foundation for graspable user interfaces, in <I>Proc. of CHI'95:
+ACM Conference on Human Factors in Computing Systems</I> (Denver,
+Colorado, USA, 1995), pp. 442-449.
+<P>
+6. Gibbs, C. B. Controller design: Interactions of controlling
+limbs, time-lags and gains in positional and velocity systems.
+<I>Ergonomics, 5, </I>2 (1962), 385-402.
+<P>
+7. Gibbs, C. B. Comments on &#145;An investigation into the comparative
+suitability of forearm, hand and thumb controls in acquisition
+tasks&#146; by Hammerton and Tickner. <I>Ergonomics, 10, </I>4
+(1967), 431-432.
+<P>
+8. Gibson, J. J. <I>The ecological approach to visual perception</I>.
+Houghton Mifflin Company, Boston, 1979.
+<P>
+9. Hammerton, M. and Tickner, A. H. An investigation into the
+comparative suitability of forearm, hand and thumb controls in
+acquisition tasks. <I>Ergonomics, 9, </I>2 (1966), 125-130.
+<P>
+10. Hammerton, M. and Tickner, A. H. Reply to Comments by C.B.
+Gibbs. <I>Ergonomics, 10, </I>4 (1967), 433.
+<P>
+11. Hinckley, K., Pausch, R., Goble, J. C., and Kassell, N. F.
+Passive real-world interface props for neurosurgical visualization,
+in <I>Proc. of CHI'94: ACM conference on Human Factors in Computing
+Systems</I> (Boston, 1994), pp. 452-458.
+<P>
+12. Hinckley, K., Pausch, R., Goble, J. C., and Kassell, N. F.
+A survey of design issues in spatial input, in <I>Proc. of ACM
+Conference on User Interface Software and Technology</I> (1994),
+pp. 213-222.
+<P>
+13. Howell, D. C. <I>Statistical Methods for Psychology</I> (Third
+ed.). PWS-KENT Publishing Company, Boston, 1992.
+<P>
+14. Jacob, R. J. K., Sibert, L. E., McFarlane, D. C., and Mullen,
+M. P. Integrality and separability of input devices. <I>ACM Transactions
+on Computer-Human Interaction, 1, </I>1 (1994), 3-26.
+<P>
+15. Keele, S. W. Motor Control, in K. R. Boff, L. Kaufman, &amp;
+J. P. Thomas (Eds.), <I>Handbook of Perception and Human Performance</I>.
+(pp. 30.1-30.60). John Wiley &amp; Sons, New York, 1986.
+<P>
+16. Langolf, G. D., Chaffin, D. B., and Foulke, J. A. An investigation
+of Fitts' law using a wide range of movement amplitudes. <I>Journal
+of Motor Behavior, 8, </I>2 (1976), 113-128.
+<P>
+17. Logitech. 2D/6D Mouse technical reference manual. In Fremont,
+CA 94555: Logitech Inc., 1991.
+<P>
+18. MacKenzie, C. L. and Iberall, T. <I>The Grasping Hand</I>.
+North-Holand, Amsterdam, 1994.
+<P>
+19. MacKenzie, I. S., Sellen, A., and Buxton, W. A comparison
+of input devices in elemental pointing and dragging tasks, in
+<I>Proc. of CHI&#146;91: ACM Conference on Human Factors in Computing
+Systems</I> (New Orleans, Lousiana, 1991), pp. 161-166.
+<P>
+20. Polhemus. 3BallTM, product information. Polhemus, Cochester,
+VT., 1993.
+<P>
+21. Poulton, E. C. Unwanted asymmetrical transfer effects with
+balanced experimental designs. <I>Psychological Bulletin, 66,
+</I>1 (1966), 1-8.
+<P>
+22. Poulton, E. C. <I>Bias in Quantifying Judgements</I>. Lawrence
+Erlbaum Associates, Hove and London, 1989.
+<P>
+23. Sage, G. H. <I>Introduction to Motor Behavior, A Neuropsychological
+Approach</I> (2nd ed). Addison-Wesley Publishing Company, 1977.
+<P>
+24. Shepard, R. N. and Metzler, J. Mental rotation of three-dimensional
+objects. <I>Science, 171, </I>3972 (1971), 701-703.
+<P>
+25. Ware, C. Using hand position for virtual object placement.
+<I>The Visual Computer, 6, </I>(1990), 245-253.
+<P>
+26. Ware, C. and Jessom, D. R. Using the bat: a six dimensional
+mouse for object placement. <I>IEEE Computer Graphics and Applications,
+8, </I>6 (1988), 155-160.
+<P>
+27. Zhai, S. Human Performance in Six Degree of Freedom Input
+Control.  <A HREF= "http://vered.rose.toronto.edu/people/shumin.html">Ph.D. Thesis
+</B></A>, University of Toronto,1995.
+<P>
+28. Zhai, S. and Milgram, P. Human performance evaluation of manipulation
+schemes in virtual environments, in <I>Proc. of VRAIS&#146;93:
+the first IEEE Virtual Reality Annual International Symposium</I>
+(Seattle, USA, 1993), pp. 155-161.
+<P>
+29. Zhai, S. and Milgram, P. Input Techniques for HCI in 3D Environments,
+in <I>Proc. of Conference Companion of CHI'94: ACM conference
+on Human Factors in Computing Systems</I> (Boston, 1994), pp.
+85-86.
+</BODY>
+
+</HTML>

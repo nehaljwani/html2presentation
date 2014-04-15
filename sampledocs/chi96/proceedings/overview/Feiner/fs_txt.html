@@ -1,0 +1,327 @@
+<HTML><HEAD>
+<TITLE>Research in 3D User Interface Design at Columbia University</TITLE>
+</HEAD>
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<P><IMG SRC="./../../graphics/overview.JPG" ALT="overview" HEIGHT=35 WIDTH=249><A HREF="./../../overview.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<H1>Research in 3D User Interface Design at Columbia University</H1>
+<H2><A HREF="http://www.cs.columbia.edu/~feiner/">
+Steven K. Feiner</A><BR>
+<A HREF="http://www.cs.columbia.edu/">Department of Computer Science</A><BR>
+<A HREF="http://www.columbia.edu/">Columbia University</A><BR>
+500 West 120th St., 450 CS Building<BR>
+New York, NY 10027<BR>
++1 212 939 7083<BR>
+<A HREF="mailto:feiner@cs.columbia.edu">feiner@cs.columbia.edu</A><BR>
+<A HREF="http://www.cs.columbia.edu/graphics/">
+http://www.cs.columbia.edu/graphics/</A><BR>
+</H2>
+
+<H2>Abstract</H2>
+
+The Computer Graphics and User Interfaces Laboratory at Columbia
+University is pursuing research in the design and development of new
+user interface metaphors.  This overview provides a 
+high-level description of our work and surveys projects that
+reflect our two key research directions: 3D user interfaces (including
+virtual environments and augmented reality) and knowledge-based user
+interfaces.
+
+<H2>Keywords</H2>
+
+Augmented reality, virtual reality, virtual environments,
+knowledge-based graphics, intelligent user interfaces, head-mounted displays
+
+<H2>Introduction</H2>
+The Columbia University Computer Graphics and User Interfaces Laboratory
+has as its goal the exploratory design and development of high-quality
+user interfaces.  Our research emphasizes
+virtual environments, created through the use of
+3D interaction and display devices (including <EM>augmented reality</EM>,
+in which 
+see-through displays overlay graphics on the real world), and the
+application of artificial intelligence techniques to design effective
+information graphics.
+Much of our work combines both these themes.
+
+<P>
+The laboratory was formed within the Department of Computer Science in 1985 and
+currently includes five Ph.D. students, eight M.S. students, and three
+undergraduates.   Our laboratory facilities include 3D graphics workstations,
+see-through head-worn displays, 3D trackers and interaction devices,
+and spatial sound processing equipment.
+
+<H2>Collaborations</H2>
+We have active collaborations with a number of groups within the department,
+the engineering school, and the university, which reflect the diversity of our
+interests.
+
+<H3>
+<A HREF="http://www.cs.columbia.edu/~radev/nlp/">
+Natural Language Processing Laboratory</A>
+</H3>
+Since 1988, we have been collaborating  with the Natural
+Language Processing Laboratory, directed by Prof. Kathy McKeown.
+Complementing our work on knowledge-based generation of graphics,
+together we have been developing knowledge-based multimedia user interfaces
+that generate speech, text, and graphics.  Our joint research addresses how
+these media can be coordinated (e.g., to support cross references between text
+and graphics). 
+
+<H3>
+<A HREF="http://www.mcl.cs.columbia.edu/">Mobile Computing Laboratory</A>
+</H3>
+Most virtual environment systems use relatively large workstations connected
+to tethered head-worn displays or stationary CRTs.  As these computers
+and displays grow small enough to be portable, many virtual environments will
+still not be able to use them unless network infrastructure (or access to it)
+becomes portable as well. We have been using radio-based wireless networking
+software, developed by Prof. Dan Duchamp's Mobile Computing Laboratory, to
+build experimental user interfaces for mobile augmented reality.
+
+<H3>
+<A HREF="http://www.cc.columbia.edu/~archpub/BT/BT.html">
+Building Technologies Laboratory</A>
+</H3>
+Working with the Graduate School of Architecture's Building Technologies
+Laboratory, directed by Prof. Tony Webster, we have been exploring how
+augmented reality can be applied to designing, assembling, and explaining
+building infrastructure.  While computer-based virtual environments
+are relatively new, humans have been building physical environments
+for millenia. This relationship is allowing us to address how the design
+of our virtual spaces can be informed by the principles by which architects
+organize physical space.
+
+<H3>
+<A HREF="http://www.cpmc.columbia.edu/">
+Department of Medical Informatics</A>
+</H3>
+Our ongoing work with the Natural Language Processing Laboratory,
+and with Prof. Mukesh Dalal's Knowledge Representation Laboratory, is being
+performed in a medical briefing domain.  Working with researchers at
+Columbia Presbyterian Medical Center's Department of Medical Informatics,
+directed 
+by Prof. Paul Clayton, we are developing knowledge-based systems that present
+patient data to 
+caregivers. This has provided us with an extraordinarily data-rich domain
+where user time is at a premium, an excellent match for the automated
+multimedia briefing system that we are developing.  
+
+<H2>Research Themes</H2>
+<H3>Knowledge-Based Graphics</H3>
+While user interfaces increasingly make use of
+synthesized 3D imagery and digital video, the decisions about what to
+show and how to show it--that is, the <EM>design</EM> of the graphics--are
+typically performed by hand.
+Designing high-quality graphics is both difficult and time-consuming,
+and doing it in advance invariably means that the resulting product
+is not customized to meet the needs of the specific user and situation.
+Our work on knowledge-based graphics addresses the use of AI techniques
+to automate the design of customized graphics in a variety of
+interactive domains. One example is
+<A HREF="http://www.cs.columbia.edu/~doree/IBIS/thesis.html">
+IBIS</A> (Intent-Based Illustration 
+System) [<A HREF="#Seligmann-Feiner91a">7</A>], which uses a rule-based
+approach to create pictures that show properties of physical objects and
+actions performed on the objects.
+IBIS has been used as part of COMET,
+a system that designs interactive multimedia maintenance manuals containing 
+generated text and graphics [<A HREF="#McKeown-etal92a">6</A>] (Figure 1).
+We are currently extending this research to address the generation
+of temporal media, including speech and animation. 
+<P>
+<IMG SRC="skf_fg1.gif" alt="IBIS"><P><STRONG>Figure 1.</STRONG>
+Documentation created
+by COMET to explain maintenance of a radio, using illustrations designed
+by IBIS, combined with generated text that references the illustrations.
+(From [<A HREF="#McKeown-etal92a">6</A>].)
+
+<H3>Virtual Environments for Abstract Visualization</H3>
+
+Our research on virtual environments began in 1989 with work on 
+<EM>n</EM>-Vision, an environment
+for visualizing abstract multivariate relations.
+This project explores how the three spatial dimensions used
+in presenting a function of two or three variables as a 3D height field
+or point cloud can be
+reused by nesting coordinate systems to allow additional variables to be
+visualized and controlled. 
+<EM>n</EM>-Vision is built on top of a ``3D window system'' that
+organizes 3D space much as a 2D window system organizes the 2D plane.
+Our current research is directed toward the development of
+<A HREF="http://www.cs.columbia.edu/graphics/projects/AutoVisual/AutoVisual.html"><EM>AutoVisual</EM></A>
+[<A HREF="#Beshers-Feiner93a">1</A>], a knowledge-based
+``world-design'' component that creates virtual worlds for
+<EM>n</EM>-Vision's users to explore (Figure 2).
+<P>
+<IMG SRC="skf_fg2.gif" WIDTH="90%" alt="<EM>AutoVisual</EM>"><P>
+<STRONG>Figure 2.</STRONG>
+An <EM>n</EM>-Vision virtual world generated by <EM>AutoVisual</EM>
+to help the user search for good values of several parameters of a
+financial model. (From [<A HREF="#Beshers-Feiner93a">1</A>].)
+
+<H3>Augmented Reality</H3>
+
+One of the most powerful uses of virtual environments will not
+be to replace the real world, but rather to augment the user's view of the real
+world with additional information. This user interface metaphor, pioneered by
+Ivan Sutherland, is
+often referred to as <EM>augmented reality</EM>, and is the focus of much
+of our research. 
+
+<H4>Hybrid User Interfaces</H4>
+Our first augmented reality project, begun in 1991, embedded the small
+2D interaction space of a conventional portable workstation within
+a large 3D virtual surround, presented on a see-through,
+head-worn display.
+We built an X11 window manager that 
+allows the user to move windows between a flat-panel display and the
+head-worn surround [<A HREF="#Feiner-Shamash91a">4</A>] (Figure 3). 
+We refer to this as a <EM>hybrid user interface</EM> because it combines 
+two different interface technologies (physically small, high-resolution, 2D
+hardware and virtually large, low-resolution, 3D hardware) in an attempt to
+benefit from the best features of each.  
+<P>
+<IMG SRC="skf_fg3.gif" WIDTH="90%" alt="Hybrid user interfaces"><P>
+<STRONG>Figure 3.</STRONG>
+Hybrid user interface window manager embeds a flat panel display
+within a 3D virtual surround.  Windows appear on the head-worn display
+as the user moves them off the flat panel.  The large triangle is part
+of a 3D tracking system used to track the user's head.
+
+<H4><A HREF="http://www.cs.columbia.edu/graphics/projects/wotw/wotw.html">
+Portable Information Spaces</A></H4>
+To further explore how workstation windows can be used within a 3D virtual
+environment, we have developed full X server support for our head-worn display
+[<A HREF="#Feiner-etal93b">2</A>], mapping the ``desktop'' onto part of
+a surrounding virtual sphere.
+By tracking the user's body, and interpreting head motion relative to it, we
+create a portable information space that envelops the user as they move
+about (Figure 4).  
+A small hypermedia system allows links to be made
+between windows and windows to be attached to objects, which can also be
+tracked.
+<P>
+<IMG SRC="skf_fg4.gif" alt="A portable information space"><P>
+<STRONG>Figure 4.</STRONG>
+Virtual world populated with three X windows: a load average meter ``attached''
+to a computer (right), a control panel that is fixed to the head-worn
+display (bottom), and a ``Post-it'' note that follows the 3D 
+tracker worn by the person in the figure.
+(From [<A HREF="#Feiner-etal93b">2</A>].)
+
+<H4><A HREF="http://www.cs.columbia.edu/graphics/projects/karma/karma.html">
+Maintenance and Assembly Instruction</A></H4>
+KARMA (Knowledge-based Augmented Reality for Maintenance
+Assistance) [<A HREF="#Feiner-MacIntyre-Seligmann93a">3</A>], uses
+a see-through head-worn display to
+explain simple end-user maintenance for a laser printer (Figure 5).
+3D trackers monitor the position and orientation of key printer components.
+A modified version of IBIS interactively designs graphics and
+simple textual callouts.  In our work with the Building Technologies
+Laboratory, we are using a see-through head-worn display to present assembly
+instructions for modular building components. 
+<P>
+<IMG SRC="skf_fg5.gif" alt="KARMA"><P>
+<STRONG>Figure 5.</STRONG>
+Overlaid graphics designed
+by KARMA to show the user how to remove the paper tray.
+(From [<A HREF="#Feiner-MacIntyre-Seligmann93a">3</A>].)
+
+<H4><A HREF="http://www.cs.columbia.edu/graphics/projects/archAnatomy/architecturalAnatomy.html">
+Architectural Anatomy</A></H4>
+In contrast to applications that allow users to walk through a
+virtual environment, we have been building applications that allow
+users to ``see through'' the real environment.  In one, the
+user can view the ``architectural anatomy'' of our lab
+while inside it, seeing the columns within the walls and their
+structural analyses
+[<A HREF="#Feiner-Webster-Krueger-MacIntyre-Keller95a">5</A>] (Figure 6). 
+In another, under development, the user wears a backpack computer and is free
+to roam around the campus, tracked by differential GPS and connected by
+wireless ethernet. 
+<P>
+<IMG SRC="skf_fg6.jpg" alt="Architectural anatomy" WIDTH="90%"><P>
+<STRONG>Figure 6.</STRONG>
+Overlaid graphics show steel reinforcing bars inside a concrete column in a
+corner of our lab and a window containing the column's structural analysis.
+(From [<A HREF="#Feiner-Webster-Krueger-MacIntyre-Keller95a">5</A>].) 
+
+<H2>Acknowledgments</H2>
+The research described in this overview is supported in part by
+ONR Contract N00014-94-1-0564, ARPA Contract DAAL01-94-K-0119, 
+the Columbia University CAT in High Performance
+Computing and Communications in Healthcare (funded by the NY State Science
+and Technology Foundation), and gifts from Digital Image Design, NYNEX
+Science & Technology, and Microsoft.  
+
+<H2>References</H2>
+<OL>
+<LI> <A NAME = "Beshers-Feiner93a">
+Beshers, C. and Feiner, S. AutoVisual: Rule-based design of
+interactive multivariate visualizations. <EM>IEEE Computer Graphics and
+Applications</EM>, 13(4), July 1993, 41-49.
+</A>
+<P>
+
+<LI><A NAME = "Feiner-etal93b">
+Feiner, S., MacIntyre, B., Haupt, M., and Solomon, E. Windows on the world:
+2D windows for 3D augmented reality. <EM>Proc. UIST '93 (ACM Symp. on User
+Interface Software and Technology)</EM>, Atlanta, GA, November 3-5, 1993, 
+145-155.
+</A>
+</A> (<A HREF="http://www.cs.columbia.edu/graphics/publications/uist93.ps">8.1MB postscript version of paper</A>)
+<P>
+
+<LI><A NAME = "Feiner-MacIntyre-Seligmann93a">
+Feiner, S., MacIntyre, B., and Seligmann, D.  Knowledge-based
+augmented reality. <EM>Communications of the ACM</EM>, 36(7), July 1993, 52-62.
+</A>
+<P>
+
+<LI><A NAME = "Feiner-Shamash91a">
+Feiner, S. and Shamash, A.  Hybrid user interfaces: Breeding virtually
+bigger interfaces for physically smaller computers. <EM>Proc. UIST '91
+(ACM Symp. on User Interface Software and Technology)</EM>, Hilton Head, SC, 
+November 11-13, 1991, 9-17.
+</A>
+<P>
+
+<LI><A NAME = "Feiner-Webster-Krueger-MacIntyre-Keller95a">
+Feiner, S., Webster, A., Krueger, T., MacIntyre, B., and Keller, E.
+Architectural anatomy.
+<EM>Presence</EM>, 4(3), Summer 1995, 318-325.
+</A>
+<P>
+
+<LI><A NAME = "McKeown-etal92a">
+McKeown, K., Feiner, S., Robin, J., Seligmann, D., and Tanenblatt, M. 
+Generating cross-references for multimedia explanation.
+<EM>Proc. AAAI-92</EM>,
+San Jose, CA, July 12-17, 1992, 9-16.
+</A>
+<P>
+
+<LI><A NAME = "Seligmann-Feiner91a">
+Seligmann, D. and Feiner, S.  Automated generation of intent-based 3D
+illustrations. <EM>Computer Graphics</EM>, 25(4), July 1991
+(Proc. ACM SIGGRAPH '91, Las Vegas, NV, July 28-August 2, 1991), 123-132.
+</A>
+
+</OL>
+<H3>&#169; Copyright on this material is held by the author(s).</H3>
+<P>
+<ADDRESS>
+Research in 3D User Interface Design at Columbia University /
+<A HREF="mailto:feiner@cs.columbia.edu">feiner@cs.columbia.edu</A>
+</ADDRESS>
+</BODY>
+</HTML>
+

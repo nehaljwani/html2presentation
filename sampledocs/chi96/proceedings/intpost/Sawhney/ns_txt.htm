@@ -1,0 +1,268 @@
+<HTML>
+<HEAD>
+<TITLE>ESPACE 2: An Experimental HyperAudio Environment</TITLE>
+
+</HEAD>
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<P><IMG SRC="./../../graphics/intpost.JPG" ALT="intpost" HEIGHT=35 WIDTH=249><A HREF="./../../intpost.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<H1><FONT SIZE=6 COLOR=#000000>ESPACE 2: An Experimental HyperAudio
+Environment</FONT><FONT SIZE=6> <BR>
+</FONT></H1>
+<P>
+<EM>Nitin &quot;Nick&#148; Sawhney and Arthur Murphy</P> </EM>
+<DL>
+<DT>Graphics, Visualization, and Usability Center 
+</DL>
+<P>
+School of Literature, Communication, and Culture </P>
+<P>
+The Georgia Institute of Technology </P>
+<P>
+Atlanta, GA 30332-0165 USA </P>
+<P>
+nitin@cc.gatech.edu, arthur.murphy@arch.gatech.edu <BR>
+<HR>
+<H2></P><FONT SIZE=5 COLOR=#000000>ABSTRACT</FONT><FONT SIZE=5>
+</FONT></H2>
+<P>
+<FONT COLOR=#000000>Espace 2 is a prototype system for navigation
+of hyper-linked audio information in an immersive audio-only environment.
+In this paper, we propose several essential design concepts for
+audio-only computing environments. We will describe a hyperaudio
+system based on the prior design principles and discuss an evaluation
+of the preliminary prototype. <BR>
+</P></FONT>
+<H3>KEYWORDS: </H3>
+<P>
+<FONT COLOR=#000000>Auditory I/O, non-speech audio, hypermedia.
+<BR>
+</P></FONT>
+<H2><FONT SIZE=5 COLOR=#000000>INTRODUCTION</FONT><FONT SIZE=5>
+</FONT></H2>
+<P>
+<FONT COLOR=#000000>Several attempts have been made in the past
+to provide the functionality of GUI-based systems via an auditory
+modality [1][5]. Graphical user interfaces (GUI) are designed
+to be processed visually and adding auditory cues does not create
+a suitable or equally efficient auditory presentation. The user
+must continually seek and manipulate acoustic representations
+of visual artifacts in the GUI. Unnecessary visual information
+in the GUIs, encoded into audio cues confuses the user. The cognitive
+benefits of GUIs are not realized by retrofitting a graphical
+desktop metaphor with audio information [4].</FONT> <BR>
+</P>
+<P>
+The GUI offers only a single manifestation of human-computer interaction,
+whereas an entirely new non-visual paradigm must be considered
+to fully utilize the rich bandwidth of human audition for use
+by both sighted users and the visually-impaired. A non-visual
+paradigm must not be conceived of as an interface between the
+human and computer, but as an immersive environment that can function
+as a shared context where both collaborate. Audio-based environments
+could &quot;embody&#148; both the human and the computer, providing
+an &quot;acoustic space for the potential for human action&#148;.
+The primary concern of our work is designing computing environments
+for non-visual access to hyper-linked information. <BR>
+</P>
+<H2><FONT SIZE=5 COLOR=#000000>DESIGN OF AUDIO ENVIRONMENTS</FONT><FONT SIZE=5>
+</FONT></H2>
+<P>
+<FONT COLOR=#000000>We believe that several design concepts can
+be utilized to create meaningful and immersive audio-only environments.
+<BR>
+</P></FONT>
+<P>
+Continuous Audio vs. Audio Icons </P>
+<P>
+In an auditory environment, speech as well as non-speech audio
+in the form of auditory icons can convey the type of a computer
+artifact and its dynamically changing attributes. </P>
+<P>
+Yet auditory artifacts such as data changing over time or the
+presence of persistent objects in the environment are better represented
+with continuous patterns of sound. Such sound textures can be
+specially designed or algorithmically generated. <BR>
+</P>
+<H3>Contextual Awareness </H3>
+<P>
+<FONT COLOR=#000000>Continuous audio can also indicate the presence
+of background activity [3] or the sense of location within an
+audio environment. Ambient textures or looped musical sequences
+can be associated with specific audio spaces or container objects.
+Such continuously playing sounds can provide a sense of enclosure
+within specific spaces as well as indicate a perception of movement
+during navigation to other spaces.</FONT> <BR>
+</P>
+<H3>Hyper-linked Audio Navigation </H3>
+<P>
+<FONT COLOR=#000000>All audio content can be conceived of as nodes
+within a hypertextual framework. Audio nodes can be grouped within
+other abstract containers and links between the audio content
+of individual nodes can be established. Navigational access is
+permitted by using a combination of spatial and hierarchical representations
+for the structure of hyper-linked information. The user should
+be able to easily traverse the hierarchy of these nodes to seek
+the audio content he/she is interested in, as well as browse any
+available links related to the content [2].</FONT> <BR>
+</P>
+<H3>Interactive Audio Skimming </H3>
+<P>
+<FONT COLOR=#000000>It is often claimed that audio and speech
+exist only temporally i.e. the ear cannot browse around a set
+of recordings the way the eye can scan a screen of text and images.
+Yet audio could be controlled by interfaces that permit faster
+scanning of speech [2] and aurally indicate the length and depth
+of audio nodes. In order to effectively browse audio, the user
+must have full control over the playback of the audio recordings,
+like the tape transport controls on modern audio playback devices.
+<BR>
+</P></FONT>
+<H3>Dynamic Audio Streaming </H3>
+<P>
+<FONT COLOR=#000000>The &quot;cocktail-party effect&quot; provides
+the justification that humans can in fact monitor several audio
+streams simultaneously, selectively focusing on any one and placing
+the rest in the background. Multiple streams of simultaneous audio
+can be used in audio environments to present pre-recorded content
+or live broadcast information [7], permitting the user to attentively
+listen to any one, while being aware of changes in the other streams.
+<BR>
+</P></FONT>
+<H3>3D Audio Spatialization </H3>
+<P>
+<FONT COLOR=#000000>With 3D audio spatialization, several speech
+or audio streams can be simultaneously heard and localized. Digital
+filter algorithms coupled with specialized audio boards are required
+for artificially spatializing sound. A good model of the head-related
+transfer functions (HRTF) permits effective localization and externalization
+of sound sources. 3D spatialization has been utilized in applications
+for presenting live conversations [8] or recorded audio sources
+[6] around a listener.</FONT> <BR>
+</P>
+<H2><FONT SIZE=1 COLOR=#000000>Structural Unity</FONT><FONT SIZE=5>
+</FONT></H2>
+<P>
+<FONT COLOR=#000000>An audio-only environment can consist of different
+audio-based artifacts, such as audio cues, audio objects, moving
+streams of audio, hyper-linked audio content, synthesized speech,
+and sonified data. An understanding of the individual audio artifacts,
+their context and their relationship to each other can only be
+gained within the framework of a common structure. Such a structure
+may be provided by audio interfaces (like the &quot;tree-structure&#148;
+for GUIs in Mercator [4]) or via metaphors (like &quot;Rooms&#148;)
+that provide a unified representation of the audio artifacts in
+the users' acoustic space and hence a unified cognitive model
+of the audio environment. <BR>
+</P></FONT>
+<H2><FONT SIZE=5 COLOR=#000000>ESPACE 2: PROTOTYPE DESIGN</FONT><FONT SIZE=5>
+</FONT></H2>
+<P>
+<FONT COLOR=#000000>Espace 2 is an early prototype implemented
+to enable experimentation with several design concepts for audio
+environments. Espace 2 is an artificial computing environment
+that uses acoustic representation for spatial and temporal navigation
+of hyper-audio content. The environment consists of a hierarchy
+of hyper-linked &quot;ambient&#148; spaces that also have minimal
+visual representations (which permits collaboration between blind
+and sighted users). Continuous auditory streams (that fade in/out)
+are utilized to indicate the presence of other spaces and the
+related audio content. Since Espace 2 represents a specialized
+application for hyperaudio navigation only, an &quot;acoustic
+bubble&#148; metaphor was utilized. The users are presented with
+a hierarchy of parent bubbles, each with an acoustic texture.
+Users can navigate within bubbles to hear the existence of other
+sub-bubbles. On selecting a sub-bubble, the related audio content
+is played out. No spatialized 3D audio was utilized in this early
+prototype, permitting only a 2-dimensional representation of acoustic
+bubbles. This necessitated the use of audio cues to provide &quot;edge
+detection&#148; of the screen space.</FONT> <BR>
+</P>
+<P>
+<FONT COLOR=#000000>In Espace 2, content was delivered via audio
+CDs, and the user was provided interactive control over the playback
+of the audio content. It must be noted that the audio CDs presented
+conversations and discussions, not music, so as to simulate hyper-linked
+synthesized speech or digital audio content. During the playback
+of audio content, temporal audio cues indicate the presence of
+hyper-links to other audio nodes. Within any sub-bubble, the audio
+texture of the parent or container is continuously heard in the
+background. Consistent use of continuous audio throughout the
+environment, provides contextual awareness of location and a sense
+of immersion in the environment. Dynamic audio streams indicating
+broadcast content (such as live news sources) are triggered at
+specified points of time and are heard moving across the stereo
+space of the environment (towards or away from the listener).
+The interface modality utilized to control the environment is
+a combination of finger movement on a trackpad and use of five
+Braille-labeled keys on a numeric keypad. The trackpad provides
+a spatial mechanism to explore the environment and navigate the
+bubble hierarchy. The keys control playback and skimming of audio
+content as well as access to temporal links.</FONT> <BR>
+</P>
+<P>
+<FONT COLOR=#000000>Preliminary usability evaluations of the system
+by sighted and visually-impaired users revealed some insights.
+It was clear that most users were more concerned with the new
+modality of the tactile navigation device (trackpad) than with
+the challenge of navigating through specific audio spaces. Users
+requested a means to revert back to the source of hyperaudio content
+from the destination nodes. Sometimes, more than 2-3 distinct
+and equally loud audio patterns caused some cognitive overload
+and confusion. Users agreed that 3D spatialization of the sound
+sources in the environment would improve navigation and representation
+of simultaneous audio. Some users also requested a customizable
+sound palette to permit comfortable prolonged use of the acoustic
+environment. <BR>
+</P></FONT>
+<P>
+<FONT COLOR=#000000>The framework offered by Espace 2 could be
+utilized to access both local (using audio CDs) and distributed
+audio content (from the World-Wide-Web or audio servers) via computer
+or telephony platforms. We hope that researchers working with
+sighted and visually-impaired users, will consider the inherent
+design issues in developing meaningful audio environments. <BR>
+</P></FONT>
+<H2><FONT SIZE=5 COLOR=#000000>ACKNOWLEDGMENTS</FONT><FONT SIZE=5>
+</FONT></H2>
+<P>
+<FONT COLOR=#000000>Thanks to Andreas Dieberger, Terry Harpold
+and James Oliverio for their invaluable feedback and the users
+for their keen participation in the usability evaluation of the
+prototype.</FONT> <BR>
+</P>
+<H2><FONT SIZE=5 COLOR=#000000>REFERENCES</FONT><FONT SIZE=5>
+</FONT></H2>
+<OL>
+<LI><FONT COLOR=#000000>Albers, Michael C. and Eric Bergman. The
+Audible Web: Auditory Enhancements for Mosaic. <I>Proceedings
+of CHI 95</I>, 1995, pp. 318-319.</FONT> 
+<LI>Arons, Barry. Hyperspeech: Navigating in Speech-only Hypermedia.
+<I>Hypertext '91 Proceedings</I>, December 1991. 
+<LI>Cohen, Jonathan. Monitoring Background Activities. <I>Auditory
+Display: Sonification, Audification, and Auditory Interfaces</I>.
+Reading MA: Addison-Wesley, 1994. 
+<LI>Edwards, W. Keith, Elizabeth D. Mynatt, and Kathryn Stockton.
+Providing Access to Graphical User Interfaces - Not Graphical
+Screens. <I>ACM Proceedings on ASSETS '94</I>, November 1994.
+<LI>Gaver, William W. The Sonic Finder: An interface that uses
+auditory icons. <I>Human Computer Interaction</I>, 4:67-94, 1989.
+<LI>Lumbreras, Mauricio and Gustavo Rossi. A Metaphor for the
+Visually-impaired: Browsing Information in a 3D Auditory Environment.
+<I>Proceedings of CHI 95</I>, 1995, pp. 216-217. 
+<LI>Schmandt, Chris and Atty Mullins. AudioStreamer: Exploiting
+Simultaneity for Listening. <I>Proceedings of CHI 95</I>, 1995,
+pp. 218-219. 
+<LI>Seligmann, Dore&eacute; Duncan, Rebecca T. Mercuri, and John
+T. Edmark. Providing Assurances in a Multimedia Interactive Environment.
+<I>Proceedings of CHI 95</I>, 1995, pp. 250-256. <BR>
+</OL>
+</BODY>
+</HTML>

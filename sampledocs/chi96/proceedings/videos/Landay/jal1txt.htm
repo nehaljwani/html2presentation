@@ -1,0 +1,271 @@
+<HTML><HEAD>
+<TITLE>SILK: Sketching Interfaces Like Krazy</TITLE>
+</HEAD>
+
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/videos.JPG" ALT="videos" HEIGHT=35 WIDTH=249><A HREF="../../videos.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+
+<CENTER>
+<H1>SILK: Sketching Interfaces Like Krazy</H1>
+
+<dl>
+<dt><b>James A. Landay</b>
+<dt><A HREF="http://www.cs.cmu.edu/~hcii">
+Human-Computer Interaction Institute</A>
+<dt><A HREF="http://www.cs.cmu.edu/">
+School of Computer Science</A>
+<dt><A HREF="http://www.cmu.edu/">
+Carnegie Mellon University</A>
+<dt>Pittsburgh, PA 15213-3891, USA
+<dt>Tel: 1-412-268-3608
+<dt>E-mail: <A HREF="mailto:landay@cs.cmu.edu">
+<KBD>landay@cs.cmu.edu</KBD></A>
+<dt>Web Page: <A HREF="http://www.cs.cmu.edu/~landay">
+http://www.cs.cmu.edu/~landay</A>
+<dl>
+</CENTER>
+<p>
+<HR>
+
+<H2>ABSTRACT</H2>
+Current interactive user interface construction tools are often more of a
+hindrance than a benefit during the early stages of interface design. These
+tools take too much time to use and force designers to specify more of the
+design details than they wish at this stage. Most designers prefer to sketch
+early interface ideas on paper. I have developed an interactive tool called
+SILK that allows designers to quickly sketch an interface using an electronic
+pad and stylus. SILK preserves the important properties of pencil and paper: a
+rough drawing can be produced very <i>quickly</i> and the medium is very
+<i>flexible</i>. However, unlike a paper sketch, this electronic sketch is
+<i>interactive. </i>The designer can illustrate <i>behaviors</i> by sketching
+<i>storyboards</i>, which specify how the screen should change in response to
+end-user actions. In addition, it can be semi-automatically <i>transformed</i>
+into a complete, operational interface in a specified look-and-feel.
+<p>
+
+<H3>Keywords</H3>
+Design, sketching, prototyping, gestures, SILK.
+<p>
+<HR>
+
+<H2>INTRODUCTION</H2>
+When professional designers first start thinking about a visual interface, 
+they often sketch rough pictures of the screen layouts.  Their initial goal 
+is to work on the overall layout and structure of the components, rather 
+than to refine the detailed look-and-feel.  Designers use these sketches 
+and other "low-fidelity techniques" [<A HREF="#4">4</A>] to quickly 
+consider design ideas, later shifting to interface construction tools or 
+handing off the design to a programmer.  Unfortunately, this transition 
+forces the designer to specify too many details.  
+<p>
+
+Much of the design literature recommends drawing rough sketches of design 
+ideas [<A HREF="#1">1</A>], yet most interface construction tools, such as 
+the NeXT Interface Builder, and even prototyping tools, like HyperCard, 
+require the designer to specify much more of the design than a rough sketch 
+allows.  These tools force designers to bridge the gap between how they 
+think about a design and the detailed specification they must create to 
+allow the tool to reflect a specialization of that design.
+<p>
+
+Another key lesson from the design literature is the value of iterative 
+design.  It is important to iterate quickly in the early stages of design 
+because that is when radically different ideas can and should be examined.  
+The need to turn out new designs quickly is hampered by tools that require 
+detailed designs.  This over-specification can be tedious and may also lead 
+to a loss of spontaneity.  Thus, the designer may be forced to abandon 
+computerized tools until later in the design process or forced to change 
+design techniques in a way that is not conducive to early creative design.
+<p>
+
+Additionally, research indicates that the use of current interactive tools 
+in the early stages of development places too much focus on design details 
+like color and alignment rather than on the major interface design issues, 
+such as structure and behavior [<A HREF="#5">5</A>].  Wong found that 
+colleagues give more useful feedback when evaluating interfaces with a 
+sketchy look.  I surveyed sixteen professional designers from around the 
+world concerning their use of tools in interface design.  These designers 
+reported that current user interface construction tools are a hindrance 
+during the early stages of interface design.  What designers need are 
+computerized tools that allow them to quickly sketch rough design ideas.
+<p>
+<HR>
+
+<H2>INTERACTIVE SKETCHING</H2>
+I have developed an interactive tool called SILK [<A HREF="#2">2</A>] that allows designers to
+quickly sketch an interface using an electronic stylus. SILK then retains the
+"sketchy" look of the components. The system facilitates rapid prototyping of
+interface ideas through the use of gestures for sketch creation and storyboards
+for specifying the transitions between screens. The main advantage of SILK over
+paper sketches is that it allows the storyboards [<A HREF="#3">3</A>] to come alive and permits
+the designer or test subjects to exercise the interface in this early, sketchy
+state. For example, the storyboard in <A HREF="#FIGURE1">Figure 1</A> specifies that a dialog box
+should appear when the user clicks on the button.
+<p>
+
+<A NAME=FIGURE1>
+<CENTER>
+<IMG SRC="jal1fig1.gif" ALT="Figure 1">
+<p>
+Figure 1: Make a dialog box appear when the button is pressed.
+</CENTER>
+<p>
+<HR>
+
+<H2>IMPROVEMENTS OVER PAPER SKETCHES</H2>
+Electronic sketches have most of the same advantages as paper sketches: they
+allow designers to quickly record design ideas in a tangible form and they do
+not require the designer to specify details that may not yet be known or
+important. Electronic sketches also remedy some of the weaknesses of  paper
+sketches.
+<p>
+
+<h3>Editing and Re-use</h3>
+One of the drawbacks of paper sketches is that they are hard to modify as the
+design evolves. The designer must often redraw features that have not changed.
+One way to avoid this repetition is to use an erasable whiteboard. This
+solution is of no help with the next step when a manual translation to an
+electronic format is required; this step may need to be repeated several times
+as the design changes. 
+<p>
+
+SILK allows a designer to easily edit sketched interface designs using simple
+gestures. SILK's history mechanisms will allow designers to reuse portions of
+old designs and quickly bring up different versions of the same interface
+design for testing or comparison. Thus, unlike paper sketches, SILK sketches
+can evolve without forcing the designer to continually start over with a blank
+slate.
+<p>
+
+<h3>Design Memory</h3>
+Another problem with relying too heavily on paper sketches is the lack of 
+support for "design memory." The sketches may be annotated, but a designer 
+cannot easily search these annotations in the future to find out why a 
+particular design decision was made.  Practicing designers have found that 
+the annotations of design sketches serve as a diary of the design process, 
+which are often more valuable to the client than the sketches themselves 
+[<A HREF="#1">1</A>].  In addition, paper sketches can be hard to store and 
+organize.
+<p>
+
+Using SILK, changes made to a design over the course of a project can be
+reviewed, including viewing the attached written annotations made on SILK's
+"annotation layer". Electronic sketches also have the advantages of other
+computer-based tools: they are easy to edit, store, duplicate, and search. Thus
+SILK will make the "design memory" embedded in the annotations even more
+valuable.
+<p>
+
+<h3>Interactivity</h3>
+One of the biggest drawbacks to using paper sketches is the lack of interaction
+possible between the paper-based design and a user. In order to actually see
+what the interaction might be like, a designer needs to "play computer" and
+manipulate several sketches in response to a user's verbalized actions.
+Designers need tools like SILK that allow them the freedom to quickly sketch
+rough design ideas and to test the designs by interacting with them.
+<p>
+
+SILK blends the advantages of both sketching and traditional user interface
+builders, yet avoids many of the limitations of these approaches. The system
+tries to recognize user interface widgets and other interface elements <i>as
+they are drawn</i>. Although the recognition takes place as the sketch is made,
+it is unobtrusive and designers will only be made aware of the recognition
+results if they choose to exercise the widgets. As soon as a widget has been
+recognized, it can be exercised. 
+<p>
+
+Next, the designer may specify the higher-level behavior of the sketched 
+elements. For example, what action to perform when a user clicks on a 
+button. This behavior is specified using the sketched storyboards 
+illustrated in <A HREF="#FIGURE1">Figure 1</A>.
+<p> 
+
+When the designer is satisfied with the interface, SILK will replace the 
+sketches with real widgets and graphical objects; these can take on the 
+look-and-feel of a specified standard graphic user interface, such as 
+Motif, Windows, or Macintosh.  The transformation process is mostly 
+automated, but it requires some guidance by the designer to finalize the 
+details of the interface (<i>e.g.</i>, textual labels, colors, 
+<i>etc.</i>).  At this point, programmers can add the application-specific 
+code to complete the application.
+<p>
+<HR>
+
+<H2>STATUS</H2> 
+SILK runs under Common Lisp on both Unix workstations and on the Apple 
+Macintosh with a Wacom tablet attached.  It is implemented using the Garnet 
+user interface development environment.  The prototype supports the 
+recognition, operation, and transformation of several standard widgets.  
+The current storyboarding mechanism only supports making screen transitions 
+on mouse clicks.
+<p>
+<HR>
+
+<H2>CONCLUSIONS</H2> 
+I envision a future in which most of the user interface code will be 
+generated by user interface designers using tools like SILK rather than by 
+programmers writing the code.  I have designed SILK only after examining 
+the problems reported by the intended users of the system.  SILK overcomes 
+these problems by allowing designers to quickly sketch an interface using 
+an electronic stylus.  Unlike a paper sketch, an electronic sketch will 
+allow the designer or test subjects to interact with the sketch before it 
+becomes a finalized interface.  I aim to show that an interactive sketching 
+tool that supports the entire interface design cycle - from early creative 
+design through prototyping, testing, and final implementation - will enable 
+designers to produce better quality interfaces in less time than with 
+current tools.
+<p>
+<HR>
+
+<H2>REFERENCES</H2> 
+<OL>
+<LI> 
+<A NAME=1>
+Boyarski, D. and Buchanan, R. 
+<A HREF="http://info.acm.org/pubs/magazines/interactions/interactions-1-2.html">
+Computers and communication design: Exploring the rhetoric of HCI</A>. 
+<i>Interactions</i> <i>1</i>, 2 (April 1994), 24-35.
+</A>
+<p>
+<LI> 
+<A NAME=2>
+Landay, J.A. and Myers, B.A.  
+<A HREF="http://www.cs.cmu.edu/~landay/research/publications/SILK_CHI/jal1bdy.html">
+Interactive sketching for the early stages
+of user interface design</A>.  In <i>Proceedings of CHI '95: Human Factors in
+Computing Systems,</i> Denver, CO, May 1995, pp. 43-50.
+</A>
+<p>
+<LI> 
+<A NAME=3>
+Landay, J.A. and Myers, B.A.  
+<A HREF="http://www.cs.cmu.edu/~landay/research/publications/storyboard-tr/storyboard.html">
+Just draw it! Programming by sketching storyboards</A>. 
+Carnegie Mellon University, School of Computer Science, 
+Technical Report CMU-CS-95-199, November 1995.
+</A>
+<p>
+<LI> 
+<A NAME=4>
+Rettig, M. Prototyping for tiny fingers. <i>Communications of the ACM</i>
+<i>37</i>, 4 (April 1994), 21-27.
+<p>
+</A>
+<p>
+<LI> 
+<A NAME=5>
+Wong, Y.Y. Rough and ready prototypes: Lessons from graphic design. 
+In <i>Short Talks Proceedings of CHI '92: Human Factors in Computing Systems,</i>
+Monterey, CA, May 1992, pp. 83-84.
+<p>
+</A>
+</OL>
+<BODY> 

@@ -1,0 +1,126 @@
+<HTML><HEAD>
+<TITLE>Putting Context Into Design</TITLE>
+</HEAD>
+
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/doctoral.JPG" ALT="Doctoral" HEIGHT=35 WIDTH=249><A HREF="../../doctoral.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+<h1><B>Putting Context Into Design</B></h1>
+
+<B>Steven J Clarke</B>
+Department of Computing Science
+University of Glasgow
+United Kingdom
+clarkesj@dcs.gla.ac.uk
+
+
+
+<H2>ABSTRACT</H2>
+There are an increasing number of methods for using context in design. Unfortunately these methods are strong on the 
+collection of contextual data but weak on ways to use the data in design. Furthermore, current methods suffer from bias which 
+constrains the type of data collected by designers as well as the ways the data can be put to use. However, rather than 
+eliminate these biases, we propose that designers should exploit them. This paper argues that this can be achieved by 
+facilitating the creation of explicit links between the human context and the design specification and that this requires 
+computer based support. Without such links, the use of context will be unsystematic and, potentially, ineffective.<P>
+<h3>Keywords</h3>
+Context, design notations, development tools, design rationale, activity theory.<P>
+<H2>SUMMARY</H2>
+HCI approaches to design have distinguished themselves by their focus on user tasks, user needs and preferences, the social, 
+environmental and even technological aspects of users work. The human context in which a system will be used has been 
+stressed as an important resource to use and one which must be used by designers if a successful system is to be developed. 
+The result of this is that there now exist a wide variety of techniques for involving users in design such as participative design 
+[7], activity theory [1] and Contextual Inquiry [6]. Unfortunately, while the methods are strong on the collection of contextual 
+data, they are weak on ways in which to use the data. For example, Contextual Inquiry describes many useful techniques for 
+eliciting data from users but lets designers down when it comes to using the data, suggesting for example that affinity 
+diagrams can be drawn to identify problems and concerns in users' work.<P>
+
+<I><B>Copyright on this material is held by 
+the author(s).</I></B><P>
+
+
+Furthermore, each method suffers from bias in the type of data collected and the ways in which it uses data. For example, 
+Bødkers application of activity theory to interface design [1] encourages designers to focus on learning, leading them to 
+concentrate on the dialog design. Domain analysis [4] on the other hand encourages designers to concentrate on the objects 
+that a system should implement and the functionalities required by those objects (see [2] for a discussion of contextual 
+biases).<P>
+In general then, these methods do little to bridge the large gap between analysis and design, leaving designers with much work 
+to use contextual data fully and effectively. In order to narrow this gap, we need not only to collect relevant contextual 
+information, but also to knowingly make the best use of it. The different biases of each approach should be exploited rather 
+than eliminated. For example, at a particular stage in a project, a domain analysis approach may be taken, defining the 
+functionality of the system. Later, an activity theory approach could help design the dialogue. Lastly, if use of contextual 
+information goes unrecorded, this will raise serious implications during development and maintenance (eg inconsistency, 
+inappropriate modifications) as well as unnecessarily wasting much of the contextual enquiry itself.<P>
+To achieve these aims of making full and effective use of relevant contextual information, we believe that a computer based 
+tool is essential. The tool will allow relevant human context to be structured in such a way that explicit links can be created 
+between it and various design notations. These links will allow assessments to be made of how fully and effectively the 
+human context has been used in the design. The full effects of changes in the context and the design can be highlighted. Thus, 
+consistency throughout the design, operation and maintenance phases of a project can be ensured. A computer based tool will 
+be necessary due to the high number of links that will likely be produced by designers using the tool and the difficulties in 
+traversing these links.<P>
+The rest of this paper describes a case study that was carried out as part of an investigation into contextual design and the type 
+of links that would be required to allow full and effective use of contextual information to be made. It was also an opportunity 
+to study requirements for the computer based tool. Lastly, conclusions and further work are presented.<P>
+<H2>A CASE STUDY</H2>
+The Computing Science department at the University of Glasgow administers the MSc in Information Technology course, a 
+multi-strand course that provides a major proportion of several University planning units’' income. Applications are received 
+from prospective students throughout the year and the process by which these applications are handled is time consuming and 
+at times complex. Due to the amount of income that the course generates it is essential that applications are handled 
+efficiently. The process of handling applications from when an applicant makes first contact with the University to the start 
+of the course was studied. The aims of the study were to investigate how contextual information is used in design and to 
+explore requirements for the computer based tool.<P>
+Relevant stakeholders were identified and then asked questions about their experiences. Those that work with the system were 
+interviewed about their work in their offices, while the applicants were sent questionnaires. The data obtained from the 
+analyses was then modelled using scenarios and the various models described in [5]. Problems with the current system were 
+then identified and a rough, high level design to address these problems, was produced. The design identified further areas of 
+relevant context which required investigation. These further analyses were used to provide the missing details in the design 
+with more contextual analysis being performed as and when required. This iterative process resulted in a fairly well specified 
+design being produced which was then implemented.<P>
+<H2>CONCLUSIONS</H2>
+The study was used to expose an initial set of requirements for a computer based tool to support contextual development. It 
+also highlighted a number of interesting issues two of which are described below.<P>
+Originally it was anticipated that links would be one way, from context to the design. Instead, many more types of links are 
+required. As mentioned, some design choices made some parts of the context relevant where previously they had been 
+irrelevant. Only by choosing a certain design feature did some parts of the context become relevant. Therefore the design itself 
+drove some contextual analysis.<P>
+Links between the different models of context and design specifications were identified as potentially useful, so that 
+evolutions of both could be recorded. As analysis proceeds, models change and it could be interesting to record key instances 
+of each model. Recording the history of the design lets designers look back at it and learn from mistakes. Knowing a design's 
+history will let designers understand what should happen to the design in the future.<P>
+<H2>A COMPUTER BASED CONTEXTUAL DEVELOPMENT SUPPORT TOOL</H2>
+A set of initial requirements for a computer based tool were exposed by the case study. These requirements have guided the 
+initial design of the tool. Several different models are required to structure all the collected data. Thus the tool should support 
+several modelling techniques. Also, several design notations need to be supported (the use of three is supported in [3]). 
+Furthermore, many different types of links are possible, hence the tool should let designers create links between any parts of 
+the design and any parts of the context as they see fit. More general requirements identified the types of information that 
+designers would need, such as the number and types of links between particular aspects of the design or context.<P>
+<H2>FUTURE WORK</H2>
+Work on building the tool in Smalltalk and VisualWorks has begun. At present only one contextual modelling technique and 
+three design notations are supported. Further models will be added to the tool. Once the tool is at a fairly advanced stage, a 
+few small case studies will be completed using it. A design project will be 'shadowed' independently. The tool will be used 
+independently of the project to see what difference the tool can make. For example, changes to the design or the context may 
+have been better managed using the tool. The tool could help designers to make better use of contextual information, 
+resulting in a system that better fits its context.<P>
+<H2>REFERENCES</H2>
+1.	Bødker, S. Through the Interface –  A Human Activity Approach to User Interface Design. Lawrence Erlbaum Associates, 
+Hillsdale, NJ, 1990<P>
+2.	Cockton, G., Clarke, S and Gray, P. "Theories of Context Influence the System Abstractions Used to Design Interactive 
+Systems," in People and Computers X, eds. M.A.R. Kirby, A.J. Dix and J.E. Finlay, Cambridge University Press: 
+Cambridge, 1995, 387 – 405<P>
+3	Cockton, G., S. Clarke, P. Gray & C. Johnson, "Literate Development: Weaving Human Context into Design 
+Specifications ", to appear in Critical issues in User Interface Systems Engineering, eds. D. Benyon & P. Palanque, 
+Springer Verlag, 1995<P>
+4	Dowell, J and Long, J. "A Domain Analysis of Air Traffic Management can be Used to Rationalise Interface Design 
+Issues," in People and Computers IX, G. Cockton, S.W. Draper and G.R.S. Weir, Cambridge University Press: 
+Cambridge, 1994, 53–65.<P>
+5.	Holtzblatt, K and Beyer, H, "Making Customer-Centred Design Work For Teams", CACM 36(10), 1993, 93 - 103<P>
+6	Holtzblatt, K and Jones, S. Contextual Inquiry: Principles and Practice. In [7]<P>
+7	Schuler, D and Namioka, A (Eds). Participatory Design: Principles and Practice, Lawrence Erlbaum Associates, Hillsdale, 
+NJ, 1993<P>
+
+</BODY>

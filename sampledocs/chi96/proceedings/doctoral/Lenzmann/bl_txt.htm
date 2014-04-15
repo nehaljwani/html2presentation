@@ -1,0 +1,209 @@
+<HTML><HEAD>
+<TITLE>Interface Agents for Interacting with Virtual Environments</TITLE>
+</HEAD>
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/doctoral.JPG" ALT="Doctoral" HEIGHT=35 WIDTH=249><A HREF="../../doctoral.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+<H1> Interface Agents <BR> for Interacting with Virtual Environments</H1>
+<CENTER><B> Britta Lenzmann </B></CENTER>
+<BR>
+<CENTER>University of Bielefeld</CENTER>
+<BR>
+<CENTER>Faculty of Technology, AG Knowledge-Based Systems (AI)</CENTER>
+<BR>
+<CENTER>D-33501 Bielefeld, Germany</CENTER>
+<BR>
+<CENTER>Phone: 49-521-1062919</CENTER>
+<BR>
+<CENTER>email: britta@techfak.uni-bielefeld.de</CENTER>
+<HR>
+<H2> Abstract </H2>
+The basic rationale of my Ph.D. thesis is to enhance and simplify
+interaction with an interactive 3D graphical system. To relieve users
+from technical detail and allow them to communicate with the system
+in an intuitive and human-like manner, I am investigating three main
+aspects: adaptation to user preferences, multimodal input, and open and
+underspecified input. I use agent-based techniques to approach my
+solutions. 
+<P>
+<B> Keywords: </B> 
+Interface Agents, Interactive Graphical System,
+User Adaptation, Multimodal Input, Open Input.
+<HR>
+<H2> Introduction </H2>
+The overall goal of our research in the AI &ampamp Computer Graphics Lab at the
+University of Bielefeld is the design of intelligent
+human-computer interaction in the domain of interactive 
+3D graphical systems, also called virtual environments. 
+Conventional graphical systems provide interaction devices like menues
+and mouse which often require complex manual and intellectual skill from
+the user. Virtual Reality systems allow the user to navigate and manipulate
+the virtual world by using simple hand gestures, but require expensive 
+technical equipment (e.g., DataGlove, Head-Mounted Display). Consequently, 
+we think of enabling an &quot;intelligent&quot; interaction with a 
+graphical system by allowing the user to communicate tasks to the system 
+by using more intuitive, human-like interaction forms. 
+Moreover, user-specific tasks should be solved by the system autonomously.
+<P>
+Therefore, techniques have to be explored and realized which enhance 
+and simplify the interaction with a virtual environment in the way
+that users can be relieved from technical detail and can 
+concentrate on their primary tasks.
+<P>
+In the last decade, interface agents have become prominent as a new paradigm 
+for the design of more intelligent user interfaces [2, 6].
+By mediating a relationship between the technical system and the user, they 
+allow more human-like communication forms and, so, can add comfort in 
+human-computer interaction [3, 5, 7]. Maes [5] has
+realized personal assistants, e.g., for electronic mail handling and 
+electronic news filtering which accumulate knowledge about 
+tasks and habits of their users to act on their behalf. In the
+VIENA project [7], we consider the manipulation of objects in
+a virtual office by using simple natural language input. A multiagent
+interface system is used as a mediator for translating abstract verbal user 
+commands to quantitative, technical commands which are used to update 
+the visualized scene. 
+<P>
+My Ph.D. thesis research contributes to the work in the VIENA project.
+To achieve further enhancement in the interaction with a virtual 
+environment, I investigate three main aspects: adaptation to user 
+preferences, multimodal input, and open and underspecified input.
+I am using agent-based techniques to approach my solutions. 
+The next three sections will describe these aspects in more detail.
+<HR>
+<H2> User-Adaptation </H2>
+To enable an effective human-computer interaction, the interface 
+system must be able to meet varying conditions. Thus, incorporating 
+adaptation facilities in the agent system becomes essential. Since
+the practical experiences with the VIENA system has shown that variations
+of individual preferences exist across users, we want to focus on
+adaptation to user preferences.
+<P>
+In our approach, we consider a system of multiple interface agents 
+which adapts to user preferences by learning from direct feedback 
+without explicit acquisition of user data. Avoiding explicit user modeling
+seems a desirable goal because explicit user models have found 
+critique with respect to privacy of user data [6]. The core 
+idea of our approach to <I>implicit user adaptation</I> is that agents 
+of the same type but slightly different functionality, corresponding 
+to possible variations of users' preferences, organize themselves 
+to meet the preferences of the individual user. Getting positive 
+or negative feedback from the user, agents increase or decrease their
+amount of selfconfidence, so that successful agents become dominant
+in the ongoing session.
+<P>
+From the system internal point of view, the adaptation
+process is achieved by a form of reinforcement learning 
+[1]. Learning is realized 
+in a way that the system will take actions that maximize the
+reinforcement signals received from the environment. In our approach, 
+this means that users' instructions (or corrections, resp.) represent 
+reinforcement signals which are interpreted and encoded by the 
+interface agency in the form of <I>credit values</I>. Each agent stores 
+a credit value corresponding to its quality (&quot;strength&quot;) at 
+discrete periods of time. Learning is achieved by adjusting agents' 
+credits in correspondence to the users' feedback and assigning 
+those agents which are eligible for the task in question and which 
+have maximal credits.
+<P>
+A prototype version of the adaptation method described above has been 
+implemented and tested for the case of users' preferences for different 
+spatial reference frames. By using simple heuristics, adaptation to 
+varying users' preferences for different spatial reference frames
+can be achieved. For more detailed information, see [4].
+<HR>
+<H2> Multimodal Input </H2>
+Communication between people is so effective and flexible since they can 
+simultaneously use different senses to receive or transmit informations. To 
+allow an intuitive human-computer interaction, the interface agency should be
+able to understand and integrate user instructions of different modalities.
+<P>
+Whereas several multimodal systems, realized so far, concentrate on methods 
+for the generation and presentation of multimodal output, we focus on the
+integration of multimodal input. To communicate instructions to the graphical
+system, natural language input and simple hand gestures
+indicating a direction can be used.
+<P>
+The problem of integrating informations of these two modalities into one
+multimodal input should be solved by a <I>multimodal input agency</I>. This 
+agency consists of several mode-specific input agents, i.e., a speech listener 
+agent and a gesture listener agent, a global input data structure, 
+and a coordinator input agent. The listener agents are responsible for
+receiving and analyzing the sensor data and for sending
+them to the coordinator input agent which stores all incoming data in the
+global input data structure. 
+<P>
+To integrate the gestural and verbal inputs, the coordinator 
+input agent has to decide which gesture belongs to which verbal
+input. In our approach, we want to achieve the synchronization by processing
+in time cycles which is motivated by temporal control mechanisms of humans.
+The gesture and verbal input of the user are interpreted as belonging together
+if they are perceived by the listener agents in the same time cycle. In this
+way, intuitive interaction modalities could be used simultaneously.
+<HR>
+<H2> Open Input </H2>
+Interacting with technical systems mostly requires that commands are
+specified, appropriate to a given syntax, correct and complete. 
+Moreover, each command has to be completed with a special symbol, e.g.,
+by typing the return button of the keyboard. Since communication 
+between people is <I>situated</I> naturally, i.e., embedded in a 
+situational context, they often use vague and uncomplete expressions.
+To this end, the human-computer interaction can become more intuitive 
+if uncomplete and underspecified instructions are allowed.
+<P>
+In our setting, I want to use a combination of time-oriented and 
+event-oriented techniques within the listener agents to decide when the 
+processing of instructions can begin. In addition, agents should use 
+knowledge which is obtained from previous interactions to determine 
+missing informations.  
+<HR>
+<H2> References </H2>
+<OL>
+<LI> Kaelbling, L.P. (1993). <I>Learning in Embedded Systems</I>.
+    Cambridge (MA): The MIT Press, 1993.
+<LI> Kay, A. (1990). User Interface: A Personal View. 
+ In Laurel, B. (Ed.): <I>The art of human-computer interface design</I>,
+ 191-208. Reading (MA): Addison-Wesley, 1990.
+<LI> Laurel, B. (1990). Interface agents: Metaphors with character. 
+ In Laurel, B. (Ed.): <I>The art of human-computer interface design</I>,
+ 355-365. Reading (MA): Addison-Wesley, 1990.
+<LI> Lenzmann B., Wachsmuth I. (1995).
+ A User-Adaptive Interface Agency for Interaction with a Virtual Environment.
+ In <I>Working Notes of the IJCAI-95 Workshop on Adaptation and
+ Learning in Multiagent Systems</I>, 43-46. AAAI Press, 1995. 
+<LI> Maes, P. (1994). 
+ Agents that Reduce Work and Information Overload. 
+ <I>Communications of the ACM, Vol.37</I>, No.7, 1994, 31-40. 
+<LI> Norman, D.A. (1994). 
+ How Might People Interact with Agents. 
+ <I>Communications of the ACM, Vol.37</I>, No.7, 1994, 68-71. 
+<LI> Wachsmuth, I., Cao, Y. (1995).
+ Interactive Graphics Design with Situated Agents.
+ In W. Strasser &amp; F. Wahl (Eds.): <I>Graphics and Robotics</I>,
+ 73-85. Berlin: Springer, 1995.
+</OL>
+<HR>
+<ADDRESS>
+Interface Agents for Interacting with Virtual Environments
+<BR>
+Britta Lenzmann, britta@techfak.uni-bielefeld.de
+</ADDRESS>
+</BODY>
+
+
+
+
+
+
+
+
+
+
+
+

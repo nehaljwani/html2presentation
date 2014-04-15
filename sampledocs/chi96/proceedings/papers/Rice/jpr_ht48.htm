@@ -1,0 +1,271 @@
+This is an example of the way that the help page appears.  We get an
+annotated explanation of the gadgets on the page and an explanation of
+what each of the commands does.  The user reads the documentation and
+decides that the <B>Create Subclass</B> command is appropriate.
+Selecting this command from within the help page executes the command
+as if it had been invoked on the original page....<br>
+
+
+<A HREF="jpr_ht47.htm"><IMG SRC="jpr_fg05.gif" ALT="[Back]"></A>
+<A HREF="jpr_txt.htm#figure-1"><IMG SRC="jpr_fg85.gif" ALT="[Up]"></A>
+<A HREF="jpr_ht49.htm"><IMG SRC="jpr_fg56.gif" ALT="[Next]"></A> 
+<HR>
+<TITLE>Help</TITLE>
+
+<H1>Help <A HREF="jpr_ht64.htm">(all possible commands)</A></H1>
+<form method="GET" action="jpr_ht49.htm">
+
+<H2>General help on the current display:</H2>
+<IMG SRC="jpr_fg16.gif"> <P>
+
+
+<HR>
+
+<H2>Help on the available menu bar commands:</H2>
+<DL>
+<DT><A HREF="jpr_ht64.htm" ALT="Home"><IMG SRC="jpr_fg46.gif" ALT="Home" BORDER="0"></A>
+<DD>Takes you to the <A HREF="jpr_ht64.htm">network services</A>
+  home page.
+<DT><A HREF="jpr_ht64.htm"><IMG SRC="jpr_fg42.gif" ALT="Make Comment" BORDER="0"></A>
+<DD>Prompts you to type in a comment which is then mailed to the developers.
+<DT><A HREF="jpr_ht64.htm"><IMG SRC="jpr_fg64.gif" ALT="Preferences" BORDER="0"></A>
+<DD>Gives you a form that allows you to edit the available user preference
+  options.
+<DT><INPUT VALUE="[Save all and quit session]" TYPE="image" SRC="jpr_fg38.gif" NAME="UID-1342" BORDER="0"> (Save all and quit session)<B>:</B>
+<DD>Saves all of the unsaved
+   <A HREF="jpr_ht64.htm">
+   ontologies</A> either to the <A HREF="jpr_ht64.htm">group
+   </A>that they came from if their source is know, or to your current
+   group if they are newly created.
+<DT><A HREF="jpr_ht64.htm"><IMG SRC="jpr_fg15.gif" ALT="Reload" BORDER="0"></A> (Reload)<B>:</B>
+<DD>Reloads the current page.  This is useful if you have edited
+ something, and you use the back key, window history, or GO menu to go back
+ in time.  This command will let you reload the page (if things have changed)
+ without telling the browser to reload all of the images too.
+<DT><INPUT VALUE="[Ontology Library]" TYPE="image" SRC="jpr_fg58.gif" NAME="UID-0" BORDER="0"> (Ontology Library)<B>:</B>
+<DD>Takes you to page that lists the contents of the
+             <A HREF="jpr_ht64.htm">ontology
+             </A> library.
+<DT><INPUT VALUE="[Parent Ontology]" TYPE="image" SRC="jpr_fg57.gif" NAME="UID-1285" BORDER="0"> (Parent Ontology)<B>:</B>
+<DD>Takes you to page for the
+             <A HREF="jpr_ht64.htm">ontology
+             </A> in which the current
+             <A HREF="jpr_ht64.htm">frame</A>
+             was defined.
+<DT><INPUT VALUE="[Suppress edit gadgets]" TYPE="image" SRC="jpr_fg34.gif" NAME="UID-1392" BORDER="0"> (Suppress edit gadgets)<B>:</B>
+<DD>Toggles the read-only/read-write status of this
+  page so that all of the edit gadgets disappear.
+  <A HREF="jpr_ht64.htm">
+  Worked example.</A>
+<DT><IMG SRC="jpr_fg77.gif" ALT="Can't Undo" BORDER="0"> (Can't Undo)<B>:</B>
+<DD>Says you can't undo the last operation.
+<DT><A HREF="jpr_ht64.htm"><IMG SRC="jpr_fg31.gif" ALT="Dictionary" BORDER="0"></A> (Dictionary)<B>:</B>
+<DD>Takes you to the dictionary server that you specified in your
+             user preferences.
+<DT><INPUT VALUE="[Documentation]" TYPE="image" SRC="jpr_fg32.gif" NAME="UID-1353" BORDER="0"> (Documentation)<B>:</B>
+<DD>Takes you to the home page for the ontology editor's
+             documentation.  This includes manuals and a guided tour.
+<DT><INPUT VALUE="[EMail Bug Report]" TYPE="image" SRC="jpr_fg14.gif" NAME="UID-1354" BORDER="0"> (EMail Bug Report)<B>:</B>
+<DD>Gives you a form that will allow you to send a bug report.
+<DT><INPUT VALUE="[Find Name]" TYPE="image" SRC="jpr_fg50.gif" NAME="UID-1355" BORDER="0"> (Find Name)<B>:</B>
+<DD>Prompts you for a name to look for in all of the
+    <A HREF="jpr_ht64.htm">ontologies</A>
+    that are currently loaded into the ontology editor.
+    Any name will match this search, whether it is the name of a
+    <A HREF="jpr_ht64.htm">function</A>,
+    <A HREF="jpr_ht64.htm">relation</A>,
+    <A HREF="jpr_ht64.htm">instance</A>,
+    <A HREF="jpr_ht64.htm">class</A>, or
+    <A HREF="jpr_ht64.htm">axiom</A>.
+    If there are multiple possible matches,
+    a page showing these possibilities will be shown.  If there is only
+    one possible match, you will be taken to the page showing that
+    definition.<P>
+    <A HREF="jpr_ht64.htm">
+    Click here for a worked example</A>.  In any <B>Find</B> command you can enter a wildcarded pattern of things
+to find.  Context-specific filtering occurs so that the only matches that
+are found are those that are appropriate to the context.  Thus, if you are
+finding a <A HREF="jpr_ht64.htm">class</A> name,
+only existing class names will be found as matches.
+Searches are case independent.  The <B>Find</B> facility is a superset of
+what you already may be accustomed to in "completion" features in other
+systems.
+The pattern may contain:
+<UL>
+<LI>A sequence of alphabetics, which are required to match to the string
+    in question.
+<LI>A multi-character wildcard <B>*</B>, which will match to zero or more
+    characters.
+<LI>A single character wildcard <B>?</B>, which will match to exactly
+    one character.
+<LI>Escaped wildcard characters: <B>\*</B> or <B>\?</B>.
+</UL>
+There is no limit to the number of wildcard characters that can be supplied
+in a pattern.  Searches all make initial substring matches, so you will
+get "completion" behavior simply by typing in an initial substring.
+<P>Some examples:
+<DL>
+<DT><B>Hello</B>
+<DD>Will match to any word beginning with the string "HELLO"
+<DT><B>*Hello</B>
+<DD>Will match to any word containing the string "HELLO".  This is
+    equivalent to <B>*Hello*</B>.
+<DT><B>Hel?o</B>
+<DD>Will match to any word beginning with the string "HEL", having any
+    character after that and then having "O" after it.
+</DL><P>
+If the <B>Find</B> command finds more possibilities than the threshold
+that you specified in your user preferences, ellipses ("...") will be
+displayed and a new button labeled <B>Find All</B> will be displayed.
+If you click on the <B>Find All</B> button, all possible matches will be
+found and displayed, however many there may be.  If you click on the
+ellipsis mark, the number of items displayed will grow by a number
+specified by your user preferences.  If you click on a caret button,
+the word following the caret will be inserted into the typein box.
+
+<DT><INPUT VALUE="[Help]" TYPE="image" SRC="jpr_fg65.gif" NAME="UID-1356" BORDER="0"> (Help)<B>:</B>
+<DD>Shows help for the current page.  Any available buttons on the
+  current page will be explained as well as general help being given on the
+  contents of the current page.
+<DT><INPUT VALUE="File" TYPE="submit" NAME="UID-1346">:<SELECT NAME="FILE">
+    <OPTION>EMail Class</SELECT> <B>:</B>
+<DD>EMails the current <A HREF="jpr_ht64.htm">
+   frame</A>.
+   The address to which the frame is EMailed is determined by your user
+   preferences.  The default will prompt you for an address.  You can also set
+   your preferences so that definitions will always be mailed to you directly.
+   See also the <B>Save [Frame] to File</B> command.  The definition that is
+   mailed to you is not the page that you see, it is the Ontolingua source code
+   definition of the frame.  This definition will conspicuously not include any
+   references to inherited values,
+   <A HREF="jpr_ht64.htm">slots</A> or
+   <A HREF="jpr_ht64.htm">facets</A>.
+<DT><INPUT VALUE="File" TYPE="submit" NAME="UID-1347">:<SELECT NAME="FILE">
+    <OPTION>Save Class to group ...</SELECT> <B>:</B>
+<DD>Saves the current <A HREF="jpr_ht64.htm">
+  frame</A> to a file in the ontology editor's frame library.
+  You can load such a saved frame with the <B>Load Definition</B> command.
+  See also the <B>EMail [*]</B> command.  The file created by the save
+  command will be authored (owned) by you and have the
+  <A HREF="jpr_ht64.htm">group</A> ownership that
+  you specify in the dialogue.
+<DT><INPUT VALUE="File" TYPE="submit" NAME="UID-1348">:<SELECT NAME="FILE">
+    <OPTION>Save Class to group UNIVERSE</SELECT> <B>:</B>
+<DD>Saves the current <A HREF="jpr_ht64.htm">
+   frame</A> to a file.
+   You can load such a saved frame with the <B>Load Frame</B> command.
+   See also the <B>EMail [Frame]</B> command.
+<DT><INPUT VALUE="Create" TYPE="submit" NAME="UID-1388">:<SELECT NAME="CREATE">
+    <OPTION>Slot</SELECT> <B>:</B>
+<DD>Gives you a blank form in which you can create a new
+   <A HREF="jpr_ht64.htm">slot</A> (binary
+   <A HREF="jpr_ht64.htm">function</A> or
+   <A HREF="jpr_ht64.htm">relation</A>)
+   on the current
+   <A HREF="jpr_ht64.htm">class</A>
+   to add to the current
+   <A HREF="jpr_ht64.htm">ontology</A>.
+   You are prompted for the name of the new slot, its documentation string
+   and its
+   <A HREF="jpr_ht64.htm">domain</A> and
+   <A HREF="jpr_ht64.htm">range</A>
+   class(es).  The domain class defaults to the
+   current class.  If you want simultaneously to define an inverse slot then
+   you must supply a name for the inverse slot and its documentation in the
+   appropriate boxes.<BR>
+   Slots can be either Functions or Relations.  If you want the slot to be
+   single-valued, i.e. a function, then you should click in the "Single
+   Valued" checkbox.  The name for the new slot (and inverse slot)
+   must be unique in the current ontology and its included ontologies.
+   Supplying multiple domain classes will define a slot with a disjunctive
+   domain.  Supplying multiple range classes will specify a disjunctive
+   range.<BR>
+   <A HREF="jpr_ht64.htm">
+   Click here for a worked example</A>.
+<DT><INPUT VALUE="Create" TYPE="submit" NAME="UID-1389">:<SELECT NAME="CREATE">
+    <OPTION>Instance</SELECT> <B>:</B>
+<DD>Gives you a blank form in which you can create a new
+   <A HREF="jpr_ht64.htm">instance</A> of the
+   current
+   <A HREF="jpr_ht64.htm">class</A> to add to the
+   current <A HREF="jpr_ht64.htm">ontology</A>.
+   You are prompted for the name of the new instance, its documentation string
+   and the classes of which the new instance is to be a direct instance
+   (defaulting to the current class).  You can provide multiple classes
+   separated by whitespace if you want the instance to be a direct instance
+   of multiple classes.  The name for the new instance must be
+   unique in the current ontology and its included ontologies.
+   <A HREF="jpr_ht64.htm">
+   Here is a worked example</A>.
+<DT><INPUT VALUE="Create" TYPE="submit" NAME="UID-1390">:<SELECT NAME="CREATE">
+    <OPTION>Subclass</SELECT> <B>:</B>
+<DD>Gives you a blank form in which you can create a new
+   <A HREF="jpr_ht64.htm">subclass</A>
+   of the current class to add to the current
+   <A HREF="jpr_ht64.htm">ontology</A>.
+   You are prompted for the name of the new class, its documentation string
+   and its direct superclasses
+   (defaulting to just the current class).  The name for the new class must
+   be unique in the current ontology and its included ontologies.
+   <A HREF="jpr_ht64.htm">
+   Click here for a worked example</A>.
+<DT><INPUT VALUE="Frame" TYPE="submit" NAME="UID-1343">:<SELECT NAME="FRAME">
+    <OPTION>Show Translation</SELECT> <B>:</B>
+<DD>Shows you the translation of the current definition into a target
+  system (such as KIF, LOOM, Epikit, or CLIPS) that you specify.
+<DT><INPUT VALUE="Frame" TYPE="submit" NAME="UID-1344">:<SELECT NAME="FRAME">
+    <OPTION>Focused browse</SELECT> <B>:</B>
+<DD>Shows a browser for the current
+   <A HREF="jpr_ht64.htm">frame</A> in the
+   current
+   <A HREF="jpr_ht64.htm">ontology</A>
+   that lets you open and close subtrees of the
+   <A HREF="jpr_ht64.htm">class</A>/
+   <A HREF="jpr_ht64.htm">instance</A>
+   hierarchy accessible in this ontology.
+<DT><INPUT VALUE="Frame" TYPE="submit" NAME="UID-1387">:<SELECT NAME="FRAME">
+    <OPTION>Delete</SELECT> <B>:</B>
+<DD>Deletes the current
+  <A HREF="jpr_ht64.htm">frame</A>
+  from the current
+  <A HREF="jpr_ht64.htm">ontology</A>.
+  References to this frame in other frames and axioms are
+  not removed so you may need to do some fixing up when you delete a frame.
+  If there are references to the frame you have just deleted, the now-deleted
+  frame name will appear in the list of undefined symbols when you execute the
+  "Analyze Ontology" command.
+<DT><INPUT VALUE="Frame" TYPE="submit" NAME="UID-1345">:<SELECT NAME="FRAME">
+    <OPTION>Analyze</SELECT> <B>:</B>
+<DD>Analyzes the current
+  <A HREF="jpr_ht64.htm">frame</A>, showing any
+  warnings that Ontolingua generates when loading the definition and any other
+  interesting debugging hints that it can give you.  All
+  <A HREF="jpr_ht64.htm">slots,</A>
+  slot values,
+  <A HREF="jpr_ht64.htm">facet</A>,
+  and facet values are checked to make sure that they conform to the
+  constraints that apply (eg.
+  <A HREF="jpr_ht64.htm">domain</A>,
+  <A HREF="jpr_ht64.htm">range</A>, slot value
+  type and cardinality constraints).
+<DT><INPUT VALUE="Frame" TYPE="submit" NAME="UID-1349">:<SELECT NAME="FRAME">
+    <OPTION>Ontologies that can see</SELECT> <B>:</B>
+<DD>Shows all of the ontologies that can see the current definition.
+<DT><INPUT VALUE="Frame" TYPE="submit" NAME="UID-1350">:<SELECT NAME="FRAME">
+    <OPTION>Find References</SELECT> <B>:</B>
+<DD>Shows all of the other definitions that reference the current definition.
+<DT><INPUT VALUE="Frame" TYPE="submit" NAME="UID-1391">:<SELECT NAME="FRAME">
+    <OPTION>Copy</SELECT> <B>:</B>
+<DD>Gives you a dialogue that allows you to create
+  a copy of the current
+  <A HREF="jpr_ht64.htm">frame</A>.
+  The form prompts you for a name for the new frame and for the ontology
+  into which it is to be put.  Only ontologies to which you have write access
+  will be shown in the ontology menu.  It defaults to the current ontology.
+  The name of the new frame must be different from any existing definition
+  name within the ontologies included by the ontology into which the copy is
+  to be placed.  Use the FIND button to make sure that the name is unique.
+</DL>
+<HR>
+
+</FORM>

@@ -1,0 +1,1061 @@
+<!doctype html public "-//IETF//DTD HTML//EN">
+<HTML>
+
+<HEAD>
+<TITLE>Toward Automatic Generation of Novice User Test Scripts</TITLE>
+</HEAD>
+
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<P><IMG SRC="./../../graphics/papers.JPG" ALT="papers" HEIGHT=35 WIDTH=249><A HREF="./../../papers.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+
+<A name=Top>
+<CENTER>
+<H1>Toward Automatic Generation of Novice User Test Scripts</H1>
+</CENTER>
+</A>
+<A name=Authors>
+<em>David J. Kasik, Harry G. George</em>
+</A>
+<P>
+<DL>
+<DT>Boeing Commercial Airplane Group
+<DT>P.O. Box 3707, Mail Stop 6H-WT
+<DT>Seattle WA  98124  USA
+<DT>+1 206 234 0575
+<DT>kasik@ata.ca.boeing.com
+</DL>
+
+<P>
+<HR>
+This paper contains the following major sections:
+
+<UL>
+  <LI><A href=#Introduction>Introduction</a>
+  <LI><A href=#Motivation>Motivation</a>
+  <LI><A href=#Alternatives>Dialog Specification Alternatives</a>
+  <LI><A href=#Implementation>Prototype Implementation</a>
+  <LI><A href=#Analysis>Results Analysis</a>
+  <LI><A href=#Issues>Remaining Issues</a>
+  <LI><A href=#Conclusion>Conclusion</a>
+  <LI><A href=#References>References</a>
+  <LI><A href=#Authors>Contact Information</a>
+</UL>
+
+<A name=Abstract>
+<H2>ABSTRACT</H2>
+</A>
+
+<P>
+Graphical user interfaces (GUI's) make applications easier to
+learn and use. At the same time, they make application design,
+construction, and especially test more difficult because user-directed
+dialogs increase the number of potential execution paths. This
+paper considers a subset of GUI-based application testing: how
+to exercise an application like a novice user. We discuss different
+solutions and a specific implementation that uses genetic algorithms
+to automatically generate user events in an unpredictable yet
+controlled manner to produce novice-like test scripts.
+<H3>Keywords</H3>
+
+<P>
+Automated test generation, dialog model specification, genetic
+algorithms, software engineering test process.
+
+<A name=Introduction>
+<H2>INTRODUCTION</H2>
+</A>
+
+<P>
+The role of the user interface has become increasingly important
+to the success of computer applications. Graphical interfaces
+make complex applications visually attractive and accessible to
+a wide range of users.
+<P>
+Users can exercise an interactive application in many different
+ways. In reactive, GUI-based applications, even more options are
+available because multiple widgets and paths can be active concurrently.
+This causes problems as an application is tested for failures,
+especially when the it is made available to a large user community.
+Unsophisticated and novice users often exercise applications in
+ways that the designer, the developer, and the tester did not
+anticipate.
+<P>
+Tools and techniques to improve testing for program failures (e.g.,
+capture/playback tools) are becoming more widely available.
+<P>
+As the tools have been deployed, the prime beneficiaries have
+been experts. An expert user or tester usually follows a predictable
+path through an application to accomplish a familiar task. A developer
+knows where to probe to find the 'weak points' in an application.
+<P>
+As a result, applications contain state transitions that work
+well for predicted usage patterns but become unstable when given
+to novice users. Novices follow unexpected paths and do things
+'no one would ever do.' Such program failures are hard to generate,
+reproduce, diagnose, and predict. Current methods (e.g., recruiting
+naive users, beta testing) are manual, costly, and usually occur
+after development is finished. 
+<P>
+This paper presents a technique to move novice-like testing earlier
+in the overall system test process. We use genetic algorithms
+as a repeatable technique for generating user events that drive
+conventional automated test tools. Reprogramming the genetic algorithm
+reward system can mimic different forms of novice user behavior.
+Our prototype implementation works at run-time and is independent
+of application design and development tools.
+<P>
+
+<A href=#Top>
+<I>Return to Top</I>
+</A>
+<HR>
+
+<A name=Motivation>
+<H2>MOTIVATION</H2>
+</A>
+
+Testing is the subject of an entire branch of computer science 
+[<A href=#Ref1>1</A>, <A href=#Ref13>13</A>]. 
+The test process is shown in Figure 1.
+<P>
+<CENTER>
+<img src="djk_fg1.gif" alt="FIGURE 1" align=middle>
+<p>
+Figure 1. Test Process Framework
+</CENTER>
+<P>
+This paper deals with one aspect of the overall test process:
+ how to automate generation of test scripts that exhibit novice
+user characteristics as part of <B>Design Test</B>. Novice-like
+testing is often the target of beta programs and can involve many
+people (e.g., Microsoft's 400,000 beta copies of Windows95). When
+this type of novice testing is done, it is designed to find program
+failures rather than to determine usability characteristics.
+<P>
+GUI-based applications present special problems in test design.
+Older interactive applications often embedded command hierarchies
+directly in the structure of the program. The user then followed
+the command tree while navigating from one function to another.
+The test designer could assume that certain logical conditions
+held because the user could not deviate from the program-controlled
+sequence.
+<P>
+Multiple dialog sequences are available concurrently in a GUI-based
+application. The application becomes reactive and paths more unpredictable.
+Therefore, a test designer must consciously assure that the program
+maintains logical relationships through the state changes needed
+to control:
+
+<UL>
+  <LI>Interleaved function execution.
+  <LI>Exit from a partially completed function.
+  <LI>User or program generated asynchronous events.
+  <LI>User or program generated error conditions.
+</UL>
+
+The size and complexity of both the application program and the
+test set grow dramatically when concurrent dialog is involved.
+Industry statistics 
+[<A href=#Ref12>12</A>] 
+indicate that many GUI-based applications
+devote half of the code to managing the user interface. As discussed
+in the next section, there are a number of different techniques
+for improving the user interface design/build process. Testing
+is still required even with improvements in the early stages of
+the system engineering process.
+<P>
+The general problem of test automation for GUI-based applications
+has received some attention. The principal effort has been in
+the area of automated record/playback tools 
+[<A href=#Ref16>16</A>]. 
+Such tools accept input at two levels: 
+
+<OL>
+  <LI>Raw keystroke capture saves individual user keyboard and mouse
+events.
+  <LI>Logical widget names provide higher level specifications that
+are screen position insensitive.
+</OL>
+
+The tools generally offer a language that can be used to program
+test scripts. Some form of bitmap compare is included to help
+a tester compare results of a test run with a known-good result.
+<P>
+Test automation tools work well when given to an expert and poorly
+when given to a novice because:
+
+<UL>
+  <LI>An expert knows how an application should respond to a particular
+input, and a novice does not have such knowledge. In other words,
+an expert knows what an application can or cannot do as a task
+is being performed and a companion script written.
+  <LI>A large set of test scripts is needed to faithfully represent
+how a novice might exercise an application. Generating such scripts
+by hand is tedious and needs to be re-done for each new version.
+</UL>
+
+<H3>Novice Testing</H3>
+
+<P>
+Testing can be conducted on a number of different levels to discover
+application failures and to measure and verify acceptable performance.
+The most common characterization of testing describes phases where:
+
+<UL>
+  <LI><I>Unit test</I> attempts to find failures in a logical unit
+in isolation from others.
+  <LI><I>Functional test</I> attempts to find failures as logical units
+are connected together to perform specific functions.
+  <LI><I>System test</I> attempts to find failures as the whole application
+is used and to verify that the application meets requirements.
+</UL>
+
+Different people are assigned responsibilities for testing. Developers
+isolate specific application functions and interfaces during unit
+and functional test. These tests require extensive knowledge and
+analysis of code internals. System test is more task oriented.
+In addition to finding failures, system test determines if an
+application can be used to accomplish tasks. The testing is done
+in a black box manner and must be driven from the user interface.
+Experts perform most system testing, and novices are occasionally
+recruited to find application weak spots. 
+<P>
+
+<CENTER>
+<img src="djk_fg2.gif" alt="FIGURE 2" align=middle>
+<p>
+Figure 2. Different Paths through an Application
+</CENTER>
+
+<P>
+As shown in Figure 2, there are three paths that can be taken
+to perform a task during system test:
+
+<UL>
+  <LI>The optimal path lets a user perform the task in the shortest
+time or fewest steps.
+  <LI>The expert comes close to exercising an application in a semantically
+optimal manner. Experts know enough about program state to be
+able to work efficiently and define a reusable test script. Work
+has been done in the area of task analysis, cognitive simulation,
+and interface complexity with Goals, Operators, Methods (GOMS)
+models 
+[<A href=#Ref10>10</A>] 
+to clearly define how an expert might use a complex application.
+  <LI>The novice wanders in a reasonable but unpredictable manner.
+The novice gradually builds a more accurate mental model of the
+application. The better mental model results in paths closer to
+the optimal.
+</UL>
+
+Novices do not work at random: they learn the application by performing
+a task. Random testing does have a role in exploring the outer
+limits of an application but is not our primary focus.
+<P>
+Novice testing is often ignored. At worst, some applications have
+been released in anticipation that users will find errors and
+accept fixes in the next version. Beta programs find some failures
+caused by novice, but beta users are often quite literate in an
+application domain. Some companies recruit large numbers of naive
+users to test true novice behavior prior to beta release. 
+<P>
+All three approaches to novice testing are costly. Not only do
+they occur late in the cycle, but a novice's actions are also
+hard to replicate. Novices wander through convoluted paths that
+only rigorous keystroke recording can capture. Large numbers of
+novice keystroke files become difficult to manage and upgrade
+to the next version.
+<P>
+We chose to automate generation of novice test scripts to address
+these problems. Automation requires a script environment to record
+and playback sessions and a method to generate user events in
+a novice-like manner for those scripts. Our approach assumes the
+existence of an automated record/playback tool. The automation
+effort focused on user event generation.
+<P>
+
+<A href=#Top>
+<I>Return to Top</I>
+</A>
+<HR>
+
+<A name=Alternatives>
+<H2>DIALOG SPECIFICATION ALTERNATIVES</H2>
+</A>
+
+In order to generate meaningful events for a script, we require
+a clear, accurate specification of both the user interface dialog
+[<A href=#Ref14>14</A>] 
+and the program state information. The state information
+controls the legality of specific dialog components and the names
+of the legal commands during a session. Without access to state,
+the generator could produce many meaningless input events. 
+<P>
+This section contains a brief review and analysis of three techniques
+designers and developers use to specify user interface dialog
+and control its state.
+
+<H3>GUI Toolkits and Source Code</H3>
+
+The most commonly used form of dialog and state specification
+is the application program itself. The UI designer and implementer
+often use a GUI toolkit to specify graphical layout and input
+gathering mechanics.
+<P>
+A GUI toolkit does not manage state information. Therefore, both
+logical relationships and concurrency must be managed in programmer
+maintained code. Application code grows more complex as the number
+of relationships increases. In addition, the way in which a programmer
+manages logical relationships and concurrency is different from
+but interleaved with the algorithmic code that performs a requested
+function. 
+<P>
+Because the code is an integral part of the specification and
+state information cannot be derived from static code analysis,
+any automated test generation scheme needs to be able to obtain
+current user interface and state information from the application
+code itself.
+
+<H3>User Interface Management Systems</H3>
+
+The second alternative is a user interface management system (UIMS).
+UIMSs have been formally pursued since the early 1980's 
+[<A href=#Ref4>4</A>, <A href=#Ref9>9</A>]. 
+The UIMS ideal is to operate the same application across a wide
+variety of interface styles (e.g., GUI, command line, form, script
+file) with little or no change to the dialog or application. 
+<P>
+This is possible because a UIMS contains a dialog specification
+language that contains state information. The language is translated
+into an informal model that is interpreted to control program
+execution. Because they contain state information, UIMS specifications
+are inherently more complete than GUI widget hierarchies and more
+suitable for use in generating test scripts.
+<P>
+However, few applications are specified with a UIMS. Applying
+any automated test generation technique to a manually developed
+application requires reverse engineering to derive the UIMS model.
+This is a daunting task: a working program often contains 'features'
+and loopholes that are difficult to capture in a more abstract
+UIMS model.
+
+<H3>Process Modeling</H3>
+
+The third specification alternative for dialog is formal process
+modeling. Formal models are commonly used in time and state sensitive
+areas (e.g., real time software, business process modeling, temporal
+protocol logic).
+<P>
+In contrast to the informal models in UIMSs, formal models can
+be validated prior to execution. Theorem proving techniques can
+be used to determine correctness for text-based formal specifications
+[<A href=#Ref5>5</A>]. 
+Graphical formal models like Petri nets can be analyzed mathematically 
+[<A href=#Ref17>17</A>] 
+or via discrete event simulation 
+[<A href=#Ref7>7</A>].
+<P>
+Formal models have been used as direct input to the test process,
+especially for safety critical applications. Two examples are
+path models built from source code to generate test data values
+[<A href=#Ref6>6</A>] 
+and finite state models to reduce the number of required tests
+[<A href=#Ref2>2</A>].
+ Little has been done to automate the generation of the scripts
+themselves.
+<P>
+Petri nets have been used as a type of process model applied to
+dialog 
+[<A href=#Ref15>15</A>, <A href=#Ref19>19</A>]. 
+Palanque and Bastide have documented reasonably
+complex interfaces based on Petri nets. The nets proved to be
+an effective specification technique. However, they were manually
+verified and translated into an executable application. Manual
+translation of a formal model to an executing program can contain
+errors and deviations from the specification.
+
+<H3>Summary</H3>
+
+<P>
+Both user interface management systems and formal process models
+contain the information necessary to generate test scripts automatically
+from the specification itself. But neither technique is used widely.
+As a result, we would have needed to build a reverse engineering
+tool to recreate either a UIMS or formal model specification from
+an existing program. This approach would make the automated test
+generator itself difficult to use and error prone. Formal models
+also suffer from a lack of tools to translate the abstract specification
+into an executable form.
+<P>
+Therefore, we chose to work with the application itself as the
+dialog specification. Moreover, we chose to use the executing
+application rather than the source code. Source code analysis
+techniques cannot deduce program and dialog state changes that
+occur during execution. The state changes allow each new step
+in the script send syntactically correct input to an active part
+of the application.
+<P>
+
+<A href=#Top>
+<I>Return to Top</I>
+</A>
+<HR>
+
+<A name=Implementation>
+<H2>PROTOTYPE IMPLEMENTATION</H2>
+</A>
+
+<P>
+Given that an executing program specifies the application user
+interface dialog, we needed to develop methods to:
+<P>
+
+<OL>
+  <LI>Simulate user inputs. Genetic algorithms proved to be a good
+method to control the generation of random numbers used to simulate
+input events.
+  <LI>Capture the current state of the user interface during application
+execution. Our implementation approach requires no added processing
+logic in the application.
+  <LI>Tie the genetic algorithm generated input values to the user
+interface during execution in an application independent manner.
+  <LI>Allow the tester to generate and save novice-like scripts.
+</OL>
+
+<P>
+The prototype uses standard tools and techniques wherever possible.
+The prototype is application independent and needs no special
+application dialog design or code structure.
+
+<H3>Simulated User Inputs</H3>
+
+<P>
+Commercial test tools provide a mechanism to drive a GUI-based
+application from captured keystrokes. Automation requires a method
+to generate keystrokes. 
+<P>
+Analyzing user behavior led to the conclusion that emulating novice
+user behavior requires a way to 'remember' success. Both novices
+and experts use an application to perform tasks. Novices explore
+to learn the semantics of individual functions and how to combine
+sequences of functions into meaningful work. Experts have already
+discovered successful paths through an application and rely on
+past experience to accomplish new tasks.
+<P>
+Random number generators alone are inadequate because they do
+not rely on past history to govern future choices. Genetic algorithms
+do rely on past history. Success has been reported in applying
+genetic algorithms to hardware test sequence generation 
+[<A href=#Ref18>18</A>]. 
+Therefore, we chose to use genetic algorithms to simulate novice
+user events. 
+
+<H4>Genetic Algorithms</H4>
+
+<P>
+Genetic algorithms 
+[<A href=#Ref11>11</A>] 
+can be programmed to simulate a pseudo-natural selection process. In
+its simplest form, a genetic algorithm manipulates a table (or pool) of
+random numbers. Each row in the table represents a different gene. The
+individual components of a gene are called alleles and contain a
+numeric genetic 'code.' The interpretation of the allele values varies
+according to application.
+<P>
+Allele values start as random numbers that define an initial 'genetic
+code'. The genetic algorithm lets genes that contain 'better'
+alleles survive to compete against new genes in subsequent generations.
+<P>
+During a run through multiple generations to determine the best
+genes, the gene pool contains the same number of genes that have
+the same number of alleles. The number of genes in the pool and
+the number of alleles in a gene can vary from run to run.
+<P>
+A basic genetic algorithm: 
+<P>
+
+<UL>
+  <LI>Initializes the alleles with valid random numbers.
+  <LI>Repeats the following until its goal is reached:
+
+  <UL>
+    <LI>Generates a score for each gene in the pool by trying the allele
+values.
+    <LI>Rewards the genes that produce the best results by replicating
+them and allowing them to live to a new generation. A defined
+fraction of genes with the highest scores live and the remainder
+are thrown away.
+    <LI>Completes the pool in the next generation with new genes created
+by crossover of previous allele values.
+    <LI>Mutates some of the genes in the new generation. Mutation can
+occur in either surviving or new genes.
+  </UL>
+</UL>
+
+<P>
+Gene crossover styles, mutation rates, and death rates can be
+programmed and varied. These techniques are useful in determining
+how many genes survive into a new generation, how existing allele
+values are swapped among genes, and how new random allele values
+are inserted into surviving or new genes. Each generation is guaranteed
+to produce a set of genes that survive. Allowing a genetic algorithm
+user to vary survival techniques lets the user tune the algorithm
+to a particular problem.
+<P>
+Genetic algorithms are not an effective way to explore all possible
+paths in a dialog sequence. Instead, a genetic algorithm uses
+previous sets of random numbers as the basis for new ones. This
+means that the method used to compute the 'best results' becomes
+the key factor in any application that uses genetic algorithms.
+As applied to user interface event generation, 'best results'
+meant designing an algorithm that represents how novice users
+learn to use an application.
+
+<H3>Run-time User Interface Capture</H3>
+
+<P>
+At run-time, different GUIs require different implementations
+to capture the current state of the user interface as the Application
+Under Test executes. Our prototype, whose architecture is shown
+in Figure 3, works with applications built with Motif 1.2 and
+X11R5. All software components are written as objects in Modula-3
+[<A href=#Ref3>3</A>].
+<P>
+
+<CENTER>
+<img src="djk_fg3.gif" alt="FIGURE 3" align=middle>
+<p>
+Figure 3. Run-time Architecture
+</CENTER>
+
+<P>
+The test script generator (XTest) can be applied to different
+Applications Under Test (AUT). During execution,
+
+<UL>
+  <LI>TestPort and TestDriver establish the connection between the
+AUT and Xtest processes.
+  <LI>XProbe selects events and sends them to the AUT.
+  <LI>GenePool uses the genetic algorithms to tune XProbe's selections
+and events.
+  <LI>XTracer generates the genetically engineered test script at the
+end of a session.
+</UL>
+
+<P>
+XProbe, TestDriver, and TestPort use standard Motif and X communications
+with a protocol based on the <I>editres</I> protocol. This approach
+proved superior to other UNIX techniques for sharing information
+across process spaces like shared memory, rpc servers, pipes,
+and shared files. 
+<P>
+Xtest controls the AUT through the standard XSendEvent mechanism.
+While this technique works, XSendEvent operates strictly at the
+keystroke level. Therefore, XTracer generates test scripts at
+the keystroke level. A reasonable extension is to implement a
+reverse protocol to pass widget-level information to the application
+under test and to generate a more readable test script based on
+widget names.
+<P>
+The<I> editres</I> protocol asks the AUT to put some of its process-specific
+information into a form for use by TestDriver. The prototype requires
+only one slight modification to the AUT source code. Two procedure
+calls must be inserted to establish the TestPort callback and
+to provide the ID of its top level window. These calls are executed
+only once during AUT initialization, and all other processing
+happens transparently. A preferable approach would require no
+source code change. 
+
+<H3>Integrating Genetic Algorithms and UI Capture</H3>
+
+The prototype interprets the alleles in each gene to dynamically
+generate events that are legal for the AUT. At run-time, TestDriver
+observes and controls the AUT as shown in Figure 4.
+<P>
+
+<CENTER>
+<img src="djk_fg4.gif" alt="FIGURE 4" align=middle>
+<P>
+Figure 4. Observe and Control Loop
+<P>
+</CENTER>
+
+Prior to execution, the tester defines the number of alleles in
+each gene and the total number of genes in the pool. The following
+steps are executed for each gene in the gene pool in XProbe:
+
+<UL>
+  <LI>Restart the AUT, set the active_allele_index to 1, and total_score
+for this gene to 0.
+  <LI>Loop until the active_allele_index is greater than the number
+of alleles in the gene:
+  <UL>
+    <LI>Read the current AUT widget tree.
+    <LI>Use the active_allele_index in the current gene as the start
+point to search for an active widget in current AUT widget tree.
+The search technique we implemented randomly chooses one of the
+active widgets in the current tree to minimize repetition of the
+same dialog sequence.
+    <LI>Depending on the active widget type, use the next <I>n</I> allele
+values to simulate user input events with XTest. XSendEvent send
+each events to AUT as it moves to its next state.
+    <LI>Increment active_allele_index by <I>n</I>.
+    <LI>Increment the total_score for this gene by the amount computed
+using the technique described in the next section.
+  </UL>
+  <LI>Save the total_score for the current gene.
+</UL>
+
+Each gene in the pool restarts the application to insure an identical
+initial state. From then on, each gene can start at a different
+spot because allele values are used to randomly select an active
+widget. Finally, even though the number of alleles is the same
+for all genes, the number of input events varies from gene to
+gene because a different number of input events is needed for
+each dialog state.
+<P>
+After all the genes in the pool are tried, the genetic algorithm
+in GenePool (refer back to Figure 3) lets the winning genes survive,
+generates new genes, and mutates the pool before proceeding to
+the next generation. The script that corresponds to the top scoring
+gene in the last generation is output via XTracer. 
+<P>
+
+<H4>Reward System</H4>
+
+A realistic reward system lets the genes that generated the 'best'
+novice-like behavior survive by assigning a weighted score to
+user events. For example, one score can be given to a set of alleles
+that picks a list widget, a second to a set that types in specific
+characters, and a third to a set that provides input to a widget
+on the same window as the previous widget. Adjusting the weights
+allows the reward system to represent different types of novice
+user behavior.
+<P>
+We based our prototype reward system on the observation that a
+novice user often learns how to use an application via controlled
+exploration. A novice starts one function in a dialog sequence
+and experiments with a number of different parameters. In this
+way, the novice uses localized parameter settings to understand
+the overall effect of a single function. This is only one of the
+possible characterizations of novice user behavior. 
+<P>
+To implement this reward system, we set the weight for all user
+events to zero except one. A gene receives a positive score each
+time its allele value(s) generate input for a widget (e.g., entering
+data into a text field, choosing an item from a list, selecting
+a radio button) that has the same window name as the last active
+window name. No additional score is generated to differentiate
+among the possible types of widgets on the window. The net result
+is that the longer a gene stays on the same window, the higher
+its score and better its odds of survival.
+<P>
+
+<H3>Tester's Interface</H3>
+
+To simulate novice behavior, a tester:
+
+<UL>
+  <LI>May begin with an expert generated test script.
+  <LI>Inserts one or more <I>DEVIATE</I> commands into the script.
+<I>DEVIATE</I> departs from the existing script via the genetic
+algorithm and tries to return to the script. 
+  <LI>Tunes the genetic algorithm parameters to build up a set of scripts
+that represent novice behavior. 
+</UL>
+
+Because the prototype works outside an automated test tool, we
+defined a simplified script language to specify the expert test.
+A postprocessor generates scripts for commercial test tools. The
+resulting scripts can then be included as part of a complete test
+suite. The tester can use realistic, previously created scripts
+that contain novice behavior to initiate new simulations. 
+<P>
+This interface strategy lets the tester control when deviations
+occur because a <I>DEVIATE</I> command can be inserted at arbitrary
+script locations. The script can then continue in either of the
+two modes shown in Figure 5. Pullback mode rewards genes for returning
+to the original script, while meander mode allows the activity
+to wander indefinitely. Even though pullback mode returns to the
+expert script, it will generally not generate the same results
+because additional functions are exercised. 
+<P>
+
+<CENTER>
+<img src="djk_fg5.gif" alt="FIGURE 5" align=middle>
+<p>
+Figure 5. Deviation Modes
+<P>
+</CENTER>
+
+The following script demonstrates pullback mode. It opens and
+loads a data file and deviates to see that an application can
+still enter data for an x,y graphing program after novice-like
+activity:
+<P>
+
+<TT>(# expert script, in the form of a list of window, widget pairs with pullback #)</TT>
+<BR>
+<TT>(&quot;SGE: On Version Dialog&quot; &quot;Cancel&quot;)</TT>
+<BR>
+<TT>(&quot;Style Guide Example - &lt;New File&gt;&quot; &quot;file&quot;)</TT>
+<BR>
+<TT>(&quot;Root&quot; &quot;open&quot;)</TT>
+<BR>
+<TT>(&quot;SGE: Open Dialog&quot; &quot;sb_text&quot; &quot;solardat&quot;)</TT>
+<BR>
+<TT>(&quot;SGE: Open Dialog&quot; &quot;OK&quot;)</TT>
+<BR>
+<TT>Deviate</TT>
+<BR>
+<TT>(&quot;Root&quot; &quot;dataTable&quot;)</TT>
+<BR>
+<TT>(&quot;SGE: Table Dialog&quot; &quot;text&quot; 4 &quot;30&quot;)</TT>
+<BR>
+<TT>(&quot;SGE: Table Dialog&quot; &quot;text&quot; 5 &quot;40&quot;)</TT>
+<BR>
+<TT>(&quot;SGE: Table Dialog&quot; &quot;OK&quot;)</TT>
+<P>
+
+The implementation of meander mode is simple: execute the expert
+script and turn control over to the genetic algorithm when the
+<I>DEVIATE</I> command is encountered. The reward system then
+identifies genes that stay on the same window.
+<P>
+Pullback mode relies on the ability to look ahead to the next
+command in the expert script when processing a <I>DEVIATE</I>
+command. To implement pullback mode, 
+
+<UL>
+  <LI>The script processor acquires the window name (next_window) and
+the widget name (next_widget) of the next command. As the gene
+generates new events, each allele provides input to a named window
+(allele_window) and widget (allele_widget). 
+  <LI>The reward system scores are based on the following comparisons:
+  <OL>
+    <LI>allele_window &lt;&gt; next_window and allele_widget &lt;&gt;
+next_widget. This is a miss; the gene gets no points.
+    <LI>allele_window &lt;&gt; next_window and allele_widget = next_widget.
+The gene gets 10 points because getting to a widget with the same
+name has some value, but we give preference to a gene that generates
+input for next_window.
+    <LI>allele_window = next_window and allele_widget &lt;&gt; next_widget.
+This continues the philosophy of rewarding genes that stay on
+the same window. The gene gets 50 points for getting to the window
+of the next command. The score accumulates rapidly if the gene
+stays on the same window.
+    <LI>allele_window = next_window and allele_widget = next_widget.
+This means that the gene has reconnected with the next command.
+So when the genetic algorithm processor encounters the same window
+name and the same widget name, interpreting the gene is stopped.
+The gene is given an artificially high score to make it highly
+probable that it will survive.
+  </OL>
+</UL>
+
+<A href=#Top>
+<I>Return to Top</I>
+</A>
+<HR>
+
+<A name=Analysis>
+<H2>RESULTS ANALYSIS</H2>
+</A>
+
+This section analyzes specific aspects of the prototype:
+
+<UL>
+  <LI>Implementation architecture.
+  <LI>Reward system.
+  <LI>Impact on test process.
+</UL>
+
+<H3>Implementation Architecture</H3>
+
+The multi-process implementation architecture proved to be flexible,
+adaptable, and application independent. The widget tree was correctly
+captured during execution and  keystrokes successfully sent to
+different AUTs without changing TestDriver. The applications we
+instrumented were small but did support concurrent dialog sequences.
+Isolating GenePool let us change the reward system without affecting
+the basic observe and control loop.
+<P>
+
+<H3>Reward System</H3>
+
+We quickly discovered that implementation of the reward system
+was the most sensitive part of the genetic algorithm. The reward
+system governs which genes survive to generate a novice-like test
+script that a tester can keep. 
+<P>
+We first tried our reward system to see if the genes could learn
+to simulate novice-like behavior in a standalone manner. The test
+script was a single <I>DEVIATE</I> command. We varied the genetic
+algorithm parameters to let the algorithm itself generate novice-like
+events. At best, the resulting scripts seemed more chimpanzee-like
+than novice-like. Getting a script to accomplish anything meaningful
+was unlikely. This occurred because we could not provide any application
+semantic knowledge based on GUI widgets alone. A higher level
+specification (as found in a UIMS or process modeler) is needed
+to insure that a particular run can even open a file.
+<P>
+We then used meander mode and inserted a <I>DEVIATE</I> command
+at the end of an existing expert script. In this way, we were
+able to open files and do other activities before turning control
+over to the genetic algorithm. The results were better but could
+be attributed more to starting with something already done than
+to the genetic algorithm. 
+<P>
+Pullback mode produced the best results. This occurred because
+pullback mode forces the script back to a state in which the script
+performs some meaningful activity. We were able to insert more
+than one <I>DEVIATE</I> command in a script to insure that the
+application could continue to operate through multiple encounters
+with unpredictable user events.
+<P>
+We have been able to evaluate the 'novice-ness' of the resulting
+scripts only on an informal basis. We asked other group members
+to observe a set of automatically generated scripts and collected
+their feedback. The scripts used with pullback mode were judged
+to be the best representation of their understanding of novice
+user behavior.
+<P>
+
+<H3>Impact on Test Process</H3>
+
+Our experiments demonstrate the ability to use a small number
+of inputs to generate a large number of test scripts in an hour.
+The tester decides how many scripts should be saved as 'winners'
+that represent novice behavior. 
+<P>
+Using automated script generation decreases the total number of
+scripts that need to be saved and modified as application versions
+change. Only the parameters that govern genetic algorithm execution
+are saved. Therefore, new novice scripts can be regenerated for
+a new user interface and application. The regeneration process
+does not guarantee identical scripts because the application dialog
+state changes when the user interface changes. 
+<P>
+
+<A href=#Top>
+<I>Return to Top</I>
+</A>
+<HR>
+
+<A name=Issues>
+<H2>REMAINING ISSUES</H2>
+</A>
+
+Our implementation resulted in a framework that can be used to
+simulate novice user behavior and solve some real problems. It
+provides a basis that demonstrates the potential of automated
+script generation and can be used for additional projects area
+to improve:
+<P>
+<I>Test script configuration management. </I>Our approach  can
+be used to generate a large number of novice test scripts quickly.
+Measures must be developed to determine when enough novice testing
+has occurred.
+<P>
+<I>Test results evaluation and comparison. </I>The results of
+each novice test script must be evaluated to insure that the system
+has worked properly. At a minimum, the novice tests can be used
+to insure that the application does not break. The applications
+we tested with the prototype did not fail, which increased our
+confidence in them. We used manual observation to determine that
+the applications continued to work properly.
+<P>
+More work is required to develop effective ways for determining
+that a script produces the proper results. A simple comparison
+of the results produced by a companion script is inadequate even
+in pullback mode. The deviation may have deleted or edited data
+in a way that makes direct results comparison impossible.
+<P>
+<I>Emulation and evaluation of more types of novice user behavior.
+</I>Additional genetic scoring algorithms and reward systems will
+expand the repertoire of characterizations of novice user behavior
+beyond our learning-by-experimentation style. 
+<P>
+Care must be taken to formally evaluate the results of any automated
+techniques to insure their value and validity. The context for
+such comparisons is well documented (for a good example, see 
+[<A href=#Ref8>8</A>]). 
+Usability testing facilities offer a solid technology foundation
+for conducting real versus automated novice evaluations.
+<P>
+<I>Integration with automated test tools. </I>Given the current
+implementation of the novice test script generator, the use of
+genetic algorithms could be incorporated as a new command in any
+existing widget-based test tool. 
+<P>
+<I>Higher level user interface specifications. </I>In the long
+term, higher level dialog models than a GUI widget tree should
+be used to generate both application user interface code and test
+scripts. Automatic UI code generation will decrease user interface
+state management errors (although application code errors will
+still occur). Such specifications should be analyzable for usability
+for experts or novices. Testing will still be needed across multiple
+user skill levels to determine if program failures occur whether
+the application is driven by real or simulated events.
+<P>
+
+<A href=#Top>
+<I>Return to Top</I>
+</A>
+<HR>
+
+<A name=Conclusion>
+<H2>CONCLUSION</H2>
+</A>
+
+Using automated test script generation to simulate novice users
+can be used to help identify application failures earlier than
+beta test or production. Such failures are costly to fix and frustrating
+to users, especially novices.
+<P>
+Our technique works best as a companion to automated test tools
+and expert test scripts. Expert users still must generate complex
+scripts that exercise an application thoroughly. Genetic algorithms
+provide a controllable method of emulating novice input events
+to test an application in an unexpected, but not purely random,
+way. Including automated novice testing early in the development
+process should improve overall application quality. 
+<P>
+
+<H3>Acknowledgments</H3>
+
+<P>
+Rob Jasper and Dan Murphy of the Boeing Commercial Airplane Group
+provided insight into the issues involved with testing and genetic
+algorithms. Keith Butler of Boeing Information and Support Services
+helped mold early drafts. The SIGCHI referees provided excellent
+comments as part of their reviews.
+<P>
+
+<A href=#Top>
+<I>Return to Top</I>
+</A>
+<HR>
+
+<A name=References>
+<H2>REFERENCES</H2>
+</A>
+
+<OL>
+  <A name=Ref1>
+  <LI></A>Beizer, B. <I>Software System Testing and Quality Assurance,</I> 
+Van Nostrand, 1984. 
+  <A name=Ref2>
+  <LI></A>Bernhard, P.J. A Reduced Test Suite for Protocol Conformance
+Testing. <I>ACM Transactions on Software Engineering and Methodology
+3</I>, 3 (Jul 1994), 201-220.
+  <A name=Ref3>
+  <LI></A>Harbison, S.P. <I>Modula-3</I>, Prentice-Hall, 1992.
+  <A name=Ref4>
+  <LI></A>Hartson, H.R. and Hix, D. Human Computer Interface Development:
+Concepts and Systems. <I>ACM Computing Surveys 21</I>, 1 (Mar.
+1989), 5-92.
+  <A name=Ref5>
+  <LI></A>Hoare, C.A.R. <I>Communicating Sequential Processes,</I> Prentice-Hall
+International, 1985.
+  <A name=Ref6>
+  <LI></A>Jasper, R., Brennan, M., Williamson, K., Currier, W., and Zimmerman,
+D. Test Data Generation and Feasible Path Analysis. <I>International
+Symposium on Software Testing and Analysis</I> (Seattle, Aug.
+1994).
+  <A name=Ref7>
+  <LI></A>Jensen, K. Coloured Petri Nets: A High Level Language for
+System Design and Analysis. Advances in Petri Nets 1990 (G. Rozenberg
+editor), <I>Lecture Notes in Computer Science 483</I>, Springer-Verlag,
+pp. 342-416.
+  <A name=Ref8>
+  <LI></A>Karat, C-M., Campbell, R., and Fiegel, T. Comparison of Empirical
+Testing and Walkthrough Methods in User Interface Evaluation.
+<I>Proc. CHI'92 Human Factors in Computing Systems</I> (May 1992),
+ACM Press, 397-404.
+  <A name=Ref9>
+  <LI></A>Kasik, D.J. A User Interface Management System. <I>Computer
+Graphics (Proc. SIGGRAPH 82)</I>, July 1982, ACM Press, pp. 99-106.
+  <A name=Ref10>
+  <LI></A>Kieras, D.E. Towards a Practical GOMS Model Methodology for
+User Interface Design. <I>Handbook of Human-Computer Interaction
+</I> (M. Helander editor), Elsevier Science, 1988, pp. 135-157.
+  <A name=Ref11>
+  <LI></A>Michalewicz, Z. <I>Genetic Algorithms + Data Structures =
+Evolution Programs</I>, Springer-Verlag, 1992.
+  <A name=Ref12>
+  <LI></A>Myers, B.A. and Rosson, M.B. Survey on User Interface Programming.
+<I>Proc. CHI'92 Human Factors in Computing Systems</I> (May 1992),
+ACM Press, 195-202.
+  <A name=Ref13>
+  <LI></A>Myers, G.J. <I>The Art of Software Testing</I>, Van Nostrand,
+ 1978.
+  <A name=Ref14>
+  <LI></A>Olsen, D.R. <I>User Interface Management Systems: Models and
+Algorithms,</I> Morgan Kaufmann, 1992.
+  <A name=Ref15>
+  <LI></A>Palanque, P., Bastide, R., Dourte, L., and Sibertin-Blanc,
+C. Design of User-Driven Interfaces Using Petri Nets and Objects.
+<I>Proc. Advanced Information Systems Engineering: 5th International
+Conference, CAiSE 93</I>,  Springer-Verlag, pp. 569-585. 
+  <A name=Ref16>
+  <LI></A>Parker, T. Automated Software Testing. <I>Unix Review</I>,
+January 1995, pp. 49-56.
+  <A name=Ref17>
+  <LI></A>Peterson, J.L. <I>Petri Net Theory and the Modeling of Systems,
+</I> Prentice-Hall, 1981.
+  <A name=Ref18>
+  <LI></A>Rudnick, E., Patel, J., Greenstein, G., and Niewmann, T. Sequential
+Circuit Generation in a Genetic Algorithm Framework. <I>Proc.
+31st Design Automation Conference</I> (Jun 1994), 698-704.
+  <A name=Ref19>
+  <LI></A>vanBiljon, W.R. Extending Petri Nets for Specifying Man-machine
+Dialogues. <I>International Journal Man-Machine Studies</I> <I>28
+</I>, 1988, 437-455.
+</OL>
+
+<A href=#Top>
+<I>Return to Top</I>
+</A>
+<HR>
+</A name=Authors>
+<B>
+Contact Information:
+</B>
+</A>
+<P>
+<ADDRESS>
+Toward Automatic Generation of Novice User Test Scripts
+
+<P>
+David J. Kasik and Harry G. George
+<BR>
+Boeing Commercial Airplane Group
+<BR>
+P.O. Box 3707, Mail Stop 6H-WT
+<BR>
+Seattle WA  98124  USA
+<BR>
++1 206 234 0575
+<BR>
+kasik@ata.ca.boeing.com
+<BR>
+</ADDRESS>
+<P>
+
+<A href=#Top>
+<I>Return to Top</I>
+</A>
+<HR>
+
+</BODY>
+
+</HTML>

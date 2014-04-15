@@ -1,0 +1,790 @@
+<html><head>
+<!-- This document was created from RTF source by rtftohtml version 2.7.5 -->
+<!-- Massaged by hand by John Kelso, kelso@vt.edu -->
+<title>chi 96 - remote eval</title>
+</head>
+<body>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<P><IMG SRC="./../../graphics/papers.JPG" ALT="papers" HEIGHT=35 WIDTH=249><A HREF="./../../papers.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<b>
+<h1>
+Remote Evaluation: The Network as an Extension of the Usability Laboratory
+</h1></b><p>
+H. Rex Hartson, Jos&eacute; C. Castillo, and John Kelso<br>
+Department of Computer Science<br>
+Jonathan Kamler<br>
+Department of Forestry<br>
+Virginia Tech<br>
+Blacksburg, VA 24061<br>
+Tel: +1-540-231-4857<br>
+Email: <a href="mailto:hartson@vt.edu">hartson@vt.edu</a>
+<p>
+Wayne C. Neale<br>
+Eastman Kodak Company<br>
+901 Elmgrove Road<br>
+Rochester, NY 14653-5800<br>
+Tel: +1-716-726-0953<br>
+Email: <a href="mailto:neale@pixel.kodak.com">neale@pixel.kodak.com</a>
+<p>
+<h2>
+<a name="RTFToC1">ABSTRACT</a></h1>
+Traditional user interface evaluation usually is conducted in a laboratory
+where users are observed directly by evaluators.  However, the remote and
+distributed location of users on the network precludes the opportunity for
+direct observation in usability testing.  Further, the network itself and the
+remote work setting have become intrinsic parts of usage patterns, difficult to
+reproduce in a laboratory setting, and developers often have limited access to
+representative users for usability testing in the laboratory.  In all of these
+cases, the cost of transporting users or developers to remote locations can be
+prohibitive.
+<p>
+These barriers have led us to consider methods for remote usability evaluation
+wherein the evaluator, performing observation and analysis, is separated in
+space and/or time from the user.  The network itself serves as a bridge to take
+interface evaluation to a broad range of networked users, in their natural work
+settings.
+<p>
+Several types of remote evaluation are defined and described in terms of their
+advantages and disadvantages to usability testing.  The initial results of two
+case studies show potential for remote evaluation.  Remote evaluation using
+video teleconferencing uses the network as a mechanism to transport video data
+in real time, so that the observer can evaluate user interfaces in remote
+locations as they are being used.  Semi-instrumented remote evaluation is based
+on critical incident gathering by the user within the normal work context.
+Additionally, both methods can take advantage of automating data collection
+through questionnaires and instrumented applications.  
+<h3>
+<a name="RTFToC2">Keywords</a></h2>
+Remote evaluation, formative evaluation, usability testing, usability method,
+usability engineering, semi-instrumented, empirical, critical incident, video
+conferencing
+<h2>
+<a name="RTFToC3">INTRODUCTION</a></h1>
+A large share of traditional user interface evaluation is conducted in the
+laboratory where users are observed directly by evaluators.  However, the
+remote and distributed location of users--often on the network, now a major
+environment for distribution and usage of software applications, such as
+CSCW--precludes the opportunity for direct observation in usability testing.
+Further, the network itself and the remote work setting have become intrinsic
+parts of usage patterns.  Additionally, developers often have limited access to
+representative users for usability testing in the laboratory and the users'
+work context is difficult or impossible to reproduce in a laboratory setting.
+In all of these cases, the cost of transporting users or developers to remote
+locations can be prohibitive.
+<p>
+These barriers to usability evaluation have led us to extend the concept of
+formative evaluation beyond the usability laboratory to methods for remote
+usability evaluation, typically employing the network itself as a bridge to
+take interface evaluation to a broad range of network users, in their natural
+work settings.
+<p>
+In the following sections we briefly survey several kinds of remote evaluation
+as distinguished by the methods used and data collected.  In brief case
+studies, we then explore two approaches specific to our own work, concluding
+with a glimpse at possible future directions for this work.
+<h2>
+<a name="RTFToC4">TYPES
+OF REMOTE EVALUATION
+</a></h1>
+A brief listing of some possible approaches to remote evaluation is useful to
+understand the range of possibilities and to avoid comparison of unlike
+methods.  We define <i>remote evaluation</i> to be usability evaluation wherein
+the evaluator, performing observation and analysis, is separated in space
+and/or time from the user.  Much of our discussion could apply to other kinds
+of usability evaluation, but we limit our focus to empirical formative
+usability evaluation (i.e., evaluation used for improving user interaction
+designs, especially early in the system life cycle).  No claim is made for the
+completeness of this list of types.  
+<h3>
+<a name="RTFToC5">Local
+Evaluation
+</a></h2>
+Local evaluation is included here as a benchmark method for comparison with
+remote evaluation methods.  In local evaluation the user and evaluator are
+usually in the same or adjacent rooms at the same time.  This somewhat formal
+evaluation is usually conducted within a usability laboratory using controlled
+tasks and often driven by quantitative usability specifications 
+<a href="hrh_txt.htm#Ref8">[8]</a>.
+Data collected are both quantitative (e.g., task performance time and error
+count) and qualitative (e.g., verbal protocol), and both objective (e.g.,
+observed user performance metrics) and subjective (e.g., user preference
+questionnaire scores).  Sessions are usually videotaped for backup and review.
+Typically, the quantitative data are used to determine if and when usability
+specifications are met so that iteration can halt.  Qualitative data serve to
+identify usability problems, their causes within the interface design, and
+potential redesign solutions 
+<a href="hrh_txt.htm#Ref4">[4]</a>.
+
+<h3>
+<a name="RTFToC6">Portable
+Evaluation
+</a></h2>
+Some remote evaluation situations call for a portable usability evaluation
+unit, by means of which the laboratory (often special portable usability
+testing equipment) is taken to the users in their normal work environments.
+While this is an area of growing interest, it is outside the scope of this
+paper.
+<h3>
+<a name="RTFToC7">Local
+Evaluation at Remote Site
+</a></h2>
+A number of commercial services are now available to developers lacking their
+own local evaluation expertise or facilities.  Clients use the network to
+communicate design documents, software samples, and/or prototypes to the remote
+evaluators, but the network is not used to connect to remote users.  The
+evaluation is local to the evaluators and remote from the developers, with
+results being returned via the network.  This kind of "contracted out"
+evaluation is a useful service for development groups without their own
+evaluation facilities.  However, the quality of these services can vary, the
+methods can be ad hoc (e.g., intuitive inspection without use of guidelines),
+and the process is not always suitable for the specific needs of a development
+group.  
+<h4>
+<a name="RTFToC8">Remote
+Laboratory Testing
+</a></h3>
+Formal laboratory-based usability evaluation, offered by consulting groups,
+provides usability testing with representative users and tasks.  Results
+include quantitative user performance measures, user opinions and satisfaction
+ratings, recommendations for application improvement, and sometimes even a copy
+of the evaluation session videotapes for review by the development team.  
+<h4>
+<a name="RTFToC9">Remote
+Inspection
+</a></h3>
+Some developers send their designs to remote contractors who perform local
+evaluation using ad hoc, intuitive interface inspection, drawing on design
+guidelines, user profiles, and software standards.  Without empirical
+observation of users and a more formal process, results can vary depending on
+the knowledge and skills of the evaluators.  As an example, this kind of
+evaluation is done by Vertical Research, Inc. 
+<a href="hrh_txt.htm#Ref6">[6]</a>
+for Microsoft Windows(TM)-based products.  In a variation of remote inspection
+called collaborative inspection, evaluators work remotely with developers to
+inspect interface design, documents, and code.  
+<h3>
+<a name="RTFToC10">Remote
+Questionnaire/Survey
+</a></h2>
+A software application can be augmented to display a user questionnaire to
+gather subjective user preference data about the application and its interface.
+The appearance of the questionnaire, requesting feedback related to usability,
+is triggered by an event (including task completion) during usage.  Responses
+are batched and sent to the developers.  As an example, the User Partnering
+(UP) Module(TM) from UP Technology 
+<a href="hrh_txt.htm#Ref1">[1]</a>
+uses event-driven triggers to "awaken" dialogues that ask users questions about
+their usage.
+<p>
+Approaches based on remote questionnaires have the advantage that they capture
+remote user reactions while they are fresh, but they are limited to subjective
+data based on questions pre-written by developers or evaluators.  Thus, many of
+the qualitative data normally acquired in laboratory testing, i.e., the data
+directly useful in identifying specific usability problems, are lost.  
+<h3>
+<a name="RTFToC11">Remote-Control
+Evaluation
+</a></h2>
+The remote-control method of remote evaluation employs control of a local
+computer from another computer at a remote site.  The user is separated from
+the evaluator in space and possibly in time.  The two computers can be
+connected through the Internet or a direct dial-up telephone line with
+commercially available software (e.g., Timbuktu(TM), PC Anywhere(TM)).  Using
+this method places the evaluator's computer in the usability lab where a video
+camera or scan converter captures the users' actions.  The remote users remain
+in their work environment.  Audio capture is made via the computer or
+telephone.  If audio capture is via telephone, the evaluator and user remain
+connected in time.  Alternatively, equipment in the usability lab could be
+configured to automatically activate data-capture tools based on usage of a
+particular application.  This flexibility is important when collecting data
+remotely from many different time zones.  This type of asynchronous remote
+evaluation also gives the evaluator the flexibility to do the evaluation all at
+once and at a time that is convenient.
+<h3>
+<a name="RTFToC12">Video
+Conferencing as an Extension of the Usability Laboratory
+</a></h2>
+Local usability evaluation, where the user and evaluator are in adjacent rooms,
+requires a video/audio cable (or wireless communication) between the rooms.
+Users located more remotely can be connected to evaluators using the network
+and video conferencing software, as an extension of the video/audio cable
+between user and evaluator.  This kind of remote evaluation, using video
+teleconferencing over the network as a mechanism to transport video data in
+real time, perhaps comes the closest to the effect of local evaluation.
+Currently, the primary obstacle to this approach is the limited bandwidth of
+the network, occasioning communication delays and low video frame rates.  
+<h3>
+<a name="RTFToC13">Instrumented
+Remote Evaluation
+</a></h2>
+An application and its interface can be instrumented with embedded metering
+code to collect and return a journal or log of data occurring as a natural
+result of usage in the users' normal working environment.  The data represent
+various user actions made during task performance, often as detailed as
+keystrokes and mouse movements.  The logs or journals are later analyzed using
+pattern recognition techniques 
+<a href="hrh_txt.htm#Ref7">[7]</a>
+to deduce where usability problems have occurred.  This approach has the
+advantage of not interfering at all with work activities of the user and, in
+theory, can provide automated usability evaluation for certain kinds of
+usability problems.  However, for formative evaluation it can be difficult to
+infer many types of usability problems effectively.  This method has been used
+successfully for summative evaluation, marketing trials, and beta testing.  
+<h3>
+<a name="RTFToC14">Semi-Instrumented
+Remote Evaluation
+</a></h2>
+Semi-instrumented remote evaluation uses selective data collection triggered
+directly by users performing tasks in their normal work context.  Users are
+trained to identify usage events having significant negative or positive
+effects on their task performance or satisfaction.  In particular, a negative
+effect is usually an indicator of a usability problem.  Information about these
+events is transmitted to developers along with context information about
+system, task, and interface history and state.  Developers use these data,
+approximating the qualitative data normally taken in the usability laboratory,
+to determine the usability problems.
+<p>
+The semi-instrumented approach has potential for cost-effectiveness, since the
+user and the system gather the data and evaluators look only at data that
+relate to usability problems.  However, reliance on users with only minimal
+training to identify critical incidents during their performance of on-the-job
+tasks, makes it a technique with as yet unproved effectiveness.  
+<h2>
+<a name="RTFToC15">CASE
+STUDY:  TELECONFERENCING AS AN EXTENSION OF THE USABILITY LAB
+</a></h1>
+<h3>
+<a name="RTFToC16">Goal
+of Study
+</a></h2>
+The goal of evaluating teleconferencing as a vehicle for remote evaluation is
+to examine the degree to which the quality and quantity of data collection are
+affected by this new approach.  In addition to evaluating teleconferencing,
+specifically desktop video conferencing, as a usability tool, automation of
+data collection and use of the Internet as part of the evaluation process was
+evaluated in terms of its fit, effectiveness, and efficiency.  Several phases
+of evaluation were used in the case study, each with a corresponding type of
+network support
+<a href="hrh_txt.htm #Figure1">(Figure 1)</a>.
+A scan converter was used in the remote usability
+lab, and digital video captured from the computer monitor was sent back to the
+evaluator via the Internet.  In this way, desktop video conferencing extends
+the usability lab to the users' work environment rather than physically
+bringing the user to the usability lab.
+<p>
+<a name="Figure1">
+<table border>
+<caption><b>Figure 1.</b> Evaluation process and matching network and/or automated data collection support
+<tr>
+<th><b>Evaluation Process</b>
+<th><b>Network/Automation Support</b>
+<tr>
+<td valign=top>Defining protocol and method of data collection (distributed contributors)
+<td valign=top>Network and CSCW tools (email, WWW, groupware)
+<tr>
+<td valign=top>Document sharing (questionnaires, protocol, data, report, etc.)
+<td valign=top>Network and CSCW tools (email, WWW, groupware), desktop video conferencing
+<tr>
+<td valign=top>Subject profile questionnaire
+<td valign=top>Digital questionnaire
+<tr>
+<td valign=top>Training, instructions, set-up
+<td valign=top>Network, digital questionnaire, desktop video conferencing
+<tr>
+<td valign=top>Direct observation
+<td valign=top>Desktop video conferencing
+<tr>
+<td valign=top>Post-test questionnaires
+<td valign=top>Digital questionnaire
+<tr>
+<td valign=top>Debriefing
+<td valign=top>Desktop video conferencing
+<tr>
+<td valign=top>Distribution of results/final report
+<td valign=top>Network and CSCW tools (email, WWW, groupware), desktop video conferencing
+</table>
+<h3>
+<a name="RTFToC17">Set-up/Design</a></h2>
+This case study compared a typical usability lab evaluation to a remote
+usability evaluation using desktop video conferencing.  The Kodak server on the
+World Wide Web (WWW) was used as the application interface under evaluation.
+Four participants using the Kodak WWW server were observed in a typical
+usability lab with the scan converted view of the computer monitor (lab
+condition).  In this lab condition, the evaluator was located in the control
+room of the usability lab receiving the scan converted view of the monitor and
+an audio connection.
+<p>
+Four other participants' monitors were observed through desktop video
+conferencing software from a remote location (remote condition). Pilot tests
+were performed between Kodak (Rochester, NY) and Virginia Tech (Blacksburg, VA)
+to test the feasibility of the remote condition.  In the remote condition for
+the main part of the study the evaluator was located in a remote office within
+Kodak.  The screen output was captured by a scan converter and a video
+digitization board.  The digital video was sent via the Internet to the remote
+evaluator by the desktop video conferencing software.  Fifteen frames per
+second was the average video frame rate.  A telephone connection was used to
+transmit each user's voice in this condition.
+<p>
+The participants in the lab condition were given printed paper questionnaires
+while the participants in the remote condition were given on-line
+questionnaires.  The content of the questions were identical.  The on-line
+questionnaire, however, was designed to format and export the quantitative data
+in specific file formats (e.g., Microsoft Excel(TM), StatView(TM),
+Superanova(TM)) for statistical analysis.  The qualitative data of the
+questionnaire (i.e., open ended questions) were entered into text fields and
+saved as word processor files.  The questionnaire was sent to the remote
+machine via the Internet, and the exported files were sent back to the remote
+evaluator.  
+<h3>
+<a name="RTFToC18">Procedure</a></h2>
+Eight subjects participated in this study.  All were daily computer users with
+no experience using the WWW browsers.  The eight participants were randomly
+assigned to the study treatments (lab and remote).  Participants were given
+approximately five minutes of introduction and ten minutes of training using a
+popular WWW browser.  Training was conducted on a server other than the one
+used in the study.  Participants were given five benchmark tasks to complete.
+The tasks consisted of locating various pieces of information and requesting
+technical support via a form.  The evaluator noted usability problems in both
+conditions by typing them into a text file.  Time and navigation errors were
+logged through instrumenting the application, thereby affording the evaluator
+time to focus on observation.  Both conditions were videotaped as a back-up.
+The same evaluator was used with all eight users to eliminate variation across
+evaluators.  
+<h3>
+<a name="RTFToC19">Results</a></h2>
+The total number of usability problems in both conditions was listed by the
+evaluator (Lab condition = 12; Remote condition = 14).  The questionnaires
+(paper and on-line) contained nine semantic rating scale questions.  The
+results of the questionnaires were compared between the two conditions, lab
+(paper) and remote (on-line).  The results of a standard t-test were not
+reported because the small number of subjects did not support the assumption of
+a normal distribution.  The Kolmogorov-Smirnov non-parametric test was applied
+to each question with no significant differences between the two groups on all
+nine questions (p values &gt; 0.2170 for all nine questions).  Additionally,
+both versions of the questionnaire had three open-ended usability questions.
+We compared the total number of paper vs. on-line responses, and based on the
+Kolmogorov-Smirnov test, we found no significant differences between the lab
+and remote conditions, [[chi]]<sup>2</sup> = 0.50, p &gt; 0.999.
+<h3>
+<a name="RTFToC20">Conclusions</a></h2>
+Remote evaluation using desktop video conferencing appears to be feasible given
+recent technical advances in computer processing speed and digital video
+applications.  Typical in-lab video observation can be extended to virtually
+anywhere in the world without a significant detriment in the quality and
+quantity of usability problem list generation.  An evaluation can be conducted
+anywhere a computer is connected to the Internet and a phone line.  This gives
+the evaluator the opportunity to test a broad sample of users on an
+international scope in their own work context.  This approach may help solve
+the "homogeneous subject pool" problem developed at many universities and
+companies by running the same subjects repeatedly.  <p>
+Instead of on-site visitation, traveling can now be virtual, saving thousands
+of dollars.  Furthermore, using digital questionnaires improved efficiency
+gains in data collection and analysis. Many variables can affect the quality of
+digital video (e.g., software algorithms, camera, LAN and Internet bandwidth,
+network traffic, sample rate, processor speed, display size and video board).
+<p>
+There were times when it was difficult in the remote condition to interpret
+what the user was doing on the screen.  Most of the time the users' verbal
+comments, in addition to the video window, were sufficient to identify the
+problem.  Mimicking the users' actions with the same application at the
+evaluator's computer also helped resolve the users' actions that were difficult
+to see in the desktop video conferencing software window.  
+<h2>
+<a name="RTFToC21">CASE
+STUDY:  SEMI-INSTRUMENTED CRITICAL INCIDENT GATHERING
+</a></h1>
+<h3>
+<a name="RTFToC22">Ideal
+Comparison with Laboratory-Based Formative Evaluation
+</a></h2>
+As in the fully instrumented case, semi-instrumented evaluation occurs while
+users are working on their own real tasks in their own work environment.  Usage
+patterns will include naturally occurring interruptions and other influences
+from the work setting and the network environment.  In contrast to the fully
+instrumented case, however, the semi-instrumented approach employs users to
+identify <i>critical incidents</i> (CIs)--occurrences during system usage that
+reflect usability problems, missing functionality, and other ways in which the
+system fails to meet user needs.
+<p>
+Success of the semi-instrumented method of remote usability evaluation depends
+on the ability of typical users effectively to recognize CIs.  This issue was
+explored in the case study and will be the object of further studies.   The
+current laboratory-based formative usability evaluation practice of having CI
+identification done by a trained HCI evaluator might lead to skepticism about
+casting the user in that role.  However, critical incidents in human factors
+experiments, before the CI technique was adapted for HCI 
+<a href="hrh_txt.htm#Ref2">[2]</a>,
+were originally identified by the <i>subject</i> during his or her own task
+performance 
+<a href="hrh_txt.htm#Ref3">[3]</a>.
+ Thus, we expect our users with minimal training to be able recognize CIs, an
+expectation supported by our initial case study.  Our users cannot be expected
+to be generally trained in HCI, but they can be given minimal training for the
+specific task of spotting CIs.
+<p>
+The goal of semi-instrumented remote evaluation is to gather qualitative data
+(e.g., CIs and verbal protocol), rather than quantitative data (e.g., timing or
+error rates).  We consider qualitative data to be the most useful for
+identifying and fixing usability problems.
+<p>
+For comparison, Figure 2 depicts one view of the "traditional" laboratory-based
+formative evaluation process.  While directly observing user task performance,
+evaluators produce a list of CIs (at point A) that are later analyzed by
+evaluators into a usability problem list (at point B).
+<p>
+In semi-instrumented remote evaluation, as shown in Figure 3, users themselves
+identify CIs during the normal course of on-the-job task performance.
+<p>
+<A href="hrh_fg2.gif">Figure 2</A>.  One view of local formative evaluation
+<p>
+<A href="hrh_fg3.gif">Figure 3</A>. Semi-instrumented remote evaluation
+<p>
+Whenever usage difficulty is encountered, the user clicks on a "Report CI"
+button, a single added object consistently appearing on all screens of the
+application.  The click activates the instrumentation routine (software outside
+the application) causing the system to store the incident indicator and data
+about its context (e.g., system, interface, task state information, and video
+clips or screen image sequences with audio), to be sent later to developers.
+This package of data, the CI and its context taken together, is called a
+<i>contextualized critical incident </i>(CCI).  Thus, the semi-instrumented
+evaluation process is a user-triggered CI-reporting mechanism that produces
+sets of CCIs (at point A'), sent asynchronously via the network to remote
+evaluators to be later analyzed into a usability problem list (at point B').  
+<h3>
+<a name="RTFToC23">Raison
+d'&ecirc;tre of the Semi-Instrumented Approach
+</a></h2>
+In the absence of a direct observer, the user is the only one who has knowledge
+of CIs as they occur.  This knowledge is essential to identifying design
+problems that impact usability.  The identification of CIs is arguably the
+single most important information associated with task performance in a
+usability-oriented context.  This knowledge is also perishable.  This
+information is lost in the fully instrumented approach, because it is not
+captured immediately as it arises during usage.  Much of the fully instrumented
+method consists of applying complex pattern recognition to regain a small
+portion of this lost information from the usage patterns.  Processing journal
+files of user and system actions in search of usability problems can be like
+looking for a needle in a haystack.  However, if users can deliver the
+"needles" directly, we can avoid the haystack.
+<p>
+The major working hypothesis of semi-instrumented remote evaluation is that it
+will provide approximately the same quantity and quality of qualitative data
+that can be obtained from formative laboratory-based usability evaluation.  
+<h3>
+<a name="RTFToC24">Goals
+of the Case Study
+</a></h2>
+Our eventual goal is to compare the effectiveness in producing usability
+problem lists of two formative evaluation approaches:  semi-instrumented remote
+and normal usability lab-based evaluation.  Of the following three steps for
+approaching this goal, the first is reported in this paper:
+<p>
+1.	initial case study to explore relevant issues and to find intuitive
+indications of the validity of our working hypotheses; <p>
+2.	controlled laboratory-based experiments validating the hypotheses; and<p>
+3.	fields studies conducted in real work environments, accounting for work
+context factors (noise, interruptions, multi-thread task performance, etc.).
+<p>
+The primary goal of the first step, the case study, was to judge feasibility of
+the process.  As a bottom-line, we wanted to see whether this new method could
+provide approximately the same quantity and quality of qualitative data that
+can be obtained from laboratory-based formative evaluation.  Specifically, we
+wished to see if the list of usability problems at B' in Figure 3 is a good
+approximation to the list at B in Figure 2.  Finally, we wanted to appraise the
+likelihood of achieving all these goals in a way that is cost-effective for
+both developer (e.g., minimal resources for data collection and analysis) and
+user (e.g., minimal interference with work).  
+<h3>
+<a name="RTFToC25">Questions
+Addressed by the Case Study
+</a></h2>
+The case study used two kinds of subjects--user subjects and expert subjects.
+User subjects were not trained in usability methods, but were given minimal
+training to recognize CIs in their own usage--five minutes of lecture and a
+10-minute demonstration.  Expert subjects were interface developers, who are
+trained in usability methods and who normally perform evaluations in the
+usability lab.
+<p>
+For the case study the goals stated in the previous section translate into two
+research questions related to the hypotheses of the semi-instrumented remote
+approach:
+<p>
+Question 1:	Can user subjects identify CIs approximately as well as the expert
+subjects?<p>
+Question 2:	Can expert subjects transform contextualized CIs from user subjects
+into a usability problem list approximately as well as they can produce a
+usability problem list in the normal lab-based approach?
+<h3>
+<a name="RTFToC26">Steps
+of the Case Study
+</a></h2>
+1.	Three user subjects not knowledgeable in usability methods were trained to
+identify CIs in task performance.  <p>
+2.	Sessions of user subjects performing tasks and simultaneously identifying
+CIs were videotaped.  The test application was a program for viewing and
+manipulating images from a digital still camera.  <p>
+3.	A panel of three expert subjects viewed the tapes to detect any CIs missed
+by the user subjects.  <p>
+4.	The tape sets were edited into sets of CCI packages. <p>
+5.	Two expert subjects (different ones) were asked to convert the CCI sets into
+usability problem lists.  <p>
+The results of Step 3 provided answers to Question 1 and results of Step 5 gave
+answers to Question 2.  
+<h3>
+<a name="RTFToC27">Using
+Videotapes as Input to Expert Subjects
+</a></h2>
+Normal lab-based evaluation employs expert evaluators recording their own lists
+of CIs while observing user subjects in the same or an adjacent room.  For
+evaluation experts, viewing tapes of users is nearly equivalent to observing
+users in real-time via video monitors in an adjacent room.
+<p>
+In this case study, however, we wished to make direct comparisons of exactly
+the same CIs, between expert subjects in the "normal" case and user subjects in
+the remote case.  This meant the experts had to view tapes of user subjects
+made in the remote evaluation case.  Thus, the experts also saw the users
+identifying their own CIs.  This aspect of user subject behavior could not be
+ignored by the expert subjects and could not be edited from the tapes without
+gaps or "glitches" in the tape, thus revealing the presence of CIs.  We could
+have masked this effect somewhat by introducing additional "decoy" glitches,
+but we felt that line of reasoning would divert us from the goal at hand.
+Thus, we settled on using the expert subjects to judge user subject performance
+in CI identification.  We felt this produced results essentially equivalent to
+a direct comparison, especially for the most important case of CIs not found by
+the user subjects.  In future controlled experiments we plan to compare user
+and expert subject performance directly, without tapes, but this will require
+large numbers of subjects and CIs in order to establish statistical
+significance.
+<p>
+Two tapes were made simultaneously during each task performance.  One video
+camera was used to record users in the normal way, including audio of user
+comments.  The second tape captured screen activity via a scan converter
+connected to the computer monitor.  The experimenters set up the hardware and
+software, and the subjects were in a controlled setting in a laboratory, with
+no interruptions.
+<p>
+To address Question 1, the panel of expert subjects viewed these unedited tapes
+on a pair of monitors, watching user subjects identifying their own CIs as they
+performed tasks, especially looking for CIs the user subjects failed to
+identify.
+<p>
+Anything considered by a user subject to be a CI was deemed so, by definition.
+Thus, we did not look for any "false positive" identifications.
+<p>
+Incidentally, we found that IDEAL 
+<a href="hrh_txt.htm#Ref5">[5]</a>,
+a tool designed to support laboratory-based formative user interface
+evaluation, was also useful in supporting evaluation methods research.  IDEAL
+provided controls for marking, viewing, editing, and synchronizing the
+videotapes.  IDEAL also supported marking tapes where CIs begin and end,
+allowing rapid wind/rewind to view and analyze a given CI.  CIs could also be
+annotated in IDEAL by any of the case study participants.   
+<h3>
+<a name="RTFToC28">Reporting
+CIs
+</a></h2>
+The instrumentation was easily simulated.  First, to simulate clicking of the
+software "Report CI" button, user subjects pushed the space bar on the
+keyboard, which caused a sound that could be heard in the audio portion of the
+tape.
+<p>
+As a substitute for entering text in a dialogue box (for example) to describe a
+CI, subject users gave a verbal description that was captured on an audio track
+of the videotape.  Verbal descriptions (which use a non-visual output channel)
+did not interfere, to the extent that typing would, with task performance
+during capture and observation during evaluation.  
+<h3>
+<a name="RTFToC29">The
+CI Contexts
+</a></h2>
+The videotapes, including verbal comments by user subjects, provided a complete
+history of user activity.  To address Question 2, the context of each CI was
+"packaged" by editing a short clip from the tapes.  <p>
+By informal experimentation we determined to use a 60 second video clip
+centered around the CI identification.  This interval provided economical
+coverage for most of the data in this study.  However, the tradeoff between
+bandwidth requirements to transmit clips on the network and richness of context
+will be the subject of a future study.
+<p>
+Question 2 was approximated by the following question:  How easily can
+expert subjects turn CCI sets into usability problem lists?  Expert subjects
+reviewed the CCIs found by user subjects and tried to transform each CCI into
+one or more specific usability problems, while the experimenters judged how
+well they did this.  In the future, it would be possible to use multiple expert
+subjects for each user subject and/or to use different expert subjects to judge
+these results.  
+<h3>
+<a name="RTFToC30">Results,
+Discussion, Lessons Learned
+</a></h2>
+Although this case study was informal and no quantitative data were recorded,
+it did yield considerable understanding of problems and solutions regarding
+semi-instrumented remote evaluation and did lend insight useful in directing
+future studies.
+<p>
+Users liked the idea of having a sounding mechanism for reporting the CIs,
+which we discovered in pilot testing needed to be distinguishable from all
+other system sounds.  We used a "gong" sound, activated by pressing the space
+bar, which the users liked because it was a bit like "gonging" out the designer
+for bad parts of the interface.  Users indicated a preference for using the
+same sound to report both positive and negative CIs, and in the end we found
+that users rarely, if ever, identify positive critical incidents, anyway.
+Also, user subjects usually reserved gong ringing for cases where task
+performance was blocked and usually did not ring the gong for situations where
+they could perform the task but it was awkward or confusing.  For example, most
+users had minor trouble rotating an image, but they all eventually figured it
+out and none signaled a CI associated with this part of the task.  The experts
+did see this trouble with rotation as a CI, one of the few examples of the ones
+they recognized but users did not.  There was also one case of a CI spotted by
+an experimenter and missed by both user and expert subjects.
+<p>
+To summarize the results for Question 1, there were very few CIs missed by the
+users but found by the experts, and the problems missed were ones of less
+importance.
+<p>
+The tape of the scan-converted screen provided the most valuable data for the
+experts and the experimenter.  The camera on the user was occasionally useful
+for revealing when the user was struggling or frustrated (e.g., pounding on the
+gong key).
+<p>
+The principal problem exposed by the study was the need to prompt users
+continually for the verbal protocol that is so essential in the tape clips for
+establishing task context to the CIs.  Even though users were asked up-front to
+give a running verbal commentary, they generally did not speak much without
+prompting.  This problem is exacerbated in the case of remote evaluation, since
+the experimenter will not be present and the user must be self-actuated in this
+regard.  Verbal protocol was essential for the experts to establish for each CI
+what the task was, what the user was trying to do, and why the user was having
+trouble.
+<p>
+A second major area where insight was gained involved the question of how to
+"package" CCIs in the most cost-effective way with respect to network
+transmission cost (e.g., bandwidth) and usefulness to the developers.  The
+study indicates the need to examine the use of screen capture only.  For remote
+evaluation, CCI packages are sent over the network from users to developers.
+Existing digital screen capture programs can overlay audio and text (e.g., for
+task descriptions) on the screen image, requiring less storage and bandwidth to
+transmit than continuous video.
+<p>
+One problem with "automatically" packaging CCIs is that different kinds of CIs
+need different intervals.  For example, it is not surprising that we found more
+pre-gong time is needed to establish clear context for goal-related problems
+than for action-level problems.
+<p>
+With regard to Question 2, when task information was not given (experts not
+told what user was trying to do), expert subjects had difficulty guessing what
+was happening and did not do well in identifying the usability problems
+associated with the CI.  When CI clips were augmented with verbal protocol
+about intended task and context of where the user was in the task when the CI
+occurred, the expert subjects were generally able to identify the associated
+usability problems and design flaws that led to them.  
+<h3>
+<a name="RTFToC31">Conclusions</a></h2>
+Semi-instrumented remote evaluation appears to be a feasible technique meriting
+further development.  The method has potential to exploit the value of real
+work context, allowing usability testing over a broad range of users and tasks.
+It requires very little embedded code for instrumentation.  Data collection
+cost is very low (almost zero) to developers, because users gather the data.
+Data analysis costs are lowered (cf. laboratory-based methods) because users
+perform "time filtering" of the raw task performance data, singling out CIs
+from usage activities not useful in finding usability problems.  
+<h2>
+<a name="RTFToC32">FUTURE
+DIRECTIONS
+</a></h1>
+We found these case studies valuable, both for what we learned and for the
+insight they provided for directing future research.  For example, we will
+address the effect of video quality on usability list generation.  Evaluators
+will need to determine values for variables such as sufficient frame rates and
+processing power.  We will examine various levels of screen detail and their
+effect on the ability to discern useful information about usability problems.
+<p>
+We will also investigate the number of camera views that are necessary for
+quality observation.  A sufficient base of research is needed to guide
+development of tools that would control and streamline remote data collection.
+The result of such work would reduce the cycle time for designing interfaces in
+the overall development process.  This work is being continued at Virginia Tech
+and at Kodak.
+<p>
+Future studies will also focus on how much context to include in a CCI package
+for the semi-instrumented approach.  Typically, users ring the gong some time
+after the beginning of a CI.  The context of a CI continues to develop some
+time after the gong, as well.  Thus, a CI and its context typically span both
+sides of the gong.  We plan empirical studies to determine the best pre-gong
+and post-gong time intervals for CCI clips.
+<p>
+The design and evaluation of specific user training for identifying CIs is an
+important focus of our work.  Cost-effective on-demand availability of this
+training to potentially large numbers of users requires a self-paced module.
+The subject matter is appropriate for multi-media with at least video and
+sound, delivered on the network (e.g., through the World-Wide Web).
+<p>
+Further, a clear need for a remote method for user prompting emerged as a
+lesson learned from the studies.  As a result of this study we intend to
+investigate social, psychological, and organizational issues in prompting users
+at a distance to maintain verbalization.  We expect to explore voice and/or
+dialogue boxes for conveying a request for information about the task and the
+problem, either when the CI button is pushed (e.g., in the semi-instrumented
+case) or if the user is inactive for too long.
+<p>
+An additional area of study will focus on the necessity for the user to pause
+and identify the CI, and the effect that this task interruption might have on
+usability of the application itself.  We also plan to catalog which types of
+applications work best with remote evaluation, and possibly identify predictor
+characteristics for new applications.  We also hope to qualify which of the two
+methods we studied are best suited for collecting data from a given type of
+application.
+<p>
+The Montgomery County, Virginia, school system will serve as a near-term
+testbed for remote evaluation methods.  We, in the Department of Computer
+Science at Virginia Tech, are working with the public schools to design,
+implement, and evaluate a software architecture, software tools, and courseware
+to construct a virtual physics laboratory to support broadly collaborative,
+highly interactive physical science education for middle school and high school
+students.  The virtual laboratories will be accessed via the Internet and the
+Blacksburg Electronic Village, a densely interconnected community in
+Southwestern Virginia.  Remote evaluation will be a necessity for this project.
+<p>
+In the longer term, we expect to be working with the U.S Forestry Service and
+the Bureau of Land Management, who are using an expert system for landscape
+architecture as part of a very large scale geographical information system.  We
+look forward to the possibility of using remote evaluation methods with
+literally hundreds of remote users across the country.  
+<h2>
+<a name="RTFToC33">REFERENCES</a></h1>
+<a name="Ref1">1.</a>	Abelow, D.  Automating Feedback on Software Product Use. <i>CASE Trends </i>
+(December 1993), 15-17.<p>
+<a name="Ref2">2.</a>	del Galdo, E. M., Williges, R. C., Williges, B. H., and Wixon, D. R. An
+Evaluation of Critical Incidents for Software Documentation Design. In
+<i>Proceedings of Thirtieth Annual Human Factors Society  Conference</i>  Human
+Factors Society, Anaheim, CA, 1986, 19-23.<p>
+<a name="Ref3">3.</a>	Fitts, P. M., and Jones, R. E. "Psychological aspects of instrument
+display." <i>Selected Papers on Human Factors in the Design and Use of Control
+Systems. 1:  Analysis of 270 "Pilot Error" Experiences in Reading and
+Interpreting Aircraft Instruments. </i>Sinaiko ed., Dover Publications, Inc.,
+New York, 1947.<p>
+<a name="Ref4">4.</a>	Hix, D., and Hartson, H. R. <i>Developing User Interfaces:  Ensuring
+Usability Through Product and Process</i>.   John Wiley &amp; Sons, Inc., New
+York, 1993.<p>
+<a name="Ref5">5.</a>	Hix, D., and Hartson, H. R. IDEAL:  An Environment for User-Centered
+Development of User Interfaces. In Proceedings of <i>EWHCI'94:  Fourth
+East-West International Conference on Human-Computer Interaction</i> (St.
+Petersburg, Russia, August 2-6), 1994, 195-211.<p>
+<a name="Ref6">6.</a>	Nolan, P. R. Welcome to Vertical Research. Vertical Research, Inc., P.O. Box
+1214, Brookline, MA 02146, USA. (1995).
+<a href="http://www.nolan.com/~pnolan/vertical.html">http://www.nolan.com/~pnolan/vertical.html</a>.<p>
+<a name="Ref7">7.</a>	Siochi, A. C., and Ehrich, R. W.  Computer Analysis of User Interfaces Based
+on Repetition in Transcripts of User Sessions. <i>ACM TOIS. 9</i>, 4 (October
+1991), 309-335.<p>
+<a name="Ref8">8.</a>	Whiteside, J., Bennett, J., and Holtzblatt, K. "Usability Engineering:  Our
+Experience and Evolution." Chapter 36 in Handbook of Human-<i>Computer
+Interaction. </i>Helander ed., Elsevier North-Holland,  Amsterdam, 1988,
+791-817.<p>
+</body></html>

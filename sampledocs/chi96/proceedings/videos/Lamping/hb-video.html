@@ -1,0 +1,207 @@
+<!DOCTYPE HTML PUBLIC "-//W3O//DTD W3 HTML 2.0//EN">
+<!Converted with LaTeX2HTML 95 (Thu Jan 19 1995) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds >
+<HEAD>
+<TITLE>Visualizing Large Trees Using the Hyperbolic Browser</TITLE>
+<!-- Changed by: Ramana Rao, 10-Jan-1996 -->
+</HEAD>
+
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/videos.JPG" ALT="videos" HEIGHT=35 WIDTH=249><A HREF="../../videos.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+
+<meta name="description" value="Visualizing Large Trees Using the Hyperbolic Browser">
+<meta name="keywords" value="hb-video">
+<meta name="resource-type" value="document">
+<meta name="distribution" value="global">
+<P>
+  <H1>Visualizing Large Trees Using the Hyperbolic Browser</H1>
+<P><STRONG></STRONG><P>
+
+<P>     
+<i>     
+John Lamping and Ramana Rao
+</i>     
+<P>     
+<DL>     
+<DT> Xerox Palo Alto Research Center     
+<DT> 3333 Coyote Hill Road     
+<DT> Palo Alto, CA     
+</DL>     
+<DL>     
+<DT> lamping@parc.xerox.com     
+<DT> rao@parc.xerox.com     
+</DL>     
+
+<P>
+<H3>Abstract:</H3>
+<EM>We demonstrate a focus+context (fisheye) scheme for visualizing and
+manipulating large hierarchies.  Our approach is to lay out the hierarchy
+uniformly on the hyperbolic plane and map this plane onto a circular display
+region.  The projection onto the disk provides a natural mechanism for
+assigning more space to a portion of the hierarchy while still embedding it in
+a much larger context.  Change of focus is accomplished by translating the
+structure on the hyperbolic plane, which allows a smooth transition without
+compromising the presentation of the context.
+<P>
+</EM><P>
+<H4><A NAME=SECTION00000010000000000000> KEYWORDS:</A></H4>
+<P>
+Hierarchy Display, Information Visualization, Fisheye Display, Focus+Context
+Technique.
+<P>
+<H1><A NAME=SECTION00010000000000000000> INTRODUCTION</A></H1>
+<P>
+The amount of information that can coherently be displayed on the screen of an
+interactive computer system can dramatically affect the ease of interacting
+with a large information structure.  We demonstrate the Hyperbolic Browser
+technique for displaying and manipulating large hierarchies and graphs which
+have been converted to trees (e.g. by a bread-first walk and insertion of
+``revisited'' nodes) [<A HREF="hb-video.html#hbjvlc">1</A>,<A HREF="hb-video.html#hbchi">2</A>].  For example, it is well suited for
+browsing organization charts, file system hierarchies, and the link structure
+of WWW servers and spaces.  We have implemented versions of the hyperbolic
+browser in Common Lisp, C++, and Java and applied it to Web Space visualization
+as a client executable, a server-based cgi image-map-generating extension, and
+a Java applet.
+<P>
+The hyperbolic browser (Figure <A HREF="hb-video.html#radial">1</A>) provides a smoothly-varying focus+context
+or fisheye view.  The display space allocated to a node falls off continuously
+with distance from the focus.  The context always includes several generations
+of parents, siblings, and children, making it easy for the user to explore the
+hierarchy without getting lost.  The tree is initially displayed with its root
+at the center, but the display can be smoothly transformed to bring other nodes
+into focus (see Figure <A HREF="hb-video.html#animation1">2</A>).  We have developed effective procedures for
+manipulating the focus using selection as well as pointer dragging, and for
+smoothly animating transitions across such manipulation.
+<P>
+This technique compares favorably with conventional hierarchy displays and
+other novel techniques [<A HREF="hb-video.html#hbjvlc">1</A>].  In a 600 pixel by 600 pixel window, a
+conventional 2-d browser can typically display 100 nodes (w/ 3 character text
+strings).  The hyperbolic browser can display 1000 nodes of which about the 50
+nearest the focus can show from 3 to dozens of characters of text.  Thus the
+hyperbolic browser can display up to 10 times as many nodes and provide more
+effective navigation around the hierarchy.
+<P>
+<P><A NAME=51>&#160;</A><IMG  ALIGN=BOTTOM ALT="" SRC="xrad-tny.gif">
+<A HREF="xrad-big.gif">Full Size Image</A><P>
+<BR><STRONG>Figure 1:</STRONG> <A NAME=radial>&#160;</A> An organization chart displayed by uniformly embedding
+the tree on a hyperbolic plane and using the Poincar&#233; mapping of the plane
+onto a disk.<BR>
+<P>
+<P>
+<P><A NAME=53>&#160;</A><P><IMG  ALIGN=BOTTOM ALT="" SRC="anim-tny.gif">
+<BR> <A HREF="anim.html">Strip</A> 
+<BR> <A HREF="step1.html">Sequence</A><P>
+<BR><STRONG>Figure 2:</STRONG> <A NAME=animation1>&#160;</A> The user has clicked on the blackened node 
+which brings that node to the center in an animated transition, exposing more
+of its descendant structure.<BR>
+<P><H1><A NAME=SECTION00020000000000000000> HYPERBOLIC TECHNIQUE</A></H1>
+<P>
+We lay out the hierarchy on the hyperbolic plane, and then map this
+mathematical construct onto a circular display region.  The hyperbolic plane is
+a non-Euclidian geometry where parallel lines diverge from one another.  Thus,
+the circumference of a circle grows exponentially with its radius, which means
+that exponentially more space is available with increasing distance.  Thus
+hierarchies---which tend to expand exponentially with depth---can be laid out
+uniformly in hyperbolic space, so the distance between parents, children, and
+siblings is roughly the same across the hierarchy.
+<P>
+We use a recursive algorithm that lays out each node based on local
+information.  A node is allocated a wedge of the hyperbolic plane, angling out
+from itself, to put its descendants in.  It places all its children along an
+arc in that wedge, at an equal distance from itself, and far enough out so that
+the children are some minimum distance apart from each other.  Each of the
+children then gets a sub-wedge for its descendants.  Because of the divergence
+of parallel lines, each child typically gets a wedge spanning about as big an
+angle as does its parent's.
+<P>
+The hyperbolic plane can be mapped onto the Euclidean unit disk, which provides
+a means for displaying it on a display.  The two canonical ways of mapping the
+hyperbolic plane to the unit disk, the Klein model (projective) and the
+Poincar&#233; model (conformal), map a vicinity in the hyperbolic plane to a focus
+at the center of the disk while the rest of the hyperbolic plane fades off
+perspective-like toward the edge of the disk.  The Poincar&#233; model (used in
+the figures) works better for visualizing hierarchies, because it preserves the
+fan-out shapes at nodes and uses the screen real-estate more efficiently.
+<P>
+<H1><A NAME=SECTION00030000000000000000> CHANGING FOCUS</A></H1>
+<P>
+A change of focus is implemented as a geometric translation of the structure on
+the hyperbolic plane.  The user can change focus either by clicking on any
+visible point to bring it into focus at the center, or by dragging any visible
+point to any other position (with immediate feedback).  In either case, the
+rest of the display transforms appropriately.  Regions that approach the center
+become magnified, while regions that were in the center shrink as they move
+toward the edge.  Thus the user can browse the tree structure while maintaining
+the visual context.  User understanding of a jump to a new focus is greatly
+improved if the transition is animated.  This is done by calculating an
+``nth-root'' transformation, which applied n times will have the same effect as
+the original, and using this transformation successively to generate
+intermediate frames, as illustrated with an n of 3 in
+Figure <A HREF="hb-video.html#animation1">2</A>.
+<P>
+Doing successive translations in the hyperbolic plane will, in general, cause
+rotations, which are disorienting.  To avoid this, a rotation component is
+added to translations so that the node in focus on the display will have a
+canonical orientation.  The canonical orientation that we have found most
+effective is to have the parent of the focus node be in a canonical direction.
+<P>
+Responsive display performance is crucial for supporting interactive dragging
+and for supporting animated transitions on jump changes.  This can be a problem
+for large hierarchies.  We achieve rapid redisplay by compromising on display
+quality during animation and interactive dragging.  Fortunately, the rendering
+compromises don't affect the coherence of the motion and are often unnoticed at
+animation speeds.  Two effective compromises are to draw less of the fringe and
+to draw lines, rather than arcs.  Other compromises including dropping text
+during animation, may destroy coherence of motion.
+<P>
+<H1><A NAME=SECTION00040000000000000000> CONCLUSION</A></H1>
+<P>
+Hyperbolic geometry provides an elegant solution to the problem of providing a
+focus+context display for large hierarchies.  The hyperbolic plane has the room
+to lay out large hierarchies uniformly, and the Poincar&#233; map provides a
+natural, continuously graded, focus+context mapping from the hyperbolic plane
+to a display.  The hyperbolic browser supports interaction with larger
+hierarchies than conventional browsers with modest computational requirements.
+<P>
+
+<P>
+<P><A NAME=SECTIONREF><H2>References</H2></A><P>
+<DL COMPACT>
+<DT><A NAME=hbjvlc><STRONG>1</STRONG></A><DD>
+John Lamping and Ramana Rao.
+ The hyperbolic browser: A focus+context technique for visualizing
+  large hierarchies.
+ <em> Journal of Visual Languages and Computing</em>, 6(4), 1995.
+<P>
+<DT><A NAME=hbchi><STRONG>2</STRONG></A><DD>
+John Lamping, Ramana Rao, and Peter Pirolli.
+ A focus+context technique based on hyperbolic geometry for
+  visualizing large hierarchies.
+ In <em> Proceedings of the ACM SIGCHI Conference on Human Factors in
+  Computing Systems</em>. ACM, May 1995.
+</DL>
+<P>
+<H1><A NAME=SECTION00060000000000000000>   About this document ... </A></H1>
+<P>
+ <STRONG>Visualizing Large Trees Using the Hyperbolic Browser</STRONG><P>
+This document was generated using the <A HREF="http://cbl.leeds.ac.uk/nikos/tex2html/doc/latex2html/latex2html.html"><STRONG>LaTeX</STRONG>2<tt>HTML</tt></A> translator Version 95 (Thu Jan 19 1995) Copyright &#169; 1993, 1994,  <A HREF="http://cbl.leeds.ac.uk/nikos/personal.html">Nikos Drakos</A>, Computer Based Learning Unit, University of Leeds. <P> The command line arguments were: <BR>
+<STRONG>latex2html</STRONG> <tt>-split 0 hb-video.tex</tt>. <P>The translation was initiated by Ramana Rao on Wed Jan 10 16:37:14 PST 1996<BR> 
+The author information was missing because of the use of special <BR>
+latex command that came with chi style file.  Bold "Figure 2" label<BR>
+was added in manually.  Generated document was manually edited to <BR>
+incorporate a better gif image for Figure 1 and to add pointers to <BR>
+full size images for both figures.   
+<HR>
+
+<P><ADDRESS>
+<I>Ramana Rao <BR>
+Wed Jan 10 16:37:14 PST 1996</I>
+</ADDRESS>
+</BODY>

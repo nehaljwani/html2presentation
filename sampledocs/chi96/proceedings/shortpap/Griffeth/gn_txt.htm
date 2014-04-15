@@ -1,0 +1,217 @@
+<HTML>
+<HEAD>
+<TITLE>Making a Simple Interface Complex: Interactions among Telephone 
+</TITLE>
+
+</HEAD>
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/shortpap.JPG" ALT="shortpap" HEIGHT=35 WIDTH=249><A HREF="../../shortpap.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+
+<H1><CENTER>Making a Simple Interface Complex:</CENTER></H1>
+<H1><CENTER>Interactions among Telephone Features<BR>
+</CENTER></H1>
+<P>
+<EM>Nancy Griffeth</EM>
+<P>
+Bellcore MRE 2Q-382, 
+<P>
+445 South Street, Morristown NJ 07960
+<HR>
+<H2>ABSTRACT</H2>
+<P>
+<FONT SIZE=2>Without features, the telephone interface is simple
+and can easily be taught to a child, but the proliferation of
+telephone features makes the telephone's behavior hard for an
+adult to understand. The difficulty arises not just from the need
+to learn several ways of using the telephone, but also from the
+interactions among features, which can cause each feature to behave
+differently in the presence of other features. In this paper,
+we describe some of the problems feature interactions present
+to telephone users, and discuss their extent.<BR>
+</FONT>
+<H2>1. INTRODUCTION</H2>
+<P>
+<FONT SIZE=2>Two or more features of a telephone service are said
+to interact if one changes the functionality of the others. This
+creates a problem: a telephone user must learn the interactions
+of each collection of features in addition to the individual feature
+behaviors. There is a growing body of work describing the related
+software development problem and presenting possible solutions
+for today's telephone network [1,2,3,4]. However, there has been
+no work on the human aspect of this problem.</FONT>
+<P>
+<FONT SIZE=2>The problem would seem to worsen as more 'intelligence''
+is introduced into telephones and their features multiply. In
+the near future, communication will increasingly take place over
+broadband networks, using mechanisms for video and data communication
+as well as voice. New services will offer more flexible interfaces,
+which will reduce the likelihood of feature interactions, counter-balanced
+by more functionality, which will increase the likelihood of feature
+interactions.</FONT>
+<P>
+<FONT SIZE=2>Software companies seeking to differentiate their
+products will inevitably be tempted to add features, and we may
+even be able to download new features dynamically, as is done
+with Java on the World-Wide Web. In such an environment, will
+users be able to cope with a proliferation of features?</FONT>
+<P>
+<FONT SIZE=2>The goal of this paper is to document the problem
+as it exists in the telephone system today, to discuss its extent,
+and to present a challenge to researchers in human interfaces.
+</FONT>
+<H2>2. SOME FEATURE INTERACTIONS</H2>
+<P>
+<FONT SIZE=2>Donald Norman pointed out on page 188 of ``Design
+of Everyday Things'' [5] that a good design will have two properties:
+</FONT>
+<P>
+<FONT SIZE=2>(1) the user can figure out what to do, and</FONT>
+<P>
+<FONT SIZE=2>(2) the user can tell what is going on.</FONT>
+<P>
+<FONT SIZE=2>When new features are added to a device, feature
+interactions can interfere with these properties, even if the
+original device and all its features are individually well-designed.</FONT>
+<P>
+<FONT SIZE=2>This section illustrates this point with examples
+of feature interactions on a telephone. It is interesting to note
+that Norman presents the ordinary, unfeatured telephone as an
+example of good design, and presents several cases of telephones
+with numerous features as examples as bad design.<BR>
+</FONT>
+<H3>2.1 Knowing What to Do</H3>
+<P>
+<FONT SIZE=2>A telephone provides a limited number of signals.
+The same signals are used to mean different things in different
+contexts. Consequently, it can be difficult for a user to determine
+what to do in order to accomplish a desired goal. For example,
+the ''flash-hook'' or ''flash'' signal is used by both Three Way
+Calling and Call Waiting.</FONT>
+<P>
+<B><FONT SIZE=2>Three-Way Calling</FONT></B><FONT SIZE=2>. Suppose
+that Nancy wants to make a conference call including herself,
+Greg, and John. First, Nancy calls Greg. After Greg answers, she
+uses ''flash'' to make the second call. After the flash, Greg
+is on hold and she hears dial-tone. She then calls John. When
+John answers, she uses ''flash'' again to join the three parties
+in a single call. Subsequently, if she uses ''flash'', John will
+be dropped from the call.</FONT>
+<P>
+<B><FONT SIZE=2>Call Waiting</FONT></B><FONT SIZE=2>. Call Waiting
+is a popular feature that permits the Call Waiting subscriber
+to answer the phone even when talking to someone else. Suppose
+that Nancy is talking to Greg, and John calls. If Nancy subscribes
+to Call Waiting, instead of John hearing the busy tone, he hears
+ringing and Nancy hears a special tone (interrupting her conversation
+with Greg briefly) that indicates a call. She can then use the
+''flash'' to talk to John. While she is talking to John, Greg
+is on hold. Subsequent uses of flash swap the held and active
+calls, so that she can switch back and forth between them.</FONT>
+<P>
+<FONT SIZE=2>In the first example, Nancy probably wants Call Waiting
+to continue working while she is on the Three-Way Call with Greg
+and John. Also, in the second example, she may well want to join
+the separate calls with Greg and John into a single conference
+call. But neither is possible, because the flash signal is ambiguous:
+it can mean ''Get dial-tone for a new call'', ''Add a new party
+to the current call'', ''Switch from the active call to the held
+call'', or ''Drop the last party added'', depending on the context.
+A telephone user who thinks about the problem may well recognize
+the ambiguity. How does he determine what can be done and how
+to do it?</FONT>
+<P>
+<FONT SIZE=2>In the current telephone system, the answer is, ``Learn
+arbitrary rules''. When this kind of thing happens, the control
+software in the network usually resolves the interaction by de-activating
+one feature to avoid the ambiguity. The caller must learn that
+these features cannot be active at the same time, and the functionality
+of each is lost when the other is active.<BR>
+</FONT>
+<H3>2.2 Knowing What's Going On</H3>
+<P>
+<FONT SIZE=2>Another kind of feature interaction occurs because
+there are only a few signals with which telephone can signal its
+state, and the same signal may mean different things when different
+features have affected a call. As a consequence, a user may not
+be able to tell what is going on.<BR>
+</FONT>
+<P>
+<FONT SIZE=2>I was rather surprised recently to realize that there
+are not one but three reasons for the telephone to ring:</FONT>
+<P>
+<FONT SIZE=2>1. someone (or some computer) is calling;</FONT>
+<P>
+<FONT SIZE=2>2. the caller has hung up, but a call is on hold;
+or</FONT>
+<P>
+<FONT SIZE=2>3. a monitored line is now available, and a call
+can be made to it.</FONT>
+<P>
+<FONT SIZE=2>The second reason is one of the most common reasons
+for the telephone to ring in my household. The sequence of events
+causing this is that someone calls voice mail to pick up messages,
+then returns a call to one of the callers. When hanging up voice
+mail, the switch-hook was depressed only briefly; the control
+software thinks the signal was ''flash''; and voice mail winds
+up on hold. The voice mail remains on hold throughout the subsequent
+call, and when the caller hangs up, the voice mail rings us back
+-- with the surprising effect that when we pick up the telephone,
+we hear our voice mail menus!</FONT>
+<P>
+<FONT SIZE=2>This has an unfortunate side-effect for features
+like ''Return Call'', which returns a call to the last caller.
+Since only the first case represents a real call, Return Call
+is appropriate only in that case; in the other two cases, it is
+inappropriate.<BR>
+</FONT>
+<H2>3. A CHALLENGE</H2>
+<P>
+<FONT SIZE=2>Bellcore specifies required interactions among features
+that existed prior to AT&amp;T's divestiture. Switching system
+vendors also specify the interactions among features implemented
+on their products, and Bellcore documents some current interactions
+and potential interactions among more recently-developed features
+[6].</FONT>
+<P>
+<FONT SIZE=2>Recently, I examined 8 common features (Automatic
+Recall, Call Waiting, Call Forwarding Busy Line, Call Pick-Up,
+Calling Number Delivery, Selective Call Rejection, Three-Way Calling,
+and 911). There are 28 ways to pair 8 features. Twenty of the
+possible 28 pairs in this collection of features had specified
+interactions. There were a total of 37 identified interactions
+(some pairs had more than one interaction). </FONT>
+<P>
+<FONT SIZE=2>The challenge for human factors research is to determine
+how one resolves interactions in a manner natural to users of
+a communications device. Even recognizing that only user studies
+can make the ultimate determination of design quality, a collection
+of principles that one can follow to develop possible resolutions
+would represent a major advance.<BR>
+</FONT>
+<H2>REFERENCES</H2>
+<OL>
+<LI>L.G. Bouma and H. Velthuijsen, editors. <I>Feature Interactions
+in Telecommunications Systems</I>. IOS Press, Amsterdam, 1994.
+<LI>E.J. Cameron, N.D. Griffeth, Y.-J. Lin, M.E. Nilson, W.K.
+Shnure, and H. Velthuijsen. A feature interaction benchmark in
+IN and beyond. <I>Feature Interactions in Telecommunications Systems</I>,
+pages 1--23. IOS Press, Amsterdam, 1994.
+<LI>N. Griffeth and Y.-J. Lin, editors. <I>Communications</I>,
+volume 31. IEEE, August 1993.
+<LI>N. Griffeth and Y.-J. Lin, editors. <I>Computer</I>, volume
+26. IEEE, August 1993.
+<LI>D. Norman. <I>The design of everyday things</I> (CurrencyDoubleday,
+New York, 1990).
+<LI><I>Switch-based feature interaction requirements</I>.Bellcore,
+GR-2859-CORE, April 1995.
+</OL>
+</BODY>
+</HTML>

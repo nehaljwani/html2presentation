@@ -1,0 +1,225 @@
+<HTML>
+<HEAD>
+<TITLE>Electronic Mail Previews Using Non-Speech Audio</TITLE>
+
+</HEAD>
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/shortpap.JPG" ALT="shortpap" HEIGHT=35 WIDTH=249><A HREF="../../shortpap.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<H1>Electronic Mail Previews Using Non-Speech Audio<BR>
+</H1>
+<P>
+<EM>Scott E. Hudson and Ian Smith</EM>
+<P>
+Graphics, Visualization, and Usability Center, and College of
+Computing
+<P>
+Georgia Institute of Technology, Atlanta, Georgia, 30332-0280
+<P>
+{hudson, iansmith}@cc.gatech.edu
+<HR>
+<H2>ABSTRACT </H2>
+<P>
+Conventional (visual) glances give a quick overview of the overall
+properties of an object. An <I>audio glance</I> presents a similar
+overview aurally rather than visually. This paper describes an
+audio glance for electronic mail messages. This dynamically constructed
+non-speech sound is designed to summarize the important properties
+of a message into a concise sound so that one may quickly preview
+a set of email messages to determine their important properties.
+This allows the user to make a quick assessment of, for example,
+the existence of messages from particular users or groups, or
+of responses to a recent message of importance. Along with the
+audio glance technique we present a &quot;flash card&quot; interface
+which provides very rapid access to the glance. <BR>
+<H3>Keywords:</H3>
+<P>
+non-speech audio, audio icons, audio glances, email, flash card
+interfaces.<BR>
+<H2>INTRODUCTION</H2>
+<P>
+As the popularity of electronic mail as a communication medium
+grows, people often find that they have too much email to organize
+and prioritize effectively. Many people find themselves checking
+their mail frequently to assess the nature and importance of recent
+messages in order to quickly decide whether to read any of them,
+and in general to keep up with events in their electronic community.
+This paper describes the construction of audio glances for email
+messages which allow this overview information to be obtained
+quickly and unobtrusively by means of short non-speech sounds
+constructed dynamically to portray the overall properties of each
+message.
+<P>
+Although summary visualizations of email messages could also be
+easily constructed (and could well complement our approach), presenting
+glances in the audio medium provides several advantages. Because
+audio is pervasive and fills the space it is presented in, information
+can be presented in a hands- and eyes-free manner. This allows
+an audio glance to be easily intermixed with other kinds of activities.
+As a result, if properly designed, an audio glance may not require
+one's full attention, and may be overlapped with other low-intensity
+actions, or squeezed into short snippets of &quot;free&quot; time.
+In addition, the audio medium is well suited to mobile applications,
+and can for example, be accessed over the phone. (For other examples
+of the use of non-speech audio, along with a more complete motivation
+, see for example [1, 2]).<BR>
+<H2>EMAIL GLANCE DESIGN</H2>
+<P>
+We have formulated email glances as a stream of short sounds,
+each summarizing a single email message. These individual message
+glances are constructed from up to four components as illustrated
+in Figure 1. <BR>
+<P>
+<CENTER><IMG SRC="IMG00002.GIF"></CENTER>
+<P>
+<CENTER><B>Figure 1. Glance Components<BR>
+</B></CENTER>
+<P>
+These components include an optional preamble sound (used to alert
+the user to messages classified as important), a main audio icon
+(used to identify the category of message, including who the message
+is from, and whether it relates to certain important subjects
+or message threads), a recipients icon (which codes for who the
+message was sent to: e.g., a single user, a group of users, or
+a mailing list), and zero or more content flag sounds (designed
+to depict special features of the content of the message such
+as key words or phrases in headers or the message body, as well
+as recognizable MIME encapsulated objects, etc.). In addition,
+the main audio icon is modified to indicate the overall size of
+the body of the message. A short version of the sound (~0.5 sec.)
+is played for short messages, a medium length sound (~ 1 sec.)
+for medium messages, or a long sound (~2 sec.) for long messages
+(cutoff sizes can be determined by user preference). 
+<P>
+Although the underlying system (described below) allows composition
+of arbitrary sampled sounds, use of haphazardly choosen sounds
+can easily lead to an unpleasent cacophony. Consequently, a series
+of carefully designed recommended sounds are provided. These include
+a short preamble sound (a throat clearing &quot;hmmphmm&quot;),
+eight icon sounds (each in three lengths), three alternative recipient
+icons sounds (for one, several, and mailing list recipients),
+and several very short flag sounds. Since these sounds must fit
+smoothly in an office environment, and potentially fade into the
+background, nearly all of the sounds are designed not to be harsh
+or attention demanding. Further, the sounds have been designed
+to fit together without being too discordant, and the icon sounds
+have as a group been designed to be distinguishable from one another
+[3].
+<P>
+Examples of constructed audio glances can be obtained on the web
+at:
+<P>
+<TT><FONT FACE="Courier">http://www.cc.gatech.edu/gvu/people/Phd/Ian/audio_glance.html
+<BR>
+</FONT></TT>
+<H2>MESSAGE CATEGORIZATION</H2>
+<P>
+Each of the components of an audio glance sound is choosen based
+on properties of a textual email message. To allow flexibility
+in how the mapping between content and sound coding is performed,
+we provide a small system for parsing and categorizing mail messages.
+This system works on the basis of a small textual specification
+language (which eventually will be hidden behind one or more direct
+manipulation interfaces). 
+<P>
+This language provides capabilities similar to various mail filter
+programs but specialized to creating audio glance sounds using
+the structure described above. In particular, the language is
+rule-based, providing for predicates that select messages, and
+actions for constructing (partial) sounds when a message matching
+the predicate is encountered. 
+<P>
+Predicates supported include the occurrence of a particular header
+field, the occurrence of text matching a regular expression within
+a specified field, any field, or the body of the message, occurrence
+of text matching one of several regular expressions stored in
+an external file, and comparisons against the size of a field
+or the body. The inclusion of matches derived from information
+in external files is particularly important since this makes it
+easy for various user interfaces and external programs to maintain
+&quot;hot topic&quot; and group lists dynamically. 
+<P>
+Normally, each email message is compared against each predicate.
+When a message is matched, the associated action is performed.
+This action typically fills in one of the components of the resulting
+sound, but can also do things such as construct part of a composite
+file name for a sound, append to a list of sounds for one component,
+or force the message to be represented only by silence (a very
+common occurrence). Facilities are also provided for initialization
+and cleanup actions before and after each message is considered,
+as well as special actions that are performed only on the first
+message matching a particular predicate. <BR>
+<H2>USE SCENARIOS</H2>
+<P>
+We envision several possible uses for email audio glances. Currently,
+we have deployed it in a system for quickly assessing current
+email while away from one's desk. In this case, the ability to
+very quickly access the glance is critical to its utility. If
+one needed to log in, start a window system, and run a program,
+then log back out, etc. it would eliminate the benefit of getting
+a quick overview. 
+<P>
+To overcome this problem, we have devised a method for invoking
+a glance very quickly. As described in the next section, this
+interface allows one to access the glance very quickly by holding
+up a color coded card in front of one of a number of cameras (currently
+in computer labs, but eventually in other public spaces). Since
+email can be sensitive in nature, the public nature of audio and
+the weak authentication used by this system might raise privacy
+concerns. However, since glances reveal only audio previews and
+no actual content, we believe that almost all users will find
+this perfectly acceptable for use in public spaces.
+<P>
+Other potential use scenarios that we are exploring for future
+work include invocation of the glance based on motion sensors
+which detect when users return to their offices, as well as to
+provide a preview for spoken email in a telephone or audio-only
+PDA interface. <BR>
+<H2>FLASH CARD INTERFACES</H2>
+<P>
+As indicated above, audio glances often need to be accessed very
+quickly in order to make them worthwhile. In order to provide
+instant access we have devised a system for &quot;flash card&quot;
+interfaces. These interfaces invoke commands based on one or more
+color coded cards held up to the camera of a workstation running
+a &quot;flash card demon&quot;. 
+<P>
+Each of these laminated cards (a little larger than a typical
+business card) contains a small number of color strips in a unique
+combination. These cards are recognized by a simple color filtering
+and histogram matching technique. First, a color filter is applied
+to the input image in RGB space. This process essentially is a
+selection of pixels which are inside a sphere surrounding the
+target color (or colors) in RGB space. These target pixels are
+&quot;grouped&quot; so only reasonably large, contiguous areas
+of color remain. This process results in identifying large regions
+of color matching one of a set of standard colors, while eliminating
+all other &quot;background&quot; pixels. Simple, but very robust
+color histogram matching techniques [4] (which are, for example,
+insensitive to rotation) are then used to determine which if any
+card is in view. Once a positive match is found the glance program
+is invoked with the appropriate parameters. <BR>
+<H2>REFERENCES</H2>
+<OL>
+<LI>Gaver W. The SonicFinder: An Interface That Uses Auditory
+Icons. Human Computer Interaction, 4:67-94, 1989.
+<LI>Mynatt E. Auditory Presentation Of Graphical User Interfaces
+in <I>Proc. of the 1992 International Conference On Auditory Display.
+</I>(Sante Fe, NM, Nov. 1992) Addison-Wesley Publishing Company.
+<LI>Mynatt E. Designing Auditory Icons in <I>Proc. of the Second
+International Conference On Auditory Display. </I>(Sante Fe, NM,
+Nov 1994).
+<LI>Zhang H., Low C., Smoliar S., and Wu J. Video Parsing, Retrieval
+and Browsing: An Integrated and Content-Based Solution in <I>Proc.
+Multimedia '95</I> (San Francisco CA., Nov. 1995), ACM Press,
+15-23. 
+</OL>
+</BODY>
+</HTML>

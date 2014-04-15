@@ -1,0 +1,577 @@
+<html><head><!-- This document was created from RTF source by rtftohtml version
+2.7.3 --><title>An Experimental Evaluation of Transparent Menu Usage</title></head>
+<body>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<P><IMG SRC="./../../graphics/papers.JPG" ALT="papers" HEIGHT=35 WIDTH=249><A HREF="./../../papers.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<h1>
+<center>AN
+EXPERIMENTAL EVALUATION OF <br>
+TRANSPARENT MENU USAGE 
+</center></h1>
+
+<table>
+<tr><th><b>Beverly L. Harrison</b></th> <th>                  </th><th><b>Kim J. Vicente </b></th><p>
+<tr><td>Dept. of Industrial Engineering      and         </td><td> Alias|Wavefront</td><td>Dept. of Industrial Engineering</td></tr>
+<tr><td>
+University of Toronto</td><td>110 Richmond Street East        </td><td>University of Toronto</td></tr>
+<tr><td>
+Toronto, Ontario, Canada  </td><td>Toronto, Ontario, Canada        </td><td>Toronto, Ontario, Canada</td></tr>
+<tr><td>
+M5S 3G9</td><td>M5C 1P1</td><td>M5S 3G9</td></tr>
+<tr><td>
+beverly@dgp.utoronto.ca</td><td>    </td><td>benfica@ie.utoronto.ca</td></tr>
+</table>
+
+<h2>
+ABSTRACT</h2>
+This paper reports a systematic evaluation of transparent user interfaces.  It
+reflects our progression from theoretically-based experiments in focused
+attention to more representative application-based experiments on selection
+response times and error rates.  We outline how our previous research relates
+to both the design and the results reported here.  For this study, we used a
+variably-transparent, text menu superimposed over different backgrounds: text
+pages, wire-frame images, and solid images.  We compared "standard" text (Motif
+style, Helvetica, 14 point) and a proposed font enhancement technique
+("Anti-Interference" outlining).  More generally, this experimental evaluation
+provides information about the interaction between transparency and text
+legibility.
+<h2>
+KEYWORDS:
+ 
+</h2>
+display design, evaluation, transparency, user interface design, interaction
+technology, toolglass
+<h2>
+INTRODUCTION</h2>
+This paper describes an empirical evaluation using variably-transparent, linear
+menus superimposed over different background content: text, wire-frame images,
+and solid images (Figure 1).  The menu contains text items presented in either
+regular Motif-style fonts or our proposed "Anti-Interference" (AI) font.  We
+evaluated the effect of varying transparency levels (from opaque menus to
+highly-transparent menus), the visual interference produced by different types
+of background content, and the performance of AI fonts.  More generally, this
+will determine the interaction effect between transparency and text
+legibility.<p>
+
+<center>
+<img src="blh_fg1a.GIF" alt="Figure 1a">
+<p>
+50% transparent, regular Motif style menu, solid background<p>
+<p>
+<img src="blh_fg1b.GIF" alt="Figure 1b"><p>
+100% transparent, AI font style menu, wire frame background<p>
+<b>FIGURE 1.</b>  Experimental Sample Images.  (Image resolution degraded due to
+scaling. <br> Actual screen images were of much higher quality and resolution.)<p>
+</center>
+The <i>technological problem</i> addressed by transparent interfaces is that of
+screen size constraints.  Limited screen real estate combined with graphical
+interface design has resulted in systems with a proliferation of overlapping
+windows, menus, dialog boxes, and tool palettes.  It is not feasible to "tile"
+computer workspaces; there are too many objects.  Overlapping opaque objects
+obscure information we may need to see and therefore may also be undesirable.
+Transparent interfaces address these issues, but may also introduce new
+challenges for designers.  <p>
+The associated <i>psychological problem</i> we are addressing is that of
+focused and divided attention.  When there are multiple sources of information
+we must make choices about what to attend to and when.  At times, we need to
+focus our attention exclusively on a single item without interference from
+other items.  At other times, we may need to time share or divide our attention
+between two (or more) items of interest.  In this case, we rapidly switch
+attention back and forth between the items (necessitating minimal "switching
+costs"). There is a trade-off between these attentional requirements.<p>
+Transparency is perhaps most useful in achieving better integration between
+task space and tool space, between multiple tools, or between multiple views.
+Many applications are designed with a large work space or data area which is
+the primary focus of attention, while the tools to manipulate the data appear
+in windows and palettes over top of the work area.  These tools divert or block
+our attention from our work, which is often providing feedback about the
+actions we apply, for example, painting or drawing systems and the traditional
+UI tools to change paint brushes and colors.  However, there are several
+examples of highly-advanced systems which exemplify more seamless task-tool
+integration through the application of transparent user interfaces.  In Heads
+Up Display (HUD) design, aircraft instrumentation (a graphical computer
+interface) is superimposed on the external real world scene, using specially
+engineered windshields [12].  In the ClearBoard work [7], a large drawing
+surface is overlayed on a video image of the user's collaborative partner.  The
+TeamWorkStation system [6], predecessor to ClearBoard, created semi-transparent
+computer work space windows superimposed with video image windows (e.g., a
+person, an object being discussed).  The ToolGlass and MagicLens work [1, 2,
+10] reflects a tight coupling between tool function, target object
+specification, and transparency.  Other<i> </i>designs include such things as
+video overlays like those used in presenting sports scores in broadcast
+television.<p>
+Some designs combine transparency and 3-D projected views of the user
+interface.  Several examples are: the work on "3-D silk (volume) cursors" [13],
+the work by Knowlton [8], which used graphical overlays projected down onto
+half-silvered mirrors over blank keyboard keys to dynamically re-label buttons
+and functions keys (e.g., for telephone operators), and the work by  Schmandt
+[9], who built a system to allow users to manually manipulate and interact with
+objects in a 3-D computer space using a 3-D wand.  Again a half-silvered mirror
+was used to project the computer space over the user's hand(s) and the input
+device.  Disney has also developed a product called the "ImaginEasel" for
+animators and artists.  ImaginEasel keeps the user's hand and input device in
+the workspace (using mirrors).  In every case transparency provided a more
+seamless integration between the data or work and the UI tools.<p>
+The study described in this paper represents an "applied" experiment to
+evaluate transparency and text menu item  selection, but it is intended to
+inform us about transparency and text legibility in general.  Text labels are
+either selectable in themselves (e.g., as menu items, hypertext links) or they
+are important cues in differentiating and identifying graphical window items
+for subsequent selection (e.g., button labels, data entry fields).  Also we
+wish to apply transparency to help systems and on-line documentation.  Clearly
+the effect of transparency on overall text legibility is a critical
+consideration in these situations. 
+<h2>
+PROGRESSION OF RESEARCH
+</h2>
+We conducted a series of experiments, reflecting the progression from
+tightly-controlled, theoretically based, empirical work [4] to studies which
+sacrifice some experimental control in order to increase the realism (and
+presumably applicability to everyday tasks) [5, and this paper].  In our
+previous research, we conducted a <i>theoretically motivated experiment</i>
+[4], which tested a hypothesized model of focused attention and interference.
+The stimuli for that experiment were specific to the Stroop Effect [12] and
+therefore were necessarily simplistic and non-representative of real
+applications, i.e., a text word is seen through a variably transparent colored
+rectangle.  <p>
+Significant main effects were found for transparency level, word type, and
+color (all p&lt;.001).  Transparency increases resulted in performance
+improvements in word naming, since the word was more legible (Graph 1).  There
+was a significant interaction between transparency and color F(12, 163)=6.17, p
+&lt;.0001, suggesting that word legibility is affected not only by level of
+transparency (i.e., visibility) but also by the properties of the color used
+(i.e., saturation and luminance).  Post-hoc analysis showed 3 significantly
+different groupings of transparency levels: 5%, 10%, 100%+50%+20%+0%.  Most
+illegible trials occured at 5%; above 10%, subjects made virtually no errors.<p>
+<center>
+<img src="blh_gr1.GIF" alt="Graph 1"><p>
+<b>Graph 1.</b> Mean Response Time Results from the Stroop Experiment - Word Naming
+(Background) Task. <br> (Invert X axis to reflect foreground menu task
+relevant to text selection experiment.) <p>
+</center>
+We subsequently changed the stimuli to more complex and realistic images.  In
+the place of the Stroop color patch, we inserted either an iconic tool palette
+[5] or a linear text menu [this paper].  Both of these represent highly
+realistic foreground tasks in most user interface applications.  We replaced
+verbal response times with mouse click selection times, also highly
+representative of realistic applications.  Finally, we replaced our 78-point
+Helvetica word from the previous Stroop experiments with complex background
+images taken from product libraries.  These images reflect a "snapshot" in time
+for several task domains we have targeted for later case study evaluation.
+While the images used as stimuli are not interactive, they do reasonably
+reflect a static moment in time for our choice of tasks.  As in the Stroop
+experiment series, we ran both foreground focused attention tasks and
+background focused attention tasks.  These tasks have been carefully matched to
+allow comparison.<p>
+The analysis of the Icon Palette Experiment data [5] revealed several points
+relevant to our Text Legibility Experiment.  The type of icon, type of
+background, and transparency level were all statistically significant
+(p&lt;.0001), as were the interactions between these factors.  Graphs 2 and 3
+summarize some of these interactions.  Briefly, solid icons and solid image
+backgrounds are significantly more interference resistant than line art or
+text, resulting in the best performance.  Line art icons and text icons perform
+equivalently, as do wire frame backgrounds and text page backgrounds.  There is
+no significant performance degradation between 0% (opaque) and 50% transparent.
+<p>
+<center>
+<img src="blh_gr2.GIF" alt="Graph 2"><p>
+<b>GRAPH 2.</b>  Mean Response Times - <i>Icon</i> Type <p>
+<img src="blh_gr3.GIF" alt="Graph 3"><p>
+<b>GRAPH 3.</b>  Mean Response Times - <i>Bkgrnd</i> Types <p>
+</center>
+Levels over 75% are error prone.  In total 18% of the experimental trials were
+marked illegible.  However, most of these errors occurred at 90% where more
+than half (55%) of the trials were marked illegible.  <i>All</i>  icon types
+over wire frame backgrounds or text pages were illegible at 90%.  Finally, we
+determined the "threshold of frustration", the point at which subjects give up
+because the effort seems excessive.  At 90% subjects marked trials illegible
+after attempting them for an average of 2.6 seconds, roughly twice the average
+trial time.
+<h2>
+EXPERIMENT - TRANSPARENCY &amp; TEXT LEGIBILITY 
+</h2>
+This experiment explores the issue of focused attention and interference in the
+context of text legibility and item selection.  As in the Icon Palette
+Experiment, this experiment also represents an extension to the Stroop studies.
+The text menu replaced the Stroop color patch, while the image files replaced
+the simple Stroop word (e.g., Figures 1, 2).  The transparency level varied
+randomly from 0% (completely opaque) to 100% transparent or clear.   We used a
+"regular" Motif style font (Helvetica, bold, 14 point, italic) and our proposed
+Anti-Interference (AI) font, which uses luminance values to create a
+contrasting outline (e.g., Figure 4).  All combinations of font styles X
+background types X transparency levels were run.  <p>
+<center>
+<img src="blh_fg2.GIF" alt="Figre 2"><p>
+<b>FIGURE 2.</b> Sample Trial Screen showing target item.
+</center>
+<dl>
+<dt><b>Applying the Previous Experiments</b></dl>The Text Selection Experiment
+represents a <i>foreground</i> focused attention task and, as such, we
+anticipate a performance curve which resembles those found in the Icon Palette
+Experiment (i.e., transparency increases should degrade performance) (Graphs 2
+and 3).  However, unlike the palette selection task where the <i>entire</i>
+icon was made transparent, the text label remains opaque - only the surface
+area <i>around</i> the label is made transparent (e.g., Figure 3).  In the Icon
+Palette Experiment, our icons were solid objects (as many icons typically are).
+In order to achieve a  transparency effect, the icon image itself must be made
+transparent.  In the case of text labels however, the text occupies only a
+small percentage of the "selectable region", therefore we may leave the text
+opaque and still achieve reasonable transparency using the remainder of the
+selectable area around it (e.g., Figure 3b).  (Both design alternatives are
+shown in Figure 3.  We feel Figure 3b represents the more realistic design
+choice.  This was the method used in our experiment.)<p>
+<center>
+<table>
+<tr><td><img src="blh_fg3a.GIF" alt="Figure 3a"></td><td> <img src="blh_fg3b.GIF" alt="Figre 3b"></td></tr><p>
+<tr><td><b>3 (a)</b> labels &amp; surface around </td><td><b>3 (b)</b> labels are opaque,</td></tr><br>
+<tr><td>labels are both transparent	</td><td>surface around labels is
+	transparent</td></tr> </table><p>
+<b>FIGURE 3.</b> Comparison of design alternatives for transparent text items.<br>  (Image
+resolution degraded due to scaling.)  Actual screen images were much higher
+quality.)<p>
+</center>
+The text selection task itself is a legibility task suggesting cut-off points
+similar to those from the Stroop Word Naming Experiment [4] (Graph 1).  Best
+performance is expected to be maintained from 0% (opaque) to 50% (i.e.,
+interference is no longer an issue).  Poor performance and high error rates
+should occur above 75%  (i.e., 25% of the foreground shows, 75% of the
+background shows).  We might anticipate that 90% will be difficult to use (as
+in the Stroop Experiment).  However, note that these cut-off point estimates
+are based on experiments where the <i>entire</i> target object was transparent.
+The actual cut off points are more likely to shift right on the predicted
+curve, given the opaque text labels - implying more resistance to visual
+interference.  This suggests that from 0% to some level &gt; 50%, performance
+will be roughly equivalent.  Opaque text labels might remain usable up to 100%
+transparent (clear menu area).  <p>
+When applying the Anti-Interference (AI) fonts, we anticipate more
+interference-resistant images than regular font text (Figure 4).  This would
+give us a flatter curve which is shifted towards better performance.  (This is
+not unlike the effect shown in Graph 2 and 3 when the complexity of the image
+was simplified, for example, from text to solid).<p>
+<center>
+<img src="blh_fg4a.GIF" alt="Figure 4a"><p>
+<b>4 (a)</b> Regular fonts, 100% transparent, wire bkgrnd<p>
+<img src="blh_fg4b.GIF" alt="Figure 4b"><p>
+<b>4 (b)</b> AI fonts,100% transparent, wire bkgrnd
+</center>
+<dl>
+<dt><b>Hypotheses </b></dl>H1:	As transparency level increases visual
+interference will increase.  This will result in poorer performance (i.e.,
+slower response times and increased error rates). <p>
+H2: 	Increased complexity or information density on the background will make
+text legibility decrease.  Text backgrounds will have the  worst performance,
+followed by wire-frame, then solid images.  <p>
+H3: 	AI fonts will significantly improve performance by creating more
+interference resistant text.<p>
+
+<dl>
+<dt><b>Experimental Design</b></dl>A fully randomized, within subject, repeated
+measures design was used.  There were three independent variables: type of
+font, type of background, and transparency level.  A total of 540 trials were
+run for each subject.  Trials were presented in random order.  Each session
+lasted about 45 minutes.  Dependent variables of selection response time (based
+on a mouse click) and errors were logged.  Two error conditions were possible:
+the subject pressed the "can't see" button indicating that the item was not
+legible, or the subject selected the incorrect menu item.  In the latter case,
+the item selected and it's location were logged.  Error trials were removed
+from subsequent analysis of response time data.  Error data were analyzed
+separately.<p>
+We used 2 groups of text items within the menu: each group was visually similar
+to ensure true legibility performance.  The menu items were: Revolve X, Revolve
+Y, Revolve Z, and Dup Curve, Comb Curve, Del Curve.  Six other menu items were
+randomly distributed with the target items.  (A 12 item menu was felt to be
+representative of the average menu/menu size used within the actual product.)
+Items were randomly assigned positions within the menu for each trial.  This
+was done to ensure the experiment was not confounded by subjects learning the
+position of items.  (We were interested in testing true text legibility rather
+than menu usability.  Randomly ordered menus will produce worst case data which
+overestimate performance degradation, versus standard menu usage.  This gives
+us a conservative range of transparency levels.)  The target item was presented
+to the subject throughout the trial as a reminder.  This was to prevent memory
+errors (which were not pertinent to the goals of this study). <p>
+We randomly assigned background images of three types: text pages, wire frame
+images, and solid images.  Three samples of each type were created.  Images
+were 8-bit color rendered images.  These backgrounds were aligned such that a
+major portion of the content was directly under the menu.<p>
+We randomly assigned the level of transparency to the menu.  These levels were
+based on our previous experimental experience [4, 5] and test pilot results
+with this experiment.  Levels of 0% (traditional opaque menus), 50%, 75%, 90%
+and 100% (clear) were used.  The opaque level represented the baseline
+condition where the fastest performance was anticipated.  Transparency levels
+were produced using alpha blending of the foreground and background images (as
+opposed to stippling or masking).  A level of 75% transparent would mean that
+75% of the background image was combined with 25% of the foreground image,
+producing the effect of a highly transparent menu.<p>
+Finally, we randomly assigned either regular font style or our AI font style to
+the items.  Regular fonts were matched to the Motif style menus that appeared
+from windows on the SGI  (Helvetica, 14 point, bold, italic was the best
+match).  We developed Anti-Interference (AI) fonts as a potential interference
+resistant font technique (Figure 4b).  Since an AI font has two opposing color
+components, it remains visible in any color background.  <p>
+In AI fonts, the opposing outlines of the text are rendered in a color which
+has the maximal contrast to the color of the text.  For any selected text color
+vector [R, G, B], our AI font algorithm calculates the luminance value Y
+according to the YIQ color model used in television broadcasting ([3], page
+589).  Note that the red, green and blue components are not equally weighted in
+contributing to luminance.<p>
+<center>
+<img src="blh_matrix.GIF" alt="Matrix Values"><p>
+</center>
+Based on the value of Y, our algorithm then determines the outline color with
+the maximal  luminance contrast.  In practice, only two color vectors can be
+the candidates for the solution: [0,0,0] (black) when Y&gt;Ymax/2 or [Rmax,Gmax
+,Bmax] when Y&lt;Ymax/2, where Ymax is the maximum luminance value and
+Rmax,Gmax ,Bmax are the maximum red, green and blue value respectively.
+<dl>
+<dt><b>Equipment</b></dl>The experiments were conducted on an SGI Indy(TM)
+using a 20 inch color monitor.  Subjects sat at a fixed distance of 60cm from
+the screen (average distance when working normally).  
+<dl>
+<dt><b>Procedure</b></dl>Subjects were given 20 practice trials.  These trials
+were randomly selected from the set of 540 possible combinations.  For each
+trial, subjects were shown a target text item to study (lower left corner,
+Figure 2).  When ready, subjects pressed a "next trial" button (not shown)
+which displayed the menu superimposed over the background at a randomly ordered
+transparency level.  Items were randomly distributed on the menu.  Subjects had
+to locate and click on the target item within the menu.  If they could not see
+the item on the menu (i.e., illegible) they could press a "can't see" button.
+The target item remained on the screen throughout the trial for reference
+purposes.  Subjects could take short rest breaks whenever necessary.  Response
+times and errors were logged.  Response selections were made using the mouse.
+Subjects were debriefed at the end of the experiment.  Open ended comments were
+recorded.   
+<dl>
+<dt><b>Subjects</b></dl>A total of 10 students from the University of Toronto
+served as subjects.  They were pre-screened for color-blindness and for
+familiarity with the product from which the images and items were taken.
+Subjects were paid for their participation and could voluntarily withdraw
+without penalty at any time.  
+<h2>
+RESULTS
+</h2>
+We have categorized our results by Response Time analysis, Error analysis, and
+comments from the interviews with subjects.  
+<dl>
+<dt><b>Quantitative Statistical Analysis - Response Time</b></dl>Highly
+significant main effects were found for all of our major variables: background
+type, transparency level, and font type (Table 1).  However, we are primarily
+interested in the transparency and font effects and their interactions with
+background type.  Statistically significant interaction effects are reported in
+Table 1.<p>
+
+<center>
+<table border=2>
+<tr><th><b>condition</b></th> <th><b>df</b> </th><th><b> F value</b> </th><th>  <b>p&lt;</b></th></tr>
+<tr><td>background type </td><td> 8, 72</td><td>1.06</td><td>.01</td> </tr>   
+<tr><td>transparency level</td><td>4, 36</td><td>4.12 </td><td> .0001</td><tr>
+<tr><td>font type  </td><td>1, 9 </td><td>3.38 </td><td> .0001</td><tr>  
+<tr><td>bkgrnd type X font type</td><td>8, 72</td><td> 1.59 </td><td> .001</td></tr>                                    
+<tr><td>bkgrnd type  X transp</td><td> 32,288</td><td>2.44</td><td> .01 </td></tr>                     
+<tr><td>bkgrnd X font X transp</td><td> 32,287</td><td> 3.76</td><td> .001</td> </tr>                    
+
+</table>
+
+<b>TABLE 1.</b> Results for Main Effects and Interactions<p>
+</center>
+The primary results of interest are plotted below (Graphs 4 and 5a, b,
+c)(across all subjects and menu items).  Graph 4 depicts the interaction
+between font style and transparency level.  Graph 5 a, b, c show the
+interaction between background types and transparency level.  <p>
+To determine if the differences are significant between the individual lines
+plotted within each of the graphs, a Student-Newman-Keuls (SNK) test was
+conducted post-hoc as a comparison of means.  (This determined the clustering
+of items within font type, background type, and transparency level and
+indicated which items are not statistically different from each other.)  <p>
+<center>
+<img src="blh_gr4.GIF" alt="Graph 4"><p>
+<b>GRAPH 4.</b>  Mean Response Times for Transparency <br>
+Levels X Font Style  (across all background types)<p>
+</center>
+We conducted subsequent analyses on the font style X background type
+interactions.  Regular menu fonts showed strong interaction effects with the
+matched text page background and the dense wire frame backgrounds.  The solid
+images with black components also performed poorly.  Somewhat surprisingly, the
+best (most interference resistant) backgrounds were the non-matched text pages.
+For the regular font style, there were statistically significant differences
+between the following transparency levels: 100% - poorest, 90%, 75%, and 50%+0%
+(which performed equivalently well.).  (This finding is consistent with our
+previous experimental results.)  AI fonts were relatively insensitive to the
+type of background.  Other background images were not significantly different.
+For AI fonts, there were statistically significant differences between the
+following transparency levels: 100% - poorest, 50%+75%+90% (not different), 0%
+- best.<p>
+We also conducted a finer grained analysis <i>at each transparency level.</i>
+At 0% and 50%, there were no statistical differences between background types
+or between font styles.  At 75%, 90%, and 100% transparency the AI font
+performed significantly faster than the regular font (shown in Graph 4).  There
+are significant differences <i>between backgrounds</i> at these levels, though
+these differences are not based on the type (text, wire, solid) but rather on
+the individual image properties.  For example, the text pages each used a
+different font style, one of which was purposely matched to the menu item font
+style.  This page performed significantly slower than the other pages (Graph
+5a).  The denser wire frame images (i.e., more complex meshes and therefore
+darker in color) performed significantly slower than the simpler wire frames
+(Graph 5b).  The solid images with black components (the truck and the
+camcorder), performed significantly slower than the solid multi-colored
+motorcycle image (Graph 5c).  <p>
+<center>
+<img src="blh_gr5a.GIF" alt="Graph 5a"><p>
+<b>GRAPH 5a.</b>  Mean Response Times for Transparency <br>
+Levels X <b>Page</b> Background Types (across font types).  <p>
+<img src="blh_gr5b.GIF" alt="Graph 5b"><p>
+<b>GRAPH 5b.</b>  Mean Response Times for Transparency <br>
+Levels X <b>Wire</b> Background Types (across font types).  <p>
+<img src="blh_gr5c.GIF" alt="Graph 5c"><p>
+<b>GRAPH 5c.</b>  Mean Response Times for Transparency <br>
+Levels X <b>Solid</b> Background Types (across font types).  
+</center>
+<dl>
+<dt><b>Targeting Error Results</b></dl>In total, &lt;1% of the trials resulted
+in <i>targeting errors</i> or misses.  The low number of errors indicates that
+subjects did not tend to guess. There were two types of targeting error
+possible: accidental selection of an adjacent menu item (45% of total) and
+substitution of an incorrect menu item (55%).  In the latter case, the user
+incorrectly identified the target item by replacing it with a similarly named
+item such as Revolve X instead of Revolve Y.  <p>
+The adjacency item errors are most strongly influenced by the width of the
+target areas.  Since this was designed to match standard Motif menu widths, we
+did not increase the width size to reduce these errors.  However, we are most
+interested in substitution misses, since these are partially attributed to poor
+visibility of the target item.  These errors were surprisingly evenly
+distributed across transparency levels.  AI fonts made little difference in
+reducing these errors.
+<dl>
+<dt><b>Legibility "Error" Results</b></dl>Only about 1% of the experimental
+trials were marked illegible.  Of these, 90% occurred at the 100% level (clear)
+and 10% occurred at the 90% level.  All of these illegible trials were in the
+regular font condition (i.e., <i>no</i> AI font trials were marked
+illegible).<p>
+At the 90% level, mostly text items over the text pages or wire frame
+backgrounds were illegible.  At the 100% level, the two solid backgrounds with
+black color components accounted for 70% of the illegible trials.  (The menu
+font was black, therefore one would expect these trials to be illegible).
+Surprisingly, text pages accounted for only 3% of the errors made at 100%
+level.<p>
+The mean response time for legibility errors was 6.84 seconds (the "threshold
+of frustration"), almost 3 times the response time for other trials.  This
+implies that subjects exerted substantial effort to respond to each trial
+before giving up.  In effect, this figure represents the "tolerance threshold"
+beyond which it is too much effort to locate the target.
+<dl>
+<dt><b>Subjective Comments</b></dl>Subjects commented that wire frame
+backgrounds seem most difficult, the solid backgrounds were easiest, and highly
+transparent menus over black backgrounds were very hard.  Most subjects
+commented that even a small change in the transparency level (from 100% clear
+to 90%), made a substantial difference in these black-on-black conditions.
+This change allowed subjects to see and select items where previously they
+marked the trial "can't see".  Subjective preference seemed to favor changing
+the transparency level to improve visibility, as opposed to changing to the AI
+font.  Several subjects commented that they did not like the "outline font" and
+if given a choice, preferred the 50% transparency level.
+<h2>
+DISCUSSION</h2>
+Transparency levels significantly affected response time and error rates
+(independent of font type or background).  We found evidence to support our
+predictions about the relationship between regular font performance and AI font
+performance.  The AI fonts produced a substantially flatter performance curve,
+shifted towards better (i.e., faster) performance, implying they are more
+interference resistant.  The real advantage of using AI fonts was only realized
+at higher transparency levels (i.e., over 50%).  In fact, AI fonts at 75% and
+90% produce results similar to those of using regular fonts at 50%.  This might
+be used as a design trade-off for text-based transparent interfaces.<p>
+Font type X background content interactions were most strongly affected at
+highly transparent levels.  Performance differences are small between 0% to
+50%.  (This is consistent with results from our Stroop Experiment and the Icon
+Palette Experiment.)  Surprisingly, the text backgrounds produced much better
+performance than expected.  The most critical dimension of interference with
+text menu selection tasks was color conflict.  The closer in shade and hue the
+background is to the text color, the higher the interference and the worse the
+resulting performance.  
+<h2>
+CONCLUSIONS
+</h2>
+This experiment was designed as a text menu selection  task.  The results
+should generalize to text legibility in other UI contexts beyond menus.
+Performance is actually under estimated here for a menu usage scenario, since
+items did not appear in the same location each time and hence positional
+learning would not benefit performance.  One variant of the experiment would be
+to run a fixed menu condition to address this.  <p>
+Both this experiment and the Icon Palette Experiment assume priority is given
+to selecting items from the foreground and hence they measured this selection
+criterion only.  Clearly to round out the research we need to measure the level
+of awareness the subjects preserve of the background content.  In particular,
+how are background focused attention tasks affected by transparency?  To this
+end, we have just completed a study which tests selection accuracy of features
+from background images while icon palettes and text menus are superimposed,
+varying the level of transparency of the palettes and menus.  We believe that
+this latest experiment, which uses the same stimuli and methodology, provides
+us with a comparable background task.  This measure of background visibility is
+particularly relevant for tasks like the ToolGlass work [1, 2, 10] or
+click-through tools which require alignment of the palette item with a specific
+background object or area.   <p>
+While this paper presented results for using text superimposed over a variety
+of background images, this methodology can be generalized to other types of
+interfaces by incorporating images or backgrounds from <i>any</i> target
+application or working product.  The idea is to capture realistic screens at a
+single moment in time.  With these captured images, any sort of menu, window,
+or palette can be superimposed at varying transparency levels and tested.
+Using this approach, performance can be predicted and the most appropriate
+settings can be determined for a variety of target applications.  These
+empirical results can be combined with subjective assessments to provide strong
+insights about the most and least preferred design solutions in a generalized
+way.  Our long-term goal is in providing user interfaces which improve the
+fluency of work by more seamlessly integrating the tools with the task space.  
+<h2>
+ACKNOWLEDGMENTS</h2>
+Primary support for this research is gratefully acknowledged from
+Alias|Wavefront.  We also wish to particularly thank Bill Buxton for his
+substantial insights and contributions to this research program.  We would also
+like to thank Hiroshi Ishii,  Shumin Zhai, Gord Kurtenbach, the CHI reviewers,
+and members of the Graphics Lab and Cognitive Engineering Lab for their
+comments and contributions.  
+<h2>
+REFERENCES</h2>
+1.	Bier, E. A., Stone, M. C., Pier, K., Buxton, W., and DeRose, T. D.
+Toolglass and magic lenses: The see-through interface.  <i>Proc.. of
+SIGGRAPH'93</i>. Anaheim, CA, 1993.  73-80.<p>
+2.	Bier, E. A., Stone, M. C., Fishkin, K., Buxton, W., and Baudel, T.  A
+Taxonomy of See-Through Tools  <i>Proc. of CHI'94</i>, Boston, Mass. 1994,
+358-364.<p>
+3.	Foley, J.D., van Dam, A., Feiner, S.K., and Hughes, J.F. <i>Computer
+Graphics - Principles and Practice </i>(2nd ed), Reading, Mass.:
+Addison-Wesley, 1992.<p>
+4.	Harrison, B. L., Ishii, H., Vicente, K. J., Buxton, B.  Transparent Layered
+User Interfaces: An Evaluation of a Display Design Space to Enhance Focused and
+Divided Attention. <i>Proc. of CHI'95, </i>Denver, Colorado. 1995.  317-324.<p>
+5. 	Harrison, B. L., Kurtenbach, G., and Vicente, K. J.  An Experimental
+Evaluation of Transparent User Interface Tools and Information Content.
+<i>Proc. of UIST'95</i>, November, 1995, 81-90.<p>
+6.	Ishii, H. and Kobayashi, M. Clearboard: A seamless medium for shared drawing
+and conversation with eye contact.  <i>Proc. of CHI'91</i>,  Monterey, CA,
+1991. 525-532.<p>
+7.	Ishii, H.  TeamWorkStation: Toward a Seamless Shared Workspace.  <i>Proc.of
+CSCW'90 </i> L.A., CA, 1990. 13-26<p>
+8.	Knowlton, K. C.  Computer displays optically superimposed on input devices.
+<i>Bell System Technical Journal</i>, Vol. 56, No. 3, March, 1977. 367-383.<p>
+9.	Schmandt, C..  Spatial input/display correspondance in a stereoscopic
+computer graphic workstation.  <i>Computer Graphics</i>, Vol. 17, No. 3., 1983,
+253-259.<p>
+10. 	Stone, M. C., Fishkin, K., and Bier, E. A. The Movable Filter as a User
+Interface Tool.  <i>Proc. of CHI'94</i>, Boston, Mass.  1994. 306-312.<p>
+11.	Stroop, J. R.  Factors affecting speed in serial verbal reactions.
+<i>Journal of Experimental Psychology,</i> 18, 1935, 643-662.<p>
+12.	Wickens, C. D., Martin-Emerson, R., and Larish, I.  Attentional tunneling
+and the Head-up Display.  <i>Proc. of the 7th Annual Symposium on Aviation
+Psychology,</i> Ohio State University, Ohio, 1993. 865-870.<p>
+13.	Zhai, S., Buxton, W., and Milgram, P. The "silk cursor": Investigating
+transparency for 3D target acquisition.  <i>Proc. of CHI'94, </i> Boston, MA.,
+1994. 459-464.<p>
+<p>
+</body></html>

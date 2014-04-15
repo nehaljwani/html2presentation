@@ -1,0 +1,95 @@
+<HTML>
+<HEAD>
+<TITLE>Workspace Awareness Support With Radar Views</TITLE>
+</HEAD>
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/shortpap.JPG" ALT="shortpap" HEIGHT=35 WIDTH=249><A HREF="../../shortpap.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+
+<H1>Workspace Awareness Support With Radar Views</H1>
+<BR>
+
+<EM>Carl Gutwin, Saul Greenberg, and Mark Roseman<BR>
+<P>Dept. of Computer Science, University of Calgary<BR>
+Calgary, Alta, Canada  T2N 1N4<BR>
+Tel: +1-403-220-3532<BR>
+E-mail: [gutwin, saul, roseman]@cpsc.ucalgary.ca<BR></EM>
+
+<H2>ABSTRACT </H2> 
+Real-time groupware systems often let each participant control their own view into a shared workspace. This strategy can reduce awareness about where and how others are interacting with the document or the workspace artifacts. We have designed a number of awareness widgets to help people regain this awareness. In this paper we present several radar views that provide awareness information on top of a global overview of the workspace. Our displays give lightweight access to information about others' locations and activities, providing for richer person-to-person interaction in groupware systems.
+<P>
+
+<H2>KEYWORDS:</H2>
+Radar views, widgets, workspace awareness<BR>
+<P>
+
+<H2>INTRODUCTION</H2>
+For several years, we have been building real-time groupware systems with the Groupkit toolkit. These systems are often based on shared workspaces like whiteboards, written documents, or design drawings. As our work evolved, we recognized the importance of workspace awareness as a quality that can improve groupware systems.
+
+<P>
+<img src="cg3fg1.gif" alt="Figure 1">
+<BR>
+Figure 1. Radar view with view outlines and telepointers
+<P>Workspace awareness is the up-to-the minute understanding of how another person is interacting with a workspace, and includes knowledge about where people are working, what they are doing, the changes they are making, and their future intentions [1]. By supporting workspace awareness, groupware systems can better allow the rich interaction evident in face-to-face collaboration over physical workspaces.
+<P>However, supporting workspace awareness in groupware can be difficult, especially when participants are allowed to work in different parts of the workspace (relaxed-WYSIWIS view sharing) [2]. In these situations, people cannot directly see what others are doing, and may lose track of where they are in the space. To support awareness in our relaxed-WYSIWIS systems, we have built a variety of widgets that provide people with information about others' interaction with the groupware workspace.
+<P>Our goal in designing these widgets has been to provide information that allows people to collaborate better, but without hampering each person's local activity. In addition, limitations on screen space require that our designs not consume a large area.  
+
+<H2>RADAR VIEWS FOR WORKSPACE AWARENESS</H2>
+<P>Radar views are a class of widgets that are based on miniature overviews of an entire workspace. These miniatures have been seen in video games and some groupware systems (e.g. [3]). Because the overviews show the entire workspace, they are a natural vehicle for awareness information in relaxed-WYSIWIS situations. We have constructed four widgets based on the miniature overview. These inventions are the radar view, the history radar, the portrait radar, and the head-up radar. Each widget is described below.
+
+<H3>Radar views</H3>
+
+<P>Our "radar" view (see Figure 1) adds information about other people's interaction to a basic overview. Since the overview already provides a spatial representation of the workspace, we have first added information about where others are working. The radar display shows what each person can see, by marking view outlines (first seen in SASSE's text overview [3]), and also shows finer-grained location by including miniature telepointers that represent each person's mouse cursor. These additions support awareness of another person's general and specific location in the workspace. 
+<P>The radar view also supports awareness of activity. Since the radar shows movement of and changes to artifacts in the workspace, it already provides some information about others' actions. Adding telepointers to the display provides a second source of information about what people are doing. In addition, it is easy for groupware designers to provide task-specific feedback about types of activity, such as selection of objects or use of different tools.
+
+<H3>Portrait radar</H3>
+
+<P>The basic radar view shows each participant's view outline and telepointer in a unique colour. One problem with this approach is that it can be difficult to sort out which view rectangle belongs to whom. To simplify interpretation, we attach names or portraits to the view rectangles, which allows more natural identification (see Figure 2). In future, we plan to replace these static pictures with video images.
+
+<P>
+<img src="cg3fg2.gif" alt="Figure 2">
+<BR>
+Figure 2. Portrait radar with history. Moving the radar's slider shows where viewports have been in the past.
+
+<P>The portraits sit behind the artifacts in the display, so this widget is most useful in sparse workspaces or where artifacts are transparent. 
+
+<H3>History Radar</H3>
+<P>We have also experimented with supporting awareness of people's past locations as well as their current position. Awareness of past location can be valuable, for example, if people need to determine the parts of a workspace that have already been visited by others. We record participants' view positions as the session progresses, and have added a slider to the radar view that allows people to "roll back" time and see where others have been. In Figure 2, the slider is shown at the bottom of the radar window. Dragging it to the left replays past locations of the view outlines.
+
+<H3>Head-up radar</H3>
+
+<P>In some cases, screen space may be at such a premium that there is no room for a separate radar view. To minimize space, we are experimenting with a "head-up" display that combines normal and radar views. The widget in Figure 3 shows the full-size viewport as the front layer, and a miniature of the entire workspace as the back layer, coloured grey to reduce distraction. The rectangles in the background show the extents of each person's detail view.
+
+<P>
+<img src="cg3fg3.gif" alt="Figure 3">
+<BR>
+Figure 3. Head-up radar view. The detail view (in black) is overlaid on the radar view (in grey).
+
+<P>The head-up radar view is able to provide workspace awareness information without requiring the user to look at a separate display. One question we plan to explore through user testing is whether people can easily separate the two layers of the display. Again, this widget will work best in workspaces where artifacts are sparse.
+
+<H2>CONCLUSION</H2>
+<P>We have begun evaluating the usability and effectiveness of these widgets, by testing them in realistic groupware applications. In addition, we are working on new designs that support other aspects of workspace awareness in relaxed-WYSIWIS groupware.
+
+<P>
+<H2>REFERENCES </H2>
+<OL>
+
+<LI> Gutwin, C., Stark, G., and Greenberg, S. Supporting Workspace Awareness in Educational Groupware. In <EM>Proc. CSCL'95</EM>, Bloomington, IN, (1995), pp. 147-156.
+
+<LI> Stefik, M., Bobrow, D., Foster, G., Lanning, S. and Tatar, D. WYSIWIS Revised: Early Experiences with Multiuser Interfaces. <EM>Trans. Office Information Systems</EM> 5, 2 (1987), 147-167.
+
+<LI> Baecker, R., Nastos, D., Posner, I. and Mawby, K. The User-Centred Iterative Design of Collaborative Writing Software. In <I>Proc. INTERCHI'93</I> (1993), pp. 399-405.
+
+
+</OL>
+</BODY>
+</HTML>
+
+

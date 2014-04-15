@@ -1,0 +1,202 @@
+<HTML>
+<HEAD>
+<TITLE>Peepholes: Low Cost Awareness of One's Community </TITLE>
+</HEAD>
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/shortpap.JPG" ALT="shortpap" HEIGHT=35 WIDTH=249><A HREF="../../shortpap.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+
+<H1>Peepholes: Low Cost Awareness of One's Community </H1>
+<BR>
+<EM>Saul Greenberg</EM>
+<P>
+Department of Computer Science, University of Calgary<BR>
+Calgary, Alberta CANADA T2N 1N4<BR>
+Tel: +1-403-220-6087<BR>
+E-mail: saul@cpsc.ucalgary.ca<BR>
+
+<H2>ABSTRACT </H2>
+
+In distributed communities, media spaces supply people with an
+awareness of who is around by displaying video or periodic snapshots
+of common areas and offices. This in turn facilitates casual interaction.
+Peepholes is a low cost alternative. Instead of video, iconic
+presence indicators show the availability of people in a virtual
+community. If people are absent, a user can 'ambush' them by asking
+the system to announce their return. When interaction is desired,
+people can easily contact one another because communication software
+is just a button-press away. 
+
+<H2>Keywords </H2>
+Groupware, contact facilitation, awareness, coordination. 
+<P>
+
+<H2>INTRODUCTION </H2>
+<EM>Informal awareness</EM> of one's community is the general sense
+of who is around and what others are up to-the kinds of things
+that people track when they work together in the same physical
+environment. This awareness is the glue that facilitates casual
+interaction, the spontaneous and one-person initiated meetings
+that form the backbone of everyday coordination and work [1,3].
+Yet casual interaction is problematic in distributed communities.
+While groupware is readily available, people have considerable
+trouble staying aware of opportunities for collaboration, and
+in establishing electronic meetings.
+
+<P><EM>Media spaces </EM>are one way of providing distributed groups
+with informal awareness of each other. Users can select offices
+and common areas at remote sites, and view them through continuous
+video. Yet even compressed video demands too much bandwidth for
+everyday use. Portholes [2] partially solves this problem by periodically
+transmitting small video snapshots instead of a video stream.
+The community is presented on one's screen as an array of images.
+However, Portholes still requires people to have video cameras
+attached to their workstations and a willingness to leave them
+turned on. 
+
+<P>An alternative to video is iconic <EM>presence indicators</EM> that
+show who is around and the likelihood of their availability. This
+paper shows how presence indicators, as implemented in Peepholes,
+afford casual interaction, especially when they are integrated
+with common communication and groupware facilities.
+<P>
+
+<H2>PEEPHOLES </H2>
+<H3>Creating a virtual work community. </H3>
+Users can create their virtual community in Peepholes by choosing
+potential collaborators from an electronic address book. For example,
+Figure 1 shows a virtual community of five people selected from
+the book. Each person is represented by a labeled icon and optional
+address entry.
+
+<P>Peepholes automatically maintains the address book. It first scans
+incoming email for names and electronic addresses, and then adds
+new members to the book or updates old ones. This tracks people
+who have recently communicated with the user, and who are likely
+to be part of one's virtual community. In the book, a user can
+create sub-communities and assign people to them. Particular sub-communities
+can then be recalled quickly.
+<P>
+<IMG SRC="sg1fg1.gif" ALT="Figure 1">
+<BR>
+Figure 1. Peepholes activity icons and an address entry
+
+<H3>Informal awareness through activity indicators. </H3>
+Opportunities for casual interaction happen when people are aware
+that others are available for communication. On a network, similar
+opportunities could occur if we could see who is actively working
+at their computer. Because computers can easily capture and transmit
+how long it has been since their users were active, this information
+can be displayed as an estimate of a person's real availability.
+For example, the Peephole icons in Figure 1 continually display
+the activity status of each community member. Greenberg is now
+active (denoted by a bold character), O'Grady has been idle for
+a few minutes (the grayed out icon), Lowe is logged on but hasn't
+used the computer in a while, Schaffer is logged off, and Roseman
+is unreachable. A quick glance at these icons gives awareness
+of people's probable availability for real time communication.
+<P>
+
+<H3>Ambushes for tracking availability. </H3>
+It is not easy for one person to initiate a meeting over distance,
+as people are often absent or not immediately available. While
+activity indicators suggest when a call will work, they must be
+monitored regularly to see when an absent person to return. Indeed,
+users of the Cruiser media space would often open a full bandwidth
+video connection to the empty office of a collaborator, solely
+to 'ambush' its occupant, i.e., to see when they returned [3].
+In Peepholes, users can ambush others through a menu option (Figure
+1). When the system notices that the person has become active,
+it announces their return by playing an audible sound of someone
+typing. This attracts the ambusher's attention to the display,
+allowing them to initiate a call if desired.
+<P>
+
+<H3>From informal awareness to making contact. </H3>
+Moving from awareness of another's availability to an informal
+meeting is simple in physical environments but not on computers.
+Electronic addresses must be found, software connections established,
+system compatibility verified. Peepholes simplifies this by integrating
+communication and groupware tools via hooks. Electronic addresses
+are maintained in the address book, and connections established
+by simply selecting a person's Peephole icon and an application
+icon (Figure 1, bottom). Connections are literally a button click
+away.
+<P>
+
+<H3>From asynchronous to casual interaction. </H3>
+Email represents an opportunity for casual real-time interaction
+that should not be ignored. Peepholes is linked to a mail reader
+and, as people read their mail, a Peephole icon is automatically
+raised on the sender (Figure 2). The user can see if the sender
+is available for real time conversation, and contact them that
+way if desired. This is particularly useful for incoming mail,
+where it is more than likely that the sender is still active on
+their machine.
+<P>
+<IMG SRC="sg1fg2.gif" ALT="Figure 2.">
+<BR>
+Figure 2. Integrating Peepholes and electronic mail
+
+<H2>Information for free. </H2>
+Peepholes only uses information freely available on the network
+[1]. No specialized software is installed at remote sites, allowing
+it to be used anywhere on the Internet. It works by continually
+querying the <EM>ruser daemons</EM> found on most Unix-based servers,
+and by massaging the results. In practice, this is a reasonable
+way to access many users. 
+<P>
+
+<H2>DISCUSSION AND SUMMARY </H2>
+In actual use, Peepholes does let a user maintain informal awareness
+and establish contact with others. As only a few bits of information
+are transmitted and no special equipment required (<EM>cf video</EM>),
+it is very low cost. Although activity indicators cannot tell
+the difference between absent and inactive people, they are reasonable
+indicators of another's availability. The ambush feature is a
+surprisingly effective way of getting hold of another person.
+Establishing connections is straight-forward, although software
+incompatibilities do occur. Information "for free" is
+useful but limited: some people are not observable because some
+sites do not install the ruser daemon, or use restricted versions
+of them, or insulate themselves from the outside world through
+firewalls. 
+
+<P>We are now taking the ideas in Peepholes and installing them as
+components used by session managers in GroupKit, our groupware
+toolkit. Peephole awareness will be the lowest common denominator
+used to facilitate casual interaction. However, the system will
+also check for more sophisticated capabilities and substitute
+them when appropriate. For example, Peephole icons could be progressively
+replaced by participants' images, by periodic snapshots, or even
+by full video. If custom daemons are used, they can better track
+awareness information, and can allow people to control the degree
+of privacy desired. 
+<P>
+
+<H2>REFERENCES </H2>
+<OL>
+<LI>Cockburn, A. and Greenberg, S. (1993). Making contact: Getting
+the group communicating with groupware. <EM>Proc ACM Conference
+on Organizational Computing Systems</EM>, Nov. 1-4.
+
+<LI>Dourish P. and Bly S. (1992). Portholes: Supporting awareness
+in a distributed work group. <EM>Proc ACM Conference on Human Factors
+in Computing Systems</EM>, pp. 541-547, May 3-7.
+
+<LI>Fish R., Kraut R., Root R. and Rice R. (1992) Evaluating video
+as a technology for informal communication. <EM>Proc ACM Conference
+on Human Factors in Computing Systems</EM>, pp. 37-48, May 3-7.
+
+</OL>
+
+</BODY>
+
+</HTML>

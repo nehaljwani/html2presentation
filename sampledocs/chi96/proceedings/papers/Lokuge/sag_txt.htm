@@ -1,0 +1,478 @@
+<html><head>
+<TITLE>Structuring Information With Mental Models:  A Tour of Boston</TITLE>
+</head>
+<body>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24<P><IMG SRC="./../../graphics/papers.JPG" ALT="papers" HEIGHT=35 WIDTH=249><A HREF="./../../papers.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+
+<h2>Structuring Information With Mental Models:<br>A Tour of Boston</h2>
+<p>
+
+<strong>Ishantha Lokuge</strong><br>
+MIT Media Lab<br>
+20 Ames Street<br>
+Cambridge, MA 02139<br>
+ishi@media.mit.edu
+<p>
+
+<strong>Stephen A. Gilbert</strong><br>
+Department of Brain &amp; Cognitive Sciences<br>
+MIT, E10-120<br>
+Cambridge, MA 02139<br>
+stephen@psyche.mit.edu
+<p>
+
+<strong>Whitman Richards</strong><br>
+MIT Media Lab<br>
+20 Ames Street<br>
+Cambridge, MA 02139<br>
+whit@media.mit.edu
+<p>
+
+<h3>ABSTRACT</h3>
+We present a new systematic method of structuring information using mental 
+models.  This method can be used both to evaluate the efficiency of an 
+information structure and to build user-centered information structures.  In this 
+paper we present the method using Boston tourist attractions as an example 
+domain.  We describe several interfaces that take advantage of our mental 
+models with an activation spreading network.  Multidimensional Scaling and 
+Trajectory Mapping are used to build our mental models.  Because of the 
+robustness of the technique, it is easy to compare individual difference in 
+mental models and to customize interfaces for individual models.
+<p>
+
+<h4>Keywords</h4>
+Cognitive models, multidimensional scaling, visualization, interaction design, 
+evaluation.
+<p>
+<pre>
+
+</pre>
+<h3>INTRODUCTION</h3><p>
+We all know that a curious person can more efficiently absorb information when 
+it is well structured than when it is arbitrarily scattered.  The question that every 
+information architect then asks is, &quot;How might I best organize the information for 
+that person?&quot;  This question contains three issues:  what structures are useful 
+for organizing information in general, what structures are useful for organizing 
+that information, and what structures are useful for organizing information for 
+that person.  
+<p>
+<a name="r7c1"><a name="r15c1"><a name="r16c1"><a name="r4c1"><a name="r9c1"><a name="r13c1">
+
+To answer these above questions, we propose (i) collecting experimental data 
+from a number of subjects, (ii) analyzing the mental models of those subjects 
+with Multidimensional Scaling (MDS) [<a href="#r7">7</a>, <a href="#r15">15</a>, <a href="#r16">16</a>]
+and Trajectory Mapping (TM) [<a href="#r4">4</a>, 
+<a href="#r9">9</a>, <a href="#r13">13</a>], and then (iii) using those models to design information structures. Such 
+models should lead more quickly to suitable interfaces rather than beginning 
+with trial and error explorations.
+<p>
+
+<a name="r5c1">
+Before continuing on to details, we offer definitions of &quot;information structure&quot; and 
+&quot;mental model.&quot;  By &quot;information structure&quot; we mean an arrangement of pieces 
+of information.  The arrangement might be a 2-D array on a table or a screen, as 
+in a card game or a spreadsheet.  It might also be a 1-D ordering of items, like a 
+shopping list.  It could also consist of a set of information nodes with connecting 
+association links, such as a hypertext.  All the pieces of information should 
+belong to the same conceptual type category, such as numbers to add, tasks to 
+do, or words to remember.  By &quot;mental model&quot; we mean not the explanatory 
+model offered by Johnson-Laird [<a href="#r5">5</a>], but rather a more general definition:  the 
+cognitive layout that a person uses to organize information in his or her 
+memory.
+<p>
+
+<h3>THE EXAMPLE DOMAIN</h3><p>
+Consider the map of Boston shown in Figure 1a.  We have chosen fifteen 
+different sites of activity taken from a tour guide book (listed in Figure 1b).  This 
+set of information pieces (or &quot;stimuli,&quot; as we will call them) is a very high-
+dimensional in feature space, and it has a relatively large variance across 
+people.  That is, there are many features that can be used to describe the 
+stimuli, and people do so in significantly different ways.  As a contrasting 
+example, a deck of playing cards contains very few features, namely the 
+number of a card, its suit, and perhaps its color, and different people describe 
+playing cards similarly.
+<p>
+<a href="sag_fg1.htm"><img src="sagsfg1a.gif"></a>
+<strong>Figure 1a:</strong> Geographic layout of activities<p>
+<a href="sag_fg1.htm"><img src="sagsfg1b.gif"></a>
+<strong>Figure 1b:</strong> The stimuli for the MDS and TM experiments.<hr><p>
+
+<a name="r16c2"><a name="r15c2"><a name="r7c2">
+<h3>MDS AND TM METHODS</h3><p>
+A person who lives in Boston and knows the sites will have at least two mental 
+models of them, one based on their geographic locations, and one based on 
+their content.  In order to illustrate the capabilities of Multidimensional Scaling 
+(MDS), first used by Torgerson [<a href="#r16">16</a>], Shepard [<a href="#r15">15</a>],
+and Kruskal [<a href="#r7">7</a>], we collected 
+data from two subjects for each of these mental models (Figure 3).  Note that the 
+judgments based on geographic similarity (3a) are completely different from 
+judgments based on content (3b).  The input data for MDS takes the form of 
+pairwise similarity judgments, and the output is an arrangement of the stimuli in 
+a metric space.  
+<p>
+
+To clarify the procedure for obtaining these MDS plots, we offer a simple 
+example; consider a collection of seven black and white circles of different 
+sizes.  In Figure 2a, these circles are arranged randomly along the edges of a 
+similarity matrix.  The numbers show a subject's similarity rating on a scale of 1 
+to 7.  From these numbers the MDS algorithm arranges the circles as shown in 
+Figure 4, with neighboring circles being the most similar.
+<p>
+<a href="sag_fg2.htm"><img src="sagsfg2a.gif"></a>
+<strong>Figure 2a:</strong>  Typical input data for the MDS algorithm; similarity data for black and white 
+circles of different sizes.
+7 = very similar; 1 = very dissimilar.<p>
+<a href="sag_fg2.htm"><img src="sagsfg2b.gif"></a>
+<strong>Figure 2b:</strong>  Typical input data for the TM algorithm; extrapolations and interpolations for 
+black and white circles of different sizes. Here are 12 of 21 possible pairs.<hr><p>
+
+
+
+<a name="r6c1">
+The distances between the points in the output is usually a non-linear 
+transformation of the values in the similarity matrix.  For Figure 3a, we asked the 
+subjects for every pair of stimuli, &quot;On a scale from 1 to 7, how similar are stimuli 
+X and Y in terms of their <strong>distance</strong> from each other?&quot;  For Figure 3b, we asked, 
+&quot;How similar are stimuli X and Y in terms of their <strong>content or theme</strong>?&quot;  We then 
+used KYST2 [<a href="#r6">6</a>] to run the MDS and generate the graphs shown.  
+<p>
+
+<a href="sag_fg3.htm"><img src="sagsfg3a.gif"></a>
+<strong>Figure 3a:</strong> MDS plot based on geographic similarity<p>
+<a href="sag_fg3.htm"><img src="sagsfg3b.gif"></a>
+<strong>Figure 3b:</strong> MDS plot based on content similarity<hr><p>
+
+
+<a name="r11c1">
+As one might expect, the distance-based MDS plot is similar to the actual map 
+of Boston, though somewhat warped; the warping could stem from differing 
+familiarity with the sites [<a href="#r11">11</a>] or from thinking of distance as travel time instead of 
+geographic distance.  In the content-based MDS plot, similar activity sites like 
+the Aquarium and the Zoo appear near each other, as do shopping areas 
+Newbury Street and Quincy Market.  One can use the groupings of points in an 
+MDS plot to assign features to clusters of points, as we have done in Figure 3b 
+with the features, &quot;historical,&quot; etc.  Likewise, many researchers who use MDS 
+would attempt to assign meaning to the axes of the plot, suggesting perhaps 
+that the X-axis runs from &quot;playful to serious&quot; and Y-axis runs from &quot;outdoors to 
+indoors&quot;.  Such labels or category assignments must be done carefully and 
+should be verified with separate experiments, however, because they are often 
+biased by the experimenter's a priori knowledge of the data.  
+<p>
+
+<a name="r4c2"><a name="r13c2"><a name="r14c1">
+The reader might wonder what would be the outcome if we had asked subjects 
+to give general similarity ratings without specifying what type of similarity.  
+Would the resulting MDS plot have been an unfortunate mixture of the two plots 
+in Figure 3?  This issue raises the question of how we could have known what 
+types of similarity to separate if we knew nothing about the data to begin with.  
+To answer this question, we introduce the relatively new Trajectory Mapping 
+(TM) procedure [<a href="#r4">4</a>, <a href="#r13">13</a>, <a href="#r14">14</a>].  
+<p>
+
+For high-dimensional feature spaces, often TM can better delineate the features 
+of the data than MDS.  Instead of giving similarity judgements as in MDS, the 
+subject's task in TM is to imagine a conceptual feature or property that links a 
+given pair of stimuli.  The subject then extrapolates that feature in both 
+directions to pick two stimuli from the remaining set that would be appropriate.  
+The subject also picks an interpolant, i.e. a stimulus that would fit well within the 
+pair. 
+<p>
+
+Returning to our black and white circle example, a TM set of input data might 
+appear as in Figure 2b.  The members of the original pair are in columns A and 
+B; the extrapolants are in the two &quot;ex&quot; columns, and the interpolant in the &quot;int&quot; 
+column.  As well as using a stimulus for each slot, the subject may also enter an 
+&quot;X&quot; or a &quot;...&quot;.  An &quot;X&quot; indicates that the subject did not feel comfortable choosing 
+a stimulus for that spot, and the &quot;...&quot;  indicates that the subject could imagine a 
+stimulus that would fit there, but that such a stimulus was not present in the 
+given data set to choose from. 
+<p>
+
+From this set of quintuples, we can now extract a connected graph of the stimuli 
+in which the maximum number of quintuples fit.  For example, in the top row of 
+Figure 2b, we have an ordered set of white circles ending in a small dot in one 
+column, and a set of black circles ending in the same small dot in the other 
+column.  If these quintuples are equally considered as constraints on the graph, 
+the ending trajectory map will contain a path from the large white circle to the 
+large black circle, going through the small dot, as shown in Figure 4.
+<p>
+<a href="sag_fg4.htm"><img src="sagsfg4.gif"></a>
+<strong>Figure 4:</strong> MDS and TM output for black and white circles.
+<hr><p>
+
+<h3>BOSTON DATA</h3><p>
+Figure 5 shows a trajectory map for tourist site data gathered from the authors.  
+Note here that the positions of the nodes are not important; the mental model 
+lies in the connections between the nodes, i.e. the topology of the graph.  The 
+weights on the links are based not on similarity, but rather on the robustness of 
+that link across a gamut of parameters within the TM algorithm.  The weight on a 
+link can thus be thought of as the strength of the connection in the mental 
+model.  (A TM algorithm is being fine-tuned for release by Gilbert.)
+<p>
+<a href="sag_fg5.htm"><img src="sagsfg5.gif"></a>
+<strong>Figure 5:</strong>Trajectory map for the tourist site data
+<hr><p>
+
+By pruning the trajectory map to only its strongest links, one can see rough 
+feature clusters emerge (see the heavier links in Figure 5).  In our example, the 
+clusters are roughly similar to the estimated clusters in the MDS plot (Figure 2b).  
+In a trajectory map, however, the stimuli are ordered within each cluster, e.g. 
+Arboretum, Swan Boats, Aquarium/Zoo.  Figure 6 shows the combined mental 
+models, a rough TM path drawn over the MDS content-based plot.  
+<p>
+<a href="sag_fg6.htm"><img src="sagsfg6.gif"></a>
+<strong>Figure 6:</strong>The mental models combined:  a rough TM path superimposed over the MDS 
+content plot.
+<hr><p>
+
+<a name="r12c1">
+Because the tourist sites have several possible features that could be used by 
+subjects to report their TM extrapolations and interpolations, one can discover 
+the most salient features of the data set by running the algorithm across many 
+subjects.  It is likely with this tourist site information, for example, that some 
+subjects would do the TM based on geographic distance, while others would do 
+it based on the content of the sites.  This feature difference would eventually 
+manifest itself from obviously disparate trajectory maps, and lead to the 
+phrasing of the MDS questions described earlier:  similarity in terms of distance 
+and similarity in terms of content.  Examples of different trajectory maps for the 
+same domain can be seen in [<a href="#r12">12</a>].
+<p>
+
+<a name="r2c1"><a name="r3c1">
+<h3>EXPERIMENTATION</h3><p>
+The mental models from TM and MDS provide an excellent basis for measuring 
+the efficiency of an information structure that has been built from the models.  
+One might arrange the stimuli serially according to the TM paths or distribute 
+them according to the MDS plot.  After collecting data from a new pool of 
+subjects for measures of readability, ease of remembering, etc. (see [<a href="#r2">2</a>, <a href="#r3">3</a>] for a 
+typical array of memory measures), the information structure can be 
+systematically varied by changing the parameters that produce the MDS and 
+TM models.
+<p>
+
+<h3>EXAMPLE INTERFACES</h3><p>
+If one considers the set of tourist attractions as an information space to be 
+explored, we can also use the mental models to give the user well-founded 
+suggestions as to his or her next step of exploration.  As a demonstration of 
+feasibility, we have designed a visualization system that allows the exploration 
+of the Boston tourist attractions.  Since we are no longer restrained to the 
+geography of Boston, as an actual tourist would be, we must now answer the 
+question, &quot;How should we order the various sites?&quot;  To explore the different 
+possible answers, we have built three different interfaces for the system, each of 
+which defines an &quot;attentional window&quot; as the current region of interest in the 
+information space.  An activation spreading network based on the mental 
+models defines the size of the attentional window as the user explores. Thus, if 
+the aquarium node of the network is currently activated, and the models suggest 
+that the swan boats node is closely related, then the activation will spread to 
+swan boats, leading the attentional window to include swan boats as a potential 
+next focus.
+<p>
+
+<a href="sag_fg7.htm"><img src="sagsfg7a.gif"></a>
+<strong>Figure 7a:</strong> Children's activities energized by the regional activation spreading network.<p>
+<a href="sag_fg7.htm"><img src="sagsfg7b.gif"></a>
+<strong>Figure 7b:</strong> Adults' activities energized by the regional activation spreading network.<hr><p>
+
+In the first two interfaces, the 15 sites are arranged two-dimensionally according 
+to the MDS plot in Figure 3b.  Whichever sites fall within the attentional window 
+are rendered larger than the others.  In one interface, the attentional window 
+envelops MDS regions (Figure 7), and in the other, the window spreads across 
+TM paths (Figure 8).  Figure 7a shows the display of regional activation with 
+emphasis on children's activities.  Figure 7b shows the activities in an adult 
+context.  In contrast, Figure 8 shows several successive frames of path 
+activation:  when the user investigates the Sports Museum, the network 
+suggests that Fenway Park or the Children's Museum might be a good next 
+choice (those two sites are slightly enlarged in Figure 8a).  As the user shifts 
+attention to the next event, past activities fade away and activities further along 
+the path become more conspicuous.
+<p>
+
+<a href="sag_fg8.htm">
+<pre><img src="sagsfg8a.gif">   <img src="sagsfg8b.gif">   <img src="sagsfg8c.gif"></pre></a><br>
+
+<strong>Figure 8:</strong>
+The network activates the path segments when the user examines the sites Sports 
+Museum, Fenway Park and Aquarium. The activation levels are mapped to image and 
+typographic size, enabling the system to suggest to the user an appropriate next step based 
+on the MDS and TM results.<hr><p>
+
+
+The difference between these two styles of exploration can be characterized by 
+the width of the attentional window:  narrow in the case of paths, and wide in the 
+case of regions.  By smoothly varying the width, one might change smoothly 
+between modes of exploration.
+<p>
+
+<pre>
+
+<a href="sag_fg9.htm">
+<img src="sagsfg9a.gif">   <img src="sagsfg9b.gif">   <img src="sagsfg9c.gif"></a><br></pre>
+<strong>Figure 9:</strong>
+An interface that combines path and region following; the sites are represented by 
+cubes in a 3-D space.  The cubes lie along the TM paths, and the other sites from the MDS 
+region encircle the cube within the attentional window.<hr><p>
+
+The third interface attempts to combine the path and region following ideas of 
+the first two.  This interface depicts the sites as semitransparent multimedia 
+cubes in a 3-D space (Figure 9). The cubes are arranged along the TM paths, 
+but at each cube, other cubes within the same region can be seen orbiting the 
+current cube nearby.  Thus, the user can &quot;fly&quot; smoothly through the space along 
+the TM routes, or branch off to a similar site within the current region.  Also, the 
+floor of each cube displays a geographic map with the site's location high-
+lighted, thus incorporating all of the features that we have discussed thus far.
+<p>
+
+<a name="r1c1"><a name="r10c1"><a name="r12c2"><a name="r8c1">
+The activation spreading network was designed by Lokuge and Ishizaki [<a href="#r10">10</a>], 
+and the visualization system is implemented on a Silicon Graphics Onyx 
+workstation [<a href="#r8">8</a>].  This network links nodes in a space (Figure 10) and uses the 
+ordering in the space to control the activation level of a node [<a href="#r1">1</a>, <a href="#r12">12</a>].  When 
+attention &quot;jumps&quot; to a new node, the network partially reduces the activation 
+levels in the original set of nodes, leaving a faint trace as a history of the 
+attentional sequence.
+<p>
+<a href="sag_fg10.htm"><img src="sagsfg10.gif"></a>
+<strong>Figure 10:</strong> Schematic diagram of a regional activation spreading network.
+Activation 
+energy spreads in the direction of the arrows initiated by the Goal: Kids' Tour of Boston.<hr><p>
+
+<h3>DISCUSSION</h3><p>
+We have designed this visualization system with its various interfaces both as 
+an existence proof that such a system could be devised and as an illustration of 
+our proposed methodology for structuring information.  We mentioned above 
+the fact that a variety of mental maps exist for each data set, both within and 
+across individuals.  A further development would be an intelligent activation 
+spreading network, i.e. one which contained the full repertoire of different 
+mental models for a given data set and chose the best model based on the 
+user's behavior.  Such a repertoire could be described as a &quot;hyper-mental-map&quot; 
+and could likely formed by gathering MDS and TM data on the mental models 
+as stimuli themselves.
+<p>
+
+We have proposed and implemented a method of organizing information space 
+around cognitive maps.  We plan next to explore the degree to which this 
+method can be used with more generalized domains of knowledge, but 
+examples from previous MDS and TM papers lends us hope that the method 
+could become generally applicable.  By accommodating an individual's search 
+context (e.g. through paths or regions) and his or her particular model of a 
+domain (e.g. a particular MDS or TM model), one can offer both a more 
+personalized tour of the information space and a more easily absorbable mass 
+of information.
+	
+<h4>Acknowledgments</h4><p>
+This work was in part sponsored by ARPA, JNIDS, NYNEX and Alenia. 
+However, the views and conclusions expressed here are those of the authors 
+and do not necessarily represent that of the sponsors.
+<p>
+
+<h4>References</h4><p>
+<a name="r1">
+1. Anderson, J. A.  Spreading activation theory of memory. <em>Journal of Learning 
+and Verbal Behavior 22</em>, 261-295, 1983.
+<a href="#r1c1"><img src="sag_upar.gif"></a>
+<p>
+
+<a name="r2">
+2. Atkinson, R.C. &amp; Shiffrin, R.M.  The control of short-term memory. <em>Scientific 
+American, 225,</em> 82-90, 1971.
+<a href="#r2c1"><img src="sag_upar.gif"></a>
+<p>
+
+<a name="r3">
+3. Craik, F.I.M. &amp; Lockhart, R.S.  Levels of processing: A framework for memory 
+research.  <em>Journal of Verbal Learning and Verbal Behavior, 11</em>, 671-684, 1972.
+<a href="#r3c1"><img src="sag_upar.gif"></a>
+<p>
+
+<a name="r4">
+4. Gilbert, S. A. &amp; Richards, W.  Using trajectory mapping to analyze musical 
+intervals. <em>Proceedings of the Sixteenth Annual Conference of the Cognitive 
+Science Society</em>.  1994.<a href="#r4c1"><img src="sag_upar.gif"></a>
+<a href="#r4c2"><img src="sag_upar.gif"></a>
+<p>
+
+<a name="r5">
+5. Johnson-Laird, P.N.  <em>Mental models</em>.  Cambridge, MA:  Harvard University 
+Press, 1983.<a href="#r5c1"><img src="sag_upar.gif"></a>
+<p>
+
+<a name="r6">
+6. Kruskal, J.B.  kyst2a.  AT&amp;T Bell Laboratories, Computing Science Research 
+Center, <em>Netlib repository of software</em>.  <a href="http://plan9.att.com/netlib/mds/index.html">http://plan9.att.com/netlib/mds/index.html</a>.<a href="#r6c1"><img src="sag_upar.gif"></a>
+<p>
+
+<a name="r7">
+7. Kruskal, J.B. Nonmetric multidimensional scaling: A numerical approach. 
+<em>Psychometrika, 29</em>, 28-42, 1964.<a href="#r7c1"><img src="sag_upar.gif"></a>
+<a href="#r7c2"><img src="sag_upar.gif"></a><p>
+
+<a name="r8">
+8. Lokuge, I. Dynamic magical environments:  Engaging interaction based on 
+the art of illusion.  Masters Thesis, MIT Media Lab, 1995.  To receive a copy 
+email docs@mit.edu or call MIT Document Services at 617/253-5650.
+<a href="#r8c1"><img src="sag_upar.gif"></a>
+<p>
+
+<a name="r9">
+9. Lokuge, I., Gilbert, S.A. &amp; Richards, W.  Visualizing information spaces:  A 
+tour through Boston.  Presented at European Conference on Visual Perception 
+'95, T&uuml;bingen.  Abstract in <em>Perception, 24 Supplement</em>, p. 76.
+<a href="#r9c1"><img src="sag_upar.gif"></a>
+<p>
+
+<a name="r10">
+10. Lokuge, I. &amp; Ishizaki, S.  GeoSpace: An interactive visualization system for 
+exploring complex information spaces. <em>Proceedings of ACM SIGCHI'95</em>, 
+Denver, Colorado, 1994.
+<a href="#r10c1"><img src="sag_upar.gif"></a>
+<p>
+
+<a name="r11">
+11. Lynch, K.  <em>Image of the City</em>.  Cambridge, MA:  MIT Press, 1960.
+<a href="#r11c1"><img src="sag_upar.gif"></a>
+<p>
+
+<a name="r12">
+12. Maes, P.  Situated agents can have goals in <em>Designing Autonomous Agents: 
+Theory and Practice from Biology to Engineering and Back</em>, ed. P. Maes, MIT 
+Press/Bradford Books, 1992.
+<a href="#r12c1"><img src="sag_upar.gif"></a>
+<a href="#r12c2"><img src="sag_upar.gif"></a>
+<p>
+
+<a name="r13">
+13. Richards, W. &amp; Koenderink, J.J.  Trajectory mapping (&quot;TM&quot;): A new non-
+metric scaling technique. <em>Proceedings of European Conference on Visual 
+Perception</em>, Edinburgh (Abstract), 1993.  In press <em>Perception</em>.
+<a href="#r13c1"><img src="sag_upar.gif"></a>
+<a href="#r13c2"><img src="sag_upar.gif"></a><p>
+
+<a name="r14">
+14. Saint-Arnaud, N. Classification of Sound Textures.  Masters Thesis, MIT 
+Media Lab, 1995.  To receive a copy email docs@mit.edu or call MIT Document 
+Services at 617/253-5650.
+<a href="#r14c1"><img src="sag_upar.gif"></a>
+<p>
+
+<a name="r15">
+15. Shepard, R.N.  The analysis of proximities: Multi-dimensional scaling with 
+an unknown distance function. I. &amp; II. <em>Psychometrika, 27</em>, 125-140, 219-
+246, 1962.<a href="#r15c1"><img src="sag_upar.gif"></a>
+<a href="#r15c2"><img src="sag_upar.gif"></a>
+<p>
+
+<a name="r16">
+16. Torgerson, W.S.  Multidimensional scaling: I. Theory and method. 
+<em>Psychometrika, 4</em>, 401-419, 1952.
+<a href="#r16c1"><img src="sag_upar.gif"></a>
+<a href="#r16c2"><img src="sag_upar.gif"></a>
+<p>
+
+</body>

@@ -1,0 +1,244 @@
+<html><head>
+<title>Visage: Dynamic Information Exploration</title></head>
+<body>
+<center>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/demo.JPG" ALT="Demo" HEIGHT=35 WIDTH=249><A HREF="../../demos.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<h1>Visage: Dynamic Information Exploration</h1>
+Peter Lucas, Cristina C. Gomberg
+<br>MAYA Design Group, Inc.
+<br>2100 Wharton Street
+<br>Pittsburgh, PA  15203
+<br>412-488-2900
+<br>lucas@maya.com, gomberg@maya.com
+<p>
+Steven F. Roth
+<br>Carnegie Mellon University
+<br>5000 Forbes Avenue
+<br>Pittsburgh, PA  15213
+<br>412-268-7690
+<br>steven.roth@cs.cmu.edu
+
+</center>
+<H2>ABSTRACT</H2>
+<p>
+Visage is a prototype user interface environment for 
+exploring and analyzing information. It represents an 
+approach to  coordinating visualizations and analytical 
+tools  in data-intensive domains. Visage is based on an 
+information-centric approach to user interface design 
+which strives to eliminate impediments to direct user 
+access to information objects across applications and 
+visualizations. Visage consists of a set of data 
+manipulation operations, an intelligent system for 
+generating a wide variety of data visualizations and a 
+briefing tool that supports the conversion of visual 
+displays used during exploration into  interactive 
+presentation slides. <p>
+<h3>Keywords</h3>
+Data visualization, graphics, data exploration, user 
+interface environment<p>
+<H2>INTRODUCTION</H2>
+We are developing an approach to information 
+exploration [1] based on an evolving software 
+environment called Visage with the goal of creating four 
+important component capabilities:
+<ol>
+<li>Dynamically generated information visualizations.
+<li>Interactive tools for performing basic information 
+	manipulation operations.
+<li>An information-centric paradigm by which users 
+	interact with data and applications.
+<li>A fully integrated presentation and briefing 
+environment.
+</ol><p>
+<p>The VISAGE user interface paradigm takes an 
+aggressively information-centric approach to the 
+presentation of information to the user. The information-
+centric approach is the next logical step along the path 
+from application-centric  architectures to the modern 
+document-centric  approach. The distinctions among the 
+three approaches hinges on differences in the "basic 
+currency" through which the users interact with the 
+system.
+<p>In application-centric architectures, the basic 
+currency is the file. With the introduction of graphical 
+user interfaces and the desktop metaphor, files became 
+concrete visual objects, directly manipulable by the 
+user, storable on the desktop or in folders, and--to a 
+limited extent--arrangable by users and software in 
+semantically meaningful ways.  But the contents of 
+those files were still out of direct reach of the user.  
+With the document-centric interface paradigms the basic 
+currency is no longer the file, but rather the document.  
+The application's role is subordinated and the user 
+focuses on direct manipulations of documents; users can 
+almost literally "get their hands on" their documents.
+<p>The information-centric approach represented in 
+Visage simply is a natural continuation of these trends. 
+Visage abandons the primacy of the document wrapper 
+as the central focus of user interaction in favor of the 
+data element as the basic currency of the interface. 
+Visage permits direct drag-and-drop manipulation of data 
+elements at any level of granularity. A numeric entry in 
+a table, selected bars from a bar chart, and a complex 
+presentation graphic are all first-class candidates for user 
+manipulations.
+<p>Hints of this approach may be found in a few 
+existing interfaces; recent versions of Microsoft Word 
+support the ability of the user to drag selected text from 
+one place in the document to another. In Visage, this 
+capability is promoted from a special-purpose feature to 
+a ubiquitously available capability that can be used 
+everywhere in the environment. It becomes part of the 
+interface 'physic', empowering the user to perform 
+directly unique actions that usually require knowledge of 
+specialized interface "features."
+<P><H2>AN EXAMPLE</H2>
+<p>In order to convey the basic elements of Visage, it is 
+useful to consider some simple displays and operations 
+in a detailed example. The example is based on one of 
+the possible applications of this approach, and uses the 
+next generation logistics tracking and planning systems. 
+These systems are being developed  to enable analysts 
+to access information about the location, quantities, 
+status, transportation, distribution, consumption of 
+equipment and supplies and the people who need them 
+worldwide. One of many displays that can be produced 
+in the Visage environment is an outliner-style table. It 
+provides a hierarchical perspective on tabular data and 
+illustrates drill-down and roll-up capabilities in a 
+familiar way.
+<p>
+<p><h3>Drill-down as a data-navigation 
+technique</h3>
+<p>Starting from any point in a data network users are 
+offered a menu of alternative dimensions along which 
+they may drill down. The user can choose to drill down 
+further by selecting any of the relations from the pop-up 
+menu, dynamically attached to the unit on which further 
+information is desired, giving a more detailed 
+organizational breakdown. This drill-down process can 
+also occur across different  relations. For example, it is 
+possible for a user to drill-down from a division to the 
+equipment it possesses and then from one type of 
+equipment to the parts or supplies it requires and then to 
+all the units that require a particular supply type. This is 
+a process of turning a network or web of relations into a 
+convenient hierarchical breakdown for navigational 
+purposes. Users can select any attribute of the objects in 
+the hierarchy that they want to have displayed, like its 
+echelon or the number of people in the unit. As the 
+hierarchy is expanded, the data attributes are expanded 
+with it. Dynamic drill-down and expression of attribute 
+values are fundamental in Visage and occur in all 
+displays.
+<p><h3>Information-centric Data 
+Manipulation</h3>
+<p>An important operation in this information-centric 
+interface approach [2] is the movement or transfer of 
+information throughout the Visage environment. Objects 
+representing information are moved directly in groups or 
+individually among visualization and application 
+interfaces. In order to display some of the attributes of 
+these units graphically, one simply drags the unit names 
+from the outliner to an empty bar chart display. In this 
+case, a bar chart shows the weight of supplies that the 
+units require. Displaying unit supply weights in a bar 
+chart makes it easy to select units requiring the most 
+supplies - those with the longest bars. Focusing on the 
+units with highest supply weights provides an opportunity 
+to display the locations of just these units on a map, 
+perhaps to determine the locations where supply points 
+should be established. Units are dragged and dropped, 
+same as before, to a map application. The map 
+application is a product called MATT which was 
+developed prior to and independently of Visage by Bolt, 
+Beranek and Newman. This is an example of one of the  
+primary goals of this work: to provide the mortar 
+necessary to cement separately developed analysis tools 
+into what the user will experience as an integrated work 
+environment. By default, a map display shows 
+longitude/latitude attributes of objects and the unit's 
+associated military symbology.
+<p><h3>Coordinated Data Highlighting</h3>
+<p>By color highlighting (painting) a subset of units 
+that occur close together in the center of the map, for 
+example, (perhaps to identify a region where large 
+quantities of supplies will be needed) multiple displays 
+may be visually coordinated. Notice that painting an 
+object in one display causes it to be similarly colored in 
+all other displays. Together, the three displays show the 
+selected units, the supplies they need, and where they 
+are located.
+<p><h3>Roll-up (Aggregation)</h3>
+<p>Finally, this small subset of units can be rolled-up 
+(i.e. aggregated) into a single object and named by a 
+user, in this case, "Task Force A." It appears in the 
+bottom of the outliner and its attributes are the 
+appropriate totals of the those for the units it aggregates.  
+The new aggregate can be treated as a single object for 
+new drill-down operations. This new entity can then be 
+drilled down to show other units, their support, inventory 
+or other information. Note that this approach enables 
+users to compose a complex query through a series of 
+drill-down, drag, paint and roll-up operations.  The last 
+aggregate representing those units of a division which 
+need the "most" supplies and are located in a small 
+region to the north. In Visage such complex queries may 
+be composed entirely by direct manipulation.
+<p><h3>Sage - Automatic Graphic Generation</h3>
+<p>Also shown here is Sage, a knowledge-based 
+presentation system that designs displays combining 
+diverse information (e.g. quantitative, relational, 
+temporal, hierarchical, categorical, geographic). We use 
+Sage to automatically assume the burden of visualizing 
+information for other applications and for computer-
+supported graphic design, especially for large data sets. 
+Complete integration between Visage and Sage is the 
+our goal during the next year.
+<p><h3>Interactive Presentations</h3>
+<p>The Visage environment has a simple briefing  or 
+"slide show" feature completely integrated with the rest 
+of the application. As analyses are performed, text and 
+graphics can be captured and saved in special frames 
+called 'slides.'  A slide is simple a frame designed to 
+make it easy to "paste up" other frames and elements for 
+visual presentations. The user simply "drags and drops" 
+the desired displays onto the slide frame, where they are 
+scaled appropriately. Note that elements on the slide do 
+not lose their separate identity--they are still fully-
+functional interface objects that can be used for further 
+analysis--even in the middle of a briefing. Collections of 
+frames are accumulated in a "slide sorter" frame, used to 
+sequence a presentation by simple drag operations, and 
+the sequential display of each slide at full-screen size. 
+Thus, the briefing function has been seamlessly 
+integrated with those of data exploration and analysis.
+<P><H2>REFERENCES</H2>
+<ol>
+<li>J. M. Ballay. Designing Workscape: An 
+Interdisciplinary Experience. Proceedings CHI '94, 
+ACM, April 1994, pp. 10-15.
+<li>S. F. Roth and P. Lucas. Exploring Information 
+with Visage. Proceedings CHI '96, ACM, April 1996.
+</ol>
+<P><H2>ACKNOWLEDGEMENTS</H2>
+<p>The authors would like to acknowledge the 
+contributions of Jeffrey Senn, Michael B. Burks, Philip 
+Stroffolino, John Kolojejchick, Carolyn Dunmire, Noah 
+Guyot, Hugo Cheng, Kenichiro Tanaka, Michelle 
+Vincow, Joseph Mattis, and Bolt, Beranek, and 
+Newman. This work was supported by contracts from 
+ARPA and Army Research Laboratory, and Strategic 
+Logistics Agency.
+<p>
+©Copyright on this material is held by the author(s).
+</body></html>

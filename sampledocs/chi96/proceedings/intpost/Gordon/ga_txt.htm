@@ -1,0 +1,194 @@
+<HTML>
+<HEAD>
+<TITLE>Interfaces for Managing Access to a Video Archive</TITLE>
+
+</HEAD>
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<P><IMG SRC="./../../graphics/intpost.JPG" ALT="intpost" HEIGHT=35 WIDTH=249><A HREF="./../../intpost.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+
+<H1>Interfaces for Managing Access to a Video Archive<BR>
+</H1>
+<P>
+<EM>Andrew Gordon, Smadar Kedar, and Eric Domeshek<BR>
+</EM>
+<P>
+Institute for the Learning Sciences
+<P>
+Northwestern University
+<P>
+1890 Maple Ave., Evanston, IL 60201
+<P>
+Tel: +1-847-491-3500
+<P>
+Email: {gordon,kedar,domeshek}@ils.nwu.edu
+<HR>
+<H2>ABSTRACT</H2>
+<P>
+We describe Deja Vu, a video retrieval system which capitalizes
+on our understanding of the content of the video to provide an
+effective user interface.
+<H3>Keywords</H3>
+<P>
+Information access, interface design, browsing, search, indexing,
+retrieval, video archive, visualization.
+<H2>INTRODUCTION AND MOTIVATION</H2>
+<P>
+The dream of the Information Superhighway is now being followed
+by the nightmare of information access: How do I know what is
+out there? How can I access what I want when I need it? Previous
+CHI approaches have focused on managing the complexity of information
+access by providing meta-structures for visualizing large amounts
+of information at once and traversing large spaces quickly. However,
+most meta-structures only take advantage of the form of the data,
+i.e. its media type or structure, ignoring useful information
+that can be gleaned from its content. We present Deja Vu, a system
+designed to enable video producers to retrieve video clips from
+an on-line stock footage archive. We describe a novel approach
+for using meta-structures to organize information that capitalizes
+on our understanding of the content of the information. In particular,
+for stock video clips whose contents are everyday activities,
+we describe an interface structured around activities and their
+components.
+<P>
+The novel contribution of Deja Vu to CHI is to extend the application
+of meta-structures for managing the complexity of information
+access to structuring interfaces according to the underlying information
+content.
+<H2>BACKGROUND AND RELATED WORK</H2>
+<P>
+Much current effort in accessing large stores of information focuses
+on meta-structures such as Multiscale viewing [4], viewing information
+objects at many different scales. The scale can vary by distortion
+(e.g. fisheye), zooming (e.g. multitrees) or 3D animation (e.g.
+Butterfly). However, most efforts focus on text or hypertext [5]
+rather than visual images (with few exceptions such as FilmFinder
+[1]). In addition, much of the work exploits the form of the data,
+not its content. Work in multimedia and AI do address access of
+video, focusing on particular techniques for video indexing and
+retrieval [3]). However, on the whole they do not address the
+CHI issues of visualizing and navigating easily in a large store
+of video. 
+<H2>ACTIVITIES AS CONCEPTUAL INDICES</H2>
+<P>
+Deja Vu is a system that enables video producers to retrieve video
+clips from an on-line stock footage archive. Stock video typically
+consists of scenes of everyday activities which can be reused
+by video producers to reduce production costs. Given the broad
+reusability of stock video, it is best organized (indexed) in
+a way that captures the visualizable content of each clip. Each
+video clip is indexed using terms to describe its salient features
+(conceptual indexing). We use an extensible vocabulary of everyday
+activities and the associated people, things, places and times.
+The organization of this vocabulary has been influenced by artificial
+intelligence and cognitive theories of memory organization (Scripts
+and MOPs [6]) which capture commonsense expectations about the
+relationship between activities and people, things, places and
+times experienced in everyday life. By aligning our vocabulary
+organization with people&iacute;s natural expectations, we provide
+a network of terms that can be quickly and easily navigated by
+the user to browse and search for video.
+<P>
+Although the initial costs of developing a broad indexing vocabulary
+and manually indexing clips is high, the resulting indices reflect
+the content more accurately than those which can be obtained through
+current video analysis techniques, and are less ambiguous than
+those produced by text-based logging [7]. 
+<H2>INTERFACES THAT MANAGE COMPLEXITY</H2>
+<P>
+Deja Vu is designed to allow users to search for video clips by
+browsing through the vocabulary space, using a point-and-click
+interface. Accordingly, the interface must provide a clear means
+of navigating the complex vocabulary space in order to formulate
+the search query, and quickly and accurately locate the needed
+video clips. We have incorporated a number of interface design
+principles into Deja Vu that allow us to meet these requirements.
+We describe them below, illustrating them with an example of how
+a producer would search for stock footage to be used in a video
+production on computer-based training.
+<P>
+Zooming: This provides an initial entry point into the large space
+of terms used for retrieval of video [2]. The zoomer interface
+provides a global view of all people, all places, all time, and
+so on. Within a few clicks the user will have traversed a large
+space (e.g. all places, cities) and zoomed in on the specific
+place (e.g. corporate training centers). 
+<P>
+Synergy of browsing and search: After the initial zoom, the user
+browses the space of query terms and selects certain ones to compose
+as a query (query by navigation [5]).
+<P>
+Browsing organized by activities The browsing interface is organized
+by activities and their components, reflecting the content of
+the underlying corpus. A concept zoomed into, such as corporate
+training centers, is part of an activity, corporate training,
+which also consists of people (trainees), things (computers),
+places (classrooms) and time (business day). This organization
+of the interface is a natural one, and the user should find the
+concepts they are looking for in a predictable place. As the concepts
+are found, they are collected to form a query. The browsing interface
+also enables the user to search for video related to what he or
+she wants by perusing clusters of activities, providing graceful
+degradation.
+<P>
+Immediate feedback on query: The user may only compose a query
+of terms which have video clips associated with them. As the query
+is being composed, the user immediately sees how that affects
+the retrievable corpus, providing tight coupling [1]. After noticing
+that there are some clips satisfying the query, the user can view
+the retrieved set and select the desired clips.
+<P>
+<IMG SRC="IMG00001.GIF">
+<H2>EVALUATION, FUTURE WORK, &amp;AMP; CONCLUSION</H2>
+<P>
+Deja Vu is implemented in Delphi, running on a Windows PC, and
+uses a Paradox and Interbase database to manage the video archive
+and indexing scheme. It currently has 1000 indexed video clips.
+As part of our iterative design, we performed a formative evaluation
+on a previous version of the interface with users who have done
+video production. The users found the system innovative and with
+potential to simplify the job of retrieving stock footage, and
+provided suggestions on the graphic design and labels used in
+the interface. Our future work includes improvements in the interface
+design, and field testing. Deja Vu is a proof-of-concept that
+capitalizes on the content of a large corpus of information to
+provide interfaces that facilitate information access.
+<H2>ACKNOWLEDGMENTS</H2>
+<P>
+We thank Lannert, Persiko, Reese, Rosenberg, Schmidt, Swanson,
+and past Deja Vu team members. We also thank Andersen Telemedia
+for whom this system is designed.
+<H2>REFERENCES</H2>
+<OL>
+<LI>Ahlberg, C. and Shneiderman, B. Visual Information Seeking:
+Tight Coupling of Dynamic Query Filters with Starfield Displays.
+In Proc. CHI &iacute;94 (Boston, April, 1994), ACM press, pp.
+313-317.
+<LI>Bareiss, R., and Osgood, R. Applying AI Models to the Design
+of Exploratory Hypermedia Systems. In the Proceedings of the Fifth
+ACM Conference on Hypertext, (Seattle, 1993), ACM Press, pp. 94-105.
+<LI>Baudin, C., Davis, M., Kedar, S. and Russell, D. M. Proceedings
+of the AAAI-94 Workshop on Indexing and Reuse in Multimedia Systems
+(Seattle, August, 1994), American Association for Artificial Intelligence.
+<LI>Furnas, G. W. and Bederson, B. B. Space-Scale Diagrams: Understanding
+Multiscale Interfaces. In Proc. CHI &iacute;95 (Denver, May, 1995),
+ACM press, pp. 234-241.
+<LI>Mackinlay, J.D. and Zellweger. P. T. Panel: Browsing vs. Search:
+Can We Find a Synergy?, In Proc. CHI &iacute;95 (Denver, May,
+1995), ACM press, pp. 179-180.
+<LI>Schank, R. Dynamic Memory: A Theory of Reminding and Learning
+in Computers and People. Cambridge University Press, Cambridge,
+England, 1982.
+<LI>Webber, K. and Poon, A. Marquee: A Tool for Real-Time Video
+Logging. In Proc. CHI &iacute;94 (Boston, April, 1994), ACM press,
+pp. 58-64.
+</OL>
+</BODY>
+</HTML>

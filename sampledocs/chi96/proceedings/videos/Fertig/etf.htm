@@ -1,0 +1,261 @@
+<HTML><HEAD>
+<TITLE> Lifestreams: An Alternative to the Desktop Metaphor </TITLE>
+</HEAD>
+
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/videos.JPG" ALT="videos" HEIGHT=35 WIDTH=249><A HREF="../../videos.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<H1> Lifestreams: An Alternative to the Desktop Metaphor </H1>
+<H2> 
+<a href="http://www.cs.yale.edu/homes/fertig-scott.html"> Scott Fertig</a>, 
+<a href="http://www.cs.yale.edu/homes/freeman-eric.html"> Eric Freeman</a>
+ and 
+ <a href="http://www.cs.yale.edu/HTML/YALE/CS/Brochure/faculty/gelernter.html"> 
+ David Gelernter </a> </H2>
+<H3> 
+Department of Computer Science <BR>
+Yale University  <BR>
+New Haven, Connecticut 06520 </H3>
+
+<a href="etf_fg3.mov"> <img src="qtlogo.gif"> 2150K Quicktime Video Preview </a>
+
+<H2> ABSTRACT </H2>
+
+We contend that managing one's own electronic world can be
+a frustrating task for most computer users, 
+requiring too many separate applications, too many file
+transfers and format translations,
+the invention of too many pointless names
+and the construction of organizational hierarchies that too quickly become
+obsolete.
+What is needed is a metaphor and system for organizing
+the electronic ``bits of paper'' we all so easily collect, whether we
+create them ourselves or
+they come to us in the form of email, downloaded images,
+web pages, or scheduling reminders.
+Lifestreams is such a system.  
+<P>
+<H2> Keywords </H2> Desktop metaphor, information retrieval, filtering, hierarchical
+file systems, reminding, organization, information overload.
+
+<H2> BASIC MODEL </H2>
+
+Lifestreams uses a simple organizational
+metaphor, a time-ordered stream of documents, to replace
+conventional files and directories 
+[<a href="#FreeFert95">3</a>,<a href="#WP">4</a>].  
+<i> Stream filters </i> and software agents are used to organize, locate,
+summarize and monitor incoming information.
+Lifestreams subsumes many separate desktop applications
+to accomplish the most common communication, scheduling, and search
+and retrieval tasks; yet its machine-independent, client-server architecture is
+<i> open </i> so that users can continue to use the document 
+types, and viewers & editors they are accustomed to.<P>
+
+
+A <i> lifestream </i> is a time-ordered stream of documents that functions as
+a diary of your electronic life;
+every document you create is stored in your lifestream, as are the
+documents other people send you.  
+The tail of your stream contains
+documents from the past, perhaps starting with your electronic birth
+certificate.  Moving away from the tail and toward the present, your stream 
+contains more recent documents such as papers in progress or the latest electronic mail 
+you've received---other documents, such as pictures,
+correspondence, bills, movies, voice mail and software are stored
+in between.  Moving beyond the present and into the future, the stream
+contains documents you <i> will</i> need: reminders, your calendar items, and 
+to-do lists. <P>
+
+
+
+<H2> WHY LIFESTREAMS? </H2>
+
+Studies [<a href="#lansdale">6</a>,<a href="#Malone83">7</a>,<a href="#Cole">1</a>,<a href="#pile">8</a>,<a href="#Cook">2</a>] have shown
+that users of common desktop systems
+have difficulty:
+
+<UL>
+<LI>  Organizing and finding information within hierarchical file systems.
+<LI>  Making use of archived information, which users normally discard so that they are not overwhelmed by it.
+<LI>  Getting a ``big picture" view.
+<LI> Managing schedules and reminders.
+</UL>
+
+Lifestreams provides a metaphor for organizing
+the electronic documents we all so easily collect---whether
+they come to us in the form of electronic mail, downloaded images,
+pages gathered from the Web, or scheduling reminders---in a fluid and natural 
+way that reflects the way users work.<p>
+
+<H2> THE LIFESTREAMS INTERFACE </H2>
+
+The Lifestreams interface is presented in Figure 1,
+showing a stream of documents.
+The user can slide the mouse pointer over the
+document representations to ``glance" at each
+document,  or use the scroll bar in the lower left-hand corner to roll
+themselves back into the past.<p>
+
+<center>
+<a href="etf_fg2.gif"> <img src="etf_fg1.gif" alt="Lifestreams screenshot"> </a><p>
+<B> Figure 1: </B> The Lifestreams Interface.<p>
+</center>
+
+
+Color and animation indicate important document features.
+The borders of unread documents are colored red, 
+the borders of writable documents made thicker and open documents are
+offset to the side to indicate they are being edited.  Incoming documents
+slide in from the left side to alert the user, and 
+newly created documents pop down from the top and push the
+stream backwards by one document into the past.  In this way documents are
+eventually moved out of view and archived automatically.<p>
+
+Users interact with Lifestreams via five primary operations: <b>new</b>, 
+<b>clone</b>, 
+<b>transfer</b>, <b>find</b> and <b>summary</b>.   <b> New</b>
+ and <b>clone</b> 
+create documents.   <b>New</b> creates an empty document and
+adds it to your stream.  <b>Clone</b> duplicates an existing document.
+<b>Transfer</b> copies a document from your stream to someone else's.  
+<b>Find</b> prompts the user for a search query and 
+creates a <i> substream </i>.<p>
+
+``Substreaming" provides an organizational framework and an inexpensive
+way of finding information.
+Substreams, like virtual directories [<a href="#MITSemantic">5</a>],
+present the user with a ``view" of a document collection,  in our case,
+all the documents that are relevant to a search 
+query.  Substreams differ from
+conventional directory systems in that, rather than placing documents into
+fixed, file & folder directory structures, they create virtual organizations of 
+documents from the stream.  
+Documents are not actually stored in the substream;  the
+substream is a temporary collection of documents that already exist
+on the stream.  Two substreams may 
+overlap.  Moreover, substreams can be created and destroyed on the fly
+without affecting the organization provided by the stream or any existing
+substream.  
+Substreams are dynamic.  If you allow a substream to persist,
+it will
+collect new documents that match your search criteria as they are added to
+your stream.
+For example, a
+substream created with the query ``find all documents created by
+other people'' would subsume your mailbox and automatically collect
+mail as it arrives.  A substream created from ``all electronic mail
+I haven't responded to'' would act as a mailbox that only
+contains unanswered mail.
+Substreams can be
+created incrementally, yielding a nested set of
+menus.  
+Semantically, this incremental
+substreaming amounts to a boolean <tt> and </tt> of each new query with the
+previous substream's query.<p>
+
+
+Menus are used to choose among existing substreams, create
+summaries and reset the ``time" system clock into the past or future.
+The <b> summary </b> operation 
+allows users to distill the information in a
+large number of similar documents into a single overview by
+taking a substream and compressing it into an overview document.
+The content of the overview depends on the type of
+documents in the substream.  For instance, if the substream contains
+the daily closing prices of all the stocks and mutual funds in your
+investment portfolio, the overview document may contain 
+a chart displaying the historical performance of your securities along
+with your net worth.  If the substream contains 
+a list of tasks you need to complete, the overview document might
+display a prioritized ``to-do" list.<p>
+
+By default Lifestreams presents the user with a view of the stream from the
+present receding into the past.  A lifestream also contains a future portion
+which is accessible but usually hidden.
+The interface contains a clock 
+that displays the current time, which
+may be temporarily reset to the future to observe the future part of 
+the stream.
+While in the future, users can deposit notes that act as 
+reminders.  When the clock is reset
+to the present these notes are once again hidden, however they
+arrive on the stream at the appropriate time to remind the user.<p>
+
+<H2> CONCLUSION </H2>
+
+Computer users must deal with a far greater quantity and range of
+electronic objects in their work and personal lives than ever before.
+Desktop systems are inadequate for the task;
+new systems must support the management of these objects efficiently
+and transparently.  <p>
+
+The success of Lotus Notes, and the transition in
+operating systems toward a document-centric model (thus OLE and
+OpenDoc) suggests that documents are now the sun around which
+applications revolve.  Lifestreams takes this world a step further: It
+embodies in software the stream of electronic events already facing
+the user, and brings in applications (filters, summaries, agents, etc.)
+as needed.  
+Lifestreams replaces the desktop metaphor with
+a more fluid and natural system that reflects the way users work.<p>
+
+<H2> MORE INFORMATION </H2>
+
+For more information see our 
+<a href="http://www.cs.yale.edu/homes/freeman/lifestreams.html">
+home</A> page.
+
+
+<P><H2>References</H2><P>
+<DL COMPACT>
+<DT><A NAME=Cole><STRONG>1</STRONG></A><DD>
+I. Cole.  Human Aspects of Office Filing: Implications for the electronic office.
+In <em>Proceedings of the Human Factors Society - 26th Annual Meeting</em>,
+1982.
+<P>
+<DT><A NAME=Cook><STRONG>2</STRONG></A><DD>
+Terry Cook.  Do you know where your data are?
+In <em>Technology Review</em>, MIT, January 1995.
+<P>
+<DT><A NAME=FreeFert95><STRONG>3</STRONG></A><DD>
+Eric T. Freeman and Scott J. Fertig.  Lifestreams: Organizing your electronic life.
+In <em>AAAI Fall Symposium: AI Applications in Knowledge
+  Navigation and Retrieval</em>, November 1995.
+Cambridge, MA.
+<P>
+<DT><A NAME=WP><STRONG>4</STRONG></A><DD>
+David Gelernter.  The cyber-road not taken.
+<em>The Washington Post</em>, April 1994.
+<P>
+<DT><A NAME=MITSemantic><STRONG>5</STRONG></A><DD>
+David K. Gifford, Pierre Jouvelot, Mark Sheldon, and James O'Toole.  Semantic file systems.
+In <em>13th ACM Symposium on Operating Systems Principles</em>,
+  October 1991.
+<P>
+<DT><A NAME=lansdale><STRONG>6</STRONG></A><DD>
+M. Lansdale.  The psychology of personal information management.
+<em>Applied Ergonomics</em>, 1988, <b>19</b>.1, 55-66.
+<P>
+<DT><A NAME=Malone83><STRONG>7</STRONG></A><DD>
+Thomas Malone.  How do people organize their desks?
+<em>ACM Transactions on Office Systems</em>, 1(1):99-112, January 1993.
+<P>
+<DT><A NAME=pile><STRONG>8</STRONG></A><DD>
+Richard Mander, Gitta Salomon, and Yin Yin Wong.  
+The `Pile' metaphor for supporting casual organization of
+  information.
+<em>ACM CHI'92 Proceedings</em>, pages 627-634, May 1992.
+</DL>
+<P>
+<BR> 
+
+
+</BODY>

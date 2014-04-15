@@ -1,0 +1,219 @@
+<HTML><HEAD>
+<TITLE>Object-Oriented Design from User Scenarios</TITLE>
+
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/tutorial.JPG" ALT="tutorial" HEIGHT=35 WIDTH=249><A HREF="../../tutorial.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<H1>Object-Oriented Design from User Scenarios</H1>
+<P>
+<I>Mary Beth Rosson and John M. Carroll </I>
+<P>
+Department of Computer Science
+<BR>Virginia Polytechnic Institute and State University
+<BR>Blacksburg, VA 24061-0106 USA
+<BR>Tel: 1-703-231-6470
+<BR>E-mail: (rosson,carroll)@cs.vt.edu
+
+<H2>ABSTRACT</H2>
+The tutorial leverages HCI professionals' expertise in generating and
+analyzing user tasks to teach the fundamentals of object-oriented
+design.  Students begin working on design projects immediately,
+creating object models of user scenarios, and elaborating these models
+throughout the day to develop a complete design.  The students learn
+methods of responsibility-driven design, as well as how to generalize
+from individual scenario models to develop class abstractions.
+<P>
+<B>KEYWORDS:</B> object-oriented design, scenarios, object-oriented
+programming, scenario-based design
+<P>
+<I>&#169 Copyright 1996 by <A
+HREF="http://www.cs.vt.edu/vitae/Rosson.html">Mary Beth Rosson</A> and
+<A HREF="http://www.cs.vt.edu/vitae/Carroll.html">John
+M. Carroll</A></I>
+<HR>
+<H2>Introduction</H2>
+Many of the benefits claimed for OOD -- for example, that object
+abstractions provide a natural mapping for the structure of a domain,
+and that decomposing a problem into objects results in stable but
+extendable domain models [2] -- have particular attraction to the
+developers of interactive applications, in that a key aspect of
+designing such systems is the creation of a task model that is
+accessible to users but also extensible as users' needs evolve.
+<P>
+This tutorial introduces OOD to HCI professionals so that they can
+begin to explore the potential of this new design paradigm for their
+own research and development activities.  Throughout, the focus is on
+the design of tasks: students begin by specifying and modeling
+individual scenarios, and then gradually elaborating these into the
+underlying object-oriented software abstractions.  Students are taught
+to examine the implications of the OO paradigm for both basic
+application functionality and access to that functionality.
+
+<H2>A Minimalist Approach to Teaching OOD</H2>
+In a typical introductory OOD course, many concepts and definitions
+are presented first (e.g., what objects and classes are, inheritance,
+encapsulation, polymorphism, and so on), followed by an introduction
+to particular representational schemes (i.e., design notations), and
+practice at classifying objects in various domains.  Only after
+considerable preparatory material are students guided through
+exercises involving the design of actual applications.
+<P>
+Our introduction to OOD takes a minimalist approach: we involve
+students in realistic design tasks from the beginning (the tutorial
+builds on our prior work in building minimalist education for
+object-oriented design [1, 3, 6]).  We teach an approach to OOD that
+is scenario-based and instance-centered, and that requires little
+prior understanding of OO concepts.  Instead, it leverages a design
+representation familiar to HCI professionals Q user
+scenarios. Students are taught to build concrete (instance-based)
+models of scenarios and analyze these specific contexts to discover
+useful (and reusable) OO abstractions.  The analysis and modeling of
+scenarios is supported throughout by the Scenario Browser, a Smalltalk
+tool for scenario-based OOD [4, 5].
+
+<H2>Tutorial Content</H2>
+We start with a brief introduction to the OO paradigm and to our
+scenario-based approach to application development.  We then cover a
+number of design topics; for each topic an aspect of OOD is
+demonstrated and practiced; we also provide relevant references for
+each topic.
+<P>
+<B>Specifying User Scenarios</B>
+<BR>
+User scenarios describe one or more users engaged in some meaningful
+activity with an existing or envisioned system.  As a design
+representation, task scenarios reflect concepts and values shared by
+many HCI professionals.  Thus the specification and analysis of
+scenarios serves as a concrete and familiar design task; anchoring
+instruction in concrete and familiar activities is a key component of
+minimalist instruction.  At the same time, the initial focus on user
+tasks exploits emerging scenario-based OOD methods.
+<P>
+We use an open-ended design problem -- a Virtual Town Hall (VTH) that
+supports the archiving and sharing of information, as well as the
+scheduling and notification of events -- to demonstrate the generation
+of user scenarios.  The focus is on basic-level user interaction
+scenarios that capture both the activities comprising the task and
+aspects of how the user experiences these activities.
+<P>
+<B>Analyzing Object Responsibilities</B>
+<BR>
+The sample scenarios are modeled as sets of objects.  An "underline
+the nouns" heuristic is used as a first-pass strategy for identifying
+important objects.  The Scenario Browser -- a tool coordinating
+multiple views (task-centered, object-centered, class-centered,
+code-centered) of scenarios -- supports the analysis process.
+<P>
+Students learn to anthropomorphize the objects in a scenario, playing
+the role of a given object, and thinking about the responsibilities
+that role entails.  A "point-of-view" version of a scenario narrates
+the scenario from the perspective of a constituent object.  These
+object-centered narrations are a source of information about the
+knowledge an object must have (its internal state), the relationships
+it must have with other objects (the objects it must interact with,
+and what those interactions consist of), and behaviors needed to
+support these relationships.
+<P>
+<B>Object-Task Interaction</B>
+<BR>
+Building an object model of a user scenario can suggest new ways of
+thinking about a problem.  So, for example, the metaphor of objects as
+active agents can suggest functionality that may or may not be
+beneficial to the user.  In the context of the VTH, conceptualizing a
+room in a town building as an active agent that maintains its own
+state information (e.g., capacity, A/V, repairs, furniture) raises the
+possibility that it ought to be responsible for scheduling events that
+will use these resources.  Such a model is attractive from the
+software perspective, in that it localizes responsibility in the
+entity that controls the relevant state; it also allows for future
+extensions, such as an articulated hierarchy of "locations" that use
+specialized scheduling behaviors.  However, a room that "schedules"
+departs significantly from an end-user's conceptual model, and we must
+consider the pros and cons of making such a software modeling
+decision, and whether we should allow this decision to "show through"
+in the user interface.
+<P>
+<B>Classes and Superclasses </B>
+<BR>
+Scenarios and their asssociated object models provide a concrete and
+accessible view of an OO design.  However in most cases, this concrete
+view must be translated into more abstract constructs; objects modeled
+as part of a scenario are normally created as instances of a class.
+Classes in turn are normally implemented within a hierarchy, where any
+given class inherits the attributes and behaviors of its superclasses.
+In constructing class hierarchies, a designer will often include an
+abstract class -- a class not intended for instantiation, but rather
+to serve as a placeholder for generic shareable attributes and
+behavior.  Such a class will often specify some of the behavior
+expected in its subclasses, but not how the behavior is to be
+implemented.  This is left to the design of each individual class,
+which implements its own, appropriate, version of the behavior.  As a
+result, one may end up with many quite different versions of a single
+generic behavior (e.g., "display").  This condition is known as
+polymorphism and can be quite valuable in promoting reuse, as it
+allows the same generic message to be sent to different objects with
+very different but appropriate effects.
+<P>
+<B>Application Frameworks</B>
+<BR>
+Classes and superclasses provide the basic mechanism for reuse in OOD.
+In this topic, we introduce a technique for promoting reuse through
+the design and application of OO frameworks (a framework is a set of
+classes designed to work in concert).  We survey several of the
+best-known frameworks (e.g., MVC, Hotdraw), but spend most of our time
+analyzing and reusing a framework for project management that can be
+applied to the VTH example.  This example framework includes abstract
+classes for acquiring and maintaining group member information,
+management of shared resources, and the scheduling and notification of
+group events.  The framework is itself a specialization of the basic
+Smalltalk model-view framework, with a clear separation between the
+classes supporting the user interface functionality and the underlying
+application.
+<P>
+<B>Summary and Tips</B>
+<BR>
+The concepts and techniques covered in the course are summarized and
+questions invited.  Topics not covered in the tutorial (e.g., common
+OO languages; notations; CASE tools; OO texts) are mentioned briefly
+and additional reference material is identified.
+
+<H2>REFERENCES</H2>
+<OL>
+<LI>
+Robertson, S. P., Carroll, J. M., Mack, R. L., Rosson, M. B., Alpert,
+S. R., and Koenemann-Belliveau, J.  ODE: An Object Design
+Exploratorium, in OOPLSA'94: Object-Oriented Programming, Systems
+and Applications. 1994. New York, NY: ACM.
+<LI>
+Rosson, M. B. and Alpert, S. R.  Cognitive consequences of
+object-oriented design. Human-Computer Interaction 5, (1990), 345-379.
+<LI>
+Rosson, M. B. and Carroll, J. M. Developing Minimalist Education for
+Object-oriented Programming and Design (Tutorial), in OOPLSA'93
+Addendum, 1993. New York, NY: ACM.
+<LI>
+Rosson, M. B. and Carroll, J. M.  Extending the task-artifact
+framework: Scenario-based design of Smalltalk applications, in
+Advances in Human-Computer Interaction, ed. H.R. Hartson and
+D. Hix. 1993, Ablex: Norwood, NJ. pp. 31-57.
+<LI>
+Rosson, M. B. and Carroll, J. M.  Integrating task and software
+development for object-oriented applications, in Human Factors in
+Computing Systems, CHI'95 Conference.  1995.  New York, NY: ACM.
+<LI>
+Rosson, M. B., Carroll, J. M., and Bellamy, R. K. E. Smalltalk
+scaffolding: A case study in Minimalist instruction, in Human Factors
+in Computing Systems, CHI'90 Conference. 1990. New York, NY: ACM,
+pp. 423-429.
+</OL>
+</HTML>
+
+
+

@@ -1,0 +1,525 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML VERSION="2.0">
+<HEAD>
+<!-- WEBMAGIC VERSION NUMBER="2.0.1" -->
+<!-- WEBMAGIC TRANSLATION NAME="ServerRoot" SRC="/var/www/htdocs/" DST="/" -->
+<!-- WEBMAGIC TRANSLATION NAME="ProjectRoot" SRC="./" DST="" -->
+<TITLE>A User Interface for Accessing 3D Content on the World Wide Web </TITLE>
+</HEAD>
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/desbrief.JPG" ALT="Desbrief" HEIGHT=35 WIDTH=249><A HREF="../../desbrief.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<DL>
+<CENTER><DT ALIGN="CENTER"><B><FONT SIZE="6">A User Interface for Accessing </FONT></B>
+</CENTER><DD>
+<CENTER><DT ALIGN="CENTER"><B><FONT SIZE="6">3D Content on the World Wide Web</FONT></B>
+</CENTER></DL>
+<CENTER><P ALIGN="CENTER"><BR>
+ <BR>
+ </P>
+</CENTER><DL>
+<CENTER><DT ALIGN="CENTER"><B>Mike Mohageg, Rob Myers, Chris Marrin,</B>
+</CENTER><CENTER><DD ALIGN="CENTER"><B>Jim Kent, David Mott, and Paul Isaacs</B> <BR>
+ <BR>
+ <BR>
+ 
+</CENTER><CENTER><DT ALIGN="CENTER"><B>Silicon Graphics, Inc.</B>
+</CENTER><CENTER><DT ALIGN="CENTER"><B>2011 N. Shoreline Blvd.</B>
+</CENTER><CENTER><DT ALIGN="CENTER"><B>Mountain View, CA 94039-7311</B>
+</CENTER><CENTER><DT ALIGN="CENTER"><B>(415) 960-1980</B>
+</CENTER><CENTER><DT ALIGN="CENTER"><B>{michaelm,rob,cmarrin,jkent,mott,pauli}@sgi.com</B> <BR>
+ <BR>
+ <BR>
+ 
+</CENTER></DL>
+<H2>Abstract</H2>
+<P>A strategy for accessing and viewing three dimensional data on the World
+Wide Web is introduced. Factors driving the user interface design of a 3D
+web browser are presented. The interface for the initial implementation
+of Silicon Graphics' WebSpaceNavigator, the first commercially available
+3D Web browser, is given. Close attention is paid to design issues. Usability
+lessons learned from this interface are described and it is shown how they
+affected the second generation browser interface design. </P>
+<H2>Keywords</H2>
+<P>User interface design, three dimensional (3D) navigation, World Wide Web
+(WWW), Virtual Reality Modeling Language (VRML)</P>
+<H2>Introduction</H2>
+<P>Users of the World Wide Web typically access documents comprised of text
+and images, with access to audio and video. We believe that 3D environments
+are equally viable and compelling &quot;documents&quot; of interest on the web, with
+applicability to architecture, education, engineering, advertising, entertainment,
+and more. For instance, web-based 3D allows a web user to enter 3D models
+of places that are too dangerous to visit physically, or historical locations
+that no longer exist (e.g., Pompeii), or remote and/or physically restricted
+locations. A user might enter a re-creation of an ancient Aztec city, for
+example, and walk through it to investigate this historic site. The site
+could establish links between objects in the 3D environment and multi&#173;media
+content describing the objects role in Aztec culture.</P>
+<P>In a more commercial application, a 3D museum model allows users to walk
+through the rooms of the museum and view art exhibitions. The user can click
+on a piece of art to hear information about the piece, or be taken to a
+Hyper Text Markup Language (HTML) page that provides textual information
+and a movie about the piece. Conversely, standard HTML pages can contain
+links to 3D content. Users can investigate a 3D world then return to their
+HTML documents. </P>
+<P>For more detailed discussion and motivation for using 3D data on the web,
+see [7,10]. </P>
+<P>Viewing and interacting with 3D data can be significantly more complicated
+than viewing 2D text and graphics. Users need to examine 3D objects from
+different viewpoints and navigate through scenes to gain a better understanding
+of the data. An interface for the exploration of 3D data must provide adequate
+controls for the user to inspect objects and scenes. We have developed a
+user interface for this purpose.</P>
+<P>WebSpace is a viewer for 3D content delivered over the web [3]. An emerging
+standard for web-based 3D content is the Virtual Reality Modeling Language
+(VRML) [8]. WebSpace is a viewer for VRML data as Netscape, for instance,
+is a viewer for HTML data.</P>
+<P>WebSpace 1.0 is the first commercially available VRML viewer. Designing
+the user interface presented some interesting challenges; in particular,
+we needed to combine 3D user interface know-how with emerging conventions
+on the web. This paper will present the initial design of WebSpace 1.0,
+with emphasis on what we learned about web-based 3D user interfaces, and
+how we incorporated these lessons into the WebSpace 1.1 user interface.</P>
+<H2>Factors Driving the Design</H2>
+<P>There were 4 main driving factors in designing the UI for WebSpace 1.0. </P>
+<OL>
+<LI>The user's primary tasks
+<LI>Existing body of design work for 3D
+<LI>Burgeoning conventions for the web
+<LI>Meeting the needs of both novice and experienced users
+</OL>
+<H3>The User's Primary Tasks</H3>
+<P>The two main tasks for users surfing the web are content retrieval and content
+viewing. </P>
+<P>The popularity of HTML browsers is due to the ability to follow links quickly
+and easily retrieving information with a single mouse click. We wanted linking
+to be the primary task afforded the user in WebSpace. Links constitute not
+only a mechanism for retrieving information of interest, but also for navigation
+among 3D scenes and perhaps within scenes. Users, we surmised, would be
+busy linking from one cyber-place to another. Mouse clicks in the main viewing
+area of WebSpace were thus reserved for following links.</P>
+<P>The other main task for 3D users is viewing data from different points of
+view. In contrast to the passive activity of reading text in an HTML browser,
+possibly using a scrollbar to display information that exceeds the window
+size, 3D content is often best understood when the data can be viewed interactively
+from different points of view. Viewing controls had to be easily accessible
+in the WebSpace interface.</P>
+<P>In general, two viewing paradigms are used to view 3D data: navigation and
+examination. In navigation, the interaction dynamics are as though the 3D
+scene is a fixed, immovable world, and the user maneuvers through the world
+by walking, flying, or similar means. Conversely, with examination, the
+dynamics of the user interaction are as though the user is stationary and
+at a certain distance away from the center of an object. The user can tumble
+the object to view different sides. This type of viewer is best suited for
+tasks where the user's objective is to view an object as though s/he were
+holding it, such as viewing a model of a coffee mug. Because of the varied
+3D content on the Web, WebSpace would need to provide user interfaces for
+both viewing paradigms.</P>
+<H3>Existing Body of 3D UI Design</H3>
+<P>A source of design concepts was existing 3D user interface work [2,11,12].
+Our previous experience in 3D applications allowed for direct transfer of
+many UI elements [4,5,6]. For instance, we had a good understanding of the
+basic functionality needed to navigate and view in 3D. Our challenge was
+to make these functions accessible and usable to web users with little 3D
+user interface experience.</P>
+<P>We were also able to draw from the interfaces of popular 3D games, such
+as Doom. Many computer users move through 3D worlds on a daily basis and
+have attained a certain savvy for navigating with simple keypad commands
+and mouse gestures. We wanted to incorporate aspects of these interfaces
+to meet expectations and facilitate the transition from 3D in a game to
+3D on the web.</P>
+<H3>Burgeoning Conventions From the Web</H3>
+<P>Despite the web's infancy, a few de-facto conventions have emerged. Links
+embedded in content are a mainstay of HTML web pages, as is single clicking
+to follow a link. Presenting the Universal Resource Locator (URL) of a link
+destination when the cursor is over an anchor is another useful convention.
+Users can quickly get more information about the destination before they
+traverse a link. Our goal was to replicate the most useful features and
+conventions of HTML browsers into our VRML viewer where appropriate.</P>
+<H3>Varying User Experience Levels</H3>
+<P>Providing a modeless interface that met the needs of both novice and experienced
+users was a major goal for WebSpace 1.0. We presumed that most users would
+be novices at 3D navigation and that we would &quot;bias&quot; our UI in favor of
+novices. This meant making all important functions easily accessible and
+usable. With novices there was also an element of enticement. A subgoal
+was to provide a UI that would encourage first-time users to &quot;try out&quot; our
+product. We wanted users to experiment with WebSpace and eventually become
+immersed in a 3D world.</P>
+<P>Conversely, there are 3D knowledgeable users who find the trappings of a
+novice interface too cumbersome. We did not want to diminish the 3D experience
+in any way for these expert users; thus, we needed to provide the same functionality
+in a fashion that was less obtrusive, but still easy to use.</P>
+<H2>Design of WebSpace 1.0 </H2>
+<P>Figure 1 presents the user interface for WebSpace 1.0. The areas of most
+interest are the viewing window, where the 3D content appears, and a dashboard
+to manage interactive viewing.</P>
+<P>FIGURE 1 GOES HERE (mfm_fg1.gif)</P>
+<H3>Viewing Window </H3>
+<P>All 3D scenes appear in the viewing window. We believed that finding and
+following links would be the most critical tasks performed in this window.
+We tailored our design accordingly, by reserving clicking in the viewing
+window while the cursor was over a linked object for following links (as
+in HTML browsers). Where HTML allows for text and images to be link anchors,
+VRML allows 3D objects in the scene to be link anchors. </P>
+<P>HTML browsers often draw link objects in a different color so that the user
+can easily find them, and we provided two functions to make certain that
+users could find links in a VRML world. First, when the cursor passes over
+a link anchor, we automatically highlight the object by brightening its
+appearance. Following the lead of HTML browsers, we also display the URL
+for the link at the bottom of the WebSpace window. Additionally, we provided
+a function to highlight all the links, allowing users to immediately view
+all links in the visible area of the 3D scene.</P>
+<H3>Dashboard </H3>
+<P>WebSpace 1.0 presents a graphical dashboard across the bottom of the viewing
+window, to provide ready access to the most important navigation tools.
+The dashboard contains 3 fixtures: the joystick, the pan control, and the
+seek tool, as shown in Figure 1. A similar dashboard was created for the
+examination paradigm with the joystick replaced by a virtual trackball.</P>
+<P>The paradigm for the navigation tool is that of a user &quot;walking&quot; around
+a virtual world. The walk paradigm constrains the up direction of the scene
+and the height of the camera above a plane perpendicular to that direction.
+The primary functions needed for this walk paradigm are:</P>
+<UL>
+<LI>the ability to move forward and backward
+<LI>the ability to turn left and right
+<LI>the ability to tilt the camera up and down
+</UL>
+<P>All of this functionality is mapped onto a single affordance on the dashboard.
+The joystick was selected as it is representative of devices with which
+the naive user would be familiar. Since it supports all of the primary functions,
+it is positioned in the center of the dashboard. As the user interacts with
+it, it gives feedback by moving/turning in the direction of motion.</P>
+<P>The primary viewing functions map to the joystick as follows:</P>
+<UL>
+<LI>Clicking on the joystick and &quot;pushing&quot; it forward (backward) by moving the
+cursor toward the top (bottom) of the window causes forward (backward) motion.
+The further the cursor moves from the initial click location, the faster
+the motion.
+<LI>Clicking on the joystick and &quot;rotating&quot; it by moving the cursor to the right
+(left) causes the camera to turn right (left). The further the cursor moves
+from the initial click location, the faster the rotation.
+<LI>Clicking and moving both up/down and right/left causes a composition of
+these two motions.
+<LI>A small &quot;knob&quot; on the right side of the joystick rotates to tilt the camera
+up and down.
+</UL>
+<P>Also to assist navigational,, &quot;dead&quot; zones were added around the initial
+mouse click point. These zones consist of a narrow vertical and horizontal
+stripe of pixels centered at the click point. If the mouse remains in the
+vertical zone while moving toward the top/bottom of the window, the camera
+moves forward/backward with no turning. If the mouse remains in the horizontal
+zone while moving toward the left/right of the window, the camera rotates
+with no forward/backward motion.</P>
+<P>In addition to the primary functions, additional capabilities are provided
+by the other two dashboard affordances. The pan control on the right side
+of the dashboard allows the user to move the camera in the plane perpendicular
+to the viewing direction, providing sidling and height adjustment functionality.
+The control is oriented in the plane of the window and pivots about its
+center up/down and left/right. Like the joystick, there are dead zones about
+the initial click point that allow the camera to be moved straight up (down)
+by moving the mouse toward the top (bottom) of the window and staying in
+the vertical dead zone. Similarly, moving the mouse toward the right (left)
+of the window while staying in the horizontal dead zone causes the camera
+to move directly right (left). Straying outside of the dead zone allows
+for compound up/down, left/right movement. The speed of movement is controlled
+by the distance the mouse is moved away from the initial click point.</P>
+<P>The seek tool provides an alternate &quot;click and go&quot; navigation method. In
+this paradigm, the user clicks the mouse on an object of interest and the
+camera is smoothly moved toward that object. In WebSpace 1.0, clicking on
+the seek tool puts the interface into a temporary mode where the next mouse
+click in the viewing window causes the camera to move toward the point clicked.
+The camera is moved half the distance to the object and tilts so that the
+point clicked is in the center of the viewing window. A modal approach was
+used to preserve the primary interpretation of clicking in the viewing window
+as following a link. </P>
+<H3>Other Relevant Interface Items</H3>
+<P>VRML allows content authors to create specific interesting vantage points
+in the world, and providing a descriptive name for each. These vantage points
+are accessed via the Viewpoints menus. Selecting a viewpoint from the menu
+smoothly animates the camera from its current position to the selected vantage
+point. </P>
+<P>Various mouse and keyboard shortcuts are provided to allow 3D knowledgeable
+users to bypass the dashboard. For example, the primary functions of moving
+forward and back, and turning left and right, can be initiated by pressing
+the keyboard arrow keys. </P>
+<P>The buttons along the top of the window are similar to those found in most
+HTML browsers. These buttons provide for moving forward and backward between
+scenes, going to the user's home scene, reloading content, and other common
+web browser functionality. Our intent was to foster transfer of learning
+from HTML browsers to WebSpace.</P>
+<P>To provide additional feedback concerning the destination of a link, author-supplied
+descriptions of link destinations are displayed above the viewing area.
+The descriptions are significantly less cryptic than a URL, and can be useful
+in determining whether to follow a link.</P>
+<H2>Evaluations and What We Learned</H2>
+<P>We performed evaluations before and after releasing WebSpace 1.0. Informal
+usability testing was conducted prior to the release and user observations
+were completed after the release. The informal usability testing intended
+to investigate specific navigation issues; we were confident that the examining
+user interface was simple and clear. So we chose to use our limited time
+in evaluating navigation. </P>
+<H3>Informal Usability Testing </H3>
+<P>One of our biggest concerns during the design process was making certain
+that users could use the dashboard to navigate through a scene. It was unclear
+whether users would be able to easily maneuver to get to a location of interest
+in a scene. We were also interested in identifying whether users understood
+the controls we had provided on the dashboard (seen in Figure 1).</P>
+<P>Therefore, the usability evaluation was designed to collect information
+on: </P>
+<UL>
+<LI>ease/difficulty of users navigation through a scene
+<LI>users' explanations and expectations of dashboard controls.
+</UL>
+<H3>Procedure and Results</H3>
+<P>Users were presented with two scenes: a 3D model of an exhibition booth
+(with many stations to visit), and a scene with more abstract content, containing
+an island with irregular surfaces and structures emanating from it.</P>
+<P>Testing was performed in an informal fashion. Six 3D inexperienced users
+used WebSpace to perform the navigation and &quot;explanation&quot; tasks. The tasks
+were given to the participants by the experimenter. Verbal protocols were
+used to collect user feedback. For instance, the experimenter asked participants
+to navigate to a particular location in the booth. The participant would
+then describe and verbalize thoughts on the process and aspects of the navigation
+UI that s/he found confusing, problematic, or useful. The experimenter also
+monitored the participants' actions closely and recorded any subtle problems
+and issues.</P>
+<P>The usability testing uncovered 3 major issues: poor control/display relationship,
+the need for an overview, and the need for navigation speed controls.</P>
+<H4>Control/Display Relationship</H4>
+<P>The control/display relationship between mouse input and movement through
+the scene was very poor for the typical frame rate average workstations
+could achieve (in rendering complex 3D scenes). The original control/display
+relationship was linear; that is, there was a constantly increasing relationship
+between joystick (mouse) movement and the speed of navigation through the
+scene. This relationship lead to considerable navigational difficulty because
+users, especially novices, tend to make gross gestures with the mouse during
+navigation. For example, a user who is headed to the left of the intended
+target will move the mouse to the right to correct her course. However,
+the mouse drag to the right often has a high amplitude. With a linear relationship
+the mouse drag to the right leads to a sudden and large over-correction
+to the right. The user then corrects back to the left, but again over-corrects.
+This pattern continues and users become quite frustrated since they &quot;can't
+even move in a straight line.&quot; With a workstation that can render the scene
+at 30 fps, the linear relationship will work well; however, with typical
+rates of 8-12 fps the linear relationship leads to significant navigational
+difficulty. </P>
+<P>The solution was to introduce damping by using an exponential control/display
+relationship rather than linear. With an exponential relationship the user
+was free to move the mouse with fairly large gestures without having very
+large impact on the speed and direction of movement. The exact nature of
+the curve was fine tuned to create a relationship that was responsive but
+not difficult to control.</P>
+<H4>Need For an Overview</H4>
+<P>As realistic as computing technology can make it seem, navigating a computer-based
+3D scene does not provide all the cues that navigating in the real world
+provides. In particular, the overall context available in real world navigation
+(or &quot;wayfinding&quot;) is not available in computer-based navigation [1,9]. Therefore,
+it can be difficult for users to develop an overall mental model of a computer-based
+scene, unless they have prolonged exposure. Our testing showed this to be
+an issue in WebSpace as well. </P>
+<P>While participants could navigate to desired locations, they often commented
+on not being completely sure of their current location in relation to other
+locales/landmarks in the scene. </P>
+<P>The standard solution to the &quot;lost in space&quot; problem is to provide a map
+or &quot;bird's eye view&quot; of the world to help users orient themselves. However,
+we could not automatically create such maps based on the 3D scene information
+alone. Providing such an aid seemed to be the responsibility of the content
+creator. Therefore, we took no special measures to handle this issue, except
+to encourage content developers to provide such navigational aids.</P>
+<H4>Controlling Speed</H4>
+<P>3D scenes are of different sizes and shapes; there are no restrictions on
+how large/small they can be. It is part of the content creator's responsibility
+to set a travel speed appropriate for the size of the scene being created.
+For instance, users will want to move very quickly through a model of New
+York City, but much slower when navigating a studio in Greenwich Village. </P>
+<P>VRML allows content creators to set the speed for the scenes they create.
+However, our test participants helped uncover two situations where the speed
+was not what they were expecting:</P>
+<OL>
+<LI>The user wanted to travel slower/faster than the author defined speed (even
+though the author has specified a reasonable speed)
+<LI>The author had failed to provide a speed or specified an inappropriate speed.
+</OL>
+<P>In both cases users need to have a degree of control over the speed of their
+movement in the scene. We provided 3 menu items to set speed. One was used
+to increase speed while the other was used to decrease it. A third was used
+to return the speed to that originally specified by the author (the &quot;default&quot;
+speed).</P>
+<H3>User Observations</H3>
+<P>We had several opportunities to observe novices using WebSpace 1.0. Most
+observations were made at ACM SIGGRAPH '95 where attendees used the viewer
+at kiosks dispersed throughout the convention center. There was a VRML model
+of the SIGGRAPH exhibition floor with all the booths. Users could use WebSpace
+to move through the show floor and access information on any booth of interest.
+Also, chat rooms were created where users could enter and see others (represented
+as avitars) as well as interact with them.</P>
+<P>We also observed individual users at their personal workstations (mostly
+at Silicon Graphics' Mountain View, CA campus). These users were free to
+access and navigate any content they preferred and provide us with feedback
+on the positives and negatives of the product.</P>
+<H4>User Expectations</H4>
+<P>The most interesting discovery was that users were not very motivated to
+employ UI fixtures to navigate a scene. Users expected to simply click in
+the viewing window and have some sort of navigation take place automatically.
+Note that this is in direct conflict with our intent to be consistent with
+web conventions by reserving clicking in the viewing window for traversing
+links. It was very clear, however, that many novices expected to click on
+an object or area of interest and be taken there. They seemed to want to
+use the cursor as a pointer that would whisk them to their location of interest
+within the scene. This is the functionality we had defined for the Seek
+Tool, but many users wanted this behavior to be a primary navigation mechanism.
+Our challenge now was to support this seeking behavior without violating
+the link following convention. </P>
+<P>For those users who were interested in using the dashboard for navigation,
+most were unable to easily determine how to use the joystick. The intent
+of the joystick was to offer users a fixture with an inviting physical quality
+that would compel users to &quot;grab&quot; and push. However, most novice users expected
+a single click on navigation affordances to result in some form of navigation.
+We were confident that the interaction dynamics of grabbing and pushing
+a control forward was the correct approach, but it seemed that we needed
+to also support the expectation of clicking to invoke behavior. </P>
+<H4>Impact of Content Attributes </H4>
+<P>A common mechanism for navigating within an HTML document is following internal
+links. These are links that position the browser at a different part of
+the current document. Following internal links is commonly used for coarse
+navigation, such as accessing the general topic the user is interested in.
+Once there, users rely on the scroll bar (or potentially text searching)
+to perform fine navigation to access the exact information they seek. Most
+users of WebSpace 1.0 drew on this model in interacting with 3D worlds as
+well. Many anticipated being able to click on an in-scene object to take
+them to places of interest. The viewpoints menu contains points of interest;
+however, users prefer to maintain focus on the content rather than access
+a menu outside the main viewing window. This was a direct instance where
+content attributes, which were beyond the control of the WebSpace UI, had
+significant impact on the usability of the product. Most scenes contain
+links all of which lead to other 3D scenes or HTML documents. Therefore,
+the user expectation of being able to click on an in-scene object to move
+to a location of interest in the scene was not commonly supported by content
+developers.</P>
+<P>Another aspect of content attributes was a subtle, yet important, issue
+of setting user's navigational expectations. Every scene has an entry point,
+which authors are free to define. Many scenes defined the entry view to
+be a point above the content, a &quot;bird's eye&quot; view of sorts. While these
+views help to orient users, they also suggest a flying navigational paradigm.
+That is, if users enter a scene in the sky (or at some high elevation),
+they will immediately assume that they can fly around a scene in order to
+navigate.</P>
+<P>However, WebSpace 1.0 supports walk navigation, where the users can move
+freely through a scene, but their elevation is fixed. The sidling fixture
+can be used to change elevation, but once the user starts to move forward
+the elevation is fixed. This is the most common type of navigation paradigm
+and is the correct functionality for WebSpace. Nonetheless, content often
+set users expectations that they were flying. Thus their interaction with
+the navigation dashboard could lead to dissonance since they believed they
+were controlling a flying, rather than walking, user interface.</P>
+<H2>Design Changes for WebSpace 1.1</H2>
+<P>After observing the problems encountered with the initial user interface,
+we redesigned it to both overcome the shortcomings and to improve the look
+of the UI (See Figure 2). We moved the dashboard from the scene into a separate
+area below the viewing window to keep it from obscuring portions of the
+scene, while maintaining the illusion that the user is looking over the
+dashboard into the scene. A separate window also allowed us to photorealistically
+render components of the dashboard while not interfering with rendering
+performance of the main viewing window. This increases the association to
+real world devices for the user.</P>
+<P>FIGURE 2 GOES GHERE (mfm_fg2.gif)</P>
+<P>The importance of navigation, especially seek, was underestimated in WebSpace
+1.0. But to allow the novice to follow links and to keep consistency with
+HTML browsers, we needed to maintain the simple &quot;click to link&quot; behavior.
+We decided to allow users to indicate their preference for single clicking
+in the scene: seeking or following links. Buttons on the dashboard allow
+users to select the current preference. Note that these are not modes; the
+user always has access to navigating and following links. The preference
+simply sets the primary functionality of the cursor.</P>
+<P>With the &quot;click to link&quot; preference, the user clicks on a linked object
+to go to that destination, as in an HTML browser. Navigation is done with
+the dashboard or in the viewing window with keyboard modifiers. The novice
+starts with this preference since all functions are obvious.</P>
+<P>With the &quot;click to navigate&quot; preference, the user can hold down one or more
+mouse buttons and drag in scene to navigate (walk, pan, or tilt in the Walk
+Viewer, spin, pan, or dolly in the Examiner Viewer). Clicking in scene seeks
+to the object clicked on, moving close enough so that the object fills the
+viewing window (rather than moving half way to the object, as in WebSpace
+1.0). Double clicking on a linked object follows that link. This gives a
+very powerful navigation model to experienced users allowing modeless navigation
+and link following.</P>
+<P>Our observations of WebSpace 1.0 caused us to place one additional component
+on the dashboard. The Viewpoint menu had proven to be a very effective navigation
+tool so we put it on the dashboard to make it more accessible. The current
+viewpoint is displayed, with controls for stepping through the viewpoints,
+and a lighted button tells the user if s/he is currently at the displayed
+viewpoint.</P>
+<P>All functions on the dashboard have a prompt message displayed when the
+cursor is over them. These prompts provide information about the behavior
+of the control (e.g. - &quot;Joystick: drag to walk or turn&quot;). Cursor shapes
+appropriate to the function are shown as well. In &quot;click to navigate&quot; the
+seek cursor is normally shown. Clicking in the main window to seek changes
+this to a &quot;seek in progress&quot; cursor, while clicking and dragging changes
+it to a walk cursor. In &quot;click to link&quot; the cursor is a pointing finger
+(chosen to match HTML browsers) when the user is over a link. </P>
+<H2>Reflections on the Design Process</H2>
+<P>There are two main items to share concerning UI design/development for WebSpace
+1.0 and 1.1. First, it would have been useful to perform more rigorous usability
+testing with a wider range of users and more varied scenes prior to the
+1.0 release. However, the requirements of an extremely tight delivery schedule
+and our naivete concerning the types of scenes that would be available in
+the future restricted our ability to do rigorous testing. Nonetheless, it
+is clear that obtaining feedback from a representative sample of users would
+have positively influenced the UI or at least better prepared us to anticipate
+our post-1.0 findings.</P>
+<P>Secondly, UI practitioners must always temper their passions for the user
+interface with the fact that other factors also contribute to the success
+of a product. In the case of WebSpace, factors such as rendering performance,
+full support for the VRML specification, and &quot;peaceful&quot; coexistence with
+HTML browsers were also critical. Given limited development resources, all
+of these success factors needed to receive attention and the UI is but one
+of these factors. As a result, not all of the UI changes suggested from
+post-1.0 evaluations were implemented in 1.1. The next release of the product
+will incorporate more of the UI enhancements. This is yet more data suggesting
+that it is very difficult to have a perfectly well balanced and complete
+UI in the first release of a product.</P>
+<H2>Acknowledgements</H2>
+<P>Our thanks to Rikk Carey, under whose direction this project was developed.
+Thanks to Gavin Bell, who spearheaded the technical specification of VRML.
+Thanks to Delle Maxwell for her artistic talents and help in creating the
+WebSpace user interface. And thanks to the entire Silicon Graphics Open
+Inventor team for their technical expertise and support.</P>
+<H2>References</H2>
+<P>1. L. T. Kozlowski, and J.B. Kendall. Sense of Direction, spatial orientation,
+and cognitive maps. Journal of Experimental Psychology: Human Perception
+and Performance (1977). Vol 3, No. 4, 590-598.</P>
+<P>2. J. D. Mackinlay, S. K. Card, and G. G. Robertson. Rapid controlled movement
+through a virtual 3D workspace. Computer Graphics (SIGGRAPH '90 Proceedings)
+(Aug. 1990), F. Baskett, Ed. vol. 24, 171-176.</P>
+<P>3. J. Muchowski, WebSpace User's Guide, 1995, Silicon Graphics http://www.sgi.com/Products/WebFORCE/WebSpace/help/help.html</P>
+<P>4. J. Muchowski, D. Myers. IRIS Annotator 1.0 User's Guide, 1995, Silicon
+Graphics.</P>
+<P>5. D. Myers. IRIS Showcase 3.0 User's Guide, 1993, Silicon Graphics.</P>
+<P>6. D.Myers, E. Deeth. InPerson 2.0 User's Guide, 1995, Silicon Graphics.</P>
+<P>7. M. Pesce. Building and Browsing Cyberspace. New Riders Publishing, Indianapolis,
+IN, 1995.</P>
+<P>8. M. Pesce, G. Bell, A. Parisi, VRML 1.0 Specification, August 26, 1995
+http://vrml.wired.com/vrml.tech/vrml10-3.html</P>
+<P>9. E. K. Sadalla, W. J. Burroughs, and L.J. Staplin. Reference points in
+spatial cognition. Journal of Experimental Psychology: Human Learning and
+Memory (1980) . Vol. 6, No. 5, 516-528.</P>
+<P>10. Silicon Graphics. VRML Library Archive http://webspace.sgi.com/Archive/Scenarios/</P>
+<P>11. P. S. Strauss and R. Carey. An object-oriented 3D graphics toolkit.
+Computer Graphics (SIGGRAPH '92 Proceedings) (July 1992), E. E. Catmull,
+Ed., vol. 26, 341-349.</P>
+<P>12. R. C. Zeleznik, K. P. Herndon, D. C. Robbins, N. Huang, T. Meyer, N.
+Parker, and J. F. Hughes. An interactive 3D toolkit for constructing 3D
+widgets. Computer Graphics (SIGGRAPH '93 Proceedings) (Aug. 1993), J. T.
+Kajiya, Ed., vol. 27, 81-84.</P>
+<P></P>
+<P></P>
+</BODY>
+</HTML>
+

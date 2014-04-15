@@ -1,0 +1,240 @@
+<HTML>
+<HEAD>
+<TITLE>Design Issues Involving Entertainment Click-ons </TITLE>
+</HEAD>
+
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/shortpap.JPG" ALT="shortpap" HEIGHT=35 WIDTH=249><A HREF="../../shortpap.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<H1>Design Issues Involving Entertainment Click-ons <BR>
+</H1>
+<P>
+<EM>Douglas Super*, Marvin Westrom**, Maria Klawe***<BR>
+</EM>
+<P>
+*Dept. of Computer Science
+<P>
+Univ. of British Columbia
+<P>
+Vancouver, BC V6T 1Z4, Can.
+<P>
++1 604 822 1284
+<P>
+super@cs.ubc.ca<BR>
+<BR>
+<P>
+**Dept. of Curriculum Studies
+<P>
+Univ. of British Columbia
+<P>
+Vancouver, BC V6T 1Z4, Can.
+<P>
++1 604 822 5314
+<P>
+westrom@unixg.ubc.ca<BR>
+<BR>
+<P>
+***Dept. of Computer Science
+<P>
+Univ. of British Columbia
+<P>
+Vancouver, BC V6T 1Z4, Can
+<P>
+. +1 604 822 5075
+<P>
+vpsas@unixg.ubc.ca<BR>
+<HR>
+<H2>ABSTRACT</H2>
+<P>
+<FONT COLOR=#000000>Preliminary results and methodology is reported
+for the effectiveness of entertainment click-ons in edutainment
+software. Indices for findability, popularity and effectiveness
+are discussed. School and home use data were obtained from log
+files built for <U>Counting on Frank</U>, a CD-ROM math adventure
+for ages 8-12 published by EA Kids in late 1994.</FONT>
+<H3>KEYWORDS</H3>
+<P>
+<FONT COLOR=#000000>Click-ons, edutainment, interface design,
+log files, games, mathematics, children, motivation</FONT>
+<H2>INTRODUCTION</H2>
+<P>
+<FONT COLOR=#000000>Click-ons, <B>COs</B>, are a common feature
+of some types of educational software. Typically, when a child
+mouse clicks on a portion of a scene, he/she is rewarded with
+an animation, sound effect, or some other multi-media response.
+With early childhood software, COs are sometimes designed to be
+integral to the learning intent (e.g. <U>Play Room</U>, <U>Tree
+House</U>, <U>From A to Zap</U>), but for other software an entertaining
+interlude (with or without useful information) is the main purpose
+of COs. <U>Counting on Frank</U>, <B>CoF</B>, an elementary mathematics
+program developed by Electronic Arts in conjunction with E-GEMS
+(Electronic Games for Education in Math and Science), contains
+133 entertainment COs located in eight separate scenes. Researchers
+with E-GEMS have analyzed students&iacute; interaction with CoF
+COs as one component of their investigation into the development,
+efficacy, and HCI issues involving edutainment (entertaining,
+educational interactive media). This may be the first systematic
+study of the nature of COs found in a commercial educational product.</FONT>
+<P>
+As part of a larger research study [1], CO data was collected
+over two 4-week periods in a structured and supervised school
+environment from 111 grade 4-5 students working in teams of 3,
+and for a 2-week period from 9 children in an unstructured and
+unsupervised home setting. The data consists of performance log
+files which provide detailed information including the team/child
+name, game state, screen position, and time associated with each
+mouse click.<BR>
+<P>
+While using CoF, children may spend time on other activities:
+1) solving word problems, 2) analyzing clues to determine a mystery
+number, 3) playing four math strategy games, and 4) navigating.
+Analyses of the log files for each team/child reveal diverse and
+complex profiles.
+<H2>SITE, TREND AND GENDER RESULTS</H2>
+<P>
+<FONT COLOR=#000000>The school groups spent an average of 26%
+of their time with COs (s.d. 6%, range 13-41%) children at home
+averaged 22% (s.d. 9.5%, range 10-34%). Actual time devoted to
+COs for the school teams varied from 28 to 99 minutes; for the
+children at home from 95 to 367 minutes. It is surprising that
+the children at home spent a smaller proportion of their time
+on COs than the children at school. It may be partly explained
+by a much higher use of the assorted math games by children at
+home.</FONT>
+<P>
+For 26 of the 36 school teams<B>, </B>over the eight sessions
+the trend for the percentage of time devoted to COs declined,
+sometimes followed by a levelling. However it is clear from the
+significant bursts of CO activity (after episodes of math-focused
+activity) which occur atop this trend that CO continued to be
+a viable option (or diversion) for most students. The average
+CO starting base was 46%; the average final trend value was 13%,
+and the average burst was 29%. For the other 10 teams, the CO
+use curve was either flat, cyclic, increased or random. 
+<P>
+An analysis of the entire mix of CoF activities (COs, problem,
+clues, games) for both groups suggests a complex diversity of
+play-preferences by students. This provides evidence to support
+rich activity mixes for similar edutainment products. Information
+on other aspects of CoF playing patterns can be found in [1].
+<P>
+A gender difference was noted in the home data: the CO percentage
+for girls was 27% and boys 16%. No such difference exists between
+the all-girl and all-boy teams at school. Boys tended to focus
+their attention on particular activities (including COs) for longer
+periods. Girls during a comparable time period spread their attention
+more evenly between all available activities. This result requires
+further investigation.
+<H2>FINDABILITY INDEX FOR COs</H2>
+<P>
+<FONT COLOR=#000000>Students using CoF did not find all COs. Most
+of the findability analysis of COs is based on the home data since
+children in this setting were less restricted by time, by school
+work norms, and the research schedules for problem levels, and
+got no assistance from peers.</FONT>
+<P>
+Children in the home study found from 85 to 125 of the 133 entertainment
+COs. More than 70% of the COs were found by all children. Six
+COs were found by only 2 children, and only one student found
+2 of the COs. The time spent looking for COs is highly correlated
+(0.82) with the number of COs found (although most of this time
+was spent revisiting COs, rather than looking for new ones). 
+<P>
+This index ranges from 0 to 1. The average CO findability index
+for the school teams was 0.47 with a standard deviation of 0.2.
+This is considerably less than the average home study value of
+0.8 (s.d. 0.2).
+<P>
+COs have characteristics which contribute to their findability.
+From greatest to least, findability varies by type (distinct objects,
+distinct regions, parts of objects, and parts of regions), by
+animate likelihood (likely animate objects, likely inanimate objects,
+regions), and position (centre, periphery). Additional data and
+methods of analysis are being investigated to quantify these observations.
+<P>
+Mouse click data in log files was mapped to create graphic overlays
+for each scene. These visual representations were used to explore
+clicking patterns. Using this technique it was found, for example,
+that the most tenacious child at home had a 71% hit rate in one
+scene. Further analyses of success rate is being undertaken.
+<P>
+Findability should be considered at the design stage of edutainment,
+especially if a CO is to carry essential information or directions.
+<H2>POPULARITY INDICES FOR COs</H2>
+<P>
+<FONT COLOR=#000000>We have investigated three basic scales for
+popularity.</FONT>
+<P>
+The first two indexes range from 1 to _, and the third ranges
+from 0 to 1.
+<P>
+The Pop1 value for the all COs in CoF is 2.7, s.d. 1.7, range
+1-16. Overall Pop3 is 0.63, range 0.0-0.94. The Pop2 value for<B>
+</B>the 91<B> </B>single response COs is 1.7 with a standard deviation
+of 0.8, ranging from 1 to 4.7. The Pop2 measure for the 42 multiple
+response COs is 2.9, s.d. 2.4, range 1.1 to 12.8. The most popular
+COs in all but one scene are multiple response COs. Multiple response
+COs, on average, have a higher popularity index than single response
+COs.
+<P>
+We are exploring the relationship between CO popularity and entertainment
+characteristics of media and message. From the data related to
+the popular COs in each scene, children enjoy most the COs with
+humor and appropriate multi-media effects and normally enjoy least
+attempts to impart COs with strictly verbal information (no visual
+aids). Stock figures, which are relatively unchanged throughout
+several scenes, become less popular as children navigate more
+deeply into the program. For example, in the first two consecutive
+scenes Pop1 for the dog Frank, falls from 2.3 to 1.6. Pop3 falls
+from 0.56 to 0.37.
+<H2>EFFECTIVENESS INDICES FOR MULTIPLE-RESPONSE COs</H2>
+<P>
+<FONT COLOR=#000000>Over one-third of the COs have from 2 to 7
+multiple responses, <B>MR</B>. Although MR-COs are reinitialized
+upon entering a scene, the pattern varies: cycling (abab...),
+terminating (abc stop), or idling (abcc...). Considerable resources
+were invested by the developer on MR-COs that were revisited by
+a small percentage of the teams/students in the study. In fact
+only 6 of the 42 MR-COs were fully utilized by most of the teams/students
+who found them. On the other hand, an effective MR-CO in CoF was
+a row of four baseballs; each gives an individual response and
+then disappears. Its findability was just 0.55 but its popularity
+was 9.5. Further indices are being devised that measure the effectiveness
+and cost-benefit of MR-COs.</FONT>
+<H2>RECOMMENDATIONS AND FUTURE RESEARCH</H2>
+<P>
+<FONT COLOR=#000000>Clearly, COs are a motivating factor in many
+edutainment programs. They may be more than entertaining diversions,
+and serve a useful psychological function as a bridge between
+more substantial activities. Designers of both the entertainment
+and educational aspects of edutainment should keep in mind the
+concepts, results, and characteristics related to findability,
+success rate, popularity and multi-response effectiveness. E-GEMS
+will continue to document and refine its micro-analysis of COs,
+as well as of navigation, activity patterns, and program features.</FONT>
+<H2>ACKNOWLEDGMENTS</H2>
+<P>
+<FONT COLOR=#000000>Our thanks go to Richard Gibbons, Marjan Parsa,
+Weng-Keen Wong, and Kelly Davidson for their helpful comments
+and assistance in gathering the data, and to the National Science
+and Engineering Research Council of Canada, Electronic Arts Canada,
+the B.C. Advanced Systems Institute and Apple Canada for their
+support of this research.</FONT>
+<H2>REFERENCES</H2>
+<OL>
+<LI>Klawe, M.M., Super, D. &amp; Westrom, M.L. (1995). Counting
+on Frank: Postmortem of an edutainment product. Available from
+&lt;http://www.cs.ubc.ca/nest/egems/home.html&gt;
+<LI>Sedighian, K. &amp; Klawe, M. (1995) An interface strategy
+for promoting reflective cognition in children. Available from
+&lt;http://www.cs.ubc.ca/nest/egems/home.html&gt;
+</OL>
+</BODY>
+</HTML>

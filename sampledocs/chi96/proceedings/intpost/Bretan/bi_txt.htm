@@ -1,0 +1,229 @@
+<HTML>
+<HEAD>
+<TITLE>Concurrent Engineering for an Interactive TV Interface
+</TITLE>
+
+<META NAME="GENERATOR" CONTENT="Internet Assistant for Microsoft Word 2.0z">
+</HEAD>
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<P><IMG SRC="./../../graphics/intpost.JPG" ALT="intpost" HEIGHT=35 WIDTH=249><A HREF="./../../intpost.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<H1>Concurrent Engineering for an Interactive TV Interface<BR>
+</H1>
+<P>
+<EM>Ivan Bretan and Per Kroon <BR>
+</EM>
+<P>
+Telia Research AB
+<P>
+S-136 80 Haninge
+<P>
+SWEDEN
+<P>
+{ivan.bretan,per.kroon}@haninge.trab.se 
+<HR>
+<H2>ABSTRACT</H2>
+<P>
+The design of a user environment for a video-on-demand service
+through an interdisciplinary style of collaboration called &icirc;concurrent
+engineering&quot; is described. The process encompasses pre-prototype
+behavioural studies, traditional user studies, graphical design
+of interface objects, industrial design of input devices and interaction
+design of interface dialogue. <BR>
+<H3>KEYWORDS</H3>
+<P>
+Interdisciplinary design, interactive TV, video-on-demand. <BR>
+<H2>VIDEO-ON-DEMAND</H2>
+<P>
+A US video rental store may stock in excess of 15000 titles, and,
+as has often been remarked, video-on-demand (VOD) is video rental
+pursued through a different distribution channel. Together with
+the fact that computerised tools make it easier to cope with a
+large selection of films, this leads us to conclude that it is
+reasonable to expect video-on-demand interfaces to have to support
+the navigation among and selection from a very large volume of
+films.
+<H2>CONCURRENT ENGINEERING</H2>
+<P>
+The need for interdisciplinary design of user environments has
+been accentuated the last years (see e.g. [1]) as additional degrees
+of freedom have been introduced into interface construction by
+multimedia technology. The most striking need for additional competence
+lies in the area of graphical design, since multimedia often means
+visually intense interfaces. As the discipline of human-computer
+interaction moves into the realm of consumer electronics, it is
+obvious that the knowledge of industrial designers concerning
+ergonomic design of physical equipment becomes increasingly interesting.
+People with this type of background could therefore be a natural
+part of user interface development teams, along with interaction
+designers, usability experts and many other types of specialists.
+Such an interdisciplinary style of working is well-known in the
+car manufacturing industry, where designers, human factors specialists
+and engineers work together on new car designs from the outset.
+Concurrent engineering means parallel interdisciplinary work,
+communicating over wide channels and a broad agenda, as opposed
+to sequential, segmented team-work with well-defined narrow interfaces.
+At Telia Research, a multidisciplinary student project has been
+carried out with the goal of assessing the benefits of concurrent
+engineering by applying this method to the experimental development
+of a VOD user interface prototype.<BR>
+<P>
+<CENTER><IMG SRC="IMG00001.GIF"></CENTER>
+<P>
+<CENTER><FONT SIZE=1>Figure 1. The film reel scrolling by.</FONT></CENTER>
+<H3>Behavioural Studies</H3>
+<P>
+What is it people do when they rent films using a VOD service?
+That is hard to answer, since such services are in their infancy.
+In order to provide a rationale for the design of VOD interfaces
+from a user-centred point of view, it makes sense to study the
+more general search and decision processes that are part of ordinary
+video rental. We have conducted detailed interviews with 18 persons
+renting videos from a video store in central Stockholm, from which
+we derived the following behavioural scheme: 1) Check the chart
+of films most frequently rented and/or the shelf containing new
+films. If this proves unsatisfactory, move on to one or several
+specific categories (action, drama, etc.). 2) Pick up a film recognised
+due to marketing (magazine advertisements, trailers, etc.), recommended
+by a friend or a reviewer, or just because the cover looks interesting.
+3) Check to see whether any well-known actor stars in the film
+(and/or whether a well-known director made the film). Read the
+information on the reverse of the cassette. 4) Apply remaining
+selection criteria: production year, store recommendations (from
+staff or other customers), playing time, price etc. Categories
+are often used as filters: there is no need to browse among the
+films belonging to a category known to be uninteresting. Although
+the study did not produce sufficient data to confirm this, we
+do believe that a select and rank strategy is relatively common:
+gathering, physically or mentally, several films and then selecting
+one or a few from this set (particularly useful when more than
+one viewer is involved in the decision process). <BR>
+<H3>Graphical Design</H3>
+<P>
+The behavioural studies revealed that the picture - cassette cover
+or poster - is by far the most important piece of information
+used by the video renter when deciding which film to view. Therefore,
+dominating the main screen in our VOD interface design is a sequential
+presentation of five movie posters, constituting a magnified portion
+of a virtual reel of films, where the middle poster is &icirc;in
+focus&icirc; (figure 1). Since the posters are designed by the
+film companies to be graphically attractive and eye-catching,
+there is no need - and at any rate no space - for any colourful
+interface widgets but the most important ones. Due to the limited
+resolution of a TV-screen, more than five posters would hardly
+be useful. The icons to the left and right on the screen are actually
+superimposed over the movie pictures, transparent but clearly
+visible since the leftmost and rightmost parts of the pictures
+are shaded to black. The film poster sequence is aligned with
+an Alphaslider [2] used to specify which portion of the film reel
+is displayed. The size of the Alphaslider &icirc;thumb&quot; can
+be varied to illustrate the ratio of the five currently shown
+films to the total reel. The general feeling of the visual design
+is relatively two-dimensional, giving associations to modern magazine
+layout. Experiments were also carried out using a version of the
+graphical design which added a sense of depth, but the evidence
+was inconclusive as to whether this actually increased the aesthetical
+or functional value of the interface.
+<P>
+<CENTER><IMG SRC="IMG00003.GIF"><BR>
+</CENTER>
+<P>
+<CENTER><FONT SIZE=1>Figure 2. Ergonomic remote control for interactive
+TV.</FONT></CENTER>
+<H3>Design of Input Device </H3>
+<P>
+Since the interface is designed with an interactive television
+setting in mind, the natural choice for an input device is some
+kind of remote control. The user must be able to carry out all
+actions available in a whole range of interactive television services
+using the same device, including controlling a video (pause, rewind
+etc.), entering a personal code and, of course, moving a pointer.
+Figure 2 shows the type of remote control that the industrial
+designers of the project eventually arrived at after user tests
+and input from the other team members. It has a finger joystick
+controlling the pointer's position on the screen, operated using
+minimal thumb movements, while the index finger rests on the select
+button. This design is well suited to operating the Alphaslider
+and creates a restful grip for the hand and relieves the entire
+lower arm. Note that the remote is symmetrical and therefore also
+easy to use for a left-handed person. The slim shape of the remote
+has been made possible by leaving out an alphanumerical keyboard,
+relying on Alphasliders and virtual keyboards. An alternative
+version of the remote having an extendible alphanumerical keyboard
+has also been developed, but it is ergonomically somewhat inferior.
+<BR>
+<H3>Interaction Design</H3>
+<P>
+The user navigates among the videos using the Alphaslider located
+below the five-poster sequence, encompassing the entire search
+space of the film reel, or by dragging the poster sequence to
+the left or right. The Alphaslider has several indisputable advantages,
+among which some of the most important ones are: the fact that
+no typing is needed (reducing the need for a alphanumerical keyboard
+on the remote); that the user only needs to recognise rather than
+recall a name; and that no misspellings are possible. By clicking
+on one of the icons on the left-hand side of the display, the
+user specifies the movie category (action, comedy, drama, horror
+or children), i.e., which reel of films is shown. The icons in
+the group above changes the sorting order of the films on the
+reel (by recency, by popularity (rental frequency) or alphabetically
+by title). The same method is used regardless of whether the user
+is searching for a particular film or just browsing. When an interesting
+film has been found the user can obtain more information by clicking
+on the picture or using a colour-coded key on the remote control.
+The information provided with each video is: a plot summary, the
+cast and other data from the recording, a trailer (and perhaps
+an interactive commercial, when available). An additional click
+with the remote orders the film.<BR>
+<P>
+Advanced searches, where the user for instance wants to select
+a film from the set of movies recorded in Sweden in the seventies,
+are carried out by clicking on the search icon. The user then
+selects the search criteria, choosing between actor, director,
+country, composer, specialised genre (westerns, science fiction
+etc.) and many more - different criteria can be combined. Selecting
+actor, for instance, is done by means of an Alphaslider, which
+at this point will be a technique familiar to the user. Having
+specified the actor, the reel displays films from the relevant
+set, which can be sorted in the same way as earlier. Additional
+conditions can then be added incrementally in the same way. There
+are occasions when an interesting video will be found but where
+the viewing of the film has to be postponed, for instance if the
+film found requires more time than is available. The user can
+then put the film in a &icirc;basket&quot; (which in effect is
+a user-specified category, or reel of films), saving it for a
+later occasion. Clicking on the basket icon shows the films currently
+collected there. This function is also useful when a group of
+people is trying to agree on a movie to watch. Each person in
+the group can then put films that they are interested in into
+the basket and eventually compare the candidates, settling on
+a choice that satisfies everyone (or annoys no-one). There is
+also an option of side-tracking. If the user turns this function
+on at a time when it is indicated as available, a link to another
+relevant film will be presented. The reasons for linking videos
+together vary: they are based on the same story; they are filmed
+at the same location; or perhaps they have a theme in common,
+like aristocratic decadence or urban gang wars. <BR>
+<H2>ACKNOWLEDGEMENTS</H2>
+<P>
+We would like to thank the other DUVA project members: Fredrik
+Ampler, Walter Frost, Lukas Hansson, Thomas Nystr&ouml;m, Markku
+Virtanen and Jon &Ouml;lmeskog. Thanks also to Catriona MacDermid
+for valuable comments.<BR>
+<H2>REFERENCES</H2>
+<OL>
+<LI>Ballay, J.M. (1994) Designing Workscape&#153;: An Interdisciplinary
+Experience, <I>Proceedings of CHI '94</I>, Boston, pp. 10-15.
+<LI>Ahlberg, C. and Shneiderman, B. (1994). The Alphaslider: A
+Compact and Rapid Selector, <I>Proceedings of CHI &euml;94</I>,
+Boston, pp. 365-371.
+</OL>
+</BODY>
+</HTML>

@@ -1,0 +1,522 @@
+<HTML>
+<HEAD>
+<TITLE>A Collaborative Approach to Developing Style Guides</TITLE>
+</HEAD>
+
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24<P><IMG SRC="./../../graphics/papers.JPG" ALT="papers" HEIGHT=35 WIDTH=249><A HREF="./../../papers.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<H1>A Collaborative Approach to Developing Style Guides</H1>
+<CENTER>
+Stephen Gale<BR>
+AIT Limited<BR>
+The Malthouse, 45 New Street,<BR>
+Henley-on-Thames, RG9 2BP, UK.<BR>
+Tel:  +44-1491-416600   E-mail:  srg@ait.co.uk<BR>
+</CENTER>
+
+<H2>ABSTRACT</H2>
+A vital element in exploiting the benefits of Graphical User Interfaces (GUIs) is the use of an appropriate 
+Style Guide.  This paper outlines a collaborative approach to the development of Style Guides and 
+highlights the associated benefits and pitfalls.
+
+<H3>Keywords</H3>
+Style Guides, Graphical User Interfaces, User Interface Design, Standards
+
+<H2>INTRODUCTION</H2>
+Over the past five years there have been a large number of technological developments which have 
+impacted the availability of technology to business users.  Colour displays, windowing systems, mice 
+and icons offer application developers tremendous design freedom.  This provides software developers 
+with an opportunity to create truly innovative and creative designs.  However, this increased design 
+freedom also provides a greater number of opportunities to produce poor, ineffective designs.<P>
+
+Style Guides have become critical in exploiting the business benefits of GUIs.  Although in the 
+graphic design world, Style Guides are not new - many organisations have been using them for 
+decades, but usually only for paper based materials - their application to computer software is 
+still relatively immature. <P>
+
+Shortly after the introduction of the first GUIs the relevant manufacturers started producing Style 
+Guides.  The first to appear were developed by Apple for the Macintosh [1], but shortly afterwards 
+both IBM and Microsoft developed Style Guides for Common User Access [2,3] and the Windows 
+[4,5,6] platform respectively.  While these guides have gained moderate acceptance, in practice 
+they have not provided developers with sufficient detail; it is still possible to produce radically 
+different user interfaces all of which comply with the relevant Style Guide.<P>
+
+As a consequence, end user organisations have started to develop their own Style Guides which add 
+detail and higher level guidance to the industry standard guides.  For these organisations there are a 
+number of motivating factors:
+<UL>
+<LI>They may have a large, and growing, number of GUI developments.  In some cases, these organisations 
+are trying to build an integrated environment where a number of applications are presented to the end
+ user as a single coherent system.  Consistent user interfaces are critical in these cases.
+<LI>A lack of consistency between applications is a very clear problem - you don't have to be a usability 
+expert to be able to spot it!
+<LI>While the process of applying Human Computer Interaction (HCI) can be viewed as a change in 
+perspective and possibly culture, a Style Guide is something tangible that can be funded and has clear 
+definable outputs. 
+<LI>The proliferation of different GUI platforms and development tools has increased the risk of 
+inconsistent user interfaces dramatically.
+</UL>
+
+With the advent of customer facing systems, (i.e. systems that are used in front of the customer) 
+another requirement has started to emerge - to ensure consistent communication of a corporate
+ image to customers.  For many financial and retail organisations, where similar products are offered, it 
+is important to differentiate not just by product, but also on image and service quality.  This image 
+can only be communicated effectively and systematically with customers if it is present throughout 
+all product and corporate literature, whether computer or paper based.  Hence the importance of a 
+Style Guide.<P>
+
+
+<H2>STYLE GUIDES</H2>
+
+<H3>What is a Style Guide?</H3>
+The objectives of a Style Guide are to:
+<UL>
+<LI>Promote visual and functional consistency within and between different applications;
+<LI>Promote good design practice; 
+<LI>Reinforce company branding or an organisation's public image.
+</UL>
+
+
+Visual consistency ensures that applications appear the same in terms of colour, icons etc. whereas 
+functional consistency ensures that the application operates in the same manner, e.g. the same 
+metaphors are used for browsing data records.<P>
+
+It is well known in HCI literature that consistency is important:
+<UL>
+<LI>Once users have learnt how to use one application this knowledge will be applicable to other 
+applications.  This will minimise the amount of training required as well as encouraging users to 
+use and explore different applications;
+
+<LI>Consistent applications will help staff to appear confident and competent in front of customers.  
+This will improve the customer's perception of staff service.  This is particularly important in customer
+ facing situations;
+
+<LI>Consistency between the applications will allow the different project teams to share code, 
+whether it is via custom controls or some other means.  This will not only reduce the implementation
+ time, but also produces less code which in the longer term will be easier and more cost effective to 
+maintain.  This is particularly important with GUIs where increasing amounts of code are associated 
+with the user interface.
+</UL>
+
+
+However, ensuring consistency does not ensure usability.  Although an application may be highly 
+consistent, it does not automatically follow that the application will be useful.  Compliance with a low 
+level Style Guide will ensure consistency.  However, it will not 
+ensure that the applications themselves perform the tasks required either by the end users or the 
+business.  Ensuring that the applications contain the appropriate functionality is usually the joint
+ responsibility of the relevant business and IT departments.  However, incorporating HCI principles 
+which help ensure ease of use and minimise learning of the application should be an objective of a 
+comprehensive Style Guide.<P>
+
+Consistency can be enforced by standardising on bad as well as good design and one of the
+ necessities of a Style Guide is that it is built on good practice.  As the body of knowledge of 
+user interface design expands Style Guides will evolve.<P>
+
+<H3>Contents</H3>
+While the exact content of a Style Guide may vary, the following format has been used 
+successfully in a number of cases.  The contents will depend on a number of factors:
+<UL>
+<LI>Internationalisation might not be an issue for some companies;
+<LI>The development methodology used;
+<LI>The type of systems and end users involved;
+<LI>The level of integration with existing guides.
+</UL>
+
+<B>TABLE OF CONTENTS</B><BR>
+
+About this document <BR>
+Who should use this Style Guide<BR> 
+When to use this Style Guide<BR>
+How to use this Style Guide <BR>
+DESIGN PRINCIPLES<BR> 
+What is usability<BR>
+Why usability is important<BR>
+Developing appropriate functionality<BR>
+Strive for consistency<BR>
+Aim for flexibility<BR>
+Ensure visual clarity<BR>
+Use colour effectively<BR>
+Allow reversible actions<BR>
+....<BR>
+BUILDING APPLICATIONS<BR>
+Navigation<BR>
+Interaction Style<BR>
+Feedback<BR>
+Presentation of information<BR>
+-  When to use graphs<BR>
+-  When to use tables<BR>
+Help<BR>
+.....<BR>
+APPLICATION COMPONENTS<BR>
+Message boxes<BR>
+Toolbars<BR>
+Forms<BR>
+Card Index<BR>
+....<BR>
+USER INTERFACE COMPONENTS<BR>
+Buttons<BR>
+Text boxes<BR>
+Fields and Field labels<BR>
+Scroll bars<BR>
+Option buttons<BR>
+.....<BR>
+INTERNATIONALISATION<BR>
+Language Considerations<BR>
+GUI Considerations<BR>
+COMPATIBILITY WITH OTHER STYLE GUIDES<BR>
+Microsoft<BR>
+-  Windows 3.1 standards<BR>
+-  Microsoft Office Compliance<BR>
+-  Migrating to Windows 95<BR>
+IBM<BR>
+-  Common User Access 91<BR>
+-  Common User Access 93<BR>
+Motif<BR>
+TERMINOLOGY<BR>
+COMPLIANCE CHECK LIST<BR>
+RESPONSE FORM<BR>
+Your comments<BR>
+How to ensure you get the latest release<BR>
+Where to get help<BR>	
+
+
+<H3>Benefits</H3>
+As with many activities in user interface design the objectives are relatively 
+straightforward, however, there are a wide variety of benefits.<P> 
+
+From the end user perspective, the following benefits may be obtained 
+from a Style Guide:
+<UL>
+<LI>Reduced errors - less frustration;
+<LI>Increased confidence in the system;
+<LI>Reduced training requirements; 
+<LI>Increased morale;
+<LI>Improved use of system functionality;
+<LI>Improved productivity;
+<LI>Reduced resistance to the use of new technology.
+</UL>
+
+
+However, other groups can also expect to benefit from the use of a 
+Style Guide.  From the IT developers' perspective, Style Guides may 
+have the following benefits:
+<UL>
+<LI>Maintain control over look and feel;
+<LI>Control 3rd parties during the tendering and implementation phases;
+<LI>Reduce arbitrary design decisions and re-invention;
+<LI>Capitalise on learning/iteration;
+<LI>Enable production of re-usable software;
+<LI>Reduce development time.
+</UL>
+
+From the Business perspective, there are a number of potential benefits:
+<UL>
+<LI>Produce usable systems enhancing customer service/satisfaction;
+<LI>Increase market awareness;
+<LI>Increase product awareness;
+<LI>Reduce training costs;
+<LI>Facilitate helpline support;
+<LI>Improve staff retention;
+<LI>Increase user acceptance of new systems.
+</UL>
+
+When all these benefits are taken into account the case for developing 
+a Style Guide can be very persuasive.  However, many organisations have 
+failed to reap the benefits.  The remainder of this paper looks at why and 
+presents an alternative approach.<P>
+
+<H2>REASONS WHY STYLE GUIDES FAIL</H2>
+Obviously different Style Guides fail for different reasons.  Many organisations 
+have tried on more than one occasion to solve the &quot;Style Guide problem&quot;.  The 
+following is a list of the more common reasons for failure:
+<UL>
+<LI>Often the documentation runs into hundreds of pages.  The material becomes 
+difficult to use and read.  It is ironic that many of the existing Style Guides, aimed at
+ producing usable systems, are themselves difficult to use.
+<LI>The guide attempts to be too prescriptive and tackle too many application 
+domains or different types of end users.  The result is that it is not appropriate for 
+a number of target applications.
+<LI>The document is never updated - either because no one realises that it 
+needs to be updated or because no one is sure about who should update it.
+<LI>Little consideration is given to how the Style Guide is introduced into the 
+organisation - there is no supporting material and no one is there to encourage 
+developers to use it.  When there are problems there is no one around to 
+listen and amend the guide (if necessary). 
+<LI>Often the use of the Style Guide alone is perceived to solve the &quot;usability problem&quot;.  
+For example, many organisations seem to believe that once a Style Guide
+ is in place no further action is required to ensure usability. The production 
+of a Style Guide is seen as a substitute for iterative design and user testing.  
+<LI>Another group, or person, is perceived to be responsible for the 
+system's usability and the development team are no longer responsible for 
+the usability of their own system.
+<LI>Developers and users are not involved in the content and 
+development of the Style Guide.
+<LI>The guide does not address how it should be used in practice or
+ how it should be integrated with development methods.
+</UL>
+
+<H2>AN ALTERNATIVE APPROACH</H2>
+In order to overcome these issues we have developed an alternative approach 
+based on involving developers and end users throughout the production of the 
+Style Guide.  The approach involves 5 steps:
+
+<OL>
+<LI><I>Raising awareness amongst developers and end users</I><BR>
+Often it is assumed that both the developers and end users understand the 
+rationale for developing the Style Guide.  This assumption is often not correct 
+and leads to misunderstandings later in the process.  Including management 
+in this awareness raising process often pays dividends later on.
+<LI><I>Building consensus</I><BR>
+One of the most successful approaches has been built on the use of 
+a working party consisting of key developers and end users from each of 
+the teams within the organisations.  On a weekly basis 
+over a period of 2 months specific topics (e.g. Keyboard Interaction,
+Navigation, Terminology) are presented to the working party for 
+their review and input.  This material is subsequently revised and 
+forms a chapter in the Style Guide.
+<LI><I>Documenting the Style Guide</I><BR>
+Only once a certain level of consensus has been reached, is the Style 
+Guide documented.  This approach ensures that the commitment and 
+understanding of the developers is gained and the best of their ideas 
+are documented.
+<LI><I>Providing training and support material</I><BR>
+The way the document is introduced into the organisation is critical.  
+The document should be supported by the use of training and support materials.
+ The members of the working party who help develop the guide preferably 
+provide the introductory presentations and the subsequent training.
+<LI><I>Establishing an environment which enables the guide to evolve</I><BR>
+In many organisations evolution is perceived to be another word for &quot;putting right 
+previous mistakes&quot;.  The Style Guide should be viewed as a repository for 
+good ideas and this will constitute a body of knowledge which will grow over time.  This 
+is often the most difficult part of the approach to control, particularly because it is 
+so dependant on an organisation's culture. The creation of this environment can be 
+facilitated by using presentations, workshops, seminars, bulletin boards and roadshows.
+</OL>
+As well as these five steps there are other aspects which are inherent in this approach.<P>
+
+<I>Integrated with the development process</I><BR>
+If a Style Guide is to be successful it must be designed to support the development
+ methods being used.  One of the most frequent problems with Style Guides is that 
+they do not address the different ways in which they could be used.  In fact, frequently 
+the Style Guide is not aimed at supporting any kind of development process.<P>
+
+A critical part of the production of a Style Guide is understanding the development 
+environment and culture of an organisation.<P>
+
+<I>Getting it right in the first place</I><BR>
+Style Guides are often used as a means of checking the conformance of a user 
+interface once it has been implemented.  While this is a valid use of a Style 
+Guide it is not the most productive.<P>
+
+Our experience is that the Style Guide is best used from the outset of the project.  
+With one organisation that we have worked with the Style Guide is taught to all 
+new Visual Basic programmers.  This organisation now has a number of developers 
+that routinely use the Style Guide and would not consider developing a user 
+interface without it.<P>
+
+<I>Allowing evolution</I><BR>
+The Style Guide must be based on good practice and as the organisation 
+learns more about what is appropriate in their particular environment this 
+knowledge need to be incorporated into the guide.<P>
+
+This evolution relies on setting the guide in the correct context and 
+establishing a process that deals with requests for change impartially.<P>
+
+<I>Communicate strong visual and functional style</I><BR>
+The challenge here is to produce designs which are distinctive, but still 
+conform with the industry standards.  Maintaining a distinctive look and feel, 
+while allowing the guide to evolve, presents a significant challenge.  In addition, in 
+many organisations their corporate image is constantly evolving.<P>
+
+<I>Encompass relevant platforms and functionality</I><BR>
+The scope of the Style Guide may have to be restricted as it is impossible to 
+have a guide which will cover all systems - from back office to customer 
+facing touchscreen systems.<P>
+
+<I>Developed alongside a development team</I><BR>
+Often Style Guides are developed in isolation from &quot;real&quot; projects.  The 
+result is a Style Guide that is impractical and frequently un-implementable 
+in the chosen development environment.  In addition, developers will often
+ resist using the guide because they have not been involved in its production.<P>
+
+Our approach has been to develop the Style Guide alongside a 
+development team and immerse ourselves in a real development project.  
+From the development team's perspective, they receive HCI and graphic
+ design input into their project.  From the Style Guide team's perspective 
+we know that the designs are practical and implementable.  In our experience, 
+this is the quickest and most effective way of gaining commitment to the 
+use of the guide.<P>
+
+This approach also has the added advantage that this is often the 
+quickest way of ensuring an early success.  Once developers realise 
+that the Style Guide can improve their project, other projects are often
+ very quick to follow suit.<P>
+
+<I>Not just a document</I><BR>
+Developers do not tend to read large documents.  Ultimately we are attempting to 
+change the way software is developed and if we want to achieve this it will be
+ difficult to achieve via documentation alone.  In our experience, other 
+communication methods must be used.  In the past we have produced:
+<UL>
+<LI>Interactive demonstrations to illustrate the look and feel.  Some of these 
+demonstrations have a mode which allow developers to browse the layout of 
+the screen to pixel level;
+<LI>Checklists to ensure conformity;
+<LI>Reference tables for quick reference of critical data.  
+These have been produced as &quot;bumper stickers&quot; which developers have 
+attached to their monitors;
+<LI>Competitions to spot the deliberate mistakes in a user interface design. 
+This was originally based on an idea by Molich and Nielsen [7], 
+but later GUI versions were developed;
+<LI>Source code, custom controls and property tables which promote 
+sharing user interface code.
+</UL>
+
+<I>Skills transfer</I><BR>
+Often organisations find there is a shortfall in the skills required to 
+develop these new GUI based applications.  The most obvious skill is that 
+of Graphic Design - once a niche skill restricted to those involved in paper 
+based communication, but now particularly relevant in user interface design.<P>
+
+Our approach is to provide training, on an informal as well as a 
+formal basis.   However, our preferred approach is to work alongside 
+a development team and develop the Style Guide with them.  
+In our experience,  this is the most effective and quickest way 
+of developing a practical, usable Style Guide. <P>
+
+<I>Ensuring ownership</I><BR>
+This is one of the key factors and often one of the most difficult to
+ achieve, particularly when the Style Guide has been put together by a third party.  
+This collaborative approach to developing a Style Guide greatly helps to 
+produce a feeling of ownership, however, a group or individual in the organisation 
+must be identified as being responsible for the maintenance and 
+updating of the guide.  Such individuals often become the focal point 
+for the guide and end up providing developers with ad hoc advice on generic 
+user interface design issues.<P>
+
+<H2>DISCUSSION</H2>
+For many organisations the production of a Style Guide is the first time 
+they have come into contact with HCI specialists.  Although there are a 
+great many benefits to be gained there are also a number of pitfalls.  If HCI 
+as a function is going to gain the confidence and respect of the business and
+ IT communities we must ensure that this initial contact is as fruitful as possible.
+
+The issue of Style Guides raises some interesting issues for the HCI community:
+<UL>
+<LI>Rather than being concerned with document production, Style Guides 
+are about changing culture and influencing developers.  If one set out 
+explicitly to change the way people work our first choice would not be to 
+write a document.  Style Guides are about winning hearts and minds.
+<LI>Style Guides also raise the issue of the difference between analysis
+ and design and the difference in the skill sets required.  The majority of
+HCI is based upon analysis and amongst many practitioners there 
+seems to be a belief that design is just another form of analysis.  However, 
+the skills required to design something are very different (although 
+complimentary) to being able to analyse something.  For example, 
+can an art critic paint?
+<LI>The answer to this particular issue lies in the combination of 
+graphic design and HCI - neither party has the total answer - 
+but both are holding different pieces of the same jigsaw puzzle.
+<LI>It is important that Style Guides are positioned properly in 
+the development lifecycle.  It is also important that their
+ limitations are fully understood.  On a number of occasions 
+Style Guides have been seen to be the panacea to an organisation's 
+usability problems.  Whereas a clear definition of a 
+systems requirements might have been more appropriate.
+<LI>A number of practitioners seem to perceive their role to 
+be one of policing a Style Guide.  While this is a valid role 
+on certain occasions (and only then when accompanied with
+ constructive criticism), a much more positive role would be for the
+ practitioners to help get the design right from the outset.  This again 
+raises the issue of the difference between analysis and design.
+<LI>The Style Guide should be well presented and easy to use.  
+It is ironic that many commercially available Style Guides are difficult 
+to use - either because of poor structure or layout.
+<LI>The guide should be designed for the intended use - it should be 
+easy to read, cross referenced and ideally available in softcopy.
+</UL>
+
+If you are a developer or business user you might like to consider the following:
+<UL>
+<LI>Many of the benefits of a Style Guide are not directly 
+related to the guide itself, but are the consequence of ensuring 
+different implementation activities are co-ordinated.  As a consequence 
+of the production of Style Guides one organisation decided to set up a 
+database of error messages (once they had been sorted out for one application 
+the customer decided to share them across applications) and of 
+custom controls (where different custom controls are used to 
+perform very similar operations).
+<LI>Be aware of the pitfalls.  The majority of them are related to the 
+soft side of implementation and there are a number of ways of avoiding
+them, e.g. making sure the key influencers are
+involved, making sure the views of the end users are taken into account.
+<LI>Make sure developers feel involved throughout the lifecycle.  
+It is important that the developers feel that the Style Guide is theirs 
+and it has not been imposed on them by senior management.
+<LI>Standards are often perceived as boring, out of date, old fashioned
+ and slowing down development.  If the Style Guide is perceived
+ in this light then it is unlikely to succeed.
+<LI>Appropriate development methodologies for GUIs are 
+still emerging.  In many organisations different development 
+teams are using different methods, in some cases it almost 
+seems as if they are making it up as they go along on a per 
+project basis.  This makes it very difficult to integrate a Style Guide.
+<LI>Style Guides also have a role in end user involvement.  
+Frequently, the difference in vocabulary between developers
+and users is so great that it can become a barrier to forming a 
+successful partnership.  Style Guides, because of their very 
+graphical nature can help solve this problem.
+</UL>
+
+<H2>CONCLUSION</H2>
+The most effective Style Guides are not those that are imposed on 
+developers by senior management, but those that have been developed 
+with the developers themselves so that they perceive the 
+Style Guide as being &quot;theirs&quot;.<P>
+
+This paper outlines a collaborative approach to developing 
+Style Guides.  We have used the term collaborative because 
+if the Style Guide is to be successful then it must be developed
+ in conjunction with the software developers and end users.  
+This approach has been used successfully with a number of 
+different commercial organisations.<P>
+
+<H2>ACKNOWLEDGEMENTS</H2>
+I would like to acknowledge the contributions of my colleagues at
+ AIT, particularly Tracy Ashdown, Morgan Lynch, Jane Watts, Anil 
+Patel and Garf Collins.  Of our many clients, particular thanks to 
+Daniel Jordan at the National Westminster Bank Plc and Lesley 
+Hancock at Marks and Spencer Plc with whom we worked very 
+successfully in applying and refining this approach.<P>
+
+<H2>REFERENCES</H2>
+<OL>
+<LI>Apple Computers, Inc.  Macintosh Human Interface Guidelines. 
+Addison-Wesley, Reading, MA., 1992.
+<LI>IBM Corporation, Common User Access: Advanced Interface 
+Design Guide. IBM, 1989.  (Part no. SC26-4582).
+<LI>IBM Corporation, Object-Oriented Interface Design: IBM Common 
+User Access Guidelines.  QUE.  1992.
+<LI>Microsoft Corporation, The Windows Interface: An Application 
+Design Guide.  Microsoft Press, Redmond, WA.,. 1992.
+<LI>Microsoft Corporation, Microsoft Windows 95 User Interface 
+Design Guide: Preliminary Draft 5.00.  Microsoft Corp.  October 1994
+<LI>Microsoft Corporation, The Windows Interface Guidelines 
+for Software Design.  Microsoft Press, Redmond, WA., 1995.
+<LI>Molich, R. and Nielsen, J. Improving a Human-Computer 
+Dialogue. Communications of the ACM, 33(3), (March 1990), 338-348.
+</OL>
+<P>
+srg_txt.htm        Stephen Gale      Created 21-12-95
+<ADDRESS>Email: srg@ait.co.uk</ADDRESS>
+</BODY>
+</HTML>
+
+

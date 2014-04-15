@@ -1,0 +1,250 @@
+<HTML>
+<HEAD>
+<TITLE> Efficacy of a PredictiveDisplay, Steering Device, and Vehicle Body Representation in theOperation of a Lunar Vehicle 
+</TITLE>
+
+</HEAD>
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<P><IMG SRC="./../../graphics/intpost.JPG" ALT="intpost" HEIGHT=35 WIDTH=249><A HREF="./../../intpost.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<H1><CENTER>  <FONT SIZE=5 COLOR=#000000>Efficacy of a Predictive
+Display, Steering Device, and Vehicle Body Representation in the
+Operation of a Lunar Vehicle</FONT></CENTER></H1>
+<P>
+<CENTER><I><FONT SIZE=2 COLOR=#000000>Santosh Mathan</FONT></I><SUP><FONT SIZE=2 COLOR=#000000>1</FONT></SUP><I><FONT SIZE=2 COLOR=#000000>,
+Arn Hyndman</FONT></I><SUP><FONT SIZE=2 COLOR=#000000>1</FONT></SUP><I><FONT SIZE=2 COLOR=#000000>,
+Karl Fischer</FONT></I><SUP><FONT SIZE=2 COLOR=#000000>1</FONT></SUP><I><FONT SIZE=2 COLOR=#000000>,
+Jeremiah Blatz</FONT></I><SUP><FONT SIZE=2 COLOR=#000000>2</FONT></SUP><I><FONT SIZE=2 COLOR=#000000>,
+Douglas Brams</FONT></I><SUP><FONT SIZE=2 COLOR=#000000>1</FONT></SUP></CENTER>
+<P>
+<SUP><FONT SIZE=2 COLOR=#000000>1</FONT></SUP><FONT SIZE=2 COLOR=#000000>Department
+of Computer Science <SUP>2</SUP>Department of Social and Decision
+Sciences</FONT>
+<P>
+<FONT SIZE=2>Carnegie Mellon University Carnegie Mellon University</FONT>
+<P>
+<FONT SIZE=2>5000 Forbes Avenue 5000 Forbes Avenue </FONT>
+<P>
+<FONT SIZE=2>+1 412 268 3072 +1 412 862 2799 </FONT>
+<P>
+<FONT SIZE=2>mathan@cs.cmu.edu jeremiah.blatz@andrew.cmu.edu 
+<BR>
+</FONT>
+<H2>ABSTRACT</H2>
+<P>
+<FONT SIZE=2 COLOR=#000000>Time delayed teleoperation exacts a
+high toll on human cognitive resources. High error rates and poor
+performance times are typical consequences of operating a vehicle
+under such conditions. This paper describes the usability effects
+of simple enhancements to the interface for a teleoperated lunar
+vehicle. Experimental results suggest that simple interface elements
+such as a predictive display, steering wheel, and vehicle body
+representation can dramatically reduce errors and task performance
+times during time delayed teleoperation by inexperienced lunar
+vehicle operators.</FONT>
+<H3>Keywords</H3>
+<P>
+<FONT SIZE=2 COLOR=#000000>Predictive display, teleoperation,
+lunar vehicle, time delay</FONT>
+<H2>INTRODUCTION</H2>
+<P>
+<FONT SIZE=2 COLOR=#000000>Carnegie Mellon University is developing
+a vehicle that will allow users to navigate the lunar surface
+from the earth. The system is intended for walk-up-and-use operation
+by inexperienced users. Our role has been to propose a set of
+usability enhancements to an existing interface design. </FONT>
+<P>
+<FONT SIZE=2>Teleoperation of the lunar vehicle is complicated
+by the five second delay resulting from round trip communications
+between the vehicle and the Earth. Under such conditions vehicle
+users must estimate the future state of the vehicle based on current
+display feedback and judgments about the effect of control inputs.
+The mental operations required to obtain such an estimate exact
+a high toll on the cognitive resources of users [5]. A typical
+result of this is a delay in performing tasks -- to cope, users
+adopt a move-and-wait strategy characterized by small control
+inputs, followed by a wait for display feedback, followed by small
+inputs [3]. Control errors are another consequence of time delay;
+studies suggest a log-linear relationship between errors and length
+of time delay [1].</FONT>
+<P>
+<IMG SRC="IMG00001.GIF">
+<P>
+<B><FONT SIZE=2>Figure 1: Predictive display. Arrow depicts estimated
+position and heading in 5 seconds; lines trace predicted path
+</FONT></B>
+<H2>DESIGN DESCRIPTIONS</H2>
+<P>
+<FONT SIZE=2 COLOR=#000000>The vehicle interface design described
+in this report evolved as a response to complaints voiced by users
+of an existing vehicle interface prototype. </FONT>
+<H3>Original Interface</H3>
+<P>
+<FONT SIZE=2 COLOR=#000000>The existing interface displays video
+from a camera mounted on the lunar vehicle and uses a mouse to
+control speed and direction. In tests, users found this method
+of controlling the vehicle unnatural a problem which may become
+severe in the walk-up-and-use scenarios envisioned for this lunar
+vehicle. Users also complained of disorientation arising from
+a lack of representation of the vehicle body, making it difficult
+for users to relate the broad terrain view provided by the display
+to the precise vehicle dimensions, attitude and position. Vidov
+and Alexander [4] cite a similar effect experienced by pilots
+of aircraft such as the F-16 that provide a broad unobstructed
+view of the terrain through a bubble canopy.</FONT>
+<H3>New Interface</H3>
+<P>
+<FONT SIZE=2 COLOR=#000000>On the basis of prior usability tests
+and user comments, our group designed a new interface combining
+the following features:</FONT>
+<UL>
+<LI><FONT SIZE=2>A predictive display superimposing directional
+and velocity information on the video display</FONT>
+<LI><FONT SIZE=2>A representation of the vehicle body</FONT>
+<LI><FONT SIZE=2>A steering wheel for direction control and keyboard
+for speed control</FONT>
+</UL>
+<P>
+<FONT SIZE=2>The predictive display has two lines tracing the
+vehicle&iacute;s projected path and an arrow describing the vehicle's
+predicted position and heading in five seconds (see Figure 1).
+Indirect velocity information is provided by the length of the
+two lines. The information presented on the predictive display
+is based a two dimensional calculation of vehicle location and
+takes into account the five second time delay. Predictions are
+based on a combination of user control actions and vehicle velocity;
+a flat lunar terrain is assumed for the computation. The rendered
+result of the prediction is projected into three dimensions on
+a video display.</FONT>
+<H2>THE USABILITY EVALUATION</H2>
+<P>
+<FONT SIZE=2 COLOR=#000000>In order to test the efficacy of the
+new design, we implemented software prototypes of the original
+and new vehicle interfaces taking into account the five second
+delay. We user tested each prototype on computer simulations of
+two types of lunar terrain. The simulation was built using Open
+GL and ran on a Silicon Graphics Indigo workstation. Users consisted
+of five males and three females ranging in age from 18 to 38;
+all subjects were Carnegie Mellon University students.</FONT>
+<H3>Procedure</H3>
+<P>
+<FONT SIZE=2 COLOR=#000000>Users had 5 minutes of driving practice
+with each interface prototype prior to performing two timed tasks.
+The timed tasks required subjects to navigate two courses of varying
+difficulty using each interface. The first course represented
+a relatively flat lunar terrain while the second course required
+navigating a winding canyon. Subjects were asked to complete the
+courses as rapidly as possible without colliding with terrain
+obstacles. Half the subjects first performed tasks with the prototype
+of the original interface; the other half began with the new interface.</FONT>
+<H2>RESULTS</H2>
+<P>
+<FONT SIZE=2 COLOR=#000000>On average, users were significantly
+faster completing both courses using the new interface. However,
+the most dramatic difference was observed in driving errors -
+on average, users of the new interface made eight times fewer
+errors than those using the original interface.</FONT><FONT SIZE=2>Table
+1: Average performance figures. </FONT>
+<P>
+<TABLE BORDERCOLOR=#000000 BORDER=1>
+<TR><TD WIDTH=72><B><FONT SIZE=1>Interface</FONT></B></TD><TD WIDTH=78><CENTER><B><FONT SIZE=1>Flat Course</FONT></B></CENTER>
+<P>
+<CENTER><FONT SIZE=1>Time (min.)</FONT></CENTER>
+</TD><TD WIDTH=102><CENTER><B><FONT SIZE=1>Canyon Course</FONT></B></CENTER>
+<P>
+<CENTER><FONT SIZE=1>Time (min.)</FONT></CENTER>
+</TD><TD WIDTH=72><CENTER><B><FONT SIZE=1>Collisions </FONT></B><FONT SIZE=1>(errors)</FONT></CENTER>
+</TD></TR>
+<TR><TD WIDTH=72><B><FONT SIZE=1>Original</FONT></B></TD><TD WIDTH=78><CENTER><FONT SIZE=1>2:10</FONT></CENTER>
+<P>
+<CENTER><FONT SIZE=1>(std 0:26)</FONT></CENTER>
+</TD><TD WIDTH=102><CENTER><FONT SIZE=1>4:26</FONT></CENTER>
+<P>
+<CENTER><FONT SIZE=1>(std 1:00)</FONT></CENTER>
+</TD><TD WIDTH=72><CENTER><FONT SIZE=1>2</FONT></CENTER>
+<P>
+<CENTER><FONT SIZE=1>(std 0.926)</FONT></CENTER>
+</TD></TR>
+<TR><TD WIDTH=72><B><FONT SIZE=1>New</FONT></B></TD><TD WIDTH=78><CENTER><FONT SIZE=1>1:38</FONT></CENTER>
+<P>
+<CENTER><FONT SIZE=1>(std 0:24)</FONT></CENTER>
+</TD><TD WIDTH=102><CENTER><FONT SIZE=1>3:05</FONT></CENTER>
+<P>
+<CENTER><FONT SIZE=1>(std 1:07)</FONT></CENTER>
+</TD><TD WIDTH=72><CENTER><FONT SIZE=1>0.25</FONT></CENTER>
+<P>
+<CENTER><FONT SIZE=1>(std 0.463)</FONT></CENTER>
+</TD></TR>
+<TR><TD WIDTH=72><B><FONT SIZE=1>Statistical difference</FONT></B>
+</TD><TD WIDTH=78><CENTER><FONT SIZE=1>F = 5.88</FONT></CENTER>
+<P>
+<CENTER><FONT SIZE=1>p &lt; 0.03</FONT></CENTER>
+</TD><TD WIDTH=102><CENTER><FONT SIZE=1>F = 6.34</FONT></CENTER>
+<P>
+<CENTER><FONT SIZE=1>p &lt; 0.025</FONT></CENTER>
+</TD><TD WIDTH=72><CENTER><FONT SIZE=1>F = 22.86</FONT></CENTER>
+<P>
+<CENTER><FONT SIZE=1>p &lt; 0.0003</FONT></CENTER>
+</TD></TR>
+</TABLE>
+<P>
+We also observed differences in driving style across the two interfaces.
+Users tended to employ a move-and-wait strategy while navigating
+with the original interface. Vehicle operation under this condition
+was also characterized by overcompensating control actions. In
+contrast, the new interface allowed continuous movement of the
+vehicle and afforded a much finer degree of control. 
+<H2>CONCLUSIONS</H2>
+<P>
+<FONT SIZE=2 COLOR=#000000>Our results indicate that simple elements
+such as a predictive display, steering wheel, and vehicle body
+representation can enhance the usability of teleoperated vehicles
+when there is a time delay. The enhancements incorporated in the
+new design were tested as a package and so it is difficult to
+ascribe the observed results to a particular factor. However,
+comments by users suggest that the predictive display was responsible
+for the most of the effects observed. Future testing will attempt
+to confirm this hypothesis. We are also keen to determine time
+delay lengths for which the simple elements proposed in this study
+remain effective.</FONT>
+<H2>INFORMATION AND QUESTIONS</H2>
+<P>
+<FONT SIZE=2 COLOR=#000000>For information contact Santosh Mathan
+or Arn Hyndman (mathan@cs.cmu.edu and ahyndman@cs.cmu.edu).</FONT>
+<H2>ACKNOWLEDGMENTS</H2>
+<P>
+<FONT SIZE=2 COLOR=#000000>Our thanks Sara Kiesler for guidance,
+inspiration, and help with editing this paper, and to the Carnegie
+Mellon University students who participated in our testing.</FONT>
+<H2>REFERENCES</H2>
+<OL>
+<LI><FONT SIZE=2 COLOR=#000000>Newman, R. Time lag consideration
+in operator control of lunar vehicles from earth. In Cummings,
+C. and Lawrence, H. (eds.), <I>Technology of Lunar Exploration.
+</I>Academic Press, NY, 1962</FONT>
+<LI><FONT SIZE=2 COLOR=#000000>Rasmussen, D. A natural interface
+for precision telerobot control. In Das, H. (ed.), <I>Telemanipulator
+Technology.</I> SPIE - The International Society for Optical Engineering,
+WA, 1962</FONT>
+<LI><FONT SIZE=2 COLOR=#000000>Sheridan, T. Human enhancement
+and limitation in teleoperation. In Skaar, S. and Ruoff, C. (eds.),
+<I>Teleoperation and Robotics in Space</I>. American Institute
+of Aeronautics and Astronautics, DC, 1994</FONT>
+<LI><FONT SIZE=2 COLOR=#000000>Vidov, M. and Alexander, H., Visual
+interface issues in space teleoperation in a virtual environment.
+In Das, H. (ed.), <I>Telemanipulator Technology.</I> SPIE - The
+International Society for Optical Engineering, WA, 1992</FONT>
+<LI><FONT SIZE=2>Wickens, C. <I>Engineering Psychology and Human
+Performance</I>. Harper Collins Publishers, NY, 1992<BR>
+</FONT>
+</OL>
+<P>
+</BODY>
+</HTML>

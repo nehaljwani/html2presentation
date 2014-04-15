@@ -1,0 +1,248 @@
+<HTML>
+<HEAD>
+<TITLE>ASK Jasper: Performance Support for Students</TITLE>
+
+</HEAD>
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/shortpap.JPG" ALT="shortpap" HEIGHT=35 WIDTH=249><A HREF="../../shortpap.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+
+<H1>ASK Jasper: Performance Support for Students<BR>
+</H1>
+<P>
+<EM>Ray Bareiss*, Susan M. Williams**<BR>
+</EM>
+<P>
+*The Institute for the Learning Sciences School of Education and
+Social Policy
+<P>
+Northwestern University Northwestern University
+<P>
+Evanston, IL 60201 Evanston, IL 60201
+<P>
+Tel: +1-708-491-3500 Tel: +1-708-467-2813
+<P>
+E-mail: bareiss@ils.nwu.edu<BR>
+<BR>
+<P>
+**The Institute for the Learning Sciences School of Education
+and Social Policy
+<P>
+Northwestern University
+<P>
+Evanston, IL 60201
+<P>
+Tel: +1-708-467-2813
+<P>
+E-mail: williams@ils.nwu.edu
+<HR>
+<H2>ABSTRACT</H2>
+<P>
+This paper describes ASK Jasper, a hypermedia performance support
+system that provides a structured work environment and in-context
+help and advice to students as they learn the concepts and skills
+of empirical geometry through solving a complex design problem.
+<H3>Keywords</H3>
+<P>
+Educational Applications,Performance support,Hypermedia
+<H3>INTRODUCTION</H3>
+<P>
+Corporate training is in the midst of a paradigm shift from the
+current practice of training workers prior to performing a task
+to performance support while they are performing it. This shift
+is being driven by rapid and constant changes in job roles and
+technology; training simply cannot keep up with the demands of
+the workplace [1]. A performance support system combines tools
+and knowledge resources designed to enable performance by providing
+a work context aligned to the worker's task and pre-existing skills.
+Support is provided by mechanisms that present and structure information,
+advice, and other resources at the moment of need to reduce the
+amount of job knowledge that must be internalized to perform the
+task [2].
+<P>
+Modern theories of education advocate situating the instruction
+of even young students in problem-based, learn-by-doing curricula
+(e.g., [3,4]). Given this position, it is natural to ask if performance
+support technology can be adapted to provide support for students,
+not just to meet <I>performance goals</I>, but also to meet <I>learning
+goals</I>. There is, of course, a fundamental difference between
+the two situations: Performance support for practitioners focuses
+on achieving results and efficiency. In contrast, performance
+support for learners emphasizes supporting students as they acquire
+new skills and knowledge.
+<H2>ASK JASPER</H2>
+<P>
+ASK Jasper is a computer-based hypermedia environment designed
+to support middle school students as they learn empirical geometry
+in the course of solving a complex design problem. Their problem
+is to design a playground subject to a number of requirements
+and constraints imposed by safety considerations and by limited
+resources.<BR>
+<P>
+To do this successfully, students must use empirical geometry
+to create their designs and must communicate them to others by
+constructing scale drawings.
+<P>
+General guidance is provided by a goal/subgoal task model of the
+design process. This structures students' problem solving by helping
+them keep track of where they are in the problem space and provides
+cues when they do not know what to do next. It is up to the students
+to track their progress, i.e., which steps they have completed
+and what remains to be done. At the highest level, the model guides
+the students to understand the problem, to design one or more
+components, to integrate the components into an overall design,
+to execute the design, and to reflect on the success of the design
+and what has been learned. Each of these high-level goals is,
+in-turn, broken down into subgoals. The student may iterate through
+them several times as a design is created and revised.
+<P>
+While it provides an overall structure, such a task model does
+not provide sufficient procedural guidance for some students.
+Therefore, brainstorming questions are associated with each of
+the subtasks to provide ideas on how to go about solving the design
+problem, e.g., by breaking the problem down into subproblems,
+using expert design heuristics, evaluating work in progress, and
+reflecting on what has been learned. These heuristics are not
+specific to the playground design problem. With minor modifications,
+they can be applied to any design problem.
+<P>
+A student in difficulty may not receive sufficiently specific
+assistance from the task model and the associated brainstorming
+questions. Therefore, a performance support database of example
+designs (cf. [1]) with accompanying rationales and procedural
+guidance is provided as a design resource. This database contains
+actual designs of pieces of playground equipment and layouts that
+are offered as solutions to the design problem. While designing
+ASK Jasper, we worried about providing such examples, rather than
+providing examples by analogy to other design tasks. We decided
+to provide direct examples because we felt that less successful
+students would have difficulty in transferring the associated
+procedures and issues across domains.
+<P>
+However, because our goal is to support students as they learn
+about math and design in the context of creating a design themselves,
+we did not want to provide designs and other information that
+could simply be copied. Therefore, the database is populated with
+imperfect examples - examples that are substantially correct,
+but do not meet the requirements and constraints of the problem.
+A student must recognize and correct these discrepancies if he
+or she is to reuse the design successfully. Eventually, the database
+will contain many example designs that span the range of naive
+conceptions of the design problem and related mathematical concepts.
+Studying multiple designs, may assist students in recognizing
+and avoiding imperfections in their designs.
+<P>
+As noted, the database contains much more than example designs.
+It utilizes the ASK methodology for creating structured hypermedia
+systems [5] to augment each example design with several additional
+categories of information:
+<UL>
+<LI><B>How To</B> contains notes describing procedures which were
+used in creating the design.
+<LI><B>Why</B> provides design rationale.
+<LI><B>Big Picture</B> records the design context (e.g., requirements
+and constraints on a design).
+<LI><B>Details</B> provides detailed sub-designs.
+<LI><B>Other Examples</B> provides links to alternatives.
+<LI><B>Learning Issues</B> contains notes about open issues and
+evaluations by the designer, peers, and the teacher.
+</UL>
+<P>
+Notes in the database can be graphics, text, or digital video,
+as appropriate to what is being conveyed. Taken together, a sequence
+of notes comprises a design episode, whose components are indexed
+by the task model.
+<P>
+The student creates and documents his or her design in a separate
+database that has a structure identical to that of the performance
+support database. Design notes are created using a simple word
+processor built into the database and any commonly available graphics
+and video programs. Alternatively, designs can be created on paper
+and input via a scanner. Because both databases are indexed by
+a common task model, the system can generally track the student's
+progress and provide access to relevant examples on request. After
+the student's design has been completed, evaluated, and revised,
+it is published into the performance support database for use
+by others. The student can use hypermedia linking facilities to
+link his or her design notes to notes which were relevant to its
+creation.
+<H2>PERFORMANCE SUPPORT FOR STUDENTS VS. PRACTITIONERS</H2>
+<P>
+While ASK Jasper has significant commonalties with performance
+support systems that are being constructed in industry for practitioners,
+its pedagogical intent gives rise to significant differences in
+four areas:
+<P>
+<B>1. Building knowledge vs. creating products</B>: The economic
+demands of the workplace require practitioners to be productive,
+even while learning. In contrast, knowledge and skills <I>are</I>
+the products of a student's work. Reflecting this different emphasis,
+ASK Jasper does not provide some of the tools that would be provided
+to a practitioner. For example, we could automate many of the
+key mathematical tasks, such as the calculation of perimeter,
+area, and volume or the creation of dimensioned scale drawings.
+However, one of the primary curricular objectives is to have students
+acquire these skills while using them in a realistic context.
+<P>
+<B>2.</B> <B>Differences in pre-existing knowledge. </B>We expect
+the student to bring less knowledge and experience to bear on
+problems than practitioners, so the procedural help tends to be
+much more basic. Very specific help is possible because the student
+is solving a known problem.
+<P>
+<B>3. Database Contents and Use:</B> In the ideal case, a practitioner
+will find an example in the database that matches his or her needs
+exactly and simply be able to copy it to solve a new problem.
+In contrast, we want a student to generate a solution. Therefore,
+examples in the student database are not directly applicable,
+so that they cannot be copied without modification to solve the
+new problem; at a minimum the student must understand the requirements
+and constraints of the design problem and how a design fails to
+meet them, and he or she must adapt the design to do so.
+<P>
+<B>4. Adding to Group Memory:</B> A primary goal of the student
+is to add to the database of design examples. The task of articulating
+what has been learned has important cognitive consequences and
+is highly motivational. In contrast, the practitioner is focused
+on task performance and is likely to view the entry of information
+into the archive as a distraction. <BR>
+<H2>CURRENT STATUS</H2>
+<P>
+ASK Jasper is fully implemented, as described, and we are currently
+engaged in user testing with a group of middle school students
+of mixed abilities. Based on the results of these tests, the software
+will be revised, and we plan to use ASK Jasper in two middle school
+math classes this spring.
+<H2>ACKNOWLEDGMENTS</H2>
+<P>
+This work has been funded by a McDonnell Foundation post-doctoral
+fellowship to Dr. Williams. Dr. Bareiss is supported, in part,
+by ARPA (contract F30602-94-C-0219), and ILS's corporate sponsors,
+Andersen Consulting and Ameritech.
+<H2>REFERENCES</H2>
+<OL>
+<LI>Laffey, J. Dynamism in Electronic Performance Support Systems,
+in <I>Performance Improvement Quarterly</I>, 8(1), 1995.
+<LI>Raybould, B. Performance Support Engineering: An Emerging
+Methodology for Enabling Organizational Learning, in <I>Performance
+Improvement Quarterly</I>, 8(1), 1995.
+<LI>Brown, J.S., Collins, A., &amp; Duguid, P. Situated Cognition
+and the Culture of Learning, in <I>Educational Researcher</I>,
+18(1), pp32-41, 1989.
+<LI>Collins, A., Brown, J.S., &amp; Newman. Cognitive Apprenticeship:
+Teaching the Crafts of Reading, Writing, and Mathematics, in L.B.
+Resnick (ed) <I>Knowing ,Learning, and Instruction: Essays in
+Honor of Robert Glaser</I> , (Hillsdale, NJ: Erlbaum), 1989.
+<LI>Bareiss, R. and Osgood, R. Applying AI Models to the Design
+of Exploratory Hypermedia Systems, in <I>Hypertext 93 </I>(Seattle
+WA), pp. 94-105, 1993.
+</OL>
+</BODY>
+</HTML>

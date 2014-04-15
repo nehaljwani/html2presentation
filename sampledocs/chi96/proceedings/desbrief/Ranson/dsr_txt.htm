@@ -1,0 +1,639 @@
+<HTML>
+<HEAD>
+    <TITLE>Word_Template.rtf</TITLE>
+    <META NAME="GENERATOR" CONTENT="Internet Assistant for Word 1.0Z">
+    <META NAME="AUTHOR" CONTENT="Steve Guest">
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/desbrief.JPG" ALT="Desbrief" HEIGHT=35 WIDTH=249><A HREF="../../desbrief.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+<H2></H2>
+<H2><CENTER>Rapid Scout: Bridging the Gulf Between Physical and Virtual
+Environments</CENTER>
+</H2>
+<P><CENTER><B>David S. Ranson, Emily S. Patterson, Daniel L. Kidwell, Gavin
+A. Renner, Mike L. Matthews, James M. Corban, Emil Seculov, and Constantine
+S. Souhleris</B> <BR>
+<BR>
+Cognitive Systems Engineering Laboratory <BR>
+The Ohio State University <BR>
+Columbus OH 43210 USA <BR>
++1 614 292 6287 <BR>
+<BR>
+ranson@csel.eng.ohio-state.edu </CENTER>
+<H2><CENTER><IMG SRC="dsr_fg0.gif" WIDTH="243" HEIGHT="173" ALIGN=bottom
+NATURALSIZEFLAG="3"></CENTER>
+</H2>
+<H2><HR>Abstract</H2>
+We explored how to bridge the gulf between physical and virtual environments
+for the sport of whitewater paddling. Field observations, critical incident
+analysis, exploratory prototyping, and field and lab evaluations were used
+to make discoveries. Lessons learned in this ethnographic process led to
+the design of a guiding, communication, and navigation aid for kayakers
+and canoeists. In designing &quot;Rapid Scout&quot;, we gained insights
+on making virtual representations context-sensitive, coupling multiple perspectives,
+dealing with uncertainty, and extending human views. Ways to facilitate
+collaboration through shared graphic frames of reference were also explored.
+<BR>
+<BR>
+<B>Keywords</B><BR>
+Visualization, representation aiding, groupware, decision support, portable
+computing, and ethnography. 
+<H2><HR>Background</H2>
+Our senses are exposed to an ocean of information in the physical world.
+Computers allow us to add to what is naturally available. Yet a gulf often
+exists between the physical world and the virtual worlds we create on computers.
+Not only do we have trouble finding relevant information, but we often find
+that virtual representations are disconnected from the &quot;real world&quot;
+entities to which they refer. For instance, virtual representations may
+fail to highlight changes, or their level of abstraction may be irrelevant
+to user tasks. Given problems like these, better mappings between the virtual
+and physical are needed. <BR>
+<BR>
+Bridging the gulf between the physical and the virtual requires discoveries
+on several fronts. More knowledge is needed about coordinating multiple
+virtual perspectives with existing physical views. Issues also arise in
+putting data into context, choosing frames of reference, and indicating
+limits [1]. Moreover, means to enhance cooperation between people must be
+explored because virtual artifacts are inevitably used in group settings.
+<BR>
+<BR>
+<B>The Natural Lab of Whitewater Paddling</B><BR>
+We chose the whitewater domain to serve as our natural laboratory, because
+it contains challenges and constraints relevant to coupling virtual and
+physical worlds. Critical characteristics inherent in other complex domains
+include a dynamic noisy environment, high stakes, uncertainty, multiple
+players, as well as varying tempos and demands [2]. Due to the extreme nature
+of this risky environment, these characteristics take on forms that create
+significant challenges and opportunities. In particular, the complexity
+of the hydrotopography of rapids offers fertile ground for representation
+aiding. The dynamic flow, river bed shape, and obstacles combine to challenge
+a paddler's judgment and maneuvering ability (see rapid in Figure 1). It
+takes years to learn how to observe, abstract, and judge what the subtle
+signs mean at different water levels (i.e., the process of &quot;reading
+water&quot;). Paddlers rely heavily on scouting and communicating with others
+to manage risk. Novices and experts alike actively seek and share information.
+<BR>
+<P><CENTER><IMG SRC="dsr_fg1.gif" WIDTH="243" HEIGHT="182" ALIGN=bottom
+NATURALSIZEFLAG="3"><BR>
+<BR>
+<B>Figure 1.</B> Aerial photo showing rapid hydrotopography. </CENTER>
+<P>What are the challenges that make bridging the gulf between the virtual
+and the physical in this domain difficult? Of most importance, representations
+must complement what paddlers see in the physical world. How did we achieve
+this? We explored means to extend views by showing what is hidden, obscure,
+or impossible to scout. We learned how to teach paddlers to read water by
+highlighting the relationships which matter to them. We discovered new techniques
+for showing contrasts and abstractions. And, we explored new ways to enhance
+collaborative activity. The lessons learned from tackling challenges like
+these can be generalized to other domains in which close virtual and physical
+coupling is important. <BR>
+<BR>
+<B>Overview of the Design Process</B><BR>
+Our design process can best be characterized by an analogy to the domain
+we studied. Designing Rapid Scout was comparable to running a river with
+many hazards, channels, tributaries, pushy currents, and possible routes.
+We faced diverse obstacles that formed a constraint space in which we had
+to maneuver. In the beginning of the ten-week project, we selected a user
+group which we felt could benefit by a closer coupling of physical and virtual
+environments. We then immersed ourselves in field investigations, where
+we discovered that our initial model of activity in whitewater paddling
+was incorrect and that there were significant opportunities for providing
+guidance through an on-the-river device. Once the general Rapid Scout concept
+was selected, we produced and evaluated in parallel exploratory prototypes
+for the representation, communication, and hardware elements in order to
+discover further requirements. <BR>
+<BR>
+A map of our design process is represented in Figure 2. There are three
+main sections in our design process: (1) our initial model of the domain,
+(2) field investigations to revise our model, and (3) continuous exploratory
+prototyping and evaluation. The map summarizes our methods, findings, challenges,
+and their implications for the design of Rapid Scout. <BR>
+<BR>
+<IMG SRC="dsr_fg2.gif" WIDTH="520" HEIGHT="1318" ALIGN=bottom NATURALSIZEFLAG=
+"3">
+<P><CENTER><B>Figure 2.</B> Overview of design process. </CENTER>
+<H2><HR>Starting with a Naive Folk Model</H2>
+All designers begin with an implicit or explicit model of cognitive activity
+in a domain. Generally, this model should be viewed as tentative and should
+be tested by ethnographic investigations. We discovered through field observation
+that our initial model of whitewater paddling was incorrect. First, we considered
+paddlers to be either in a thrill-seeking or a back-to-nature camp. We were
+concerned that individuals intent on pushing their limits would not want
+any decision aids. Likewise, we were concerned that the back-to-nature contingent
+would be resistant to computer technology on the river. We also believed
+that the sport was not team-oriented in that paddlers depended on their
+individual skills and judgment. Lastly, we were concerned that the paddlers
+would be preoccupied with the activity of paddling. The tempo would be too
+high to permit any motor, perceptual, or cognitive interaction with a computer
+aid. <BR>
+<BR>
+Through field research, we found that these assumptions were simply not
+true. Paddlers tended to be cautious decision makers, information hungry,
+and very reliant on others. Their desire for more accurate information due
+to risks already led them share information using technology (e.g., the
+World Wide Web). We also discovered that significant opportunities for interaction
+with a device do arise. A paddler's hands, eyes, and mind are free at many
+times (e.g., on flat water sections between rapids, scouting on shore, and
+resting in the eddies/pools within the rapids). The distribution of these
+locations still place severe constraints on when a paddler can use a portable
+computer, but designing around these constraints offered new insights on
+how to simplify interaction in virtual worlds. 
+<H2><HR>Studying Cognition in the Wild</H2>
+<B>Comparing Artifacts and Analyzing Tasks</B><BR>
+We began our exploration by comparing existing domain artifacts to see how
+they functioned as cognitive tools and supported collaboration. We looked
+at formal media such as guidebooks and instructional videos as well as the
+user-created forums on the World Wide Web. The lively web exchange of advice
+and stories stressed that paddlers actively seek information. Advice tailored
+to different river levels and complaints about guidebook inaccuracy stood
+out. This finding pointed to the need for context-sensitivity. <BR>
+<BR>
+While examining these artifacts, we also developed a model of the tasks
+involved. At the highest-level, running a river can be broken into five
+stages: putting in, paddling flat water sections, scouting rapids, running
+rapids, and taking out. The detailed cognitive models of these stages prepared
+us for observing and asking questions. <BR>
+<BR>
+<B>Field Observation and Corpus Building</B><BR>
+Our strategy was to ensure usefulness by grounding ourselves in the domain
+and by not committing to one design direction too early. Paddlers were observed
+during three field trips to the New River Gorge in West Virginia. We rafted
+the river to gain first-hand knowledge of its features so that we could
+ask relevant questions. We also watched guides teaching others about the
+river. Over 30 interviews were conducted in which we adopted an incident-based
+approach to elicit what paddlers know best (i.e., their experiences with
+close calls and accidents). Using the critical decision method, we asked
+paddlers to tell an entire story and then we followed up with questions
+to clarify critical decision-making points [3]. This corpus of incidents
+was used to identify ways to aid paddlers. <BR>
+<BR>
+In the interviews, paddlers were encouraged to draw or annotate diagrams
+of rapids to help recall and explain the situations. In the example shown
+in Figure 3, the kayaker did not make a turn in time and was temporarily
+pinned by an undercut rock. He had not realized how much harder a previous
+day's route would be at a lower level. This pointed to the need for route
+recommendations that are tailored to different water levels. His story also
+indicated the need to show boat angle and size on recommended routes as
+well the relation of the route to flow strength and direction. In general,
+incidents like this one emphasized the need to put data into context and
+highlight relationships. <BR>
+<P><CENTER><IMG SRC="dsr_fg3.gif" WIDTH="288" HEIGHT="171" ALIGN=bottom
+NATURALSIZEFLAG="3"><BR>
+<B>Figure 3.</B> A paddler's sketch of a critical incident in which he was
+temporarily pinned. </CENTER>
+<P>To further build our corpus of critical incidents, we found the Internet
+to be a fruitful source. In the paddlers' newsgroup, we monitored postings
+and sent out probe messages to see what information people share. A critical
+incident survey was also posted. Many stories of mishaps were described
+in the posts. Advice on running specific rapids abounded. We also came across
+postings warning others about new hazards which unpredictably arise in this
+dynamic physical world. For example, boaters warned others about trees that
+fell over into the river creating lethal strainers. These warnings showed
+us that paddlers need to update each other after their trips to keep the
+virtual world synchronized with the physical world. <BR>
+<BR>
+<B>Context-Sensitive Needs Due to Flow Changes</B><BR>
+Before deciding to run a river, paddlers need to know the difficulty of
+rapids at the projected level. The nature of rapids changes drastically
+depending on the volume of water indicating the need for putting data into
+context. As the flow changes, some hydraulics, known as holes, can be transformed
+from friendly surfing spots to deadly keepers which will recirculate an
+unwary paddler forever (Figure 4). The degree and pattern of recirculation
+for any hole indicates the level of threat. Flow changes also expose rocks
+that may pin a boat, drowning a paddler who flips. Other types of dangers
+exist (e.g., rock sieves, whirlpool eddies, and pourovers). The threat posed
+by each hazard depends on its shape, size, location, and the flow amount.
+The implication is that virtual representations need to show how flow relates
+to these aspects of each feature. Merely labeling hazards with icons or
+words would be insufficient. <BR>
+<P><CENTER><IMG SRC="dsr_fg4.gif" WIDTH="212" HEIGHT="158" ALIGN=bottom
+NATURALSIZEFLAG="3"><BR>
+<BR>
+<B>Figure 4.</B> Keeper holes are one river hazard that can fatally trap
+a boater. </CENTER>
+<P><B>Decision Making Challenges</B><BR>
+As in many activities, paddlers manage risk by judging their ability, the
+difficulty, and the safety consequences for a particular run. Decision making
+dilemmas arise due to the difficulty of knowing these relative limits in
+an environment filled with uncertainties (e.g., gaps in knowledge, misrepresentations,
+or hidden obstacles). Most accidents occur when paddlers are completely
+surprised by hazards. They may miss hazards because their water reading
+skills are not sufficiently developed. In other cases, they may be misled
+by inaccurate or superficial descriptions of rapids. For instance, several
+kayakers have been fatally pinned by a small undercut rock on a seemingly
+innocuous rapid on the New River because this rock only becomes a hazard
+at low levels and is not mentioned in any guidebook. Decision making is
+further complicated by the fact that heuristics break down. For example,
+paddlers cannot always assume that a rapid becomes more difficult at greater
+flows. Hazards may be completely washed out at high flows. Low or intermediate
+flows may in fact be more dangerous. Knowing what changes mean is critical.
+Computers as decision aids are very well-suited to tailoring representations
+to changes in an environment. <BR>
+<BR>
+<B>Problems Due to Over-Generalized Ratings</B><BR>
+Boaters check gauge readings to find out river levels. However, a number
+from a gauge is a poor indicator of rapid difficulty. One number fails to
+capture what flow means. For example, in attempting to interpret 1500 cubic
+feet per second, a paddler must know the difficulty rating which others
+assign the rapid at that level (on a scale from Class I to VI). The rating
+assigned to the rapid generalizes over many factors, and consequently it
+fails to tell the entire story. A rapid rating of Class IV does not indicate
+the types, locations, and number of hazards. It also fails to mention the
+recommended lines and whether the high rating is due to technical difficulty
+or safety threats. Abstractions like expert ratings are useful heuristics,
+but decision making uncertainty is increased when their basis is hidden.
+Visualizations are needed that abstract out the meaning of flow changes
+to paddlers. The relations between expert interpretations and the physical
+world must be shown. <BR>
+<BR>
+<B>Communication Problems and Needs</B><BR>
+Several incidents pointed to the need for shared frames of reference and
+extended communication abilities. The following two examples provide some
+insight: 
+<UL>
+<LI><I>Underspecified instructions.</I> One canoeist did not adequately
+explain how to avoid a large hole so a novice became trapped in it. Her
+advice was to &quot;go left,&quot; instead of &quot;you need to go within
+ten feet of the left bank and then ferry hard across strong current which
+is about 100 yards wide.&quot; <BR>
+<BR>
+<LI><I>Ambiguous gestures.</I> A private rafter gestured by raising his
+hands in parallel. A companion assumed that meant &quot;river clear&quot;.
+It really meant to follow along either bank to avoid a pourover in the middle
+of the river. This boater ended up in the pourover. 
+</UL>
+These two examples show the communication limitations in this physical setting.
+Virtual representations provide a new means for joint reference. Paddlers
+may more precisely specify plans to others by annotating graphics with marks
+or gestures and then pointing to features in the real world. Moreover, communication
+can be extended over a greater distance and over the noise of the rapids.
+<BR>
+<BR>
+<B>The Main Insights from the Field Studies</B><BR>
+The principle conclusions include the following: 
+<UL>
+<LI><I>Reading water is a knowledge-intensive skill.</I> It takes many years
+to learn how to interpret complex, noisy hydrotopography to identify safe
+routes and hazards. Representation aiding offers a way to speed up and improve
+the learning process. <BR>
+<BR>
+<LI><I>Current representations are not context-sensitive. </I>Guidebooks
+are incomplete and inaccurate, because they generally describe rapids for
+an average water level. <BR>
+<BR>
+<LI><I>Cognitive activity is distributed.</I> Knowledge is spread out across
+artifacts and people [4]. Facilitating the sharing of knowledge is a key
+leverage point. <BR>
+<BR>
+<LI><I>Communication breakdowns occur.</I> Paddlers consult others when
+making decisions more than we expected. In most of the incidents, mishaps
+occurred due to underspecified or ambiguous instructions. 
+</UL>
+<H2><HR>Developing the Rapid Scout Concept</H2>
+In our field research, we discovered many on-the-river needs. Significant
+opportunities existed for improving communication over people, time, and
+distance using computers. With a down-the-river guide, we sought to use
+graphic representations to provide a shared virtual frame of reference.
+Prototyping this Rapid Scout concept enabled us to explore issues relevant
+to integrating virtual and physical environments. We needed to put data
+into context, show relationships, highlight change and events, and draw
+contrasts. In creating it, we also would have to determine how multiple
+virtual perspectives can be coupled with the physical views to enhance and
+extend our senses. Representations would also have to be tailored to a specific
+water level to satisfy the requirement for context-sensitive information.
+Once we converged on these goals, we divided the design into three parts:
+representation, communication, and hardware aspects of the prototype. <BR>
+<BR>
+<B>Virtual Representation Design</B><BR>
+A key goal was to facilitate the sharing of knowledge across many distributed
+cognitive agents both on and off the river. These agents included kayakers,
+canoeists, raft guides, rescue squads, and park rangers. Information needs
+and agent interactions were characterized based on rapid- and group-specific
+scenarios. Five expert paddlers familiar with the New River Gorge were consulted
+to identify rapid-specific scenarios and representation needs. <BR>
+<BR>
+<I>Designing Views, Structure, and Transitions</I><BR>
+Our team, which included one kayaker, then identified possible views of
+the river, and compared their strengths and weaknesses. Physically-available
+views are often very limited (e.g., where steep canyon walls make it impossible
+to scout from the shore). Virtual views which are not limited by physical
+constraints provide new ways to expand what paddlers can see. Paddlers can
+be shown an overview of an entire rapid, an otherwise inaccessible side
+view, or overviews which show what is just around the bend. From our analysis,
+we chose the views that would give paddlers the most appropriate information
+for the selected scenarios. We avoided the garden path tendency to provide
+every single possible view of a rapid. Such a default approach only increases
+user input, navigation, and tailoring burdens. <BR>
+<BR>
+By showing view sketches and scenario-based storyboards to users, we determined
+that the following views would be prototyped: a full map view of the river,
+half-mile overviews, a top-of-the-rapid view, a Triptik, bird's eye overviews
+of each rapid, and video close-ups of particularly dangerous hazards or
+difficult drops. In addition, we planned screens for rating personal ability,
+depicting the basis for rapid ratings, as well as saving and sharing annotations
+and stories. <BR>
+<BR>
+In using Rapid Scout, a boater first would download or buy information about
+a specific river or region. Links to automated river level gauges could
+then be made to download flow readings to tailor the representations to
+the current level. Upon arriving at the river put-in, a paddler would call
+up the full-map view of the river. This view shows the river layout with
+all rapids, access points, and other geographical information. A guide's
+narrative with introductory video clips can also be played to learn about
+highlights and the most difficult rapids. <BR>
+<I><BR>
+Half-Mile and Triptik Overviews</I><BR>
+While paddling downstream, the user can transition to successive half-mile
+views (see Figure 5). At this scale, these overviews encompass flat water
+sections and a few of the upcoming rapids. The location of the user and
+other paddlers with the device is shown within the 10-meter accuracy enabled
+by global positioning systems. Major river features such as wave trains
+also become visible in these views. Virtual landmarks are highlighted that
+can serve as points of reference to deal with uncertain data. For instance,
+two rocks which form a saddle on the New River are shown as a virtual reference
+point for verifying river level. When the saddle is filled, the user can
+confirm that river is indeed over three feet. The half-mile views serve
+three main purposes: (a) showing what is around the bend to support anticipation;
+(b) tracking a paddler's location relative to friends, groups, landmarks,
+and rapids; as well as (c) supporting targeted communication through the
+selection of boater symbols (discussed in the next section). <BR>
+<P><CENTER><IMG SRC="dsr_fg5.gif" WIDTH="234" HEIGHT="374" ALIGN=bottom
+NATURALSIZEFLAG="3"><BR>
+<BR>
+<B>Figure 5.</B> Half-mile and Triptik overview. </CENTER>
+<P>Two other mini-views are overlaid on the half-mile view. First, a top-of-the-rapid
+photo can be called up to facilitate recognition of rapids (providing another
+way to verify virtual-physical location). Secondly, a condensed and flattened
+Triptik showing the sequence of rapid names and a paddler's progress is
+provided on the right side of the half-mile view. Space limitations prevented
+the use of a full river map so we decided to provide this straightened-out
+view. The Triptik enables gauging the time left to complete the river. It
+also serves as a scrolling bar and menu providing a physical frame of reference
+for navigating to other views for communication and planning purposes. <BR>
+<I>Bird's Eye Overviews</I><BR>
+When paddlers reach the top of a rapid, they can then switch to the bird's
+eye overview of that rapid (see Figure 6). It provides a big picture of
+a rapid's layout which is comparable to an aerial photo from 500 feet. It
+extends what a paddler can see in the physical world (e.g., showing the
+downstream side of a &quot;blind drop&quot;). It also shows them an undistorted
+layout of the rapid. In this view, we heavily use layering and separation
+techniques [5]. Given our exploratory prototyping approach, we separated
+layers of information so that we could discover useful combinations of layers
+(see Figure 7 for the layer model). We anticipated combining layers later
+on to simplify interaction. <BR>
+<P><CENTER><IMG SRC="dsr_fg6.gif" WIDTH="234" HEIGHT="374" ALIGN=bottom
+NATURALSIZEFLAG="3"><BR>
+<BR>
+<B>Figure 6.</B> Bird's eye overview of a rapid. </CENTER>
+<P>Due to the importance of flow as a unifying factor, we chose to represent
+it in the base layer of the bird's eye view. Flow is shown in relation to
+other features by an animated texture map. This map is a micro-macro representation
+that uses tiny lines varying in length and direction to form meaningful
+flow patterns [5]. The patterns indicate relative sizes of features such
+as waves to indicate degrees of difficulty and danger. Safe limits are highlighted
+on the analogical representation of flow to provide meaningful alarms in
+context. For instance, we highlight when the a hole's recirculation turns
+it into a grabby keeper. Features below the surface which are hard to spot
+even with trained eyes are also shown on this base layer (e.g., undercut
+shapes of rocks). Showing these hidden features once again demonstrates
+how virtual representations provide unique capabilities for extending views
+into the physical world. <BR>
+<BR>
+Additional layers include grid scales, recommended routes, and simulated
+previews (Figure 7). Video close-ups from shore-side scouting locations
+also are available as options. We chose to provide the recommended routes
+as optional layers because we maintain that users must have a basic understanding
+of the physical world before they are presented an expert's advice. Such
+an understanding allows them to better judge the validity of decision aid
+advice and teaches them the basis of recommendations [6]. Providing video
+close-ups of hazards as separate layers permitted access to more detail
+and different vantage points in a way that simplified navigation and reduced
+clutter. <BR>
+<P><CENTER><IMG SRC="dsr_fg7.gif" WIDTH="243" HEIGHT="202" ALIGN=bottom
+NATURALSIZEFLAG="3"><BR>
+<BR>
+<B>Figure 7.</B> Layering of information model. </CENTER>
+<P><B>Evaluating the Prototype in the Field and Lab</B><BR>
+Our river representations were evaluated iteratively at different stages
+using sketches, flip books, and computer prototypes. The emphasis was on
+discovering significant requirements (e.g., what layers should be combined)
+rather than on identifying minor glitches (e.g., font sizes need to be increased).
+We used simple as well as more functional prototypes in order to collect
+data early on. One such simple prototype was the laminated flip book that
+we used in field evaluations. The flip book included the full map, half-mile
+views, bird's eye overviews of two rapids, and layers which could be added
+to the overview (e.g., feature details, grid, and routes). Eight paddlers
+duct-taped these flip books to their spray skirts immediately before these
+two rapids to determine the usefulness of the representations in context
+(see Figure 8). Several insights for improving the representations were
+gained through this in situ testing. Ways to more accurately represent flow
+and the degree of hole recirculation were pointed out. Better layering schemes
+also became apparent leading us to combine the base water flow layer with
+the hazards layer. <BR>
+<P><CENTER><IMG SRC="dsr_fg8.gif" WIDTH="243" HEIGHT="177" ALIGN=bottom
+NATURALSIZEFLAG="3"><BR>
+<BR>
+<B>Figure 8.</B> Paddlers using the flip book prototype before a rapid during
+the field evaluation. </CENTER>
+<P>We also conducted user tests with an interactive prototype. We first
+provided a guidebook description of a rapid [7]. Then, we asked the user
+to explain how to run the rapid at 3.5 feet to an experimenter who role-played
+a novice who was not familiar with the rapid. We then asked each subject
+to perform the same task for two different rapids using a dynamic computer
+prototype. Natural verbal protocols were collected and analyzed. <BR>
+<BR>
+Our findings from the field and lab evaluations included: 
+<UL>
+<LI>Tailoring the virtual representations to the particular water level
+greatly reduced paddler confusion. In contrast, paddlers using the guidebook
+had to repeatedly re-read the description to see if the advice was relevant.<BR>
+<BR>
+<LI>The representations captured the essence of expert descriptions though
+we discovered several ways to improve them (e.g., by altering the flow texture
+map). <BR>
+<BR>
+<LI>Transitions between views and layers needed to be streamlined to improve
+navigation between displays. <BR>
+<BR>
+<LI>A shared frame of reference greatly reduced ambiguity in communication.
+Moreover, less effort was required to direct another person's attention
+to specific features. 
+</UL>
+<B>Design for On-the-River Communication</B><BR>
+Drawing from the corpus of cases, we developed several on-the-river communication
+scenarios which we used to specify requirements, design solutions, and evaluate
+the prototype. Routine scenarios included an expert explaining a route to
+a novice before and after the expert runs it, an instructor teaching a class
+how to run a rapid, and a 20 person paddling club with interchanging subgroups.
+Non-routine scenarios which expose brittleness were also considered (e.g.,
+when people become separated, equipment is lost, parts of the device fails,
+or a person is injured). <BR>
+<BR>
+Two types of communication appeared necessary; namely, an open form and
+a targeted form of communication. The open form of communication is analogous
+to posting on newsgroups where preset groups are contacted. Whereas, the
+targeted communication is like e-mail which is directed to specific locations
+of people or groups. In designing the open communication means, many ideas
+came to us from our observations of the use of voice loops at NASA Mission
+Control. Based on their example and our requirements, we adopted a channel-based
+system that has two volume levels to support monitoring and talking on several
+channels at once. Channels being monitored are set at the lower volume to
+minimize distraction while still taking advantage of our divided attention
+ability. The scenarios helped us specify the number of channels needed and
+their function dedications. We included ten general-purpose channels, a
+&quot;park ranger&quot; channel, a &quot;chatting&quot; channel, and an
+option to broadcast simultaneously to all channels. Channels were monitored
+or talked on by pressing buttons on the edge of the device. The degree of
+button depression providing feedback about whether the channel was being
+monitored or talked on. <BR>
+<BR>
+In addition to the channel metaphor, we allowed for targeted communication.
+By selecting boat symbols from the half-mile views of the river, a user
+could talk directly to that boater or group (see Figure 5). By directing
+messages to only those people for which they are intended, this means of
+communication promised to reduce nuisance broadcasts and improve privacy.
+It also provided a physical frame of reference for organizing the communication
+options. <BR>
+<BR>
+Although both means of communication looked promising, we were unsure about
+which method would be the most useful in different circumstances. In keeping
+with the exploratory prototyping approach, the two communication paradigms
+were combined to discover in future user tests when each method is most
+appropriate. When combined with the graphic shared frame of reference, these
+open and targeted means of communication promised to extend the communication
+abilities of paddlers significantly. <BR>
+<BR>
+<B>Hardware Design</B><BR>
+The most striking aspect of the hardware design process was our ability
+to discard prototypes when new requirements were discovered. Prototypes
+were used to explore the constraint space rather than to refine a single
+concept. <BR>
+<BR>
+The primary consideration when exploring this space was the user's safety.
+Many ideas were abandoned after interviews and testing with users showed
+that they could become entangled on river objects or impair swimming. Some
+of these discarded prototypes and additional requirements included: 
+<UL>
+<LI>A hardback screen placed in a transparent pocket on the spray skirt
+was rejected because it could cause the skirt to implode under heavy water
+pressure.<BR>
+<BR>
+<LI>A hardback-pullout screen housed in a drawer on the front of the kayak
+was dropped because it would cover the safety quick-release loop on the
+spray skirt.<BR>
+<BR>
+<LI>A flexible pull-out screen attached to the spray skirt was a success
+with paddlers in our usability tests, but was judged to be too futuristic.
+</UL>
+Eventually, the requirements that we met were that the device be waterproof,
+shockproof, compact, light, rigid, and glare-resistant. In addition, the
+device could not interfere with swimming, pulling off the spray skirt, paddling,
+or walking. It also had to be readily accessible and easy to use in relatively
+calm eddies. Furthermore, we decided that equipment alterations were undesirable
+to keep costs down and to make it easy to rent the device from outfitters,
+or to share it with fellow boaters. <BR>
+<BR>
+The latest prototype is a PDA-sized device which will be encased in a rubber
+coating and attached to the front of the paddler by a neoprene belt (see
+Figure 9). Interaction with the magnetically-sensitive touch screen is conducted
+using a glove with magnetized finger tips (normal electrostatic touch screens
+had to be ruled out because of the water). This solution satisfies the above
+requirements though we still view it as an exploratory tool. <BR>
+<BR>
+Similar portable hardware already is being introduced to such sports environments
+(e.g., PDAs with GPS links). However, these devices generally only provide
+user location coordinates. In the long run, these products should aim to
+incorporate more functionality and information as illustrated by the Rapid
+Scout concept. <BR>
+<P><CENTER><IMG SRC="dsr_fg9.gif" WIDTH="243" HEIGHT="167" ALIGN=bottom
+NATURALSIZEFLAG="3"><BR>
+<BR>
+<B>Figure 9.</B> The Rapid Scout hardware. </CENTER>
+<H2><HR>Conclusion</H2>
+Rapid Scout brings together scattered knowledge and expands paddler communication
+abilities on the river. In designing it, we have tackled challenges including:
+<UL>
+<LI>abstracting out critical relationships to show people what they need
+to look for in the physical world (e.g., analogical representations of the
+degree of threat), <BR>
+<BR>
+<LI>providing context-sensitive information (e.g., tailoring to flow changes),
+<BR>
+<BR>
+<LI>extending user perspectives with virtually-possible views and abstractions
+(e.g., bird's eye overview), <BR>
+<BR>
+<LI>highlighting important contrasts and change (e.g., micro-macro texture
+map), <BR>
+<BR>
+<LI>indicating safety-critical limits and hidden hazards (e.g., showing
+degrees of recirculation), <BR>
+<BR>
+<LI>dealing with an unpredictable environment (e.g., providing updating,
+annotation, and sharing abilities), <BR>
+<BR>
+<LI>coordinating multiple virtual perspectives with available views in the
+physical world (e.g., through navigation mechanisms), <BR>
+<BR>
+<LI>addressing severe constraints on portable computing in this rough environment
+(e.g., synchronizing interaction with paddling downtimes), <BR>
+<BR>
+<LI>improving communication (e.g., providing a shared frame of reference
+and supporting collaboration over a greater distance and the noise of the
+rapids). 
+</UL>
+Recent advances in technology (e.g., GPS, portable computing) have provided
+the designer with new opportunities for bridging the gulf between physical
+and virtual environments. The key to harnessing the power of virtuality
+and ensuring that a new design will function as a useful tool is to gain
+an in-depth understanding through user-centered methodologies such as field
+investigations and exploratory prototyping. 
+<H2><HR>Acknowledgments</H2>
+We gratefully acknowledge the support of Apple Computer, Inc. Several people
+guided us, most notably, our Apple liaison, Matthew Holloway, and the course
+instructors, Dr. David Woods and Dr. Susan King Roth. North American River
+Runners provided us with video footage of the New River Gorge. And, of course,
+we are grateful to the paddlers who provided us with valuable information
+at every design stage. 
+<H2><HR>References</H2>
+<OL>
+<LI>Woods, D.D. <I>Visualizing Function: The Theory and Practice of Representation
+Design in the Computer Medium</I> (in preparation). <BR>
+<BR>
+<LI>Orasanu, J. and Connolly, T. The Reinvention of Decision Making, in
+Klein, G.A., Orasanu, J., Calderwood, R. and Zsambok, C.E., eds., <I>Decision
+Making in Action</I>. Ablex, Norwood, NJ, 1993, 3-21. <BR>
+<BR>
+<LI>Klein, G.A, Calderwood, R., and MacGregor, D. Critical decision method
+for eliciting knowledge. <I>IEEE Transactions on Systems, Man, and Cybernetics</I>,
+19, 3 (May/June 1989), 462-472. <BR>
+<BR>
+<LI>Hutchins, E. <I>Cognition in the Wild.</I> The MIT Press, Cambridge,
+MA, 1995. <BR>
+<BR>
+<LI>Tufte, E. <I>Envisioning Information.</I> Graphics Press, Chesire, CT,
+1992. <BR>
+<BR>
+<LI>Woods, D.D. and Roth, E.M. Aiding human performance II: From cognitive
+analysis to support systems. <I>Le Travail Humain</I>, 51 (2), 139-171.
+<BR>
+<BR>
+<LI>Nealy, W. <I>Whitewater Home Companion Vol I - II</I>; Menasha Ridge
+Press, Birmingham, AB, 1981. 
+</OL>
+<HR><I>Rapid Scout: Bridging the Gulf Between Physical and Virtual Environments
+/ ranson@csel.eng.ohio-state.edu <BR>
+<BR>
+<BR>
+<BR>
+<BR>
+</I>
+</BODY>
+</HTML>

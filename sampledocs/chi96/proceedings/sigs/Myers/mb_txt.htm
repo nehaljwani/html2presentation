@@ -1,0 +1,140 @@
+<html>
+<head><TITLE>Amulet SIG at CHI'96</TITLE></head>
+
+<body>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/sigs.JPG" ALT="sigs" HEIGHT=35 WIDTH=249><A HREF="../../sigs.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+
+<h1>The <a href="http://www.cs.cmu.edu/~amulet">Amulet</A>
+User Interface Development Environment</h1>
+<H2>Special Interest Group Meeting at CHI'96<BR>
+(Proposed)</H2>
+
+<H3><a href="http://www.cs.cmu.edu/~bam">Brad A. Myers</A><BR>
+<a href="http://www.cs.cmu.edu/~hcii">Human Computer Interaction Institute</A><BR>
+<a href="http://www.cs.cmu.edu/">School of Computer Science</A><BR>
+<a href="http://www.cmu.edu/">Carnegie Mellon University</A><BR>
+Pittsburgh, PA  15213-3891<BR>
+(412) 268-5150<BR>
+<A href=mailto:bam+@cs.cmu.edu>bam@a.gp.cs.cmu.edu</A><BR>
+</H3>
+
+<H2>Keywords</H2>
+<P>
+User Interface Management Systems, Toolkits, User Interface
+Development Environments, Interface Builders, C++. 
+<P>
+
+<H2>DESCRIPTION</H2>
+<P>
+The User Interface Software Group at CMU is investigating 
+ways to make the design, prototyping, and implementation 
+of user interfaces substantially easier.  Unlike other user 
+interface development environments that deal only with 
+widgets like menus, scroll bars and buttons, we concentrate 
+on the insides of application windows, which is the part 
+that takes most of the programmer’s time to design and 
+implement.  Typical applications of the technology include 
+visualizations and visual programming environments, 
+drawing programs, user interfaces for expert systems, graph 
+editors, graphical programming languages, game user 
+interfaces, simulation and process monitoring programs, 
+user interface construction tools, CAD/CAM programs, etc.
+<P>
+We have developed two User Interface Development 
+Environments.  <a href="http://www.cs.cmu.edu/~garnet">Garnet</A> [1]
+is in Common Lisp and runs 
+under X/11 and Macintosh, and has been available for 
+anonymous FTP for about six years.  There are nearly 100 
+projects world-wide using Garnet.  To get Garnet, visit 
+<a href="http://www.cs.cmu.edu/~garnet">the Garnet web page</A>.
+<a href="http://www.cs.cmu.edu/~amulet">Amulet</A>
+is a new system 
+in C++ that runs on X/11, Microsoft Windows NT or 
+Windows 95, and the Macintosh.  Amulet incorporates the 
+best ideas of Garnet, as well as new innovations such as a 
+command architecture that supports better modularization 
+and undo [2].  Amulet is also available for anonymous 
+FTP, and there are about 10 projects using it.  To get 
+Amulet visit 
+<a href="http://www.cs.cmu.edu/~amulet">the Amulet web page</A>.
+<P>
+In developing Amulet, we have three primary goals: the 
+first is to make it useful for user interface researchers.  This 
+means that Amulet makes it easy to build new kinds of 
+interactive tools and new kinds of widgets, investigate new 
+constraint solving algorithms, and explore innovative 
+interactive technologies.  For example, Amulet is the first 
+system to be designed to support multiple constraint 
+solvers operating at the same time, so that researchers can 
+investigate new solver technologies.  The second goal is to 
+be useful for students, which means that the system should
+be easy to learn.  Amulet is currently being used by at least 
+three courses at two universities.  Finally, we are 
+committed to creating tools useful for general developers, 
+which means providing sufficient performance, robustness 
+and documentation.
+<P>
+Important features of Amulet include:
+<MENU>
+<LI>A dynamic, prototype-instance object system that makes 
+prototyping easier.
+
+<LI>Constraints integrated with the object system, so any 
+value of any object can be computed by a formula which 
+is automatically re-evaluated whenever necessary. 
+
+<LI>A high-level object-oriented output graphics model that 
+handles automatic refresh of objects when they change.
+
+<LI>A high-level input model that makes it easy to add 
+conventional and gestural behaviors to objects.
+
+<LI>Built-in support for undo and help.
+
+<LI>Flexible widgets, such as buttons, menus, scrollbars, text 
+input fields and pull-down menus, implemented using 
+the Amulet intrinsics, which you can easily parameterize 
+or even replace with your own.
+
+<LI>Interactive debugging tools, including an "Inspector."
+</MENU>
+
+Amulet is an on-going research project.  In the future, 
+Amulet will support 3D, speech, multi-media, multiple 
+people operating at the same time, WWW access, extensive 
+end-user customization, and interactive, demonstrational 
+tools for building interfaces without programming.  This 
+special interest group meeting will discuss the present and 
+future designs of Amulet.
+<P>
+
+<H2>ACKNOWLEDGMENTS</H2>
+<P>
+This research is sponsored NCCOSC under Contract No. 
+N66001-94-C-6037, Arpa Order No. B326.  The views and 
+conclusions contained in this document are those of the 
+authors and should not be interpreted as representing the 
+official policies, either expressed or implied, of NCCOSC or 
+the U.S. Government.
+<P>
+
+<H2>REFERENCES</H2>
+<P>
+1. Myers, B.A. et.al., Garnet: Comprehensive Support for 
+Graphical, Highly-Interactive User Interfaces. <I>IEEE Computer</I>, 
+1990. 23(11): p. 71-85.
+<P>
+2. Myers, B.A. and Kosbie, D.  Reusable Hierarchical Command 
+Objects. in <I>Proceedings CHI'96: Human Factors in Computing 
+Systems</I>. 1996. Vancouver, BC, Canada. To appear. 
+<a href="ftp://a.gp.cs.cmu.edu/afs/cs.cmu.edu/project/garnet/www/pbd-group/papers/commandsCHI.ps">Postscript</a>
+</body>
+</html>

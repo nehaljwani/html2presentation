@@ -1,0 +1,91 @@
+<html><head>
+<title>Using Cognitive Dimensions in the Classroom as a Discussion Tool for Visual Language Design</title>
+</head>
+
+<body>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/shortpap.JPG" ALT="shortpap" HEIGHT=35 WIDTH=249><A HREF="../../shortpap.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<h1>Using Cognitive Dimensions in the Classroom as a Discussion Tool for Visual Language Design</h1>
+<p>
+
+<i>Nicholas P. Wilde</i>
+<dl>
+<dt>Department of Computer Science
+<dt>University of Montana - Missoula
+<dt>Missoula, MT 59812
+<dt>wilde@cs.umt.edu
+</dl><p><hr>
+
+<h2>ABSTRACT</h2>
+Green's cognitive dimensions framework has been put forth as a defined vocabulary for discussing HCI design [3]. To be a useful discussion tool, we must agree on common definitions of the cognitive dimensions, and the dimensions need to be such that an educated user would be able to apply them correctly and consistently. I report on using the cognitive dimensions framework as a tool for discussion in a graduate level class on visual programming languages, and the class's experience applying the framework.
+
+<h3>KEYWORDS:</h3>
+cognitive dimensions, visual languages, design and evaluation techniques
+
+<h2>INTRODUCTION</h2>
+Green [2] has invented cognitive dimensions as a framework for discussing information artifacts such as programming languages. Green and Petre [3] apply the cognitive dimensions framework to 2 different textual languages, Basic and Pascal, and 2 different visual languages, Prograph [1], and spreadsheets. There are a number of cognitive dimensions (CDs) listed in [2,3], including:<p>
+
+<i>Closeness of Mapping</i>  - Do primitives in the language map closely to operations in the problem domain?
+<i>Diffuseness/Terseness</i>  - The amount of code needed to express a solution.<br>
+<i>Progressive Evaluation</i> - Can partially completed solutions be executed to obtain feedback?<br>
+<i>Viscosity</i> - Resistance to modification, including: <br>
+<i>Repetitiousness viscosity</i> - A single change at the domain level requiring many changes at the program level.<br>
+<i>Knock-On viscosity</i> - A change in the code violating internal constraints in the program, whose resolution may violate further internal constraints, etc.<br>
+<i>Scope viscosity</i> - A change in the size of the input data set requiring changes to the program structure itself.<br>
+<i>Hidden Dependencies</i> - A relationship between components such that one is dependent upon the other, and the dependency is not visible.<br>
+<i>Visibility</i> - Whether required material is accessible without cognitive work on the user's part.<br>
+<i>Side-by-side-ability</i> - The ability to view different parts of the code at once.<br>
+<i>Imposed Guess Ahead</i> - The language or environment requiring the user to make decisions prematurely.<br>
+<i>Hard Mental Operations</i> - Notational conventions or combinations of operators  that require considerable cognitive effort to understand.<br>
+<i>Secondary notation and escape from formalism</i> - The ability to add extra semantics to the finished program via program indentation, formatting, comments, etc.<p>
+
+A more complete discussion of each cognitive dimension can be found in [2,3].
+
+<h2>BUT ARE THEY REAL?</h2>
+As tools for discussion how transparent are these terms? Will a given set of individuals, given the definitions of the  individual CDs and an information artifact to examine, arrive at the same conclusions?<p>
+
+As part of my visual languages class at the University of Montana this year, students were given and asked to read the first half of [3], which fortuitously introduces each of the CDs in abstract without discussing specific languages in great detail. We then spent approximately 2 lecture periods as a class discussing the various CDs in abstract and as applied to various textual languages in the student's experience (mostly C and Ada). During the rest of the semester, the 12 students in the class were split into 4 groups and asked to apply the cognitive dimensions framework to the evaluation of several different visual languages, with which they had varying degrees of familiarity. These included Prograph - a dataflow based language available on the Macintosh computer, and a spreadsheet of there own choosing. <p>
+
+The students involved were all graduate students or seniors in computer science, or graduate students in another science with a  computer science background and interest. Five had take an HCI course from me the semester before - the rest had not. None had any previous experience with Prograph. Eight had some experience with spreadsheets, while two had in depth experience.<p>
+
+The students were asked to evaluate languages using a choice of techniques, so not each team evaluated each language using the cognitive dimensions framework. The language and reference materials were made available to each team. Teams that did use the cognitive dimensions framework were not required to report on all CDs available, so not all CDs were evaluated for each language. <p>
+
+Nevertheless, the data thus collected provide enough common ground to give some sense of the amount of agreement on the application of the framework to the languages presented. Green and Petre also evaluate Prograph and Excel in the latter half of [3] (not available to the students at the time the evaluations were made). A (very broad brush) categorization of the results from individual team's evaluation of Prograph, along with Green and Petre's, is presented in Table 1 and for spreadsheets in Table 2.<p>
+
+<IMG SRC="wn_tb1.gif" ALT=table 1><p>
+
+<IMG SRC="wn_tb2.gif" ALT=table 2><p>
+
+The major areas of disagreement for Prograph were viscosity, hard mental operations, visibility, and secondary notation; and for spreadsheets, viscosity and hard mental operations. There was more agreement on the CDs for spreadsheets than for Prograph. This may reflect the student's greater familiarity with spreadsheets, and the longer time spent discussing the spreadsheet as a language in class prior to doing the evaluation.  The seemingly unanimous agreement on hidden dependencies is most likely artificial, as we discussed in detail the problem of hidden formula dependencies in spreadsheets prior to their doing the evaluation.
+
+<h2>DISCUSSION</h2>
+In a "post-mortem" session, we discussed the issues arising from differences between ourselves, and between us and the original authors:<p>
+
+<i>A baseline is lacking</i> - without a common reference point, it is hard to agree whether one team's evaluation of a language with regard to a particular CD as "good" has any meaning as compared to another's - witness team One, who in general seemed to be harsher with their judgments than others.<p>
+
+<i>Several dimensions are subjective in nature</i> - Several of the CDs as they now stand are relatively subjective - witness "hard mental operations," where one has to ask: What is hard? This gave rise to disagreements on this CD for spreadsheets, as one of our teams felt that nested "ifs" in spreadsheet formula qualify as a hard mental operation, while the original authors apparently did not.<p>
+
+<i>Where to take the "hit" for various language idiosyncrasies can be problematic</i> - Sometimes there was agreement on a particular feature of a language being a problem, but that agreement manifest itself as judgments on different CDs. Green and Petre, for instance, downgraded Prograph's closeness of mapping due to the "programming games" required of using the concepts of "success" and "failure" for loop termination, while several of us counted this as a hard mental operation, instead.<p>
+
+<i>Viscosity is a many splendored thing</i> - Because of the several different types of viscosity (repetitiousness, knock-on, and scope) and the several different places it can show up (algorithm, layout, etc.), many felt the concept of viscosity was overly broad and confusing. <p>
+
+<i>As tools for discussion, they're useful</i> - While we didn't agree on every single CD at the end of each evaluation period (and indeed, still don't) the class as a whole felt the cognitive dimensions framework formed a useful basis in which to ground discussions of various language features.  As vehicles for discussion of language features, they raised the level of discussion by providing a grounding through which various aspects of languages could be debated and explored.
+
+<h2>ACKNOWLEDGMENTS</h2>
+Thanks to the CS 535 class of The University of Montana, who are the real authors here.
+
+<h2>REFERENCES</h2>
+<ol>
+<li>Cox, P. T., Giles, F. R. and Peitrzykowski, T. Prograph. In Visual Object-Oriented Programming; M. Burnett, A. Goldberg and T. Lewis, Ed.; Manning Publications: Greenwich, CT, 1995; pp. 45-66.
+<li>Green, T. R. G. Cognitive Dimensions of Notations. In People and Computers V.; A. Sutcliffe and L. Macaulay, Ed.; Cambridge University Press: Cambridge, UK, 1989.
+<li>Green, T. R. G. and Petre, M. Cognitive Dimensions as Discussion Tools for Programming Language Design. Human-Computer Interaction, In Press, 1996.
+</ol>
+
+</body></html>

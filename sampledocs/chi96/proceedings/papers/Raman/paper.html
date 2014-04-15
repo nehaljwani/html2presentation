@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3O//DTD W3 HTML 2.0//EN">
+<!- Converted with LaTeX2HTML 0.6.4 (Tues Aug 30 1994) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds ->
+<P>
+<HEAD>
+<TITLE>Emacspeak --A Speech Interface</TITLE>
+<meta name="description" value="Emacspeak -A Speech Interface">
+<meta name="keywords" value="paper">
+<meta name="resource-type" value="document">
+<meta name="distribution" value="global">
+</HEAD>
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<P><IMG SRC="./../../graphics/papers.JPG" ALT="papers" HEIGHT=35 WIDTH=249><A HREF="./../../papers.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+ <A NAME=tex2html10 HREF="node1.html">[Next]</A> [Up] [Previous] <BR>    <BR>
+<B> Next:</B> <A NAME=tex2html11 HREF="node1.html"> Keywords:</A>
+<BR> <HR> <P>
+<P>
+<H1>Emacspeak --A Speech Interface</H1>
+<P><STRONG>T. V. Raman<BR>Cambridge Research Lab<BR>Digital Equipment Corp.<BR>Bldg 650, One Kendall Square<BR>Cambridge MA 02139<BR>Email: <em>raman@crl.dec.com</em><BR>Voice-Mail: <em>1 (617) 692-7637</em><BR>Fax-Number: <em>1 (617) 692-6650</em></STRONG><P>
+<abstract>
+
+Screen-readers -computer software that enables a visually impaired
+  user to read the contents of a visual display- have been available
+  for more than a decade.  Screen-readers are separate from the user
+  application.  Consequently,  they have little or no contextual information
+  about the contents of the  display.  The author
+   has used traditional screen-reading applications for the last five
+  years.  The design of the speech-enabling approach described here has been
+  implemented in Emacspeak to overcome many of the shortcomings he has
+  encountered with traditional screen-readers.
+<P>
+The approach used by Emacspeak is very different from that of 
+traditional screen-readers.  Screen-readers allow the user to listen to the
+contents appearing in different parts of the display; but the user is entirely
+responsible for building a mental model of the visual display in order to
+interpret what an application is trying to convey.  Emacspeak, on the other
+hand, does not speak the screen. Instead, applications   provide both
+visual and speech feedback, and the speech feedback is designed to be
+sufficient by itself.
+<P>
+ This approach reduces cognitive load on the user and is relevant to providing
+ general spoken access to information.  Producing spoken output from <em>within</em> the application, rather than speaking the visually displayed
+ information, vastly improves the quality of the spoken feedback.  Thus, an
+ application can  <em>display</em> its results in a visually pleasing
+ manner; the <em>speech-enabling</em> component renders the <em>same</em>
+  in an aurally pleasing way.
+<P>
+<BR> <HR>
+<UL> 
+<LI> <A NAME=tex2html12 HREF="node1.html#SECTION00000010000000000000"> Keywords:</A>
+<LI> <A NAME=tex2html13 HREF="node2.html#SECTION00010000000000000000">1 Introduction</A>
+<UL> 
+<LI> <A NAME=tex2html14 HREF="node3.html#SECTION00011000000000000000">1.1 Shortcomings Of Reading The Screen</A>
+</UL> 
+<LI> <A NAME=tex2html15 HREF="node4.html#SECTION00020000000000000000">2 A Different Approach</A>
+<UL> 
+<LI> <A NAME=tex2html16 HREF="node5.html#SECTION00021000000000000000">2.1 Motivation </A>
+<LI> <A NAME=tex2html17 HREF="node6.html#SECTION00022000000000000000">2.2 Implementation</A>
+</UL> 
+<LI> <A NAME=tex2html18 HREF="node7.html#SECTION00030000000000000000">3 Examples Of Common Computing Tasks</A>
+<UL> 
+<LI> <A NAME=tex2html19 HREF="node8.html#SECTION00031000000000000000">3.1 Editing Documents</A>
+<LI> <A NAME=tex2html20 HREF="node9.html#SECTION00032000000000000000">3.2 Spell Checking </A>
+<LI> <A NAME=tex2html21 HREF="node10.html#SECTION00033000000000000000">3.3 Electronic Mail</A>
+<LI> <A NAME=tex2html22 HREF="node11.html#SECTION00034000000000000000">3.4 Usenet News</A>
+<LI> <A NAME=tex2html23 HREF="node12.html#SECTION00035000000000000000">3.5 Surfing The WWW</A>
+<UL> 
+<LI> <A NAME=tex2html24 HREF="node13.html#SECTION00035010000000000000"> Browsing A WWW Page.</A>
+<LI> <A NAME=tex2html25 HREF="node14.html#SECTION00035020000000000000"> Interactive WWW Documents.</A>
+</UL> 
+<LI> <A NAME=tex2html26 HREF="node15.html#SECTION00036000000000000000">3.6 Navigating The File System</A>
+</UL> 
+<LI> <A NAME=tex2html27 HREF="node16.html#SECTION00040000000000000000">4 Conclusion</A>
+<LI> <A NAME=tex2html28 HREF="node17.html#SECTION00050000000000000000">5 Acknowledgements</A>
+<LI> <A NAME=tex2html29 HREF="node18.html#SECTION00060000000000000000">References</A>
+<LI> <A NAME=tex2html30 HREF="node19.html#SECTION00070000000000000000">  <em>About this document ...</em> </A>
+</UL>
+<BR> <HR>
+<P><ADDRESS>
+<I> Raman T. V. <BR>
+Tue Nov 21 15:57:11 PST 1995</I>
+</ADDRESS>
+</BODY>

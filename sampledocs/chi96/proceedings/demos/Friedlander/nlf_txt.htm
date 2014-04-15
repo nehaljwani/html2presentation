@@ -1,0 +1,91 @@
+<HTML><HEAD>
+<TITLE>MAD: A Movie Authoring and Design System</TITLE>
+</HEAD>
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/demo.JPG" ALT="Demo" HEIGHT=35 WIDTH=249><A HREF="../../demos.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<H1> MAD: A Movie Authoring and Design System </H1>
+<P>
+<H3><CENTER>Naomi Friedlander, Ronald Baecker, Alan J Rosenthal, Eric Smith</CENTER></H3>
+<CENTER>Dynamic Graphics Project</CENTER>
+<CENTER>Dept. of Computer Science, University of Toronto</CENTER>
+<CENTER>10 King's College Road</CENTER>
+<CENTER>Toronto ON Canada   M5S 1A4</CENTER>
+<CENTER>(416) 978-6983</CENTER>
+<CENTER>E-mail: naomi@dgp.toronto.edu</CENTER>
+<P>
+<P>
+<B>ABSTRACT</B><BR>
+MAD (Movie Authoring and Design) is a novel design and authoring system that facilitates the process of creating dynamic visual presentations.  MAD aids this process by simultaneously allowing easy structure creation or modification of motion pictures and visualization of the result of those modifications.  The principles behind MAD include hierarchical multimedia document representation, the flexible inclusion and combination of words, images, sounds, and video sequences, and real-time playback of a rough version of the final film at any time in the process.<P>
+
+MAD represents a paradigm shift both from traditional methods of authoring and producing motion pictures and from modern multimedia authoring tools.  Its development therefore required in-depth observation of a variety of users working on a variety of film-making projects.  This demonstration will present the key concepts underlying MAD, demonstrate the current, second-generation prototype software, and review how we have worked with users in an iterative design process and how studies of the work of these users have informed key design issues.<P>
+
+<B>Keywords</B><BR>
+Iterative design, user-centred design, multimedia systems, multimedia documents, authoring tools, interactive graphics systems.<P>
+
+<B>KEY DESIGN CONCEPTS</B><BR>
+Design goals for the Movie Authoring and Design system (Rosenthal and Baecker, 1994; Rosenthal, 1995) were:<BR>
+<UL>
+<LI><I>Idea structuring</I> - the ability to develop movie ideas both top-down and bottom-up and to modify the structure with ease as new ideas arise<BR>
+<LI><I>Multimedia support</I> - the integrated handling of scripts, dialogue or narration, music, sound effects, storyboards (not yet completed), and video shots<BR>
+<LI><I>Visualization</I> - aids to visualizing the film such as the ability to request a real-time preview of the movie or an approximation to it any time in the development process.<P>
+</UL>
+
+
+
+
+
+
+Our approach differs from other pre-production film-making tools such as Final Draft (MacToolkit, 1992)  through the inclusion of multimedia support and visualization capabilities.  Our approach differs also from other multimedia authoring tools (Hardman, van Rossum, and Bulterman, 1993; MacroMedia, 1993; McKay and Pagani, 1994; Pea, 1991) through the provision of stronger support for film narrative and dialogue structure.<P>
+
+<B>IMPLEMENTATION</B><BR>
+The current version of MAD runs on an Apple Macintosh computer.  Apart from the content of the individual items, MAD resembles most of all an outline processor, structuring a document as a hierarchy of items (Fig. 1).  Although MAD imposes no structure, items and subitems often represent &quot;acts&quot;, &quot;scenes&quot;, and &quot;shots&quot;, and have a variety of multimedia elements attached to them.  New items can be inserted into any desired position in the hierarchy.  Items can be moved from place to place within the hierarchy, taking all their subitems with them.  Like a text outliner, MAD allows the user to contract items to exclude lower levels of detail.  Similarly, the user can zoom in on a single item, in effect hiding higher levels of detail in order to focus on a particular portion of the document.<P>
+
+
+<IMG SRC="nlf_fg1.gif">
+<I>Fig. 1:  The script view.</I>  Hierarchical structure of items is indicated by indentation of the text.  The text has 3 fields - title, screen directions, and narration or dialogue.<P>
+
+The structure of the MAD document and its on-screen representation are kept separate, permitting multiple simultaneous views of the document.  Currently supported view-types are Script, Storyboard, and Play, but because of the separation between model and view, it is relatively straightforward to add new representations.  The Script view is mostly intended for writing: items are arranged vertically, with indentation indicating their depth within the hierarchy (Fig. 1).  The Storyboard view hides most of the textual content of the items and contains a grid-like arrangement of the graphical elements from each item (Fig. 2).<P>  
+
+<IMG SRC="nlf_fg2.gif">
+<I>Fig. 2:  The storyboard view for Naomi Friedlander's &quot;How to Write a Final Exam Without Studying.&quot;</I><P>
+
+The Play view displays items sequentially, with each item being on screen for its indicated duration (Fig. 3).<P>
+
+<IMG SRC="nlf_fg3.gif">
+<I>Fig. 3:  The Play view.</I>  Visuals, narration or dialogue, and screen directions appear in separate windows.<P>
+
+Each item can have attached its script text a variety of multimedia elements - pictures, recorded narration or dialogue, recorded music, and digitized video.  Macintosh PICT and MacPaint files can be imported as storyboard frames.  QuickTime (Apple, 1993) movies can be imported with or without sound.  Sound can be recorded, and narrative or descriptive text can be entered.  While MAD makes no distinction between narration and music or narrative and descriptive text, early users preferred multiple streams of audio and text, which were added to version 2.<P>
+
+The system can also keep track of timing information.  Time is represented using hours, minutes, seconds, and frames as in NTSC time code.  Each item has associated with it two times:  a start time and a duration.  The start time is simply based on the duration of all preceding items in the movie.  The duration for an item can be calculated in a number of different ways.  If the item has attached sound or video elements, its duration can be used to determine the item's duration.  If the item has subitems, the duration can be calculated from the duration of those subitems.  Finally, the user can explicitly enter an item's desired duration.  This is particularly useful in the early stages of a document's evolution when an author may have planned lengths for the various scenes but has little or no material.<P>
+
+<B>APPLICATIONS</B><BR>
+MAD has been used to fully develop unstructured movies, such as free-form documentaries, to fully develop structured movies, such as tightly scripted productions, and to fully develop movies from partial scripts.  Present research into the applications of MAD include multimedia messaging over the World Wide Web and using MAD as an aid for usability testing.<P>
+
+<B>SUMMARY AND CONCLUSIONS</B><BR>
+MAD is a completed prototype of a movie authoring and design system. It has been used successfully and enthusiastically in over a dozen movie-making projects.  Careful observation and study of individuals working on these projects has yielded significant insights into system functionality and user interface and into ways of thinking and working while using MAD.  (Further information is available from the authors.)  MAD has been proven to be useful, usable, and robust for small film-making projects, and its usability and novelty will be described and shown in our demonstration.<P>
+  
+<B>REFERENCES</B><BR>
+1.	Apple Computer, Inc., 1993.  Inside Macintosh: QuickTime.  Addison-Wesley.<P>
+
+2.	Hardman, L., van Rossum, G., and Bulterman, R., 1993.  Structured Multimedia Authoring.  Proc. ACM Multimedia 93, 283-289.<P>
+
+3.	MacToolkit, 1992.  Final Draft Professional Screenwriting Software, Santa Monica, CA.<P>
+
+4.	MacroMedia, Inc., 1993.  MacroMedia Director version 3.1.<P>
+
+5.	McKay. W. and Pagani, D., 1994.  Video Mosaic: Laying Out Time in a Physical Space.  Proc. ACM Multimedia 94, 165-172.<P>
+
+6.	Pea, R., 1991.  Learning through Multimedia.  Comp. Graphics and Applications 11(4), 58-66.<P>
+
+7.	Rosenthal, A., 1995.  Structure and Visibility in the Authoring of Motion Pictures.  M.Sc. Thesis, University of Toronto.<P>
+
+8.	Rosenthal, A. and Baecker, R., 1994.  Multimedia for Authoring Motion Pictures.  Proc. Graphics Interface '94, 133-140.<P>
+</BODY>

@@ -1,0 +1,224 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>ImageTree short paper</title>
+</head>
+
+<body bgcolor="ffffff" text="000000" link="000077" vlink="000055">
+
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/shortpap.JPG" ALT="shortpap" HEIGHT=35 WIDTH=249><A HREF="../../shortpap.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+
+
+<center>
+<h1>Creating Image Context using ImageTrees</h1>
+<b><a href="http://www.cs.chalmers.se/~wistrand/">Erik Wistrand</a></b><br>
+<a href="/SSKKII">SSKKII</a> and department of <a href="/">Computing Science</a><br>
+Göteborg University<br>
+S-412 94 Göteborg, Sweden<br>
++46-31-772 1027<br>
+<a href="mailto:wistrand@cs.chalmers.se">wistrand@cs.chalmers.se</a>
+</h4>
+</center>
+
+<a href="imagetree_short2.fm.ps">Postscript version</a>
+
+<h3>ABSTRACT</h3>
+Presenting artwork such as paintings, graphics and other 
+images over networks creates several problems, including 
+loss of context, loss of image resolution and bandwidth rate 
+problems. This paper presents a method, ImageTrees, for 
+displaying images which attempts to solve these problems. 
+Applications may be WWW applications, or other media 
+where image resolution and bandwidth problems arise.
+<p>
+<b>Keywords</b><br>
+Visualization, ImageTree, dynamic layout, image display, 
+image context, art, WWW.
+
+<h3>INTRODUCTION</h3>
+During the World Championships in Athletics 1995 in 
+Göteborg, Sweden, was a large WWW service created, 
+including event results and tourist information. Kjell Ringi, 
+the artist of the official WCA posters made a simultaneous 
+exhibition, both on WWW and in a traditional gallery. The 
+traditional exhibition consisted of about 50 paintings and 
+graphics, about half of which where displayed on WWW. 
+<p>
+The ImageTree display method was developed as a result 
+from the problems inherent in displaying high resolution 
+images using a relatively low bandwidth media such as 
+WWW.
+<p>
+Artwork as paintings are normally stored as high resolution 
+color images scanned from the original works. Hi-res images 
+typically have a resolution ranging from several hundreds 
+dpi and up, resulting in file size well over several megabytes. 
+When displaying these images on a computer screen, several 
+problems appear:
+<p>
+<ul>
+  <li>Loss of image resolution.
+      Due to the limited screen space, images are often compressed
+      to low-res thumbnail versions.
+  <li>Bandwidth problems.
+      Depending on the image compression and resolution, 
+      transfer to the viewer may be slow.
+  <li>Loss of image context.
+      Navigation between images becomes difficult if no visible
+      clues of the relations between images are present.
+  <li>Static perspective.
+      Interactive user exploration is hard to achieve compared 
+      to a real-world gallery where the visitors may walk 
+      around.
+</ul>
+Suggested solutions to problem such as these, are for 
+example the Perspective Wall [<a href="#3">3</a>], various fisheye
+views [<a href="#5">5</a>] 
+and 3D recreation of the image gallery. These solution, 
+however, relies on high bandwidth transfers to allow viewers 
+to explore and zoom images and are thus hard to implement 
+in relatively low bandwidth media as WWW applications, 
+even though attempts have been made [<a href="#7">7</a>].
+
+<h3>THE IMAGETREE</h3>
+The ImageTree is a space-efficient layout and scaling model 
+for 2D images, intended to be manipulated dynamically. 
+Figure 1 below shows an example ImageTree.
+<p>
+<a href="fig1.gif"><img src="fig1_small.gif" border=0></a>
+<p>
+[ <a href="fig1.gif">Large version</a>
+ |<a href="tree1.gif">additional example1</a>
+ |<a href="tree2.gif">additional example2</a>
+]
+<p>
+The images are positioned in a tree structure, with the image 
+in focus placed as the root node and the rest of the images 
+positioned as in a binary tree, with successive scale reduction 
+for each level. By selecting individual images or levels in the 
+tree, the tree may be rebuilt to place new images in focus.
+<p>
+Figure 2 shows an ImageTree scenario with seven images. 
+Four states, A, B, C and D are shown, where A is the initial 
+state - manually designed by the exhibitor presenting the 
+images. Three selections are made: 1, 2 and 3 which result in 
+an iterative refinement of a personal view of the total image 
+set.
+<p>
+<a href="fig2.gif"><img src="fig2_small.gif" border=0></a>
+<p>
+The image in focus may act as a link to further information 
+about the specific image. In the implementation described 
+below, this information included a high-res zoomable image.
+
+<h3>IMPLEMENTATION</h3>
+The ImageTree system was implemented as a program for 
+World Wide Web usage [<a href="#8">8</a>], in C++. The current state as well 
+as the image set to use, were passed as part of the WWW 
+URL, allowing the system to work a arbitrary set of images.
+<p>
+The different image sizes were generated dynamically by the 
+WWW server in a first version, but this approach were later 
+modified to use pregenerated images, since dynamically 
+generating scaled images both interfered with server 
+capacity and the caching mechanisms in common WWW 
+browsers. Keeping image size low is important when 
+designing WWW applications, since small low-res images 
+are transferred much faster than large ones.
+
+<h3>DISCUSSION</h3>
+Hierarchical structures have been visualized in similar ways 
+as the ImageTree, e.g. using Treemaps [<a href="#6">6</a>], but a primary 
+goal of that method is to show the structure, not the 
+individual images. ImageTrees uses a tree structure only as 
+an aid in navigation, and users are encouraged to rebuild the 
+tree structure to suit their individual needs.
+<p>
+Other information display methods as the The Document 
+Lens [<a href="#4">4</a>], Pad++ [<a href="#1">1</a>] and fisheye
+views [<a href="#5">5</a>] relies on high 
+speed graphics and image transfer to allow users to change 
+viewpoint in a static environment. ImageTrees compromises 
+between image size and transfer speed by using a 
+dynamically changing layout. The ImageTree method has 
+been tested in a WWW environment where both users and 
+the image artist expressed satisfaction with the method.
+
+<h3>CONCLUSION</h3>
+ImageTrees provides a personalized view of a possible large 
+image set, while keeping bandwidth requirement low. The 
+deepest levels in an ImageTree are not detailed enough to 
+give complete information about the images, but provide 
+context and promt users to explore further. 
+<p>
+The successive scale reduction can be viewed as an 
+abstraction of real world perspective, where images far from 
+the viewer are placed at a deep level in the ImageTree.
+<p>
+Compared to a 3D-representations of a gallery, ImageTrees 
+uses tree depth as distance metaphor, while avoiding 
+traditional 3D problems such as overlapping and hidden 
+objects.
+
+<h3>ACKNOWLEDGEMENTS</h3>
+The inspiration for the work on ImageTrees was very much 
+depending on art material from Kjell Ringi and Gallery Æ. 
+The WWW application were in part supported by the WCA 
+Academy/Göteborg University/Chalmers and Telia.
+
+<h3>REFERENCES</h3>
+<ol>
+  <a name="1"></name>
+  <li>Bederson, B. B., Hollan, J.D., Pad++: A Zooming Graph
+      ical Interface for Exploring Alternate Interface Physics, 
+      <i>Proc. of ACM CHI'94 Conf. on Human Factors in Com
+      puting Systems</i>, vol 2, 315-316, (1994)
+  <a name="2"></name>
+  <li>Bier E.A., Stone, M.C., Pier, K., Fishkin, K., Baudel, T., 
+      Conway, M., Buxton, W., DeRose, T., Toolglass and 
+      Magic Lenses: The See-Through Interface, <i>Proc. of ACM 
+      CHI'94 Conf. on Human Factors in Comp</i>. Systems,445-
+      446 (1994)
+  <a name="3"></name>
+  <li>Mackinlay, J.D., Robertson, G.G., Card, S.K., The Per
+      spective Wall: Detail and Context Smoothly Integrated, 
+      <i>Proc. of ACM CHI'91 Conf. on Human Factors in Com
+      puting Systems</i>, 173-179, (1991)
+  <a name="4"></name>
+  <li>Robertson, G.G., Mackinlay, J.D., The Document Lens, 
+      <i>Proc. of the ACM SIGGRAPH Symposium on User Inter
+      face Software and Technology</i>, 101-108 (1993)
+  <a name="5"></name>
+  <li>Sarkar, M., Snibbe, S. S., Tversky, O. J., Reiss, P., 
+      Stretching the rubber sheet: A Metaphor for viewing 
+      Large Layouts on Small Screens, <i>ACM Proc. of the ACM 
+      symposium on user interface software and technology</i>, 81 
+      - 91 (1993)
+  <a name="6"></name>
+  <li>Shneiderman, B. Tree visualizations with Tree-maps: a 
+      2-d space-filling approach, <i>ACM Transactions on graph
+      ics</i>, vol 11, no 1, 92-99 (1992)
+  <a name="7"></name>
+  <li>Thompson Art Gallery, WWW URL http://www.crl.com/
+      ~dow/gallery.html (1995)
+  <a name="8"></name>
+  <li>Wistrand, E., Kjell Ringi WWW Exhibition, WWW 
+      URL <a href="http://www.carlstedt.se/ringi/">http://www.carlstedt.se/ringi/</a> and
+      http://www95.telecom95.telia.com/ringi/ (1995)
+</ol>
+
+
+
+<hr>
+<address></address>
+<!-- hhmts start -->
+Last modified: Tue Mar 26 13:19:39 MET 1996
+<!-- hhmts end -->
+</body> </html>

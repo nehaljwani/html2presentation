@@ -1,0 +1,250 @@
+<HEADER>
+<TITLE>Office Monitor</TITLE>
+</HEADER>
+
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/shortpap.JPG" ALT="shortpap" HEIGHT=35 WIDTH=249><A HREF="../../shortpap.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<H1>Office Monitor</H1>
+<P>
+<B>
+Nicole Yankelovich and Cynthia D. McLain*
+</B>
+<P>
+<DL>
+<DT>Sun Microsystems Laboratories
+<DT>Two Elizabeth Drive
+<DT>Chelmsford, MA, USA 01824
+</DL>
+*<A HREF="#addresses">Current address listed below.</A>
+<DL>
+<DT> nicole.yankelovich@east.sun.com
+<DT> cmclain@cs.uml.edu
+</DL>
+<P>
+<HR>
+
+<H2>ABSTRACT</H2>
+
+The Office Monitor is a walk-up speech system in an office setting. We
+present strategies developed to address design issues which emerged
+during a pre-design study. A follow-up user study showed that although
+effective, these strategies were inadequate; therefore, we propose
+design modifications.  
+
+<H2>KEYWORDS</H2> 
+
+Conversational interaction, Speech interface design, Office automation.
+
+<HR>
+
+<H2>INTRODUCTION</H2>
+
+The Office Monitor is to an office what a telephone answering machine
+is to the telephone. Just as people telephone when you're not at home,
+in the office, they stop by when you're away from your desk. Some
+visitors will leave items on a desk chair, and a few motivated visitors
+will take the time to write a note. Those who do, however, suffer the
+awkwardness of looking around the desk for a pen and some paper that
+are not in too private a location.  
+<P>
+
+The Office Monitor is a proof-of-concept project designed to enable
+members of a work group or other office visitors to leave quick
+messages or indicate that they stopped by. It also makes it easy for
+office occupants to let others know their schedule and perhaps their
+whereabouts. In general, the Office Monitor is intended to augment the
+informal, everyday communication that goes on in a typical office.
+<P>
+
+In its current incarnation, the Office Monitor consists of a lifelike
+mannequin, a microphone on a stand, speakers, and a motion detector. To
+use the Office Monitor, the office occupant turns it on when leaving
+the office. The occupant may either record an out-going message (e.g.,
+"I'm at lunch and will be back by 1:30 at the latest") or leave without
+recording anything.
+<P>
+
+The Office Monitor greets the visitor when the motion detector is
+triggered. If the visitor is looking for the office occupant, the
+Office Monitor relates any relevant public calendar information, plays
+the out-going message (if there is one), and invites the visitor to
+leave a message.
+<P>
+
+The Office Monitor speech interface is built using the SpeechActs
+framework <A HREF="#two">[2]</A>. This framework supports multiple
+speech recognizers, multiple speech synthesizers, a natural language
+processor, and a discourse manager. To date, the applications created
+with SpeechActs have all been telephone-based. The Office Monitor
+represents an attempt to use speech technology to support
+conversational interaction in a physical setting.
+
+
+<H2>PRE-DESIGN STUDY</H2>
+
+As with the design of previous speech applications in the SpeechActs environment <A HREF="#one">[1]</A>, the design of the Office Monitor was based on natural, human conversations. The study involved one of the researchers sitting in various high-traffic offices taking messages while the occupants were away from their desks. Since she was new, the researcher was unknown to most (but not all) of the visitors who stopped by these offices. Only the opening lines of the 12 recorded interactions were scripted. After that, the researcher said whatever seemed appropriate to the situation. 
+<P>
+
+Although this study was short and informal, we made several observations. First, we observed that even when conversing with the researcher, visitors did not go further than the threshold unless they were dropping something off. 
+Another observation was that the conversations were quite short. They ranged from 10 to 20 seconds. Here's an example of one of the shorter interactions:
+<P>
+
+<PRE>
+   Researcher:	Hi. R-'s in AW's office. May I take a message?
+
+   Visitor: 	Ummm, I think I'll go find her there. Thanks.
+</PRE>
+<P>
+
+Almost all of the conversations followed a characteristic pattern. They
+opened with a brief, informal greeting. Following this was a
+question/answer segment, and then some sort of thank-you or non-verbal
+closing, such as a nod.
+
+<H2>DESIGN CHALLENGES</H2>
+
+The greatest challenge we faced in designing the interface was to make
+the interaction as brief and lightweight as the human-human
+conversations. One strategy we used was to eliminate almost all repair
+dialogs. Since the task domain was so limited, we opted to define
+default behaviors that would move the conversation forward instead of
+asking users to repeat themselves when recognition failed. For example,
+when the Office Monitor asks users if they'd like to leave a message,
+any number of affirmative responses will be accepted. If the recognizer
+cannot interpret the utterance (i.e., a rejection error occurs), the
+Office Monitor guesses that the user spoke a message. For example:
+<P>
+
+<PRE>
+   O.M:  Hi. Are you looking for Cynthia?
+
+   User: Yes, I am.
+
+   O.M:	 Cynthia has an appointment until 2pm. She left 
+	 this message at 12:30:
+
+         "Hi. I'll be in the Faber conference room most 
+	 of the afternoon." 
+
+	 Would you like to leave her a message?
+
+   User: Cynthia, stop by my office when you can.
+
+   O.M:	 I didn't understand what you said, but I recorded 
+	 it anyway. Say save it, forget it, or rerecord it.
+
+   User: Save it.
+
+   O.M:  Sorry. I didn't catch your name. 
+
+   User: This is Nicole.
+
+   O.M:  Thanks. I'll give Cynthia your message.  
+</PRE>
+<P>    
+   
+Another design challenge we faced, due to technological limitations of
+the speech recognizer, was getting users to speak directly into the
+microphone. We solved this problem by a combination of timing and
+explicit prompting. The Office Monitor speaks a greeting when motion is
+detected. If there is no response in several seconds, the Office
+Monitor guesses that someone has spoken and says "I didn't hear what
+you said. Please speak into the microphone." 
+<P>
+
+The challenge that we had the most difficult time addressing was
+getting people to cross the threshold of an empty office. Particularly
+at Sun, where office doorways have windows, it is not expedient for a
+passer-by to stop in an obviously unoccupied office. Secondly, some
+perceive it as an invasion of privacy to enter an office uninvited. We
+temporarily addressed this problem with the prototype by bribing people
+to enter the office with a basket of candy. The mannequin also served
+to lure some people close enough to the threshold to trigger the motion
+detector.
+
+<H2>USER STUDY</H2>
+
+Once the prototype was operational, we conducted a user study to see
+how visitors reacted to the concept. The test consisted of 20 Sun
+employees and one Office Monitor. Half the participants encountered the
+Office Monitor by chance. The others were phoned and asked to attend a
+meeting to "discuss a new project." When they showed up for the
+meeting, the researcher was conveniently absent and the visitors were
+greeted by the Office Monitor.
+<P>
+
+Each participant received an e-mail survey after their encounter. This
+included one person who showed up at the pre-arranged time, but did not
+cross the threshold. In the survey, 11% characterized their experience
+as "overall negative," 28% as "mixed," and 61% as "overall positive."
+These positive responses were given despite delays in speech
+recognition which created unnatural pauses in the conversation. Aside
+from detracting from naturalness, the slow pacing tended to create
+ambiguity about when the conversation was over. In analyzing the
+videotaped interactions, we noticed that many participants started to
+walk away, only to be pulled back each time the computer spoke.
+Correspondingly, in the follow-up survey, over 75% of the participants
+said they felt compelled to complete the interaction. With regards to
+the mannequin, some users thought it made the voice less startling and
+provided a conversational focus, but others thought it was "weird,"
+"irrelevant," and too large. Although no participants explicitly
+mentioned it as a problem, the interactions were considerably longer
+in the user study (20 seconds to 2 minutes) than in the pre-design
+study (10 to 20 seconds).
+
+<H2>NEXT STEPS</H2>
+
+In the next design iteration, we intend to address the major usability
+problems which surfaced during user testing: response time, length of
+interaction, threshold crossing, and  large footprint. In an attempt to
+accelerate conversational pacing, we plan to streamline the recognition
+grammar to improve performance, allow users to interrupt the speech
+synthesizer, and use a faster processor. In terms of dialog length, we
+will consider using a graphical display to eliminate the need to speak
+calendar information. In addition, video capture could help identify
+visitors without the need to prompt them for a name. Reconstituting the
+Office Monitor as an intercom-like device that attaches to the outside
+wall of an office may be one method of solving the threshold crossing
+and large footprint problems. Another approach that would address the
+footprint problem and provide access to a graphical display might be to
+create an Office Monitor screen saver with an animated character to
+serve as a conversational partner.
+<P>
+
+As members of a speech group, we began our design as a speech-only
+endeavor. After conducting two user studies; however, we have concluded
+that a multi-modal approach, combining speech with graphics and perhaps
+video, might more effectively address users' needs.
+
+<H2>REFERENCES</H2>
+
+<A NAME="one">1.</A>
+Yankelovich, Nicole, Gina-Anne Levow, and Matt Marx. "SpeechActs:
+Issues in Speech Interfaces," CHI '95, Denver, CO. May 7-11, 1995.  
+<P>
+
+<A NAME="two">2.</A>
+Yankelovich, Nicole and Eric Baatz. "SpeechActs: A Framework for
+Building Speech Applications," AVIOS `94 Conference Proceedings, San
+Jose, CA, September 20-23, 1994.
+<P>
+
+<HR>
+
+<A NAME="addresses"><B>Current Address:</B></A>
+<P>
+<DL>
+<DT> Cynthia D. McLain
+<DT> Computer Science Department
+<DT> University of Massachusetts Lowell
+<DT> Lowell, MA, USA 01825
+<DT> cmclain@cs.uml.edu
+</DL>

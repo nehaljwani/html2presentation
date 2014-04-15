@@ -1,0 +1,176 @@
+<HTML><HEAD>
+<TITLE> Interface Issues and Interaction Strategies for Information Retrieval Systems</TITLE>
+</HEAD>
+
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/tutorial.JPG" ALT="tutorial" HEIGHT=35 WIDTH=249><A HREF="../../tutorial.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<CENTER>
+<H1>Interface Issues and Interaction Strategies for Information Retrieval Systems</H1>
+<P>
+<B>Scott Henninger</B>
+<BR>
+Department of Computer Science and Engineering
+<BR>
+University of Nebraska
+<BR>
+115 Ferguson Hall, Box 880115
+<BR>
+Lincoln, NE  68588-0115  USA
+<BR>
++1 402 472 8394
+<BR>
+scotth@cse.unl.edu
+<P>
+<B>Nicholas J. Belkin</B>
+<BR>
+The School of Communication, Information, and Library Studies
+<BR>
+Rutgers University
+<BR>
+4 Huntington Street
+<BR>
+New Brunswick, NJ  08901-1071  USA
+<BR>
++1 908 932 8585
+<BR>
+nick@belkin.rutgers.edu
+</CENTER>
+<P>
+<H2>ABSTRACT</H2>
+<BR>
+The need for effective information retrieval systems becomes increasingly important as computer-based 
+information repositories grow larger and more diverse.  In this tutorial, we present the key issues involved 
+in the use and design of effective interfaces to information retrieval systems.  The process of satisfying 
+information needs is analyzed as a problem solving activity in which users learn and refine their needs as 
+they interact with a repository.  Current systems are analyzed in terms of key interface and interaction 
+techniques such as querying, browsing, and relevance feedback.  We discuss the impact of information 
+seeking strategies on the search process and what is needed to more effectively support the search process.  
+Retrieval system evaluation techniques is discussed in terms of its implications for users.  We close by 
+outlining some user-centered design strategies for retrieval systems.
+<P>
+<H2>KEYWORDS</H2>
+<BR>
+information retrieval, user interfaces, databases, information systems, interaction strategies.
+<P>
+<H2>INFORMATION RETRIEVAL AS A PROBLEM SOLVING PROCESS</H2>
+<BR>
+The field of information retrieval can be divided along the lines of its system-based and user-based 
+concerns.  While the system-based view is concerned with efficient search techniques to match query and 
+document representations, the user-based view must account for the cognitive state of the searcher and the 
+problem solving context.  People are drawn to an information retrieval system because they perceive that 
+they lack some knowledge to solve a problem or perform a task.  This creates an &quot;anomalous state of 
+knowledge&quot;[1] or &quot;situation of irresolution&quot; [6] in which information seekers must find 
+something they know little or nothing about.  
+<P>
+Information retrieval systems must not only provide efficient retrieval, but must also support the user in 
+describing a problem that s/he does not understand well.  The process is not only one of providing a good 
+query language, but also one of 
+supporting an iterative dialogue model.  As users query and browse the repository, they learn more about 
+the problem and potential solutions and therefore refine their conceptualization of the problem.  The 
+information being sought differs from that being sought at the beginning of the session.  The user is 
+engaged in a problem solving session in which the problem to be solved, that of finding relevant 
+information, evolves and is refined through the process of seeing the results of intermediate queries.
+<P>
+<H2>THE VOCABULARY PROBLEM</H2>
+<BR>
+Even in cases where the information is well-known, a vocabulary problem still exists.  Users may know 
+what they are looking for, but lack the knowledge needed to articulate the problem in terms and abstractions 
+used by the retrieval system.  An inherent problem is that people use a surprisingly diverse set of terms to 
+refer to the same object, such that the probability for choosing the same term for a familiar object is less than 
+15 percent [3].  This problem is exacerbated by the fact that information repositories are often indexed by 
+experts and by the inherent properties of the objects.  Expert indexing causes problems because less 
+knowledgeable users, who define the majority of people experiencing anomalous states of knowledge, are 
+less likely to understand the terminology used by experts.  Indexing by inherent properties causes problems 
+because most information seeking is engaged in some problem solving context.  People are looking for 
+information that is <I>used </I>for something and are therefor more concerned with how an object is used, 
+not its inherent properties [4].
+<P>
+<H2>INTERFACES FOR RETRIEVAL SYSTEMS</H2>
+<BR>
+Current information retrieval systems have addressed these inherent properties of information seeking and 
+indexing in a variety of ways.  Browsing has been employed to facilitate the iterative and ill-defined nature 
+of information seeking, but can lead to a loss of direction and overly narrow searches.  Queries provide a 
+means to direct the search, but often rely on the user understanding a complex query language and proper 
+vocabulary to be effective.  An integration of these strategies is a promising approach that can solve some of 
+these problems [5].  Information visualization techniques such as the Perspective Wall at Xerox PARC [2] 
+can be used in interface design to improve both browsing and querying.
+<P>
+Good information retrieval system design combines a combination of support for information seeking 
+strategies, such as browsing and direct querying, in an interface that provides effective cues to the location, 
+use, and characteristics of the retrieved information.  Feedback techniques are also crucial to support the 
+iterative refinement of information needs.
+<P>
+<H2>EVALUATION TECHNIQUES</H2>
+<BR>
+Traditional retrieval system evaluation relies on the measures of <I>recall </I>(the proportion of relevant 
+items in the entire repository which have been retrieved) and <I>precision </I>(the proportion of retrieved 
+items which are relevant) for assessment of system effectiveness.  There are significant problems with these 
+measures of effectiveness, and the criterion on which they are based, <I>relevance</I>. These include such 
+issues as:
+<ul>  
+<li>who makes the relevance judgments, and how are these judgments related to the user's context 
+and the use of the items; 
+<li>lack of knowledge of the total number of relevant items in the repository for any 
+given information problem; 
+<li>how to evaluate these measures over the course of an interaction; and, 
+<li>the 
+validity of the measures themselves as indicators of the effectiveness of the information interaction.  
+</ul>
+This suggests the need for new measures of retrieval effectiveness in interactive retrieval systems. 
+<P>
+Furthermore, new evaluation techniques are needed that account not only for the accuracy of a retrieval 
+system, but also its interactive abilities and ease of use.  A system that measures poorly in recall and 
+precision, but provides good browsing and iterative querying facilities may be more successful overall in 
+responding to a person's information problem than a system which is &quot;more effective&quot; in terms 
+of recall and precision 
+<P>
+<H2>DESIGN STRATEGIES</H2>
+<BR>
+Guidelines for the design of information retrieval systems must address not only issues of look-and-feel, 
+but also of effective interaction.  Dialog models based on relevance feedback and query reformulation 
+explicitly address the ill-defined nature of information seeking by allowing users to learn from the 
+repository and iteratively refine the information need.  Systems need to support a number of interaction 
+styles, such as querying and browsing, to accommodate the different kinds of search strategies users may 
+need to use.
+<P>
+Design strategies for retrieval systems need to pay particular attention to the interaction between users and 
+the texts they retrieve.  People's information seeking behavior needs to be analyzed in the problem solving 
+context in which their information needs arise.  For example, what are some of the common associations 
+people make?  What information is closely related?  What different perspectives can a piece of information 
+be viewed from?  The answers to these questions often differ, depending critically on the nature of the task 
+and the individuals performing the task.  Task analysis, user modeling and interaction modeling are some of 
+the strategies that can be used to improve the design of retrieval systems.
+<P>
+<H2>REFERENCES</H2>
+<BR>
+<OL>
+<LI>Belkin, N.J., Oddy, R.N, Brooks, H.M. ASK for Information Retrieval: Parts I&amp;2, <I>Journal 
+of Documentation</I>, 38(2,3), 1982, pp. 61-71; 145-164.
+
+<LI>Card, S.K., Robertson, G.G. Mackinlay, J.D.  The Information Visualizer, an Information 
+Workspace, <I>Human Factors in Computing Systems: CHI Ô91 Proceedings</I>, ACM, 1991, pp.181-
+194.
+
+<LI>Furnas, G.W., Landauer, T.K., Gomez, L.M., Dumais, S.T. The Vocabulary Problem in Human-
+System Communication, <I>Communications of the ACM</I>, 30(11), 1987, pp. 964-971.
+
+<LI>Kwasnik, B.H. How a Personal Document's Intended Use or Purpose Affects Its Classification in an 
+Office, <I>Proceedings SIGIR '89</I>,  ACM, 1989, pp. 207-210.
+
+<LI>Thompson, R.H., Croft, W.B. Support for Browsing in an Intelligent Text Retrieval System, 
+<I>International Journal of Man-Machine Studies</I>, 30, 1989, pp. 639-668.
+
+<LI>Winograd, T, Flores, F. <I>Understanding Computers and Cognition: A New Foundation for 
+Design</I>. Ablex, 1986.
+</OL>
+<P>
+<B>©Copyright on this material is held by the authors</B>
+</BODY>

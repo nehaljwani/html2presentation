@@ -1,0 +1,220 @@
+<HTML><HEAD>
+<TITLE>Improving Communication In Programming-by-Demonstration</TITLE>
+</HEAD>
+
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/doctoral.JPG" ALT="Doctoral" HEIGHT=35 WIDTH=249><A HREF="../../doctoral.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<H1>Improving Communication In Programming-by-Demonstration</H1>
+
+<A HREF="http://www.cs.cmu.edu/afs/cs/user/richm/public/www/whois-richm.html">
+<EM>Richard G. McDaniel</EM></A>
+<P>
+<A HREF="http://www.cs.cmu.edu/afs/cs/user/hcii/www/hcii-home.html">
+HCI Institute, School of Computer Science</A><BR>
+<A HREF="http://www.cmu.edu/">
+Carnegie Mellon University</A><BR>
+5000 Forbes Avenue<BR>
+Pittsburgh, PA 15213 USA<BR>
++1-412-268-3066<BR>
+richm@cs.cmu.edu
+
+<H2>Abstract</H2>
+The range of PBD systems can be significantly expanded by improving the user's
+expressiveness when communicating with the system.  The techniques in my
+research include a new form of demonstrational interaction called
+<I>nudges</I>.  Complementing nudges is a special form of selection which is
+used to give the system <I>hints</I> by identifying significant objects.  A
+new <I>deck-of-playing-cards</I> metaphor is also introduced for specifying
+useful effects such as randomness and sequencing.  The final techniques use
+objects for annotating examples such as <I>behavior icons</I> for manipulating
+and editing behaviors, and <I>temporal ghosts</I> to allow explicit references
+to past states.  By fostering better communication between the author and the
+system, these techniques should allow the user with minimal programming
+expertise to create highly interactive software.
+
+<H2>Keywords:</H2>
+user interface software, application builders, programming-by-demonstration,
+programming-by-example, inductive learning
+
+<H2>Introduction</H2>
+Creating interactive software such as games and educational software can be an
+onerous programming task even when using state-of-the-art user interface
+tools.  Requiring a software author to use a textual programming language on
+interface-driven software like video and board games seems unnecessary.
+Furthermore, potential authors who are able to draw pictures or write music
+but cannot program are prevented from using their talents for making software.
+<P>
+Researchers have applied programming-by-demonstration (PBD) techniques in
+order to reduce the amount of programming required for interactive software.
+A PBD system uses inductive learning to generate a program from example
+demonstrations.  To produce a program, the author draws the various interface
+components and then demonstrates their behavior by mimicking the desired
+program response to various events.  The system records and analyzes the
+demonstrations, converting the low-level demonstrated actions into a
+higher-level description of the program behavior.
+<P>
+The goal of my research is to invent and test techniques that allow an author
+to express the semantic relationships that affect behavior.  Direct
+manipulation techniques to annotate and manipulate examples will give an
+author the means to point out interesting objects and make important
+abstractions explicit so that the system can infer a broader and more useful
+range of behavior.  By using these techniques, an author can create a wider
+variety of software than can be produced using current PBD systems.
+<P>
+The techniques are being incorporated into a new software tool called Gamut
+with which an author will be able create a variety of complete, interactive
+games.  These games will be in the style of two-dimensional board games and
+include computerized versions of Monopoly and Chess as well as computer games
+and educational software like Number Munchers, PacMan, and Playroom.  The board
+game domain provides a number of challenges:
+
+<UL>
+<LI>
+There are a many conditions and modes.  This requires the system to
+find and track the variables that control when operations happen.
+<LI>
+An object's history factors into its context.  To determine an object's
+direction of travel or last legal move requires that the past state of the
+object be accessible.
+<LI>
+The number of objects with certain characteristics can affect the behavior.
+Keeping score and determining game phases often requires that the system be
+able to count things.
+</UL>
+
+<H2>TECHNIQUES</H2>
+Gamut defines new forms of interactions including <I>hints</I>, <I>nudges</I>,
+a <I>deck-of-playing-cards</I> metaphor, <I>guide objects</I>, <I>behavior
+icons</I>, <I>temporal ghosts</I>, a <I>timeline</I> view, and a <I>counting
+sheet</I>.
+
+<H2>Hints and Nudges</H2>
+Authors demonstrate system behavior by running the game.  When the author
+first performs an event, the system does not respond. The author then corrects
+the system by switching into response mode and modifying the objects as they
+are supposed to be affected by the program.  In essence, the author
+<I>nudges</I> the system to perform the correct behavior.  If the system
+continues to perform incorrect behavior, new examples are demonstrated by
+nudging the system again.
+<P>
+The system defines two nudges for certain situations.  First, the
+<I>Do Something!</I> nudge is used when a behavior has been demonstrated to the
+system, but an object does not respond.  When the unresponsive objects are
+selected and <I>Do Something!</I> is pressed, the system will search for a
+previously learned behavior that can be generalized to include the selected
+objects.  Second, the <I>Stop That!</I> nudge is used when a behavior performs
+undesired actions on objects.  The system compares the current state to
+previous times when the behavior succeeded and determines how to make the
+behavior conditional.
+<P>
+To point out important objects that relate indirectly to the demonstrated
+behavior, the author will use highlighting for hints.  Hints are especially
+useful when the author performs a <I>Stop That!</I> nudge.  Objects can be
+highlighted even if the reason for the hint will not be apparent until later.
+Maulsby studied hints in his thesis as well [2], but Gamut will be the first
+to apply hints in an interactive domain.
+
+<H2>Deck of Cards</H2>
+An author will be able to use the deck of playing cards metaphor to specify a
+variety of effects.  Cards can be used to perform random events like the
+Chance deck in Monopoly or to move pieces as in PacMan.  First, the author
+builds an appropriate deck by assigning graphics and properties to each card.
+The author can then demonstrate how to use the deck such as when to shuffle or
+where to play a card as the game progresses.  By having the system play cards
+autonomously, objects like video game monsters can be made to move on their
+own, as shown in Figure 1.
+<P>
+<CENTER>
+<A HREF="rgm_fg1.gif"><IMG SRC="rgm_fg1.gif" ALT="FIGURE 1"></A><BR>
+Figure 1: Using Cards to Move a Monster
+</CENTER>
+
+<H2>Guide Objects</H2>
+<I>Annotation objects</I> are objects that an author uses during editing to
+build or manipulate relationships and behaviors.  They appear as visible
+graphics while the program is edited but disappear when it is run.  <I>Guide
+objects</I>, <I>behavior icons</I>, and <I>temporal ghosts</I> are all
+annotation objects in Gamut.
+<P>
+Lines and rectangles can be used as annotations to show connections and
+graphical constraints between objects.  Demo II by Fisher <I>et al</I>.[1]
+used a similar technique calling the objects <I>guidewires</I>.  By placing
+the guide objects in important locations, positions and relationships can be
+maintained even when no visible objects are involved.  For instance, one can
+configure a table for a card game by laying out rectangles at places where
+cards are placed.
+
+<H2>Behavior Icons</H2>
+Gamut represents behaviors with small icons placed near the objects they
+affect.  These icons can be selected and highlighted just like any other
+object.  By using cut, copy, and paste operations, the author can transfer a
+behavior from one object to another.  The system will infer how the behavior
+must change to work in the different context.
+
+<H2>Temporal Ghosts</H2>
+Many rules in board games rely on the prior state of objects.  For instance, a
+piece's legal moves may be relative to its current position.  To allow the
+author to make explicit connections to the past, Gamut will show a dimmed,
+translucent image of the object in its prior state.  A similar technique was
+used to record cursor positions in Marquise [3] so that the author could
+specify how objects behave with respect to cursor events.
+
+<H2>Timeline and Counting Sheet Views</H2>
+The author will be able to control the number of ghost objects as well as run
+the application back and forth in time with the timeline view.  In the
+timeline, events and actions are displayed, permitting the author to highlight
+and manipulate them.
+<P>
+To keep score or keep track of other numbers, the author will use the counting
+sheet.  Like a spreadsheet for data descriptions, the counting sheet will
+describe various numeric properties about the game.  The numbers can be used
+as events to initiate other behaviors such as switching to a new round or
+ending the game.
+
+<H2>INFERENCING</H2>
+Gamut's inferencing is most like the artificial intelligence field called
+plan-recognition.  As in Gamut, a plan recognition system watches a sequence
+of actions and labels the sequence with a higher-level description that
+explains the reason why the actions occurred.  Since plan-recognition already
+exists as a field, it is likely that Gamut's inferencing algorithm can borrow
+from existing systems.
+<P>
+Though good inferencing is crucial for a system like Gamut to be successful,
+the ability for the author to communicate effectively will reduce the amount
+of guessing the system must perform, making its inferences more accurate.
+Similarly, effective communication will make the system's incorrect guesses
+easier to fix.
+
+<H2>CONCLUSION</H2>
+By designing techniques to foster better communication between author and
+system, it will be possible to make more powerful application behavior with
+fewer examples.  Having these techniques in a single tool will provide authors
+with a powerful environment for building interactive software like games and
+educational software while requiring minimal programming expertise.
+
+<H2>References</H2>
+1. Gene L. Fisher, Dale E. Busse, David A. Wolber.  Adding Rule-Based
+   Reasoning to a Demonstrational Interface Builder.  <I>Proceedings of
+   UIST'92</I>, pp 89-97.
+<P>
+2. David Maulsby.  <I>Instructible Agents</I>. Ph.D. thesis.  Department of
+   Computer Science, University of Calgary, Calgary, Alberta, June 1994.
+<P>
+3. <A HREF="http://www.cs.cmu.edu/afs/cs/user/bam/www/myers-home.html">
+   Brad A. Myers</A>,
+ <A HREF="http://www.cs.cmu.edu/afs/cs/user/richm/public/www/whois-richm.html">
+   Richard G. McDaniel </A>, and David S. Kosbie.  Marquise:
+   Creating Complete User Interfaces by Demonstration.  <I>Proceeding of
+   INTERCHI'93: Human Factors in Computing Systems</I>, 1993, pp. 293-300.
+   <A HREF="http://www.cs.cmu.edu/afs/cs.cmu.edu/project/garnet/doc/papers/marquiseCHI93.abstract">abstract</A>,
+   <A HREF="http://www.cs.cmu.edu/afs/cs.cmu.edu/project/garnet/doc/papers/marquiseCHI93.ps">postscript</A>.
+
+</BODY>

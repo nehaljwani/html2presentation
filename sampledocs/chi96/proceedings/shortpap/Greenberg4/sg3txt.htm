@@ -1,0 +1,191 @@
+<HTML>
+<HEAD>
+<TITLE>GroupWeb: A WWW Browser as Real Time Groupware</TITLE>
+</HEAD>
+
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/shortpap.JPG" ALT="shortpap" HEIGHT=35 WIDTH=249><A HREF="../../shortpap.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+
+<H1>GroupWeb: A WWW Browser as Real Time Groupware </H1>
+<BR>
+<EM>Saul Greenberg and Mark Roseman</EM>
+<P>
+Department of Computer Science, University of Calgary<BR>
+Calgary, Alberta CANADA T2N 1N4<BR>
+Tel: +1-403-220-6087<BR>
+E-mail: {saul, roseman}@cpsc.ucalgary.ca<BR>
+
+<H2>ABSTRACT </H2>
+
+GroupWeb is a browser that allows group members to visually share
+and navigate World Wide Web pages in real time. Its groupware
+features include document and view slaving for synchronizing information
+sharing, telepointers for enacting gestures, and relaxed &quot;what
+you see is what I see&quot; views to handle display differences.
+A groupware text editor lets groups create and attach annotations
+to pages. An immediate application of GroupWeb is as a presentation
+tool for real time distance education and conferencing.
+<P>
+
+<H2>Keywords </H2>
+Word wide web, groupware, shared visual workspaces. 
+<P>
+
+<H2>INTRODUCTION </H2>
+The World Wide Web is becoming a universal repository for distributed
+information, with Web browsers becoming the standard way that
+people search for and display items of interests. Although the
+information is a shared resource authored by the community, Web
+browsers are still single user tools that partition one person
+from another. 
+
+<P>What if Web browsers were redesigned as groupware that allowed
+people to share views of pages? Such a browser would be a valuable
+presentation tool for real time distributed meetings for several
+reasons. First, relying on a user's established Internet connection
+removes the complex telephone setups required by many conferencing
+tools. Second, the prevalence of the HTML document standard on
+the Web means that a large amount of existing information can
+be brought into the meeting. Third, most computer-literate people
+are now familiar with the interfaces of Web browsers, so little
+training would be required.
+
+<P>A few browsers today provide rudimentary groupware abilities e.g.,
+NCSA Mosaic and [1]. Typical features include page synchronization
+and chat windows. Drawing on research into groupware workspaces
+and shared drawing tools [2], we suggest a set of changes that
+can turn Web browsers into excellent presentation tools. These
+are described by way of our implementation of GroupWeb, a browser
+that allows distributed groups to navigate and share Web pages
+in real time. 
+<P>
+
+<H2>THE GROUPWEB DESIGN </H2>
+GroupWeb is built on top of GroupKit, a groupware toolkit [3].
+Like normal Web browsers, GroupWeb fetches and displays HTML pages.
+However, several people can enter a GroupWeb session via a session
+manager (Figure 1f). Each participant runs their own GroupWeb
+replica, and the browser becomes a shared visual workspace (Figure
+1a). Each replica has independent access to the Web, but they
+communicate directly to each other to stay synchronized. 
+
+<P>GroupWeb is founded on five design requirements: document slaving
+for synchronizing pages, relaxed &quot;what you see is what I
+see&quot; views to handle display differences, view slaving for
+synchronous scrolling within pages, telepointers for enacting
+gestures, and group annotations that can be attached to pages.
+Each are described below.
+
+<P>
+<img src="sg3fg1.gif" alt="Figure 1">
+<BR>
+Figure 1. GroupWeb, showing (a) a shared
+web page, (b) telepointers, (c) multi-user scrollbars, (d) view-slaving
+controls, (e) a group annotation tool, and (f) a session manager
+for joining the GroupWeb conference.
+<P>
+
+<H3>Document slaving for synchronizing pages </H3>
+The most basic act of a presenter is selecting material (a slide
+or page) and bringing it to the group's attention. In GroupWeb,
+the material is an HTML page that the presenter selects by navigating
+a link. GroupWeb guarantees that all the browsers in the session
+receive a copy of the page, which we call document slaving. It
+does this by instructing all its replicas to fetch the new page,
+specified by the HTTP address. 
+<P>
+
+<H3>Relaxed "what you see is what I see" views </H3>
+In face to face meetings, all people see exactly the same thing.
+In distributed meetings, a similar effect can be achieved by strict
+"what-you-see-is-what-I-see" (or strict-WYSIWIS), where
+the visuals are kept identical across all displays. However, display
+sizes and personal desires differ, and it may be onerous to impose
+this constraint onto distributed meeting participants. GroupWeb
+&quot;relaxes&quot; strict-WYSIWIS by permitting windows to be
+different sizes, and by reformatting the text to fit the display
+nicely. While this means that people may not see exactly the same
+thing, it does provide more flexibility for the way each person
+wishes to view their page. 
+<P>
+
+<H3>View slaving for synchronous scrolling </H3>
+Most HTML pages require scrolling as they rarely fit completely
+within a window. In a shared document, scrolling can be independent
+or synchronized. GroupWeb allows both. Independent scrolling,
+a form of relaxed-WYSIWIS appropriate for loosely coupled collaborations,
+is the default. People can have viewports onto different parts
+of the page, with feedback on other's locations shown via multi-user
+scrollbars (Figure 1c). Each colored bar represents how much a
+particular participant can see, as well as the overlap between
+views, if any. Synchronized scrolling, on the other hand, automatically
+aligns viewports. To enable this, a menu on each bar is raised
+(Figure 1d), with the menu (and the bar's color) identifying the
+participant it represents. Selecting &quot;Follow this user&quot;
+causes the local display to scroll in synchrony with the other.
+Because synchronization is one-way (unless the other person also
+slaves the view), the local user can still scroll quickly to other
+parts of the page for quick glances.
+<P>
+
+<H3>Gesturing through telepointers </H3>
+Hand gestures play an important role in any work surface activity,
+and presentations are no exception. We use them to enact ideas,
+to signal turn-taking, to focus attention of the group, and to
+reference objects on the work surface [2]. As with many groupware
+workspaces, GroupWeb uses telepointers as a way to transmit and
+display gestures (Figure 1b). Because the display is relaxed-WYSIWIS,
+telepointers are attached to letter positions rather than Cartesian
+coordinates. This means that the pointer will always be over the
+same text on all displays. 
+<P>
+
+<H3>Attaching group annotations to pages </H3>
+While the original web document is not editable, people can attach
+shared annotations to any page. GroupWeb includes an annotation
+tool (Figure 1e), which is a multi-user text editor. Users can
+enter and edit text at any time, which is displayed on all screens.
+As well, the annotation is automatically keyed to the current
+web page. Changing to a new page clears the editor, while returning
+to an annotated page restores the text annotation in the editor.
+Annotations can be used for almost anything: group note-taking,
+collecting comments, suggesting revisions, and chatting. 
+<P>
+
+<H2>DISCUSSION AND SUMMARY </H2>
+We have described a system called GroupWeb which leverages the
+ubiquity of the Web by adding features found in real-time groupware
+systems. This combination can yield a powerful presentation tool
+that could be used for many purposes, including distance education,
+distributed meetings, and small group collaboration.
+
+<P>Groupware browsers, however, will have to evolve along with the
+capabilities of Web pages. Page synchronization works now because
+current pages contain mostly static information. With the recent
+introduction of both forms and the Java language, pages will have
+to synchronize themselves at the input event level (for forms)
+and script execution level (for Java) as well. 
+
+<H2>REFERENCES </H2>
+<OL>
+
+<LI>Dybvik, P. and Lie, H. (1994) Combining real time multimedia
+conferencing with hypertext archives in distance education. <EM>ACM
+SIGRAPH Video Review</EM>, <B>106</B>.
+<LI>Greenberg, S., Hayne, S. and Rada, R. (1995) <EM>Groupware
+for real time drawing: A designer's guide.</EM> McGraw-Hill, Europe.
+<LI>Roseman, M. and Greenberg, S. (1996) Building real time groupware
+with GroupKit, a groupware toolkit. <EM>ACM Trans Computer Human
+Interaction</EM>, in press. 
+</OL>
+
+</BODY>
+</HTML>

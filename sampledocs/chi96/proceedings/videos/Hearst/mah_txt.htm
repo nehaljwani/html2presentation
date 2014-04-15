@@ -1,0 +1,232 @@
+<!DOCTYPE HTML PUBLIC "-//W3O//DTD W3 HTML 2.0//EN">
+<!Converted with LaTeX2HTML 95 (Thu Jan 19 1995) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds >
+<HEAD>
+<TITLE>  Visualizing Information Retrieval Results:  
+A Demonstration of the TileBar Interface</TITLE>
+</HEAD>
+
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/videos.JPG" ALT="videos" HEIGHT=35 WIDTH=249><A HREF="../../videos.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<meta name="description" value="  Visualizing Information Retrieval Results:  
+A Demonstration of the TileBar Interface">
+<meta name="keywords" value="final">
+<meta name="resource-type" value="document">
+<meta name="distribution" value="global">
+<P>
+<center>
+<H1>  Visualizing Information Retrieval Results:  
+A Demonstration of the TileBar Interface</H1>
+
+<P><STRONG><b> Marti A. Hearst   Jan O. Pedersen</b><BR> <BR> 
+	 Xerox Palo Alto Research Center <BR> 
+	 3333 Coyote Hill Road <BR> 
+	 Palo Alto, CA 94304 USA <BR> 
+         (415) 812-4742<BR> 
+	 {hearst,pedersen}@parc.xerox.com</STRONG><P>
+</center>
+<P><STRONG></STRONG><P>
+<P>
+<H1><A NAME=SECTION00010000000000000000> ABSTRACT</A></H1>
+<P>
+The TileBars interface is a graphical tool for users of information
+access systems, that shows the relationship between
+the terms in a query and the documents that are retrieved in response
+to that query.  TileBars simultaneously and compactly indicate
+relative document length and query term overlap, frequency and
+distribution.  The patterns in a column of TileBars are meant to help
+users  make fast judgments about the potential relevance of the
+retrieved documents.  An unexpected benefit of the interface is that
+because it requires users to specify their queries as a list of
+topics, better rank orderings can be obtained than with standard
+information retrieval ranking mechanisms.
+<P>
+<b>Keywords</b>
+<P>
+Information retrieval, Information Access, Full-length text, Visualization.
+<P>
+<b>Note:</b>
+A longer version of
+this videotape appeared in the video proceedings of the International
+Joint Conference of Artificial Intelligence (IJCAI) 1995.
+<p>
+<H1><A NAME=SECTION00020000000000000000> THE TILEBAR INTERFACE</A></H1>
+<P>
+Information Access research at Xerox PARC focuses on amplifying the
+users' cognitive abilities, rather than trying to completely automate
+them.  This framework emphasizes the participation of the user in a
+cycle of query formulation, presentation of retrieval results,
+and query reformulation.  The information
+presented is typically not document descriptions, but rather
+intermediate information that indicates relationships between the
+query and the retrieved documents.  We have developed information
+access tools intended to supply some of this functionality.  This
+video demonstrates one of these, called <em> TileBars</em>
+[<A HREF="mah_txt.htm#hearst95b">3</A>].
+<P>
+In a typical information retrieval system, documents satifying the
+query are returned and are rank-ordered according to some function of
+the number of hits for each term [<A HREF="mah_txt.htm#salton88">5</A>].  We argue that this
+kind of ranking is opaque to the user, in part because it is not clear
+how well each term is represented in the retrieved documents.
+<P>
+By contrast, the TileBars graphical interface allows the user to make
+informed decisions about which documents and which passages of those
+documents to view, based on the distributional behavior of the query
+terms in the documents.  The goal is to simultaneously and compactly
+indicate (i) the relative length of the document, (ii) the frequency
+of the term sets in the document, and (iii) the distribution of the
+term sets with respect to the document and to each other.
+<P>
+The TileBar interface requires the user to type queries into a list of
+entry windows.  Each entry line is called a <i> termset</i> since it is
+intended to contain a set of terms representing one topic.  Typically,
+the query is treated as a conjunction of topics, and the topics are
+listed in order of importance.
+<P>
+In order to perform retrieval over full text (as opposed to just
+titles and abstracts), we impose some very simple structure on the
+documents in the collection.  Each document is partitioned in advance
+into segments, the size and extent of which can be determined several
+different ways.  The orthographic structure provided by the author, in
+terms of paragraphs, pages, or sections, can be used if available.  A
+still simpler alternative is to use contiguous blocks of text of a
+fixed size.  These two approaches have drawbacks: author- provided
+structure can vary greatly in length and meaning, and fixed-length
+blocks are not intuitive units to show to users.  We prefer to 
+use a robust, statistical segmentation algorithm called <i>
+TextTiling</i> [<A HREF="mah_txt.htm#hearst94a">2</A>] to subdivide documents into
+multi-paragraph subtopical units.  This algorithm allows for the
+creation of meaningful, or motivated, segments even if the author has
+provided none, and allows for customization of the average segment
+length.
+<P>
+Figure <A HREF="mah_txt.htm#tilebarfig">1</A> shows an example of the TileBars display on a
+query about automated systems for medical diagnosis. The graphical
+representation works as follows.  Each rectangle represents a
+document.  Each row of the rectangle represents the corresponding
+termset in the query display, i.e, the top row corresponds to <i>
+patient, medicine,</i> or <i> medical</i>, the second row to <i> test,
+scan, cure,</i> or <i> diagnosis</i>, and the third row to <i> software</i>
+or <i> program</i>.  The rectangles are also subdivided into columns,
+where each column represents a text segment, as described above.
+Thus, the leftmost column indicates the first segment, or paragraph,
+of the document, the column to the right of this indicates the second
+segment of the document, and so on.
+<P>
+Each square represents the number of hits for the corresponding
+termset in the corresponding document segment.  The darkness of the
+square indicates the number of times the query occurs in that
+segment of text; the darker the square the greater the number of hits
+(white indicates 0, black indicates 8 or more hits, the frequencies of
+all the terms within a term set are added together).
+<P>
+Thus the user can quickly see if some subset of the terms overlap in
+the same segment of the document, and can see at what position of the
+document this overlap occurs.  For example, the bottommost TileBar in
+Figure <A HREF="mah_txt.htm#tilebarfig">1</A> shows that all three termsets overlap only in
+the very last subtopical segment; from this the user can assume that
+there is only a passing reference to medical applications at the
+end of the document.  As another example, in the fourth TileBar,
+the title implies that the article discusses computer
+automation of medical admissions (to a veteran's hospital), as opposed
+to automation of diagnosis.  However, the TileBar reveals that terms
+from the diagnosis termset are indeed well represented in the document.
+<P>
+<P><A NAME=43>&#160;</A><IMG  ALIGN=BOTTOM ALT="" SRC="mah_fg1.gif">
+<BR><STRONG>Figure 1:</STRONG> <A NAME=tilebarfig>&#160;</A> The TileBar Display on a query about
+automated systems for medical diagnosis.<BR>
+<P>
+<P>
+TileBars allow users to indicate which part of the document to view.
+by mouse-clicking on the corresponding part of the representation.
+that symbolizes the beginning of the document.  For example, a user
+may go directly to a segment in the middle of the text where termsets
+overlap, knowing in advance how far down in the document the passage
+occurs.  In a newer version of the interface [<A HREF="mah_txt.htm#hearst96b">1</A>], each
+termset is color-coded and the terms of the termset are highlighted
+with the corresponding color when the text of the document is
+displayed.
+<P>
+The version of the interface demonstrated in the videotape allows the
+user to adjust constraints: minimum number of hits for each term set,
+minimum distribution (the percentage of tiles containing at least one
+hit), and minimum adjacent overlap span.  In Figure
+<A HREF="mah_txt.htm#tilebarfig">1</A> the user has indicated that the diagnosis aspect of
+the query must be strongly present in the retrieved documents, by
+setting the minimum term distribution percentage to 30% for the
+second termset.
+<P>
+A system that simply ranks the documents does not make these kinds of
+distinctions available to the user.  The TileBar ranking order is
+different than that of standard systems.  In the implementation
+demonstrated here, documents are ranked first by how many segments
+have overlap of all three termsets, second by the overall frequency of
+the query terms in the document.  We have recently 
+[<A HREF="mah_txt.htm#hearst96a">4</A>] obtained strong improvements in precision at high
+document cutoff levels  by requiring the query to be
+specified in terms of a list of topics, and then applying two
+constraints that take advantage of the query structure.  Our initial
+user studies [<A HREF="mah_txt.htm#hearst96b">1</A>] suggest that users seem to find the
+query format easy to use.
+<P>
+
+
+<P><A NAME=SECTIONREF><H2>References</H2></A><P>
+<DL COMPACT>
+<DT><A NAME=hearst96b><STRONG>1</STRONG></A><DD>
+Marti Hearst, Jan Pedersen, Peter Pirolli, Hinrich Sch&#252;etze, Gregory
+  Grefenstette, and David Hull.
+ Four trec-4 tracks: the xerox site report.
+ In Donna Harman, editor, <i> Proceedings of the Fourth Text
+  Retrieval Conference TREC-4</i>. National Institute of Standards and
+  Technology Special Publication, 1996.
+ (to appear).
+<P>
+<DT><A NAME=hearst94a><STRONG>2</STRONG></A><DD>
+Marti A. Hearst.
+ Multi-paragraph segmentation of expository text.
+ In <i> Proceedings of the 32nd Meeting of the Association for
+  Computational Linguistics</i>, June 1994.
+<P>
+<DT><A NAME=hearst95b><STRONG>3</STRONG></A><DD>
+Marti A. Hearst.
+ Tilebars: Visualization of term distribution information in full text
+  information access.
+ In <i> Proceedings of the ACM SIGCHI Conference on Human Factors in
+  Computing Systems</i>, Denver, CO, May 1995. ACM.
+<P>
+<DT><A NAME=hearst96a><STRONG>4</STRONG></A><DD>
+Marti A. Hearst.
+ Improving full-text precision using simple query constraints.
+ In <i> Proceedings of the Fifth Annual Symposium on Document
+  Analysis and Information Retrieval (SDAIR)</i>, Las Vegas, NV, 1996.
+<P>
+<DT><A NAME=salton88><STRONG>5</STRONG></A><DD>
+Gerard Salton.
+ <i> Automatic text processing: the transformation, analysis, and
+  retrieval of information by computer</i>.
+ Addison-Wesley, Reading, MA, 1988.
+</DL>
+<P>
+<H1><A NAME=SECTION00040000000000000000>   About this document ... </A></H1>
+<P>
+This document was generated using the <A HREF="http://cbl.leeds.ac.uk/nikos/tex2html/doc/latex2html/latex2html.html"><STRONG>LaTeX</STRONG>2<tt>HTML</tt></A> translator Version 95 (Thu Jan 19 1995) Copyright &#169; 1993, 1994,  <A HREF="http://cbl.leeds.ac.uk/nikos/personal.html">Nikos Drakos</A>, Computer Based Learning Unit, University of Leeds. <P>
+
+
+<PRE><P>
+</PRE> </DL>
+<BR> <HR>
+<P><ADDRESS>
+<I>Marti Hearst <BR>
+<I>hearst@parc.xerox.com <BR>
+Fri Jan  5 18:37:30 PST 1996</I>
+</ADDRESS>
+</BODY>

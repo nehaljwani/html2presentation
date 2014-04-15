@@ -1,0 +1,233 @@
+<HTML>
+<HEAD>
+<TITLE>Appropriateness of Graphical Program Representations for Trainin
+</TITLE>
+
+</HEAD>
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<P><IMG SRC="./../../graphics/intpost.JPG" ALT="intpost" HEIGHT=35 WIDTH=249><A HREF="./../../intpost.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<H1>Appropriateness of Graphical Program Representations for Training
+Applications<BR>
+</H1>
+<P>
+<I>Marian G. Williams and Hyxia Villegas J. Nicholas Buehler</I>
+<P>
+Computer Science Department Math and Computer Science Department
+<P>
+University of Massachusetts Lowell Merrimack College
+<P>
+Lowell, MA 01854 North Andover, MA 01845
+<P>
++1-508-934-3628 +1-508-837-5000 x4371
+<P>
+williams.chi@xerox.com, hvillega@cs.uml.edu nbuehler@merrimack.edu
+<BR>
+<H2>ABSTRACT</H2>
+<P>
+<FONT SIZE=2>Recent controversy about the ease of constructing
+and reading graphical program representations is of interest to
+us because of our work on graphical programming applications for
+training. We apply cognitive complexity analysis to graphical
+and textual programs, and confirm the empirical findings of other
+researchers. We also apply cognitive complexity analysis to graphical
+programs from our own work. The analysis suggests that, when optimized
+for a specific task, both textual and graphical programs can carry
+the same information with similar cognitive complexity. The selection
+of graphical and textual representations for comparison in real-world
+training applications remains problematic.<BR>
+</FONT>
+<H3>KEYWORDS:</H3>
+<P>
+<FONT SIZE=2>graphical programming, visual programming, cognitive
+complexity analysis, visual labs, training, education.<BR>
+</FONT>
+<H2>INTRODUCTION</H2>
+<P>
+<FONT SIZE=2>We have been studying visual programming applications
+for training in technical subject matter. We have created applications,
+which we call &quot;visual labs,&quot; for training in topics
+such as computer architecture, database management, finite state
+machines, operating systems, and robotics. The labs were created
+with an in-house visual programming toolkit and are being field
+tested in undergraduate and graduate computer science courses.
+<BR>
+</FONT>
+<P>
+<FONT SIZE=2>The premise of the visual labs project is that users
+benefit from building and testing graphical models, rather than
+creating simulations in text-based programming languages. Graphic
+models provide a convenient way of representing, constructing,
+selecting, and connecting logical units.<BR>
+</FONT>
+<P>
+<FONT SIZE=2>In the first phase of the visual labs project, we
+demonstrated through empirical studies that the visual labs can
+be an effective learning tool [5,6]. In the second phase of the
+project, we will compare the learning of users who perform visual
+labs with users who perform labs using a textual programming language.
+We are thus concerned with making sure that we use graphical and
+textual program representations that can be compared fairly. 
+<BR>
+</FONT>
+<P>
+<FONT SIZE=2>We began the visual labs project concerned primarily
+with the user's ease in constructing graphical program representations.
+However, users do not just create the graphical programs. They
+also read them. They study programs that we supply and they study
+their own programs when they review for tests. Some of the programs
+are complex (for instance, the visual labs for computer architecture
+include a model of a significant portion of a computer's central
+processing unit), so reading them is non-trivial.<BR>
+</FONT>
+<P>
+<FONT SIZE=2>We expected that graphical programs would be easier
+for users to read than equivalent textual programs. Our expectation
+has been challenged by recent work questioning the claims of graphical
+programming proponents that graphical programs are inherently
+easier to understand. Green et al. [2] report on a response-time
+study in which graphical programs took longer to read than textual
+ones. The textual programs were presented in forms optimized for
+answering forwards questions (&quot;given these inputs, what is
+the output?&quot;) and backwards questions (&quot;given this output,
+what are the inputs?&quot;). The graphical programs were constructed
+using digital logic gates or using LabView. Neither graphical
+representation was optimized for answering forwards and backwards
+questions.</FONT>
+<P>
+<FONT SIZE=1>.</FONT>
+<P>
+<FONT SIZE=2>Moher et al. [3] suggest that Green et al. set up
+an unfair comparison, precisely because the graphical representations
+were not optimal. They repeated Green et al.'s study, but using
+Petri nets for the graphical representations. Their work demonstrated
+response times for reading graphical and textual programs that
+were not significantly different. They suggest that the appropriateness
+of a graphical representation may be task-specific, and that ease
+of reading a graphical program is dependent on layout.<BR>
+</FONT>
+<P>
+<FONT SIZE=2>We do not intend to recast our visual lab programs
+as Petri nets, but Moher et al.'s results are useful to us in
+indicating direction. We have looked at both Green et al.'s examples
+and some of our own visual programs in terms of cognitive complexity.
+<BR>
+</FONT>
+<H2>ANALYSIS OF COMPLEXITY</H2>
+<P>
+<FONT SIZE=2>We have modeled the examples presented by Green et
+al.[2] and Petre [4] using cognitive complexity analysis [1],
+a technique that represents the knowledge needed to operate a
+system as production rules, with facts maintained in working memory.
+Measures of cognitive complexity include, but are not limited
+to, the number of production rules required to model the knowledge
+and the quantity of information that must be maintained in working
+memory.<BR>
+</FONT>
+<P>
+<FONT SIZE=2>For the examples we looked at, as presented by Green
+et al. and Petre, complexity measures are greater for the graphical
+programs than for the textual ones. The additional complexity
+of the graphical models comes from the crossovers of arcs in the
+graph, since the reader has to decide whether each of those points
+is a crossover or a connection. The number of productions and
+the number of facts in working memory is greater for the task
+or reading the graphical programs than for reading the textual
+ones. Thus, the cognitive complexity analysis confirms the empirical
+findings of those studies, for the given representations.<BR>
+</FONT>
+<P>
+<FONT SIZE=2>The graphical programs presented by Green et al.
+and Petre have not been optimized for answering forwards questions,
+as have the textual programs. When we optimize the graphical examples,
+by eliminating crossovers, the answers to questions can be found
+in as straightforward a manner as with the optimized textual representations.
+Cognitive complexity analysis shows that the number of production
+rules and the number of facts in working memory are equivalent
+for the re-drawn graphs and for the textual representations.<BR>
+</FONT>
+<P>
+<FONT SIZE=2>We looked next at specific graphical representations
+from our visual labs, and constructed similar comparisons. Consider,
+for instance, the graphical representation of a full adder and
+its equivalent textual representation. Figure 1 shows the graphical
+full-adder program optimized for answering backwards questions.
+It also shows a textual program, patterned on those in [2,4],
+optimized for answering backwards questions. The cognitive complexity
+of these representations is similar.<BR>
+</FONT>
+<H2>DISCUSSION</H2>
+<P>
+<IMG SRC="IMG00001.GIF">
+<P>
+<FONT SIZE=2>The next phase of the visual labs project calls for
+us to perform an empirical study in which learning is measured
+for users who use visual labs vs. those who use text-based lab
+materials. To make the study fair, we need graphical and textual
+lab materials that have similar cognitive complexity for the assigned
+tasks. Our original idea to have some users work in a traditional
+text-based programming language such as C was clearly naive. The
+</FONT>
+<P>
+<FONT SIZE=2>would clearly have a greater cognitigve complexity
+because of the need to specify artuments, define functions, etc.
+<BR>
+</FONT>
+<P>
+<FONT SIZE=2>A poorly laid out graph may be hard to read, but
+users of graphical programming applications need not settle for
+poor layouts. They can dynamically change the layout to make the
+structure of the graph clearer - though there is, of course, no
+guarantee that they will achieve an optimal representation for
+answering forwards and backwards questions. This ability to make
+changes dynamically is not addressed in the studies mentioned
+above [2,4].<BR>
+</FONT>
+<P>
+<FONT SIZE=2>Comparison of labs that use textual program representations
+with our visual labs will be difficult. We are unlikely to find
+a textual representation that permits the same kind of model-building
+and -testing afforded by the visual lab software. This issue is
+part of our continuing research.<BR>
+</FONT>
+<H2>ACKNOWLEDGMENT</H2>
+<P>
+<FONT SIZE=2>The Visual Labs project is supported by NSF grant
+number DUE-9354708. LabView is a registered trademark of National
+Instruments Inc.<BR>
+</FONT>
+<H2>REFERENCES</H2>
+<OL>
+<LI>Bovair, Susan, David E. Kieras, and Peter Polson, &quot;The
+Acquisition and Performance of Text-Editing Skill: A Cognitive
+Complexity Analysis,&quot; Human Computer Interaction 5:1-48,
+1990.
+<LI>Green, T.R.G., M. Petre, and R.K.E. Bellamy, &quot;Comprehensibility
+of Visual and Textual Programs: A Test of Superlativism Against
+the 'Match-Mismatch' Conjecture,&quot; Empirical Studies of Programmers:
+Fourth Workshop, pp. 121-146, 1991.
+<LI>Moher, Thomas G., David C. Mak, Brad Blumenthal, and Laura
+M. Leventhal, &quot;Comparing the Comprehensibility of Textual
+and Graphical Programs: The Case of Petri Nets,&quot; Empirical
+Studies of Programmers: Fifth Workshop, pp. 137-161, 1993.
+<LI>Petre, Marian, &quot;Why Looking Isn't Always Seeing: Readership
+Skills and Graphical Programming,&quot; Communications of the
+ACM 38(6):33-44, 1995.
+<LI>Williams, Marian G., William A. Ledder, J. Nicholas Buehler,
+and James T. Canning, &quot;An Empirical Study of Visual Labs,&quot;
+Proceedings of the 1993 IEEE/CS Symposium on Visual Languages,
+pp. 371-373.
+<LI>Williams, Marian G., William A. Ledder, J. Nicholas Buehler,
+and James T. Canning, &quot;Visual Programming Labs for Introducing
+Computer Science Concepts,&quot; Proceedings of the 1993 IEEE/ASEE
+Frontiers in Education Conference, pp. 797-801, 1993.<BR>
+</OL>
+</BODY>
+</HTML>

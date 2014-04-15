@@ -1,0 +1,131 @@
+<HTML><HEAD>
+<TITLE>Participatory GUI Design From Task Models</TITLE>
+</HEAD>
+
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/tutorial.JPG" ALT="tutorial" HEIGHT=35 WIDTH=249><A HREF="../../tutorial.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<H1>Participatory GUI Design From Task Models</H1>
+<B>Tom Dayton</B><BR>
+<I>Bellcore</I><BR>
+RRC 1J-206, 444 Hoes Lane, Piscataway, New Jersey  08854, USA<BR>
+tdayton.chi@xerox.com, +1-908-699-6843<P>
+
+<B>Joseph Kramer</B><BR>
+<I>Bellcore</I><BR>
+RRC 1N-281, 444 Hoes Lane, Piscataway, New Jersey  08854, USA<BR>
+joseph_kramer@cc.bellcore.com, +1-908-699-4609<P>
+
+<B>Al McFarland</B><BR>
+<I>Bellcore</I><BR>
+RRC 1N-257, 444 Hoes Lane, Piscataway, New Jersey  08854, USA<BR>
+mcf2@cc.bellcore.com, +1-908-699-7368<P>
+
+<B>Monica Heidelberg</B><BR>
+<I>Bellcore</I><BR>
+RRC 1N-291, 444 Hoes Lane, Piscataway, New Jersey  08854, USA<BR>
+mheid@cc.bellcore.com, +1-908-699-5398<P>
+<P>
+Copyright © 1996 Bellcore<BR>
+Permission is granted for the noncommercial reproduction of the complete work for educational or research purposes only, provided such copy contains this notice in its entirety.
+<P>
+IBM, Common User Access, and CUA are trademarks of IBM Corp.<BR>
+Microsoft and Windows are registered trademarks of Microsoft Corp.<BR>
+OSF, Motif, OSF/Motif, and Open Software Foundation are trademarks of Open Software Foundation, Inc.<P>
+<P>
+<P>
+<H2>ABSTRACT</H2>
+This tutorial provides practical experience in using an object-oriented (OO) graphical user interface (GUI) design model, participatory OO methods, low-tech materials, and iterative usability testing, to design a GUI that conforms to multiple GUI platform styles.  Participants turn user data (a previously done task flow) into a GUI design via the bridge of mapping the task flow into abstract task objects and mapping the task objects into GUI objects such as windows.  They fill in the GUI's foundation, such as the menus, by using multiplatform design guidelines.
+
+
+<H3>Keywords</H3>
+
+PD, PANDA, user-centered design, UCD, usability engineering, human-computer interaction, HCI, prototyping<P>
+
+<P>
+<H2>OVERVIEW</H2>
+
+This intermediate-to-advanced, full-day tutorial gives students hands-on experience in a GUI design methodology for translating user data (user's task requirements and user's mental model of the data) into an object-oriented GUI design that conforms to multiple GUI platforms' styles (IBM™ CUA™ [4], OSF/Motif™ [10], and Microsoft® Windows® [7]).  The universality of GUI style is attained by developing an object model for all the data used in the tasks, by using the highest common denominator of the three platform styles, and by stopping just before the final polish (e.g., shadings of buttons) which can easily be done later using the appropriate platform-specific style guide.<P>
+
+Tutorial participants utilize user data in the form of a detailed task flow (given to them at the day's start) as the source of information for developing task objects.  Those task objects are the bridge between the task design and the GUI design, because participants then map the task objects onto GUI objects such as windows.  Students design the rest of the GUI's foundation, such as the menus, by referring to some of the multiplatform style guidelines from [4, 6, 7, 10].  Through the entire process, they repeatedly run quick usability tests.<P>
+
+Participants get experience in a methodology that is unusual in its tight integration of several parts of usability engineering:  consistent, OO, multiplatform GUI style; OO analysis and design; participatory methods; low-tech materials; and fast, iterative usability testing.  This integrated methodology is one example of the practicality of implementing the philosophy of actively cultivating an eclectic approach to HCI [1].  The methodology's most unique aspect perhaps is its fairly direct translation of user data into the fundamental structure of the GUI.  The chasm between task flow and fundamental user interface structure is spanned by several small, fairly easy, steps, instead of by the traditional, exclusive, reliance on a highly skilled designer's intuition.<P>
+
+<P>
+<H2>GUI DESIGNERS' DILEMMA</H2>
+
+GUI designers must  meet  customer requirements of:
+<UL><LI>little or no training of users
+<LI>simple, consistent, customizable GUI environment
+<LI>tools and data easily accessible
+<LI>software product runs on different GUI platforms</UL><P>
+
+But designers must work under these constraints:
+<UL><LI>limited time and resources
+<LI>limited multiplatform GUI design expertise
+<LI>perceived and real GUI platform style differences</UL><P>
+<P>
+<H2>SOLUTION</H2>
+We solve the GUI designers' dilemma with a design process that targets user needs, promotes ease of learning and use, is consistent across GUI platform styles, and supports reuse of GUI designs.  This design process has two main components--a GUI design model and a set of design methods:<P>
+<P>
+<H3>The Model</H3>
+Students learn to follow an object-oriented GUI design model [6].  By &quot;object-oriented&quot; we mean from the users' perspective; OO technology need not be used in the underlying implementation.  This user's OO model utilizes concepts of data objects, container objects, device objects, and different views of objects.  It has consistent representation and interaction rules for objects on the desktop and in windows.  It is based primarily on  IBM CUA [4] and ISO/IEC JTC1 SC18 [11], but also on Microsoft Windows [7] and OSF/Motif [10].<P>
+
+This OO model allows the designers to easily match users' expectations from using physical objects in the real world, to using GUI objects in the GUI world.  The model is compatible with the three GUI platforms we cover, because the three platforms already have object-oriented elements either explicitly or implicitly.<P>
+<P>
+
+<H3>The Methods</H3>
+
+A good design model alone is not sufficient, because the model is only an orientation used by designers when they move from task flow to GUI design.  Methods are also required, since the leap from a task flow to a conceptual design of an interface is large.  We break that leap up into a series of small, concrete, fairly easy steps, in this order:<P>
+
+<UL>
+<LI>Mapping Task Flow User Requirements to Task Objects
+	<UL><LI>Identities of task objects
+	<LI>Attributes of task objects
+	<LI>Actions applying to task objects
+	<LI>Containment relations among task objects
+	<LI>Usability testing of task objects against task flows</UL><P>
+
+<LI>Mapping Task Objects to GUI Objects
+	<UL><LI>Identities of GUI objects
+	<LI>Containment relations among GUI objects
+	<LI>Window definitions of GUI objects
+	<LI>Views of GUI objects
+	<LI>Commands for GUI objects
+	<LI>Usability testing of GUI objects against task flows</UL><P>
+</UL>
+
+In addition to these explicit steps, there are several  methods and orientations permeating our methodology.  The most important are participatory methods [3, 8], which involve users and other stakeholders as active collaborators in the analysis, design, and evaluation; rapid iteration [3] of designing and testing; low-tech materials [12], especially PICTIVE for paper prototyping [9]; consistency [3, 6] of the GUI; and a task orientation so the team produces a GUI that helps users do their work instead of one that the users like in the abstract.<P>
+<P>
+
+<H2>TUTORING ASPECTS OF THE TUTORIAL</H2>
+
+This tutorial is in a workshop format, with participants spending 80% of the day using the methods on an example task flow that we instructors bring.  We instructors briefly introduce each method through demonstration and lecture, but otherwise spend all of our time at the participants' work tables, helping participants in their hands-on application of the methods.  Each participant spends the entire day in one group of six people at its own small round table.  Each group works independently of the others on its design, thus getting a feel for working as a team on its own project.<P>
+
+In Bellcore and other companies, we use the same workshop format as in this tutorial, to design real software products with intact design/development teams being the small groups.  But we precede the steps covered in this tutorial with task analysis/design done through another part of our methodology, which is an advanced descendant of the CARD method described in [9].  The basics of that part of our methodology were taught in the first half of [2].  Using our entire methodology--from task analysis/design through task object analysis/design through GUI design--we have had great success designing highly usable and useful software products.  Using this design process in real projects [3; 5, pp. 167-168] has had the side effect of transforming corporate software development cultures so they produce usable and useful software products as a natural matter of course.<P>
+<P>
+
+<H2>REFERENCES</H2>
+<OL>
+<LI>Dayton, T.  Cultivated eclecticism as the normative approach to design. In <I>Taking Software Design Seriously,</I> J. Karat, Ed., Academic, Boston, 1991, pp. 21-44.
+<LI>Dayton, T., &amp; Kramer, J.  <I>Testing Task Flows: A Participatory, Object-Oriented-Design Approach.</I>  Tutorial at UPA 95, Portland, ME, July 12, 1995.
+<LI>Dayton, T., McFarland, A., &amp; White, E.  Software development--keeping users at the center.  <I>Bellcore Exchange, 10,</I> 5 (Dec. 1994), 12-17.
+<LI>IBM.  <I>Object-Oriented Interface Design: IBM Common User Access™ Guidelines.</I>  Que, Carmel, IN, 1992.
+<LI>Karat, J., &amp; Dayton, T.  Practical education for improving software usability.  <I>Proc. CHI 95,</I> (1995), 162-169.
+<LI>McFarland, A., &amp; Dayton, T.  (with others).  <I>Design Guide for Multiplatform Graphical User Interfaces, LP-R13, Issue 3.</I>  Bellcore, Piscataway, NJ (phone +1-800-521-2673 or +1-908-699-5802), 1995.
+<LI>Microsoft.  <I>The Windows Interface Guidelines for Software Design.</I>  Microsoft, Redmond, WA, 1995.
+<LI>Muller, M. J., &amp; Kuhn, S., Eds.  Participatory design [Special issue], <I>Comm. ACM, 36,</I> 6 (1993).
+<LI>Muller, M. J., Tudor, L. G., Wildman, D. M., White, E. A., Root, R. W., Dayton, T., Carr, B., Diekmann, B., &amp; Dykstra-Erickson, E.  Bifocal tools for scenarios and representations in participatory activities with users.  In <I>Scenario-Based Design for Human-Computer Interaction,</I> J. M. Carroll, Ed., Wiley, NY, 1995, pp. 135-163.
+<LI>Open Software Foundation™.  <I>OSF/Motif Style Guide: Rev. 1.2.</I>  Prentice Hall, Englewood Cliffs, NJ, 1993.
+<LI>Pluke, M.  <I>Information Technology--User System Interfaces for Text and Office Systems--Names and Descriptions of Objects and Actions Commonly Used in the Office Environment.</I>  ISO document ISO/IEC CD 11580, 1993.
+<LI>Virzi, R.  What can you learn from a low-fidelity prototype?  <I>Proc. HFES 89,</I> (1989), 224-228.
+</OL>
+
+</BODY>

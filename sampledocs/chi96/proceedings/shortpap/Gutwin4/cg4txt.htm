@@ -1,0 +1,223 @@
+<HTML>
+<HEAD>
+<TITLE>A Usability Study of Workspace Awareness Widgets </TITLE>
+</HEAD>
+<BODY>
+<p><IMG SRC="./../../graphics/shortpap.JPG" ALT="shortpap" HEIGHT=35 WIDTH=249><A HREF="../../shortpap.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+
+<H1>A Usability Study of Workspace Awareness Widgets </H1>
+
+<EM>Carl Gutwin and Mark Roseman<BR>
+<P>Dept. of Computer Science, University of Calgary<BR>
+Calgary, Alta, Canada  T2N 1N4<BR>
+Tel: +1-403-220-3532<BR>
+E-mail: gutwin, roseman@cpsc.ucalgary.ca<BR></EM>
+
+<H2>ABSTRACT</H2>
+
+Groupware systems that use large shared workspaces generally provide
+only limited awareness information about other collaborators in the
+workspace.  We are designing a set of groupware widgets to provide
+this missing information.  This paper describes a usability study of a
+number of such widgets.  The study has both validated our intuitions
+about the need for workspace awareness information, and revealed the
+strengths and weaknesses of several current designs.
+
+<H3>KEYWORDS:</H3>
+Groupware, CSCW, awareness, usability 
+
+<H2>INTRODUCTION</H2>
+
+Compared with physical shared workspaces such as table tops and
+whiteboards, shared workspaces in groupware are greatly
+impoverished. In particular, systems supporting a relaxed-WYSIWIS
+(What You See Is What I See) view of large workspaces often fail to
+convey information about workspace awareness, the up-to-the minute
+knowledge about the location and actions of other collaborators.  
+
+We have designed a suite of <EM>groupware awareness widgets</EM> to address 
+this deficiency [2].  These widgets augment a user's view of the
+workspace with information about the workspace, the location of other
+collaborators, and their actions within the workspace.
+
+<P> 
+This paper describes initial observations from a study carried out
+to evaluate a shared workspace system that incorporated several
+different awareness widgets. We had two goals in this study. First, we
+wanted to confirm our intuitions that workspace awareness is used in
+shared workspaces.  Second, we wanted to evaluate how well our current
+widget designs support the maintenance of workspace awareness. We were
+particularly interested in knowing if the information in the widgets
+was easy to interpret, if they distracted users from their tasks, and
+if users thought they were worth the extra screen space.
+
+<H2>METHODOLOGY</H2>
+
+We constructed a groupware editor for manipulating the layout of a two
+page newspaper spread, allowing users to move pictures, headings, and
+columns of text.  Eight pairs of subjects, primarily senior
+undergraduate computer science students, worked on separate
+workstations. Subjects were within speaking distance but unable to see
+each other. Each user could scroll independently within the layout,
+and their window was large enough to view about one third of the
+workspace at a time.
+
+<P>
+
+Pairs completed two layout tasks, each limited to fifteen minutes.
+One task was performed with limited awareness information about the
+other person. Subjects used either the shared workspace by itself, or
+combined with a <EM>miniature view</EM> showing only the locations of objects
+within the workspace. Half the pairs completed this condition first.
+
+In the other condition, subjects used the shared workspace along with
+one of three awareness widgets we had built.  The first was a
+<EM>multi-user scrollbar</EM>, which shows the location of each user with a
+colored bar beside the "thumb" of the conventional scrollbar.
+The second was a <EM>radar view</EM>, which shows a miniature of the entire
+document, a rectangle for the extent of each user's view, and a
+telepointer showing their mouse location. In both of these widgets,
+participants are differentiated by color. The third was a <EM>local view</EM>
+widget, which shows the full scale but limited region immediately
+around the other user's mouse cursor.
+
+<P>
+
+To collect data, we videotaped the tasks, asked subjects to fill out
+questionnaires, and conducted interviews to follow up particular
+aspects of the session.
+
+<H2>RESULTS</H2>
+
+All pairs completed their tasks and produced reasonable layouts, and
+made use of workspace awareness in doing so. Several of the widgets
+that we tested provided useful awareness information, and most
+subjects greatly favoured the conditions that included these widgets.
+
+<H3>Use of Workspace Awareness</H3>
+
+We observed a variety of working styles, ranging from "divide and
+conquer" to tightly coupled collaboration. Regardless of the style,
+there was evidence that the pairs maintained an awareness of each
+other's use of the workspace, and acted on that information to
+collaborate with their partner and complete their task.
+
+<P>
+
+Many of our observations of the use of awareness echo previous
+observational studies.  For example, we noticed the frequent use of
+gestures [3].  For gestures to be interpreted, the receiver must see
+them, and therefore the sender must be aware of the receiver's
+view. Gestures were most often communicated through the main
+telepointers, but people sometimes gestured by moving objects in the
+workspace or by using the telepointer in the radar widget. In addition
+to gestures, we also noticed the regular use of deictic references
+(e.g. "move <EM>this</EM> object).  As with gestures, deixis depends on
+the hearer being able to see what the speaker is pointing at, or the
+hearer having a mental picture of their work area.
+
+<H3>Use of Awareness Widgets</H3>
+
+The widgets were well received by subjects, who used them, liked them,
+and often requested even more awareness information than what was
+available.  Widgets were used in two ways.  First, subjects used the
+widgets to keep track of the locations of objects, and as a high level
+overview of the entire layout.  For example, many subjects used the
+radar to check if text columns fit on the page. Second, subjects used
+the widgets to keep track of their partner's location, activities,
+and progress on the task. For example, widgets assisted subjects in
+discussing placement of articles with their partner, who was working
+on the other page.
+
+<P>
+
+Feedback from subjects showed that the radar and miniature view
+widgets were most useful in their task. Although subjects could see
+some use for the local view and multi-user scrollbar widgets, these
+did not seem to support the task better than the plain
+workspace. Below, we consider these results in terms of ease of
+interpretation, distraction and perceived value of the widgets.
+
+To explore how easily the information in the widgets was interpreted,
+we considered the difficulty of shifting contexts between the main
+view and the widgets, and the problem of mapping colors to users.  The
+context shift to the radar view proved not to be a problem - subjects
+reported that it was easy to identify workspace objects in the radar
+view. Users found it more difficult to integrate the two different
+dimensions of the scrollbar than to interpret the view rectangles in
+the radar.  Interpreting the local view was extremely problematic for
+all subjects who used it. Several remarked on its small size and
+erratic motion. The mapping between colors and people in the radar and
+the multi-user scrollbar proved difficult for some subjects. One
+subject said "I couldn't figure it out; I just watched for
+motion."
+
+<P>
+
+Distraction was an issue in some widgets but not in others. None of
+the subjects found that the radar view or miniature stole their
+attention. Only one of four subjects found the scrollbars
+distracting. However, all users of the local view found it very
+disruptive, due to its erratic motion.
+
+<P>
+
+Finally, we asked subjects about the value of the widgets in
+completing their task, and whether they were worth their screen
+space. All subjects using the radar and miniature said that they found
+them valuable and worth the screen space - and even complained when
+we took them away. Their assessment of the scrollbars and local view
+was less positive; only two scrollbar users found them valuable, while
+none of the local view users found it valuable.
+
+<H2>DISCUSSION</H2>
+
+There are a number of lessons that can be drawn from these
+results. First, overviews are useful both for managing one's own
+interaction with a large workspace, and for maintaining awareness of
+other's locations and activities. The overview frees the user from
+having to maintain a mental model of the ever-changing workspace found
+in relaxed-WYSIWIS groupware. Second, if awareness information is to
+be easily interpreted, it must be presented in a familiar context,
+ideally that of the workspace itself [1].  Though the radar was
+physically separate, it closely paralleled the workspace, providing an
+easy transition between the two.  Third, awareness widgets must try to
+be as lightweight as the mechanisms of face-to-face interaction, or
+they will not be used. For example, integrating the two separate
+dimensions of the scrollbar required more effort than finding view
+outlines in the radar.
+
+<H2>CONCLUSIONS</H2>
+
+Overall, this study has confirmed our belief that workspace awareness
+is an important part of collaborating in large workspaces.  Though all
+of our pairs completed the task, we found that some of our widget
+designs provided useful awareness information that would otherwise be
+missing from a groupware system. This information allowed for more
+natural interaction over the workspace. In some cases, our widgets
+were remarkably effective, leading one subject to remark "it really
+felt like you were working on the same big table." We expect the
+issues raised here will motivate groupware designers to continue
+exploring awareness with the goal of building more natural shared
+workspaces.
+
+<H2>REFERENCES</H2>
+<OL>
+<LI>Dourish, P., and Bellotti, V.  (1992). Awareness and coordination in 
+shared workspaces.  In <EM>Proc. Computer Supported Cooperative 
+Work (CSCW '92)</EM>.
+
+<LI> Gutwin, C., Stark, G., and Greenberg, S. (1995).  Support for workspace 
+awareness in educational groupware.  In <EM>Proc Computer Supported 
+Collaborative Learning</EM>, Bloomington, IN, Oct 17-20.  LEA Press.
+
+<LI>Tang, J. (1991). Findings from observational studies of collaborative 
+work.  <EM>IJMMS.</EM>  <B>34</B>(2).
+</OL>
+</BODY>
+</HTML>

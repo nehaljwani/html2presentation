@@ -1,0 +1,185 @@
+<html><head>
+<title>High Fidelity for Immersive Displays</title>
+</head>
+
+<body>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/shortpap.JPG" ALT="shortpap" HEIGHT=35 WIDTH=249><A HREF="../../shortpap.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<h1>High Fidelity for Immersive Displays</h1>
+<p>
+<em>Gernot Schaufler*, Tomasz Mazuryk**, Dieter Schmalstieg***</em>
+<p>
+
+<dl>
+<dt>*GUP
+<dt>Kepler University Linz
+<dt>Austria.
+<dt>gs@gup.uni-linz.ac.at
+</dl>
+<p>
+<dl>
+<dt>**Institute of Computer Graphics
+<dt>Vienna University of Technology
+<dt>Austria.
+<dt>mazuryk@cg.tuwien.ac.at
+</dl>
+<p>
+<dl>
+<dt>***Institute of Computer Graphics
+<dt>Vienna University of Technology
+<dt>Austria.
+<dt>dieter@cg.tuwien.ac.at
+</dl>
+<p>
+<hr>
+<h2><a name="RTFToC1">ABSTRACT</a></h2>
+Head-tracked immersive displays suffer from lag and non-uniform frame rates. A
+novel rendering architecture is proposed that combines head prediction with
+dynamic impostors for 3-D image correction and achieves bounded frame rates and
+significantly reduced lag.
+
+<h3><a name="RTFToC2">Keywords</a></h3>
+virtual reality, head tracking, immersion, lag, prediction, uniform frame
+rates, impostors
+
+<h2><a name="RTFToC3">INTRODUCTION</a></h2>
+The aim of virtual reality applications is to create the feeling of immersion
+by presenting convincing stimuli, in particular images, to the user, and
+allowing application control by direct interaction. Head-mounted displays are
+used to replace the user's view of the world with the computer output. Tracking
+of head movements allows direct control of the viewpoint in 3-D.<p>
+The degree of immersion in today's VR systems is not really satisfying.
+Limitations of quality are largely due to two factors:
+
+<ul>
+<li>		System lag is unacceptably long, causing image "swimming" and
+"overshooting" behavior.
+<li>		Non-uniform and low frame rates cause discomfort and prevent
+effective
+interaction with the system.</ul>
+
+<h2><a name="RTFToC4">ENHANCING THE RENDERING PIPELINE </a></h2>
+Proper software design of virtual reality systems must be used to deal with
+these disturbing factors. In particular the lag introduced by the hardware must
+be compensated for and strategies must be built into the system which deal with
+potential overload of the hardware. Important approaches are summarized in this
+chapter. In the next chapter a software design is proposed which actually
+removes the two severe quality restrictions discussed in the introduction.
+
+<h2><a name="RTFToC5">Head prediction</a></h2>
+To partly compensate for the lag, one can predict head movements
+and use the predicted head position for rendering. By the time the image is
+presented to the user, the predicted value will better match the real head
+position than the measured one, and lag influence will be reduced.
+Unfortunately the prediction accuracy decreases rapidly with longer prediction
+intervals. Moreover precision is further compromised by the noise present in
+magnetic tracker data. Mazuryk and Gervautz have presented an algorithm based
+on a modified Kalman filter [1]. Separate filters are used to correct the
+values for the position, velocity, and acceleration values, which are then used
+to compute the predicted values.
+
+<h2><a name="RTFToC6">Model culling</a></h2>
+Typically only a small portion of a large scene is visible at any time, so for
+a large geometric database, the hardware will spent most of the time dealing
+with objects that are not visible. A database preprocessing step for every
+frame can discard the invisible portions. Several approaches have been
+presented, such as viewing frustum culling, potentially visible set
+determination [2] and hierarchical Z-buffer rendering [3].
+
+<h2><a name="RTFToC7">Approximate rendering with dynamic impostors </a></h2>
+Even the most expensive hardware cannot provide uniform frame rates as long as
+there are no restrictions on scene complexity and user movement. Fortunately,
+it is not always necessary to generate an image with maximum quality, as it was
+found to be less disturbing to have reduced image quality than to have a highly
+variable (and possible low) frame rate. It may be better to render an
+approximate image than to present a frame late.<p>
+
+Schaufler has proposed a method for such approximate rendering based on
+dynamically generated impostors [4]. Separate images are produced for every
+object and stored in texture memory. The final image is composed by rendering a
+single polygon for every object with the object's pre-rendered image
+texture-mapped onto it. During times of high frame-to-frame coherence, most of
+the image data from the previous frame can be re-used.<p>
+
+The method includes level-of-detail (LOD) rendering based on multiple,
+progressively coarser geometric representations of polygonal models [5].
+Selection of the appropriate approximation that gives the best possible image
+for a fixed frame time is done using a heuristic as presented in [6].
+
+<h2><a name="RTFToC8">IMMERSIVE DISPLAY RENDERING PIPELINE</a></h2>
+VR systems must be designed as "closed-loop simulations" where the user
+interacts with the system and immediately expects the results of his actions to
+be reflected in the system's output. Though the mentioned contributions can
+greatly enhance any VR system, it is the successful combination of all these
+techniques which yields top of the line performance.<p>
+
+To make the best use of the prediction mechanism, we split the rendering
+process into two stages. The first stage will render the objects. Despite
+optimizations with impostors and LODs, this step takes up so much time that
+prediction cannot be completely accurate. Thus, the second stage will generate
+the final image taking into consideration new tracker data. Image deflection is
+used to better reflect the actual head position of the user. The use of
+impostors allows us to apply image deflection in 3-D which is far superior to
+conventional 2-D deflection. For an overview of our rendering architecture see
+fig.&nbsp;1.<p>
+
+<center>
+<IMG SRC="sd_fg1.gif"><p>
+<i>Fig. 1: Rendering pipeline for immersive displays</i>
+</center>
+
+<h2><a name="RTFToC9">First stage: rendering</a></h2>
+After obtaining the camera position by predicted head tracking, we select those
+objects that are potentially visible according to their bounding volume. These
+objects are partitioned into two sets: distant objects are represented by
+impostors (textures), while objects close to the observer are directly rendered
+into the frame buffer (impostors are not useful for close objects due to little
+coherence in their images and high texture memory requirements). Every impostor
+is examined for being still valid (for details, see [4]), only the invalid
+impostors are re-rendered, thus saving rendering time. For every object that
+must be rendered (either into a texture map or directly into the frame buffer),
+an appropriate geometric level of detail is chosen.
+
+<h2><a name="RTFToC10">Second stage: image composition and deflection</a></h2>
+The final image is composed from the frame buffer containing near objects and
+the impostors. Composition is done by simply rendering additional polygons
+textured with the impostors into the half-ready frame buffer.<p>
+Even with impostors and levels of detail, rendering takes time; usually newer
+tracker data becomes available as image generation progresses. Therefore we
+re-read the tracker and employ image deflection to compensate for the
+prediction error made in the first stage. We use different deflection
+strategies for the frame buffer and the impostors:
+
+<ul>
+<li>The frame buffer can only be panned and scrolled in 2-D, which allows corrections to made be perpendicular to the line of sight (see [1]).
+<li>In contrast, the impostors are 3-D polygons that can be transformed in 3-D to reflect the most recent head position. Panning, scrolling, rotation, and zooming can be achieved by simply modifying the camera transformation before rendering the impostor polygon. Thus the range of prediction errors that can be compensated for with 3-D deflection is significantly larger than in 2-D. Accuracy of the final image is greatly improved, in particular as 3-D deflection is able to compensate large amounts of perspective distortion in distant objects, caused by fast translatory head movements.</ul>
+
+When the final image must be presented to the user, the standard approach is to use double buffering. Mazuryk et al. have shown [7], that using hardware buffer swapping can introduce a considerable delay, as the vertical retrace of the raster device must be waited for. With hardware accelerated bit-block transfer (BitBlT) operations it is safer and faster to copy the new image into the frame buffer. Especially in the situation when the vertical retrace has just been missed, the rendering system would block for a whole frame. With 2-D hardware acceleration the copying step itself is so fast that disturbing flickering does not occur.
+
+<h2><a name="RTFToC11">CONCLUSIONS</a></h2>
+This paper presented a rendering architecture for high fidelity immersive
+applications. The approach is suitable for typical man-in-the-loop graphics
+applications with head-tracking. It uses a multi-stage rendering pipeline and
+combines head tracking with prediction, LODs and dynamic impostors, which
+should lead to significantly reduced system lag and near uniform frame rates.
+
+<h2><a name="RTFToC12">REFERENCES</a></h2>
+<ol>
+<li>Mazuryk T., Gervautz M. Two-Step Prediction and Image Deflection for Exact Head-Tracking in VEs. <i>Proc. of EUROGRAPHICS'95</i> (1995), 29-41<p>
+<li>Teller S., S&eacute;quin C. Visibility Preprocessing For Interactive Walktroughs<i>. Proceedings of SIGGRAPH'91</i> (1991), 61-69<p>
+<li>Greene N., Kass M., Miller G. Hierarchical Z-Buffer Visibility. <i>Proc. Of SIGGRAPH'93</i> (1993), 231-237<p>
+<li>Schaufler G. Dynamically Generated Impostors. <i>GI Workshop on Modeling, Virtual Worlds, Distributed Graphics</i> (Bonn, Germany 1995)<p>
+<li>Schaufler G. Exploiting Frame to Frame Coherence in a VR System. <i>To appear: Proc. of VRAIS'96</i> (1996)<p>
+<li>Funkhouser T., Sequin C. Adaptive Display Algorithm for Interactive Frame Rates During Visualisation of Complex Virtual Environments. <i>Proceedings of SIGGRAPH'93</i> (1993), 247-254<p>
+<li>Mazuryk T., Schmalstieg D., Gervautz M. Zoom Rendering: Improving 3-D Rendering Performance With 2-D Operations. <i>Techn. report</i>: <a href="ftp://ftp.cg.tuwien.ac.at/pub/TR/95/TR-186-2-95-09Paper.ps.gz">
+TR-186-2-95-09</a>, Vienna University of Technology<p>
+<p>
+
+</body></html>

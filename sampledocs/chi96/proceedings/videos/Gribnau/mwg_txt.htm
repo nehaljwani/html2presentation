@@ -1,0 +1,191 @@
+<HTML><HEAD>
+<TITLE>TIME: Three-dimensional Input, Modification and Evaluation</TITLE>
+</HEAD>
+
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/videos.JPG" ALT="videos" HEIGHT=35 WIDTH=249><A HREF="../../videos.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+
+<H1>TIME: Three-dimensional Input, Modification and Evaluation</H1>
+<CENTER>
+<B><P>
+<A HREF="http://www.io.tudelft.nl/research/IDEATE/Docs/people/grib/grib.html">Gribnau, Maarten</A>
+and
+<A HREF="http://www.io.tudelft.nl/research/IDEATE/Docs/people/pasm/pasm.html">Pasman, Gert</A>
+</P></B>
+<P><A HREF="http://www.tudelft.nl/">Delft University of Technology</A></P>
+<P><A HREF="http://www.io.tudelft.nl/">Faculty of Industrial Design</A></P>
+<P>Jaffalaan 9</P>
+<P>2628 BX  Delft</P>
+<P>The Netherlands</P>
+<P>voice: +31 15 2785039</P>
+<P>fax: +31 15 2784956</P>
+<P>
+<A Href="mailto:M.W.Gribnau@IO.TUDelft.NL">M.W.Gribnau@IO.TUDelft.NL</A>
+<A Href="mailto:G.Pasman@IO.TUDelft.NL">G.Pasman@IO.TUDelft.NL</A>
+</P>
+</CENTER>
+
+<H3>ABSTRACT</H3>
+<P>
+Simple intuitive manipulation of three-dimensional objects is needed for
+the conceptualizing phase of design. Present CAD systems do not allow for
+the quick and interactive generation and development of objects, which are
+based more on free-form ideas than on hard numerical input. This video presents
+a prototype envisionment that uses intuitive 3D sketch input with two hands.
+</P>
+
+<H3>Keywords</H3>
+<P>
+Tactile or gestural I/O, visualization, input devices, two handed input
+</P>
+
+<H3>INTRODUCTION</H3>
+<P>
+The IDEATE research project [1] at our faculty concentrates on the conceptualizing
+phase of the industrial design process; how designers generate ideas and
+create form, and what kind of tools are used for these activities. The goal
+is the development of an advanced electronic environment, made up of multi-nodal
+tools, to support designers in the generation and development of new product
+forms; tools for creative thinking, visualizing and conceptualizing. This
+video reports on a concept for one of these tools: TIME, a 3-D sketching
+device.
+</P>
+
+<H3>3-D CAD SYSTEMS</H3>
+<P>Current 3-D CAD systems are heavily used at the end of the design process
+when most of the geometry of a product is already determined. However, in
+the conceptual phase, where initial ideas are being generated and explored,
+designers still rely on the traditional design tools like pencil and paper.
+These lack processing capabilities but instead score high from the point
+of view of the designer as a performer, who puts high demands on his instruments,
+concerning flexibility and agility, to perform his act, being the creation
+of a new product form [2].
+</P>
+
+<H3>TWO HANDED INPUT</H3>
+<P>
+In a previous study [3] it was noted that designers use both hands for most
+actions. While a fairly obvious notation, this analogy has yet to be fully
+offered to the human computer user [4]. 
+</P>
+<P>
+However, the first attempts are being made. Examples include the 3-DRAW
+system from the M.I.T. CAD Lab [5], which uses two hands to create objects
+in 3-dimensional space and our own Turntable/Grabber project [6], which
+uses a special input device for rotating/tilting a computerized object with
+one hand, and another specialized device for selecting/altering points on
+the object.
+</P>
+
+<H3>TIME</H3>
+<P>
+The goal of this project was therefore the development of a concept for
+a 3-D sketching device, which would a) allow simple and intuitive generation,
+manipulation and evaluation of three-dimensional objects in the conceptual
+phase, and b) make use of both hands for input. The concept was named TIME:
+Three-dimensional Input, Manipulation and Evaluation.
+</P>
+<P>
+To derive the requirements for TIME 13 interviews with professional industrial
+designers were conducted, in which they were asked for their design habits,
+drawing techniques and their preferences and ideas for an ideal sketching
+tool [7].
+</P>
+<P>
+Based on the results of the interviews 6 different interaction-concepts
+for TIME were generated. These concepts were then laid before a panel of
+11 respondents. From their comments a program of requirements was listed,
+upon which the final concept of TIME was based [7].
+</P>
+
+<H3>HARDWARE</H3>
+<P>
+TIME consists of three pieces of hardware: the pen, the watch and the tablet
+(figure 1). The pen is used for sketching and manipulating on both the watch
+and the tablet. Switching between these two modes is accomplished by pressing
+a button on the graphical user interface. The watch is used for positioning
+the sketch plane, evaluating the model and placement of the lights. It is
+to be held in the non-dominant hand and has three buttons.
+</P>
+<P>
+The tablet is the main input for sketch data and displays the graphical
+user interface. Extra functionality on the tablet includes manipulation
+of the camera settings. Trackpads are used to perform panning rotation and
+zooming.
+</P>
+
+<IMG SRC=mwg_fg1.gif>
+<P>Figure 1. The TIME hardware</P>
+
+<H3>GRAPHICAL USER INTERFACES</H3>
+<P>
+There are two graphical user interfaces, one on the watch and one on the
+tablet. The interface on the watch is kept to a minimum because of the limited
+screen area. It is used to set the mode of the watch to that of object mode,
+camera mode or light mode. The other graphical user interface is located
+on the tablet. Its main functionality's include the interface to the file
+system, the libraries of pre-defined contours, profiles or shapes and the
+selection of different editing tools.
+</P>
+<H3>SOFTWARE</H3>
+<P>
+The software assists in three major tasks: input, modification and evaluation.
+All of the sub-tasks have been divided over the input devices, taking into
+account the properties of the hands mentioned before.
+</P>
+<P>
+For input, several strategies are available. The combination of input devices
+is well suited to the extrusion of two-dimensional contours, the dominant
+hand is used for drawing the contour to be sweeped while the non-dominant
+hand defines the path the contour travels.
+</P>
+<P>Three types of object modification tasks are offered with two-handed support;
+common edit tasks (e.g. copy/paste), local deformations (vertex, curve editing)
+and global deformations (scaling, bending etc.).
+</P>
+<P>Evaluation of the model under construction can either be object-oriented
+or scene-oriented. An example of the first technique is the possibility
+to evaluate cross-sections of the model by moving the watch inside the object,
+the cross-section will then be displayed on the watch. The second evaluation
+technique is used when the camera's position or orientation is manipulated
+by one of the track pads on the tablet.
+</P>
+<H3>INTEGRATION OF THE PARTS</H3>
+<P>
+Scripts are used to the define the interaction between the software, the
+input devices and the user interfaces. For each essential modeling operation,
+several possible strategies are considered and defined. In addition to the
+static scripts a video was made to show this interaction in full motion.
+</P>
+<H3>ACKNOWLEDGMENTS</H3>
+<P>
+The authors would like to acknowledge Gianni Orsini for his work on this
+project and Rob Maas of the Audio Visual Center of the Delft University
+of Technology for his work on the video.
+</P>
+<H3>REFERENCES</H3>
+<P><FONT SIZE="2">1. Hennessey, James M. The IDEATE project: Exploring computer enhancements for conceptualising. <I>Automation Based Creative Design</I>, Tzonis, A., White, I. (Ed.), Elsevier Science B.V., Amsterdam, 1994, 349-362</FONT></P>
+<P><FONT SIZE="2">2. Lakin, F. et.al. The electronic design notebook: performing mediumand
+processing medium. <I>The Visual Computer</I>, Vol 5, 1989, 214-226</FONT></P>
+<P><FONT SIZE="2">3. Kolli, R., Pasman, G., Hennessy, J.M. Some considerations for designing
+a user environment for creative ideation<I>. Proceedings of Interface '93</I>, North Carolina State University, Raleigh, 1993, 72-77</FONT></P>
+<P><FONT SIZE="2">4. Buxton, William A.S. The three mirrors of interaction: a holistic approach
+to user interfaces. <I>Interacting with Images</I>, Sainsbury Wing, London, 1993</FONT></P>
+<P><FONT SIZE="2">5. Roberts, A., Sachs, E., Stoops, D. 3-DRAW: A three dimensional computer-aided
+design tool. <I>IEEE Computer Graphics and Applications</I>, Vol 11, No 6, 1992, 18-26</FONT></P>
+<P><FONT SIZE="2">6. Hennessey, James M., Gribnau, M., Stuyver, R. Two-handed modeling of
+three-dimensional computerized objects with the help of specialized input
+devices. <I>Adjunct Proceedings of HCI '95</I>, University of Huddersfield, 1995, 13-16</FONT></P>
+<P><FONT SIZE="2">7. Orsini, Gianni. CAD gebruiksconcept voor 3D schetsinvoer. (Dutch), Masters
+thesis, Faculty of Industrial Design Engineering, Delft University of Technology</FONT></P>
+
+</BODY>
+</HTML>

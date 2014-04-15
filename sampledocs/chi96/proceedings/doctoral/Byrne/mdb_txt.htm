@@ -1,0 +1,211 @@
+<!doctype html public \"-//W30//DTD W3 HTML 2.0//EN\">
+<HTML>
+<HEAD>
+<TITLE>A Computational Theory of Working Memory
+</TITLE>
+</HEAD>
+
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/doctoral.JPG" ALT="Doctoral" HEIGHT=35 WIDTH=249><A HREF="../../doctoral.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<H1>A Computational Theory of Working Memory</H1>
+
+<HR>
+<B>Michael D. Byrne</B><BR>
+School of Psychology<BR>
+Georgia Institute of Technology<BR>
+Atlanta, GA 30332-0170<BR>
+E-mail: <A HREF="mailto:byrne@cc.gatech.edu">byrne@cc.gatech.edu</A><BR>
+<HR>
+
+<H2>Abstract</H2>
+<P>One of the key factors in understanding what interfaces will be easy to use
+is the limited capacity of the human information-processing system. This
+work outlines a theory of human working memory which is instantiated as a
+computational system called SPAN. Working memory and the related construct
+of short-term memory have a long history in psychology, and in the last
+decade have been used to explain differences in performance on a wide
+variety of tasks both at the individual level and between different age
+groups. The production system SPAN was constructed as an attempt to address
+working memory issues based on several well-established mechanisms such as
+decay, interference, and processing speed. One property unique to SPAN is
+its ability to model the use of external memory. It is this last property,
+combined with SPAN's explicit acknowledgment of individual differences,
+which gives it a great deal of promise in applications to HCI
+domains--particularly in the prediction of errors.</P>
+
+
+<H2>Keywords</H2>
+<P>Cognitive models, individual differences, user models, GOMS,
+human memory</P>
+<HR>
+
+<H2>Introduction</H2>
+<P>The basic idea of humans as limited-capacity information processors goes
+back at least as far as the 1950's [7] and has gradually evolved into the
+construct we now know as &quot;working memory.&quot; Particularly in the
+last decade, working memory has received a great deal of attention from
+researchers interested in different aspects of human cognition. One of the
+central findings in the cognitive aging literature is that working memory
+capacity generally declines with age in adults. Differences in working
+memory capacity have been used to explain individual differences in young
+populations and group differences between young and older adults in a
+tremendous range of tasks, including natural language use (i.e.
+comprehension, production, discourse recall, etc.), a wide variety of
+reasoning tasks, recognition of declarative memory, procedural errors,
+skill acquisition, and so on. This phenomenon is so pervasive that some
+researchers have claimed that working memory capacity is the primary source
+of individual differences in cognitive abilities outside of domain-specific
+knowledge differences [6]. It seems clear  that working memory also plays a
+critical role in understanding the interaction of humans with other
+information systems, especially in understanding the errors that users make
+[e.g. 2].</P>
+
+
+<H2>Mechanisms of Working Memory</H2>
+<P>Given that working memory plays a key role in our ability to predict human
+performance, what do we know about how the human working memory system
+actually works? It turns out that several important mechanisms have been
+identified, such as: <EM>Decay</EM>. Items in working memory decay over
+time. That is, the longer it has been since an item was needed in working
+memory, the less likely it is that it is currently available [1].
+<EM>Displacement/interference</EM>. As new items enter into working memory,
+there are at least two repercussions in the rest of the system: other items
+tend to become harder to access and the cognitive system becomes less
+efficient, effectively slowing down [3]. <EM>Basic processing speed</EM>.
+Partially as a result of attempting to determine what causes the
+age-related decline in working memory capacity, researchers have discovered
+that there is a strong link between simple processing speed and working
+memory capacity [9].</P>
+
+<P>Despite the centrality of working memory as a psychological construct and
+the amount we know about how it works, there is at present no
+formal/computational theory which integrates these mechanisms into a
+coherent whole and can be used to predict user performance. Providing such
+a theory is the central aim of this research.</P>
+
+
+<H2>A Computational System for Working Memory: SPAN</H2>
+
+<P>SPAN (which stands for Speed, Parallelism, Activation, and eNvironment)
+is a production system designed to computationally realized the mechanisms
+described in the previous section. It has declarative elements or chunks
+which have activations that decay over. In addition, an element's
+activation must be above a threshold level for the element to be matchable
+by productions. Productions (IF-THEN rules) have the primary function of
+propagating activation, and are limited by two factors: a global speed
+parameter (used to realize individual differences) and total system noise,
+which is a complex function of the activations of the individual elements.
+This yields a system with a functional limit to its processing bandwidth as
+a function of processing speed. </P>
+
+<P>There is another aspect of the theory which is clearly relevant to HCI:
+external memory. Since memory elements in SPAN are fragile, the functional
+capacity of the system can be augmented by the use of memory elements that
+do not decay or contribute noise: those in the environment of the system.
+For example, it is impossible for most people to multiply two ten-digit
+numbers without the use of some kind of external memory store, such as a
+piece of paper. SPAN provides a way to formally model this important aspect
+of human memory use.</P>
+
+
+<H2>SPAN and Human-Computer Interaction</H2>
+<P>Though at this point, SPAN is primarily an exercise  in theoretical
+cognitive psychology, the potential for application to issues in
+human-computer interaction (HCI) is great. GOMS models have proved
+themselves useful in understanding certain aspects of  HCI, and it has been
+shown that the process of transforming a GOMS&nbsp;model into a set of
+productions is fairly straightforward [4]. However, SPAN provides
+advantages that GOMS and other production systems lack. The key advantage
+is that SPAN can predict working memory failures and therefore certain
+classes of user error. Other advantages include the ability to make
+predictions about individual differences in performance, as well as taking
+into account the impact of what information is and is not available to the
+human operator in the form of external memory. All of these are important
+aspects of the human-computer interface that are not handled particularly
+well by GOMS&nbsp;analysis or other production systems such as Soar
+[8].</P>
+
+<P>Detailed modeling of the memory ramifications of a human-machine system
+may be useful in the prediction of performance in terms of both fluency of
+use and in the prediction of errors. SPAN models, augmented by appropriate
+device or interface models, should be able to predict at what points the
+information load in an interface may become problematic for particular
+users. In addition, such models may be able to suggest to designers what
+information ought to be available in the interface to help avoid the
+errors. The inability of GOMS-based models to aid in the prediction of
+errors has often been taken as a key weakness (or at least incompleteness)
+in such models; SPAN offers a way to make model-based predictions about
+errors.</P>
+
+
+<H2>Current and Future Work</H2>
+<P>Currently, I&nbsp;am attempting to use SPAN to model the results of
+various psychological experiments in an attempt to test the particular
+mechanisms chosen for SPAN. In the future, I would like to extend SPAN by
+incorporating a more complete model of the perceptual-motor system such as
+the one found in EPIC [5] and using SPAN to evaluate real-world interface
+designs. I would also like to incorporate a learning mechanism into SPAN to
+better understand the effects of practice on human cognitive
+performance.</P>
+<HR>
+
+<H2>Acknowledgments</H2>
+<P>I would like to thank the National Science Foundation for financial
+support in the form of a graduate fellowship and also my dissertation
+committee (especially my advisor, Susan Bovair) for their support and
+guidance.</P>
+
+
+<H2>References</H2>
+<P>1. Anderson, J. R. (1990). <CITE>The adaptive character of
+thought</CITE>. Hillsdale, NJ: Lawrence Erlbaum.</P>
+
+<P>2. Anderson, J. R., &amp; Jeffries, R. (1985). Novice LISP errors:
+Undetected losses of information from working memory. <CITE>Human-Computer
+Interaction, 22</CITE>, 403-423.</P>
+
+<P>3. Baddeley, A. D. (1986). <CITE>Working memory</CITE>. Oxford: Oxford
+University Press.</P>
+
+<P>4. Bovair, S., Kieras, D. E., &amp; Polson, P. G. (1990). The
+acquisition and performance of text editing skill: A cognitive complexity
+analysis. <CITE>Human Computer Interaction, 5</CITE>, 1-48.</P>
+
+<P>5. Kieras, D. E., Wood, S. D.,  &amp; Meyer, D. E. (1995). Predictive
+engineering models using the EPIC architecture for a high-performance task.
+In <CITE>Human Factors in Computer Systems: Proceedings of CHI'95</CITE>,
+pp. 11-18. New York: Addison Wesley.</P>
+
+<P>6. Kyllonen, P. C. &amp; Christal, R. E. (1990). Reasoning is (little
+more than) working-memory capacity. <CITE>Intelligence, 14</CITE>,
+389-433.</P>
+
+<P>7. Miller, G. A. (1956). The magical number seven, plus or minus two:
+Some limits on our capacity for processing information. <CITE>Psychological
+Review, 63</CITE>, 81-97.</P>
+
+<P>8. Newell, A. (1990). <CITE>Unified theories of cognition</CITE>.
+Cambridge, MA: Harvard University Press.</P>
+
+<P>9. Salthouse, T. A. (1991). Mediation of adult age differences in
+cognition by reductions in working memory and speed of processing.
+<CITE>Psychological Science, 2</CITE>, 179-183.</P>
+
+<HR>
+<I>A Computational Theory of Working Memory / 
+email: <A HREF="mailto:byrne@cc.gatech.edu">byrne@cc.gatech.edu</A></I><BR>
+Go to 
+<A HREF="http://www.cc.gatech.edu/cogsci/students/Psych-students/Byrne/byrne.html">
+Mike's home page</A><BR>
+<BR>
+Copyright &copy;1996 Michael Byrne
+</BODY>
+</HTML>

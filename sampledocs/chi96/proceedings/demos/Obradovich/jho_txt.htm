@@ -1,0 +1,174 @@
+<HTML><HEAD>
+<TITLE>Design Concepts for an Instructional Tool: Teaching Abductive Reasoning in Antibody 
+Identification</TITLE>
+</HEAD>
+
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/demo.JPG" ALT="Demo" HEIGHT=35 WIDTH=249><A HREF="../../demos.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<H1>Design Concepts for an Instructional Tool: Teaching Abductive Reasoning in Antibody 
+Identification</H1>
+
+<i>Jodi Heintz Obradovich, Philip J. Smith, Stephanie Guerlain, Jack W. Smith, Jr., Sally Rudmann, Larry Sachs, John Svirbley, Melanie Kennedy and Patricia L. Strohm </i>
+<p>
+<dl>
+<dt>The Ohio State University
+<dt>Cognitive Systems Engineering Laboratory
+<dt>The Ohio State University 
+<dt>210 Baker Systems, 1971 Neil Ave.
+<dt>Columbus, OH 43210 USA
+<dt>jobradov@magnus.acs.ohio-state.edu
+<dt>+1 614 292 1296
+<dt>psmith@magnus.acs.ohio-state.edu
+<dt>+1 614 292 4120
+</dl>
+<p><hr>
+
+<H2>ABSTRACT</H2>
+
+We have conducted a series of studies aimed at understanding how to design a tutoring system that will 
+support students in expanding their knowledge of immunohematology and in developing their problem-
+solving skills in a problem-based learning environment [3].  Results from these studies have led to the 
+development of an expert model of problem solving, the identification of common errors and 
+misconceptions in solving such problems, and the development of a model of expert tutoring in this 
+domain.<P>
+<P>
+
+Based on the results of these studies, we designed the Transfusion Medicine Tutor and evaluated its 
+effectiveness in teaching medical technology students to solve antibody identification cases.  In our initial 
+evaluation of TMT, the students who used a version of the system with all tutoring functions turned on 
+and with instructor assistance went from 0% correct on  a pre-test case to 87%-93% correct on post-test 
+cases.  This compares with an improvement rate of 20% by students who used a passive version of the 
+system with the intelligent tutoring functions turned off.  The behavioral protocols collected as part of 
+this study provide further evidence regarding the contribution of the task environment, the interface 
+design, and the use of expert systems technology to detect and remediate errors (in cooperation with a 
+human teacher) to the student's learning.<P>
+
+<H3>KEYWORDS:</h3>  Computer-aided instruction, intelligent tutoring systems, expert systems, problem-
+based learning, abduction, medical diagnosis
+<P>
+
+(c) Copyright on this material is held by the authors.<P>
+
+<H2>INTRODUCTION</H2>
+
+We have conducted a series of studies aimed at understanding how to aid students in learning successful 
+strategies to solve complex problems[1, 2].  Based on the insights gained from these studies, we have 
+designed and built the Transfusion Medicine Tutor (TMT) as a testbed for studying design concepts for 
+the development of a general model for teaching abduction.  TMT is an expert-systems-based tutoring 
+system for teaching medical technology students the abduction task of red cell antibody 
+identification.<P>
+
+<H2>ANTIBODY IDENTIFICATION</H2>
+
+Red cell antibody identification is a laboratory workup task, where medical technologists must run a 
+series of tests and analyze a large amount of data to identify antibodies in a patient's blood (to avoid 
+potentially fatal reactions when transfusing blood).  This task has the classical characteristics of an 
+abduction task, including masking and problems with noisy data.<P>
+
+<H2>THE STUDENTS</H2>
+Students participating in the study were in the Medical Technology Program at a major U. S. university.  
+These students were college juniors and had completed the didactic portion of their immunohematology 
+coursework and an associated student lab, but had not yet begun their clinical rotation.  Participation in 
+the study was voluntary, but the students were paid for their participation.<P>
+
+<H2>TUTORING APPROACH</H2>
+The approach to tutoring we chose to explore is the design of a problem-based learning environment in 
+which the computer plays an active role in tutoring the student.  TMT is an active coaching system that 
+allows the student to get practice solving realistic cases within a computer-supported environment and 
+provides coaching in the form of suggested problem-solving strategies, immediate feedback in response to 
+errors made by students, and a case summary (at the end of each case), indicating how an expert would 
+solve that particular case.<P>
+
+<H2>INTERFACE DESIGN ISSUES</H2>
+A major contributor to the success of TMT are the issues surrounding the design of the interface.  The 
+interface design makes explicit to the computer the student's thought processes.  The very tools that 
+allow the student do their antibody identification task are the same tools that let the computer monitor 
+what the student is doing.  Unlike many tutoring systems that inform the student that he or she has made 
+errors only after the student has com-pleted the problem on which he or she is working, TMT critiques 
+the student's process <I>during</I> the process of solving an antibody identification case, providing the 
+student with immediate, context-sensitive feedback when he or she makes an error.<P>
+<P>
+
+TMT's interface also makes explicit to the teacher the student's thought processes.  This system is a 
+cooperative system meant to support rather than replace the teacher. The interface design provides the 
+teacher with data that allows her to potentially diagnose problems at a deeper level than the computer.  
+The teacher is able to look at the computer displays and identify where in the task the student is 
+encountering difficulty.  The teacher is also able to pull up a summary of the student's work on each case, 
+allowing for a more complete diagnosis of the student's process and progress.<P>
+<P>
+
+The TMT interface design allows the student to control the problem-solving activities, selecting tests to 
+run, and marking conclusions as desired.  This system allows for direct manipulation [4], providing a clear 
+mapping between the goals of the task and the representation on the screen.  The interface design also 
+supports cognitive limitations of students by providing memory and perceptual aids.<P>
+
+<H2>SYSTEM EVALUATION</H2>
+Throughout the literature of computer-based tutoring systems, there is very little evidence of rigorous 
+evaluation of expert systems in education.  Thus, one of the goals of this work was to provide a case 
+study demonstrating methods for understanding the impact of such a system on teaching and learning.<P>
+<P>
+
+Thirty students in the Medical Technology Program at a major U. S. university were tested on TMT.  
+The setting consisted of the laboratory in which the students normally conducted their student lab work.  
+Each student worked individually on a computer.<P>
+<P>
+
+The students were randomly assigned to two groups, where half of the students used a version of the 
+system with all tutoring functions turned off except for summaries (of how an expert would have solved 
+the case) at the end of each case (the control group).  The other half used a version with all the tutoring 
+functions turned on and were also provided with instructor assistance (the treatment group).  Performance 
+was studied using a combination of a within-  and between-subject design, using an initial pre-test case, 
+and two post-test cases.<P>
+<P>
+
+The results showed that there was no significant difference in the misdiagnosis rates on the Pre-test Case 
+for the Control and Treatment Groups.  However, the students in the Treatment Group showed a 
+significant (p &lt; .001) improvement in performance (a reduction from 100% to 13% misdiagnosis error 
+rate) from the Pre-test Case to the matched Post-test Case (Evaluation Case 1).  Students in the Control 
+Group showed no significant difference in their misdiagnosis rate from the Pre-test to Post-test Case 
+1.<P>
+<P>
+
+The between-subjects analysis also showed significant improvement  in performance on the Post-test 
+Cases across the two groups.  On Post-test Case 1, subjects in the Treatment Group had a misdiagnosis 
+rate of 13% while subjects in the Control Group had a misdiagnosis rate of 73%.  On Post-test Case 2, 
+students in the Treatment Group had a 7% misdiagnosis rate, while students in the Control Group had a 
+73% misdiagnosis rate.  Each of these differences is significant (p &lt; 0.01).<P>
+<P>
+
+Additional analyses are being conducted using videotapes showing the interactions of students with the 
+system and with the instructor.<P>
+
+<H2>CONCLUSIONS</H2>
+We have developed an expert critiquing system that is based on a model of expert problem-solving in the 
+domain of antibody identification.  This system provides a task environment to give medical technology 
+students practice in problem-solving, detects errors during the course of such problem-solving, provides 
+timely feedback directly to the student, and supports the immediate intervention by a teacher in order to 
+supplement the tutoring provided by the computer.  The underlying design features (for example, the 
+design of an interface that makes it possible for both the computer and the teacher to monitor the 
+student's process and progress) are major contributors to the success of the system.  The data strongly 
+indicate that TMT is a viable solution for improving medical technology students' performance on the real 
+world medical diagnosis task of antibody identification.<P>
+
+<H2>REFERENCES</H2>
+
+<OL>
+<LI>Smith, P.J., Smith, J. W., &amp; Svirbely, J., et al., Coping with the complexities of multiple-
+solution problems:  A case study. International-al Journal of Man-Machine Studies, 1991a. 35: p. 429-
+453.
+<LI>Smith, P.J., Miller, T. E., Fraser, J., et al. An empirical evaluation of the performance of antibody 
+identification tasks. Transfusion, 1991b. 31: p. 313-317.
+<LI>Barrows, H., A taxonomy of problem-based learning. Medical Education, 1988. 61: p. 481-486.
+<LI>Shneiderman, B., Designing the user interface.  Strategies for effective human-computer interaction. 
+Addison-Wesley, 1992.
+</OL>
+
+</BODY></html>

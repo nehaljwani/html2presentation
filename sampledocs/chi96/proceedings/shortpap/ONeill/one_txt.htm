@@ -1,0 +1,114 @@
+<html>
+<head>
+<title>
+Task model support for cooperative analysis
+</title>
+
+<body>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/shortpap.JPG" ALT="shortpap" HEIGHT=35 WIDTH=249><A HREF="../../shortpap.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<h1>
+Task model support for cooperative analysis
+</h1>
+<em>Eamonn J. O'Neill</em>
+<p>
+
+<dl>
+<dt>Dept of Computer Science
+<dt>Queen Mary and Westfield College
+<dt>University of London
+<dt>Mile End Road
+<dt>London E1 4NS, UK
+<dt>Tel:  +44 (0)171 975 5258
+<dt>E-mail:  eamonn@dcs.qmw.ac.uk
+</dl>
+<p>
+<hr>
+
+<h2>ABSTRACT</h2>
+Software usability is a function of how well the software supports the user's situated tasks, so it is important for the software developer to acquire a sound knowledge of the user's roles, tasks and working environment.  The research reported here assumes that the user is a primary source of such knowledge and examines how this knowledge may feed directly into the software developer's understanding through user-developer cooperation in analysis and modelling.
+This short paper briefly reports on the use of task models as representations to support cooperative analysis and concludes that task models provide a useful common ground for user-developer communication and cooperation.
+
+<h3>Keywords</h3>
+Cooperative analysis, task modelling.
+
+<h2>INTRODUCTION</h2>
+For the software developer, requirements analysis depends upon eliciting, verifying and representing information about the situation for which the software is being developed.  In order to derive an understanding of the requirements for the software which arise from the situation, the developer must first derive an understanding of the situation itself.  While simply giving developers access to users, as a passive on-line source of information, might well go some way towards facilitating this process, substantive improvement may require more direct and active user cooperation with developers [1].
+The research reported in part here examines direct user-developer cooperation throughout the software development lifecycle.  This short paper focuses on the use of task models as representations to support user-developer cooperation in the processes of eliciting and verifying information on the users' roles, tasks and working environment.  It is important to analyse these factors because they heavily influence the usability of the software [3].  The use of task models in this work is also motivated by their suitability to providing common ground for user-developer cooperation, suggested by their graphical presentation, manipulability and comprehensibility by untrained users (eg, see [2]).
+
+<h2>Involving users in development</h2>
+Part of this research has involved cooperative task modelling (CTM) in the development of a major commercial software application in the field of interactive document analysis.  Three people took part in the CTM sessions: two developers and a representative user.  Developer and user cooperated in identifying user roles, identifying, for each role, the primary, higher level tasks, decomposing the latter into subtasks and modelling the flow of work objects between roles.
+<p>
+
+Cooperative development of the task model began with quick pencil and paper models of parts of the user's task knowledge, produced during semi-structured user-developer discussions.  These partial models were then combined into one large model on a wall chart.  This chart was used by developers and user together as a basis for the cooperative construction and refinement of a comprehensive task model.
+
+<h2>Results of cooperation in practice</h2>
+CTM sessions were recorded by video.  An analysis of the video record illuminates the nature and extent of support for user-developer cooperation provided by the developing task model.  Some results of this analysis are presented below.
+<p>
+
+CTM sessions typically follow a distinctive repeating pattern.  A developer makes an explicit reference to a part of the task model, attempting either to elicit from the user information on an undeveloped part of the model or verification that the current version of a part of the model accurately represents the task structure.  The developer's seeking elicitation or verification typically prompts a lengthy sequence of interaction, with the user providing information about the tasks, roles and objects related to the part of the model in question.  Finally, the sequence almost always is terminated by the developer with an explicit reference to the task model.  For example:
+<p>
+Developer:  <em>So then, we have exhausted that bit.</em>
+<p>
+User:  <em>Yes.  Quite happy with that.</em>
+<p>
+The frequent initiation and termination of interaction sequences by a developer illustrate that cooperative development does not mean placing development in the hands of users.  It remains the job of the software developer to develop the software and the developer must retain ultimate responsibility for guiding the development processes.
+<p>
+However, CTM also facilitates the user's taking the initiative when appropriate.  For example* :
+<p>
+User:  <em>Well, the most important thing to follow would be a >DocA< followed by a >DocB<.</em>
+<p>
+Developer 1:  <em>Do that then?</em>
+<p>
+Developer 2:  <em>Yeah.</em>
+<p>
+User:  <em>Right.</em>
+<p>
+Developer 2:  <em>Uh ... where do we start?</em>
+<p>
+User:  <em>Well, initially, this guy would probably get ...</em>
+<p>
+Whether an interaction sequence is initiated for elicitation of information or for verification of the model, a pattern of mutual verification is very often apparent within the central sequence.  Developer and user make reference to the model to verify their understanding of what the model currently represents.  The developer also refers to the model in verifying his understanding of the user's explanation of the roles and tasks, while the user also refers to the model in verifying the developer's understanding of the user's roles and tasks. Consider the following example.
+<p>
+Developer:  <em>What we've got is that the >RoleA< delivers a returned >DocA<.  The returned >DocA< includes some documents. </em>
+<p>
+User: <em>>DocB<, >DocC<.</em>
+<p>
+Developer: <em>This goes to the >RoleB< and he does what he has to do with it. ... It then goes to this guy ... </em>
+<p>
+User: <em>So we're saying here then that the >DocA<, the complete >DocA< and documents, that includes >DocB<?</em>
+<p>
+Developer: <em>Yes. </em>
+<p>
+User: <em>Right. </em>
+<p>
+Developer: <em>We haven't separated them yet, the bundle's all at one end.  But what you are saying is that when you start it up, some things will come in without an associated >DocA<.</em>
+<p>
+The developer initially believes that a description just given by the user of a particular set of tasks does not accord with how the model currently represents those tasks.  So, the developer recounts his understanding of what the model currently represents.  The user in turn recounts his understanding of what the model represents, seeking verification from the developer of the user's understanding of the model and clarification of an unclear part of the representation ('... that includes >DocB<?').  The developer provides this and then seeks verification from the user of the developer's understanding of the user's recent description of the work in question.
+
+<h2>Conclusion</h2>
+In a CTM session, both user and developer make extensive use of the developing task model to support their attempts to request and to provide information.  The model presents an easily manipulated and comprehensible representation of the current shared understanding of the situation.  Well developed parts of the model may readily be verified for accuracy of their representation of the situation.  Less developed parts of the model are clearly apparent even to an untrained eye and may readily be used to structure the elicitation and representation of further information in order to flesh out those parts of the model.  During the latter process, the developing model supports very rapid feedback between user and developer in verifying their shared understanding of what is elicited and represented.
+<p>
+User and developer use the task model not just to aid verification of their respective understanding of the modelled situation and of the current state of the model, but also to verify that they are aware of each other's understanding.  Untrained users quickly grasp the modelling notation and conventions and are not intimidated.  Users may readily take the initiative in identifying and illuminating areas which require analysis, while developers may use the models to direct the flow of analysis sessions.  Thus, the use of cooperative task modelling contributes strongly to providing common ground on which developers and users may build a shared understanding of the work situation which they wish to support.
+
+<h2>Acknowledgements</h2>
+The work reported here is part of a PhD research programme supervised by Prof Peter Johnson and Prof George Coulouris of Queen Mary and Westfield College and is funded by the UK Engineering and Physical Sciences Research Council, award number 93560636, and by Harlequin Ltd.  Thanks also to Mick Smith and Reg Towse at Harlequin.
+
+<h2>REFERENCES</h2>
+<ol>
+<li>Holtzblatt, K. and Beyer, H.  Requirements gathering: the human factor.  Communications of the ACM 38, 5 (May 1995), 31-2.
+<li>Muller, M.J., Tudor, L.G., Wildman, D.M., White, E.A., Root, R.W., Dayton, T., Carr, B., Diekmann, B. and Erickson, E.D.  Bifocal tools for scenarios and representations in participatory activities with users.  In J.M. Carroll (ed), Scenario based design: envisioning work and technology in system development, John Wiley, New York, 1995, 135-63.
+<li>Shackel, B.  Usability - context, framework, definition, design and evaluation.  In B. Shackel and S. Richardson (eds), Human Factors for informatics usability, Cambridge University Press, 1991, 21-37.
+
+</body>
+* Objects and roles have been disguised to preserve confidentiality.
+
+
+

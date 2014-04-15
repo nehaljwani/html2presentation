@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3O//DTD W3 HTML 2.0//EN">
+<!- Converted with LaTeX2HTML 0.6.4 (Tues Aug 30 1994) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds ->
+<P>
+<HEAD>
+<TITLE> Interactive WWW Documents.</TITLE>
+<meta name="description" value=" Interactive WWW Documents.">
+<meta name="keywords" value="paper">
+<meta name="resource-type" value="document">
+<meta name="distribution" value="global">
+</HEAD>
+<BODY><P>
+ <BR> <HR><A NAME=tex2html174 HREF="node15.html">[Next]</A> <A NAME=tex2html172 HREF="node12.html">[Up]</A> <A NAME=tex2html168 HREF="node13.html">[Previous]</A> <BR>    <BR>
+<B> Next:</B> <A NAME=tex2html175 HREF="node15.html">3.6 Navigating The File </A>
+<B>Up:</B> <A NAME=tex2html173 HREF="node12.html">3.5 Surfing The WWW</A>
+<B> Previous:</B> <A NAME=tex2html169 HREF="node13.html"> Browsing A WWW </A>
+<BR> <HR> <P>
+<H4><A NAME=SECTION00035020000000000000> Interactive WWW Documents.</A></H4>
+<P>
+The W3 browser parses a WWW document before displaying it.  Emacspeak relies
+on this internal representation to provide the spoken rendering, rather than
+examining the visually displayed document. This fits well with the overall
+design of Emacspeak; it also enables Emacspeak to produce spoken feedback that
+would be impossible to generate by merely examining the screen.
+<P>
+A typical interaction with a form element consists of:
+<UL><LI>  Moving system focus to the element.
+<LI>  Changing the state of the form element, <em>e.g.,</em> pressing a button or 
+  entering a value.
+<LI>  Obtaining confirmation from the system
+  about the recently performed action. 
+</UL>
+<P>
+We illustrate this with examples of what happens when the user interacts with
+different form elements that are found on WWW documents.
+<DL ><DT>Text Field
+<DD>
+<UL>  <LI> Emacspeak summarizes the element under the focus 
+  with an utterance of the form ``text field   <i>field name</i>  set to
+  <i>value</i>.''.  The name of the text field and its value if any are
+  retrieved from the internal representation.
+  <LI> Pressing enter  results in the spoken prompt ``Enter value for <i>field
+    name</i>.''.
+  <LI>   After the value has been input, Emacspeak confirms this with the
+  announcement ``text field <i>field name</i> set to <i>value</i>.''.
+</UL>
+<P>
+<DT>Check Box
+<DD>
+  <UL>  <LI>  Emacspeak summarizes the check box with an utterance of the form
+    ``Check-box <i>name</i> is <i>checked</i>.'', 
+    assuming the box has been previously checked.
+<P>
+  <LI>  Pressing enter produces  a button click.
+<P>
+  <LI>  Emacspeak says  ``unchecked check box <i>name</i>.''.
+  </UL>
+  <DT>Radio Button
+<DD> The interaction parallels that described above for
+    check boxes.
+    The utterance uses the phrase ``is pressed'' to distinguish radio buttons
+    from check boxes.
+<P>
+ </DL>
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I> Raman T. V. <BR>
+Tue Nov 21 15:57:11 PST 1995</I>
+</ADDRESS>
+</BODY>

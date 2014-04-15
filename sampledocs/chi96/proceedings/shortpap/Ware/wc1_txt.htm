@@ -1,0 +1,171 @@
+<HTML>
+<HEAD>
+<TITLE>Moving Motion Metaphors</TITLE>
+</HEAD>
+
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/shortpap.JPG" ALT="shortpap" HEIGHT=35 WIDTH=249><A HREF="../../shortpap.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<H1>Moving Motion Metaphors<BR>
+</H1>
+<P>
+<EM>Colin Ware</EM>
+<P>
+Faculty of Computer Science
+<P>
+University of New Brunswick
+<P>
+Box 4400, Frederiction, New Brunswick, Canada, E3B 5A3
+<P>
+cware@UNB.ca
+<HR>
+<H2>ABSTRACT</H2>
+<P>
+A class of visual metaphors is introduced in which simple animation
+conveys meaning about motion metaphorically. Antecedents in the
+form of static metaphors for visually conveying motion are discussed,
+followed by two examples of moving motion metaphors. The second
+is an integral part of a new heads-up flying interface for navigating
+3D environments. Some concluding remarks are made concerning the
+practical uses of moving motion metaphors.<BR>
+<H3>KEYWORDS:</H3>
+<P>
+Metaphors, 3D Interaction<BR>
+<H2>INTRODUCTION</H2>
+<P>
+Most user interface metaphors are static in their presentation
+and in the way that they convey metaphoric meaning, although there
+are a few that are animated, such as the busy indicator showing
+that a process is active. In this paper I present a kind of animated
+metaphor wherein the motion itself conveys meaning in a metaphoric
+way. An important element in calling something a motion metaphor
+is that the motion itself should adequately convey meaning. Thus
+an animated running figure might be used to represent processor
+activity, but the animation might not be the important component;
+the static form might work as effectively.<BR>
+<P>
+The inspiration for these metaphors comes from prior work by Kennedy
+and his co-workers, who described a number of ways in which static
+drawings can convey information about motion [3,4]. These are
+commonly used in cartoons. Figure 1 illustrates three examples.
+<BR>
+<P>
+Figure 1: Static lines used to metaphorically represent motion:
+a) wake lines, b) strobe lines, c) and d) stream lines.<BR>
+<P>
+Kennedy argues that the use of these lines is metaphoric because
+although wake lines are visible as a duck moves through water,
+they are not visible as an object moves through air. Of the three
+types of examples shown above, the strobe lines are the most questionable
+as metaphor, because they do not occur in nature. However, they
+may work either because we are familiar with strobe photography,
+or because the retina retains partial images.<BR>
+<P>
+A need to provide good visual feedback about self motion in interactive
+3D envionments provided the motivation for the two of moving motion
+metaphors described here. The first solution was to show streamlines
+from a predictive navigation aid. This is previously described
+in detail in [2] but not in terms of the metaphor. Figure 2 shows
+the predictor with its streamline tails. These tails are computed
+by saving the sequence of positions as the predictor passes through
+the three dimensional space. They evoke the smoke streams from
+an aircraft or sky diver. The lines get longer with speed and
+curve to reveal the rate of turn.<BR>
+<P>
+<IMG SRC="wc_fg2.GIF">
+<P>
+Figure 2. The rectangular box is a predictive flying aid. The
+tails of the predictor indicate velocity.<BR>
+<P>
+The second solution is part of a new heads-up flying interface,
+also designed for data exploration. This is illustrated in Figure
+3. The interface consists of a set of velocity control widgets
+located in the plane of the screen. The see-through design of
+this interface was partly inspired by Bier et al [1], and partly
+by the heads-up diplays used in fighter aircraft. In the center
+is a rotation widget, flanking it are two identical translation
+widgets used for translation at right angles to the line of flight,
+and below is a forward/backward velocity widget. To increase or
+decrease velocity on any of these widgets, the mouse button is
+depressed over the widget, and a dragging motion is made in the
+appropriate direction. For example, with the forward/backward
+widget dragging upward results in increased forward motion and
+dragging downward decreases the forward motion which eventually
+results in backward motion. Note that Figure 3d gives an exaggerated
+impression of the size of the widgets because it only shows a
+portion of the screen. Motion feedback is provided in the form
+of a metaphoric device adapted from Figure 1b. A series of dark
+and light bars are animated away from the arrowhead and as they
+move away they change from the black of the arrowhead to white.
+This motion might be thought to be paradoxical in so far as the
+actual animated motion is in the opposite direction to the direction
+indicated. However, the visual metaphor is an analogy with puffs
+of smoke being emitted from a moving train; the puffs of smoke
+move backward relative to the train, indicating its forward motion.
+<BR>
+<P>
+<IMG SRC="wc_fg3.GIF">
+<P>
+Figure 3. A heads-up flying interface with animated velocity feedback
+on each of the widgets.<BR>
+<P>
+It is worth pointing out that in the case of rotation, the animated
+motion is directly related to the rate of turn. However, in the
+case of translational motion, the rate of motion is the square
+root of the actual motion, so as to accomodate a wider range of
+velocities without temporal aliasing effects becoming a problem.
+When flying, any subset of these widgets can be activated. Each
+provides continuous visual feedback via the motion metaphor. Each
+widget also has a stop button, which instantly stops motion in
+that direction or about that particular axis. The animated motion
+metaphors appear to work well in providing direct visual feedback
+concerning rate and type of motion. It is difficult to imagine
+a static motion indicator that would be as effective or as easily
+understood.<BR>
+<H2>CONCLUSION</H2>
+<P>
+This paper presents a new class of visual metaphors, termed moving
+motion metaphors, because they use animation to convey meaning
+about motion, in a metaphoric manner. These types of metaphors
+will become increasingly useful as interfaces become more animated.
+Other kinds of animated metaphors are certainly possible. One
+that is already common is a small turning disc that represents
+processor activity on computationally intensive tasks. An interesting
+idea would be to have icons jiggle up and down representing things
+that require attention, metaphorically expressing agitation.<BR>
+<P>
+An intriguing possibility for the future development of powerful
+moving metaphors is that they may convey causality more powerfully
+than any static representation. The work of Michotte [5] showed
+that simple motions involving one patch of light moving and apparently
+&quot;hitting&quot; another, can powerfully express a causal relationship.
+Thus, moving metaphors expressing actions such as pushing, pulling,
+and striking could be used to represent causal interdependencies
+between on-
+<P>
+screen objects.<BR>
+<H2>REFERENCES<BR>
+</H2>
+<OL>
+<LI>Bier, E.A. Stone, M.C., Pier, K. Buxton,W. and DeRose, T.
+(1993) Toolglass and Magic Lenses: The See Through Interface.
+Proceedings of Siggraph' 93, Computer Graphics, ACM, 73-80.
+<LI>Chapman, D. and Ware, C. Manipulating the Future: Predictor
+Base Feedback for Velocity Control in Virtual Envoronment Navigation.
+1992, Special Issue of Computer Graphics: ACM SIGGRAPH, 63-67.
+<LI>Kennedy, J.M. (1982) Metaphor in Pictures Perception, 11,
+589-605.
+<LI>Kennedy, J.M. Green, C.D. and Vervaeke, J, (1993) Metaphoric
+Thought and Devices in Pictures, Metaphor and Symbolic Activity,
+8(3) 243-255.
+<LI>Michotte, A. 1963, The Perception of Causality. 
+</OL>
+</BODY>
+</HTML>

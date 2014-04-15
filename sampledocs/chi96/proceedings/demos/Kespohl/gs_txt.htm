@@ -1,0 +1,173 @@
+<html>
+<head>
+   <title>KAP - A Prototyper for Technical Device Interfaces</title>
+</head>
+<body>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/demo.JPG" ALT="Demo" HEIGHT=35 WIDTH=249><A HREF="../../demos.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<h1 align=center>KAP - A Prototyper for Technical Device Interfaces</h1>
+
+<center><p><b>Klaus Kespohl, Gerd Szwillus</b> 
+<br>Universität - GH Paderborn, FB 17 
+<br>D-33095 Paderborn 
+<br>+49 5251 60-6624 
+<br>szwillus@uni-paderborn.de</p></center>
+
+<h2>KEYWORDS</h2>
+
+<p>Prototyping, formal specification, design techniques, development tools,
+usability testing, evaluation </p>
+
+<h2>ABSTRACT</h2>
+
+<p>We present the tool KAP <i>(Kespohl's Automaton Prototyper)</i> for
+prototyping user interfaces of technical devices, such as VCRs, CD players,
+alarm clocks, answering machines, etc. The work is based on a formal specification
+language, DSN/2. KAP supports this notation - as an editor, for adding
+interactive elements, and as an animation tool. The system was found suitable
+for performing user tests on several software models, including a CD player
+with realistic functionality; the results were verified against user testing
+on the real device. </p>
+
+<h2>GOALS OF THE DEMONSTRATION</h2>
+
+<p>With our demonstration we show that and how it is feasible to create
+realistic prototypes with the tool. We create the simulation of a CD player
+on-line while people are watching. We start with a photograph and the instructions
+manual of the CD player and then stepwise develop the KAP model of this
+device. We demonstrate how the model is working, thus proving its potential
+for user-testing. The audience observes how we start from an abstract control
+model specification, stepwise add information, and finally come up with
+a running prototype. </p>
+
+<h2>THE PROBLEM IS THE CONTROL MODEL</h2>
+
+<p>Electronic devices known as &quot;end-user programmable devices&quot;
+today are more wide-spread than ever. Electronic clocks, telephones, answering
+machines, calculators, VCRs, or CD players, come with sophisticated functionality
+brought to the human user through computer-based device interfaces. We
+all know that it can be very hard to control these devices, and that a
+considerable percentage of their owners is not able to exploit all functions,
+giving up at the sight of numerous buttons and a voluminous user's manual.
+The externally experienced behaviour of a device can be described as a
+sequence of &quot;situations&quot;, with a situation being given in terms
+of the visible appearance, the sounds produced, and the input possibilities
+provided. The sequence of the situations is governed by rules based on
+the actions performed by the user and the device. Expressed in this terminology,
+the most severe problems human users experience stem from controlling the
+situation sequences, rather than from understanding the single functionalities
+of a device. In computer science terms the user has to &quot;understand&quot;
+a potentially large, finite automaton with attached functionality - the
+system's control model. The user of a device must build an internal model
+matching the control model of the device. </p>
+
+<h2>DSN/2: SPECIFYING THE CONTROL MODEL </h2>
+
+<p>We propose a technique for specifying the control model of a device
+with the abstract specification language DSN/2. This language is based
+on the concept of states and state transitions; it is written in a notation
+called DSN/2, which is based on the Dialogue Specification Notation (DSN)
+[1,2], which in turn has its roots in the Propositional Production System
+(PPS) [7]. </p>
+
+<h2>KAP: ANIMATING THE CONTROL MODEL </h2>
+
+<p>DSN/2 is used by the interface designer to define the control model
+of a user interface. Developing such a specification necessitates the possibility
+to &quot;see how it works&quot; to verify the correctness of its behaviour.
+The MS Windows™ tool KAP, presented in this demonstration session, supports
+the work with DSN/2. With KAP, a designer can create a realistic prototype
+of device user interfaces. It looks like the real thing, it produces the
+same sounds, and its state behaviour can be observed and tested. Adding
+the animation does only necessitate experience in using MS Windows™-style
+programs, hence it can be mastered by non-programmers. Roughly speaking,
+KAP's features are editing facilities for DSN/2 specifications, generating
+default animations, and specifying individual visual and acoustic animations.
+</p>
+
+<h3>Default Animation</h3>
+
+<p>The language DSN/2 itself does not include information about the visual
+appearance or acoustic feedback of the user interface. Hence, the simplest
+animation of the control model possible is defined in terms of the language
+elements of the DSN/2 specification. KAP provides two default animations
+on this level, a textual animation [3] and a graphical default animation.
+Both exist without any additional effort for every DSN/2 model loaded into
+KAP and both are not intended for user testing, but as tools for the user
+interface designer, working on the DSN/2 model. </p>
+
+<h3>Specific Graphical Animation</h3>
+
+<p><img src="gs_fg1.gif" alt="Screen-Dump of the CD-Player Model" border=0 height=403 width=640>The
+elements of the graphical default animation can subsequently interactively
+be moved, resized, hidden, and replaced by externally defined bitmaps (drawings
+or scanned photographs). One can link different pictures to different states
+to visualize state transitions through lights turning on and off, changing
+colours, or displays showing different symbols. The input behaviour can
+be changed to model small key matrices, toggle buttons, repeat keys, sliders,
+or similar devices. With these modifications we could model several devices
+very realisticly. For instance, the graphical animation of the simulated
+CD player shown above strongly resembles the original. As sound carries
+important feedback clues for the user, we included the possibility to link
+sounds to the raising of flags. This can be done interactively in the KAP
+tool or in the DSN/2 specification by inclusion of sound annotations. </p>
+
+<h3>Related Work</h3>
+
+<p>We think that KAP has significant advantages over environments such
+as HyperCard™ or SuperCard™ [5] typically used for prototyping purposes,
+as they necessitate programming expertise. The same argument applies to
+prototyping done with environments like VisualBasic™. An interface designer
+working with KAP must only be familiar with the concepts of state and rule-based
+state transition. These, however, are central design issues anyway, so
+only the notation has to be learned. Other tools such as GARNET [6] and
+its successors, Whizz'Ed [4], or our own approach OBJECTION [8] urge the
+designer to familiarize with additional concepts such as constraints or
+data-flow specifications. These are too much influenced from a programming
+style of user interface development for being applicable by non-programming
+interface designers. </p>
+
+<h2>REFERENCES</h2>
+
+<ol>
+<li>Curry, M B; Monk, A F: Dialogue modelling of graphical user interfaces
+with a production system, Behaviour &amp; Information Technology, Vol.
+14, No. 1, pp 41-55, 1995. </li>
+
+<li>Curry, M B; Monk, A F; Maidment, B A: Task-Based Interface Specification,
+Technical Report, Department of Psychology, University of York, and Data
+Logic, Harrow, Middlessex, UK, 1991. </li>
+
+<li>Curry, M B; Monk, A F: The dialogue design tool: better programming
+by design, presented at the NATO Advanced Research Workshop: Cognitive
+Models and Intelligent Environments for Learning Programming, Santa Margherita,
+Italy, 1991. </li>
+
+<li>Esteban, O; Chatty, S; Palanque, P: Whizz'Ed: A Visual Environment
+for Building Highly Interactive Software, Proceedings of INTERACT'95, pp
+121-126, June 1995. </li>
+
+<li>Gookin, D: The Complete SuperCard Handbook, COMPUTE! Books, Radnor,
+Pennsylvania, 1989. </li>
+
+<li>Myers, B A; Guise, D A; Dannenberg, R B; Vander Zanden, B; Kosbie,
+D S; Pervin, E; Mickish, A; Marchal, P: GARNET: comprehensive support for
+graphical, highly-interactive user interfaces, IEEE COMPUTER magazine,
+pp 71-85, November 1990. </li>
+
+<li>Olsen, D: Propositional Production Systems for Dialog Description,
+Proceedings of CHI'90, pp 57-63, 1990. </li>
+
+<li>Pöpping, M; Szwillus, G: Constraint-Based Definition of Application-Specific
+Graphics, Proceedings of INTERACT'95, pp 85-90, June 1995. </li>
+</ol>
+
+</body>
+</html>

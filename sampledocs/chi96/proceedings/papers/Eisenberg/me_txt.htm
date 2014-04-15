@@ -1,0 +1,493 @@
+<html>
+<head>
+<title>The Thin Glass Line: Designing Interfaces to Algorithms</title>
+</head>
+
+<body>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<P><IMG SRC="./../../graphics/papers.JPG" ALT="papers" HEIGHT=35 WIDTH=249><A HREF="./../../papers.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<H1>The Thin Glass Line: Designing Interfaces to Algorithms</H1>
+
+
+<B>Michael Eisenberg</B><BR>
+Department of Computer Science and Institute of Cognitive Science<BR>
+Campus Box 430<BR>
+University of Colorado, Boulder CO USA 80309-0430<BR>
+duck@cs.colorado.edu; (303-) 492-8091<BR>
+
+
+	
+<H2>ABSTRACT</H2>
+Modern application software often includes operations that are performed by complex mathematical algorithms. These 
+algorithms--far from being the &quot;black boxes&quot; typically portrayed in computer science courses--may instead be 
+viewed as interactive processes, each presenting its own particular &quot;interface&quot; to the user. This paper, then, offers 
+a number of <I>interface guidelines for mathematical algorithms</I>--principles whose purpose is to suggest ways in which 
+users may employ algorithms with greater control and expressiveness. As a source of examples, we illustrate the guidelines 
+through a particular complex mathematical problem--that of generating a &quot;folding net&quot; for a three-dimensional 
+solid.
+<P>
+
+
+<H3>Keywords</H3>
+Algorithms, human-computer interaction, polyhedra, folding nets.
+<P>
+
+<H2>INTRODUCTION</H2>
+Implicit in almost every university catalog is a taxonomy of knowledge--the world is divided into discrete subjects such as 
+physics, history, and (in most universities) computer science. These subjects themselves are likewise divided into 
+subdisciplines, as reflected by the individual courses. Delving further, and exploring the offerings within computer science 
+departments, one will usually find both an algorithms course and a human-computer interaction course. It is overwhelmingly 
+likely that these two courses will be taught by different faculty, employ different teaching assistants, share no readings, and 
+make use of little of the same language or technical background. Within computer science, algorithm design and human-
+computer interaction are about as different as subdisciplines can be.
+
+<P>
+
+But in practice, mathematical algorithms do, after all, present something of an interface to their users--even if that interface is 
+as simple as a request for parameters. And increasingly, as computer applications become more powerful and complex, they 
+employ algorithms whose behavior is more varied, more unpredictable to the user. A paint program may, for instance, 
+include something like a &quot;select region&quot; function whose behavior is defined as &quot;selecting all nearby pixels 
+whose current color, when compared with the color of the selected pixel, is within some distance in an abstract color-
+space.&quot; A mathematical algebra program may automatically regroup terms in polynomials, following some algorithm 
+whose behavior it is left to the user to induce (and whose results may often leave the user perplexed). 
+&quot;Intelligent&quot; help systems may construct models of users' backgrounds or intentions through algorithms whose 
+details, or even outlines, remain mysterious.
+<P>
+This paper presents a number of broad design guidelines, or principles, for creating interfaces to mathematical algorithms--in 
+effect, for bridging the &quot;thin glass line&quot; of the computer screen that separates the worlds of algorithm and 
+interface design. The governing assumption in seeking these guidelines is that we would like to provide the user with flexible 
+means both for controlling and understanding the algorithm in question. If we assume, in contrast, that users are incapable of 
+understanding even the outlines of the algorithm--for instance, that our hypothetical paint program user would be unable to 
+understand the notion of testing the distance of two colors in an abstract color space--then the issue is resolved before we 
+begin, and we can at best present the user with a choice of typical parameters to our algorithm. In this argument, we assume 
+that users will exhibit a high level of interest in and (potential) understanding of the algorithms that they employ in a 
+professional context, and we seek means of providing users with effective and expressive control over those algorithms.
+
+By way of presenting the suggested guidelines, this paper will use an illustrative algorithm for solving (if partially) an 
+interesting and complex mathematical problem--namely, the problem of generating a two-dimensional &quot;folding 
+net&quot; for a three-dimensional solid. The following section briefly describes this problem and its history, and shows a 
+general algorithm for solving it in certain instances. In the third section we extend this basic algorithm with a variety of 
+suggested improvements; these improvements are motivated by (and, in succession, illustrate) the principles for creating 
+&quot;algorithm interfaces&quot;. The fourth section draws out the links between the principles as they appear in the context 
+of this particular sample problem, and the same principles applied to other similarly complex mathematical algorithms that 
+crop up within software applications; this section also describes the relation between this effort and other work, especially in 
+the area of algorithm animation. The fifth section concludes with some directions for future research.
+<P>
+
+<H2>THE FOLDING NET PROBLEM</H2>
+Consider the polyhedral solid shown in Figure 1a, and imagine that our goal is to create a paper model of this solid. One 
+means of doing so would be first to find a two-dimensional &quot;net&quot; of the solid, as in Figure 1b, which we could 
+print on paper; then we would cut around the outlines of this net, and fold along the edges to form the desired polyhedron. 
+The notion of producing a folding net for a solid is credited (along with the term &quot;net&quot; for the pattern itself) to the 
+16th-century artist Albrecht Durer, who devised the first such nets for the five Platonic (or regular) solids, among others. [12] 
+(The solid shown in Figure 1 is, in fact, one of these regular solids--the dodecahedron.)
+<P>
+<CENTER>
+<img src="me_fg1.jpg" alt="Figure 1"> <P></CENTER>
+<I>Figure 1a (top)</I>. A regular dodecahedron.<BR>
+<I>Figure 1b (bottom)</I>. 
+A &quot;folding net&quot; for the solid.<P>
+In utilitarian terms, the generation of folding nets for  solid is potentially important: one could imagine uses for nets in (say) 
+packaging, architectural modelling, or three-dimensional illustration. In purely mathematical terms, the problem of 
+generating a folding net for a solid is complex, for a variety of reasons. First, it is unclear how we might determine whether a 
+given solid even has a viable folding net (i.e., one in which the solid has been cut and &quot;unfolded&quot; along some of 
+its edges to form a connected set of two-dimensional polygons, and in which the polygons don't overlap so that the net can 
+be printed on a single sheet of paper). The net in Figure 1b is viable--none of the pentagons overlap, the solid has been sliced 
+along its edges, and the entire two-dimensional shape folds back into a dodecahedron; but in fact there are some nonconvex 
+solids for which no such net exists. The question of whether every convex polyhedron has some folding net (allowing 
+&quot;cuts&quot; of any kind) is an open problem in computational geometry [4]; and to my knowledge, no one has 
+demonstrated a &quot;bad&quot; convex polyhedron for which a viable folding net (allowing only cuts along edges) cannot 
+be produced.
+<P>
+In short, then, we do not know, when given a polyhedron, whether a net can be found (though for convex polyhedra, we 
+might at least be hopeful of obtaining one). There is also a flip side to this issue: a particular solid may admit of several (or 
+perhaps many) nets. Figure 2, for example, shows two other distinct nets (besides that in Figure 1b) for the dodecahedron. 
+The problem of finding a folding net for a solid is thus difficult in two opposing senses: we are not sure if there is any 
+solution, and--having found some solution--we cannot be sure that we have found (for our purposes) the best possible 
+solution.
+<P>
+<CENTER>
+<img src="me_fg2.gif" alt="Figure 2"></CENTER> <P>
+<I>Figure 2</I>. Two additional nets for the dodecahedron.
+<P>
+Algorithms for dealing with problems of this &quot;uncertain&quot; kind generally fall under the heading of heuristic or 
+approximate search. (NP-complete problems, such as the famous &quot;travelling salesman&quot; problem, are typically 
+approached this way as well [3]). We look to find some realistic solution with an eye not toward guaranteeing the best 
+solution, but to &quot;satisficing&quot; (in Simon's [16] term): essentially, getting a livable solution without spending 
+inordinate amounts of time and effort trying to obtain a slightly better solution.
+<P>
+Here, then, is the broad outline of an algorithm that can often manage to solve the folding net problem (though it is by no 
+means guaranteed to do so). This algorithm will be our starting point for the explorations of the following section.
+<P>
+<B><I>Algorithm 1</I></B><P>
+For unfolding a polyhedron P-3D with faces {F-3D} to produce a planar net N with faces {F-2D}:
+<P>
+(1) Begin by choosing a face F from {F-3D}. On the 2D plane, place a polygon f congruent to F. This single polygon now 
+constitutes the net in progress.
+<P>
+
+{2} If there are no more unaccounted-for faces in {F-3D}--that is, if there are no more faces whose equivalents have not been 
+placed in the net N--then we are done. Return the net N.
+<P>
+{3} Otherwise, choose a face f within the net corresponding to a face F in {F-3D}, and see if F shares an edge with an 
+unaccounted-for face F' in {F-3D}. Place a 2D face congruent to F' in the net so that it shares an edge with the appropriate net 
+polygon congruent to F, along the corresponding shared edge. Check whether the newly-placed net polygon overlaps any 
+other polygon currently in the net. If there is no overlap, go back to step {2}.
+<P>
+{4} If there is an overlap, look to see whether F shares an edge with some other unaccounted-for face F''. If so, go back to 
+step {3} (using F'' in the role of the face F'). If not, go back to step {3}, attempting an alternative choice for the face f. If 
+there are no remaining choices for the face f in step {3}--i.e., if we have unsuccessfully tried every available face in the net as 
+the face from which to &quot;expand&quot; the net--then announce failure.
+<P>
+______
+<P>
+Figure 3 illustrates several successive &quot;snapshots&quot; of this algorithm at work in the case of the regular octahedron. 
+Here, the algorithm begins by placing one of the triangular faces of the octahedron on the 2D plane; it then 
+&quot;grows&quot; the net incrementally by finding polygons in the net that border unaccounted-for faces on the solid, and 
+adding those faces to the two-dimensional net. The final result, once all eight faces are accounted for, is shown at the end of 
+the second row in Figure 3.
+<P>
+
+<H2>PRINCIPLES OF &quot;ALGORITHM INTERFACE 
+DESIGN&quot;: THE FOLDING NET PROBLEM 
+REVISITED</H2>
+Algorithm 1, as presented in the previous section, is a workable (though far from ideal) solution to the problem of generating 
+folding nets. One could certainly imagine incorporating this algorithm into a larger application--indeed, something like this 
+algorithm is included in a  polyhedral-modelling system developed in our laboratory, &quot;HyperGami&quot; [8], in which 
+the user designs three-dimensional solids on the screen and is then able to create decorated folding nets for those solids.
+<P><CENTER>
+<img src="me_fg3.jpg" alt="Figure 3"></CENTER><P>
+<I>Figure 3a (top row)</I>. Successive &quot;snapshots&quot; in the generation of a net for a regular octahedron.<BR>
+<I>Figure 3b (bottom)</I>. The octahedron.
+<P>
+
+In principle, then, we could simply present the user with a button or menu choice of the form &quot;Generate Net for 
+Current Solid&quot;; when the user selects this choice, Algorithm 1 will be run. Such a plan is problematic, however, for 
+two reasons:
+<P>
+(a) Algorithm 1, as written, simply makes one single attempt to generate a net. That attempt may fail; whereas, if the 
+algorithm were to be re-run under slightly different conditions (e.g., choosing a different starting face F in step 1), the 
+algorithm may succeed. Thus, if the algorithm fails, the user should not be left utterly without options until she is satisfied 
+that no solution (or at least no easily obtained solution) exists.
+<P>
+(b) Even if the algorithm succeeds, it may find a net that the user would prefer to avoid. Consider, for instance, the problem 
+of generating a net for an octagonal pyramid, as shown in Figure 4a (this is a loose approximation to a cone). Running 
+Algorithm 1 on this solid may well produce the net shown in Figure 4b. While this is a perfectly reasonable folding net from 
+the mathematical standpoint, it is a poor choice from the human standpoint: the process of actually cutting and folding the 
+net in Figure 4b would require folding eight separate triangles toward a single point, and gluing the edges of those triangles 
+together (an extremely tedious and error-prone chore). 
+<P>
+<CENTER>
+<img src="me_fg4.jpg" alt="Figure 4"></CENTER><P>
+<I>Figure 4a (left)</I>. A pyramid whose base is a regular octagon.<BR>
+<I>Figure 4b (right)</I>. A technically correct, but manually problematic, net for the pyramid.
+<P>
+
+It is worth taking a moment to reflect on the issues described in (b) above. Over and over, what at first blush appears to be a 
+purely mathematical problem--finding a net, arranging terms of a polynomial, presenting steps in a proof, finding a path for a 
+robot through a maze of obstacles--turns out to include highly contextualized, difficult-to-formalize aspects. We wish to 
+express a polynomial, <I>calling attention </I>to the higher-order terms in one particular variable; we wish to present steps 
+in a proof so that coherent <I>patterns of reasoning </I>are visible (i.e., the steps should not be placed in a technically valid 
+but incoherent order); we want a path for the robot that not only achieves the goal but does so while providing the visual 
+appearance of <I>purposeful behavior</I>; or, in our present case, we wish to find a folding net that does not presume 
+inordinate manual skill.
+<P>
+In any event, the issues raised in (a) and (b) suggest that we would like to provide the user with some sense of how our 
+algorithm ran in some particular case--i.e., where it may have gone astray; and moreover, we would like to provide the user 
+with means for rerunning the algorithm with alternative choices of running parameters. This can be summarized in the first 
+two design principles for algorithm interaction:
+<P>
+<I>Principle 1.</I><BR>
+When creating an interface to some algorithm, allow for a version that permits the user to observe the algorithm's effects as 
+it runs. 
+<P>
+<I>Principle 2.</I><BR>
+Create means that allow the user to learn and understand the effect of altering constant parameters within the algorithm, and 
+to perform those alterations.
+<P>
+Realizing Principle 1 in the case of the present algorithm is relatively straightforward--if we do not interpret the principle too 
+strictly. We can simply allow the algorithm to run in normal fashion, placing its various choices of net polygons on the 
+plane as it obtains them (as opposed to simply working in silence and either announcing &quot;failure&quot; or producing a 
+fully-blown net at the end of the process). Thus, the algorithm would produce, as it runs, a sequence of visible nets like those 
+shown in Figure 3 earlier.
+<P>
+Conceivably, Principle 1 could be employed more creatively than this. We might, for instance, need to allow the user to 
+slow down or &quot;tune&quot; the running speed of the algorithm so as to observe its effects; running the algorithm at its 
+maximal speed may prove counterproductive if it hinders understanding. We might also augment the algorithm with a variety 
+of visual cues to indicate the path taken; in our present case, for instance, the most-recently-placed polygon in the net could 
+be shown in red. Going a bit further, we might present the user with both a three-dimensional rendering of the solid being 
+unfolded, and a two-dimensional rendering of the net-in-progress; and the most-recently-placed net polygon could be shown in 
+the same color as its corresponding three-dimensional face. 
+<P>
+An extreme version of this idea might entail elaborating the algorithm with more and more visual information, all with the 
+intent of illustrating the operation of the algorithm. Where possible, such additional information should appear unobtrusive 
+within the working context of the algorithm--that is, the visual information should not render the overall application a purely 
+pedagogical exercise. (We will return to this issue in a later section.)
+<P>
+Principle 2 appears rather straightforward at first--presumably, the user should be able to specify important parameters to any 
+complex algorithm. Thus, in the present case, the user should be able to select (for instance) the 3-dimensional polyhedral 
+face from which the net-generation process will begin in Step 1 of the algorithm.
+<P>
+There are subtle problems encountered, however, in trying to interpret Principle 2 more creatively. A &quot;parameter&quot; 
+to an algorithm such as Algorithm 1 above may not be quite as straightforward as a number or polygon. Consider, for 
+instance, the third step: it involves choosing a &quot;frontier&quot; polygon in the net, and finding an edge of that polygon 
+corresponding to a 3d (solid) edge bordering a still-unaccounted-for face. The choice rules for both these operations may 
+themselves be parameters to the algorithm: for instance, we might wish to specify that the algorithm will always choose the 
+most recently-placed polygon in the net as the &quot;frontier&quot; from which to attempt expanding the net (in effect, 
+performing a depth-first search). Specifying a choice rule--as opposed to a simple value such as a number--as input to an 
+algorithm touches upon the often controversial notion of end-user programming [5, 7, 13, 14]: conceivably, the user should 
+be given something like a programming language with which to express &quot;choice rules&quot; in complex algorithms. 
+A less contentious position in this situation would be that the user should have, at the very least, a set of discrete 
+&quot;typical&quot; choice rules from which to select, or (somewhat more powerful) an algorithm-specific 
+&quot;grammar&quot;--perhaps less extensive than a complete programming language--with which to express notions such 
+as choice rules.
+<P>
+Considering the notion of a &quot;choice rule&quot; as an algorithm parameter leads to yet another principle, regarding when 
+such a choice rule is most effectively considered by the user. The standard assumption for algorithm design is that parameters 
+are dictated as initial fixed inputs to the algorithm, which is then run to completion. But in the case of a procedure such as 
+Algorithm 1, we may have a better sense of what parameters to choose once the algorithm has actually begun operation: for 
+instance, we may have a more informed notion of what would constitute a good choice rule at the moment that the choice 
+rule needs to be employed. Moreover, we might well want this type of repeatedly-employed parameter to be dictated 
+dynamically, more than once in the course of the running algorithm (as opposed to being dictated in static and irrevocable 
+fashion at the outset). 
+<P><CENTER>
+<img src="me_fg5.jpg" alt="Figure 5"></CENTER><P>
+<I>Figure 5a. </I>The net-in-progress for the pyramid of Figure 4a, after just two steps.<BR>
+<I>Figure 5b. </I>The net after several more steps, using a rule in which each new polygon is attached to the most recently-
+placed available polygon.
+<P>
+To take a specific example: suppose, once more, that we are generating a net for an octagonal pyramid. The algorithm might 
+begin by placing the solid's base octagon as the first face in the two-dimensional net, and then  a neighboring triangle 
+corresponding to one of the &quot;side&quot; faces of the pyramid. (See Figure 5a for illustration.) The algorithm might 
+then--and only then--pause for the user's input as to choice rule for next polygon in the net to expand. In this case, the user 
+might select as choice rule &quot;most recently-placed net polygon&quot;, so that the algorithm attempts to attach the next 
+net polygon to an edge of the triangle (as opposed to an edge of the octagon). The net produced after several more such steps 
+is shown in Figure 5b. At this juncture, the user might interrupt the algorithm once more to re-define the choice rule, 
+indicating that (e.g.) future new polygons should be joined (if possible) to those polygons with few vertices that were placed 
+earlier. The algorithm would then continue by placing its next triangle on the bottom edge of the earliest-placed triangle (the 
+one in Figure 5a).
+<P>
+The rationale behind a scenario of this kind is based upon the notion of &quot;reflection-in-action&quot; described by Schoen 
+[15] and eloquently advocated in the realm of user interfaces by Fischer and his colleagues [10]. These writers present a 
+portrait of design activity in which decisions are often made not in the manner of <I>a priori </I>specifications, but rather in 
+a more dynamic fashion, as the need for the decision arises. Such notions can be applied to interaction with algorithms just 
+as they can with the sorts of design domains considered by Schoen.  (This extension of an &quot;improvisatory&quot; style 
+of work to computational media also resonates strongly with the ideas expressed by Dourish [6] in designing systems that 
+present dynamic &quot;accounts&quot;, or self-generated representations, of system behavior.) In any event, we can 
+summarize by stating our third principle of algorithm interaction:
+<P>
+<I>Principle 3.</I><BR>
+There should be means for permitting users to specify parameters to the algorithm at the time they are employed; and for 
+those parameters that are employed repeatedly, there should be means of treating those parameters as &quot;fluid&quot; by 
+altering them in mid-process.
+<P>
+This principle leads, in turn, to a fourth which implements the notion of at least a single level &quot;undo&quot;: if we 
+have chosen a particular fluid parameter and run into trouble as a result, we should be able to return to the state of the 
+algorithm at the moment of the last (apparently flawed) decision--a form of user-directed &quot;backtracking.&quot;
+<P>
+<I>Principle 4.</I><BR>
+For those parameter choices that have been dynamically specified midway, there should be means for storing the state of the 
+algorithm at the time of the most recent specification and returning to that state in order to revisit the user's previous 
+decision.
+<P>
+To return to the (somewhat artificially simple) example of the octagonal-base pyramid: suppose that after two polygons in 
+the net have been placed (as in Figure 5a), we specify that the rule for choosing the next polygon to expand will be to select 
+the least-recently-placed polygon. After a second triangle has been placed (in Figure 6a), we realize that our choice is going to 
+produce a problematic net, so we should be able to interrupt the algorithm and return it to the state in which we made the 
+previous decision. From this point, we choose an alternative next-polygon rule and resume the algorithm, generating (after a 
+second triangle has been placed) the net shown in Figure 6b.
+<P><CENTER>
+<img src="me_fg6.jpg" alt="Figure 6"></CENTER><P>
+<I>Figure 6a (top)</I>. The net for the pyramid in Figure 4a, after three polygons have been placed.<BR>
+<I>Figure 6b (bottom)</I>. A more promising start for the  net.
+<P>
+&quot;Undo&quot; facilities of the type suggested by Principle 4 are  a staple of user interface design courses, but in practice 
+they typically apply to discrete actions taken via direct manipulation by the user, not to parameter choices for running 
+algorithms.
+<P>
+
+Finally, even when a complex algorithm has run to successful completion, users (being only human, after all) may still be 
+dissatisfied. For instance, even if our algorithm has produced a successful folding net, we may still sense a possibility for 
+improvement after the fact. In this instance, an algorithm should provide means for <I>post hoc 
+</I>&quot;adjustment&quot; of its solution to a particular problem.
+<P>
+Consider, as an example, the folding net shown in Figure 7a. In this case, the user has produced a perfectly reasonable net for 
+a truncated prism--but she would still like to tinker. She could now be presented with a &quot;post-algorithm&quot; 
+operation allowing her both to select an &quot;end polygon&quot; in the net (a polygon with only one net-connected edge) 
+and to observe which other edges in the net could be attached to that same polygon. Using this operation she should now be 
+able to repeatedly shift end polygons to other available positions, as illustrated for one such shift in Figure 7b.
+<P>
+Our fifth principle for interacting with algorithms, then, is:
+<P>
+<I>Principle 5.</I><BR>
+Algorithms should not run to an irretrievable conclusion, but should wherever possible be accompanied by &quot;post-
+algorithmic&quot; operations that allow the user to modify (if only slightly, in accordance with &quot;legal&quot; moves) 
+the solution produced by the algorithm.
+<P><CENTER>
+<img src="me_fg7.jpg" alt="Figure 7"></CENTER><P>
+<I>Figure 7a (top left)</I>. A folding net for a truncated prism.<BR>
+<I>Figure 7b (top right)</I>. An alternative net, differing in the position of one triangle.<BR>
+<I>Figure 7c (bottom)</I>. A view of the solid itself.<BR>
+<P>
+
+<H2>THE &quot;ALGORITHM INTERFACE 
+PRINCIPLES&quot; IN OTHER CONTEXTS</H2>
+To this point, the principles described in the previous section have all been illustrated through one (conceivably artificial) 
+problem--that of generating a folding net for a solid. To suggest the ways in which such principles might be employed in 
+other contexts, this section presents an extended scenario in which &quot;conventional&quot; application behavior might be 
+profitably perturbed to accommodate the principles.
+<P>
+Suppose, then, that the user of a hypothetical paint program selects a starting point on some picture; his intent is that this 
+will be the point from which he would like to select a region of contiguous pixels within the picture, all within a given 
+&quot;RGB color distance&quot; <I>d </I>of the starting point. Instead of selecting this color distance via some abstract 
+symbol (such as &quot;high/medium/low distance&quot;), or through some unexplained numeric value, the algorithm 
+presents the user with a representation of the RGB &quot;color cube&quot; (cf. the representation in [11]) and allows him to 
+select the desired parameter by drawing a sphere of radius <I>d </I>around the color of the starting point. (Principle 2: the 
+algorithm presents its parameters in a manner faithful to their use and meaning within the process itself.) Once invoked, the 
+algorithm, rather than simply presenting a final boundary to this region &quot;by magic&quot;, instead may be slowed down 
+to portray the way in which the boundary of the region is incrementally obtained. (Principle 1: the algorithm slows down to 
+indicate its mode of operation to the user.) 
+<P>
+Over time, the user becomes sufficiently familiar with this algorithm that he is able to use a more advanced version in 
+which, as the region around the starting point is incrementally searched (at moderate to slow speed, so that the search process 
+is visible), the color distance used as the effective search &quot;filter&quot; may be altered: that is, rather than merely 
+produce a region whose RGB-distance from the starting pixel is less than <I>d </I>throughout, the user may 
+&quot;tune&quot; or vary the parameter <I>d </I>as he observes the region grow on the screen. (Principle 3: a parameter 
+used repeatedly in the course of the running algorithm may be made &quot;fluid&quot; in practice.) The overall region thus 
+generated may reflect multiple choices of the distance <I>d</I>: e.g., the region might use a &quot;loose&quot; distance 
+filter over some portions of the boundary, a &quot;strict&quot; color filter over other portions. In employing this more 
+complex version of the &quot;region selection&quot; routine, the user is also able to &quot;back up&quot; the search 
+process to the point where the last change in the parameter <I>d </I>was made (Principle 4.) Overall, the boundaries of the 
+regions generated in this &quot;tunable&quot; search process may be much more complex than those generated in a simpler, 
+&quot;fixed-parameter&quot; version.
+<P>
+Finally, once a region has been generated, the user is able to revisit the region boundary (perhaps &quot;zooming in&quot; 
+on those portions), selectively moving small portions of the boundary outward or inward. (Principle 5: Once the algorithm is 
+run, its results may be modified by related &quot;post-algorithmic&quot; operations.)
+<P>
+
+It may be argued at this juncture that the principles articulated for &quot;algorithm interaction&quot; are hardly anything 
+new: after all, when selecting an operation within some application, we would <I>always </I>wish to choose a parameter for 
+that operation in an informative way (Principle 2),  to see the operation itself performed in instructive fashion (Principle 1),  
+to have the option to undo some recent set of decisions (Principle 4), and so forth. This is true: but in practice, applications 
+tend to treat the invocation of algorithms as atomic actions, employing algorithms in the &quot;black box&quot; fashion 
+more typical of presentations in computer science courses. Algorithms tend to be written to run at maximum speed rather 
+than with maximum transparency, and as a consequence, users are left with (at best) a very coarse-grained picture of how 
+many popular operations are actually performed: region fills, spline creation, digital image warping, text justification all 
+remain mysterious. Of course, for many users the &quot;black box&quot; assumption is perfectly reasonable--the majority of 
+us may not be especially interested in how the standard &quot;fill&quot; operation is actually performed in most paint 
+programs, and may be satisfied to employ a black-box version of the algorithm to run at maximal speed. But the option 
+either of understanding or interacting with such an algorithm is rarely offered. The purpose of presenting these principles as 
+means of interacting with algorithms is merely to suggest that in many cases, algorithms may themselves be thought of as 
+the subjects of interface construction.
+<P>
+It should also be mentioned that there are definite commonalities of interest between the principles suggested here and many 
+of the techniques used for algorithm animation [1, 2, 17]. Most efforts at algorithm animation, however, focus on presenting 
+algorithms strictly for pedagogical purposes: i.e., the user's presumed intent (at least in the short term) is to understand but 
+not actually employ the algorithm. Moreover, algorithm animations typically present processes at a level somewhat 
+abstracted from use within applications: we may see an animation of a depth-first search routine, but not the use of that 
+routine in the course of generating (say) a folding net for a solid. The argument of this paper, in contrast, is to weave at least 
+some of the ideas associated with algorithm animation into the actual working contexts of applications themselves. 
+<P>
+
+<H2>ALGORITHM INTERFACES: SOME 
+DIRECTIONS FOR RESEARCH</H2>
+The previous section concluded with a distinction drawn between the &quot;practical&quot; context suggested for the 
+principles described here, and the &quot;pedagogical&quot; context assumed for most algorithm animation efforts. Merely 
+because the interface principles suggested here are intended for integration within working algorithms, however, does not 
+imply that they have no pedagogical value. In fact, it may well be that users who learn about (say) depth-first search in the 
+course of ongoing, and personally meaningful, professional work will have more motivation to experiment with the 
+algorithm than those who learn of the algorithm in the rather abstract setting of a computer science course (even if that 
+course is augmented by beautifully prepared animations). Again, this echoes the sentiments of Fischer [9], who argues for 
+effective learning in the context of ongoing work (the basis for what he has dubbed &quot;learning on demand&quot;).
+<P>
+It would be of particular interest, then, to incorporate (some of) these principles within selected complex algorithms in 
+professional applications, and to study the pedagogical effectiveness of the principles in that context. Such an effort might, if 
+the results are encouraging, lead professional application designers to incorporate more &quot;transparent&quot; algorithms 
+into their systems. While this might appear to be a utopian wish in an era when algorithms are treated as proprietary 
+information, designing applications with transparent algorithms might actually prove of financial benefit if it lends greater 
+expressiveness (and hence satisfaction) to an application's user community. And placing transparent algorithms within 
+applications might serve the purpose of enlisting the culture of professional application design, easily and unobtrusively, in 
+the larger task of computer science education.
+<P>
+Moreover--returning to the academic theme with which we began--thinking of algorithms as interactive (rather than purely 
+and majestically deterministic) processes might lend an interesting twist to the study of algorithms themselves. Currently, it 
+is rare to see algorithms analyzed in any terms other than those of computational requirements in space or time. Nonetheless, 
+an algorithm which, in practice, lends itself to expressive interaction might be far superior than one that runs faster but offers 
+no avenues for creativity to its users. As suggested earlier, it would appear that especially difficult problems--including, one 
+might guess, many NP-complete problems--are good candidates for the design of interactive algorithms. Rather than run a 
+non-interactive algorithm for (say) a variant of the &quot;travelling salesman&quot; problem, one might enlist the 
+occasional aid of the user--particularly if (as so often happens), the user is aware of relevant context-specific information for 
+this particular instance of the problem. Pursuing this direction might lead us to analyze the performance of algorithms as 
+augmented by human interaction: we might find, in practice, that an algorithm rich in its interactive capabilities actually 
+outperforms (in the quality of its solutions) a more time-efficient &quot;black box&quot; algorithm. This type of study 
+might lead us in turn to analyze algorithms, on occasion, in terms of the interactions that they afford, rather than the 
+resources that they require. And eventually--perhaps--our university courses in human-computer interaction and algorithm 
+design might actually share the occasional reading.
+<P>
+<H2>ACKNOWLEDGMENTS</H2>
+This work owes much to the influence of Hal Abelson and Gerald Jay Sussman. The HyperGami program--the source of the 
+&quot;folding net problem&quot;--was developed with the collaboration of Ann Nishioka and the assistance of Zach Nies and 
+Jay Smith. I would also like to thank Gerhard Fischer and the members of the Center for LifeLong Learning and Design at 
+the University of Colorado for wonderful conversations. The author is supported in part by NSF grants RED-9253425 and 
+IRI-9210324, and by a Young Investigator award IRI-9258684.
+<P>
+<H2>REFERENCES</H2>
+1. Brown, M. Exploring Algorithms Using Balsa-II. <I>IEEE Computer</I>, May 1988, pp. 14-36.
+<P>
+2. Brown, M. H. and Sedgewick, R. Techniques for Algorithm Animation. <I>IEEE Software</I>, Jan. 1985, pp. 28-39.
+<P>
+3. Cormen, T.; Leiserson, C.; and Rivest, R. <I>Introduction to Algorithms</I>. McGraw-Hill, New York, 1990.
+<P>
+4. Croft, H.; Falconer, K.; and Guy, R. <I>Unsolved Problems in Geometry</I>.  Springer-Verlag, New York, 1991.
+<P>
+5. Cypher, A., ed. <I>Watch What I Do</I>. MIT Press, Cambridge MA,  1993
+<P>
+6. Dourish, P. Accounting for System Behavior: Representation, Reflection, and Resourceful Action. <I>Proc. of Third 
+Decennial Aarhus Conference</I>, Aarhus Denmark, Aug. 1995, pp. 147-156.
+<P>
+7. Eisenberg, M. Programmable Applications: Interpreter Meets Interface. <I>SIGCHI Bulletin</I>, 27:2, 1995, pp. 68-83.
+<P>
+8. Eisenberg, M. and Nishioka, A. Creating Polyhedral Models by Computer. To appear in <I>Journal of Computers in 
+Mathematics and Science Teaching</I>, 1996. 
+<P>
+9. Fischer, G. Supporting Learning on Demand with Design Environments. In <I>Proceedings of the International 
+Conference on the Learning Sciences</I>, Charlottesville, VA, 1991, pp. 165-172.
+<P>
+10. Fischer, G., Lemke, A.C., Mastaglio, T. and Morch, A. The Role of Critiquing in Cooperative Problem Solving. 
+<I>ACM Transactions on Information Systems</I>, Vol. 9, No. 2, 1991, pp. 123-151.
+<P>
+11. Foley, J; Van Dam, A.; Feiner, S.; and Hughes, J. <I>Computer Graphics: Principles and Practice</I>. Addison-
+Wesley, Reading, MA, 1990.
+<P>
+12. Malkevitch, J. Milestones in the history of polyhedra. In M. Senechal and G. Fleck (eds.), <I>Shaping Space: A 
+Polyhedral Approach</I>, Birkhäuser, Boston, 1988, pp. 80-92.
+<P>
+13. Myers, B.; Smith, D. C.; and Horn, B. Report of the &quot;End-User Programming&quot; Working Group. In B. Myers 
+(ed.), <I>Languages for Developing User Interfaces</I>. Jones and Bartlett, Boston, 1992, pp. 343-366.
+<P>
+14. Nardi, B. <I>A Small Matter of Programming</I>. MIT Press, Cambridge, MA 1993.
+<P>
+15. Schoen, D. A.  <I>The Reflective Practitioner: How Professionals Think in Action</I>. Basic Books, New York, 1983.
+<P>
+16. Simon, H. <I>The Sciences of the Artificial</I>. MIT Press, Cambridge, MA, 1981.
+<P>
+17. Stasko, J. and Patterson, C. Understanding and Characterizing Software Visualization Systems. <I>1992 IEEE 
+Workshop on Visual Languages</I>, Seattle, Sept. 1992, pp. 3-10.
+<P>
+
+</body>
+</html>
+
+
+
+
+
+

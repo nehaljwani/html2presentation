@@ -1,0 +1,203 @@
+
+<HTML>
+<HEAD>
+<TITLE>Using Force Feedback to Enhance Human Performance in Graphical 
+</TITLE>
+</HEAD>
+
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/shortpap.JPG" ALT="shortpap" HEIGHT=35 WIDTH=249><A HREF="../../shortpap.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<H1>Using Force Feedback to Enhance Human Performance in Graphical
+User Interfaces<BR>
+</H1>
+<P>
+<EM>Louis Rosenberg Ph.D., </EM>Scott Brave<BR>
+<P>
+Immersion Corporation
+<P>
+2158 Paragon Drive
+<P>
+San Jose CA 95131
+<P>
+408-467-1900 info@immerse.com 
+<HR>
+<H2>ABSTRACT</H2>
+<P>
+This project uses a <I>force feedback joystick</I> to enhance
+user interaction with standard graphical user interface paradigms.
+While typical joystick and mouse devices are input-only, force
+feedback controllers allow physical sensations to be reflected
+to a user. Tasks that require users to position a cursor on a
+given target can be enhanced by applying physical forces to the
+user that aid in targeting. For example, an attractive force field
+implemented at the location of a graphical icon can greatly facilitate
+target aquisition and selection of the icon. It has been shown
+that force feedback can enhance a users ability to perform basic
+functions within graphical user interfaces.<BR>
+<H3>KEYWORDS: </H3>
+<P>
+Force Feedback, Haptic Interface, Manual Performance<BR>
+<H2>INTRODUCTION:</H2>
+<P>
+This project focuses on using<I> force feedback</I> technology
+to enhance user performance in manual tasks. This study employs
+a joystick controller equipped with force feedback capabilities
+to enhance user interaction with standard graphical user interface
+(GUI) paradigms. While the work presented here has potential application
+to improve performance for all computer users, the motivation
+for this effort has been to develop a technology to assist persons
+with neuromotor disabilities in interacting with GUI based computer
+systems. Persons who suffer from spastic hand motion or hand tremor
+have a difficult time performing the manual targeting tasks required
+of standard GUI paradigms. This project implements a force feedback
+joystick to assist disabled persons in performing tasks such as
+clicking on buttons or icons, selecting items from a pull down
+menu, and positioning the thumb on a scroll-bar. <BR>
+<H3>Force Feedback</H3>
+<P>
+A force feedback system consists of interface hardware and a computation
+engine. The interface hardware typically includes a mechanical
+linkage in the form of a joystick or exoskeleton which couples
+the human operator to a source of mechanical power-either electromagnetic,
+electrohydraulic, or electropneumatic actuators. The computation
+engine is a processor which monitors the dynamic motions of the
+interface hardware through sensors in the mechanism and commands
+forces to the user by controlling actuators. The computation engine
+governs the forces felt by the user through control algorithms
+computed as a function of the sensor measurements.<BR>
+<P>
+<IMG SRC="IMG00001.GIF"> 
+<P>
+Figure 1, User at Force Reflecting Joystick<BR>
+<H3>Previous Work</H3>
+<P>
+In recent years, a number of researchers have explored the use
+of force feedback technologies to enhance human performance in
+manual tasks. Rosen and Adelstein have demonstrated that abnormal
+human tremor can be suppressed using force feedback hand controllers
+[1]. Repperger has shown that active controllers can effect both
+performance and learning period in stick based manual tasks [2].
+Rosenberg, has shown that force feedback can enhance manual performance
+in virtual environments and telemanipulation systems. He developed
+a general concept known as Virtual Fixturing in which force feedback
+information is overlaid to assist user performance in a variety
+of manual activities [3].<BR>
+<H2>HUMAN TESTING</H2>
+<P>
+We have performed a controlled set of human tests to quantify
+the effect that force feedback has upon manual performance in
+fundamental user tasks within GUI computer interfaces. Our testing
+paradigm includes three simple tasks:<I> Targeting Buttons, Selecting
+Items from Pull-Down Menus</I>, and <I>Positioning the Thumb on
+a Scroll Bars</I>. For each of these tasks we tested three cases:
+No Force Feedback, Active Force Feedback, and Passive Force Feedback.
+Thus a total of 9 tasks were performed as shown below:<BR>
+<P>
+<CENTER><TABLE BORDER=1>
+<TR><TD WIDTH=96></TD><TD WIDTH=58><B>Button Task</B></TD><TD WIDTH=58><B>Menu Task</B>
+</TD><TD WIDTH=60><B>Scroll Task</B></TD></TR>
+<TR><TD WIDTH=96><B>No Forces</B></TD><TD WIDTH=58>test 1</TD>
+<TD WIDTH=58>test 4</TD><TD WIDTH=60>test 7</TD></TR>
+<TR><TD WIDTH=96><B>Active Forces</B></TD><TD WIDTH=58>test 2
+</TD><TD WIDTH=58>test 5</TD><TD WIDTH=60>test 8</TD></TR>
+<TR><TD WIDTH=96><B>Passive Forces</B></TD><TD WIDTH=58>test 3
+</TD><TD WIDTH=58>test 6</TD><TD WIDTH=60>test 9</TD></TR>
+</TABLE>
+</CENTER>
+<H3>Active Vs Passive Force Feedback</H3>
+<P>
+Active and passive force feedback can be differentiated by whether
+or not ENERGY is added to the system by the controller. Active
+force feedback controllers apply forces to the user by adding
+energy into the human-machine system. Passive force feedback controllers
+apply forces to the user by removing energy from the human-machine
+system. For example, an active controller might use servo motors
+to generate feedback forces. The strength of the forces could
+be directly regulated by the computer which regulates power to
+the motors. A passive controller might use energy dissipation
+elements such as a friction brake or a magnetic particle brake.
+These devices can not directly apply forces to the user, rather
+they can only apply resistance to the user's motion. The advantage
+of active force feedback control is that it is inherently general.
+When using active elements such as servo motors, the system can
+produce any general force sensation. The advantage of using passive
+force feedback control is that it is inherently stable and inherently
+safe for the user. This is because energy dissipation elements
+only resist motion but do not induce motion. Thus the tradeoff
+between active and passive is a tradeoff between performance and
+safety.<BR>
+<H3>Force Feedback Algorithms</H3>
+<P>
+For active force feedback tests, attractive force fields were
+implemented on targets within the graphical user interface. In
+button trials, buttons were implemented with attractive force
+fields which captured the joystick. In menu trials, each menu
+element had an attractive force gradient that pulled the joystick
+to the center of the given menu selection. The resulting sensation
+could best be desribed as &quot;snapping&quot; from one selection
+to the next. In scroll-bar trials, an attractive field was implemented
+along the length of the bar, keeping the user from drifting off
+the bar while the button was held down. In all three cases, the
+attractive fields greatly reduced the targeting accuracy required
+of the given task. 
+<P>
+In passive trials, attractive fields could not be implemented
+because it requires adding energy to the system. Instead, capture-barriers
+were implemented which would resist a users motion as they deviated
+from a given target. In button trials, the passive resistance
+would impede a user from moving away from a button once the cursor
+came within a given proximity. In Menu trials, the passive resistance
+would give a &quot;bump&quot; sensation as the user moved from
+one menu item to the next. In scroll-bar trials, the passive resistance
+would impede users from drifting off the bar once the thumb was
+aquired. In all three cases, the passive resistance improved targeting.
+<BR>
+<H2>RESULTS</H2>
+<P>
+A pilot study was performed on 5 test subjects. The mean results
+of each test are shown below. Results indicate performance times
+in seconds for completing each of targeting tasks. Low times indicate
+fast task execution (high performance). <BR>
+<P>
+<CENTER><TABLE BORDER=1>
+<TR><TD WIDTH=96></TD><TD WIDTH=58><B>Button Task</B></TD><TD WIDTH=58><B>Menu Task</B>
+</TD><TD WIDTH=66><B>Scroll Task</B></TD></TR>
+<TR><TD WIDTH=96><B>No Forces</B></TD><TD WIDTH=58>4.4 sec</TD>
+<TD WIDTH=58>5.8 sec</TD><TD WIDTH=66>6.6 sec</TD></TR>
+<TR><TD WIDTH=96><B>Active Forces</B></TD><TD WIDTH=58>2.7 sec
+</TD><TD WIDTH=58>4.2 sec</TD><TD WIDTH=66>6.2 sec</TD></TR>
+<TR><TD WIDTH=96><B>Passive Forces</B></TD><TD WIDTH=58>2.9 sec
+</TD><TD WIDTH=58>4.8 sec</TD><TD WIDTH=66>5.9 sec</TD></TR>
+</TABLE>
+</CENTER>
+<H2>CONCLUSIONS</H2>
+<P>
+The pilot study has shown that both active and passive force feedback
+can be effective in decreasing task completion times (increase
+user performance). This pilot study confirms that force feedback
+is an effective means of enhancing manual interaction with graphical
+user interfaces and suggests that additional tests should be conducted.
+<BR>
+<H2>REFERENCES</H2>
+<OL>
+<LI>Adelstein B. Rosen M. <I>The effect of mechanical impedance
+on abnormal intention tremor.</I> Proceedings of the 9th Annual
+Northeast Bioengineering Conference. Elmsford NY: Pergamon Press.
+Inc. 1981. pp.205-209.
+<LI>Repperger, D.W., and Goodyear, C., <I>Active Controllers and
+Time Duration to Learn a Task.</I> Conference on Manual Control,
+1985.
+<LI>Rosenberg, L.B. <I>Virtual Fixtures: Perceptual Tools for
+Telerobotic Manipulation. </I>Proceedings IEEE Virtual Reality
+Annual International Symposium, 1993.
+</OL>
+</BODY>
+</HTML>

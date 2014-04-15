@@ -1,0 +1,275 @@
+<HEAD>
+<TITLE>Cyberguide: Prototyping Context-Aware Mobile Applications</TITLE>
+<!-- Changed by: Gregory D. Abowd, 14-Dec-1995 -->
+</HEAD>
+<BODY><P>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/shortpap.JPG" ALT="shortpap" HEIGHT=35 WIDTH=249><A HREF="../../shortpap.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+<H1><A NAME="Title">Cyberguide: Prototyping Context-Aware Mobile Applications</A></H1>
+
+<HR>
+<ADDRESS><B>Sue Long, Dietmar Aust, Gregory D. Abowd &amp; Chris Atkeson<BR></B>
+GVU Center &amp; College of Computing<BR>
+Georgia Institute of Technology<BR>
+Atlanta, GA 30332-0280 USA <BR>
+<TT>{suelong,aust,abowd,cga}@cc.gatech.edu</TT> <BR>
+<A HREF="http://www.cc.gatech.edu/fce"><TT>http://www.cc.gatech.edu/fce</TT></A></ADDRESS>
+
+
+<HR><H2>Table of Contents</H2>
+
+<UL>
+<A HREF="#HDR0">ABSTRACT</A>
+<BR>
+
+<A HREF="#HDR2">Introduction</A>
+<BR>
+
+<A HREF="#HDR3">Background</A>
+<BR>
+
+<A HREF="#HDR4">The Design of Cyberguide</A>
+<BR>
+
+<A HREF="#HDR5">Evaluating and Extending Cyberguide</A>
+<BR>
+
+<A HREF="#HDR6">Conclusions</A>
+<BR>
+
+<A HREF="#HDR7">Acknowledgments</A>
+<BR>
+
+<A HREF="#HDR8">References</A>
+</UL>
+
+
+
+<HR><!-- This file was created with the fm2html filter.The filter is copyright Norwegian Telecom Research and was programmed by Jon Stephenson von Tetzchner. Then it was edited by Gregory Abowd to look right! :)  -->
+
+<H3><A NAME="HDR0">ABSTRACT</A></H3>
+
+We are interested in prototyping future computing environments. In
+this paper, we present the Cyberguide project, which is building
+prototypes of handheld, intelligent tour guides that provide
+information to a tourist based on knowledge of position and
+orientation. We will describe features of existing Cyberguide
+prototypes and discuss important research issues that have emerged in
+context-aware applications development in a mobile environment.<p>
+
+<H4><A NAME="HDR1">Keywords</A></H4>
+
+Mobile computing, ubiquitous computing, location-aware applications,
+Newton/PDA.<p>
+
+<H3><A NAME="HDR2">Introduction</A></H3>
+
+An alluring vision for the future of computing environments is that
+someday the interface will follow the user, and not vice versa. This
+vision is fueled by corporate concept videos suggesting this future is
+only years away from realization and the arrival of affordable mobile
+computing infrastructure. Yet we see few attempts to build convincing
+applications of ubiquitous and mobile computing upon this growing
+infrastructure. In this paper, we will describe the Cyberguide project
+at Georgia Tech. Cyberguide is one of a number of projects at Georgia
+Tech exploring visions of the future using existing technology.<p>
+
+The challenge we are addressing in Cyberguide is how to build mobile
+applications that usefully leverage off of information about the
+context of the user. Initially, we are concerned with only a small
+part of the user's context, specifically location and
+orientation. Cyberguide provides a position-aware handheld tour guide
+for directing visitors around the GVU Lab during our monthly open
+houses. <p>
+
+Visitors to a GVU open house are typically given a map of the various
+labs and an information packet describing all of the projects that are
+being demonstrated at various sites. In building Cyberguide, we wanted
+to support the tasks of the visitor to the GVU open house. Collapsing
+all of the paper-based information into a handheld intelligent tour
+guide that knew where you were, what you were looking at and could
+answer typical visitor questions provides a testbed for research
+questions on mobile, context-aware application development.<p> We have
+used Cyberguide on several occasions to date and have collected some
+usability data to aid in future designs. A screen dump from an initial
+prototype done using the Newton Message Pad is shown in <A
+HREF="#Figure1">Figure 1</A>.<p>
+
+<CENTER>
+<A HREF="gda1fg1.gif"><img src="gda1fg1.gif"><B><A NAME="Figure1"> <P>
+Figure 1:  Screenshot of Cyberguide prototype</A></B><p>
+</A>
+</CENTER>
+<p>
+
+<H3><A NAME="HDR3">Background</A></H3>
+
+In thinking about and developing a location-aware application, we were
+greatly influenced by the work on the PARCTab at Xerox PARC <A
+HREF="#REF73805">[3]</A>, the InfoPad project at Berkeley <A
+HREF="#REF96497">[1]</A> and the Olivetti Active Badge system <A
+HREF="#REF26173">[2]</A>. <p>
+
+We wanted to build useful applications that might take advantage of
+the hardware developed in the PARCTab and InfoPad projects. There are
+a number of commercially available and relatively inexpensive handheld
+units that would suffice for our purposes, such as the Newton, a
+MagicCap machine or a pen-based PC.<p>
+
+For positioning, we considered the Active Badge system, but rejected
+it for reasons of cost and long-term objectives. The Active Badge
+system combines position detection with communication. For room-level
+granularity of position, this is reasonable since the communications
+range is on par with the position resolution. With Cyberguide, we
+chose to separate the wireless communications capabilities from the
+positioning system, so we could seek out more cost-effective solutions
+for both.<p>
+
+<H3><A NAME="HDR4">The Design of Cyberguide</A></H3>
+
+Since Cyberguide is a rapidly evolving prototype, it has been designed
+with change in mind. The architecture of Cyberguide consisted of four
+independent components---the map, the information base, the
+positioning system and the communications system---each of which will
+change significantly from prototype to prototype.<p>
+
+
+The map is the view the visitor is using to navigate. Visualizing and
+manipulating the map dominates the user interface of Cyberguide. It
+can be viewed at varying levels of detail and scrolled around. The
+visitor is indicated by location and orientation on the map (the
+arrowhead in <A HREF="#Figure1">Figure 1</A>) and various
+demonstrations are also marked (as stars in <A HREF="#Figure1">Figure
+1</A>). <p>
+
+Information on a demonstration is revealed by an explicit pen touch on
+the map or by wandering &quot;close&quot; to a demo. Touching the name
+of the demo will move the user in hypertext fashion to an information
+space component (not shown in <A HREF="#Figure1">Figure 1</A>) that
+describes relevant information on the project and people associated
+with that particular demonstration.<p>
+
+The positioning component provides constantly updated information on
+the location and orientation of the tourist. Our current prototype
+implements indoor positioning via a collection of TV remote control
+beacons broadcasting separate location IDs. When within range of a
+beacon, a custom IR transceiver unit (consisting of a separate IR
+sensor and a Motorola 68332 processor connected via serial port to the
+Newton) translates the ID into a map location and orientation. the
+additional processor unit allows for further customized extensions to
+the positioning system, such as an electronic compass. Optionally, we
+could use the built-in Newton IR transceiver coupled with individual
+Newton beacons. This option requires no additional hardware, but is
+less flexible.<p>
+
+We have designed an application-level protocol on top of Appletalk to
+facilitate communication between the Newton and the Internet. This
+communication mechanism permits a user to send e-mail, print
+documents, and eventually communicate with other Cyberguide
+users. Eventually, we will be able to support wireless Internet
+communication and this will greatly reduce the storage demands on the
+handheld unit and allow for connectivity to vast information sources,
+such as the World-Wide Web.<p>
+
+<H3><A NAME="HDR5">Evaluating and Extending Cyberguide</A></H3>
+
+Within 6 months we have completed 3 major prototypes of Cyberguide and
+have tested it with a large number of visitors to the GVU open
+houses. Our initial prototypes had very limited positioning
+capabilities that did not encourage tourist mobility. The more
+sophisticated position/orientation system we now have in place
+encourages the tourist to wander around the lab much more, but our
+observations are still somewhat colored by the limited space in which
+we support Cyberguide positioning. Our next prototype will provide a
+tour of a much wider area, the campus of Georgia Tech, substituting
+GPS for the IR positioning system.<p>
+
+We also determined from our evaluation of users that we need to
+provide greater support to help the tourist find places of interest
+and guide them along the right path. This capability existed in the
+original prototypes, but was hidden from the tourist. <p>
+
+We can track where the tourist has been in their travels and use that
+information to provide better services, such as an automatically
+updated log of their visit, or advice on where to find similar
+demonstrations to ones that have already been seen. In the limited
+confines of the GVU lab, this might not be so important, but in a
+large museum or zoo, it would be ideal, especially if coupled with
+information about how crowded certain areas are (or whether the
+exhibits are currently visible and active).<p>
+
+Viewing a large detailed map on a small screen is a difficult
+issue. Much of the current HCI visualization research focuses on
+information spaces and not physical spaces. We currently support any
+number of discrete zoom levels for viewing a map, but we do not feel
+this is the most effective technique for maintaining context. The
+current platform for the prototypes makes such visualization research
+difficult, but we are already investigating other more open
+platforms.<p>
+
+Information depicted on the map is dynamic. Demonstrations sometimes
+changed locations during an open house, yet our prototype was unable
+to be updated dynamically to reflect this change. We have seen a
+similar problem with on-board navigational systems for automobiles
+that contain a large but static map of roads. We have two solutions to
+this problem which are currently being implemented. The first is to
+use the communications infrastructure to dynamically update the
+information base. The other approach, more difficult but more
+flexible, is to use machine vision to recognize a demonstration at
+some location.<p>
+
+<H3><A NAME="HDR6">Conclusions</A></H3>
+
+In the 6 months we have been working on Cyberguide, we have learned
+three major lessons. First, we can create cost-effective context-aware
+applications with equipment that is readily available. Second, we
+learned that absolute positioning information throughout an entire
+space is not so important. It is far more useful to know what someone
+is looking at than to know someone's exact physical position and
+orientation. Rather than uniformly distribute a positioning system
+around some physical space, it is more useful to gather detailed
+positioning information around objects of expected interest in the
+space. Third, we understand why it is better to separate the
+positioning system from the communications system. Positioning
+information need not be uniformly distributed as discussed above, but
+communications services need global coverage of a physical
+space. Furthermore, positioning and communication systems have
+different characteristics for indoor and outdoor use<p>
+
+<H3><A NAME="HDR7">Acknowledgments</A></H3>
+
+Much of the development of Cyberguide was done by undergraduates in
+the College of Computing at Georgia Tech, including Ben Buie, Jason
+Vermillion, Daniel Bassett, Chris Goodrum, Eugene Liu, Greg Brown,
+Nancy Babiarz, LaShonda Davis and Tonja Taylor. Many of the ideas that
+inspired Cyberguide came from discussions within the Future Computing
+Environments Group, and we would especially like to thank Colleen
+Kehoe from that group. We would like to acknowledge the financial
+support of Peter Freeman, Dean of the College of Computing, and Dewey
+Anderson of BellSouth IntelliVentures. We also thank the local Atlanta
+Newton User's Group for their moral and technical support.<p>
+
+<H3><A NAME="HDR8">References</A></H3>
+
+<OL>
+
+<A NAME="REF96497"><LI>A. Long, Jr. <I>et al.</I> A Prototype User
+Interface for a Mobile Multimedia Terminal. Short paper included in
+CHI'95 Companion, May 1995.</A><BR>
+
+<A NAME="REF26173"><LI>R. Want <I>et al.</I> The active badge location
+system. <I>ACM Transactions on Information Systems</I>, 10(1):91-102,
+Jan 1992.</A><BR>
+
+<A NAME="REF73805"><LI>R. Want <I>et al.</I> The ParcTab Ubiquitous
+Computing Experiment. Xerox PARC Technical Report CSL-95-1, March
+1995.</A><BR> </OL>
+
+
+<A NAME="ENDFILE"><PRE> </PRE></A>

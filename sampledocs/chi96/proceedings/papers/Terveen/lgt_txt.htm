@@ -1,0 +1,707 @@
+<HTML><HEAD>
+<TITLE>Helping Users Program Their Personal Agents</TITLE>
+</HEAD>
+
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<P><IMG SRC="./../../graphics/papers.JPG" ALT="papers" HEIGHT=35 WIDTH=249><A HREF="./../../papers.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<h1>Helping Users Program Their Personal Agents</h1>
+
+<table>
+<td><b>Loren G. Terveen</b></td>
+<td><b>La Tondra Murray</b></td>
+<tr>
+
+<td>AT&amp;T Bell Laboratories</td>
+<td>North Carolina State University</td>
+<tr>
+
+<td>600 Mountain Avenue</td>
+<td>Box 7906</td>
+<tr>
+
+<td>Murray Hill, NJ 07974</td>
+<td>Raleigh, North Carolina 27695</td>
+<tr>
+
+<td>+1 908 582 2608</td>
+<td>+1 919 515 7198</td>
+<tr>
+
+<td>terveen@research.att.com</td>
+<td>lamurra1@eos.ncsu.edu</td>
+</table>
+
+
+<H2>ABSTRACT</H2> 
+Software agents are computer programs that act on behalf of users to
+perform routine, tedious, and time-consuming tasks.  To be useful to
+an individual user, an agent must be <i>personalized</i> to his or her goals,
+habits, and preferences.  We have created an end-user programming
+system that makes it easy for users to state rules for their agents to
+follow.  The main advance over previous approaches is that the system
+automatically determines conflicts between rules and guides users in
+resolving the conflicts.  Thus, user and system <i>collaborate</i> in
+developing and managing a set of rules that embody the user's
+preferences for handling a wide variety of situations.
+
+<h3>Keywords</h3>
+agents, end-user programming, intelligent systems
+
+<H2>INTRODUCTION</H2>
+Software agents are the focus of much interest in the popular press
+and are a hot research topic in human-computer interaction
+[3,5,7,8,9,10,12], artificial intelligence [16], and distributed
+computing [15].  HCI research on agents can be distinguished by its
+user-centered approach.  The focus is on how agents can <i>empower
+users</i> to work more effectively in the vast, rich, ever-changing
+world of electronic communication and information.  
+<P>
+
+One of the major promises of agents is personal assistance -- each
+user can have an agent that serves his or her individual goals and
+preferences.  This means that the agent must acquire appropriate
+knowledge about the user.  This paper advocates an <i>end-user
+programming, human-computer collaboration</i> [13] approach to this
+problem.  We have created a system called the Agent Manager that
+embodies the approach. Users state rules with a domain-specific
+graphical interface.  The system analyzes rules for problems, computes
+methods of repairing the problems, and guides the user in selecting
+and applying repairs.  Over time, user and system collaborate to
+evolve a set of rules that embody the user's goals and preferences.
+<P>
+
+We begin the paper by presenting a framework for agents that lets us
+identify the type of knowledge a personal agent requires.  We then
+analyze existing approaches to agent personalization, showing when an
+end-user programming approach is appropriate and motivating the unique
+features of our system.  We then describe the Agent Manager system,
+explain its representation and reasoning components, and illustrate
+how it helps users.  We conclude by discussing the system development
+process, its current status, and our future plans.
+
+<h2>A FRAMEWORK FOR PERSONAL AGENTS</h2>
+
+The notion of an agent is notoriously vague.  Although we do not
+expect to resolve this problem here, we will characterize the
+functionality we ascribe to agents.  We do so to clarify the knowledge
+they need to perform their tasks, especially the user-specific
+knowledge required to be a <i>personal</i> agent.
+<P>
+
+The agent first needs knowledge of the task domains it is to operate
+in, such as messaging, electronic banking, or personal financial
+services.  This knowledge is not specific to a particular user, so it
+can be supplied by the application developer.  The fundamental
+ontology (or vocabulary) usually consists of objects, their
+attributes, and actions.  In messaging, for example, objects include
+messages, folders, persons, and groups, and actions include moving a
+message to a folder, forwarding the message to another user, and
+replying to the sender.  Some objects and actions are very general and
+thus useful in many domains, e.g., notification actions such as
+popping up a window on a computer screen, placing a call, and paging.
+<P>
+
+A personal agent needs knowledge about its owner's goals, habits,
+and preferences.  Much of this type of knowledge can be expressed as
+rules of the form <i>when these conditions are true, take these
+actions</i>.
+Examples include:
+<ul>
+<li>(messaging) When I get a message from my boss with the subject
+&quot;urgent&quot; after business hours, notify me by calling my home
+number.
+
+<li>(banking) When the balance in my checking account falls below $500
+and the balance in my savings account is above $2000, transfer $500
+from savings to checking. 
+
+<li>(finances) When the price of XYZ stock falls below $30, buy 100
+shares. 
+</ul>
+
+Another important function of an agent is to communicate on behalf of
+its owner.  This includes notifying the owner when specified
+conditions occur, delivering messages to and responding to calls or
+messages from other users. To specify how a dialogue should be carried
+out, an appropriate set of abstractions is required.  Ideally, the
+abstractions should be realizable on different devices, such as PCs
+and telephones. Our previous work [14] addresses these issues and
+complements the techniques for specifying rules that we discuss in
+this paper. Figure 1 summarizes our framework for personal agents.
+<P>
+
+<img src= "lgt_fg1.gif">
+<P>
+Figure 1: A Framework for Personal Agents
+
+<h2>APPROACHES TO AGENT PERSONALIZATION</h2> 
+The research community has explored three major ways an agent may
+acquire the knowledge it needs: (1) end user programming, (2)
+learning, and (3) programming by demonstration.
+
+<h3>End-User Programming (EUP)</h3>
+
+The work of Malone and colleagues that began with the Information Lens
+and culminated with Oval [10] is the foundational research on end-user
+programming of rules.  It popularized a basic method for expressing
+rules.  The user first indicates the type of object the rule applies
+to, such as a message.  The user then describes the conditions of the
+rule by filling out a form that contains a field for each attribute of
+the object; for messages, the attributes would include sender,
+subject, recipient, etc.  Finally, the user specifies the actions of
+the rule by selecting from a list of all the actions that could apply
+to this type of object; a message can be moved, copied, forwarded,
+deleted, etc.  
+<P>
+
+The most obvious advantage of this approach is that it is easy to
+implement.  However, it has a number of disadvantages [8]: (1) users
+must recognize the opportunity to state a rule, (2) users must express
+the rule in the (textual or graphical) language of the system, and (3)
+users must maintain their rules over time, as their habits change.
+
+<h3>Learning</h3>
+
+Maes and colleagues [8,9] have explored a learning approach to
+acquiring agent rules, which they argue overcomes the problems with
+end-user programming.  Rather than users being in charge of stating
+rules, the agent learns rules by watching user behavior and detecting
+patterns and regularities.  The agent records a user's activity in
+terms of situation- action pairs.  For example, a situation could be
+an email message and an action the way the user processed the message.
+The system predicts how a new situation should be handled by finding
+the most similar previously seen situation.  After seeing enough
+examples, the system is able to make good predictions, which it uses
+to make suggestions to the user.  The user also may instruct the agent
+to act on its own when its confidence in its predictions exceeds a
+specified threshold.  
+<P>
+
+The basic learning model had its own shortcomings [8]: (1) the agent
+has a slow learning curve, so it cannot offer advice until it has seen
+quite a few examples, and (2) the agent cannot offer assistance in
+truly new situations, since it has not seen any examples of them.  To
+remedy these shortcomings, the model has been extended to allow agents
+to collaborate with other agents.  An agent can ask other agents for
+advice about how to handle a particular situation.  This approach
+raises interesting issues of how agents interact with other agents,
+such as how an agent can learn to trust suggestions from some agents
+more than from others.
+
+<h3>Programming by Demonstration (PBD)</h3>
+
+In programming by demonstration (PBD) [4], a user &quot;puts a system
+into &quot;record mode&quot; continues to operate the system in the
+ordinary way, and the system records the actions in an executable
+program&quot; [12].  The prototypical PBD systems operate in domains
+that have a natural graphical representation.  KidSim [5,12] is a good
+example.  Kids create simulations in which characters move around in a
+two dimensional world. They create rules by using a graphical editor
+to depict changes of state; that is, they draw the configuration of
+the world before and after the rule has applied.  The system
+generalizes from the concrete objects in the demonstration to create
+an abstract rule, e.g., replacing a particular character by any
+character of a certain type and replacing absolute locations by
+relative changes in location.  <P>
+
+When kids want to write rules that mention properties not directly
+shown in the graphical simulation, such as the &quot;hunger&quot;
+rather than the location of a character, they use simple end-user
+programming tools.  PBD thus combines elements of end-user
+programming (although users often work with concrete elements rather
+than abstract concepts) and learning (generalization from concrete
+examples to general rules).
+
+<h3>When End-User Programming is Appropriate -- and What Improvements
+It Needs</h3>
+
+Despite the criticisms of EUP, all approaches retain it in at least
+some form.  It is worth being explicit about the conditions under
+which it is appropriate:
+
+<ul>
+<li>When users do have particular rules in mind, they should be able
+to express them.  For example, I may want all messages from my boss
+put in a certain folder, and when I am on vacation, I may want a
+vacation message sent in response to all incoming messages. The second
+rule shows when learning is not appropriate. I want the rule to take
+effect immediately, so there is no time to collect examples.  Further,
+the definition of the &quot;situation&quot; -- i.e., the dates of the
+vacation -- changes from one vacation to another, so there is no
+stable rule to learn.   
+
+<li>The rules the user is interested in may define the behavior of a
+&quot;personal assistant&quot;, and the user may never engage in the  
+behavior him or herself.  Notifications are a good example: I may want
+to be paged when I get an email message from my boss with the subject
+&quot;urgent&quot;, yet I certainly never have paged myself in the past.
+Therefore, this is another case where there will be no base of
+examples for a learning approach to work from. 
+
+<li>There is clear evidence that well-designed interfaces enable
+end-users to program.  Bonnie Nardi made this case very eloquently in
+<i>A Small Matter of Programming</i> [11].  She identified domain-specificity
+as the key, giving many examples of domain-specific notations that
+people have mastered, from computer software such as spreadsheets to
+baseball scorecards. Nardi pointed out that spreadsheets are so
+successful because they allow users to express rich domain knowledge,
+while the spreadsheet framework encapsulates programming knowledge
+that would have to be made explicit in a conventional programming
+language.  Most knowledge is local to a single cell. The spreadsheet
+automatically manages cell dependencies set up by formulas, a
+sophisticated control structure that no end-user could program.
+Commercial email filtering systems such as the MailBot (Daxtron
+Laboratories, Inc.) also offer an existence proof of the feasibility
+of end-user programming of rules.
+</ul>
+
+Thus, we conclude that end-user programming still must play an
+important role in personalizing software agents.  However, Nardi's
+studies of spreadsheets show one outstanding problem.  Stating a
+single rule is fairly easy -- it is roughly analogous to stating a
+formula in a spreadsheet cell.  However, managing interactions between
+rules is much harder -- it is more analogous to the control flow
+issues that a spreadsheet manages for users.  The latter task takes
+the type of programming expertise that end-users do not have.  Thus,
+our system, the Agent Manager, takes on this task.  As a user creates
+rules, it analyzes the rules for problems, computes methods of
+repairing the problems, and guides the user in selecting and applying
+repairs.
+
+<h2>THE AGENT MANAGER: COLLABORATIVE CONSTRUCTION OF AGENT RULES</h2>
+
+The Agent Manager currently works in the domain of message processing.
+The primary user interface is a rule editor (Figure 2). Users specify
+rule conditions by restricting the values of the message type, sender,
+recipient, subject, and the date/time of arrival, thus defining the
+set of messages to which the rule applies.  As users specify the
+conditions, the system continuously updates and displays the rule's
+context, i.e., its relationship to other rules and actions the rule
+will inherit from more general rules.  Figure 2 shows a rule that
+applies to email messages from Julia Hirschberg whose subject field
+contains the word &quot;important&quot;.  Users select rule actions
+from a set that includes Move Message, Forward Message, Notify by
+Paging, Notify with Popup Alert, etc.  The rule in Figure 2 contains a
+single action that moves messages to a folder named
+&quot;julia&quot;. The system has determined that one rule named
+&quot;Email&quot; is more general, and that one action, <i>Copy
+Message &quot;email archive&quot;</i>, will be inherited to this rule.
+<P>
+
+<img src= "lgt_fg2.gif">
+<P>
+Figure 2: Rule Editor
+<P>
+
+A second editor lets the user specify two types of conditions about
+the arrival date/time of messages.  First, users may specify messages
+that arrive in a particular interval, such as &quot;between 4:00
+p.m. on September 15, 1995 and 8:00 a.m. on September 20, 1995&quot;.
+Users also may specify intervals like &quot;from November 1995 to
+March 1996&quot;, &quot;before November 4, 1995&quot;, and &quot;after
+5:00 p.m. on September 15, 1995&quot;.  Second, users can specify
+messages that arrive during a particular period, such as &quot;during
+June, July, and August&quot;, &quot;on Saturday or Sunday&quot;,
+&quot;between 18:00 and 8:00&quot;, &quot;on the first Monday of each
+month&quot;, and &quot;on the last working day of the month&quot;.
+This is the most expressive editor for specifying date/time knowledge
+that we know of.  
+<P>
+
+To understand how the Agent Manager assists users, we first must
+describe the representation and reasoning technology it uses. 
+
+<h3>Representation of Rules</h3>
+
+Our representation of rules must enable these functions:
+<ul>
+<li>determine whether an action may apply in a given context (e.g., to
+a specified set of messages, or after certain other actions),
+
+<li>determine when one rule <i>subsumes</i> another -- the set of objects
+to which the first rule applies is a superset of the set of objects to
+which the second rule applies, and 
+
+<li>determine when two rules intersect -- the set of objects to
+which the first rule applies intersects the set of objects to which
+the second rule applies.
+</ul>
+
+We represent rules using a version of CLASSIC [1,2] enhanced by Alex
+Borgida and Charles Isbell.  CLASSIC is a <i>description logic</i>; as
+such, it permits users to create structured descriptions of sets of
+objects (known as <i>concepts</i>) and individual objects.  
+As with any standard knowledge representation or object- oriented
+language, users may state hierarchical relationships between concepts;
+however, the main service CLASSIC provides is to determine subsumption
+relationships automatically by analyzing concept descriptions.  
+<P>
+
+Determining subsumption relationships is one of our key requirements.
+By representing rule conditions as CLASSIC concepts, we get CLASSIC to
+maintain a rule hierarchy for us automatically.  For example, the
+conditions of the rule being edited in Figure 2 would be represented
+as the following concept (call it C0):
+<pre>
+   C0 -  messageType = email <b>&amp;</b>
+         sender = Julia-Hirschberg <b>&amp;</b>
+         subject <i>contains</i> &quot;important&quot; 
+</pre>
+
+Examples of concepts that subsume C0 include concepts formed from a
+subset of its conjuncts, such as <b>messageType = email</b> (the more general
+rule shown in Figure 2) or <b>sender = Julia-Hirschberg</b>.  The object
+hierarchy is used, so <b>messageType = Message</b> also subsumes C0.  In
+addition, the semantics of substrings are used, so a concept like
+<b>subject <i>contains</i> &quot;port&quot</b>; also subsumes C0.  CLASSIC also
+determines the intersection between two concepts.  This is very useful
+because our experience has shown that users often state simple,
+general rules that categorize messages by a single attribute, such as
+<pre>
+   sender = Julia-Hirschberg, or
+
+   subject <i>contains</i> &quot;important&quot;.
+</pre>
+
+CLASSIC will determine that these rules do intersect.  In this case,
+the intersection is simply the conjunction of the two concepts.
+However, in general, CLASSIC may have to combine parts of two concepts
+to determine the intersection.  For example, consider the two
+descriptions of message arrival times &quot;between 12:00 on November
+8, 1995 and 12:00 on November 10, 1995&quot; and &quot;between 18:00
+and 8:00&quot;. CLASSIC determines that the intersection is
+&quot;18:00 to 23:59 on November 8, 1995, midnight to 8:00 and 18:00
+to 23:59 on November 9, 1995, and midnight to 8:00 on November 10,
+1995&quot;.  
+<p>
+
+Like rule conditions, rule actions are represented as CLASSIC
+concepts.  Actions are described in terms of a basic AI planning model
+[6].  Each action applies in a particular &quot;state of the
+world&quot;, represented as a list of facts, and each action may
+change the state of the world.  Thus, an action is defined in terms of
+its <i>preconditions</i> (facts which must be true for the action to
+be applied), <i>add list</i> (facts added by the action), and
+<i>delete list</i> (facts deleted by the action).  For example, the
+action PickupCall is defined as:
+<pre>
+   preconditions: TelephoneCall
+   add: CallPickedUp
+</pre>
+If an action A1 occurs in a plan before an action A2, and A1 deletes a
+precondition of A2, then A1 defeats A2.
+<P>
+
+AI planning research explores plan <i>synthesis</i> (creating a plan
+that transforms a specified initial sate to a specified final state)
+and <i>recognition</i> (inferring an agent's plan by observing
+his/her/its actions), both of which are very hard computational
+problems.  In our case, the user constructs a plan -- i.e., the
+actions of a rule -- so the Agent Manager only has to check plan
+validity, a much simpler computational task.
+
+<h3>Agent Manager Assistance</h3>
+
+The Agent Manager's role is to watch for problems as users edit rules
+and help users to repair problems that it detects.  Specifically, the
+Agent Manager detects when a rule' plan is not valid, i.e., some
+action does not apply.  This can occur either as a user edits a rule
+or when the rule is added to the hierarchy (due to interactions with
+other rules).  When the Agent Manager finds an invalid plan, it
+computes <i>repairs</i> -- changes to the plan that will make it
+valid.  It then presents an interactive explanation that explains the
+nature of the problem and guides the user in selecting a repair.  We
+now describe the assistance process in more detail.
+
+<h4>Verifying Plan Validity</h4> 
+The task of verifying plan validity centers around the notion of the
+<i>current state</i>.  The conditions of a rule define the initial
+state (the class of messages to which the actions apply), and each
+action transforms the state by adding or deleting facts.  For example,
+the initial state for the rule in Figure 2 is
+
+<pre>
+   InSpool <b>&amp;</b>
+   messageType = email <b>&amp;</b>
+   sender = Julia-Hirschberg <b>&amp;</b>
+   subject <i>contains</i> &quot;important&quot;
+</pre>
+
+InSpool is a special tag indicating that the message has not yet been
+disposed of, i.e., deleted or moved to a folder.  All actions have at
+least one precondition -- InSpool -- which also is the one fact in
+the delete list of Move Message.  Thus, adding a Move Message action
+results in the removal of InSpool from the current state.  If any
+other actions are subsequently added to the rule, the system will find
+that they do not apply.
+<P>
+
+The system has to update the current state whenever an action is
+added, deleted, or inserted, or the conditions are changed.  When an
+action is added to the end of the plan, all that has to be checked is
+that action's applicability.  Changing the conditions redefines the
+initial state, so the validity of the whole plan must be rechecked.
+When an action is inserted into or deleted from the middle of the
+plan, the whole plan again is checked.  (Although the checking could
+begin from the insertion/deletion point, this would require keeping
+around previous states and would result in more complex code.  Since
+recomputing plan validity is efficient, we have chosen this route.)
+Figure 3 summarizes the task of verifying plan validity.
+<P>
+
+<img src= "lgt_fg3.gif">
+<P>
+Figure 3: Verifying Plan Validity Using the Current State
+
+<h4>Computing Rule Interactions and Composing Plans</h4>
+
+As a user edits a rule, the Agent Manager continuously re-computes its
+position in the rule hierarchy, thus determining the actions to
+inherit to the rule from more general rules.  Either the locally
+defined or the inherited actions of a rule may be done first.  If the
+user has not specified an order, the system will prefer the
+local-first ordering, but if this results in an invalid plan, it will
+try inherited-first.  For example, in Figure 2, if the local Move
+Message action were ordered before the inherited Copy Message action,
+the plan would be invalid, so the system selected the inherited-first
+ordering.  
+<P>
+
+When a rule is added to the hierarchy, the Agent Manager inherits its
+plan to all more specific rules.  It also considers rules resulting
+from the intersection of the new rule and its sibling rules.  These
+cases all result in new plans being composed, all of whose validity
+must be tested.  Notice that users become aware of intersection rules
+only if their plans are invalid.
+
+<h4>Categorizing Invalid Rules</h4>
+
+When the Agent Manager detects that a rule has an invalid plan, it
+attempts to categorize the rule as one of a pre-defined set of invalid
+rule types.  For example, the intersection of a rule that files
+messages by sender (e.g., &quot;move messages from Tom to the folder
+Tom-Mail&quot;) and a rule that files messages by subject (e.g.,
+&quot;move messages with the subject &quot;RDDI&quot; to the folder
+RDDI-Project&quot;) constitutes a common type of problem.  The benefit
+of categorizing problems is that multiple instances of a given
+category may occur as a user works, and the user may specify that all
+problems of a particular category should be repaired in the same way.
+
+<h4>Computing Explanations and Repairs</h4>
+
+When an action in a plan does not apply, the system computes an
+interactive dialogue that explains why the action does not apply and
+suggests repairs to the plan that will enable the action.  The
+dialogue contains a component for each unsatisfied precondition of the
+action.  The text is created by composing templates associated with
+actions, preconditions, and plan modification operators.
+<P>
+
+If a precondition was deleted by a previous action in the plan, the
+system looks for alternative actions whose add list is a superset of
+the defeating action and whose delete list does not contain the
+unsatisfied precondition.  Consider the rule formed from the
+intersection of
+<pre>
+   messageType = email <b>&amp;</b>
+   sender = Julia-Hirschberg
+   ==&gt; Move Message &quot;julia&quot;, and
+
+   messageType = email <b>&amp;</b>
+   subject <i>contains</i> &quot;important&quot;
+   ==&gt; Move Message &quot;important&quot; 
+</pre> 
+
+The two Move Message actions conflict with each other, since each
+deletes InSpool from the current state, and InSpool is a precondition
+of all actions.  Since Copy Message adds the same facts as Move
+Message (the message is filed), but does not delete InSpool,
+substituting it for one of the Move Message actions would result in a
+valid plan. The following explanation illustrates this type of repair:
+<P>
+
+&quot;Move Message&quot; does not apply because
+the effect of a previous &quot;Move Message&quot; action was to move
+the message out of the mail spool -- <br>
+you can take care of this by replacing the previous &quot;Move
+Message&quot; action by &quot;Copy Message&quot;<br>
+<b>Do It</b>
+<P>
+(When the user presses a <b>Do It</b> button, the system performs the
+specified repair.) 
+<P>
+
+If no action in the plan defeated an unsatisfied precondition, the
+system looks for actions that satisfy the  precondition and do not
+defeat any other actions in the plan.  Consider the rule 
+<pre>
+   messageType = Message
+   ==&gt; Play Greeting &quot;Greeting 1&quot;
+</pre>
+
+Play Greeting applies only to telephone calls, and only after a call
+has been picked up.  Since the action Pickup Call results in the call
+being picked up, inserting it into the plan would repair the second
+problem. The following explanation illustrates this type of repair:
+<P>
+
+&quot;Play Greeting&quot; does not apply because<br>
+1) the current message is not a Telephone Call -- <br>
+you can take care of this by selecting the Message Type Telephone Call
+<br> 
+<b>Do It</b><br>
+2) the call has not yet been picked up -- <br>
+you can take care of this by inserting the action &quot;Pickup Call&quot;
+before &quot;Play Greeting&quot;
+<b>Do It</b>
+<P>
+To summarize, the algorithm for computing repairs is:
+<p>
+<pre>
+For each unsatisfied action A
+  For each unsatisfied precondition P
+    <b>If</b> there is an action B in the plan before A, 
+       such that B deletes P
+    <b>Then</b> Repairs = {B' such that B'.add contains B.add &amp;
+                       P is not in B'.delete}
+    <b>Else</b> Repairs = {B' such that P is in B'.add &amp;
+                       B' can apply before A &amp;
+                       B' does not defeat any later actions}
+</pre>
+
+<h4>Repair Presentation and Interaction</h4>
+
+The Agent Manager visually indicates rules with invalid plans and
+problematic actions in each plan.  A user may access the repair
+dialogue associated with an action by clicking on the action.  After
+the user selects a repair, the system applies the repair, checks the
+validity of the plan again to see whether the status of any other
+actions has changed, and updates the repair dialogue to show the new
+status of the plan.  
+<P>
+
+After all the problems with a rule have been repaired, the system
+checks whether (1) the rule was a member of a problem category, and
+(2) other rules also belong to the same category.  In such cases, the
+system asks whether the user wants the same repairs applied to all
+other rules in the category.
+
+<h2>DISCUSSION</h2>
+
+The Agent Manager has evolved through a series of stages, all
+developed on a PC. The current implementation uses Allegro Common Lisp
+for Windows and the enhanced version of CLASSIC developed by Alex
+Borgida and Charles Isbell.  The Agent Manager is designed to be a
+general user programming tool for rule-based agents.  However, it must
+be deployed with some particular agent.  We are considering
+integrating it with Ishmail, an email filtering agent with a
+significant AT&amp;T user community.
+<P>
+
+We are exploring several additional avenues of research.  First,
+applying the Agent Manager to a domain other than messaging would
+verify its generality.  Second, extending the Agent Manager to allow
+users to express dialogue knowledge would enable agents to communicate
+flexibly with both their owners and other users.  Our experience in
+device-independent interaction design [14] is relevant here.  Third,
+we are exploring an integration of our end-user programming,
+rule-based approach with machine learning techniques.  One interesting
+issue is how to enable rules stated by users to be taken as
+&quot;suggestions&quot; by ML programs and how modifications generated
+by the ML programs may be re-expressed as rules.  Finally, we will
+explore more sophisticated plan repair algorithms.
+
+<h2>ACKNOWLEDGMENTS</h2>
+
+We thank Alex Borgida and Charles Isbell for their extensions to
+CLASSIC.  We also thank Julia Hirschberg, Henry Kautz, Mark Jones, Bob
+Klein, Bob Hall, Amir Mane, and Mark Tuomenoksa for many productive
+conversations about agents.  Finally, we thank the anonymous CHI'96
+reviewers for their excellent suggestions.
+
+<h2>REFERENCES</h2> 
+
+<ol> 
+<li>Borgida, A., Brachman, R.J., McGuiness,
+D.L., and Resnick, L.A. CLASSIC: A Structural Data Model for Objects,
+in <i>Proc. SIGMOD'89</i> (1989).
+<P>
+
+<li>Brachman, R.J., McGuinness, D.L., Patel-Schneider, P.F., Resnick,
+L.A., and Borgida, A. Living With Classic: When and How to Use a
+KL-ONE-Like Language, in <i>Formal Aspects of Semantic Networks</i>, J. Sowa,
+Ed., Morgan Kaufmann, Los Altos, CA, 1990.
+<P>
+
+<li>Cypher, A. Eager: Programming Repetitive Tasks by Example, in
+<i>Proc. CHI'91</i> (New Orleans LA, April 1991), ACM Press, 33-39.
+<P>
+
+<li>Cypher, A., Ed. <i>Watch What I Do: Programming by
+Demonstration</i>.  MIT Press, Cambridge MA, 1993.
+<P>
+
+<li>Cypher, A. and Smith, D.C. KidSim: End User Programming of
+Simulation. in <i>Proc. CHI'95</i> (Denver CO, May 1995), ACM Press,
+27-34.
+<P>
+
+<li>Fikes, R.E. and Nilsson, N.J. STRIPS: A New Approach to the
+Application of Theorem Proving to Problem Solving. <i>Artificial
+Intelligence</i> 2, 3/4 (1971), 189-208.
+<P>
+
+<li>Fischer, G., Nakakoji, K., Ostwald, J., Stahl, G., and Sumner,
+T. Embedding Computer-Based Critics in the Contexts of Design. in
+<i>Proc. INTERCHI'93</i> (Amsterdam, April 1995), ACM Press, 157-164.
+<P>
+
+<li>Lashkari, Y., Metral, M., and Maes, P. Collaborative Interface
+Agents, in <i>Proc. AAAI'94</i>, (Seattle WA, July 1994), AAAI Press,
+444-449.
+<P>
+
+<li>Maes, P. Agents that Reduce Work and Information
+Overload. <i>CACM</i> 37, 7 (July 1994), 30-40.
+<P>
+
+<li>Malone, T.W., Lai, K.Y., and Fry, C. Experiments with Oval: A
+Radically Tailorable Tool for Cooperative Work. <i>ACM Transactions on
+Information Systems</i> 13, 2 (April 1995), 177-205.
+<P>
+
+<li>Nardi, B. <i>A Small Matter of Programming</i>. MIT Press, Cambridge MA,
+1993.
+<P>
+
+<li>Smith, D.C., Cypher, A., and Spohrer, J. KIDSIM: Programming
+Agents Without a Programming Language, <i>CACM</i> 37, 7 (July 1994), 55-67.
+<P>
+
+<li>Terveen, L.G. An Overview of Human-Computer
+Collaboration. <i>Knowledge-Based Systems</i> 8,2/3 (April-June 1995), 67-31.
+<P>
+
+<li>Terveen, L.G. and Tuomenoksa, M.L. DynaDesigner: A Tool for Rapid
+Creation of Device- Independent Interactive Services. in
+<i>Proc. Interact'95</i>, (Lillehammer NO, June 1995), Chapman &amp; Hall,
+386-389.
+<P>
+
+<li>White, J.E., Telescript Technology: The Foundation for the
+Electronic Marketplace.  General Magic White Paper, 1994.  
+<P>
+
+<li>Woodridge, M. and Jennings, N.R. Intelligent Agents: Theory and
+Practice. <i>Knowledge Engineering Review</i>
+<P>
+
+</BODY>

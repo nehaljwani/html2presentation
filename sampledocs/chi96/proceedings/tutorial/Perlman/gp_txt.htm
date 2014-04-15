@@ -1,0 +1,275 @@
+<HTML>
+<HEAD>
+<TITLE>Practical Usability Evaluation</TITLE>
+</HEAD>
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/tutorial.JPG" ALT="tutorial" HEIGHT=35 WIDTH=249><A HREF="../../tutorial.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+
+<H1>
+Practical Usability Evaluation
+</H1>
+<B>
+<A HREF="http://www.cis.ohio-state.edu/~perlman">Gary Perlman</A>
+</B>
+<BR>Computer and Information Science
+<BR>Ohio State University
+<BR>Columbus, Ohio 43210 USA
+<BR>+1-614-292-2566
+<BR><A HREF="mailto:perlman@cis.ohio-state.edu"
+	>perlman@cis.ohio-state.edu</A>
+
+<P>
+<A NAME=toc>Table of Contents</A>
+<UL>
+	<LI><A HREF=#abstract>Abstract</A>
+	<LI><A HREF=#keywords>Keywords</A>
+	<LI><A HREF=#introduction>Introduction</A>
+	<LI><A HREF=#content>Content</A>
+	<LI><A HREF=#objectives>Objectives</A>
+	<LI><A HREF=#audience>Audience</A>
+	<LI><A HREF=#topics>Topics</A>
+	<LI><A HREF=#bibliography>Core Bibliography</A>
+</UL>
+
+<A NAME=abstract> <H2>ABSTRACT</H2> </A>
+<I>Practical Usability Evaluation</I>
+is an introduction to cost-effective,
+low-skill, low-investment methods of usability
+assessment.  The methods include
+(1) Inspection Methods (e.g., heuristic evaluation),
+(2) Observational Skills and Video
+(including user testing with think-aloud protocols),
+(3) Program Instrumentation, and
+(4) Questionnaires.
+The tutorial features many step-by-step
+procedures to aid in evaluation plan design.
+
+<A NAME=keywords> <H2>KEYWORDS</H2> </A>
+[H.5.2] User interface, Evaluation/methodology, [D.2.2]
+Software engineering, Tools and techniques, User
+interfaces, [H.1.2] Information systems, User/machine
+systems, Human factors.
+
+<A NAME=introduction> <H2>INTRODUCTION</H2> </A>
+Despite the great effort involved in developing user
+interfaces and the large potential costs of bad ones, many
+user interfaces are not evaluated for their usability or
+acceptability to users, thus risking failure in the field.
+Bad user interfaces can contribute to human error,
+possibly resulting in personal and financial damages.
+The
+<a href="ftp://archive.cis.ohio-state.edu/pub/hci/CDG/cdg.html"
+	>ACM SIGCHI 1992 Report `Curricula in HCI'</a>
+cites the importance of usability evaluation: "someone will
+evaluate usability even if not the developer, and, in some
+cases, not evaluating constitutes professional
+misconduct."  Even though not all members of a software
+development team may be involved directly in the
+evaluation of usability, it is useful for all to have an
+appreciation of the methods for evaluating usability,
+particularly practical methods that can applied with
+limited skills and resources.  The methods covered here:
+<B>Inspections</B>, <B>Observation</B>, <B>Instrumentation</B>, and
+<B>Questionnaires</B>, can all be used by evaluators with a
+wide range of skills and with minimal equipment
+requirements.
+
+<A NAME=content> <H2>CONTENT</H2> </A>
+The course will focus on four methods for evaluating
+systems:
+<OL>
+<LI><B>Inspection Methods</B>, such as heuristic evaluation
+and evaluation checklists, help developers/evaluators
+focus attention on potential problem areas.
+<LI><B>Observational Skills and Video</B> help find major
+usability problems early in system development (e.g.,
+with prototypes);
+<LI><B>Program Instrumentation</B> records the frequencies
+and times of actions users take in systems,
+information useful for isolating high and low usage
+and effort;
+<LI><B>Questionnaires</B> help gather structured feedback on
+system usability and help users help evaluators
+generate solutions.
+</OL>
+All the methods can be used by a broad base of
+evaluators, minimizing skill and equipment
+requirements.  Exercises are assigned to provide
+experience gathering and interpreting each kind of
+evaluation information.
+
+<A NAME=objectives> <H2>OBJECTIVES</H2> </A>
+<UL>
+<LI>To introduce cost effective methods of evaluating
+interactive systems, particularly early in the
+development process, when redesign is least
+expensive.
+<LI>To provide participants with enough experience
+during the course so that they are able to apply the
+methods on their own.
+</UL>
+
+<A NAME=audience> <H2>AUDIENCE</H2> </A>
+<UL>
+<LI>Managers interested in increasing their knowledge
+of usability evaluation so they can increase usability
+testing in their operations.
+<LI>Software Engineers interested in practical methods
+they can use to evaluate usability during the
+development process and not just as an afterthought.
+<LI>Human Factors Specialists who want to learn more
+about the methods covered.
+</UL>
+
+<A NAME=topics> <H2>TOPICS</H2> </A>
+<UL>
+<LI>Introduction To General Concepts
+	<UL>
+	<LI>User Interface Acceptability
+	<LI>Problems of Interactive System Development
+	<LI>Goals for Interactive System Evaluation
+	<LI>Cost-Benefit Analysis of Usability Testing
+	<LI>Evaluating before Costly Implementation
+	</UL>
+<LI>System Evaluation Steps
+	<OL>
+	<LI>Which and How Many  Users to Test?
+	<LI>Benchmark Tasks
+	<LI>Before the User Arrives
+	<LI>When the User Arrives
+	<LI>Data Collection
+	<LI>After The User is Done
+	<LI>Interpreting Data
+	</OL>
+<LI>Practical Evaluation Methods
+	<UL>
+	<LI>Choosing an Evaluation Method
+	<LI>Inspection Methods
+	<LI>Observation and Video
+	<LI>Program Instrumentation
+	<LI>Questionnaires
+	</UL>
+<LI>Summary and Conclusions
+<LI>Reference Materials
+	<UL>
+	<LI>Societies and Conferences
+	<LI>Journals and Publishers
+	<LI>Usability Evaluation Bibliography
+	</UL>
+</UL>
+
+<A NAME=bibliography> <H2>CORE BIBLIOGRAPHY</H2> </A>
+<OL>
+<LI>AERA, APA, and NCEA (1985)
+<B>Standards for Educational and Psychological Testing.</B>
+Washington, DC: American Psychological Association.
+<LI>American Psychological Association (1982)
+<B>Ethical Principles in the Conduct of Research
+	with Human Participants. </B>
+Washington, DC: APA.
+<LI>Bias, R. G. and Mayhew, D. J. (Eds.) (1994)
+<B>Cost-Justifying Usability,</B>
+Boston, Mass.: Academic Press.
+<LI>Card, S. K., Moran, T. P. and Newell, A. (1983)
+<B>The Psychology of Human-Computer Interaction.</B>
+Hillsdale, NJ: Lawrence Erlbaum Associates.
+<LI>Chin, J. P., Diehl, V. A. and Norman, K. L. (1988)
+<I>Development of an Instrument Measuring User Satisfaction of the
+Human-Computer Interface.</I>
+<B>ACM CHI'88 Proceedings, </B>
+213-218.
+<LI>Dumas, J. S and Redish, J. C (1993)
+<B>A Practical Guide to Usability Testing.</B>
+Norwood, NJ: Ablex.
+<LI>Gould, J. D. and Lewis, C. (1985)
+<I>Designing for Usability: Key Principles and What Designers Think.</I>
+<B>Comm. of the ACM, 28:3,</B>
+300-311.
+<LI>Gould, J. D. (1988)
+<I>How to Design Usable Systems.</I>
+In M. Helander (Ed.)
+<B>Handbook of Human-Computer Interaction.</B>
+New York: North-Holland. 757-789.
+<LI>Hix, D. and Hartson, H. R. (1993)
+<B>Developing User Interface:
+Ensuring Usability through Product and Process.</B>
+New York: Wiley.
+<LI>Jeffries, R. <i>et al</i> (1991)
+<I>User Interface Evaluation in the Real World:
+A Comparison of Four Techniques.</I>
+<B>ACM CHI'91, </B>
+119-124.
+<LI>Karat, J. (1988)
+<I>Software Evaluation Methodologies.</I>
+Chapter 41 in M. Helander (Ed.)
+<B>Handbook of Human-Computer Interaction.</B>
+New York: North-Holland, 891-903.
+<LI>Lewis, C. and Rieman, J. (1993)
+<B>Task-Centered User Interface Design.</B>
+(<A HREF="ftp://ftp.cs.colorado.edu/pub/cs/distribs/clewis/HCI-Design-Book"
+	>text</A> at
+<tt>ftp.cs.colorado.edu</tt> in
+<tt>/pub/cs/distribs/clewis/HCI-Design-Book</tt>).
+<LI>Landauer, T. K. (1988)
+<I>Research Methods in Human-Computer Interaction.</I>
+Chapter 42 in M. Helander (Ed.)
+<B>Handbook of Human-Computer Interaction.</B>
+New York: North-Holland, 905-928.
+<LI>Nielsen, J. (1993)
+<B>Usability Engineering,</B>
+Boston: Academic Press.
+<LI>Nielsen, J. and Landauer, T. K.
+<I>A Mathematical Model of the Finding of Usability Problems.</I>
+<B>Proceedings of INTERCHI'93.</B>
+206-213.
+<LI>Nielsen, J. and Mack, R. L. (Eds.) (1994)
+<B>Usability Inspection Methods.</B>
+New York: John Wiley and Sons.
+<LI>Norman, D. A. (1990)
+<B>The Design of Everyday Things. </B>
+Doubleday.
+<LI>Preece, J. (Ed.)
+<B>A Guide to Usability: Human Factors in Computing.</B>
+Wokingham, England: Addison-Wesley.
+<LI>Preece, J., Rogers, Y., Sharp, H., Benyon, D., Holland, S. and
+Carey, T. (1994)
+<B>Human-Computer Interaction.  </B>
+Wokingham, UK: Addison-Wesley.
+<LI>Ravden, S. J. and Graham I. Johnson, G. I. (1989)
+<B>Evaluating Usability of Human-Computer Interfaces:
+	A Practical Method.</B>
+Chichester, England: Wiley.
+<LI>Smith, S. L. and Mosier, J. N. (1984)
+<B>A Design Evaluation Checklist for User-System Interface Software.</B>
+Bedford, Mass.: MITRE TR-10090.
+<LI>Solso, R. L. and Johnson, H. H. (1989)
+<B>An Introduction to Experimental Design in Psychology:
+	A Case Approach </B>
+(Fourth Edition).  New York: Harper and Row, Publishers.
+<LI>Whiteside, J., Bennett, J. and Holtzblatt, K. (1988)
+<I>Usability Engineering: Our Experience and Evolution.</I>
+Chapter 36 in M. Helander (Ed.)
+<B>Handbook of Human-Computer Interaction.</B>
+New York: North-Holland, 791-817.
+<LI>Wiklund, M. E. (Ed.) (1994)
+<B>Usability in Practice:
+	How Companies Develop User-Friendly Products.</B>
+Boston: Academic Press.
+<LI>Wright, P. C. and Monk, A. F. (1991)
+<I>A Cost-Effective Evaluation Method for Use by Designers.</I>
+<B>International Journal of Man-Machine Studies, 35:6,</B>
+891-912.
+</OL>
+
+<A HREF=#toc>Go to Table of Contents</A>
+
+</BODY>
+</HTML>

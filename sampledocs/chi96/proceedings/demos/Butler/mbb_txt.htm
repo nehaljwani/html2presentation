@@ -1,0 +1,188 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <TITLE>Document Title</TITLE>
+   <META NAME="Generator" CONTENT="Lotus Word Pro">
+   <META NAME="GENERATOR" CONTENT="Mozilla/3.0b8Gold (Win95; I) [Netscape]">
+</HEAD>
+<BODY>
+
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/demo.JPG" ALT="Demo" HEIGHT=35 WIDTH=249><A HREF="../../demos.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<H1 ALIGN=CENTER>Lotus Notes Database Support for Usability Testing</H1>
+
+<CENTER><P><B>Mary Beth Butler, Ericca Lahti</B></P></CENTER>
+
+<CENTER><P>Lotus Development Corporation</P></CENTER>
+
+<CENTER><P>1 Rogers Street, 2 South</P></CENTER>
+
+<CENTER><P>Cambridge, MA 02142</P></CENTER>
+
+<CENTER><P>(617) 693-5971, (617) 693-4107</P></CENTER>
+
+<CENTER><P>mary_beth_butler@crd.lotus.com, ericca_lahti@crd.lotus.com</P></CENTER>
+
+<H2>ABSTRACT</H2>
+
+<P>This demonstration will show how we have built a collection of Lotus
+Notes databases containing usability results and techniques. Because we
+have these databases available, we can easily research past testing results,
+share information on common UI artifacts with geographically dispersed
+development teams, and efficiently develop strategies for testing new products
+and features. The intent of this demonstration is to show the characteristics
+of our system of databases that we find most important for supporting our
+work, and how our workgroup solution helps us accomplish our goals.</P>
+
+<H3><B>Keywords</B></H3>
+
+<P>Usability testing, Lotus Notes, groupware.</P>
+
+<H2>BACKGROUND</H2>
+
+<P>Usability testing is a well-established technique in many development
+organizations today. Indeed, many usability organizations have been testing
+for several years, and have collected substantial bodies of data related
+to their products and competitive products.</P>
+
+<P>Most PC software products today share common UI elements: these are
+dictated both by GUI standards (e.g., Windows standards), and, in many
+cases, by the company's product line standards. Growth of the &quot;suite&quot;
+market among PC office products requires companies to ensure that their
+products have common UI elements that work well across the product line.
+This becomes a particular challenge when development groups are geographically
+dispersed: ensuring consistency requires a variety of clear communication
+channels.</P>
+
+<P>In addition, all development organizations face continuing demands to
+rapidly update their software: for usability organizations, this means
+finding fast and effective ways to test and deliver results.</P>
+
+<P>At Lotus, we've spent the last several years developing a system of
+Lotus Notes databases that help us meet all of these challenges: we have
+organized our findings and methods, and they are quickly accessible to
+design teams throughout the world. While we have used Lotus Notes to support
+our system, we think the general model of databases that we have established
+could be re-created using other workgroup tools.</P>
+
+<H2>WHAT IS LOTUS NOTES</H2>
+
+<P>Lotus Notes is a client-server product that is a combination of a messaging
+system, a document-management database, and an application-development
+environment. Lotus Notes provides easy form generation tools, for users
+with no programming experience. Users can develop &quot;views&quot; of
+databases to sort and display data in whatever format is appropriate for
+their needs. Databases can be replicated world-wide, allowing people across
+the globe to have access to current information in a secure delivery system.</P>
+
+<P>At Lotus, all employees have access to Lotus Notes as both an E-mail
+and a database package. Lotus Notes databases share similar user interface
+conventions, so if a user is familiar with one database, she can quickly
+become accustomed to using other databases. [1]</P>
+
+<H2>KEY ELEMENTS OF OUR SYSTEM</H2>
+
+<P>To support usability testing, and the sharing of usability findings
+across our company we use a series of related Lotus Notes databases. The
+most important of these include:</P>
+
+<H3>Product Specifications Databases</H3>
+
+<P>Each product team maintains current product plans on secure databases.
+While not accessible to the whole company, all product team members, and
+members of related product teams usually have access. These databases include
+complete descriptions of all product features, including screen shots of
+feature elements, such as dialog boxes and menus. Some workflow features
+are used to indicate versioning of changes to each description. Usability
+specialists and designers can review specifications of their own and related
+products to plan usability testing based on these detailed product descriptions.</P>
+
+<H3>Testing Results Database</H3>
+
+<P>Usability testing results are stored centrally in one database that
+is accessible to teams across the company. This database includes copies
+of test results from testing done at Lotus for the last four years. Test
+results are categorized for easiest searching; full-text searching is also
+enabled for more ad-hoc investigations. Usability specialists and product
+designers can search past testing results to see if usability issues have
+been addressed in related products, or to investigate issues that should
+be addressed in upcoming releases of products.</P>
+
+<P>All test results are stored as rich text documents. This allows usability
+specialists to explain usability findings by including screen shots to
+illustrate the key points.</P>
+
+<P>This database also contains all test plans, test tasks, and test files
+for all tests done in the last four years. Having past tests available
+enables us to re-use plans for efficiency, repeat tests to determine whether
+usability has been improved by design changes, and use tests from related
+products as a starting point for planning.</P>
+
+<H3>Usability Results Tracking Databases</H3>
+
+<P>Individual usability specialists maintain databases to track usability
+issues. These databases are based on a common tracking database template,
+but are customized to meet the needs of individual products and product
+teams. Usability specialists use these databases to monitor activities
+on key usability issues and ensure that these are addressed in the development
+cycle.</P>
+
+<H3>Usability Tools Database</H3>
+
+<P>We store detailed information on testing techniques, use of lab equipment,
+standardized testing forms, and other instructional materials in one central
+database. This provides a resource to train new usability testing specialists
+and non-specialists who get involved with testing on special projects.</P>
+
+<H3>Potential Subjects Database</H3>
+
+<P>By continuously recruiting users who are willing to participate in usability
+testing, we have a ready pool of people to draw on, allowing us to quickly
+schedule testing. Our subject database includes detailed information on
+hundreds of users (of both our products and competitive products). We track
+address information, details about which products testing candidates use,
+which features they use, and their general level of expertise. We have
+designed a number of specialized search tools to help us locate users who
+we know we typically need for testing. This database is also full-text
+indexed to allow for ad-hoc searches. In addition, we can use this database
+to track all contact with each user, record testing activity by each user,
+and generate confirmation letters which can be faxed directly from our
+desktops, using Lotus Notes, to the user's location.</P>
+
+<H3>E-mail</H3>
+
+<P>Lotus Notes databases are well-integrated with rich-text electronic
+mail. We can easily distribute to pre-established mailing lists either
+the full text of usability testing reports, or links that enable users
+to quickly jump to the correct record in the appropriate database. Because
+the E-mail system is rich-text, we can also conduct on-line discussions
+of features by including screen shots of feature elements to illustrate
+the discussion.</P>
+
+<H2>SUMMARY</H2>
+
+<P>Using related and commonly accessible database tools has enabled us
+to make more efficient use of our usability testing results. Maintaining
+a well-organized system of results, test plans, and techniques means that
+we can share information across the company, quickly draw on existing findings
+to plan areas for future testing, and use existing tools to speed the test
+development process.</P>
+
+<H2>REFERENCES</H2>
+
+<P>1. Pernice, Kara, and Butler, Mary Beth. Database Support for Usability
+Testing. <I>Interactions, </I>(January, 1995), 27-31.</P>
+
+<P><I>Lotus Notes Database Support for Usability Testing</I> /<I> mary_beth_butler@crd.lotus.com</I></P>
+
+<P><B><I>&copy; Copyright on this material is held by the author(s).</I></B></P>
+
+</BODY>
+</HTML>

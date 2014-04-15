@@ -1,0 +1,109 @@
+<html>
+<head>
+<title>
+Beyond Task Analysis: Exploiting Task Models in Application Implementation
+</title>
+</head>
+
+<body>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/shortpap.JPG" ALT="shortpap" HEIGHT=35 WIDTH=249><A HREF="../../shortpap.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<h1>
+Beyond Task Analysis: Exploiting Task Models in Application Implementation
+</h1>
+<em>Michael J. Smith*, Eamonn J. O'Neill**</em>
+<p>
+
+<dl>
+<dt>*Harlequin Ltd
+<dt>Queen's Court
+<dt>Alderley Edge
+<dt>Cheshire SK9 7QD
+<dt>UK
+<dt>Tel:  +44 (0)1625 588000
+<dt>E-mail:  mick@harlequin.co.uk
+</dl>
+<p>
+<dl>
+<dt>**Dept of Computer Science
+<dt>Queen Mary and Westfield College
+<dt>University of London
+<dt>Mile End Road
+<dt>London E1 4NS, UK
+<dt>Tel:  +44 (0)171 975 5258
+<dt>E-mail:  eamonn@dcs.qmw.ac.uk
+</dl>
+<p>
+<hr>
+
+<h2>ABSTRACT</h2>
+This paper briefly reports how task models may be exploited in software development beyond early analysis and specifically within application implementation.  We describe three ways in which task models have been used directly to support application implementation and briefly touch upon how such use impacts upon the usability of the resulting application.
+
+<h3>Keywords</h3>
+Task models, application implementation, workflow.
+
+<h2>INTRODUCTION</h2>
+Task modelling has been with us in software development for many years.  However, only a very few approaches (eg, [2], [3]) attempt to exploit the resulting task models in software development beyond the early stages of analysis.  We have developed an approach which utilises task modelling throughout all the processes of analysis, system design, implementation and evaluation.  We have applied this approach in the development of a mass-market application in the area of interactive document analysis.
+<p>
+In our task analysis, developer and user collaborated in identifying user roles and the primary, higher level tasks performed by these roles.  We then decomposed these tasks into subtasks, down to a level where developer and user agreed that further decomposition was unnecessary.  To this task decomposition we added object flow information, concentrating on the flow of objects between roles, since these are key to multi-user, multi-role support.
+<p>
+An extended task model of this type was produced both for the current system of performing the user's tasks and for our proposed new system.  A direct route across the 'design chasm' from the model of the users' current tasks to a model of proposed improved tasks was developed and applied.  This method involved (i) mapping object flows through the model of current roles and tasks, (ii) identifying key tasks to be supported by the proposed system, (iii) mapping proposed object flows through these key tasks, and (iv) extending the object-key task mapping into a new task model.
+<p>
+Details of the user-developer collaboration in constructing and verifying the task models and of the processes of moving from current task model through proposed task model to application design are beyond the scope of this paper.
+<p>
+The proposed task model provided a basis for our overall system design.  This was first realised through scenario based paper prototyping in which the interaction structure was derived from the modelled task structure and the user interface objects were derived from the modelled objects.  We then further exploited this task model in the following areas of application implementation:
+<ol>
+<li>Workflow control;
+<li>Command enablement;
+<li>On-line help.
+</ol>
+
+<h2>WORKFLOW CONTROL</h2>
+From the extended task model of the proposed system, we quite easily picked out the higher level tasks for each user role together with the objects associated with these tasks and the workflows by which the objects moved between roles.  We aimed in our system design directly to support performance of the tasks on these objects and the flow of objects between the roles performing the tasks.
+<p>
+Thus, the workflow system in our application displays task-object pairings, in priority order, in a 'work agenda' for each user role.  The user selects a task-object pair and the system launches an appropriate form through which the user can perform the chosen task.  In performing the task the user makes use of a variety of commands designed to support the performance of the subtasks of the task in hand.  Upon completing the task, the user updates the status of the object being manipulated and then simply closes the form.
+<p>
+Behind the scenes, and based upon the object flow information derived from the extended task model, the application automatically sets the status of the current task to 'complete' and initiates one or more consequent new task-object pairings which then appear in the work agenda of the appropriate user roles.
+
+<h2>COMMAND ENABLEMENT</h2>
+As already hinted, many commands have been implemented to support the various subtasks which comprise the primary tasks of user roles.  These commands are linked to the individual subtasks which effectively define their purpose.  Interface objects, such as menu items, are in turn linked to the commands which they invoke.  This, combined with a login process which maintains a record of which roles are authorised to be played by each user, is sufficient information for the application dynamically to determine which facilities must be made available to a user performing any particular higher level task.  (Note that commands will still have to be enabled by other factors, such as whether an appropriate object has been selected.)
+<p>
+Thus, it is possible for the application to enforce a notion of a current role and to enable only the commands necessary for the current task-object pairing.  Alternatively, and this is the approach adopted in our application, the union of roles authorised for the current user is formed and commands enabled for all these roles.  Our reasoning here is that subtasks of the primary roles may be interleaved if a user is playing more than one role at once.  Forcing the user explicitly to switch roles in order to perform different subtasks would be rather annoying.
+
+<h2>ON-LINE CONTEXT SENSITIVE HELP</h2>
+We have already described how users are linked to roles, roles to primary tasks, primary tasks to subtasks, tasks to commands and commands to interface objects.  With these concepts and relationships explicitly represented, it is possible to generate help texts directly from these representations or else more simply automatically to generate a hyperlinked framework into which technical authors may then inject suitable help text.  Whilst the latter approach still involves considerable effort, the savings in constructing the hyperlinking framework should not be underestimated.
+<p>
+To illustrate this point consider the entry points that have to be defined for context sensitive help.  Given an explicit representation of the interrelationships described above, entry points may be generated using a set of conventions agreed between developers and technical authors.  This is enhanced further by the fact that the system is at least aware of the primary task in hand, and so can support some rudimentary navigation to relevant help topics.  For example, the user may be offered help topics on how to perform certain subtasks, as well as the more common object based help topics.
+
+<h2>IMPACT ON APPLICATION USABILITY</h2>
+The user's work flow is directly based upon the detailed task analysis, which should lead to a close correspondence between the system performance and the user's expectations.  The tasks performed by the user with the application are precisely those identified in the task analysis, and the descriptive terms determined by users and employed in the task model are also employed in the user interface, promoting simple and natural dialogue.
+<p>
+Command enablement is a function of the task model and the commands themselves are designed to support the subtasks of the primary higher level tasks which are used to enable the commands.  If there are commands which are not linked to a subtask, one may ask why they are included at all.  If a task does not have an associated command, then how does the user perform that task and does the application truly meet the user's needs?
+<p>
+Finally the model supports the use of a form of context sensitive help which has been the objective of help research for some time [1].  The next step in our current work is to carry the complete task decomposition through until run-time and attempt to keep track of the user task at a finer granularity.  Given the proposed relationships to be stored for command enablement, the prospect of having low level task information combined with object selection has a great deal to offer in providing truly context sensitive help.
+
+<h2>CONCLUSION</h2>
+We have briefly described an example of how task models may be exploited in application implementation.  The manner in which this has been achieved directly supports the promotion of application usability.
+<p>
+This has illustrated that the uses of task models are not confined to analysis activities but may successfully be applied throughout software development, including application design and implementation.
+
+<h2>ACKNOWLEDGEMENTS</h2>
+The second author is pursuing a PhD research programme supervised by Prof Peter Johnson and Prof George Coulouris of Queen Mary and Westfield College and is funded by the UK Engineering and Physical Sciences Research Council, award number 93560636, and by Harlequin Ltd.
+
+<h2>REFERENCES</h2>
+<ol>
+<li>Breuker, J. (ed).  EUROHELP: developing intelligent help systems, ESPRIT project P280, Final Report, University of Leeds, 1990.
+<li>Johnson, P., Johnson, H. and Wilson, S.  Rapid prototyping of user interfaces driven by task models.  In J.M. Carroll (ed), Scenario based design: envisioning work and technology in system development, John Wiley, New York, 1995, 209-46.
+<li>Lim, K.Y. and Long, J.B.  MUSE: A structured human factors method for usability engineering.  Cambridge University Press, Cambridge, UK, 1994.
+
+</body>
+
+
+

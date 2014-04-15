@@ -1,0 +1,1009 @@
+<HEADER>
+
+<TITLE>
+Multiagent Model of Dynamic Design
+</TITLE>
+</HEADER>
+
+<BODY	BGCOLOR="#ffffff"
+	TEXT="#000000"
+	LINK="#5e6574"
+	VLINK="517da1"
+	ALINK="#0077FF">
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<P><IMG SRC="./../../graphics/papers.JPG" ALT="papers" HEIGHT=35 WIDTH=249><A HREF="./../../papers.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+
+<CENTER>
+<b>
+<FONT SIZE=5>
+Multiagent Model of Dynamic Design<br>
+</FONT>
+<FONT SIZE=4>
+Visualization as an Emergent Behavior of Active Design Agents
+</FONT>
+</b>
+<br><br>
+
+<FONT SIZE=3><b>
+Suguru Ishizaki*
+</b></FONT>
+<br>
+
+<FONT SIZE=3>
+Design Department, Carnegie Mellon University<br>
+MMC 110, Pittsburgh, PA 15213<br>
+phone 412.268.6952,  email suguru+@cmu.edu
+</FONT>
+
+<br><br>
+<FONT SIZE=2>
+<i>*This work was done while the author was at the MIT Media Laboratory's 
+Visible Language Workshop.<br>
+(MIT Media Laboratory, E15-443, 20 Ames St. Cambridge MA 02139)</i>
+</FONT>
+</CENTER>
+
+<br><br>
+<H4>
+Abstract
+</H4>
+
+<P>
+This research has been motivated by the lack of models and languages
+in the visual design field that are able to address design solutions,
+which continuously adapt in response to the dynamic changes both in
+the information itself and in the goals or intentions of the
+information recipient. This paper postulates <i>a multiagent model of
+ssdynamic design</i> - a theoretical framework of design that provides a model
+with which the visual designer can think during the course of
+designing. The model employs a decentralized model of design as a
+premise, and borrows its conceptual model from the improvisational
+<i>performance</i>, such as dance and music, and bases its theoretical and
+technical framework on the field of multiagent systems. A design
+solution is considered an emergent behavior of a collection of active
+design agents, or performers, each of which is responsible for
+presenting a particular segment of information. The graphical
+behaviors of design agents are described by their dynamic
+activities - rather than by the traditional method of fixed attributes.
+The model is illustrated with two design projects, Dynamic News
+Display System and E-Mail Reader, both of which were implemented using
+a multiagent design simulation system, <b>perForm</b>, along with an agent
+description language, <b>persona</b>.
+
+
+<P> <b>Keywords:</b> visual design,
+visualization, dynamic information, automatic design, multiagent
+systems
+
+<br>
+<H4>
+1. Introduction
+</H4>
+
+<P>
+<b>1.1. Problems and Opportunities</b><br>
+Traditional visual design encapsulates information into fixed forms,
+such as print or film, so that the message can be distributed or
+stored. In the design of computer-based communication, design problems
+become more dynamic as the media become more interactive and include
+more temporal information. It is therefore important to create a
+design that continuously adapts in response to the dynamic changes of
+context, that is, information and the reader's intention. I argue that
+visual design as a field limits its own contributions to traditional
+methodologies, despite increasing efforts from within the field to
+improve the visual design of digital media. This lack of models and
+languages prevents designers from exploring those solutions that are
+unique to computer-based communication.
+<P>
+The problem on which I have focused in this research is identified by
+two unique characteristics of computer-based communication: dynamic
+change in context; and the capability of temporal presentation
+(Fig.1).
+<br><br>
+<CENTER>
+<IMG SRC=si_fig1.gif>
+<br><br>
+<i>Fig.1. Two unique characteristics of computer-based communication
+raise new problems in design.</i>
+</CENTER>
+
+<P>
+First, dynamic change in context (<i>i.e.,</i> information and the reader’s
+intention) raises a new problem in the design of computer-based media.
+For example, on-line information systems, such as news databases and
+traffic information systems, are updated as information changes. The
+design in such a medium must reflect the dynamic changes in
+information over time. Interactive media provide readers with
+personalized access to information. The pace and order of reading and
+the amount and selection of information change over time based on the
+intention of the individual user. Consequently, in the design of
+computer-based media, a designer often finds it impossible to design
+for solving a particular problem, and instead must represent <i>a way of
+designing</i> in a form of a computer program that can generate design
+solutions at run-time.
+<P>
+But, what do I mean by a way of designing, or process of designing?
+What kind of <i>form</i> does this process take? In this paper, "a way of
+designing" is an explicit description of how individual design
+elements, unknown at the time of designing, change over time according
+to changes in the immediate context. A goal of this research has been
+to propose a conceptual model and a descriptive language that
+designers can use in the course of creating such dynamic design
+solutions.
+<P>
+The second characteristic of computer-based media is the capability of
+temporal presentation. It introduces new challenges and opportunities
+in design. Designers are no longer limited to fixed forms in order to
+communicate information. For example, a gradual color shift can be
+used to convey complex emotional quality; or a rapid repetitive
+movement can be used to indicate a quantity.
+<P>
+However, although traditional visual design has dealt with temporal
+presentation media, such as television and film, there have been only
+a few studies on temporal forms [4]. As a consequence, the visual
+design field lacks the rich models and languages that would allow
+designers to discuss visual forms presented over time. A classic
+example of such a model is a color space,<i> e.g.,</i> the Munsell model [6],
+which has provided designers with a conceptual model of color, along
+with a vocabulary set, allowing the use of rich color harmony as well
+as the analysis of complex interaction of color. This research
+proposes such a model for the visual forms that change over time.
+<P>
+These characteristics have raised various questions that need to be
+answered: How can a designer conceptualize and describe a solution
+that can be interrupted by some immediate changes in information and
+in the reader's intention? How can a designer describe a design that
+contains an undetermined number of design elements constantly
+changing? How can a designer contemplate design problems as continuous
+problems, rather than a series of discrete problems?
+<P>
+I suggest that it is valuable to develop a model of design that would
+provide designers with a conceptual framework during the course of
+solving design problems, in order to extend the fixed nature of the
+traditional design-object so that it will include more continuous and
+responsive characteristics. The model is also intended to contribute to the
+development of computer systems that represent and generate continuous
+and responsive design solutions. In this paper, I shall call this
+framework <i>a multiagent model of dynamic design</i>, or <b>maDes</b>.
+
+<P>
+<b>1.2. Background</b><br>
+There have been a number of researchers who proposed generative
+design systems (<i>e.g.,</i> [3][5][8][11]). However, most of their
+representation schemes do not consider the fluid nature of
+computer-based communication. Rather, those representations are
+modeled after traditional static design (<i>e.g.,</i> a layout, or a
+presentation) where a design solution is described as a collection of
+declarative statements that are intended to fix formal attributes. On
+the other hand, <b>maDes</b> is intended to encourage designers to perceive
+(1) a design problem in computer-based communication as a continuous
+stream, instead of a collection of discrete problems; and (2) a design
+solution as a fluid emergent entity generated by dynamic activities of
+design elements, instead of a set of design elements with fixed
+attributes.
+<P>
+<b>maDes</b> has been influenced by three distinct areas of studies. First is
+the cognitive models of design that suggest the multiplicity of
+knowledge involved in designing (<i>e.g.,</i> [10][12]). These theories have
+encouraged a distributed representation as a natural means for
+representing a generative design process. Second, in order to develop
+a distributed model, I have drawn an analogy from improvisational
+performance, such as dance and music [1][7]. The intrinsic nature of
+improvisation that addresses performers' responses to the spontaneous
+changes in context during a performance has provided an insight for a
+design solution that must respond to dynamic changes in its context.
+Finally, the research in multiagent systems - a branch of distributed
+AI - has provided a theoretical and technical foundation to this
+research [2]. In particular, maDes has adopted cooperative reactive
+(or situated) agents [9] as constituents of multiagent design systems.
+
+<br><br><br>
+<H4>
+2. A Scenario
+</H4>
+
+<P>
+Imagine that you are a designer. Think of a news display system that
+allows users to access a news database that is constantly updated.
+News stories arrive at the display system as they are issued, and a
+user can view them as they are published. The purpose, or more
+precisely, intention, of a user may also vary over time. For example,
+a user may want to read news articles according to locations; or a
+user may need to look at a particular category. Your task as a
+designer is to create a visual design solution for the display that
+reflects the dynamic changes in both reader's intention and the
+database. Since information is only available at run-time, you are not
+allowed to directly adjust attributes of potential design elements,
+such as typeface and color, unlike the newspaper design. Thus, you
+must design a way of designing, or design process, in order to
+dynamically solve this continuous design problem. In addition, since
+the display is capable of presenting temporal expressions (e.g.,
+animation), you are not limited to the traditional notion of static
+design solutions. Rather, you are free to use <i>temporal forms</i>. For
+example, you may use repetitive motion (e.g., up and down) as a
+"label" for an important news story, as you would use a hue (e.g., red)
+for the same purpose in the design of a news magazine.
+
+<br><br>
+<CENTER>
+<IMG SRC=si_fig2.gif>
+<br><br>
+<i>Fig.2. A screenshot of Dynamic News Display, showing a scene
+while a user is reading a news story, after its headline is
+selected.</i>
+</CENTER>
+
+<P>
+I have just described that your task as a designer is to create a
+design solution that is responsive. And the solution is a way of
+designing that you have to describe. Now, how would you want to
+<i>describe</i> such a design solution?
+<P>
+<b>maDes</b> provides a designer with a unique framework for describing such
+a design solution. For example, Fig.2 is a scene from an experimental
+on-line news display designed based on the proposed model. Here, the
+design solution is an emergent expression created by the situated
+activities of design agents that are responsible for presenting
+headlines, news stories, placenames, a clock, a date text, and a map,
+each of which has its behavior specified by a designer. A headline
+agent left-aligns its text to its placename first when it is born; and
+when a new headline is issued at the same location it aligns the text
+to the new headline. Headline agents also change the translucency of
+its text based on its age. Placename agents change their text color
+when there is a headline associated with their location. When a news
+story is being read by a user, other design agents make their visual
+representations highly translucent so that they do not distract the
+user's reading. And so on... The solution here is created by a team of
+collaborating agents.
+<P>
+A designer's task when working with <b>maDes</b> is to anticipate
+potential changes in the context, and specify kinds of expressive
+forms for design agents to perform according to their immediate
+situations. An analogy to the designer's role here can be made with
+that of a director of an improvisational dance performance - selecting
+dancers with the desired expressive skill (body forms) and coaching
+their situated acting through a thorough rehearsal. In the course of
+creating a final dynamic solution, a designer would have to rehearse
+behaviors of agents iteratively by simulating real dynamic design
+situations.
+
+<br><br><br>
+<H4>
+3. A Multiagent Model of Dynamic Design
+</H4>
+
+<P>
+<b>3.1. Overview</b><br>
+<b>maDes</b> models a design solution as a system consisting of a collection
+of smaller design systems. Each system, or <i>design agent</i>, is
+responsible for presenting a particular segment of information. A
+design agent is a system that can modify its expressive behavior as
+the context changes and can cooperate with other design agents. In
+traditional visual design, a design element is usually described by a
+set of fixed attributes; while in <b>maDes</b>, a design element is described
+by <i>a set of dynamic activities</i>.
+<P>
+The term <i>context</i> here is used from the perspective of an agent, and it
+is comprised of the information, the reader's intention, and the
+immediate presentation environment (<i>i.e.,</i> surrounding visual
+elements). Any of the three constituents is potentially dynamic.
+
+<P>
+<b>3.2. Agent's ability</b><br>
+I have described that the design agent presents information according
+to a given context. But, how can a designer describe agents' activities?
+The proposed multiagent model of design adopts reactive agents as its
+constituents [9]. As described in Scenario, design agents are like
+performers in an improvisational performance, in that they perform
+reactively using their skills, without deliberately planning their
+actions. Performers seem to simply act on immediate situations, but it
+does not imply their performance is not intelligent. Rather,
+deliberation is considered embedded in their reactive pattern, or
+skill, through previous training. In dynamic design, the behavior of
+the design agent is described as a set of situation-action patterns.
+If a design agent is capable of communicating a particular segment of
+information at any given situation in such a manner that a designer
+desires, the agent's <i>ability</i> is said to satisfy the designer's
+intention.
+<P>
+Agent's ability is specified either for a particular agent, or for a
+class of agents. When it is specified for a class of agents, agents that
+belong to the same class share their ability. For example, there may
+be a set of design agents belonging to one class that are all
+responsible for presenting a headline in a dynamic electronic news
+system. In dynamic design, a designer often has to focus on behaviors
+for a class of design agents, rather than a particular design agent,
+since a particular information set is usually unknown at the time of
+designing. However, there is nothing to prevent the designers from
+creating a single unique agent. A clock agent in Dynamic News System
+is an example of such a unique agent.
+<P>
+In <b>maDes</b>, the ability of the agent is determined as well as described
+by the following characteristics:
+
+<P>
+<b>Physical Realization</b><br>
+Physical realization is a perceivable representation of the agent. It
+is important to recognize that an agent is not bound to a particular
+type of expression. For example, an agent that is responsible for
+presenting a headline in Dynamic News Display may express itself using
+text or through voice. Since the agent is an active system, it
+chooses an appropriate realization according to a given context.
+Physical realization(s) for an agent is determined based on the
+available technology and a particular design problem at hand.
+
+<P>
+<b>State and Sensor</b><br>
+State is a unit of what the agent "knows." State includes: physical
+properties (<i>e.g.,</i> color) that are determined by the agent's physical
+realization and changed by actions described next; information about
+other related agents; and information about user's intention, and
+changes in information for which the agent is responsible.
+<P>
+The design agent is assumed capable of sensing information from
+the external world (external to itself), which include: information to be
+presented (<i>e.g.,</i> news data), the reader's intention, and other agents'
+activities. A set of sensors is defined for an agent by a designer,
+and the value observed by a sensor is a special type of state.
+
+<P>
+<b>Action</b><br>
+Action is the abstraction for the agent's basic ability - just as
+body-form is the abstraction for describing performer's skill in
+dance. There are three basic categories of actions that the agents can
+perform: formal, communicative, and external. Formal action is an
+expressive action that influences the agent's form, such as typography
+and color. For example, a flash shown in Fig.3, which can be used to
+attract a reader's attention, is a formal action. Communicative action
+is the act of sending a message to other agents, which is used when
+explicit coordination is necessary. An example of communicative action
+is a message sending action taken by a placename agent to inform its
+selection to the associated headline agents. Finally, external action
+is a type of action used to influence outside the multiagent system,
+such as an application program. For example, there can be a quit
+button agent that terminates the application program.
+
+<br><br>
+<CENTER>
+<IMG SRC=si_fig3.gif>
+<br><br>
+<i>Fig.3. A simplified view of a flash action.</i><br>
+</CENTER>
+
+<P>
+Each formal action - or temporal form - must be carefully described by ae
+designer for a particular design problem. An action can be performed
+instantaneously (<i>e.g.,</i> change font), or it may take a certain duration
+(<i>e.g.,</i> gradually glow size). maDes provides an abstraction that allows
+structural and analytical descriptions of forms expressed over time.
+<P>
+Any meaningful formal expression can be considered an action. However,
+what is considered a meaningful action is determined by how a designer
+views a design problem and its solution. For example, consider the
+flash action shown in Fig.3. A designer may consider it as a
+meaningful action to attract a reader's attention. Alternatively, the
+first half of the same action (<i>t<FONT SIZE=1>n</FONT>~t<FONT
+SIZE=1>n+2</FONT></i>), which changes the color of text from dark to
+bright, can be considered another action that serves a different
+purpose. <i>The abstraction of action provides a framework to structure
+design as a set of meaningful temporal forms.</i>
+
+<P>
+<b>Strategy</b><br>
+Strategy is the abstraction over actions, which describes the agent's
+ability to achieve a particular goal. Strategy is like a performer's
+ability to express a certain theme in a musical improvisation. A player
+achieves a particular theme by selecting an appropriate action
+sequence at the right timing. A set of strategies determines the ability
+of a design agent.
+<P>
+To select an appropriate action as a response to its immediate
+situation, the agent must be able to recognize various <i>contexts</i> by
+which it is potentially situated. In other words, the designer of a
+dynamic design solution must identify possible situations for
+individual agents. A situation can depend on an agent's own state,
+another agent's state, information it's presenting, a reader's
+intention, or a combination of these. For example, the placename agent
+in the news display can recognize when a cursor is above its text,
+when its text is clicked, when there are headline agents associated
+with its place, and when some news story is being presented.
+<P>
+Situations are structured in a hierarchical manner. Suppose a user is
+interested in reading news articles based on locations (sit-1). Then
+if a reader selects a placename with which a headline agent is
+associated, it generates a sub-situation for the headline: a reader is
+potentially interested in reading its story (sit-2). Notice that,
+sit-2 is situated within a larger situation sit-1. You can also find
+another substitution within sit-2 when a reader selects the headline
+agent: a reader is interested in reading its story (sit-3). In other
+words, when the agent is situated in one situation, it does not have
+to watch out for all the situations it can recognize; rather it only
+has to consider sub-situations that potentially happen within the
+immediate high level situation. Fig.4 presents a schematic diagram of
+situations that are hierarchically defined. <i>The abstraction of
+strategy and situation provides designers with a means of analyzing
+and structuring dynamic design problems in a systematic manner.</i>
+
+<br><br>
+<CENTER>
+<IMG SRC=si_fig4.gif>
+<br><br>
+<i>Fig.4. A schematic diagram of a situation hierarchy.</i>
+</CENTER>
+
+<P>
+Given abilities to recognize necessary situations, a strategy is
+specified as a simple procedure and is composed of a set of actions
+and a set of reactive rules, based on the reactive agent model
+proposed by Singh [9]. The simplest strategy consists of a sequence of
+one or more design action. For example, a headline's strategy to
+attract a viewer's attention may consist of an action to gradually
+become red and increase its size. From a perspective of a headline
+agent, this strategy can be written as:
+
+<PRE>S-1 <b>attract-viewer's-attention-strategy:</b>
+         perform <b>flash-action</b>
+</PRE>
+<P>
+More complex strategies provide the agent an ability to determine an
+appropriate action to perform according to its immediate context. An
+example of this type of strategy, for the headline agent, is to
+attract a viewer when the news item is important. This strategy is
+achieved by adding a conditional statement to S-1:
+
+<PRE>S-2 <b>attract-viewer's-attention-strategy:</b>
+       If my news article is important to my reader
+         perform <b>flash-action</b>
+       otherwise
+         <b>do-nothing</b>
+</PRE>
+A strategy can also consist of a set of other strategies. For
+instance, a simple strategy for a headline agent to use
+<b>attract-viewer's-attention-strategy</b> until it is deleted by a
+user can be defined as follows:
+
+<PRE>S-3 <b>basic-strategy:</b>
+         while I am not deleted,
+           use <b>attract-viewer's-attention-strategy</b>
+</PRE>
+Also, a strategy can consist of a sequence of multiple strategies.
+<P>
+Notice that these two strategies, <b>basic-strategy</b> and
+<b>attract-viewer's-attention-strategy</b>, involve three situations as shown
+in Fig.5. First the top level situation is when the headline agent is
+not deleted. Then, there are two sub-situations: one when the agent's
+news article is important, another when it is not. 
+
+<br><br>
+<CENTER>
+<IMG SRC=si_fig5.gif>
+<br><br>
+<i>Fig.5. A simple example of a situation hierarchy, showing
+how Headline Agent selects an action at two different situations.</i>
+</CENTER>
+
+<P>
+Strategy is a useful abstraction which a designer can use in the
+course of exploring design solutions, as well as in describing the
+final solution. <i>It provides designers with a framework for identifying
+changes in context, and for determining appropriate dynamic and
+responsive design solutions.</i>
+
+<P>
+<b>3.3. External view</b><br>
+Fig.6 summarizes the agent's ability. The design agent acts on the
+immediate situation using a strategy that is designed to achieve its
+current goal. The information observed from the external world and
+messages sent from other agents are used by the strategy to determine
+appropriate actions to perform.
+
+<br><br>
+<CENTER>
+<IMG SRC=si_fig6.gif>
+<br><br>
+<i>Fig.6. A summary of the agent's ability.</i>
+</CENTER>
+
+<P>
+It may seem complex to understand how an agent behaves, with a given
+set of strategies and actions. One method that helps one understand an
+agent's behavior is to consider its history. Fig.7 shows a history of
+a headline agent. The agent repeated performing <b>flash-action</b> through
+<i>t<FONT SIZE=1>i</FONT></i> since its news story is important. Then,
+its situation changed at <i>t<FONT SIZE=1>n</FONT></i>, where the news
+story became no longer important. At <i>t<FONT SIZE=1>n</FONT></i>,
+the agent stopped performing <b>flash-action</b> and started perform
+<b>do-nothing</b> and kept doing nothing until now through <i>t<FONT
+SIZE=1>j</FONT></i>.
+
+<br>
+<CENTER>
+<IMG SRC=si_fig7.gif>
+<br><br>
+<i>Fig.7. A historical view of a headline agent.</i>
+</CENTER>
+
+<P>
+Also, an agent's future can be understood in terms of <i>histories</i>. Given
+a particular point in time, there are many possible histories. As time
+progresses, an agent possesses one history in its past. Fig.8 is a
+schematic diagram showing the concept of possible histories found in
+the future of an agent. The notion of history is an external
+description of the agent behavior, but it is not explicitly
+represented. History is simply an analytical device that can be used
+to understand the agent's behaviors.
+
+<CENTER>
+<IMG SRC=si_fig8.gif>
+<br><br>
+<i>Fig.8. A schematic diagram of future histories of an agent.</i>
+</CENTER>
+
+<P>
+<b>3.4. Organization of Agents</b><br>
+maDes emphasizes a decentralized and lateral interaction among design
+agents, as opposed to a centralized and hierarchical one (Fig.9). Like
+dancers or players on a football team, who do not have strict
+hierarchical control, the design agents collaboratively act in order
+to achieve a global goal. However, an agent can become a local leader
+with some authority over other agents, like the lead dancer or the
+quarterback. The leaders can orchestrate other agents. For example, a
+headline agent in the dynamic news design can be a leader that
+oversees a story agent and a photograph agent.
+
+<br><br>
+<CENTER>
+<IMG SRC=si_fig9.gif>
+<br><br>
+<i>Fig.9. A range of organization styles</i>
+</CENTER>
+
+<P>
+I have described that a design solution as a whole is an emergent
+behavior generated by both implicit and explicit collaborations among
+design agents. This emergent solution is considered a group strategy,
+and its communicative quality is considered the ability of a group.
+However, there is no explicit description about group strategies.
+Group strategy and group ability are like those of a football team,
+and composed of a collection of strategies used by individual agents.
+
+<P>
+<b>3.5. Design Method</b><br>
+In addition to the theoretical framework, this research suggests a
+methodical process which a designer can follow through to solve a
+design problem. Fig.10 shows a schematic flow of a design process with
+<b>maDes</b>. This method fundamentally resembles a typical prescriptive
+design process paradigm - analysis, synthesis, and evaluation.
+
+<br><br>
+<CENTER>
+<IMG SRC=si_fig10.gif>
+<br><br>
+<i>Fig.10. A design method that uses the multiagent model of
+dynamic design</i>
+</CENTER>
+
+<P>
+The first phase is the analysis of a design problem. The designer must
+understand the nature of information, the goal of communication, and
+types of intended readers. The second phase is the decomposition of
+the problem. A design problem is described as a set of design agents.
+In this phase, types of design agents, their roles and organizational
+style are determined. The third phase is the specification of the
+agents' behaviors. Here, a designer specifies the behaviors for
+individual classes of design agents using actions and strategies. Then
+the solution, or partial solution, created in the third phase is
+evaluated by simulating agents' behaviors in various contexts.
+<P>
+Although the design method is described in a linear fashion, the
+design is not completed by a simple four-stage process; rather it is
+an iteration of exploring and examining agents' behaviors and
+relations among them. The role of a designer is like that of a
+director in the performing arts, in that, the design process consists
+of a course of <i>dialogue</i> between a designer and the design agents. A
+designer must carefully determine the behaviors of agents in such a
+way that each agent can play its role according to the changes in the
+immediate context, and can contribute to an emergent design solution.
+
+<br><br><br>
+<H4>
+4. perForm: A Multiagent Design Simulation System
+</H4>	
+
+<P>
+<b>perForm</b> is an experimental software program that is implemented
+based on <b>maDes</b> to examine its theoretical framework with
+concrete design examples.  <b>perForm</b> provides an agent
+description language called <b>persona</b>, along with a multiagent
+design simulation engine, which simulates parallel activities of
+design agents. <b>persona</b> is implemented in lisp and provides a
+set of macros that are used to define agents' abilities, including
+actions, strategies, sensors, and messages. <b>perForm</b> uses a
+special 3d graphics library for the realization of the design agent,
+enabling the use of high quality typography to examine <b>maDes</b>
+with design solutions that are not too simplistic. The software is
+written using sgi's Performer graphics library on sgi's onyx
+Workstation with the Reality Engine graphics.
+
+<P>
+The following sections illustrate how dynamic design can be created
+with <b>maDes</b>, using <b>perForm</b>. Because of the space
+limitation, the description of agents' behaviors are given in the
+style of stories, instead of strategies written in <b>persona</b>.
+
+<br><br><br>
+<H4>
+5. Case Study 1: Dynamic News Display
+</H4>
+
+<P>
+<b>5.1. Overview</b><br>
+The design problem is to create a visual interface to an on-line news
+database, as introduced in Section 2. In this experimental project, I
+intended to create a visual interface that can continuously provide
+users with an overview of entire news articles issued within a certain
+time period (<i>e.g.,</i> past 12 hours). I also decided to present news
+articles based on their physical locations where they are issued.
+
+<P>
+<b>5.2. Decomposition and Roles of Agents</b><br>
+The information is decomposed into the following agent types: Headline
+Agent, Story Agent, Map Agent, Placename Agent, Clock Agent, and Date
+Agent. Notice that a news article is represented by a headline agent
+and a story agent. The role of the Headline Agent is to quickly inform the
+content, as well as to present the age of its associated news article.
+The role of the Story Agent is simply to provide its message content. The
+reason to decompose a news article in two different agents (headline
+and story) is to create a visually less overwhelming interface. It is
+also conceivable to create a class of design agent that is responsible
+for presenting the entire news article. However, it was rather
+meaningful to represent a news story using two agents.
+
+<br>
+<CENTER>
+<IMG SRC=si_fig11_a.gif><br>
+a<br>
+<IMG SRC=si_fig11_b.gif><br>
+b<br>
+<IMG SRC=si_fig11_c.gif><br>
+c<br>
+<IMG SRC=si_fig11_d.gif><br>
+d<br>
+<IMG SRC=si_fig11_e.gif><br>
+e<br>
+<IMG SRC=si_fig11_f.gif><br>
+<br>
+<i>Fig.11. Interactive scenes from the Dynamic News Display. a-c show
+a sequence after Los Angeles is selected. d-f show the introductory
+action of a headline agent.</i>
+</CENTER>
+
+<P>
+<b>5.3. Solution</b><br>
+This particular example used a set of news articles categorized as top
+U.S. news from the Clarinet database on May 19, 1995. Fig.11.a shows
+the display just before 9 o'clock in the morning. There are three
+headlines at Los Angels, one at Kansas City, and one at Washington
+D.C. The placename agents responsible for presenting these three
+placenames have recognized that there are news stories associated with
+them, and changed their color from light gray to bright orange. Also,
+notice that three headlines at Los Angeles have larger type size than
+the others. This scene is taken right after a reader moved a cursor
+over to the text "Los Angeles." First, the Los Angeles agent notices that a
+cursor is on top of it - a new situation; and then it informs headlines
+associated with it that it is being focused upon. Having been informed by the
+placename, those headline agents now "know" that their placename is
+being focused upon. According to my instruction for this situation,
+headline agents gradually grew their type size. It then kept that size
+while a cursor was on its associated placename, in order to make their
+text more readable.
+<P>
+When a headline agent is born, it first flashes its text close to a
+viewpoint (in z-axis) using white (Fig.11.d-f). Then, right after
+that, it gradually aligns the text to its placename. This introductory
+action is achieved by using a strategy with a flash action and a move
+action. After introducing its text, the headline agent uses a heigher
+level strategy until the age of the headline agent's news article
+reaches to the specified limit. This strategy provides the headline
+agent an ability to act based on how a user is interacting with its
+associated placename as well as with itself.
+<P>
+Each headline agent left-aligns its text to a headline that is issued
+next at the same place; or to its placename if it is the most
+recent one. The Headline Agent always tries to maintain this alignment
+using the same strategy. The Headline Agent also looks at the age of its
+news article and changes the translucency of its text proportional to
+its age. For example, the headline presented at Kansas City shows
+that its story is older than other news stories.
+<P>
+If a placename is selected, headline agents associated with that place
+use a different strategy to grow its text size, and to move to top
+left position. Fig.11.b-c presents a sequence of scenes after Los
+Angels is selected. Three headline agents gradually move their text to
+the upper left part of the display. In this design, selecting a
+placename means to further examine articles at that place. Thereafter,
+if a user selects a headline by clicking its text, it informs its news
+story agent of its selection. This changes the situation for a story
+agent, which has been using a strategy to hide. Then, it uses another
+strategy to make its text visible (Fig.2). Notice that there have been
+other news stories arrived to other cities, while a user has been
+interacting with news articles at Los Angeles.
+<P>
+Behaviors of the other agents are relatively simple. The Clock Agent finds
+current time based on whether the system is used in quick review mode
+or real-time mode, and displays it in the form of a clock. It also
+changes color of its clock every hour based on a previously chosen set
+of 24 colors around a hue circle. The Date Agent keeps checking current
+date and displays it in the from of a text. The Map Agent just keeps
+displaying a map. In an earlier design the Map Agent changed the
+brightness of the map based on the time of a day; however, I decided
+not to use that strategy since color coding schemes of other agents
+were difficult to maintain.
+<P>
+Finally, notice that, in Fig.2, texts representing placenames and
+headlines, other than the selected headlines and its news story, are
+highly translucent. When the headline and the placename agents notice
+(using their sensors) a situation in which a news story is being
+presented , they use a strategy which tries not to visually distract
+the user's reading.
+
+<P>
+<b>5.4. Summary</b><br>
+Imagine the design of a newspaper, for instance. The design of
+Dynamic News Display clearly has shown a different method in which
+designers can approach a problem, when compared to a traditional
+model. maDes was able to highlight the fluid nature of design problems
+and the potential of dynamic and responsive design solutions. maDes also
+provides a means to describe a rich and emergent solution out of
+relatively simple distributed agents.
+
+<br><br><br>
+<H4>
+6. Case Study 2: E-Mail Reader
+</H4>
+
+<P>
+<b>6.1. Overview</b><br>
+The design problem in the second case study is to create a visual
+interface to an e-mail system, E-Mail Reader. The interface must
+represent: an arrival of a new message, reply-replied message
+relationships; whether or not a message is read by the user; and the
+number of mail messages. In addition, I intended to make the interface
+playful, avoiding conservative structured layout, using interesting
+temporal forms and vivid colors.
+
+<P>
+<b>6.2. Decomposition and Roles of Agents</b><br>
+The information is decomposed into the following design agents: Sender
+Agent, Subject Agent, Message Agent, Clock Agent,
+Number-of-Messages-Agent (MumMsg agent), Reading-Mode-Switch-Agent
+(Switch agent), and Date Agent (Fig.12). Similar to a news article in
+the Dynamic News Display, a mail message is decomposed into three
+design agents: a sender, a subject, and a message. In addition to the
+obvious roles that are implied by these three agents, additional
+communicative roles are assigned to them. First, Sender Agent is
+responsible for representing whether or not its message is read, the
+temporal relationship to other messages, and reply-replied
+relationships. Sender Agent is also responsible for informing its
+message agent when it is selected by the user. Subject Agent must
+visually represent its relationship to its sender. The message agent
+must present its text when its sender is clicked. The roles of Clock
+Agent, Date Agent, and NumMsg Agent are those of which their names
+suggest. The role of Switch Agent is to indicate the <i>current reading</i>
+mode of the system, and to switch a reading mode between single and
+relational (discussed later) when it is clicked.
+
+<CENTER><b>
+<PRE>a<A HREF="si_fig12_a_extern.gif"><IMG SRC=si_fig12_a.gif></A> b<A HREF="si_fig12_b_extern.gif"><IMG SRC=si_fig12_b.gif></A>
+
+c<A HREF="si_fig12_c_extern.gif"><IMG SRC=si_fig12_c.gif></A> d<A HREF="si_fig12_d_extern.gif"><IMG SRC=si_fig12_d.gif></A>
+<br>
+</b></PRE>
+<i>Fig.12. Interactive scenes from the E-Mail Reader, showing
+how the sender and subject agnets introduce their text by coordinating
+each other.</i>
+</CENTER>
+
+
+<P>
+<b>6.3. Solution</b><br>
+Similar to the Dynamic News Display, design agents are realized using
+a 3D space. However, unlike the News Display, the
+view point is rotated 45 degrees clockwise around the y-axis, creating
+a sense of perspective (Fig.12). The clock agent uses a lego-block
+pattern to create a playful atmosphere. Unlike other graphical
+elements, which use a single realization element such as text, the clock
+agent uses multiple parts: numbers, lego background, in addition to
+the clock itself. There is no need to decompose a clock into smaller
+design agents since it is a meaningful unit.
+<P>
+When a new email message arrives in the mail system, the sender agent
+presents its name text at the far right in the x-axis and at about the height
+of the clock in the y-axis; and then flies the text towards the clock. The
+sender agent randomly chooses the position for its text somewhere
+between the center and right edge of the clock (Fig.12.a-c). This
+random positioning in the x-axis is intended to make the names of senders
+easier to distinguish from adjacent ones, and to create a playful
+emergent form. As the sender agent approaches the clock, it uses
+squashing and stretching action, and stops. The design of this action
+is influenced by a technique used in traditional animation in order to
+provide a viewer a sense of life. After arriving at the clock, the
+sender agent adjusts the y position of its text at the top of the clock
+if it is responsible for the most recent message, and otherwise places
+it just below the next sender text (Fig.12.d).
+
+<CENTER><b>
+<PRE>a<IMG SRC=si_fig13_a.gif> b<A HREF="si_fig13_b_extern.gif"><IMG SRC=si_fig13_b.gif></A>
+
+c<A HREF="si_fig13_c_extern.gif"><IMG SRC=si_fig13_c.gif></A> d<A HREF="si_fig13_d_extern.gif"><IMG SRC=si_fig13_d.gif></A>
+<br></PRE></b>
+<i>Fig.13. <b>a</b> is a close-up view showing how a sender and a
+subject coordinate. <b>b-c</b> are scenes while a message is
+presented by a message agent. In <b>d</b>, a leader agnet is waiting
+for a previous message to finish its presentation by moving back and
+force.</i>
+</CENTER>
+
+<P>
+As the sender agent finishes performing its introductory action, its
+associated subject agents introduces its text by gradually showing the
+text right next to the name of the sender, using its introductory
+strategy (Fig.13.a). Since the sender agent stops at a random location,
+its associated subject agent uses its sensor to adjust its final location.
+<P>
+The Sender Agent is sensitive to a reader's clicking, and if its text is
+clicked, it informs its associated message agent about the selection.
+After receiving a message from its associated sender agent, Message
+Agent recognizes a new situation, and uses a different strategy to
+present its text in front of other graphical element facing towards
+the view point (Fig.13.b-c). Message Agent keeps the text visible
+until a reader clicks the text. Simultaneously, the sender agent that
+is clicked faces its text to the view point, become translucent, and
+start "dancing" in the background. The subject agent associated with
+the message places its text just behind the message and rotates it 60
+degrees counter clockwise in order to make it readable. While a
+message text is presented - a new situation - other sender agents make
+their text defocused, decreasing the contrast, and their associated
+subject agents make their text transparent, in order to make the
+message currently chosen easier to read.
+<P>
+Individual strategies, as well as group strategies, introduced by now
+are relatively short-sighted. In other words, although a group of
+agents presents a complex visual message with multiple contents, such
+as sender's name, message text, and subject, each of which uses its
+own strategies in <i>parallel</i>, each presentation remains relatively
+brief. What if there is more information than that can fit in a
+screen? What if a designer desires to present a chain of causal
+relationships in sequence? The next simple example will illustrate how
+a group of agents can collaborate to create a sequence of presentation.
+<P>
+Fig.13.d shows a scene after the agent whose sender name is "Ishantha
+Lokuge" is selected under the relational reading mode, and becomes a
+<i>leader</i>. Since Ishantha's message is a reply to the message sent by
+David Small, the leader agent (responsible for Ishantha's name)
+requests the agent responsible for David's name (<i>replied agent</i>) to
+start a presentation. While David's message is being presented, the
+leader agent waits and visually indicates the fact that it is
+performing next, by shrinking and stretching in the x-axis
+(<b>waiting-action</b>). Then, after a user finishes reading David's message,
+the leader agent recognizes it and begins its own presentation.
+Simultaneously, the leader agent informs <i>reply agents</i> (sender agent
+whose messages are the reply to the message associated with its
+message) so that they can present their messages after its own
+presentation is over. This action changes the situation of the <i>reply
+agents</i>; and the closest reply agent, which is presenting next, starts
+performing <b>waiting-action</b> indicating its next presentation. Finally,
+when a user finishes reading the leader agent's message (Ishantha's),
+the leader agent stops its presentation and asks the closest reply
+agent to start its performance. The first reply agent informs the next
+reply agent when it is deselected. The remaining reply agents simply
+relay their presentation, one by one. Fig.14 shows a schematic diagram
+of this collaborative presentation.
+
+<br><br>
+<CENTER>
+<IMG SRC=si_fig14.gif>
+<br><br>
+<i>Fig.14. A historical view of the interaction among a group of agnets.<br>
+(thick arrow=a message sending, thin arrow=sensing).</i>
+</CENTER>
+
+<P>
+<b>6.4. Summary</b><br>
+The second study experimented with another type of collaboration
+orchestrated by a temporary leader agent. It has demonstrated that a
+collection of agents can generate a rather longer presentation
+sequence, as opposed to a short-sighted reactive design solution. I
+also tried to utilize temporal form as a more meaningful way to
+communicate messages. For example, the squash/stretch action for the
+sender agent is used to generate a sense of life; the dancing action
+for the sender agent is used as an "icon" expressing a sender's name
+for the message currently presented.
+
+<br><br><br>
+<H4>
+7. Conclusion
+</H4>
+
+<P>
+I have presented <i>a multiagent model of dynamic design</i> - a theoretical
+framework which provide designers with an approach towards creating
+design solutions that are responsive to dynamic changes in information
+and the user's intention. I have also emphasized the opportunity of
+utilizing <i>temporal forms</i> as a communicative means. Two case studies
+have demonstrated that the model is a plausible framework for
+highlighting the dynamic nature of computer-based communication, and for
+creating a complex design solutions in systematic manner with
+simpler descriptions of design agents.
+
+<br><br><br>
+<H4>
+Acknowledgement
+</H4>
+
+<P>
+I would like to thank the members of the Media Laboratory's Visible
+Language Workshop for their suggestions, and Dr. Munindar Singh for
+our conversation via email on his theory of multiagent systems.
+<P>
+This work was performed at the MIT Media Laboratory, and supported, in
+part, by ARPA, NYNEX, and Alenia Corporation.
+
+<br><br><br>
+<H4>
+References
+</H4>
+<OL>
+<LI>Blom, L.A. and Chaplin, T.L. <b><i>The Moment of Movement: Dance
+Improvisation.</b></i> Univ. of Pittsburgh Press. 1988.<br><br>
+
+<LI>Bond, A.H. and Gasser, L. (eds.) <b><i>Readings in Distributed
+Artificial Intelligence.</b></i> Morgan Kaufmann. 1988.<br><br>
+
+<LI>Feiner, S.K. and McKeown K.R. <b>Automating the generation of
+coordinated multimedia explanations.</b> <i>IEEE Computer,</i> 24 10.
+1991.<br><br>
+
+<LI>Hiebert, K. <b><i>Graphic Design Processes: universal to
+unique.</b></i> VanNostrand Reinhold. 1992.<br><br>
+
+<LI>Mackinlay, J.D. <b>Automating the design of graphical
+presentation of relational information.</b> <i>ACM Transactions on
+Graphics,</i> Vol.5, No.2. 1986.<br><br>
+
+<LI><b><i>Munsell Book of Color: Defining, Explaining, and Illustrating
+the Fundamental Characteristics of Color,</b></i> Munsell Color
+Company, Inc.1929.<br><br>
+
+<LI>Pressing, J. <b>Cognitive processes in improvisation. In Cognitive
+Processes,</b> In <i>The Perception of Art.</i> W.R. Crozier and
+A.J.Chapman (eds.). Elsevier Science. 1987.<br><br>
+
+<LI>Roth, S.F. and Hefley, W.E. <b>Intelligent multimedia presentation
+systems: Research and principles,</b> In <i>Intelligent Multimedia
+Interfaces,</i> M.T. Maybury (ed.). MIT Press. 1993.<br><br>
+
+<LI>Singh, M.P. <b><i>Multiagent Systems: A Theoretical Framework for
+Intentions, Know-How, and Communications.</b></i> Springer Verlag.
+1994.<br><br>
+
+<LI>Sch&ouml;n, D.A. and Wiggins, G. <b>Kinds of seeing and their
+functions in designing.</b> <i>Design Studies,</i> 13, No.2. 1992.<br><br>
+
+<LI>Weitzman, L. and Kent, W. <b>Automatic presentation of multimedia
+documents using relational grammars.</b> <i>Proceedings of ACM Multimedia
+'94.</i> 1994.<br><br>
+
+<LI>Whitefield, A. and Warren, C. <b>A blackboard framework for
+modeling designers' behavior.</b> <i>Design Studies,</i> Vol.10, No.3.
+1989.<br><br>
+
+
+

@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3O//DTD W3 HTML 2.0//EN">
+<!- Converted with LaTeX2HTML 0.6.4 (Tues Aug 30 1994) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds ->
+<P>
+<HEAD>
+<TITLE>1.1 Shortcomings Of Reading The Screen</TITLE>
+<meta name="description" value="1.1 Shortcomings Of Reading The Screen">
+<meta name="keywords" value="paper">
+<meta name="resource-type" value="document">
+<meta name="distribution" value="global">
+</HEAD>
+<BODY><P>
+ <BR> <HR><A NAME=tex2html56 HREF="node4.html">[Next]</A> <A NAME=tex2html54 HREF="node2.html">[Up]</A> <A NAME=tex2html50 HREF="node2.html">[Previous]</A> <BR>    <BR>
+<B> Next:</B> <A NAME=tex2html57 HREF="node4.html">2 A Different Approach</A>
+<B>Up:</B> <A NAME=tex2html55 HREF="node2.html">1 Introduction</A>
+<B> Previous:</B> <A NAME=tex2html51 HREF="node2.html">1 Introduction</A>
+<BR> <HR> <P>
+<H2><A NAME=SECTION00011000000000000000>1.1 Shortcomings Of Reading The Screen</A></H2>
+<P>
+ Screen-readers have helped open up the world of computing to visually
+ impaired users<A NAME=tex2html2 HREF="footnode.html#21">[+]</A>.
+ However, the spoken interface they provide leaves  a lot to be desired.
+<P>
+ The primary shortcoming with such interfaces is their inability to convey
+ the structure present in   visually displayed information.
+ Since the screen-reading application has only the contents of the visual
+ display to examine,  it  conveys little or no contextual information 
+about what is being displayed.
+Put another way:
+<p>
+<em>A Screen-reader speaks what is on the screen
+without conveying why it is there.</em>
+</p>
+As a consequence,  accessing  applications that display highly structured
+output in a visually pleasing manner with screen-readers is cumbersome.
+<P>
+Here is a simple example to illustrate the above statement.  A typical
+calendar display is made up of a table showing the days of the week.  This
+information is visually laid out to allow the eye to quickly <em>see</em> what
+day a particular date of the month falls on.  Thus, given the display shown
+in Fig. <A HREF="node3.html#figcalendar">1</A>, it is easy to answer the question
+``What day is it today?''. 
+<P>
+<pre>
+                               Jan 1995
+          S       M       T       W       Th      F       Sa
+          1       2       3       4       5       6       7
+          8       9       10      11      12      13      14
+          15      16      17      18      19      20      21
+          22      23      24      25      26      27      28
+          29      30      31
+</pre>
+<A name="figcalendar">
+<STRONG>Figure 1:</STRONG> A Typical Calendar Application</A>
+<BR>
+<P>
+When this same <em>display</em> is accessed with a screen-reader, the
+user <em>hears</em> the entire contents of the calendar  spoken
+aloud.  This results in the following set of meaningless utterances:
+<P>
+pipe pipe 1 pipe 2 pipe 3 pipe 4 pipe 5 pipe 6 pipe
+7 pipe pipe : : :
+pipe pipe 29 pipe 30 pipe 31 pipe
+pipe pipe pipe pipe pipe
+<P>
+Alternatively, the characters under the application cursor can be spoken.  In
+the case of Fig. <A HREF="node3.html#figcalendar">1</A>, the listener would hear the system say
+``one''.  To answer the question ``What day is it today?''  the user has to
+first build a mental representation of the visual display, and then navigate
+around the screen, examining the contents that appear in the same screen
+column as the <b>1</b> in order to infer the fact that the date is <i>Sunday,
+  January 1, 1995</i>.
+<P>
+Screen-readers  for both character-cell and graphical displays suffer
+from this shortcoming.  This is a  consequence of trying to <em>read</em>
+the screen instead of providing true spoken feedback.  The rest of this paper
+describes Emacspeak, an interface that treats speech as a first-class output
+medium.  Screen-readers speak the screen contents after the application has
+displayed its results; Emacspeak integrates spoken feedback into the
+application itself.  This tight integration between the spoken output and the
+user application enables Emacspeak to provide rich, context-sensitive spoken
+feedback.  As a case in point, when using the calendar application, the
+user  hears the current date  as <i>Sunday, January 1, 1995</i>.
+For related work in integrating speech as a first-class I/O medium into
+general user applications, see <A HREF="node18.html#chi95speechacts">[YLM95]</A>.
+<P>
+We conclude this introduction by pointing out that visual layout plays an
+important role in cuing the reader to information structure.  Such visual cues
+reduce cognitive load by allowing the perceptual system to perceive  the inherent
+structure present in the information, thereby freeing the cognitive system to
+process the information.  Spoken feedback produced from the visual layout
+proves difficult to understand because many of the structural cues are lost;
+to make things worse, other structural cues turn into <em>noise</em> (the
+``pipe pipe ...''
+above is a case in point).  This results in
+the listener having to spend a large number of cognitive cycles in trying to
+parse the spoken utterance, making understanding the information considerably
+harder.  Speaking the information in an aurally pleasing manner alleviates
+this burden, leading to better aural comprehension.
+<P>
+<BR> <HR><A NAME=tex2html56 HREF="node4.html">[Next]</A> <A NAME=tex2html54 HREF="node2.html">[Up]</A> <A NAME=tex2html50 HREF="node2.html">[Previous]</A> <BR>    <BR>
+<B> Next:</B> <A NAME=tex2html57 HREF="node4.html">2 A Different Approach</A>
+<B>Up:</B> <A NAME=tex2html55 HREF="node2.html">1 Introduction</A>
+<B> Previous:</B> <A NAME=tex2html51 HREF="node2.html">1 Introduction</A>
+<BR> <HR> <P>
+<BR> <HR>
+<P><ADDRESS>
+<I> Raman T. V. <BR>
+Tue Nov 21 15:57:11 PST 1995</I>
+</ADDRESS>
+</BODY>

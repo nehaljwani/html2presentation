@@ -1,0 +1,258 @@
+This is the way that ontologies were presented in the statically
+generated hyperwebs.  In the <A HREF="jpr_ht68.htm">next slide</A> we
+see the definition of the class <A HREF="jpr_ht68.htm">Thesis</A>. <P>
+
+<A HREF="jpr_ht62.htm"><IMG SRC="jpr_fg05.gif" ALT="[Back]"></A>
+<A HREF="jpr_txt.htm#ol-html-example"><IMG SRC="jpr_fg85.gif" ALT="[Up]"></A>
+<A HREF="jpr_ht68.htm"><IMG SRC="jpr_fg56.gif" ALT="[Next]"></A> 
+<HR>
+
+<TITLE>Ontolingua Theory BIBLIOGRAPHIC-DATA</TITLE>
+<H1><A NAME="BIBLIOGRAPHIC-DATA">Theory BIBLIOGRAPHIC-DATA</A></H1>
+<UL>
+<LI><B>Last modified: </B><I>Tuesday, 27 September 1994</I>
+<LI><B>Source code: <A HREF="jpr_ht64.htm">bibliographic-data.lisp</A></B>
+<LI><B><A HREF="jpr_ht64.htm">List of other known theories</A></B></UL>
+<H2>Theory documentation:</H2>
+<BLOCKQUOTE>The <A HREF="jpr_ht64.htm">bibliographic-data</A> ontology defines the terms used
+for describing bibliographic references.  This theory defines
+the basic class for reference objects and the types (classes) for
+the data objects that appear in references, such as authors and titles.
+Specific databases will use schemata that associate references with
+various combinations of data objects, usually as fields in a record.
+This ontology is intended to provide the basic types from which
+a specific database schema might be defined.
+</BLOCKQUOTE>
+<HR>
+<H2>Notes:</H2>
+<UL>
+<LI><B>Copyright: </B>Copyright (c) 1992 Thomas R. Gruber
+
+<P></UL>
+<HR>
+<H2>Cross Reference Report:</H2>
+<H3>Theories included by Bibliographic-Data:</H3>
+<PRE>
+  <B><A HREF="jpr_ht64.htm">Frame-Ontology</A></B>
+  <B><A HREF="jpr_ht64.htm">Slot-Constraint-Sugar</A></B></PRE>
+<P>
+<P><B>No theories include Bibliographic-Data.</B>
+<H3>70 classes defined:</H3>
+<PRE>
+    <A HREF="jpr_ht64.htm">Biblio-Text</A>
+       <A HREF="jpr_ht64.htm">Biblio-Name</A>
+          <A HREF="jpr_ht64.htm">Title</A>
+          <A HREF="jpr_ht64.htm">Keyword</A>
+          <A HREF="jpr_ht64.htm">City-Address</A>
+          <A HREF="jpr_ht64.htm">Agent-Name</A>
+          <A HREF="jpr_ht64.htm">Author-Name</A>
+          <A HREF="jpr_ht64.htm">Publisher-Name</A>
+       <A HREF="jpr_ht64.htm">Biblio-Nl-Text</A>
+    <A HREF="jpr_ht64.htm">Biblio-Thing</A>
+       <A HREF="jpr_ht64.htm">Agent</A>
+          <A HREF="jpr_ht64.htm">Person</A>
+          <A HREF="jpr_ht64.htm">Author</A>
+          <A HREF="jpr_ht64.htm">Organization</A>
+             <A HREF="jpr_ht64.htm">Publisher</A>
+             <A HREF="jpr_ht64.htm">University</A>
+       <A HREF="jpr_ht64.htm">Conference</A>
+       <A HREF="jpr_ht64.htm">Timepoint</A>
+          <A HREF="jpr_ht64.htm">Calendar-Year</A>
+          <A HREF="jpr_ht64.htm">Calendar-Date</A>
+          <A HREF="jpr_ht64.htm">Universal-Time-Spec</A>
+       <A HREF="jpr_ht64.htm">Document</A>
+          <A HREF="jpr_ht64.htm">Book</A>
+             <A HREF="jpr_ht64.htm">Edited-Book</A>
+          <A HREF="jpr_ht64.htm">Periodical-Publication</A>
+             <A HREF="jpr_ht64.htm">Journal</A>
+             <A HREF="jpr_ht64.htm">Magazine</A>
+             <A HREF="jpr_ht64.htm">Newspaper</A>
+          <A HREF="jpr_ht64.htm">Proceedings</A>
+          <A HREF="jpr_ht68.htm">Thesis</A>
+             <A HREF="jpr_ht64.htm">Masters-Thesis</A>
+             <A HREF="jpr_ht64.htm">Doctoral-Thesis</A>
+          <A HREF="jpr_ht64.htm">Technical-Report</A>
+          <A HREF="jpr_ht64.htm">Miscellaneous-Publication</A>
+             <A HREF="jpr_ht64.htm">Technical-Manual</A>
+             <A HREF="jpr_ht64.htm">Computer-Program</A>
+             <A HREF="jpr_ht64.htm">Artwork</A>
+             <A HREF="jpr_ht64.htm">Cartographic-Map</A>
+             <A HREF="jpr_ht64.htm">Multimedia-Document</A>
+       <A HREF="jpr_ht64.htm">Reference</A>
+          <A HREF="jpr_ht64.htm">Publication-Reference</A>
+             <A HREF="jpr_ht64.htm">Book-Reference</A>
+                <A HREF="jpr_ht64.htm">Edited-Book-Reference</A>
+             <A HREF="jpr_ht64.htm">Book-Section-Reference</A>
+             <A HREF="jpr_ht64.htm">Article-Reference</A>
+                <A HREF="jpr_ht64.htm">Journal-Article-Reference</A>
+                <A HREF="jpr_ht64.htm">Magazine-Article-Reference</A>
+                <A HREF="jpr_ht64.htm">Newspaper-Article-Reference</A>
+             <A HREF="jpr_ht64.htm">Proceedings-Paper-Reference</A>
+             <A HREF="jpr_ht64.htm">Thesis-Reference</A>
+                <A HREF="jpr_ht64.htm">Doctoral-Thesis-Reference</A>
+                <A HREF="jpr_ht64.htm">Masters-Thesis-Reference</A>
+             <A HREF="jpr_ht64.htm">Technical-Report-Reference</A>
+             <A HREF="jpr_ht64.htm">Misc-Publication-Reference</A>
+                <A HREF="jpr_ht64.htm">Technical-Manual-Reference</A>
+                <A HREF="jpr_ht64.htm">Computer-Program-Reference</A>
+                <A HREF="jpr_ht64.htm">Cartographic-Map-Reference</A>
+                <A HREF="jpr_ht64.htm">Artwork-Reference</A>
+                <A HREF="jpr_ht64.htm">Multimedia-Document-Reference</A>
+             <A HREF="jpr_ht64.htm">Inherits-Author-From-Document</A>
+                <A HREF="jpr_ht64.htm">Book-Reference</A> ...
+                <A HREF="jpr_ht64.htm">Thesis-Reference</A> ...
+                <A HREF="jpr_ht64.htm">Technical-Report-Reference</A>
+                <A HREF="jpr_ht64.htm">Technical-Manual-Reference</A>
+                <A HREF="jpr_ht64.htm">Computer-Program-Reference</A>
+                <A HREF="jpr_ht64.htm">Cartographic-Map-Reference</A>
+                <A HREF="jpr_ht64.htm">Artwork-Reference</A>
+                <A HREF="jpr_ht64.htm">Multimedia-Document-Reference</A>
+             <A HREF="jpr_ht64.htm">Inherits-Publisher-From-Document</A>
+                <A HREF="jpr_ht64.htm">Book-Publication-Data-Constraint</A>
+                   <A HREF="jpr_ht64.htm">Book-Reference</A> ...
+                   <A HREF="jpr_ht64.htm">Book-Section-Reference</A>
+             <A HREF="jpr_ht64.htm">Inherits-Year-From-Document</A>
+                <A HREF="jpr_ht64.htm">Proceedings-Paper-Reference</A>
+                <A HREF="jpr_ht64.htm">Thesis-Reference</A> ...
+                <A HREF="jpr_ht64.htm">Technical-Report-Reference</A>
+                <A HREF="jpr_ht64.htm">Technical-Manual-Reference</A>
+                <A HREF="jpr_ht64.htm">Cartographic-Map-Reference</A>
+                <A HREF="jpr_ht64.htm">Artwork-Reference</A>
+                <A HREF="jpr_ht64.htm">Multimedia-Document-Reference</A>
+                <A HREF="jpr_ht64.htm">Book-Publication-Data-Constraint</A> ...
+             <A HREF="jpr_ht64.htm">Inherits-Title-From-Document</A>
+                <A HREF="jpr_ht64.htm">Book-Reference</A> ...
+                <A HREF="jpr_ht64.htm">Thesis-Reference</A> ...
+                <A HREF="jpr_ht64.htm">Technical-Report-Reference</A>
+                <A HREF="jpr_ht64.htm">Technical-Manual-Reference</A>
+                <A HREF="jpr_ht64.htm">Computer-Program-Reference</A>
+                <A HREF="jpr_ht64.htm">Cartographic-Map-Reference</A>
+                <A HREF="jpr_ht64.htm">Artwork-Reference</A>
+                <A HREF="jpr_ht64.htm">Multimedia-Document-Reference</A>
+             <A HREF="jpr_ht64.htm">Book-Publication-Data-Constraint</A> ...
+          <A HREF="jpr_ht64.htm">Non-Publication-Reference</A>
+             <A HREF="jpr_ht64.htm">Personal-Communication-Reference</A>
+             <A HREF="jpr_ht64.htm">Generic-Unpublished-Reference</A>
+    <A HREF="jpr_ht64.htm">Day-Number</A>
+    <A HREF="jpr_ht64.htm">Month-Name</A>
+    <A HREF="jpr_ht64.htm">Year-Number</A></PRE>
+<P>
+<H3>19 relations defined:</H3>
+<PRE>
+  <B><A HREF="jpr_ht64.htm">Author.Name</A></B>
+  <B><A HREF="jpr_ht64.htm">Doc.Author</A></B>
+  <B><A HREF="jpr_ht64.htm">Doc.Author-Name</A></B>
+  <B><A HREF="jpr_ht64.htm">Doc.Editor</A></B>
+  <B><A HREF="jpr_ht64.htm">Doc.Series-Editor</A></B>
+  <B><A HREF="jpr_ht64.htm">Doc.Translator</A></B>
+  <B><A HREF="jpr_ht64.htm">Penname</A></B>
+  <B><A HREF="jpr_ht64.htm">Publisher.Address</A></B>
+  <B><A HREF="jpr_ht64.htm">Ref.Address</A></B>
+  <B><A HREF="jpr_ht64.htm">Ref.Author</A></B>
+  <B><A HREF="jpr_ht64.htm">Ref.Editor</A></B>
+  <B><A HREF="jpr_ht64.htm">Ref.Keywords</A></B>
+  <B><A HREF="jpr_ht64.htm">Ref.Labels</A></B>
+  <B><A HREF="jpr_ht64.htm">Ref.Notes</A></B>
+  <B><A HREF="jpr_ht64.htm">Ref.Secondary-Author</A></B>
+  <B><A HREF="jpr_ht64.htm">Ref.Secondary-Title</A></B>
+  <B><A HREF="jpr_ht64.htm">Ref.Series-Editor</A></B>
+  <B><A HREF="jpr_ht64.htm">Ref.Tertiary-Author</A></B>
+  <B><A HREF="jpr_ht64.htm">Ref.Translator</A></B></PRE>
+<P>
+<H3>41 functions defined:</H3>
+<PRE>
+  <B><A HREF="jpr_ht64.htm">Agent.Name</A></B>
+  <B><A HREF="jpr_ht64.htm">Conf.Address</A></B>
+  <B><A HREF="jpr_ht64.htm">Conf.Date</A></B>
+  <B><A HREF="jpr_ht64.htm">Conf.Name</A></B>
+  <B><A HREF="jpr_ht64.htm">Conf.Organization</A></B>
+  <B><A HREF="jpr_ht64.htm">Doc.Author.Name</A></B>
+  <B><A HREF="jpr_ht64.htm">Doc.Conference</A></B>
+  <B><A HREF="jpr_ht64.htm">Doc.Edition</A></B>
+  <B><A HREF="jpr_ht64.htm">Doc.Institution</A></B>
+  <B><A HREF="jpr_ht64.htm">Doc.Number-Of-Pages</A></B>
+  <B><A HREF="jpr_ht64.htm">Doc.Publication-Date</A></B>
+  <B><A HREF="jpr_ht64.htm">Doc.Publisher</A></B>
+  <B><A HREF="jpr_ht64.htm">Doc.Series-Title</A></B>
+  <B><A HREF="jpr_ht64.htm">Doc.Title</A></B>
+  <B><A HREF="jpr_ht64.htm">Organization.Name</A></B>
+  <B><A HREF="jpr_ht64.htm">Publisher.Name</A></B>
+  <B><A HREF="jpr_ht64.htm">Ref.Abstract</A></B>
+  <B><A HREF="jpr_ht64.htm">Ref.Booktitle</A></B>
+  <B><A HREF="jpr_ht64.htm">Ref.Day</A></B>
+  <B><A HREF="jpr_ht64.htm">Ref.Document</A></B>
+  <B><A HREF="jpr_ht64.htm">Ref.Edition</A></B>
+  <B><A HREF="jpr_ht64.htm">Ref.Issue</A></B>
+  <B><A HREF="jpr_ht64.htm">Ref.Magazine-Name</A></B>
+  <B><A HREF="jpr_ht64.htm">Ref.Month</A></B>
+  <B><A HREF="jpr_ht64.htm">Ref.Newspaper-Name</A></B>
+  <B><A HREF="jpr_ht64.htm">Ref.Number-Of-Volumes</A></B>
+  <B><A HREF="jpr_ht64.htm">Ref.Organization</A></B>
+  <B><A HREF="jpr_ht64.htm">Ref.Pages</A></B>
+  <B><A HREF="jpr_ht64.htm">Ref.Periodical</A></B>
+  <B><A HREF="jpr_ht64.htm">Ref.Publisher</A></B>
+  <B><A HREF="jpr_ht64.htm">Ref.Report-Number</A></B>
+  <B><A HREF="jpr_ht64.htm">Ref.Title</A></B>
+  <B><A HREF="jpr_ht64.htm">Ref.Type-Of-Work</A></B>
+  <B><A HREF="jpr_ht64.htm">Ref.Volume</A></B>
+  <B><A HREF="jpr_ht64.htm">Ref.Year</A></B>
+  <B><A HREF="jpr_ht64.htm">Thesis.University</A></B>
+  <B><A HREF="jpr_ht64.htm">Timepoint.Day</A></B>
+  <B><A HREF="jpr_ht64.htm">Timepoint.Minutes</A></B>
+  <B><A HREF="jpr_ht64.htm">Timepoint.Month</A></B>
+  <B><A HREF="jpr_ht64.htm">Timepoint.Seconds</A></B>
+  <B><A HREF="jpr_ht64.htm">Timepoint.Year</A></B></PRE>
+<P>
+<H3>12 instances defined:</H3>
+<PRE>
+  <B><A HREF="jpr_ht64.htm">April</A></B>
+  <B><A HREF="jpr_ht64.htm">August</A></B>
+  <B><A HREF="jpr_ht64.htm">December</A></B>
+  <B><A HREF="jpr_ht64.htm">February</A></B>
+  <B><A HREF="jpr_ht64.htm">January</A></B>
+  <B><A HREF="jpr_ht64.htm">July</A></B>
+  <B><A HREF="jpr_ht64.htm">June</A></B>
+  <B><A HREF="jpr_ht64.htm">March</A></B>
+  <B><A HREF="jpr_ht64.htm">May</A></B>
+  <B><A HREF="jpr_ht64.htm">November</A></B>
+  <B><A HREF="jpr_ht64.htm">October</A></B>
+  <B><A HREF="jpr_ht64.htm">September</A></B></PRE>
+<P>
+<P><B>The following constants were used from included theories:</B>
+<UL>
+<LI><B><A HREF="jpr_ht64.htm">=&lt;</A></B><I> defined as a </I><B>relation</B><I> in theory </I><B><A HREF="jpr_ht64.htm">Kif-Numbers</A></B>
+<LI><B><A HREF="jpr_ht64.htm">All-Instances</A></B><I> defined as a </I><B>function</B><I> in theory </I><B><A HREF="jpr_ht64.htm">Frame-Ontology</A></B>
+<LI><B><A HREF="jpr_ht64.htm">Arity</A></B><I> defined as a </I><B>function</B><I> in theory </I><B><A HREF="jpr_ht64.htm">Frame-Ontology</A></B>
+<LI><B><A HREF="jpr_ht64.htm">Class</A></B><I> defined as a </I><B>class</B><I> in theory </I><B><A HREF="jpr_ht64.htm">Frame-Ontology</A></B>
+<LI><B><A HREF="jpr_ht64.htm">Compose</A></B><I> defined as a </I><B>function</B><I> in theory </I><B><A HREF="jpr_ht64.htm">Frame-Ontology</A></B>
+<LI><B><A HREF="jpr_ht64.htm">Documentation</A></B><I> defined as a </I><B>relation</B><I> in theory </I><B><A HREF="jpr_ht64.htm">Frame-Ontology</A></B>
+<LI><B><A HREF="jpr_ht64.htm">Domain</A></B><I> defined as a </I><B>relation</B><I> in theory </I><B><A HREF="jpr_ht64.htm">Frame-Ontology</A></B>
+<LI><B><A HREF="jpr_ht64.htm">Exact-Range</A></B><I> defined as a </I><B>function</B><I> in theory </I><B><A HREF="jpr_ht64.htm">Frame-Ontology</A></B>
+<LI><B><A HREF="jpr_ht64.htm">Exhaustive-Subclass-Partition</A></B><I> defined as a </I><B>relation</B><I> in theory </I><B><A HREF="jpr_ht64.htm">Frame-Ontology</A></B>
+<LI><B><A HREF="jpr_ht64.htm">First</A></B><I> defined as a </I><B>function</B><I> in theory </I><B><A HREF="jpr_ht64.htm">Kif-Lists</A></B>
+<LI><B><A HREF="jpr_ht64.htm">Function</A></B><I> defined as a </I><B>class</B><I> in theory </I><B><A HREF="jpr_ht64.htm">Kif-Relations</A></B>
+<LI><B><A HREF="jpr_ht64.htm">Has-Value</A></B><I> defined as a </I><B>relation</B><I> in theory </I><B><A HREF="jpr_ht64.htm">Frame-Ontology</A></B>
+<LI><B><A HREF="jpr_ht64.htm">Individual-Thing</A></B><I> defined as a </I><B>class</B><I> in theory </I><B><A HREF="jpr_ht64.htm">Frame-Ontology</A></B>
+<LI><B><A HREF="jpr_ht64.htm">Integer</A></B><I> defined as a </I><B>class</B><I> in theory </I><B><A HREF="jpr_ht64.htm">Kif-Numbers</A></B>
+<LI><B><A HREF="jpr_ht64.htm">List</A></B><I> defined as a </I><B>class</B><I> in theory </I><B><A HREF="jpr_ht64.htm">Kif-Lists</A></B>
+<LI><B><A HREF="jpr_ht64.htm">Maximum-Value-Cardinality</A></B><I> defined as a </I><B>relation</B><I> in theory </I><B><A HREF="jpr_ht64.htm">Frame-Ontology</A></B>
+<LI><B><A HREF="jpr_ht64.htm">Minimum-Value-Cardinality</A></B><I> defined as a </I><B>relation</B><I> in theory </I><B><A HREF="jpr_ht64.htm">Frame-Ontology</A></B>
+<LI><B><A HREF="jpr_ht64.htm">Natural</A></B><I> defined as a </I><B>class</B><I> in theory </I><B><A HREF="jpr_ht64.htm">Kif-Numbers</A></B>
+<LI><B><A HREF="jpr_ht64.htm">Nth-Domain</A></B><I> defined as a </I><B>relation</B><I> in theory </I><B><A HREF="jpr_ht64.htm">Frame-Ontology</A></B>
+<LI><B><A HREF="jpr_ht64.htm">Range</A></B><I> defined as a </I><B>relation</B><I> in theory </I><B><A HREF="jpr_ht64.htm">Frame-Ontology</A></B>
+<LI><B><A HREF="jpr_ht64.htm">Relation</A></B><I> defined as a </I><B>class</B><I> in theory </I><B><A HREF="jpr_ht64.htm">Kif-Relations</A></B>
+<LI><B><A HREF="jpr_ht64.htm">Rest</A></B><I> defined as a </I><B>function</B><I> in theory </I><B><A HREF="jpr_ht64.htm">Kif-Lists</A></B>
+<LI><B><A HREF="jpr_ht64.htm">Same-Values</A></B><I> defined as a </I><B>relation</B><I> in theory </I><B><A HREF="jpr_ht64.htm">Frame-Ontology</A></B>
+<LI><B><A HREF="jpr_ht64.htm">String</A></B><I> defined as a </I><B>class</B><I> in theory </I><B><A HREF="jpr_ht64.htm">Kif-Extensions</A></B>
+<LI><B><A HREF="jpr_ht64.htm">Subclass-Of</A></B><I> defined as a </I><B>relation</B><I> in theory </I><B><A HREF="jpr_ht64.htm">Frame-Ontology</A></B>
+<LI><B><A HREF="jpr_ht64.htm">Subclass-Partition</A></B><I> defined as a </I><B>relation</B><I> in theory </I><B><A HREF="jpr_ht64.htm">Frame-Ontology</A></B>
+<LI><B><A HREF="jpr_ht64.htm">Subrelation-Of</A></B><I> defined as a </I><B>relation</B><I> in theory </I><B><A HREF="jpr_ht64.htm">Frame-Ontology</A></B>
+<LI><B><A HREF="jpr_ht64.htm">Value-Cardinality</A></B><I> defined as a </I><B>function</B><I> in theory </I><B><A HREF="jpr_ht64.htm">Frame-Ontology</A></B>
+<LI><B><A HREF="jpr_ht64.htm">Value-Type</A></B><I> defined as a </I><B>relation</B><I> in theory </I><B><A HREF="jpr_ht64.htm">Frame-Ontology</A></B></UL>
+<P><B>All constants that were mentioned were defined.</B>
+<P>
+<HR>
+
+<I>This document was generated using <A HREF="jpr_ht64.htm">Ontolingua</A>.
+<BR>Formatting and translation code was written by </I>
+<ADDRESS>Fran&ccedil;ois Gerbaux and Tom Gruber</ADDRESS>

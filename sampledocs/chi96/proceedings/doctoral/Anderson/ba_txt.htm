@@ -1,0 +1,188 @@
+<html>
+<head>
+<title>Providing Explicit Support for Social Constraints: In Search of the Social Computer</title></head>
+<body>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/doctoral.JPG" ALT="Doctoral" HEIGHT=35 WIDTH=249><A HREF="../../doctoral.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+<H1 ALIGN=center>Providing Explicit Support for Social Constraints: In Search of the Social Computer</H1>
+
+<DIV ALIGN=center>
+Ben Anderson<BR>
+Dept. Computer Studies<BR>
+Loughborough University of Technology<BR>
+Loughborough<BR>
+Leicestershire, UK
+<P>
+
++44 (0)1509 222881
+<P>
+
+B.Anderson@lut.ac.uk</DIV>
+<H2>ABSTRACT</H2>
+
+This short paper outlines an approach to the design and implementation of
+systems that explicitly support the use of social, rather than technological,
+methods of control. This approach draws on recent developments in the social
+sciences, particularly sociology and anthropology, and builds upon current work
+in the development of `Media Spaces' and other CSCW systems.
+<H2>Keywords</H2>
+
+CSCW, system design, social norms, videoconferencing
+<H2>THE NATURE OF EVERYDAY WORK</H2>
+
+As a number of recent authors in the fields of HCI and CSCW have noted,
+interaction and collaboration take place in the context of richly varying
+cultural and organisational norms and forms of behaviour ([<A HREF="#ref2">2</A>], [<A HREF="#ref6">6</A>], [<A HREF="#ref10">10</A>], [<A HREF="#ref11">11</A>]
+). The exact nature of these norms is never static; social rules develop and
+change as organisations change personnel and practices so that what is
+considered acceptable behaviour is likely to evolve over time. In addition,
+`acceptable behaviour' is subject to the rapid and fluid changes of situation
+that are characteristic of everyday work practice, for example sifting through
+an individual's desk to find a paper may be acceptable in the context of
+working on a shared document, but may not be acceptable later that same day
+when that brief phase of work is finished. What may be considered appropriate
+behaviour by any particular individual is therefore the result of extremely
+complex interactions between organisational, social and highly context-specific
+factors.<p>
+Given such a conception, it is clear that computer systems designed to support
+or mediate everyday interaction must be able to support its extremely fluid,
+complex and context sensitive, i.e. `situated' [<A HREF="#ref10">10</A>] nature.
+<H2>EMBEDDED CULTURAL MODELS</H2>
+
+Current approaches to design tend to provide users with options
+for behaviour, based on models of social practices, that are embedded within
+the system itself. Thus Media Spaces are designed using models (or user-defined
+rules) of who can do what, when and to whom (cf. [<A HREF="#ref2">2</A>] for a review); shared file
+systems are designed so that access controls are fixed by models of who can
+have access to which resources and with what privileges (e.g. [<A HREF="#ref4">4</A>]); and
+collaborative systems, such as meeting tools and workflow systems, incorporate
+models of floor control and of business processes (cf. [<A HREF="#ref3">3</A>]).<p>
+In all of these cases, the response to the complexity of social norms of
+behaviour has been a trend towards the incorporation of ever more complex
+models of these norms, or the provision of a number of different models from
+which an individual or group can choose (e.g. [<A HREF="#ref3">3</A>]). However, recent studies of
+both everyday work, interaction and also the social practices surrounding
+collaborative technologies (e.g. [<A HREF="#ref5">5</A>], [<A HREF="#ref11">11</A>]) have suggested that the approach of
+embedding complex models of behaviour in the system itself may be fundamentally
+misconceived.
+<H2>AN ALTERNATIVE VIEW</H2>
+
+This paper adopts the view that the everyday world consists of 'cues for
+behaviour' that allow us to choose the most appropriate from a range of
+'options for action', any one of which is physically, although not socially,
+possible. Our behaviour in the world is therefore fundamentally regulated by
+<i>physical</i> constraints that govern what we can and cannot actually do,
+together with highly dynamic <i>cultural</i> constraints that govern what we
+usually do (and when), which we could, in principle, choose to ignore (cf.[<A HREF="#ref9">9</A>]).
+When considering the design of systems to support social interaction, this view
+implies that it may not be necessary (nor even desirable) to embody a set of
+social rules in the physical system (if the system can provide sufficient
+options for action and cues for behaviour) since to do so would be to turn
+<i>cultural</i> into <i>physical</i> constraints. A social computer, then, is a
+system which does not have social rules embedded within it, but which enables
+users to apply <i>their</i> knowledge of social protocols in deciding what they
+should do.<p>
+There is considerable evidence in the Media Space and Computer Supported
+Collaborative Work (CSCW) literature to suggest that such an approach may be
+effective. As Dourish notes for example, social protocols and norms of
+behaviour contribute to accepted practices of use as much as any system imposed
+constraints [<A HREF="#ref2">2</A>]. Similarly,  users of the Internet's multicast backbone (MBONE)
+tools [<A HREF="#ref7">7</A>] have participated in video, audio and `shared whiteboard' conferences
+ranging in size from between 2 and around 60 participants. Even though none of
+the MBONE tools provide explicit methods of  turn-taking or floor control,
+their usage has been highly successful based on a shared culture of use. A
+survey of recent research on groupware (in particular collaborative writing) is
+uncovering similar supportive evidence.
+<H2>A PROOF OF CONCEPT PROTOTYPE</H2>
+
+
+In order to assess the effectiveness of the ideas underlying the `Social
+Computer', a proof of concept prototype is currently under construction. This
+prototype provides an interface to a broadband telecommunications
+infrastructure using the metaphor of an office door to represent the
+availability state of the users (see Figure 1). 
+<P>
+<DIV ALIGN=center><A HREF="ba_1.jpg"><IMG SRC="ba_1_s.jpg" ALT="Figure 1: Main Window Screen Dump">(51kb JPEG)</A><BR>
+Figure 1: <I>Main Window Screen Shot</I>
+<P>
+<A HREF="ba_2.jpg"><IMG SRC="ba_2_s.jpg" ALT="Figure 2: Glancing at a colleague">(116kb JPEG)</A><BR>
+Figure 2: <I>Glancing at a Colleague</I>
+</DIV>
+<P>
+The principles of the `Social Computer'
+suggest that the state of the office door should not be used to determine which
+options are made available. Instead, all options should be available and it is
+then up to the user to decide which option is appropriate in the particular
+situation at that time [<A HREF="#ref1">1</A>]. Key issues then, are discovering what cues people
+use in the everyday world to regulate their behaviour, what that behaviour is,
+and whether both the cues and the behaviour are transferable to a
+computer-mediated system. The implementation draws on [<A HREF="#ref1">1</A>] which has already
+gone some way towards exploring the first two of these issues using elicitation
+techniques from Cognitive Anthropology.<p>
+The prototype is implemented in Tcl/Tk [<A HREF="#ref8">8</A>] with extensions to enable interface
+prototyping in a multicast UNIX environment. It makes extensive use of freely
+available MBONE audio, video and whiteboard conferencing tools vic, vat and wb
+[<A HREF="#ref7">7</A>], together with trials over local and possibly wide area multicast networks
+in order to provide a functional, integrated, broadband telecommunications
+prototype. Given the use of freely available Internet audio/video tools, and
+the intended scalability of the prototype, these trials will be carried out on
+a national, and possibly global, scale.
+<H2>EVALUATION AND ANALYSIS</H2>
+
+The work will conclude with an evaluation and analysis of the effectiveness of
+the prototype with respect to the principles of the `Social Computer'. Standard
+usability evaluation techniques will be used to assess the degree to which
+users found the system effective in providing support for social constraints,
+in preventing mis-use whether intentional or not, and in supporting the
+flexible and dynamic nature of human interaction. In addition the analysis will
+examine the scalability of the principles underlying the `Social Computer' to
+situations where the users may not share a common culture and therefore where
+social constraints may be ineffective.
+<H2>ACKNOWLEDGEMENTS</H2>
+
+This work is supported by a research scholarship funded by British
+Telecommunications plc. The MBONE tools vat (Visual Audio Tool), vic (Video
+Conferencing tool) and wb (WhiteBoard) were developed at Lawrence Berkeley
+Labs, University of California <A HREF="#fn1">*</A>; Tcl/Tk was
+developed at the University of California at Berkeley.
+<H2>REFERENCES</H2>
+
+<A NAME="ref1">1</A>.	Anderson, B. &amp; Alty, J. L. (1995) "Everyday Theories, Cognitive
+Anthropology and User-Centred System Design". In  <i>Proc. People and Computers
+X, HCI `95</i>. August 1995. Cambridge University Press.<p>
+<A NAME="ref2">2</A>.	Dourish, P. (1993) Culture and Control in a MediaSpace. In <i>Proc. ECSCW
+`93</i>. Milano, Italy, September 1993. Kluwer, London. pp 125-137	<p>
+<A NAME="ref3">3</A>.	Greenberg, S. (1991) "Personalizable groupware: Accommodating individual
+roles and group differences." In <i>Proc. ECSCW `91</i> Amsterdam, Kluwer
+Press. pp 17-32.<p>
+<A NAME="ref4">4</A>.	Greif, I. &amp; Sarin, S. (1987) "Data sharing in group work." ACM
+Transactions on Office Information Systems Vol. 7 no 2 pp 187-211.<p>
+<A NAME="ref5">5</A>.	Heath, C. &amp; Luff, P. (1991) "Disembodied Conduct: Communication through
+video in a MultiMedia Office Environment". In <i>Proc. CHI `91</i>, New
+Orleans, Louisiana, April-May 1991, pp. 99-103.<p>
+<A NAME="ref6">6</A>.	Kaplan, S. M., Tolone, W. J., Bogia, D. P. and Bignoli, C. (1992) "Flexible,
+Active Support for Collaborative Work with ConversationBuilder" In <i>Proc.
+CSCW `92</i>, November 1992, Toronto, Canada. ACM Press.<p>
+<A NAME="ref7">7</A>.	Macedonia, M. R., Brutzman, D. P., (1994) "MBone Provides Audio and Video
+Across the Internet" <i>IEEE Computer</i>, Vol.<b> 27</b> No 4, pp. 30-36.<p>
+<A NAME="ref8">8</A>.	Ousterhout, J. K. (1994) <i>Tcl and the Tk toolkit</i>. Addison Wesley, New
+York.<p>
+<A NAME="ref9">9</A>.	Searle, J. R. (1994) The Social Construction of Reality. Free Press, New
+York.<p>
+<A NAME="ref10">10</A>.	Suchman, L. A. (1983) Office procedures as practical action. <i>ACM
+Transactions on Office Information Systems</i> <b>1</b>: 320-328. <p>
+<A NAME="ref11">11</A>.	Suchman, L. A. (1987) <i>Plans and Situated Actions. The problem of
+human-machine communication</i>. Cambridge University Press.<p>
+<H2>FOOTNOTES</H2>
+
+<A NAME="fn1">For</A> more information on the MBONE see <A HREF="http://www.best.com/~prince/techinfo/mbone.html">http://www.best.com/~prince/techinfo/mbone.html</A>.
+<hr>
+<address>Providing Explicit Support for Social Constraints: In Search of the Social Computer<BR>
+B.Anderson@lut.ac.uk</address>
+</body></html>

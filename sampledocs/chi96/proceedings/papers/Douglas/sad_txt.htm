@@ -1,0 +1,654 @@
+<html><head><title>Do Color Models Really Make a Difference?</title></head>
+<body>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<P><IMG SRC="./../../graphics/papers.JPG" ALT="papers" HEIGHT=35 WIDTH=249><A HREF="./../../papers.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<h1>Do Color Models Really Make a Difference?</h1>
+Sarah Douglas and Ted Kirkpatrick<br>
+<address>Department of Computer Science<br>
+University of Oregon<br>
+Eugene, OR 97403<br>
+douglas@cs.uoregon.edu, ted@cs.uoregon.edu</address><P>
+
+<h2>ABSTRACT</h2>
+User interfaces for color selection are based upon an 
+underlying color model.  There is widespread belief, and 
+some evidence, that color models produce significant 
+differences in human performance.  We performed a color-
+matching experiment using an interface with high levels of 
+feedback.  With this interface, we observed no differences in 
+speed or accuracy between the RGB and HSV color models, 
+but found that increasing feedback improved accuracy of 
+matching.  We suggest that feedback may be an important 
+factor in usability of a color selection interface.
+
+<h2>KEYWORDS</h2>
+Color models, color selection, RGB, HSV, user interfaces.
+
+<h2>INTRODUCTION</h2>
+With the proliferation of color displays, color selection has 
+become a common task.  Color selection can be done in a 
+variety of ways, but the most common method today is a 
+direct-manipulation color selection tool.  Both the Apple 
+Macintosh and Microsoft Windows provide such tools as 
+part of their system software.  Color selection tools are 
+typically organized around a color model:  an organization 
+of the range of displayable colors into a three-dimensional 
+space.  Many such color models have been proposed, each 
+oriented towards a specific task.  Table 1 lists several 
+models, their intended usage, their axes, and citations to 
+more detailed descriptions.<p>
+
+There is widespread belief that some models are more 
+&quot;natural&quot; than others.  For example, the standard reference 
+work on computer graphics by Foley at al. <a href="#r2">[2]</a> claims that:<p> 
+
+<dl>
+<dt><dd>
+The RGB, CMY, and YIQ models are hardware-
+oriented.  By contrast, Smith's HSV (hue, 
+saturation, value) model ... is user-oriented, being 
+based on the intuitive appeal of the artist's tint, 
+shade, and tone. (p. 590)
+</dd></dl><p>
+
+Later, the same text states:<p>
+
+<dl><dt><dd>
+There is a widespread belief that the HSV model 
+is especially tractable, usually making it the 
+model of choice. (p. 597)
+</dd></dl><p>
+
+One color model, TekHVC, has even been patented by 
+Tektronix Corporation <a href="#r9">[9]</a>.<p>
+
+&quot;Natural&quot; and &quot;intuitive&quot; can be defined many ways.  We 
+could compare the effects of color models on user 
+performance using any number of criteria. How quickly can 
+an expert perform color selection?  How accurately can an 
+expert match?  How much practice does it take to arrive at a 
+specified level of proficiency, with proficiency defined in 
+terms of time and accuracy?  How well does a color model 
+help a user select harmonious or functionally useful colors?<p>
+
+There is surprisingly little empirical data comparing color 
+models.  Schwarz, Cowan, and Beatty <a href="#r6">[6]</a> performed the 
+major experiment to date (referred to in the remainder of this 
+paper as &quot;the Schwarz study&quot;).  They compared five models 
+and found many significant differences between them.  In 
+particular, they found the RGB model to be the fastest yet 
+least accurate, while the HSV model was amongst the 
+slowest and most accurate.  The slower speed of the HSV 
+model suggests it is not so &quot;tractable&quot; as commonly 
+believed.  This belief is so strongly rooted that the above 
+quote from Foley immediately follows their description of 
+the Schwarz results, yet the apparent contradiction is 
+unremarked.<p>
+
+The arguments for or against a given color model are 
+typically presented abstractly, without consideration of the 
+interface which represents that model to the user.  The 
+model and the interface cannot be separated, because the 
+factors affecting performance of a color model are complex 
+and strongly affected by the interface:  perception, screen 
+representation, learning, and time vs. accuracy tradeoffs.  
+The complexity of the issue and the perplexing nature of 
+some of the Schwarz results make the area worth revisiting.  
+We begin with a careful analysis of the empirical results to 
+date.<p>
+
+<h2>PREVIOUS RESEARCH</h2>
+There are only three published empirical studies exploring 
+the influence of color models on the speed and accuracy of 
+color selection.  Berk, Brownston, and Kaufman <a href="#r1">[1]</a> 
+compared a color naming language of 627 distinct names 
+versus specifying numerical coordinates in the RGB and 
+HSV systems.  They found that the naming system 
+produced the most accurate results, with HSV coordinates 
+next, and RGB coordinates worst of all.  However, these 
+results do not apply in the cases of interest to us, situations 
+where the user can select from millions of potential colors 
+rather than only 627.<p>
+
+<img src="sad_t1.gif"><p>
+
+Murch <a href="#r5">[5]</a> summarizes a color-matching experiment 
+comparing the number of steps subjects took to match 
+colors using the RGB, HSL, and Swedish Natural Color 
+System models.  A mixture of experienced and 
+inexperienced subjects was used.  For inexperienced subjects 
+the HSL system is reported to require the fewest steps. 
+Unfortunately, no details of this experiment were ever 
+published, so we can neither analyze his results nor attempt 
+to replicate them.<p>
+
+As mentioned earlier, the Schwarz study is the current 
+reference work for empirical data about color models.  In 
+this study, five different color models were compared: LAB, 
+HSV, Opponent, YIQ, and RGB. Each color model was 
+implemented with two input methods. The experimental 
+design was five by two factorial, with color model and input 
+method as the between-subjects variables.<p>
+
+While the experiment studied two methods of input, these 
+were all limited in similar ways.   In each case, the screen 
+representation was identical. For each match, a &quot;target&quot; 
+color was displayed in a rectangle on the screen and the 
+subject used the interface to set the color of a second  
+&quot;controlled&quot; rectangle to match the first one as closely as 
+possible (Color Plate 1).<p>
+
+<img src="sad_c1.jpg"><br>
+<b>Color Plate 1: the screen representation for the Schwarz experiment</b><p>
+
+The interfaces differed in how the 
+subject used a puck on a graphics tablet to control the three 
+parameters of the color model.  In one interface, called 
+&quot;3*1d&quot;, the each parameter was controlled by horizontal 
+motion (Figure 1).  Three puck buttons selected which 
+parameter was being actively controlled.  In the second 
+method, called &quot;2d + 1d&quot;, horizontal motion controlled one 
+parameter and vertical motion another.  Pressing a button 
+made horizontal motion control the third parameter.<p>
+
+<img src="sad_f1.gif"><br>
+Figure 1: a &quot;3*1d&quot; input scheme.  All parameters are
+controlled by horizontal puck movement, with three separate
+buttons selecting the active parameter.  (Adapted from Fig. 6 of <a href="#r6">[6]</a>).
+<p>
+
+A given subject used one color model / interface 
+combination to match five colors six times. The authors 
+analyzed the time required by the subjects to match, the 
+accuracy of the final match, relationship of color model axes 
+to accuracy in various perceptual attributes of the target, 
+time to reach a given level of accuracy, and learning.  
+Accuracy was measured in color distance units (cdus) of the 
+LAB color space.  The amount of data reported in their work 
+is tremendous;  the following two statistically significant 
+results stand out:
+
+<ol>
+<li> Subjects matched most quickly with the Opponent  
+and RGB models (means of 77 and 78 seconds), 
+with HSV twenty-two percent slower (mean of 94 
+seconds).
+<li> Subjects matched most accurately with LAB, 
+followed in decreasing order by HSV, Opponent, 
+YIQ, and RGB.  The best color model / interface 
+pair, LAB with 2d+1d interface, had a mean 
+accuracy of about 5 cdus, while RGB with a 2d+1d 
+interface was ninety percent worse with a mean 
+accuracy of about 9.5 cdus (these are geometric, 
+not arithmetic, means).
+</ol>
+
+While the experiment was done with due rigor, there were 
+aspects of the experimental task which may have 
+confounded the results.  The experiment was done in 1985, 
+at a time when interface design was in its infancy, and the 
+interface used was rather primitive and not representative of 
+contemporary systems. We wondered if the differences in 
+performance they attributed to color models hold with 
+modern interfaces.  We located the following limitations in 
+their interface:
+
+<ol>
+<li> No visual feedback of the location of the current color in 
+the color space<p>
+
+In neither interface was the subject given any indication of 
+the dimensions of each parameter of the space.  
+Furthermore, they were given no indication of how close 
+they were to the boundaries of each axis.  The controlled 
+color simply stopped changing without warning when the 
+subject moved the puck outside the range of one of the 
+coordinates.  They refer to this process as &quot;clipping&quot;.  We 
+conjecture the subjects may have been slower and less 
+accurate because they had so little information available to 
+orient themselves within the color space.  This inadequate 
+representation may even have affected some color models 
+more than others, biasing the comparison of models.
+
+<li> No kinesthetic or visual feedback from puck position<p>
+
+The lack of visual representation was compounded by the 
+use of relative coordinates for the puck.  This meant there 
+was no fixed mapping between the location of the puck on 
+its tablet and the value of a given parameter, eliminating 
+another means the subjects might have used to orient 
+themselves in the space.  For example, the puck location 
+gave no indication of how close they were to being clipped.  
+The subjects couldn't orient themselves by &quot;feel&quot; (the 
+location of their arm) nor visually (by looking at the puck).
+
+<li>No feedback of the effects of each parameter<p>
+
+While the subjects were initially instructed in the effects of 
+each parameter, they had no visible representation of what 
+the parameters did. It is difficult to infer the effect of a 
+parameter from simply moving the puck and observing the 
+results, because the kind of change in the controlled color 
+varies depending upon what color is currently displayed.  
+For example, in the HSV model the saturation parameter 
+will vary the amount of red if the controlled color has a red 
+hue, but will increase the amount of blue if the controlled 
+color is in that hue.  Similar interactions between the 
+parameters occur in the other color models.  
+</ol>
+
+The Schwarz interfaces are arguably not typical of the direct 
+manipulation interfaces popular today.  Ben Shneiderman's 
+classic definition of direct manipulation <a href="#r7">[7]</a> includes 
+&quot;continuous display of the object of interest&quot; and &quot;rapid, 
+incremental, reversible operations whose impact on the 
+object of interest is immediately visible.&quot;  In other words, 
+the user interface should provide rapid feedback of changes 
+to the object of interest. In the case of color models the key 
+question is &quot;what is the object of interest?&quot;  While the 
+Schwarz interface displays the current color, it does not 
+display the color's location within the space of all 
+displayable colors.  We believe that the location of the 
+current color is as important to the user as the color itself—
+the real &quot;object of interest&quot; is not being displayed.  
+Designers of current commercial systems have taken this 
+into account: the Macintosh and Windows tools mentioned 
+earlier both display the location of the current color.<p>
+
+In summary, the Schwarz study contradicts widely-held 
+folklore about the superiority of the HSV color model.  A 
+question remains:  Will these effects recur in an interface 
+with higher feedback?
+
+<h2>METHOD</h2>
+We designed an experiment comparing the performance of 
+color models in the high-feedback interfaces in use today.  
+We were also interested in how screen representation affects 
+subjects' performance, and made interface feedback level a 
+second controlled experimental factor. <p> 
+
+<h3>Experimental Design</h3>
+The experimental design was two-way factorial, with color 
+models and interfaces as the two between-subject variables, 
+for a total of four subject groups. We used two color 
+models, RGB and HSV, and two interfaces with different 
+kinds of feedback. Twelve subjects were in each group, 
+randomly assigned to a particular color model x interface 
+group.  We selected the RGB and HSV models because they 
+are commonly used in color selection tools, are frequently 
+contrasted with one another in the graphics literature, and 
+were two of the most extreme cases of the five used in the 
+Schwarz study.<p>
+
+We were interested in how feedback in the interface affects 
+the usage of color models; our experiment used two 
+interfaces which had increasing levels of visual feedback.  
+To address our first two concerns about representation of the 
+color space, both of our interfaces displayed the location of 
+the current color within the color model.  Each of the three 
+parameters of the model was represented by a slider, and an 
+arrow indicated the current  value of the associated parameter 
+within its total range (see Color Plates 2 and 3).  The user 
+controlled the current color either by dragging the arrow 
+along the slider with the mouse or by clicking directly on 
+some row of the slider.  Both of these methods were 
+explicitly demonstrated to the user during the instructional 
+phase.<p>
+
+<img src="sad_c2.jpg"><br>
+<b>Color Plate 2: the &quot;position-only&quot; interface</b><p>
+<img src="sad_c3.jpg"><br>
+<b>Color Plate 3: the &quot;position+effect&quot; interface</b><p>
+
+We wanted to see if the interface, and in particular the visual 
+representation of the effects of each parameter, measurably 
+affected users' performance with a color model.  To compare 
+the influence of such a representation, we used two different 
+formats of sliders.  One format, called "position-only" 
+(Color Plate 2), gave no indication of what each parameter 
+did:  the interior of the sliders was a constant gray at all 
+times.  The second format, called "position+effect" (Color 
+Plate 3), filled each slider with a range of colors.  Each 
+pixel row on the slider displayed the color that the 
+controlled rectangle would take if the arrow were moved to 
+that row.  A user could look at the slider and know what 
+effect it would have if it were moved to any point.<p>
+
+<h3>Subjects</h3>
+We believed that the differences between color models would 
+be most apparent while users were learning them, so only 
+subjects with little to no prior experience with color usage 
+and selection were used in the study.  All subjects were 
+given a screening questionnaire about their experience 
+working with colors in both traditional artistic media and 
+computer programs..  The selected subjects were forty-eight 
+unpaid undergraduates.  Most were from the first year of the 
+computer science program, while others were enrolled in 
+computer literacy courses.  Subjects were also screened with 
+an Ishihara color plates test to ensure that they had normal 
+color vision.<p>
+
+<h3>Experimental Environment</h3>
+The experiments were conducted in a room with controlled 
+lighting  Due to memory limitations in the graphics card, 
+the display was functioning at a lower than normal 
+resolution, so subjects sat eight feet away from the screen 
+so that individual pixels would be indistinguishable.  The 
+components of the interface were sized for comfortable 
+viewing at that distance.<p>
+
+The experiment was run on an Apple Macintosh IIfx with 
+an Apple 8.24GC accelerated graphics card capable of 
+representing 16 million colors.  A SuperMac PressView 21 
+display was used, set to a whitepoint of D65.  This monitor 
+is designed to be used in color-critical applications, has 
+stable color rendition characteristics, and can be set for 
+various calibrated white point and gamma values.  We 
+recalibrated the monitor using the SuperMatch calibration 
+tool several times during the experiment to maintain the 
+chromaticities of our target colors.  All of our target colors 
+were represented in the RGB space of the standard EBU 
+phosphor chromaticities used in this monitor, and our RGB 
+and HSV models used these phosphor chromaticities as the 
+basis of their axes.<p>
+
+We selected thirty colors.  Six of these were from the 
+original Schwarz experiment.  The remaining twenty-four 
+were taken from the MacBeth ColorChecker chart <a href="#r4">[4]</a>, a 
+standard reference chart for tests of color rendition.  Twelve 
+of these are representative of colors commonly found in 
+natural and office environments (flesh tones, sky blue, and 
+common office colors), six are the additive and subtractive 
+color primaries, and the final six are an achromatic ramp 
+from black to white.<p>
+
+Our data collection program logged the current slider 
+positions and the value of the controlled color every tenth of 
+a second.  In particular, the final reading of each match 
+indicated the total time and distance between the controlled 
+and target colors.<p>
+
+<h3>Experimental Task</h3> 
+We used a color-matching task:  subjects adjusted a 
+controlled color until it matched a target color.  Both 
+controlled and target colors subtended just less than two 
+degrees of visual arc of the subject's field of view, allowing 
+us to calculate chromaticities using the 1931 CIE 2 degree 
+standard observer functions <a href="#r3">[3]</a>.  Each subject used a single 
+color model x interface combination to match the same 
+sequence of thirty different colors.  All interaction with the 
+program was done using the standard Macintosh mouse to 
+move three sliders on the screen.<p>
+
+The experimenter demonstrated how to manipulate the 
+sliders using the mouse. To replicate a situation of use 
+similar to what most users typically encounter, no abstract 
+explanation of the color model was given to subjects.  They 
+were not explicitly told what the three parameters of their 
+color model were, nor were the parameters named on the 
+screen.  In the instructions, subjects were asked to learn 
+how the different sliders affected the color during the course 
+of the experiment.  We used Schwarz' wording to describe 
+how closely the subjects should try to match the target 
+color:  &quot;continue to refine the match until you think they 
+are the same color or until it becomes extremely difficult to 
+get the colors any closer to each other.&quot;<p>
+
+After the instruction period, subjects were given ten 
+minutes to practice using the system.  The experimenter 
+was present for the first match and then left them alone for 
+the remainder of their practice.  The colors used during the 
+practice time were different from those used in the actual 
+experiment.  After the practice period, the experimenter 
+returned and started the sequence of thirty experimental 
+colors. Subjects had three minutes to complete a single 
+match.  If they did not finish in three minutes, the match 
+was ended by the program and the subjects moved on to the 
+next color.  Subjects performed this sequence alone and at 
+their own pace.  Times for this phase of the experiment 
+ranged from twenty minutes to an hour and a half, with 
+most subjects taking about forty-five minutes.  A 
+concluding questionnaire asked about the subjects'
+satisfaction and comfort with the experiment.<p>
+
+<h2>RESULTS</h2>
+The average times and accuracies for the four experimental 
+conditions are given in Table 2.  With a significance level 
+of p<=.05, analysis of variance revealed no significant 
+differences in time or accuracy measured in LAB color 
+distance units (cdus) between the models.  The feedback 
+factor (Table 3) had no significant effect on time, but did 
+significantly affect accuracy (F1,44 = 6.76, p = .013).  The 
+mean distance from the target was 2.16 cdus (26%) lower 
+when the subjects were given feedback about the effects of 
+each slider.  Note that since there was no significant 
+difference in time between the two feedback conditions, 
+subjects were matching more accurately in the same amount 
+of time and not simply trading off speed for accuracy.
+
+<h2>DISCUSSION</h2>
+The color model is widely presumed to be fundamental to 
+the usability of a color selection tool, yet even with two 
+different interfaces we could find no significant difference in 
+time or accuracy between the RGB and HSV color models.  
+In fact, this is the second experiment we have run using this 
+protocol.  The earlier experiment had technical difficulties 
+which prevented us from being able to use all of its data, 
+but the twenty-four data points which are usable also show 
+no significant difference between RGB and HSV.  Finally, 
+in a similar experiment, Wells <a href="#r10">[10]</a> could find no difference 
+in time or accuracy between these two color models.  We 
+are not aware of any measured differences between color 
+models when their interfaces provide strong visual feedback.<p>
+<a name="table2">
+<img src="sad_t2.gif"><p>
+<img src="sad_t3.gif"><p>
+
+The high variance of this population may have masked 
+some effects of color model and feedback.  With twenty-four 
+subjects in each color model or feedback condition, we have 
+a 95% chance, i.e., beta = .05, of detecting differences of 25 
+seconds or more between the mean times of the two color 
+models.  To accurately detect differences of, say, 10 seconds, 
+would have required over 100 subjects in each condition---
+far more than was practically possible  Considering accuracy 
+of final match, our experiment could detect differences of 3 
+cdus or more between the mean accuracies of the two color 
+models.  While our sample size may not be large enough to 
+detect moderate differences in time and accuracy between the 
+models, we feel it is sufficient to detect the kind of major 
+differences which folklore ascribes to color model.<p>
+
+Comparing the conclusions of the Schwarz study and our 
+own suggests which factors determine the influence of color 
+model on a color matching task.  We consider three factors: 
+practice effects, levels of visual feedback of the interfaces, 
+and user selection strategies.
+
+<h3>Practice Effects</h3>
+It takes time to learn a color model.  Perhaps differences 
+between color model would emerge after the subjects had 
+more practice.  Although in both Schwarz and our present 
+study subjects completed thirty trials, the Schwarz study 
+used the same five colors repeated six times.  Our study 
+used thirty different colors to more nearly represent the wide 
+variety that users typically select.  We observed that in all 
+our conditions subjects had high variance, suggesting that 
+they were still in early stages of learning.  Reducing 
+variance with more practice would perhaps create significant 
+differences in our experiment.  For example, RGB with 
+high feedback, which has a mean nearly ten seconds less 
+than the other conditions, might be significantly faster (see 
+<a href="#table2">Table 2</a>).
+
+<h3>Visual Feedback</h3>
+Our study had significant visual feedback, whereas the 
+Schwarz study had little.  This suggests that the Schwarz 
+results may apply only to very low-feedback interfaces.  Our 
+data show that feedback does affect performance in a color-
+matching task, improving accuracy of the match.  The data 
+suggest that it makes very little difference which color 
+model is presented to the user for color selection, provided 
+the location of the current color within the color space is 
+represented .  Users may adapt to whichever model they are 
+given and the model doesn't make a difference.
+
+<h3>Selection Strategy</h3>
+If they are not using the conceptual map provided by the 
+color model, how did our users orient themselves in the 
+color space?  They may have adopted a simpler strategy 
+which was independent of the color model.  For example, 
+they might have used the following hill-climbing strategy: 
+&quot;Move in a direction.  If you are closer to your target, 
+continue moving.  If you are further away from the target, 
+backtrack and pick another direction.&quot;<p>
+
+To discover user strategies we must look at the paths 
+individual users took through the color space from the 
+initial gray towards the target color.  A color model is 
+supposed to help a user predict which adjustments to the 
+sliders will take the controlled color closer to the target.  
+We sought a measure of how directed a subject's activity 
+was. We define a move to be a single adjustment to a slider, 
+from the time the mouse button was pressed inside the 
+slider to the time the button was released.  We characterize a 
+move by its final color, the value of the controlled color at 
+the time the button was released.<p>
+
+If a user has learned a color model and is actively using it to 
+plan a path towards the target color, most of the moves will 
+end with the controlled color closer to the target.  We used 
+the notion of moves to quantify how much backtracking the 
+subjects did.  If most of the subjects' moves took them 
+closer to the target, it provides evidence that they are 
+actively using the color model.<p>
+
+We broke every trial down into its constituent moves and 
+computed the distance of the ending color from the target. 
+Table 4 lists the percentage of total moves which ended 
+with the subject closer to the target.<p>
+
+<img src="sad_t4.gif"><p>
+
+The subjects only moved closer to their target on a little 
+more than half of their moves.  This admittedly crude 
+measure suggests that the subjects were not using the color 
+model to predict where their moves were going but instead 
+adopted some sort of simple hill-climbing strategy.  This 
+hypothesis is also supported by the significant 
+improvement in accuracy for the &quot;position+effect&quot; interface, 
+which allows the subject to predict the effect of the next 
+move by looking at the screen display rather than reasoning 
+based upon the color model.  The subjects were more 
+accurate when they could better predict their next move.<p> 
+
+<h3>Color Selection in Actual Practice</h3>
+How applicable are our results to actual conditions of color 
+selection?  In the field, users typically perform a color 
+selection task, picking a &quot;suitable&quot; or &quot;harmonious&quot; color 
+for an image, rather than the color matching task of our 
+experiment.  We chose a color matching task for two 
+reasons.  First, it is a procedure with a long history in color 
+science, allowing us to use a well-established experimental 
+protocol.  Second, the task gives us well-defined objective 
+measures of performance, consistently applied for all 
+subjects.  By contrast, an experimental task of selecting 
+&quot;suitable&quot; colors would introduce many uncontrolled 
+variables, confounding our factors of color model and 
+feedback.<p>
+
+Our research explores the precise effects of these two factors 
+and their interactions.  While color selection is different 
+from color matching, the tasks both involve navigation 
+through a color space, and we believe that the role of color 
+model and feedback in navigation are comparable in both 
+tasks.  Once controlled experiments have clarified the 
+relationships between color model and feedback, more 
+qualitative field studies can be used to examine their effects 
+in actual contexts of use.<p>
+
+<h2>CONCLUSIONS</h2>
+This experiment explored the relationship between the color 
+model and the interface which presented it to the user.  We 
+considered the effect of differing levels of feedback in the 
+user interface. We performed a color-matching experiment 
+with two interfaces with differing feedback levels:  one 
+interface that visually represented the user's current location 
+and a second which supplemented that location information 
+with an indication of the function of each color model 
+parameter.  With these interfaces we could not find a 
+significant difference between the accuracy and speed of the 
+RGB and HSV models, but found that higher levels of 
+feedback resulted in more accurate matches.  We recommend 
+that designers of color selection interfaces pay careful 
+attention to the amount and kind of feedback they provide---
+it may be as important as the color model.<p>
+
+<h3>Future Work</h3>
+We would like to extend the work by looking in greater 
+detail at the paths taken by the various users and determine 
+whether they were using the color model or not.  The 
+approach of counting the proportion of moves closer to the 
+target can be refined.  We would like to see if the details of 
+the traces are follow a pattern of systematic use of the axes 
+of the color models or instead have the quasi-random 
+character of a hill-climbing approach. As a further 
+extension, we would like to run a longitudinal experiment 
+to reduce the variance over a longer period of time and see 
+what learning effects occur as the subjects become more 
+practiced. 
+
+<h2>ACKNOWLEDGMENTS</h2>
+The research work reported here was started by Don Hubbard 
+and greatly assisted by Professor Gary Meyer.  Bonnie John 
+and Eckehard Doerry provided many useful comments on 
+drafts of this paper.
+
+<h2>REFERENCES</h2>
+<ol>
+<a name="r1">
+<li> Berk, T., Brownston L. and Kaufman, A. A human 
+factors study of color notation systems for computer 
+graphics.  Communications of the ACM 25, 8 (Aug. 
+1982), 547-550.
+<a name="r2">
+<li> Foley, J., van Dam, A., Feiner, S. and Hughes, J. 
+Computer Graphics: Principles and Practice, 2nd. ed. 
+Addison Wesley, Reading, MA, 1990.
+<a name="r3">
+<li> Hunt, R. W. G. Measuring Color, 2d. ed. Ellis 
+Horwood, 1991.
+<a name="r4">
+<li> Macbeth.  ColorChecker chart (1990 ed.). Munsell 
+Color, Baltimore, MD, 1990.
+<a name="r5">
+<li> Murch, G. The effective use of color: cognitive 
+principles. TEKniques 8, 2 (1984), 25-31.
+<a name="r6">
+<li> Schwarz, M., Cowan, W. and Beatty, J.  An 
+experimental comparison of RGB, YIQ, LAB, HSV, and 
+opponent color models. ACM Transactions on Graphics 
+6, 2 (April 1987) 123-158.
+<a name="r7">
+<li> Shneiderman, B. Direct Manipulation:  A Step Beyond 
+Programming Languages. IEEE Computer 16, 8 (Aug. 
+1983) 57-69.
+<a name="r8">
+<li> Smith, A. R. Color Gamut Transform Pairs. Computer 
+Graphics 12, 3 (Aug. 1978),  12–19.
+<a name="r9">
+<li> Tektronix, Inc.  U. S. Patent number 4,985,853.
+<a name="r10">
+<li> Wells, E. A Comparison of Interactive Color 
+Specification Systems for Human-Computer Interfaces. 
+M.S. Thesis in Visualization Sciences, Texas A and M 
+University, 1994.
+
+</body></html>

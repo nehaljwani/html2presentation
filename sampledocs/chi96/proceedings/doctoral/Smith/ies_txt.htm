@@ -1,0 +1,213 @@
+<HTML>
+<HEAD>
+<CENTER><TITLE>Toolkits For Multimedia Awareness</TITLE></CENTER>
+<!-- Changed by: Ian Smith, 12-Jan-1996 -->
+
+
+</HEAD>
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/doctoral.JPG" ALT="Doctoral" HEIGHT=35 WIDTH=249><A HREF="../../doctoral.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<H1>Toolkits For Multimedia Awareness</H1>
+
+Ian Smith<P>
+Graphics, Visualization &amp Usability Center,<BR>
+College Of Computing, Georgia Tech, Atlanta, GA 30332<BR>
+iansmith@cc.gatech.edu<BR>
+
+<H3>ABSTRACT</H3>
+
+Informal communication and awareness of coworkers is an important
+factor in the effectiveness of work in office environments. This
+dissertation focuses on an architecture for the creation of prototype
+tools which allow distributed workgroups to collaborate more
+effectively by communicating informally. This architecture supports
+the investigation of the area of informal communication and awareness
+by allowing researchers to quickly develop new application prototypes
+from reusable components.
+
+<H3>KEYWORDS </H3>
+Awareness, Multimedia, CSCW, Distributed Work Groups, Informal Communication.
+
+<H3>MOTIVATION</H3>
+
+Many people have observed that a good portion of the work that takes
+place in an office environment is based on informal
+communication. This type of communication ranges from conversations
+around water coolers or coffee machines to simply noticing the people
+one walks past during the course of a day. In many cases it is this
+low-effort, informal communication which allows people to stay aware
+of the activities of their colleagues and coworkers and provides the
+&quot; context &quot; for work-related activities. Informal
+communication and the resulting awareness of coworkers and their
+activities is the central theme of my work. <P>
+
+Recently, the research community has begun investigating the problems
+of how to provide technological support for informal communication and
+awareness. Systems such as the PARC Media Space [1] and CaveCat [2]
+provide their users with a virtual &quot; space &quot; in which they
+can conduct their activities. In these systems the virtual space
+consists of an audio/video network which allows the participants to
+see and hear each other. This network allows many of the informal
+communication processes that occur normally in physical space to be
+moved into virtual space. This breakdown of the barriers of physical
+space is important because the communication process does not require
+the participants to be co-located, they may be distributed in physical
+space. <P>
+
+Let us consider an example problem in the area of awareness across physical space. Alice is an administrative assistant for Betty, who telecommutes from her home. Alice needs to judge Betty's level of &quot; busyness &quot; to determine whether or not to forward incoming phone calls to Betty. For a tool to help Alice solve her problem of assessing whether or not to allow callers access to Betty it must meet the following requirements: <P>
+<UL>
+<LI> Alice must have some information about the level of activity in Betty's (home) work area.
+
+<LI> Betty must be able to control Alice's (and others) access to her personal information.
+</UL>
+
+The first of these properties Betty would receive in a normal office
+environment simply by being physically near Alice's office. The second
+of these properties is analogous to Alice's ability to close her
+office's door. <P>
+
+One can imagine a software tool that allows Alice to perform this
+task. Such a tool would give her some type of display on her computer-
+perhaps a graph of some sort- of the amount of activity in Betty's
+office. The &quot; activity &quot; could be measured by tracking mouse
+movements, counting keyboard clicks, by taking digital video images
+and processing them or combinations of these or other techniques. Such
+a tool might also provide some type of &quot; ambient &quot; audio
+information to Alice [3] to help keep her aware of the level of
+activity in Betty's home-office. This software must also provide Betty
+with an interface to allow her to control how and when Alice (or
+others) may access the information the tool is gathering and, thus,
+insure Betty's privacy when she desires it [4]. <P>
+
+The example just presented is a specific problem for Alice and Betty;
+I feel that there are many problems which are caused by geographic
+separation and the inability to informally communicate which can
+remedied with software tools like the one outlined above. As another
+example of this type of problem, consider the informal information
+which allows people to decide when to make a transition into a more
+formal mode of communication. This type of transition can be difficult
+to make when participants are not physically co-located. A tool which
+solved this problem would allow users to have enough information to
+determine when it would be appropriate to initiate a two-way video
+conference, for example. <P>
+
+<H3>TOOLKITS FOR AWARENESS</H3>
+
+As discussed above, there are many types of inter-personal
+communication problems which could use awareness information as part
+of their solution. I am currently working on identifying the
+commonality between these types of problems. Identifying this
+commonality will allow the implementation of reusable software
+components which embody the necessary computation so tools which solve
+the communication problem can be easily constructed. A further
+research contribution of this work is the construction of a framework
+which allows these reusable components to be &quot; plugged together
+&quot; in interesting and new ways. By virtue of allowing the rapid
+development of applications in this area, this toolkit will allow HCI
+and CSCW researchers to easily experiment with new ideas and paradigms
+for supporting informal communication and awareness. <P>
+
+There are several significant technical challenges that must be
+addressed. First and foremost is the question of what reusable
+components, which in this framework are called operators, should a
+toolkit present so that an application writer or HCI researcher can
+quickly develop their ideas into a testable prototype? Second, over
+what domain should these operators function? For example, in the
+example with Alice above, the tool she used might operate over the
+domains of keyboard entry, mouse activity, and digital video. Finally,
+what tools should be built in an effort to allow the application
+writer or HCI researcher to interact with the toolkit and framework in
+a natural way and minimize (or eliminate) the amount of code that must
+be written to achieve their goals? <P>
+
+Let us revisit the example of Betty and Alice again, now considering
+it through the lens of the three questions just mentioned. First, I
+have already established some of the domains of interest here:
+computer input devices and digital video. For this toolkit to succeed
+it clearly must present some reasonable interface to these types of
+media, not to mention other related media such as the state digital
+audio inputs and other sensors. Further, all of these domains reside
+on the input side of the application: gathering the information. The
+toolkit must also address output domains such as digital audio,
+digital video, and the graphical user interface so the user can see
+the results of the computations. <P>
+
+<H6>Figure 1</H6>
+<IMG SRC="./ies_fg1.gif"> <P>
+
+In the previous example, the activity tool measures several quantities
+such as the amount of keyboard and mouse activity and the amount of
+change in a video scene. Abstractions must be present to compute all
+of these values; and these will be the operators for this tool. An
+operator which will be necessary in this example, but which is not as
+obvious as the others, is some type of security operator which
+operates over any domain. This operator should allow Betty to control
+when and by whom her information can be accessed. Finally, to be able
+to construct such an application for Alice a tool will be needed which
+will allow the application developer to easily &quot; fit together
+&quot; these operators and their domains into a result which Alice can
+use effectively. <P>
+
+This framework is based on the idea of connecting a source domain to a
+sink domain. This connection is accomplished by connecting operators
+that perform the desired computations. (This type of notation itself
+is not new and has been used successfully elsewhere.) Figure 1 is a
+simplified diagrammatic representation of the parts of my architecture
+working together to create a visualization like the one Alice uses to
+stay aware of Betty's activities. The two domains of the keyboard
+(input) and the Graphical User Interface (output) are represented by
+triangles and the operators are represented by the squared off
+ovals. The black rectangles on the sides of the operators and the GUI
+domain indicate that these objects can accept an input. The arrows
+represent the flow of data from one part of the architecture to
+another. <P>
+
+As mentioned before, one of the goals of this work is to allow
+application builders and researchers to build prototype applications
+quickly using this architecture. Therefore, I am developing a tool
+that will allow users to construct prototypes in a visual
+representation similar to the one used above in Figure 1. It seems
+reasonable that within the scope of informal communication and
+awareness a tool could be built which would allow new and interesting
+applications to be built without requiring the implementation of a
+general tool for constructing arbitrary programs. Other disciplines
+have had success with tools which allow for the visual construction of
+programs in a domain, such as Iris Explorer and DEC's AVS in the area
+of Scientific Visualization. <P>
+
+In conclusion, the ability of coworkers to communicate informally and
+stay aware of each others activities is important to the success of
+their work. When coworkers are separated by space, their
+communications break down due to the inaccesability of informal
+information. This work is exploring the commonalities between the
+problems that result from this spatial separation. These commonalities
+are being used to develop an architecture and toolkit for the
+construction of applications which solve the communication problems. <P>
+
+<H3>References</H3>
+
+[1] Bly S., Harrison S., Irwin S. Media Space. In Communications Of
+The ACM, 36 (1), January 1993. p 28-47.  <P>
+
+[2] Mantei M., Baecker R., Sellen A., Buxton W., Milligan T.,
+Experiences In The Use Of A Media Space. In Proceedings Of Conference
+On Computer Human Interaction (CHI) `91. p. 203-208. <P>
+
+[3] Smith I., Hudson S. Low Disturbance Audio For Awareness And
+Privacy In Media Space Applications. To appear in ACM Conference On
+Multimedia `95.  <P>
+
+[4] Smith I., Hudson S., Mynatt E., Selbie R. Applying Cryptographic
+Techniques To Problems In Media Space Security. In Proceedings Of
+Conference On Organizational Computing Systems (COOCS) `95. <P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,198 @@
+<HTML>
+<HEAD>
+<TITLE>Temporal Typography: A Proposal to Enrich Written Expression</TITLE>
+</HEAD>
+
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/videos.JPG" ALT="videos" HEIGHT=35 WIDTH=249><A HREF="../../videos.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<BODY bgcolor="#ffffff">
+<BODY text="#303030">
+<BODY link="#6633CC" vlink="#663366">
+
+<DL>
+<DD>
+<Font size=+3> Temporal Typography </font> <br>
+<font size=+2>A Proposal to Enrich Written Expression </font> <p>
+
+<font size=+1>Yin Yin Wong</font> <br>
+Visible Language Workshop, Media Laboratory <br>
+Massachusetts Institute of Technology <br>
+20 Ames St, Cambridge, MA 02139 <br>
+yinyin@media.mit.edu </font><br>
+
+<P><br> <br>
+<B>Abstract </B><BR>
+This paper proposes &quottemporal typography&quot as an area of study which 
+incorporates the dynamic visual treatment of text as an extension of written language. 
+Design examples presented in the video show the expressive power of time-varying 
+typographic form to convey emotion and tones of voice. Several expressive examples are 
+called out in this paper and discussed. As a part of our ongoing research, we have 
+developed a scheme which allows for the description of typographic expressions that 
+change dynamically over time. The examples were constructed using a software tool, 
+exPress, along with a scripting language based on the scheme. <P>
+
+<B>Keywords</B><BR>
+Typography, Temporal, Dynamic Text Presentation, Graphic Design <P>
+
+<B>Introduction</B><BR>
+When we talk to one another, the affective aspect and tone of our voice adds an expressive 
+quality to the words spoken. We may choose to emphasize a point by raising the pitch of 
+our voice or stretch out the enunciation of a word. It is even possible to negate the meaning 
+of a phrase with the tone of the delivery. For example, depending on how the phrase "I 
+said I am sorry" is spoken, sincerity or sarcasm can be conveyed. <P>
+
+Typography is the visual treatment of written language to enrich visual communication [3]. 
+Similar to the expressivity of spoken words, a range of emotional qualities and tones of 
+voice can be conveyed through treatment of the typographic form, such as typeface, weight 
+and color. Examples of this can be seen in cartoons as well as publication design. 
+However, the treatment has been limited to a fixed presentation medium such as a printed 
+page. Once a specific form is applied, it remains fixed. The fixed presentation cannot 
+capture affective aspects conveyed through temporal delivery, for example, a vocal 
+inflection or a change in meter of the spoken word. Whereas the printed medium constrains 
+typographic investigation to fixed presentation, electronic media extends the expressive 
+possibilities by enabling typographic forms to change dynamically in size, color and 
+position according to a writer's expression or a reader's interaction in real time. <P>
+
+Current electronic communication systems such as electronic mail remain typographically 
+constrained. In general, only one kind of typeface at a fixed size is supported. This 
+constraint limits the expressive capabilities of typographic communication. Users get 
+around this constraint by developing various methods to convey expression, such as 
+extending the spelling of a word or inventing symbols. Studies have shown the 
+development of symbols, such as &quotsmileys&quot, at the end of text messages are used 
+to qualify the tone of voice of content (i.e., friendly, sarcastic, hostile). Our research 
+proposes an alternative approach, one that extends the tradition of typography by treating 
+text dynamically as it is presented over time. For example, the sequence in Figure 1 shows 
+the word &quotthing&quot stretched and distorted based on a spring simulation. The 
+physically-based motion qualifies the word with a humorous twang. By manipulating the 
+text itself it is hoped a larger range of expressivity can be achieved. <P>
+
+<IMG SRC="yyw_fg1.gif"  ALIGN=TOP WIDTH=424 HEIGHT=86> <BR>
+<font size=-1> Figure 1. An example of dynamic typographic manipulation.</font><P>
+
+TV advertising graphics have been exploring the use of dynamic text to enrich visual 
+communication. Typical application of this form of communication has been limited 
+because it involved a case by case design intensive process. The research here differs from 
+TV applications with two respects. First, the broad introduction of electronic media has 
+enabled us to consider typography in non-static terms in our day-to-day settings. We have 
+developed a scheme which provides users with a set of concepts and terminology for 
+describing the behavior of dynamic forms [6]. A descriptive scheme allows dynamic forms 
+to be described systematically and represented in computational form. Forms are described 
+for a general purpose, rather than for a particular piece of text. In other words, these forms 
+can be labeled, stored and reused. Second, the research takes into consideration the two 
+way interaction between a writer and a reader. We want to support a writer's expressive 
+temporal message as well as a reader's control over the pacing through the message. An 
+example is the &quotsorry&quot message in the video.<P>
+
+<B>Implementation</B> <BR>
+To facilitate our investigation on temporal typography, a software tool, exPress, has been 
+implemented along with a scripting language based on the scheme. The tool allows us to 
+easily manipulate typographic attributes such as size, weight, position, transparency, and 
+color. Users can interactively control the speed as well as their pace through the 
+presentations. Physically-based motion techniques, such as spring simulation [4] are 
+implemented as part of this tool. The software is implemented using C++ on a Silicon 
+Graphics' Onyx with Reality Engine graphics. The design examples shown in the video 
+were constructed using this tool. <P>
+
+<B>Design experiments</B> <BR>
+The video shows preliminary design examples that explore dynamic presentation of text, 
+including expressive email, visualization of dialogue, and typographic tone of voice. These 
+examples are part of our ongoing research effort that investigates the potential for 
+expressive writing as well as for developing new methods of reading. <P>
+
+We are exploring a range of ways dynamic text can convey typographic expression by 
+making concrete design examples. The discussion here is limited to three such 
+examples.<P>
+
+1. Dynamic form can embellish the meaning of a word and give the reading of the word an 
+inflection. For example, the sentence &quotCan you do me a favor&quot is presented 
+serially one word after another. When favor is presented, the form grows in size quickly 
+until it covers the screen. You read &quotfavor&quot yet &quotbig&quot is implied by the 
+changing form. Because the form grows over time, the tone starts out tentative and then 
+rises.<P>
+
+2. The rhythm of a presentation can effect the tone of voice conveyed. The second message 
+on the video expresses two tones of voice through contrasting rhythms. While the first part 
+of the message expresses a sluggish apologetic tone, the following part expresses a 
+confident recovery. The overall speed of movement in the first part of the presentation is 
+slow. For examples, the words &quotglug! glug! glug&quot are dropped in sequence from 
+the top of the screen. As each word falls on the ground plane, they bounce slowly and 
+seem to lose energy (Figure 2). The overall tone is sluggish and apologetic. In contrast, the 
+movements are concise and quick in the second part of the message. The words &quotwe 
+are back on track&quot are presented quickly in succession and fly out toward the screen 
+seemingly past the reader (Figure 3). The faster speed of the rhythm communicates a 
+confident disposition.<P>
+
+<IMG SRC="yyw_fg2.gif"  ALIGN=TOP WIDTH=424 HEIGHT=100> <BR>
+<font size=-1> Figure 2. An example in which the slow rhythm of movement conveys an 
+overall sluggish tone of voice.</font><P>
+
+<IMG SRC="yyw_fg3.gif"  ALIGN=TOP WIDTH=424 HEIGHT=100> <BR>
+<font size=-1> Figure 3. An example in which the quick rhythm of words flying toward 
+the user expresses a confident tone.</font><P>
+
+3. Motion which references physical action can elaborate an expression. The previous 
+example references a technique conventionalized in film to depict the perceptual feel of 
+riding on a train track. In another example, the word &quotoverwhelmed&quot is flipped 
+as it is presented. The action references the metaphor of being &quotupside-down&quot or 
+&quoton your back&quot.  These references qualify just how overwhelmed the writer felt. 
+<P>
+
+As for reading methods, we are exploring the use of previously established dynamic 
+presentation methods such as Rapid Serial Visual Presentation (RSVP) in which one or 
+more words are presented in the same location serially [2]. Experimental results on RSVP 
+have shown it to be a promising method of reading. Time Square [1], or scrolling, is 
+another method used widely in computer interfaces to move through text. A new 
+presentation method we are exploring places text one after another in the z-dimension as 
+shown in Figure 4. We refer to this method as Landscape. Three dimensional perspective is 
+used and the reader controls the viewpoint. The default viewing position is slightly above 
+the plane of text. For reading, a user presses a mouse button to fly past the message-as if 
+flying over a highway of text. Movement is confined to one degree, forward and 
+backward. The user controls the speed in which she moves over the text. Since a user can 
+move and stop as she chooses, she is able to determine her own pace through the 
+message.<P>
+
+<IMG SRC="yyw_fg4.gif"  ALIGN=TOP WIDTH=424 HEIGHT=108> <BR>
+<font size=-1>Figure 4. An example of reading using the Landscape method.</font><P>
+
+<B>Conclusion and future work</B> <BR>
+This paper presents our approach to enriching the expressivity of written communication on 
+electronic media. We described specific design experiments on conveying tone of voice 
+through dynamic treatment of text as well as presentation methods we are exploring. Future 
+work includes refining our scheme as well as developing an understanding of typographic 
+tone conveyed through dynamic presentation. We have begun to explore a WYSIWIG 
+interface to the tool for constructing dynamic typographic forms.<P>
+
+<B>Acknowledgement</B> <BR>
+This research is being conducted at the Visible Language Workshop, Media Laboratory, 
+MIT. I thank members of the VLW for their help. Special thanks to Suguru Ishizaki for 
+insights and discussion on this research. This work was sponsored in part by ARPA, 
+NYNEX, Alenia, and JNIDS.<P>
+
+<B>References</B> <BR>
+<font size=-1>
+[1]	Kang, T., Muter, P. Reading Dynamically Displayed Text, Behaviour and 
+Information Technology: pp. 33-42, Vol 8  # 1, 1989. <br>
+[2]	Potter, M. Rapid Serial Visual Presentation (RSVP): a Method for Studying 
+Language Processing, New Methods in Reading Comprehension Research: pp.91-118. 
+1984.<br>
+[3]	Spencer, H. The Liberated Page. London: Lund Humphries. 1987.<br>
+[4]	Small, D. Expressive typography: high quality dynamic and responsive typography 
+in the electronic environment. MS Thesis, MIT. 1987.<br>
+[5]	Small, D., Ishizaki, S. Typographic Space, CHI `94 Conference Companion: pp. 
+437-438, 1994.<br>
+[6] 	Wong, Y.Y. Temporal typography: characterization of time-varying typographic 
+form. MS Thesis, MIT. 1995. <P> <br>
+</font>
+
+<font size=-2>Copyright on this material is held by the author. </font> <BR>
+ </DL>
+</BODY>
+</HTML>

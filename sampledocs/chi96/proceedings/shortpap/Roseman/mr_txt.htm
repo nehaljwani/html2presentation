@@ -1,0 +1,182 @@
+<HTML>
+<HEAD>
+<TITLE>TeamRooms: Groupware for Shared Electronic Spaces</TITLE>
+</HEAD>
+<BODY>
+
+
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/shortpap.JPG" ALT="shortpap" HEIGHT=35 WIDTH=249><A HREF="../../shortpap.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+
+<H1>TeamRooms: Groupware for Shared Electronic Spaces </H1>
+<BR>
+<EM>Mark Roseman and Saul Greenberg<BR>
+<P>Dept. of Computer Science, University of Calgary<BR>
+Calgary, Alta, Canada  T2N 1N4<BR>
+Tel: +1-403-220-3532<BR>
+E-mail: roseman, saul@cpsc.ucalgary.ca<BR></EM>
+
+<H2>ABSTRACT </H2>
+Teams whose members are in close physical proximity
+often rely on team rooms to serve both as meeting places and repositories
+of the documents and artifacts that support the team's projects.  TeamRooms
+is a prototype groupware system designed to fill the role of a team room
+for groups whose members can work both co-located and at a distance.
+Facilities in TeamRooms allow team members to collaborate either in
+real-time or asynchronously, and to customize their shared electronic space
+to suit their needs.
+<P>
+
+<H2>KEYWORDS: </H2>
+Groupware, CSCW, shared electronic spaces<BR>
+<P>
+
+<H2>INTRODUCTION </H2>
+Johansen et.  al.  [2] describe how team rooms have
+become a central device used by business teams to organize their work.
+Team rooms provide a permanent shared space used by the team, serving as a
+meeting room, work area, a place to store documents that are needed by the
+team's projects, and more generally, as a focus for communication within
+the group.
+
+<P>Traditional team rooms rely on the physical proximity of the team
+members and their easy access to the room.  We describe here a prototype
+groupware system called TeamRooms that supports the team room concept for
+teams whose members work either co-located or at a distance.  It combines
+aspects of both real-time and asynchronous groupware to provide the team
+with a shared electronic space.  The system is highly customizable,
+allowing the team to design their electronic room on the fly to suit their
+needs, as they do with their physical meeting rooms.
+
+<P>Users run a TeamRooms client that connects over a network to a server
+providing a number of rooms.  Each room contains both generic communication
+tools (a chat tool and a backdrop acting as a shared whiteboard) and any
+number of <I>applets</I> needed to support the group's work.  Typical
+applets would be diagramming tools, outliners, brainstorming tools,
+browsers for information such as web pages, notes to other team members, as
+well as more frivolous items such as card games.  When team members are in
+a room at the same time, they see each other's actions both through changes
+in the room's artifacts and through mechanisms such as multiple
+telepointers.  As with real rooms, all artifacts in the electronic room
+persist even when no one is in the room.
+
+<P>TeamRooms is implemented using our groupware toolkit GroupKit [3],
+augmented to support centralized processes, user authentication, a
+versioned persistence repository, and embedded conferences.  Each applet is
+built as a standard GroupKit application, which allowed us to easily move a
+number of existing applications into TeamRooms, and to rapidly create new
+ones.
+
+<P>
+<H2>TEAMROOMS INTERFACE </H2>
+
+Figure 1 illustrates the user interface of the TeamRooms client, where the
+user (Carl) is in a room called "Ideas for Papers" with two other users
+(Saul and Mark).  Along the bottom of the screen are a text-based chat tool
+and different colored pens for drawing on the "walls" of the room (a shared
+whiteboard).  Also shown are three applets: a group outliner, a sticky
+note, and a URL pointer.
+
+<P>
+<img src="mr_fg1.gif" alt="Figure 1">
+<BR>
+Figure 1.  TeamRooms User Interface, showing (a) radar view of room; (b)
+applets; (c) image stills of users in room; (d) telepointer; (e) whiteboard
+pens; (f) text-chat area; (g) list of users currently around; (h) list of
+rooms.
+
+<P>Each applet is embedded in its own frame, in a similar fashion as
+Opendoc or OLE components.  Users select new applets from the Tools menu,
+as well as delete, move and resize them.  All changes are immediately
+visible to all users in the room.  TeamRooms also keeps a complete version
+history for each applet, allowing users to retrieve an earlier version.
+This creates a new instance of the applet in the room, allowing comparison
+between versions.
+
+<P>Interestingly, TeamRooms has led us to construct several applets that we
+would never have considered in conventional groupware.  For example, one
+tool allows inserting a pointer to outside information (a URL, which can be
+changed by any user), which when selected will invoke a user's World Wide
+Web browser.  Another tool contains a pointer (again as a URL) to an image
+to be displayed in the room.  This allows a team to create a room by
+importing or referring to relevant outside information (or at least
+information of interest; our most common image was the daily Dilbert
+comic).
+
+<P>TeamRooms also provides several facilities for maintaining awareness of
+other team members.  The two windows on the right of Figure 1 show who is
+around and in which rooms they are working.  Within the current room, its
+participants are always visible.  Telepointers show users' fine-grained
+activities.  Because rooms can be larger than a user's window, the radar
+view shows a miniature of the room, indicating the position of applets
+(dark boxes) as well as other users' views into the room (light stippled
+boxes).
+
+<P>
+<H2>RELATED WORK </H2>
+
+Conventional real-time groupware systems often focus on a "meeting" or
+"session".  Such systems support distributed teams through isolated
+activities (e.g.  a shared whiteboard session), but provide limited and
+heavyweight support for other team activities.  In contrast, asynchronous
+groupware (such as workflow or email) often does not support real-time
+activities.  Neither are successful at providing the overall collaboration
+support offered by conventional team rooms.
+
+<P>A popular class of systems that parallel the team rooms idea are
+Multi-User Dungeons (MUDs).  Traditional MUDs are text-based systems where
+users connect to a central server.  Once connected, they enter any number
+of different rooms, chat with other users in those rooms, and create and
+modify artifacts in the rooms.  Though primarily used socially, MUDs have
+been used to support collaborative work, though their text-only
+presentation has proved limiting.
+
+<P>We are not unique in trying to provide more sophisticated media in
+shared electronic spaces.  The Jupiter system [1] augments a traditional
+MUD (LambdaMOO) with audio/video conferencing tools and shared whiteboards.
+The wOrlds system [4] also supports audio/video conferencing as well as
+numerous other tools.  TeamRooms is most similar to wOrlds, but is more
+lightweight, does not directly support audio or video (though it could be
+extended to do so), and emphasizes applets more suitable for real-time
+collaboration.
+
+<P>
+<H2>CONCLUSIONS </H2>
+
+TeamRooms is a prototype groupware system combining the rich applications
+and interfaces of real-time groupware tools with the persistence and work
+context provided by MUDs.  The result is a system providing the electronic
+equivalent of a team room for co-located or distributed work groups.  Our
+early usage experiences with TeamRooms are quite encouraging, and we have
+found that it does afford many of the same behaviors seen when teams share
+a physical space.
+
+<P>
+<H2>REFERENCES </H2>
+<OL>
+
+<LI> Curtis, P.  and Nichols, D.  MUDs Grow Up: Social Virtual Reality in
+the Real World.  In <EM>Proc.  of the Third International Conference on
+Cyberspace</EM> .  May 1993.
+
+<LI> Johansen, R., Sibbet, D., Benson, S., Martin, A., Mittman, R.  &amp;
+Saffo, P.  <EM>Leading Business Teams</EM> .  Addison-Wesley.  1991.
+
+<LI> Roseman, M.  and Greenberg, S.  Building Real Time Groupware with
+GroupKit, a Groupware Toolkit.  <EM>ACM TOCHI </EM> (1996, in press).
+
+<LI> Tolone, W., Kaplan, S.  and Fitzpatrick, G.  Specifying Dynamic
+Support for Collaborative Work within wOrlds.  In <EM>Proc.  of ACM
+COOCS</EM>.  1995.
+
+</OL>
+</BODY>
+</HTML>
+

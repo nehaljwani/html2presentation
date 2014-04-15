@@ -1,0 +1,434 @@
+<HTML>
+<HEAD>
+<TITLE>Homer: a Pattern Discovery Support System</TITLE>
+
+</HEAD>
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/shortpap.JPG" ALT="shortpap" HEIGHT=35 WIDTH=249><A HREF="../../shortpap.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<H1>Homer: a Pattern Discovery Support System<BR>
+</H1>
+<P>
+<EM>Garett Dworman<BR>
+</EM>
+<P>
+Operations and Information Management Department
+<P>
+The Wharton School, University of Pennsylvania
+<P>
+Philadelphia, PA 02147
+<P>
+(215)898-7211 dworman@opim.wharton.upenn.edu http://opim.wharton.upenn.edu/~dworman
+<HR>
+<H2>ABSTRACT</H2>
+<P>
+Traditional research in information retrieval concentrates on
+retrieving documents. This paper introduces the idea that valuable
+information exists within a document collection as thematic patterns
+that can be found without looking at individual documents in the
+collection. This information is valuable in its own right and
+as an aid to the IR process, and is often not contained in any
+of the collection's documents. This paper introduces a pattern
+discovery support system, Homer, which aids users' search for
+patterns and some compelling anecdotal evidence.<BR>
+<H3>KEYWORDS: </H3>
+<P>
+information retrieval, pattern discovery.<BR>
+<H2>INTRODUCTION AND OBJECTIVES</H2>
+<P>
+Traditional research in information retrieval (IR) concentrates
+on identifying and retrieving relevant documents. However, when
+many documents are brought together into a collection, global
+information emerges from the aggregation of the documents' local
+information as patterns among the documents. This is akin to the
+emergent macro behavior of a complex system which is distinct
+from the behavior of any of its component parts. These emergent
+patterns may often be of more interest to users than the raw facts
+contained in the documents. Users often approach document collections
+with interest in themes and issues, how they relate to each other,
+and what trends they have. Such relations and trends amongst concepts
+are the emergent information patterns.
+<P>
+An IR system that can, <I>in addition to locating relevant documents</I>,
+help users find emergent patterns would provide an added depth
+to the information search process. This research has two goals:
+First, to demonstrate that pattern discovery support systems can
+help users find patterns in a collection. Second, to demonstrate
+that patterns can be interesting, non-trivial, and useful in users'
+information search process.<BR>
+<H2>PATTERN DISCOVERY</H2>
+<P>
+In 1988 Don Swanson [6] discovered a relationship between magnesium
+levels and migraine headaches in MEDLINE. He did so by locating
+pairs of articles with related titles such as the following [6]:
+<P>
+The relation of migraine and <I>epilepsy</I>.
+<P>
+The magnesium deficient rat as a model of <I>epilepsy</I>.
+<P>
+Swanson's 1988 study cites 128 articles containing 11 different
+topics, such as <I>epilepsy, </I>linking migraines and magnesium.
+This is a pattern of information spread out over at least 128
+documents that were related in 11 different ways. Such patterns
+are not easily found.
+<P>
+Remarkably, none of the sixty-five articles on migraine mentions
+or cites any articles on magnesium and none of the sixty-three
+articles on magnesium mentions or cites any articles on migraine.
+Moreover, &#133; among 4,600 migraine records and 38,000 magnesium
+records, there were only six that contained both &quot;migraine&quot;
+and &quot;magnesium&quot; &#133;[which] were principally on magnesium.
+&#133;In short, neither online searching nor printed indexes nor
+reading the text and following citation trails in medical articles
+turned up evidence that there was, at the time, any substantial
+scientific interest in the possibility of a physiological relationship
+between magnesium and migraine. [6]
+<P>
+Swanson published three such hypotheses of which two have been
+medically confirmed [6].
+<P>
+The patterns that Swanson discovered cut across research fields
+which were unaware of each other - a situation which is becoming
+more common as research specialization increases. A pattern discovery
+support system can look for patterns across literatures in a collection
+and aid discoveries such as Swanson's. Patterns may also aid users'
+information search process by revealing connections between topics
+that users had not suspected exist, and by providing a context
+for the terms used by the documents in the collection. Patterns
+provide a point of interaction with the collection that lets users
+see the collection as an entity itself (cf., [3]).<BR>
+<H2>A PATTERN DISCOVERY SUPPORT SYSTEM</H2>
+<P>
+Homer is a decision support tool which aids users' search for
+patterns, and grew out of research on thematic queries for The
+Historic New Orleans Collection museum [6]. The prototype presents
+users with metalevel document summary statistics based upon a
+relevance ranking algorithm that is sensitive to semantic latency
+[4]. Homer displays the metainformation along various dimensions
+in an interactive, spreadsheet-like display. The prototype accesses
+a collection of 4,085 titles and captions of photographs by Clarence
+John Laughlin which makes over 78,000 references to 2,045 terms
+from the Art and Architecture Thesaurus (AAT) by the Getty Museum.
+<P>
+<IMG SRC="IMG00001.GIF">
+<P>
+Figure 1 shows a snapshot of the Homer screen investigating the
+term FANTASY. Each column is a different 5-year subdivision of
+the collection. At the left in descending order are the terms
+most related to FANTASY. The numbers in the table are the number
+of documents in that subdivision that contain both the investigated
+term and the related term. For example, the subdivision 1935 to
+1940 contains 1,464 of the 4,085 documents of which 215 contain
+the term FANTASY. Of these 215, 41 contain STONE. Notice that
+the numbers in only the 1935-1940 column descend monotonically.
+How terms relate to each other changes within each subdivision.
+Hence the ranking of one column may not be the same as another.
+Users may resort the table by any column.
+<P>
+Figure 2 summarizes three Homer screens regarding FANTASY. Note
+that with a few exceptions, the terms most related to FANTASY
+are construction materials - WROUGHT IRON, CAST IRON, STONE, BRICK.
+We see here a definite context for the term FANTASY; Laughlin
+is looking for fantasies within the mundane and physical things
+around us rather than in the more typical symbols used in literature
+such as up in the clouds, across the oceans, or into the mountains.
+One exception to this relationship between FANTASY and materials
+is the term ZULU. This is the second most related term in the
+1935-1940 category, but it vanishes entirely when sorted by another
+column. Something about &quot;zulu&quot; caught Laughlin's attention
+in this period when he was pursuing images of fantasy. We can't
+guess here what Laughlin's interest was - it could be zulu culture,
+religion, symbolism, or whatever, but, we now have a story that
+might be interesting to pursue with a traditional IR system.
+<P>
+<TABLE BORDER=1>
+<TR><TD WIDTH=68><B><FONT SIZE=2>Figure 2:</FONT></B></TD><TD COLSPAN=4 WIDTH=133><CENTER><B><FONT SIZE=2>FANTASY</FONT></B></CENTER>
+</TD></TR>
+<TR><TD WIDTH=68></TD><TD WIDTH=33><CENTER><B><FONT SIZE=2>1930</FONT></B></CENTER>
+<P>
+<CENTER><B><FONT SIZE=2>1935</FONT></B></CENTER>
+</TD><TD WIDTH=33><CENTER><B><FONT SIZE=2>1935</FONT></B></CENTER>
+<P>
+<CENTER><B><FONT SIZE=2>1940</FONT></B></CENTER>
+</TD><TD WIDTH=33><CENTER><B><FONT SIZE=2>1940</FONT></B></CENTER>
+<P>
+<CENTER><B><FONT SIZE=2>1945</FONT></B></CENTER>
+</TD><TD WIDTH=33><CENTER><B><FONT SIZE=2>1945</FONT></B></CENTER>
+<P>
+<CENTER><B><FONT SIZE=2>1950</FONT></B></CENTER>
+</TD></TR>
+<TR><TD WIDTH=68><B><FONT SIZE=2>Sorted by</FONT></B></TD><TD WIDTH=33>
+</TD><TD WIDTH=33><CENTER><B><FONT SIZE=2>***</FONT></B></CENTER>
+</TD><TD WIDTH=33></TD><TD WIDTH=33></TD></TR>
+<TR><TD WIDTH=68><FONT SIZE=2>FANTASY </FONT></TD><TD WIDTH=33><CENTER><FONT SIZE=2>24</FONT></CENTER>
+</TD><TD WIDTH=33><CENTER><FONT SIZE=2>215</FONT></CENTER></TD>
+<TD WIDTH=33><CENTER><FONT SIZE=2>143</FONT></CENTER></TD><TD WIDTH=33><CENTER><FONT SIZE=2>72</FONT></CENTER>
+</TD></TR>
+<TR><TD WIDTH=68><FONT SIZE=2>STONE</FONT></TD><TD WIDTH=33><CENTER><FONT SIZE=2>5</FONT></CENTER>
+</TD><TD WIDTH=33><CENTER><FONT SIZE=2>41</FONT></CENTER></TD>
+<TD WIDTH=33><CENTER><FONT SIZE=2>22</FONT></CENTER></TD><TD WIDTH=33><CENTER><FONT SIZE=2>17</FONT></CENTER>
+</TD></TR>
+<TR><TD WIDTH=68><FONT SIZE=2>ZULU</FONT></TD><TD WIDTH=33><CENTER><FONT SIZE=2>0</FONT></CENTER>
+</TD><TD WIDTH=33><CENTER><FONT SIZE=2>25</FONT></CENTER></TD>
+<TD WIDTH=33><CENTER><FONT SIZE=2>4</FONT></CENTER></TD><TD WIDTH=33><CENTER><FONT SIZE=2>0</FONT></CENTER>
+</TD></TR>
+<TR><TD WIDTH=68><FONT SIZE=2>WROUGHT</FONT></TD><TD WIDTH=33><CENTER><FONT SIZE=2>1</FONT></CENTER>
+</TD><TD WIDTH=33><CENTER><FONT SIZE=2>24</FONT></CENTER></TD>
+<TD WIDTH=33><CENTER><FONT SIZE=2>10</FONT></CENTER></TD><TD WIDTH=33><CENTER><FONT SIZE=2>17</FONT></CENTER>
+</TD></TR>
+<TR><TD WIDTH=68><FONT SIZE=2>WROUGHT IRON</FONT></TD><TD WIDTH=33><CENTER><FONT SIZE=2>1</FONT></CENTER>
+</TD><TD WIDTH=33><CENTER><FONT SIZE=2>18</FONT></CENTER></TD>
+<TD WIDTH=33><CENTER><FONT SIZE=2>7</FONT></CENTER></TD><TD WIDTH=33><CENTER><FONT SIZE=2>15</FONT></CENTER>
+</TD></TR>
+<TR><TD WIDTH=68><FONT SIZE=2>CAST IRON</FONT></TD><TD WIDTH=33><CENTER><FONT SIZE=2>0</FONT></CENTER>
+</TD><TD WIDTH=33><CENTER><FONT SIZE=2>16</FONT></CENTER></TD>
+<TD WIDTH=33><CENTER><FONT SIZE=2>16</FONT></CENTER></TD><TD WIDTH=33><CENTER><FONT SIZE=2>13</FONT></CENTER>
+</TD></TR>
+<TR><TD WIDTH=68><FONT SIZE=2>&#133;</FONT></TD><TD WIDTH=33><CENTER><FONT SIZE=2>&#133;</FONT></CENTER>
+</TD><TD WIDTH=33><CENTER><FONT SIZE=2>&#133;</FONT></CENTER>
+</TD><TD WIDTH=33><CENTER><FONT SIZE=2>&#133;</FONT></CENTER>
+</TD><TD WIDTH=33><CENTER><FONT SIZE=2>&#133;</FONT></CENTER>
+</TD></TR>
+<TR><TD WIDTH=68></TD><TD WIDTH=33><CENTER><B><FONT SIZE=2>1930</FONT></B></CENTER>
+<P>
+<CENTER><B><FONT SIZE=2>1935</FONT></B></CENTER>
+</TD><TD WIDTH=33><CENTER><B><FONT SIZE=2>1935</FONT></B></CENTER>
+<P>
+<CENTER><B><FONT SIZE=2>1940</FONT></B></CENTER>
+</TD><TD WIDTH=33><CENTER><B><FONT SIZE=2>1940</FONT></B></CENTER>
+<P>
+<CENTER><B><FONT SIZE=2>1945</FONT></B></CENTER>
+</TD><TD WIDTH=33><CENTER><B><FONT SIZE=2>1945</FONT></B></CENTER>
+<P>
+<CENTER><B><FONT SIZE=2>1950</FONT></B></CENTER>
+</TD></TR>
+<TR><TD WIDTH=68><B><FONT SIZE=2>Sorted by</FONT></B></TD><TD WIDTH=33>
+</TD><TD WIDTH=33></TD><TD WIDTH=33><CENTER><B><FONT SIZE=2>***</FONT></B></CENTER>
+</TD><TD WIDTH=33></TD></TR>
+<TR><TD WIDTH=68><FONT SIZE=2>FANTASY </FONT></TD><TD WIDTH=33><CENTER><FONT SIZE=2>24</FONT></CENTER>
+</TD><TD WIDTH=33><CENTER><FONT SIZE=2>215</FONT></CENTER></TD>
+<TD WIDTH=33><CENTER><FONT SIZE=2>143</FONT></CENTER></TD><TD WIDTH=33><CENTER><FONT SIZE=2>72</FONT></CENTER>
+</TD></TR>
+<TR><TD WIDTH=68><FONT SIZE=2>STONE</FONT></TD><TD WIDTH=33><CENTER><FONT SIZE=2>5</FONT></CENTER>
+</TD><TD WIDTH=33><CENTER><FONT SIZE=2>41</FONT></CENTER></TD>
+<TD WIDTH=33><CENTER><FONT SIZE=2>22</FONT></CENTER></TD><TD WIDTH=33><CENTER><FONT SIZE=2>17</FONT></CENTER>
+</TD></TR>
+<TR><TD WIDTH=68><FONT SIZE=2>CAST IRON</FONT></TD><TD WIDTH=33><CENTER><FONT SIZE=2>0</FONT></CENTER>
+</TD><TD WIDTH=33><CENTER><FONT SIZE=2>16</FONT></CENTER></TD>
+<TD WIDTH=33><CENTER><FONT SIZE=2>16</FONT></CENTER></TD><TD WIDTH=33><CENTER><FONT SIZE=2>13</FONT></CENTER>
+</TD></TR>
+<TR><TD WIDTH=68><FONT SIZE=2>WROUGHT</FONT></TD><TD WIDTH=33><CENTER><FONT SIZE=2>1</FONT></CENTER>
+</TD><TD WIDTH=33><CENTER><FONT SIZE=2>24</FONT></CENTER></TD>
+<TD WIDTH=33><CENTER><FONT SIZE=2>10</FONT></CENTER></TD><TD WIDTH=33><CENTER><FONT SIZE=2>17</FONT></CENTER>
+</TD></TR>
+<TR><TD WIDTH=68><FONT SIZE=2>DESIGN</FONT></TD><TD WIDTH=33><CENTER><FONT SIZE=2>0</FONT></CENTER>
+</TD><TD WIDTH=33><CENTER><FONT SIZE=2>6</FONT></CENTER></TD>
+<TD WIDTH=33><CENTER><FONT SIZE=2>9</FONT></CENTER></TD><TD WIDTH=33><CENTER><FONT SIZE=2>6</FONT></CENTER>
+</TD></TR>
+<TR><TD WIDTH=68><FONT SIZE=2>TOMBS</FONT></TD><TD WIDTH=33><CENTER><FONT SIZE=2>0</FONT></CENTER>
+</TD><TD WIDTH=33><CENTER><FONT SIZE=2>4</FONT></CENTER></TD>
+<TD WIDTH=33><CENTER><FONT SIZE=2>9</FONT></CENTER></TD><TD WIDTH=33><CENTER><FONT SIZE=2>5</FONT></CENTER>
+</TD></TR>
+<TR><TD WIDTH=68><FONT SIZE=2>&#133;</FONT></TD><TD WIDTH=33><CENTER><FONT SIZE=2>&#133;</FONT></CENTER>
+</TD><TD WIDTH=33><CENTER><FONT SIZE=2>&#133;</FONT></CENTER>
+</TD><TD WIDTH=33><CENTER><FONT SIZE=2>&#133;</FONT></CENTER>
+</TD><TD WIDTH=33><CENTER><FONT SIZE=2>&#133;</FONT></CENTER>
+</TD></TR>
+<TR><TD WIDTH=68></TD><TD WIDTH=33><CENTER><B><FONT SIZE=2>1930</FONT></B></CENTER>
+<P>
+<CENTER><B><FONT SIZE=2>1935</FONT></B></CENTER>
+</TD><TD WIDTH=33><CENTER><B><FONT SIZE=2>1935</FONT></B></CENTER>
+<P>
+<CENTER><B><FONT SIZE=2>1940</FONT></B></CENTER>
+</TD><TD WIDTH=33><CENTER><B><FONT SIZE=2>1940</FONT></B></CENTER>
+<P>
+<CENTER><B><FONT SIZE=2>1945</FONT></B></CENTER>
+</TD><TD WIDTH=33><CENTER><B><FONT SIZE=2>1945</FONT></B></CENTER>
+<P>
+<CENTER><B><FONT SIZE=2>1950</FONT></B></CENTER>
+</TD></TR>
+<TR><TD WIDTH=68><B><FONT SIZE=2>Sorted by</FONT></B></TD><TD WIDTH=33>
+</TD><TD WIDTH=33></TD><TD WIDTH=33></TD><TD WIDTH=33><CENTER><B><FONT SIZE=2>***</FONT></B></CENTER>
+</TD></TR>
+<TR><TD WIDTH=68><FONT SIZE=2>FANTASY </FONT></TD><TD WIDTH=33><CENTER><FONT SIZE=2>24</FONT></CENTER>
+</TD><TD WIDTH=33><CENTER><FONT SIZE=2>215</FONT></CENTER></TD>
+<TD WIDTH=33><CENTER><FONT SIZE=2>143</FONT></CENTER></TD><TD WIDTH=33><CENTER><FONT SIZE=2>72</FONT></CENTER>
+</TD></TR>
+<TR><TD WIDTH=68><FONT SIZE=2>STONE</FONT></TD><TD WIDTH=33><CENTER><FONT SIZE=2>5</FONT></CENTER>
+</TD><TD WIDTH=33><CENTER><FONT SIZE=2>41</FONT></CENTER></TD>
+<TD WIDTH=33><CENTER><FONT SIZE=2>22</FONT></CENTER></TD><TD WIDTH=33><CENTER><FONT SIZE=2>17</FONT></CENTER>
+</TD></TR>
+<TR><TD WIDTH=68><FONT SIZE=2>WROUGHT</FONT></TD><TD WIDTH=33><CENTER><FONT SIZE=2>1</FONT></CENTER>
+</TD><TD WIDTH=33><CENTER><FONT SIZE=2>24</FONT></CENTER></TD>
+<TD WIDTH=33><CENTER><FONT SIZE=2>10</FONT></CENTER></TD><TD WIDTH=33><CENTER><FONT SIZE=2>17</FONT></CENTER>
+</TD></TR>
+<TR><TD WIDTH=68><FONT SIZE=2>WROUGHT IRON</FONT></TD><TD WIDTH=33><CENTER><FONT SIZE=2>1</FONT></CENTER>
+</TD><TD WIDTH=33><CENTER><FONT SIZE=2>18</FONT></CENTER></TD>
+<TD WIDTH=33><CENTER><FONT SIZE=2>7</FONT></CENTER></TD><TD WIDTH=33><CENTER><FONT SIZE=2>15</FONT></CENTER>
+</TD></TR>
+<TR><TD WIDTH=68><FONT SIZE=2>RAISED</FONT></TD><TD WIDTH=33><CENTER><FONT SIZE=2>6</FONT></CENTER>
+</TD><TD WIDTH=33><CENTER><FONT SIZE=2>7</FONT></CENTER></TD>
+<TD WIDTH=33><CENTER><FONT SIZE=2>2</FONT></CENTER></TD><TD WIDTH=33><CENTER><FONT SIZE=2>14</FONT></CENTER>
+</TD></TR>
+<TR><TD WIDTH=68><FONT SIZE=2>CAST IRON</FONT></TD><TD WIDTH=33><CENTER><FONT SIZE=2>0</FONT></CENTER>
+</TD><TD WIDTH=33><CENTER><FONT SIZE=2>16</FONT></CENTER></TD>
+<TD WIDTH=33><CENTER><FONT SIZE=2>16</FONT></CENTER></TD><TD WIDTH=33><CENTER><FONT SIZE=2>13</FONT></CENTER>
+</TD></TR>
+<TR><TD WIDTH=68><FONT SIZE=2>BRICK</FONT></TD><TD WIDTH=33><CENTER><FONT SIZE=2>0</FONT></CENTER>
+</TD><TD WIDTH=33><CENTER><FONT SIZE=2>4</FONT></CENTER></TD>
+<TD WIDTH=33><CENTER><FONT SIZE=2>7</FONT></CENTER></TD><TD WIDTH=33><CENTER><FONT SIZE=2>12</FONT></CENTER>
+</TD></TR>
+<TR><TD WIDTH=68><FONT SIZE=2>&#133;</FONT></TD><TD WIDTH=33><CENTER><FONT SIZE=2>&#133;</FONT></CENTER>
+</TD><TD WIDTH=33><CENTER><FONT SIZE=2>&#133;</FONT></CENTER>
+</TD><TD WIDTH=33><CENTER><FONT SIZE=2>&#133;</FONT></CENTER>
+</TD><TD WIDTH=33><CENTER><FONT SIZE=2>&#133;</FONT></CENTER>
+</TD></TR>
+<TR><TD WIDTH=68><I><FONT SIZE=2>Totals</FONT></I></TD><TD WIDTH=33><CENTER><FONT SIZE=2>205</FONT></CENTER>
+</TD><TD WIDTH=33><CENTER><FONT SIZE=2>1464</FONT></CENTER></TD>
+<TD WIDTH=33><CENTER><FONT SIZE=2>1261</FONT></CENTER></TD><TD WIDTH=33><CENTER><FONT SIZE=2>1155</FONT></CENTER>
+</TD></TR>
+</TABLE>
+<P>
+A second example is shown in Figure 3 which summarizes a Homer
+screen for FANTASTIC ARCHITECTURE. Notice first that <I>all</I>
+FANTASTIC ARCHITECTURE documents contain the terms AMERICAN and
+VICTORIAN. From this we can hypothesize that Laughlin was enthralled
+with american victorian architecture, and all his photographs
+on what he considered to be fantastic architecture were on this
+particular architectural style. Furthermore, three of the four
+next terms are of building materials. Thus, we may also hypothesize
+what materials were used for this architectural style. This second
+hypothesis comes both from the terms BRICK, CAST IRON, and WOOD,
+as well as the <I>absence</I> of such terms as STONE or PLASTER.
+Finally, we can see that Laughlin took no photos of FANTASTIC
+ARCHITECTURE before 1935, and, because there are only 7 before
+1940, we can infer that he probably did not start on this topic
+until the very late 1930s. 
+<P>
+Despite the fact that the document collection used contains no
+information about Laughlin himself, we were able to derive three
+important hypothesis about him. The veracity of these three hypotheses
+is supported by the following statement Laughlin makes of his
+architectural photographs: &quot;Among the objectives of this
+group were to show that the 1880s and 90s were probably the most
+important period architecturally in American cultural history
+([2], p. 155).&quot;
+<P>
+<TABLE BORDER=1>
+<TR><TD WIDTH=80><B><FONT SIZE=2>Figure 3</FONT></B></TD><TD COLSPAN=4 WIDTH=133><CENTER><B><FONT SIZE=2>fantastic architecture</FONT></B></CENTER>
+</TD></TR>
+<TR><TD WIDTH=80></TD><TD WIDTH=33><CENTER><B><FONT SIZE=2>1930</FONT></B></CENTER>
+<P>
+<CENTER><B><FONT SIZE=2>1935</FONT></B></CENTER>
+</TD><TD WIDTH=33><CENTER><B><FONT SIZE=2>1935</FONT></B></CENTER>
+<P>
+<CENTER><B><FONT SIZE=2>1940</FONT></B></CENTER>
+</TD><TD WIDTH=33><CENTER><B><FONT SIZE=2>1940</FONT></B></CENTER>
+<P>
+<CENTER><B><FONT SIZE=2>1945</FONT></B></CENTER>
+</TD><TD WIDTH=33><CENTER><B><FONT SIZE=2>1945</FONT></B></CENTER>
+<P>
+<CENTER><B><FONT SIZE=2>1950</FONT></B></CENTER>
+</TD></TR>
+<TR><TD WIDTH=80><B><FONT SIZE=2>Sorted by</FONT></B></TD><TD WIDTH=33>
+</TD><TD WIDTH=33><CENTER><B><FONT SIZE=2>***</FONT></B></CENTER>
+</TD><TD WIDTH=33></TD><TD WIDTH=33></TD></TR>
+<TR><TD WIDTH=80><FONT SIZE=2>fantastic architecture </FONT></TD>
+<TD WIDTH=33><CENTER><FONT SIZE=2>0</FONT></CENTER></TD><TD WIDTH=33><CENTER><FONT SIZE=2>7</FONT></CENTER>
+</TD><TD WIDTH=33><CENTER><FONT SIZE=2>62</FONT></CENTER></TD>
+<TD WIDTH=33><CENTER><FONT SIZE=2>47</FONT></CENTER></TD></TR>
+<TR><TD WIDTH=80><FONT SIZE=2>american</FONT></TD><TD WIDTH=33><CENTER><FONT SIZE=2>0</FONT></CENTER>
+</TD><TD WIDTH=33><CENTER><FONT SIZE=2>7</FONT></CENTER></TD>
+<TD WIDTH=33><CENTER><FONT SIZE=2>62</FONT></CENTER></TD><TD WIDTH=33><CENTER><FONT SIZE=2>47</FONT></CENTER>
+</TD></TR>
+<TR><TD WIDTH=80><FONT SIZE=2>victorian</FONT></TD><TD WIDTH=33><CENTER><FONT SIZE=2>0</FONT></CENTER>
+</TD><TD WIDTH=33><CENTER><FONT SIZE=2>7</FONT></CENTER></TD>
+<TD WIDTH=33><CENTER><FONT SIZE=2>62</FONT></CENTER></TD><TD WIDTH=33><CENTER><FONT SIZE=2>47</FONT></CENTER>
+</TD></TR>
+<TR><TD WIDTH=80><FONT SIZE=2>brick</FONT></TD><TD WIDTH=33><CENTER><FONT SIZE=2>0</FONT></CENTER>
+</TD><TD WIDTH=33><CENTER><FONT SIZE=2>0</FONT></CENTER></TD>
+<TD WIDTH=33><CENTER><FONT SIZE=2>21</FONT></CENTER></TD><TD WIDTH=33><CENTER><FONT SIZE=2>2</FONT></CENTER>
+</TD></TR>
+<TR><TD WIDTH=80><FONT SIZE=2>northsest</FONT></TD><TD WIDTH=33><CENTER><FONT SIZE=2>0</FONT></CENTER>
+</TD><TD WIDTH=33><CENTER><FONT SIZE=2>0</FONT></CENTER></TD>
+<TD WIDTH=33><CENTER><FONT SIZE=2>15</FONT></CENTER></TD><TD WIDTH=33><CENTER><FONT SIZE=2>3</FONT></CENTER>
+</TD></TR>
+<TR><TD WIDTH=80><FONT SIZE=2>cast iron</FONT></TD><TD WIDTH=33><CENTER><FONT SIZE=2>0</FONT></CENTER>
+</TD><TD WIDTH=33><CENTER><FONT SIZE=2>3</FONT></CENTER></TD>
+<TD WIDTH=33><CENTER><FONT SIZE=2>12</FONT></CENTER></TD><TD WIDTH=33><CENTER><FONT SIZE=2>0</FONT></CENTER>
+</TD></TR>
+<TR><TD WIDTH=80><FONT SIZE=2>wood</FONT></TD><TD WIDTH=33><CENTER><FONT SIZE=2>0</FONT></CENTER>
+</TD><TD WIDTH=33><CENTER><FONT SIZE=2>0</FONT></CENTER></TD>
+<TD WIDTH=33><CENTER><FONT SIZE=2>10</FONT></CENTER></TD><TD WIDTH=33><CENTER><FONT SIZE=2>0</FONT></CENTER>
+</TD></TR>
+<TR><TD WIDTH=80><FONT SIZE=2>&#133;</FONT></TD><TD WIDTH=33><CENTER><FONT SIZE=2>&#133;</FONT></CENTER>
+</TD><TD WIDTH=33><CENTER><FONT SIZE=2>&#133;</FONT></CENTER>
+</TD><TD WIDTH=33><CENTER><FONT SIZE=2>&#133;</FONT></CENTER>
+</TD><TD WIDTH=33><CENTER><FONT SIZE=2>&#133;</FONT></CENTER>
+</TD></TR>
+</TABLE>
+<P>
+<H2>DISCUSSION, FUTURE RESEARCH</H2>
+<P>
+Patterns provide a holistic view of the entire collection which
+can help users perform their information search because it provides
+a valuable context by which users can evaluate the terms and documents
+they find; because patterns may stimulate new cognitive connections;
+and, because interaction with patterns helps users discover their
+own information needs and more precisely specify a proper query
+to a traditional document retrieval system.
+<P>
+Anecdotal evidence such as the above are very compelling, but
+more rigorous evidence is needed. Two experments are currently
+under way. One experiment will apply Homer to MEDLINE in an attempt
+to recreate Swanon's discoveries. A second experiment will compare
+user evaluations of Homer with a more traditional IR system and
+with a system consisting of both Homer and the traditional IR
+system. Randomizing the users, the configurations, and several
+different information search tasks, we can statistically evaluate
+such factors as users' confidence in their results.
+<P>
+Homer was designed only as a proof-of-concept and is quite crude
+with only a simple tabular interface. Pattern discovery is a visually
+intensive cognitive process and should combine the statistical
+search for patterns with proper visual interfaces that help reveal
+those patterns. Therefore, future research will explore better
+designs using various information visualization techniques - e.g.,
+viewing filters [4] or table lens [7] - as front ends for a deliverable
+pattern discovery support system.<BR>
+<H2>REFERENCES</H2>
+<OL>
+<LI><A NAME="Conrecode94">Conrecode, M. The DCB algorithm and
+its potential for cultural research in museums and archives. </A><I>Spectra</I>,
+v22, 2 (1994):7-10.
+<LI>Da<A NAME="Davis90">vis, Keith F., ed., </A><I>Clarence John
+Laughlin: Visionary Photographer</I> (Kansas City, MO: Hallmark
+Cards, Inc., 1990).
+<LI><A NAME="Dworman95">Dworman, G. A pattern discovery support
+system for document collections. Working paper of The Operations
+and Information Management Department, The Wharton School (1995).</A>
+<LI><A NAME="KimbroughETAL94">Fishkin, K., and M.C. Stone. Enhanced
+dynamic queries via movable filters. In CHI'95 Proceedings (Denver,
+CO, May 1995):415-420.</A>
+<LI>Kimbrough, S. O. and J. R. Oliver. On relevance and two aspects
+of the corporate memory problem. In Prabuddha De and Carson Woo,
+eds., <I>Proceedings of the Fourth Annual Workshop on Information
+Technologies and Systems</I> (Vancouver: December, 1994):302-311.
+<LI><A NAME="Swanson1993">Patch, C. Tell me a story: A system
+for thematically querying a multi-media archive. </A><I>Spectra</I>,
+v22, 2 (1994):33-37.
+<LI><A NAME="Rao95">Rao, R. and S.K. Card. Exploring large tables
+with the table lens. In CHI'95 Conference Companion (Denver, CO,
+May 1995):403-404.</A>
+<LI>Swanson, D. R. Intervening in the life cycles of scientific
+knowledge. <I>Library Trends</I>, v41, 4 (1993):606-631.
+</OL>
+</BODY>
+</HTML>

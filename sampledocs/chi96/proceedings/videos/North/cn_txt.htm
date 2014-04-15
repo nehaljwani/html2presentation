@@ -1,0 +1,161 @@
+<HTML><HEAD>
+<TITLE>Browsing Anatomical Image Databases:  A Case Study of the Visible Human</TITLE>
+</HEAD>
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/videos.JPG" ALT="videos" HEIGHT=35 WIDTH=249><A HREF="../../videos.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<H1>Browsing Anatomical Image Databases:
+A Case Study of the Visible Human</H1>
+<P>
+<CENTER>
+<B><A href="http://www.cs.umd.edu/users/north">Chris North</A>, 
+<A href="http://www.cs.umd.edu/users/flip">Flip Korn</A></B><BR>
+<A href="http://www.cs.umd.edu/projects/hcil/">Human-Computer Interaction Laboratory</A> and <BR>
+<A href="http://www.cs.umd.edu/">Department of Computer Science</A><BR>
+University of Maryland, College Park, MD 20742 USA<BR>
++1-301-405-2725<BR>
+{north, flip}@cs.umd.edu
+</CENTER>
+<P>
+<HR>
+<H2>ABSTRACT</H2>
+This video demonstrates two user interface prototypes for browsing the 
+National Library of Medicine Visible Human
+dataset on the internet.  The first uses a graphical approach 
+and demonstrates a general interface for exploring 
+volumetric data.  The second uses a textual approach for 
+exploring hierarchical information containing inter-relationships.
+<P>
+<H2>Keywords</H2>
+User interface, information exploration, digital library, 
+medical imaging, volume visualization, hierarchical 
+information, network access
+<P>
+<H2>INTRODUCTION</H2>
+The U.S. National Library of Medicine (NLM), for its 
+<A href="http://www.nlm.nih.gov/extramural_research.dir/visible_human.html">
+Visible Human Project</A> [1], is in the process of creating a 
+large digital library of anatomical images of both a male 
+and female subject.  It contains MRI and CT scans as well 
+as cryosection images (digital color photos of axial cross-
+sections).  It is available via the internet to a large 
+community of users with varying backgrounds and expertise.  
+However, since the dataset is extremely large (15 Gigabytes 
+for the male) and could take weeks to download, 
+it is important for users to be able to retrieve only their 
+desired subset of images.  We propose two user interface 
+prototypes to assist users in browsing the dataset and 
+downloading desired images.
+<P>
+<H2>A GRAPHICAL APPROACH</H2>
+The first prototype [3] utilizes users' knowledge of the 
+location and visual appearance of anatomical structures 
+within the body.  It allows the user to browse a miniature 
+version of the Visible Human digital body in order to select 
+and retrieve images.  The direct manipulation interface 
+(Figure 1) presents the user with a coordinated pair of 
+orthogonal 2D cross-section views of the body.  The left 
+view-window displays a coronal section (a front-view 
+longitudinal cut of the body), which gives an overview of 
+the dataset.  The right view-window displays an axial 
+section (a cross-section perpendicular to the longitudinal 
+axis of the body), which acts as a preview of the higher 
+resolution cryosection images in the dataset.
+<P>
+A horizontal indicator on each view indicates the position, 
+on the body, of the cut shown in the other view. The user 
+can vertically drag each indicator to sweep the cut, shown 
+in the other view, through the body.  The views provide 
+smooth, rapid feedback (approximately 20 fps on a SUN 
+SparcStation 1+) reflecting the cross-section at the sliding 
+cut plane, resulting in a dynamic animated effect of motion 
+through the body [4].  This allows the user to easily explore 
+the contents of the entire dataset.  When the user locates an 
+axial section for which high resolution data is desired, the 
+system downloads the corresponding full-size cryosection 
+image from the NLM archive over the internet and displays 
+it in a detail view.
+<P>
+<CENTER>
+<IMG src="cn_fg1.gif" alt="[Screen Shot of Interface]" border=1><BR>
+<B>Figure 1:  The Graphical Prototype</B>
+</CENTER>
+<P>
+<H2>A TEXTUAL APPROACH</H2>
+The second prototype utilizes users' knowledge of medical 
+terminology of human anatomy.  Users can interact with 
+portions of the Medical Subject Headings (MeSH) Tree [2] 
+in order to select and retrieve Visible Human images.  
+MeSH, published by NLM, is a hierarchy of medical terms 
+pertaining to anatomy, histology, pathology, etc.  Dynamic 
+interaction with the MeSH reveals inter-relationships 
+between terms, such as spatial proximity of anatomical 
+structures within the body.
+<P>
+The browser (Figure 2) displays the MeSH tree on the left 
+side of  the screen as a table of contents that can be 
+dynamically expanded and contracted, level by level, via a 
+slider widget.  The children of any term can be viewed 
+separately in subtree windows which appear in the middle 
+of the screen.  A multi-selection widget filters these terms 
+by body region.  Inter-relationships can be visualized by 
+clicking on a term, causing related terms in other windows 
+to be highlighted.  Double-clicking on any term shows a 
+range of thumbnail images described by that term.  Clicking 
+on a thumbnail will retrieve the corresponding full-size 
+cryosection image from the Visible Human dataset.
+<P>
+<CENTER>
+<IMG src="cn_fg2.gif" alt="[Screen Shot of Interface]" border=1><BR>
+<B>Figure 2:  The Textual Prototype</B>
+</CENTER>
+<P>
+For future work, we believe that combining these graphical 
+and textual approaches would provide a rich comprehensive 
+browsing environment.
+<P>
+<H2>ACKNOWLEDGMENTS</H2>
+This research was supported by the National Library of 
+Medicine Fellowship Program.  Support was administered 
+by the Oak Ridge Institute for Science and Education.  We 
+greatly appreciate the guidance and encouragement received from 
+<A href="http://www.cs.umd.edu/projects/hcil/People/catherine.html">
+Catherine Plaisant</A> and 
+<A href="http://www.cs.umd.edu/users/ben/index.html">Ben Shneiderman</A>.
+<P>
+The prototype interface software for the graphical approach 
+is fully functional and freely available.  For information, see 
+<A href="http://www.cs.umd.edu/projects/hcil/Research/1995/vhe.html">
+http://www.cs.umd.edu/projects/hcil/Research/1995/vhe.html</A>
+or anonymous ftp.cs.umd.edu in /pub/hcil/Demos/VHP.
+<P>
+<H2>REFERENCES</H2>
+<OL>
+<LI>National Library of Medicine Long Range Plan: 
+Electronic Imaging.  <I>NIH Publication No. 90-2197</I>, US 
+Dept. of Health and Human Services (April 1990).
+<LI>National Library of Medicine, Bethesda, MD.  <I>MeSH -- 
+Tree Structures</I>, 1995.
+<LI>North, C., Shneiderman, B., Plaisant, C.  User 
+Controlled Overviews of an Image Library:  A Case 
+Study of the Visible Human.  <I>Proc. ACM Digital 
+Libraries '96 Conf</I>, ACM Press, 1996.
+<LI>Shneiderman, B.  Dynamic Queries for Visual 
+Information Seeking.  <I>IEEE Software</I>, Nov 1994, 70-77.
+</OL>
+<P>
+<CENTER><I>Copyright on this material is held by the author(s).</I></CENTER>
+<P>
+<HR>
+<ADDRESS>
+Browsing Anatomical Image Databases:  A Case Study of the Visible Human / 
+<A href="mailto:north@cs.umd.edu">north@cs.umd.edu</A>
+</ADDRESS>
+</BODY>

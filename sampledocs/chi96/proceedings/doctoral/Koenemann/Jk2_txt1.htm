@@ -1,0 +1,269 @@
+<!DOCTYPE HTML PUBLIC "-//W3O//DTD W3 HTML 2.0//EN">
+<!Converted with LaTeX2HTML 95.1 (Fri Jan 20 1995) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds >
+<HEAD>
+<TITLE>Supporting Interactive Information 
+Retrieval Through Relevance Feedback</TITLE>
+</HEAD>
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/doctoral.JPG" ALT="Doctoral" HEIGHT=35 WIDTH=249><A HREF="../../doctoral.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<CENTER>
+<H1>Supporting Interactive Information 
+Retrieval Through Relevance Feedback</H1>
+<P><STRONG>
+<b>J&#252;rgen Koenemann</b></STRONG><BR> 
+Center for Cognitive Science<BR> 
+Rutgers University<BR> 
+Frelinghuysen Rd.<BR> 
+Piscataway, NJ 08855 USA<BR> 
++1 908 445 6122<BR> 
+koeneman@ruccs.rutgers.edu
+<P>
+</CENTER>
+<P>
+<H2><A NAME=SECTION00010000000000000000> ABSTRACT</A></H2>
+<P>
+I investigated the interactive searching
+behavior of two groups of subjects using
+a novel best-match, ranked-output information
+retrieval (IR) engine to search a large, full-text document
+collection. The research focuses on the use of <em> relevance
+feedback</em>, a query reformulation tool. Ten searchers who had a
+background in IR were observed in the first study; 64 complete novices took
+part in a second experiment that
+systematically varied the user knowledge and user 
+control of the feedback mechanism. Behavioral and
+performance data suggest that user control over
+relevance feedback benefits retrieval performance and user satisfaction.
+<P>
+<H3>Keywords:</H3>
+<P>
+information retrieval, user
+interfaces, evaluation, empirical studies, relevance
+feedback
+<P>
+<H2><A NAME=SECTION00020000000000000000> INTRODUCTION</A></H2>
+<P>
+We are experiencing in our work and home environments a dramatic
+explosion  of information sources that become available to 
+an exponentially growing number of users. This has resulted in a shift in the
+profiles of users of online information systems: more
+ users with no or minimal training in information retrieval (IR) have
+gained access to tools that were once 
+the almost exclusive domain of librarians who served as
+intermediaries between end-users with their particular information
+needs  and the  information retrieval tools. 
+The difficulties faced by end-users with no training 
+or experience in the use of boolean, set-based systems have been well
+documented. Experimental studies have shown that
+best-match, ranked-output retrieval techniques are in general superior
+to exact-match systems in terms of recall and
+precision performance
+measures [<A HREF="#BelkinCroft87">1</A>].
+<P>
+One particularly interesting and promising  tool to support (or even
+replace) query reformulation in the context of these systems is <em>
+relevance feedback</em>. Relevance feedback modifies an existing query
+based on available relevance judgments for previously retrieved
+documents.  For example, the system may add key terms from documents
+that the user has  
+indicated as being relevant to the list of query terms, or the system
+may assign higher weights to terms in a user query that also appear in
+documents that have been marked ``relevant'' by the user. The goal of 
+relevance feedback is to retrieve  and rank highly those documents
+that are similar to the document(s) the user found to be relevant.
+It is quite clear that
+automatic relevance feedback
+significantly improves retrieval performance 
+in <em> fully automated</em> retrieval systems without user interaction, and 
+with many relevance judgments[<A HREF="#SaltonBuckley90">9</A>]. 
+Our concern is with determining how
+a relevance feedback component  impacts the information seeking
+behavior and effectiveness of searchers in an <em> interactive</em>
+environment, and therefore with relatively few relevance judgments.
+A few observational
+studies are concerned with relevance feedback
+[<A HREF="#Efthimiadis92">3</A>,<A HREF="#HancockWalker92">5</A>] but we are not
+aware of studies that have looked at the interactive use of relevance
+feedback in an experimental setting.
+<P>
+<H2><A NAME=SECTION00030000000000000000> THE EXPERIMENTS</A></H2>
+<P>
+My thesis research consists of two studies
+that analyze the searching 
+behavior and retrieval performance of two groups of users that were
+both novices with regard to the use of best-match, ranked-output
+retrieval systems that offer relevance feedback: the first study
+investigated the searching behavior and use of relevance feedback of
+ten users that were experienced in the use of traditional online
+retrieval systems, whereas the second experiment studied 64 complete
+novices. Both groups used the INQUERY retrieval engine
+[<A HREF="#CallanEtAl92">2</A>].
+<P>
+<H2><A NAME=SECTION00031000000000000000> Experiment 1</A></H2>
+<P>
+Experiment 1 was carried out as part of our participation in  the
+interactive track of the TREC-3 effort [<A HREF="#HARMAN95b">6</A>]. 
+Searchers were trained in the use of INQUERY for about 80 minutes 
+and performed five interactive searches (lasting 20 minutes
+each) on a 750,000 full-text document 
+collection. Their task was to use the current collection to 
+develop a final routing query that could
+be used to filter documents from an unknown collection. 
+Details of the experiment and general performance results 
+have been reported elsewhere [<A HREF="#KoenemannEtAl95">8</A>].
+<P>
+My thesis research focuses
+on triggers for the spontaneous use 
+of relevance feedback in the context of a structured query language,
+the influence of relevance feedback on the query construction process,
+and the impact of the use of relevance feedback on recall and
+precision. 
+An initial analysis revealed that
+use of relevance feedback varied widely between subjects and between
+topics, that relevance feedback was mostly used after  subjects 
+had tried first various manual reformulations, and that relevance feedback
+tended to improve performance in a given situation.
+<P>
+<H2><A NAME=SECTION00032000000000000000> Experiment 2</A></H2>
+<P>
+For my second experiment I developed and implemented four interfaces
+that only 
+differed in their relevance 
+feedback component.  One <b> baseline</b> group used no relevance
+feedback. Three 
+relevance feedback variations of this system were 
+developed to investigate (1) whether or not the level of
+understanding users have about the relevance feedback mechanism 
+impacts their behavior and retrieval performance and (2) whether or not
+additional control over the relevance feedback mechanism is
+beneficial. Users marked document ``relevant'' in all feedback versions. 
+Query expansion through relevance feedback was hidden in
+the <b> opaque</b> interface, the <b> transparent</b> relevance feedback 
+interface displayed terms that had been automatically added, and the
+<b> penetrable</b> relevance feedback interface presented users with
+the option to edit the list of feedback terms.
+<P>
+All subjects used the same retrieval engine (INQUERY),
+the same document collection (75,000 Wall 
+Street Journal articles) and the same search topics to
+perform two 20-minute search tasks, one on the baseline system and one
+on one of the feedback versions.
+Queries were restricted to an operator-free list of single terms or
+phrases.
+<P>
+Details of the experiment and first results are reported elsewhere 
+in this volume [<A HREF="#KoenemannBelkin96">7</A>]. An initial analysis
+indicates that:  end-users, after minimal training, were able to use
+the baseline system 
+reasonably effectively; availability and use of relevance
+feedback increased retrieval effectiveness; and 
+increased opportunity for user interaction with and control of
+relevance feedback made the interactions more efficient and 
+usable while maintaining or increasing effectiveness.
+<P>
+<H2><A NAME=SECTION00040000000000000000> RESEARCH STATUS AND FUTURE WORK</A></H2>
+<P>
+An initial analysis of the two experiments will be completed 
+by the time of the conference, to be followed by a detailed analysis
+of the behavioral data and additional performance evaluations.
+<P>
+My future interests are 
+(1) in the further investigation of
+tools for interactive query reformulation (e.g. relevance feedback,
+thesauri, semantic nets, document links), 
+(2) in the design and evaluationof interfaces to support WWW searching, 
+and (3) in the general issue of
+levels of knowledge and control in end-user interaction with
+(semi-)automated systems.
+<P>
+<H2><A NAME=SECTION00050000000000000000> ACKNOWLEDGEMENTS</A></H2>
+<P>
+This work is supported  by NIST Cooperative Agreement 70NANB5H0050.
+Special thanks to Nick Belkin for being a great advisor in any way
+imaginable  and to Jamie Callan, Bruce Croft, and Steve Harding of the
+University of 
+Massachusetts at Amherst for their support of our use of
+INQUERY.
+<P>
+<P><A NAME=SECTIONREF><H2>REFERENCES</H2></A><P>
+<DL COMPACT>
+<DT><A NAME=BelkinCroft87><STRONG>1</STRONG></A><DD>
+ Belkin, N. J., and Croft, W. B.
+ Retrieval techniques.
+ In <em> ARIST</em>, M. E. Williams, Ed. Elsevier, 1987, ch. 4,
+  pp. 109--145.
+<P>
+<DT><A NAME=CallanEtAl92><STRONG>2</STRONG></A><DD>
+ Callan, J. P., Croft, W. B., and Harding, S. M.
+ The inquery retrieval system.
+ In <em> DEXA 3: Proceedings of the Third International Conference on
+  Database and Expert Systems Applications</em> (Berlin, 1992), Springer Verlag,
+  pp. 83--87.
+<P>
+<DT><A NAME=Efthimiadis92><STRONG>3</STRONG></A><DD>
+ Efthimiadis, E.
+ <em> Interactive Query expansion and Relevance Feedback for document
+  Retrieval Systems</em>.
+ PhD thesis, City University, London, UK, 1992.
+<P>
+<DT><A NAME=FreiQiu93><STRONG>4</STRONG></A><DD>
+ Frei, H., and Qiu, Y.
+ Effectiveness of weighted searching in an operational ir environment.
+ In <em> Information Retrieval 93: von der Modellierung zur Anwendung;
+  Proc. der 1. Tagung Information Retrieval '93</em> (Konstanz, 1993),
+  Universit&#228;tsverlag Konstanz, pp. 41--54.
+<P>
+<DT><A NAME=HancockWalker92><STRONG>5</STRONG></A><DD>
+ Hancock-Beaulieu, M., and Walker, S.
+ An evaluation of automatic query expansion in an online library
+  catalogue.
+ <em> J. of Documentation 48</em>, 4 (1992), 406--421.
+<P>
+<DT><A NAME=HARMAN95b><STRONG>6</STRONG></A><DD>
+ Harman, D., Ed.
+ <em> Proceedings of the Third Text REtrieval Conference (TREC-3)</em>
+  (Washington, DC, 1995), Government Printing Office.
+<P>
+<DT><A NAME=KoenemannBelkin96><STRONG>7</STRONG></A><DD>
+ Koenemann, J., and Belkin, N. J.
+ A case for interaction: A study of interactive information retrieval
+  behavior and effectiveness.
+ In <em> Proceedings of the Human Factors in Computing Systems
+  Conference (CHI'96)</em>. ACM Press, New York, 1996.
+<P>
+<DT><A NAME=KoenemannEtAl95><STRONG>8</STRONG></A><DD>
+ Koenemann, J., Quatrain, R., Cool, C., and Belkin, N. J.
+ New tools and old habits: The interactive searching behavior of
+  expert online searchers using inquery.
+ In <em> TREC-3. Proc. of the Third Text REtrieval Conference</em>
+  (Washington, D.C., 1995), D. Harman, Ed., GPO, pp. 144--177.
+<P>
+<DT><A NAME=SaltonBuckley90><STRONG>9</STRONG></A><DD>
+ Salton, G., and Buckley, C.
+ Improving retrieval performance by relevance feedback.
+ <em> JASIS 41</em>, 4 (1990), 288--297.
+<P>
+<DT><A NAME=Turtle94><STRONG>10</STRONG></A><DD>
+ Turtle, H.
+ Natural language vs. boolean query evaluation: A comparison of
+  retrieval performance.
+ In <em> SIGIR'94. Proc. of the Seventeenth Annual ACM SIGIR
+  Conference on Research and Development in Information Retrieval</em> (London,
+  1994), Springer Verlag, pp. 212--220.
+</DL>
+<P>
+<HR>
+<ADDRESS>
+<I>Supporting Interactive Information Retrieval Through Relevance Feedback<BR>
+&#169 J&#252;rgen Koenemann 1996<BR>
+<A HREF="mailto:koeneman@ruccs.rutgers.edu"> koeneman@ruccs.rutgers.edu</A>
+</ADDRESS>
+</BODY>

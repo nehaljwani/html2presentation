@@ -1,0 +1,77 @@
+<HTML><HEAD>
+<TITLE>Formal Modelling of Task Interruptions</TITLE>
+</HEAD>
+
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/doctoral.JPG" ALT="Doctoral" HEIGHT=35 WIDTH=249><A HREF="../../doctoral.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<H1>Formal Modelling of Task Interruptions</H1>
+<CENTER>
+<I>Francis JAMBON</I><BR>
+CLIPS-IMAG<BR>
+University of Grenoble<BR>
+BP 53, F-38041 Grenoble cedex 9, France<BR>
+Tel: (+33) 76 63 59 70<BR>
+E-mail: Francis.Jambon@imag.fr<P>
+</CENTER>
+
+<H2>Abstract</H2>
+My doctoral research is concerned with the formal modelling of task interruptions. Although interruptions are significant events in human activities, current models and notations do not support their expression appropriately. My contribution to this problem is two-fold: the ISAU model which makes explicit the general structure of an interruption, and a UAN-based formal notation that would force designers to consider the right questions when developing a system. ISAU will be assessed using a real-world exemplar: the Data-Link system that supports communications between pilots from different aircraft&#185;s and air traffic controllers.
+<H3>Keywords</H3>
+Interruptions, interleaving, formal methods, UAN<P>
+
+<H2>Introduction</H2>
+Although task modelling has provided useful tools and methods for supporting the design and evaluation of interactive systems, task interruption has been widely neglected. As discussed in [7], interruptions are very frequent events: in a typical workspace, people are interrupted over 4 times each hour and the average duration of an interruption is about 2 minutes. Interruptions in the workspace are significant but not dangerous&#59; in safety critical applications, they may generate errors whose cost can be immense.<P>
+My doctoral research addresses the difficult but important problem of modelling task interruptions. The goal is twofold: 1) to define a model that makes explicit the important features of an interruption, and 2) to define a formal notation that supports the expression of interruptions as well as the detection of potential interactional difficulties early in the design process.<P>
+My approach to the problem is the following: 1) assess the most significant notations for task descriptions against a simple real world exemplar: the publiphone, the French Telecom public phone that uses embedded chip-cards for maintaining credit. The result of this analysis is presented in the first section. Based on this experience, 2) develop my own model and notation. The model and the principles of the formalism are presented next. I close the discussion with the perspectives for the last year of my doctoral research studies.<P>
+
+<H2>Assessing existing notations</H2>
+Notations developed for task modelling all stress the hierarchical nature of task decomposition. Very few support the expression of exceptional conditions, the interleaved execution of tasks, as well as the occurrence of interruptions. MAD [8] the Knowledge Blocks [3], and UAN [4] do however support some of these features.<P>
+Using the publiphone as the driving exemplar, MAD is unable to express the parallel activities of a user talking to someone while solving the interruption caused by a credit-card turning to empty. Although the Knowledge Blocks support exception handling (such as the card getting empty), it does not permit the expression of temporal constraints (a new card must be put in the slot rather quickly if one wants to carry on the current conversation). UAN supports the notion of interruption and temporal constraints but does not make explicit many aspects of interruptions such as where to resume an interrupted task. Other formal notations like LOTOS, or Petri Nets do not alleviate the problem.<P>
+Clearly, the inadequacies in current task notations come from the lack of a model that would provide the appropriate foundations for task interruptions.<P>
+
+<H2>Current contribution</H2>
+So far, I have defined a generic model for interruptions, the ISAU model, and have partly developed a notation based on the attractive features of UAN [5].<P>
+<H3>The ISAU Model</H3>
+As shown in Figure 1, an interruption task is comprised of three subtasks executed in sequence: two articulatory tasks (the prologue and the epilogue) and the interruption body.<P>
+
+<CENTER><IMG SRC="fj_fig1.gif" ALT="[ Prologue ] [ Interruption body ] [ Epilogue ]"><P>Figure 1: The sequential structure of an interruption.<P></CENTER>
+
+Basically, the prologue of an interruption is in charge of 1) taking (or ignoring) the signal of the interrupt, 2) selecting a task body among multiple alternatives, 3) while saving the current context of the activity (Figure 2). The epilogue is concerned with task resumption (e.g., which task to resume and where). The task body denotes the interruption handler per se.<P>
+An interruption may be produced by the user herself (e.g., autodetection of an error) or may come from another agent (e.g., a system component or a human partner as in computer mediated tasks). In ISAU, external interrupting tasks are modelled explicitly as the execution of two sequential subtasks: the decision task and the signal task. The signal task includes the selection of a particular media to convey the signal for attention followed by an optional vigilance task.<P>
+
+<CENTER><IMG SRC="fj_fig2.gif" ALT="[Prologue] : [Taking signal of interrupt / Selecting a task body / Save and change context of activity]"><P>Figure 2 : Prologue of an interruption. Vertical overlap of rectangles express temporal overlapping.<P></CENTER>
+
+<H3>Principles of the ISAU notation</H3>
+One driving principle in HCI is to put the system and the user on an equal footing of concerns. Unfortunately, most task notations and models do not support this requirement properly. UAN, which captures both user input and system feedback, provides a sound basis to our problem. UAN however, suffers from a lack of temporal operators for describing interruptions along the lines of the ISAU model. In its current form, the ISAU notation has extended UAN with four additional relations: interruption with interleaving, interruption with parallelism, interruption without task resumption, and interruption with resumption at a different point from the occurrence of the interruption.<P>
+
+<H2>Perspectives</H2>
+The expected date of the thesis defense is Fall 1996. In the next year, I plan the following activities: improve the readability of the notation, prove the completeness of the temporal operators (based on Allen&#185;s model of temporal intervals [1]), implement a test-bed system (i.e., a Data-link system) and assess my model and notations against this exemplar.<P>
+<H3>The Data-Link System</H3>
+Up to now, most communications between pilots and air traffic controllers are based on voice links. In the near future, the Data-Link will enable pilots and controllers to share more symbolic information [6]. A lot of studies have been conducted on the data-link problem, but to my knowledge, interruptions have not been the focus of attention. A first version of a Data-link system, called FANS1, is currently available for Boeing&#174; 747400 airliners [2]. But this system is intended for use on cruise only when workload is very low (i.e., when interruptions are not critical).<P>
+The Data-link prototype I will develop will implement a scenario using the script language Tcl/Tk. In this scenario, pilots and controllers will have to negotiate an arrival route, and will be interrupted by alarms coming from the Traffic Collision Avoidance System (T-CAS) or from the Ground Proximity Warning System (GPWS).<P>
+<H3>Assessing the model and the notation</H3>
+Formal methods can be used either as a specification tool for describing the user interface before it is developed, or as an analysis tool to assess properties of the system. Building a system from a formal description of the interface enables the designer to predict problems. On the other hand, writing a specification from a running software enables the evaluator to explain known problems. With the former method, one can prove that the notation makes the problems salient, and with the latter one can prove that the notation is complete or adequate for the problem at hand.<P>
+I will use the Data-Link system to assess both the predictive and explicative power of the ISAU notation: the system will be designed and evaluated predictively using the notation. The system will then be implemented and tested with real end-users. In the last step, it will be reverse-engineered and modelled using the notation.<P>
+
+<H2>Acknowledgements</H2>
+The author would like to acknowledge the French Department of Defense DGA/DRET for its financial support to the project.<P>
+
+<H2>References</H2>
+1.	Allen, J.F. Maintaning knowledge about temporal interval. Communications of the ACM. 26, 11 (November 1983), 832-843.<P>
+2.	Boeing. FAA Certifies Boeing FANS-1 Navigation System. The Boeing Company, HTML document <A HREF="http://www.boeing.com/news.release.950620.html">&#179;http://www.boeing.com/news.release.950620.html&#178;</A>, June 20, 1995.<P>
+3.	Boy, G. Intelligent assistant systems. Academic Press, 1991.<P>
+4.	Hartson, R.H. and Gray, P.D. Temporal aspects of tasks in the User Action Notation in Human Computer Interaction. Lawrence Erlbaum Associates, 1992. Vol. 7, pp. 1-45.<P>
+5.	Jambon, F. Interruptions et formalismes de scripts de t&acirc;ches, in Proc. Septi&egrave;mes journ&eacute;es sur l&#185;ing&eacute;nierie de l&#185;Interaction Homme-Machine (IHM&#185;95) (Toulouse, France, Octobre, 1995), pp. 161-168. <A HREF="ftp://ftp.imag.fr/imag/IIHM/publications/1995/IHM95_Interruptions.Fr.ps">IHM95_Interruptions.Fr.ps</A><P>
+6.	Jambon, F. and Coutaz, J. Contr&ocirc;le a&eacute;rien et liaisons de donn&eacute;es : Vers un plus grand partage de l&#185;information, in Proc. Cinqui&egrave;mes Journ&eacute;es sur l&#185;Ing&eacute;nierie des Interfaces Homme-Machine (IHM&#185;93) (Lyon, France, Octobre, 1993), pp. 109-114. <A HREF="ftp://ftp.imag.fr/imag/IIHM/publications/1993/IHM93_DataLink.Fr.ps">IHM93_DataLink.Fr.ps</A><P>
+7.	O&#185;Conaill, B. and Frohlich, D. Timespace in the workplace: Dealing with interruptions, in Proc. Human factors in computing systems (CHI&#185;95) (Denver (Colorado), USA, May 7-11, 1995), ACM Press, Conference companion, pp. 262-263. <A HREF="http://www.acm.org/sigchi/chi95/Electronic/documnts/shortppr/boc_bdy.htm">boc_bdy.htm</A><P>
+8.	Scapin, D.L. and Pierret-Golbreich, C. Towards a method for task description : MAD in Work wirh display units 89. Elsevier Science Publishers, North-Holland, 1990.<P>
+
+</BODY>

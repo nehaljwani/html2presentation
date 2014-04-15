@@ -1,0 +1,252 @@
+<HTML><HEAD>
+<TITLE>LifeLines: Visualizing Personal Histories</TITLE>
+</HEAD>
+
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/videos.JPG" ALT="videos" HEIGHT=35 WIDTH=249><A HREF="../../videos.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<CENTER>
+<H1>LifeLines: Visualizing Personal Histories</H1>
+
+<H3>
+<a href="http://www.cs.umd.edu/projects/hcil/People/brett.html">
+Brett Milash</a>, 
+
+<a href="http://www.cs.umd.edu/projects/hcil/People/catherine.html">
+Catherine Plaisant</a>,
+
+<a href="http://www.cs.umd.edu/projects/hcil/People/ann.html">
+Anne Rose</a>
+<BR>
+
+<a href="http://www.cs.umd.edu/projects/hcil/index.html">
+Human-Computer Interaction Laboratory</a><BR>
+</H3>
+
+<H4>University of Maryland<BR>
+
+A.V. Williams Bldg. College Park MD 20742<BR>
+
+<a href="http://www.cs.umd.edu/projects/hcil">
+http://www.cs.umd.edu/projects/hcil</a><BR>
+
+(301) 405-2768 - email: <a href="mailto:plaisant@cs.umd.edu">
+plaisant@cs.umd.edu</a></H4><BR>               
+
+
+
+</CENTER>
+
+<P>
+
+<B>ABSTRACT</B><P>
+In our project for the Maryland Department of Juvenile 
+Justice we are developing new techniques to visualize 
+youth records.  By showing multiple timelines with 
+selectable markers to retrieve detailed information, 
+overviews are always available even for complex records.  
+Data can be zoomed and filtered, and related events can 
+be highlighted.  We show how this technique can be used 
+to visualize medical patient records and other personal 
+histories. <P>
+
+<B>Keywords</B><P>
+Visualization, history, timeline, personal record, justice, 
+medical record, screen design, overview, screen 
+management.<P>
+
+<B>INTRODUCTION</B><P>
+Records of personal histories are needed in a variety of 
+applications. Members of the medical and legal 
+professions examine a record to garner information that 
+will allow them to make an informed decision regarding 
+their patient or case.  Decision making critically depends 
+on gleaning the complete story, spotting trends, noting 
+critical incidents or cause-effect relationships and 
+reviewing previous actions.  While more attention is now 
+put on developing standards for gathering and exchanging 
+personal records (especially in the medical field), we 
+found that virtually no effort had been made to design 
+visualization and navigation techniques to present and 
+explore personal history records.<P>
+
+Tufte [1] describes timelines as a frequent and powerful 
+form of graphic design.  A design using timelines for 
+medical records was proposed by Powsner and Tufte [2] 
+who developed a graphical summary using a table of 
+individual plots of test results and treatment data.  In 
+project management Gantt charts and PERT charts display 
+the duration and type of tasks in a project but the 
+overviews do not provide the richness needed for personal 
+histories, which are not carefully planned series of tasks, 
+but mosaics of information that contain a variety of events 
+and relationships. <P>
+
+<B>JUVENILE JUSTICE YOUTH RECORD</B><P>
+We worked with the Maryland Department of Juvenile 
+Justice (previously Department of Juvenile Services, a 
+named in the video) to design a youth record visualization. 
+DJJ is using an information system to process over 50,000 
+cases of delinquent youth behavior per year.  With the 
+current system cryptic codes are used to access screens 
+packed with lists of 
+cases, placements or reviews, and to browse complex 
+forms while searching for detail information in dozens of 
+screens.In response LifeLines was designed to 1) present a 
+visual youth record overview on a single screen, 2) 
+provide direct access to all detailed information from the 
+overview with one or two clicks of the mouse, and 3) 
+promote critical information or alerts to the overview 
+level.<P>
+
+<B>Description of the interface</B><P>
+The facets of the youth record were chosen to be the 
+cases, placements, case worker assignments and reviews 
+(<a href="cps_fg1.gif">Figure 1</a>).  
+Each facet is distinguished from the next by a 
+change of background color. The dates on the timeline 
+legend show that the youth Bart Simpson has been 
+involved with DJJ for about a year.  The first facet of the 
+record shows Bart's cases which are indicated by four 
+lines.  Bart was first referred to DJJ for "breaking and 
+entering" (B&E code). The case was handled informally 
+and then closed after 3 months.  He was referred again for 
+the same offense, also handled informally and then for a 
+more serious auto theft.  That time the case was handled 
+formally  (i.e. went to the States Attorney's Office - SAO) 
+and Bart was found guilty.  The right end of the timelines 
+area shows Bart's current status: we can see that there is 
+only one case open, an attempted murder case for which a 
+decision has not yet been made.  The placement facet 
+shows that Bart is currently at Waxter (a detention 
+center), in relation to the attempted murder case.  Last 
+year Bart was placed in a drug abuse program for a while 
+and later at Cheltenham (a residential treatment center) 
+when he was found guilty in the auto theft case. The 
+assignment lines show who has worked on Bart's cases.  
+Currently, Brown is assigned to Bart.  The last facet is the 
+set of reviews which are discrete events where the youth’s 
+needs or progress are assessed.  Clicking on a review icon 
+displays the review text in an overlapping window.  A 
+click on a worker's name gives that worker's contact 
+information.  Similarly details about cases or placement 
+are obtained by clicking on the lines or labels.<P>
+
+Interrelationships between periods or events on the lines 
+can be highlighted.  For example one cannot tell by 
+looking at the timelines if the drug abuse program was a 
+result of the auto theft case or the breaking and entering 
+case, but clicking on the drug abuse program highlights 
+the related case (i.e. in this instance the B&E case) and 
+the workers assigned.<P>
+
+Line thickness and color can be used to indicate the 
+severity of the offense and the depth of penetration in the 
+system.  At the top of the screen, a set of buttons provides 
+access to Bart's general contact information, aliases used, 
+education information, and medical status.  Critical 
+keywords from these screens always appear on the 
+overview (e. g.  suicide risk).<P>
+
+<B>KEEPING THE OVERVIEW</B><P>
+LifeLines always begins with an overview of the entire 
+record.  Unfortunately, some youth records include so 
+many cases that one page is not enough.  Screen size 
+limits the number of lines which can be displayed, and the 
+number of events and periods which can be identified on a 
+line.  When all the lines and labels cannot be shown in 
+one screen the lines are brought closer to each other and 
+the labels disappear.  In this silhouette, it is still possible 
+to see the number of cases and their severity, the type of 
+placements, and the number and date of the reviews.  
+Once the overview has been appreciated, zooming can be 
+used to expand a desired facet or a particular time period, 
+or focus on a given case.<P>
+
+<B>LIFELINES FOR MEDICAL RECORDS</B><P>
+Because our Visual Basic prototype reads a simple input 
+format it was easy to explore other data sets such as our 
+own personal resumes and sample medical records, which 
+lead to new designs and layouts [2].  For example a 
+medical record overview might show alerts, consultations, 
+letters, xrays, lab tests, etc. as icons, while medical 
+conditions, and treatments would be shown as lines with 
+color and size indicating severity or amounts. <P>
+
+<B>ISSUES</B><P>
+For designers, agreeing on an appropriate data encoding 
+scheme is difficult.  Icons, colors and thickness codes 
+have to be carefully chosen to avoid biases.  For 
+developers, labeling needs to be optimized and smooth 
+rescaling depends on efficient display algorithms.  A 
+complete implementation of the LifeLines will need some 
+data entry mechanism to append or correct existing 
+records.  Our previous experience shows that constructing 
+time lines by direct manipulation was an adequate 
+solution in scheduling home automation devices [1].<P>
+
+As a general visualization environment, LifeLines is not 
+computationally demanding, requires only high level data 
+descriptions, and can handle a variety of records.  These 
+characteristics suggest that LifeLines could be used as a 
+personal record format and rapidly exchanged or 
+synchronized between multiple services.<P>
+
+<B>CONCLUSION</B><P>
+LifeLines can: 1) reduce the chances of missing 
+information, 2) facilitate the spotting of anomalies and 
+trends (intervals are easier to estimate on a timeline than 
+in a table of dates), 3) streamline the access to details as 
+LifeLines act as large menus, and 4) remain simple and 
+tailorable to various applications. <P>
+
+<B>ACKNOWLEDGMENTS</B><P>
+This work was supported in part by the Maryland 
+Department of Juvenile Justice and by the NSF grant NSF 
+EEC 94-02384.  <P>
+
+<HR>
+<P>
+
+<B>REFERENCES</B><P><OL>
+
+<LI> Tufte, E.R., The Visual Display of Quantitative 
+Information. Graphics Press, Cheshire, Connecticut, 1983.<P>
+
+<LI> Powsner, S.M., Tufte, E.R., Graphical summary of 
+patient status. The Lancet, 344:8919 (August 6, 1994), 
+386-389.<P>
+
+<LI> Plaisant, C., Milash, B., Rose, A., Widoff, S., 
+Shneiderman, B., LifeLines: Visualizing Personal 
+Histories, in Proc. of CHI 96, ACM, New York.<P>
+
+<LI> Plaisant, C., Shneiderman, B., Scheduling home control 
+devices: design issues and usability evaluation of four 
+touchscreen interfaces. Int. J Man-Machine Studies, 36 
+(1992), 375-393.<P>
+
+</OL>
+
+
+
+                                                	 
+<P>
+<HR>
+<P>
+
+<I>&copyCopyright on this material is held by the authors</I>
+
+<ADDRESS>
+<a href="mailto:plaisant@cs.umd.edu">plaisant@cs.umd.edu</a>
+</ADDRESS>
+              
+
+</BODY>

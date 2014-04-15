@@ -1,0 +1,162 @@
+<!doctype html system "html.dtd">
+<html>
+<head>
+<a name="top">
+<title>
+Long-Term Interaction: Learning the 4 Rs
+</title>
+</head>
+<body>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/shortpap.JPG" ALT="shortpap" HEIGHT=35 WIDTH=249><A HREF="../../shortpap.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<center>
+<h1>
+Long-Term Interaction: Learning the 4 Rs
+</h1>
+<p><a href="http://www.hud.ac.uk/schools/comp+maths/private/alan/alandix.html"><B>Alan Dix</B></a>,
+Devina Ramduny,  Julie Wilkinson</p>
+<p> 
+<a href="http://www.hud.ac.uk/schools/comp+maths/centres/hci/HCIcentre.html"><IMG SRC="http://www.hud.ac.uk/schools/comp+maths/private/alan/hci/logo-tiny.gif" alt="hci@hud"></a>
+The <a href="http://www.hud.ac.uk/schools/comp+maths/centres/hci/HCIcentre.html">HCI Research Centre</a>
+<br>
+<i>The University of Huddersfield,  Canalside, Huddersfield, HD1 3DH, UK.
+</i></br> 
+<b>email:</b> <a href="mailto:alan@zeus.hud.ac.uk">alan@zeus.hud.ac.uk</a>
+</p>
+</center>
+<p>
+<hr>
+
+
+
+<h2>Abstract</h2>
+
+<p>
+In long-term interaction (over minutes, hours, or days) the tight cycle of action and feedback is broken.  People have to remember that they have to do things, that other people should do things and why things happen when they do.  This paper describes some results of a study into long-term processes associated with the running of the HCI'95 conference.  The focus is on the events which trigger the occurrence of activities.  However, during the study we also discovered a recurrent pattern of activities and triggers we have called the 4Rs.  For a longer report see <a href="http://www.hud.ac.uk/schools/comp+maths/research/reports/RR9509.html">[2]</a>.
+
+<h2>Keywords</h2>
+
+<p>
+Interruptions, reminders, events, workflow
+
+<h2>Long-term interaction</h2>
+
+<p>
+Interaction is often seen as a form of cycle where a user has an intention, performs an action, observes and evaluates the effect of the actions and then modifies future plans and actions based on the results [3].  However, this model only really applies when the feedback from one's actions is effectively instantaneous.  In particular, the user is assumed to wait until the effects of an action are observed and is also assumed to be able to remember why an action was performed when interpreting the effects.
+<p>
+In many situations, these assumptions do not hold and the feedback from an action may occur minutes, hours or days later.  This is the norm in many cooperative situations where messages are sent by post or email and in the control of industrial processes.  However, even single-user computer systems may operate in this mode due to long network or computational delays.
+<p>
+In previous work, we have investigated the problems which arise when the interaction cycle is broken [1].  Two principle issues arise: (i) how do you recall the context when you eventually receive the feedback and (ii) how do you remember that some feedback should occur (and so react if it doesn't).  The second of these is closely related to a third problem of long-term interaction (iii) how do you remember that <em>you</em> have to do something (prospective memory [4]).  We observed that users adopt various coping strategies to deal with these problems, and based on these were able to suggest potential design heuristics.
+
+<h2>Case study</h2>
+
+<p>
+Our existing work was based partly on theoretical analysis, and partly on personal and reported observations.  However, we decided that we needed further empirical input in order to check the completeness of our existing analysis and uncover any additional issues for future study.  The <a href="http://www.hud.ac.uk/events/hci95/hci95.html">HCI'95</a> conference was being held in Huddersfield in August 1995 and was being administered locally.  We decided that this was an ideal focus for a detailed investigation of long-term office procedures.  Ann (the conference administrator) performed many duties in addition to those for the conference.  This meant that direct observation would have been inappropriate and instead we relied on focused interviews for the study.
+
+<h2>Focus</h2>
+
+<p>
+Part of the data we collected was on <em>what</em> was done.  In traditional workflow fashion, we catalogued the various activities performed by Ann and others and the dependencies between the activities.  However, this was only intended as the superstructure of the analysis, not the focus.  Instead, our focus was on <em>when</em> activities were performed and <em>whether</em> they happened at all.  The dependency tells you that one activity cannot happen before another has completed, but not how long the gap between will be.  So, for each activity we asked what event <em>triggered</em> the activity to occur.  It is this strong analytic focus which allows us to obtain reliable results from interviews.  This is important as, although we would normally expect some additional direct observation, practical design must rely principally on more directed and less intrusive techniques.
+
+<h2>Triggers</h2>
+
+<p>
+Based principally on previous theoretical analysis and refined by the results of our case study we have classified the kinds of triggers which occur.
+<dl>
+<dt>  These include:
+   <dd>  (a) when one activity <em>directly follows</em> another,
+   <dd>  (b) <em>spontaneous recall</em> that something needs to be done,
+   <dd>  (c) <em>timed events</em> such as things done every morning, according to a diary etc.,
+   <dd>  (d) <em>external events</em> such as messages from other people or from computer systems,
+   <dd>  (e) <em>environmental cues</em> such as piles of paper on a desk.
+</dl>
+<p>
+The first two of these classes (a)&amp;(b) are insecure being liable to interruptions and poor memory respectively.  In each case we look for a secondary or back-up trigger, or where this is absent look at the process as a whole and assess the consequences if the activity fails to trigger at all.  Other triggers also lead to follow-on questions.  For example, if an event is triggered because it is in a diary, what makes you look in the diary?
+
+<h2>Environmental cues</h2>
+
+<p>
+We fully expected and found in our study that environmental cues were one of the principal and most robust triggering mechanisms.  Several ethnographic studies have noted the importance of the ecology of the workplace, including whiteboards, calendars, individual papers and piles on desks [5].  We are focusing on a particular role of these cues, namely their ability to remind and trigger future actions.  This is particularly important if there are plans to automate parts of an office procedure.  Understanding <em>why</em> paper is important can allow us to see whether automation will break the existing work system and if so whether alternative cues can be provided.
+
+<h2>An example</h2>
+
+<p>
+As an example let's look at a simplified part of the procedure when a paper arrived at the HCI'95 office (<a href="#fig1">figure 1</a>).  The sub-process starts when the author sends the paper, Ann receives it through the post and then records the details of the paper in a database before filing the paper (ready for subsequent review).  For each activity we look at the triggering event.
+<ol>
+
+<li>  This is simply when the packet containing the paper arrives.  We could investigate the postal system in detail, but normally we would stop here, recording our expectations about its reliability and timeliness.
+<li>  Ann did not immediately enter the paper's details.  Instead, when a small pile had accumulated she entered them together.  The trigger is the pile of papers on her desk, an environmental cue.
+<li>  As soon as the details were recorded, the papers were filed.  However, as we have noted this is liable to interruptions and so we looked for a secondary trigger.  In this case, the unfiled papers are still sitting on the desk.
+</ol>
+Unfortunately, this leads to a further problem.  Two activities have the same trigger.  Potentially, either the recording will be repeated after an interruption or may be omitted entirely (if Ann mistakenly thought an interruption had previously occurred).  Happily, Ann's memory was good enough and these problems did not arise in <em>this</em> case.
+<p>
+<hr>
+<a name="fig1">
+<center>
+<img src="dix_fg1.gif">
+<br>
+Figure 1.  The 4Rs
+</center>
+<hr>
+
+<h2>The 4Rs</h2>
+
+<p>
+As noted, our initial focus was on the individual triggers more than the processes themselves and so, it was only when presenting early findings that we noticed a pattern emerging.  The papers process in <a href="#fig1">figure 1</a> is very similar to the process that one of the authors follows when dealing with email.  When the mail arrives, he reads it (or at least notes its arrival), but does not deal with it immediately - it stay in his 'in-tray' until he has replied or otherwise dealt with it, only at that stage does he file it in a folder or discard it.  If interrupted after replying, the original message is still in the in-tray (secondary trigger).  Recently, whilst in the middle of replying to a message, the machine crashed (interruption).  When some time later he again read his email, he mistakenly (and unconsciously!) took the continued presence of the email in the in-tray as signifying an interruption before filing (secondary trigger) and hence filed the message without replying.
+
+<p>
+We can see in this a general structure:  <em>request</em> - someone sends a message (or implicitly passes an object) requiring your action, <em>receipt</em> - you receive it, <em>response</em> - you perform some necessary action, and <em>release</em> - you file or dispose of the things used during the process.  Furthermore, the triggers are also similar.  The response activity is typically triggered by the presence of a document or other object, the release removes that cue, but also relies on its existence as a secondary trigger.  The problems with the author's email will occur elsewhere!
+This pattern has various refinements, for example, when a note is made of a verbal request.  However, it appears to be a pervasive, generic pattern, at a lower level than those identified in speech-act theory [6], and perhaps being the long-term interaction equivalent of adjacency pairs found in conversational analysis.
+
+<h2>Towards design</h2>
+
+<p>
+The analysis we have used was targeted at increasing our theoretical understanding, but we also believe it has direct design implications.  It determines whether a process is robust to interruptions, forgetfulness, etc. and if not, identify why not and where the problems arise.  As we have noted these problems are particularly likely when a functioning paper-based system is automated - the analysis can target potential problem spots before they occur.  Finally, the existence of generic patterns makes it easier to uncover problem situations quickly and to take solutions found in one situation and adapt them to another.
+
+
+<h2>References</h2>
+
+<ol>
+<li>  A. Dix (1994).
+<b>Que sera sera - The problem of the future perfect in open and cooperative systems.
+</b>
+<i>Proceedings of HCI'94: People and Computers IX,</i>
+Glasgow, Cambridge University Press.
+
+<li>  A. Dix, D. Ramduny and J. Wilkinson (1995). 
+<b><a href="http://www.hud.ac.uk/schools/comp+maths/research/reports/RR9509.html">
+Interruptions Deadlines and Reminders: Investigations into the Flow of Cooperative Work.</a>
+</b>
+ RR9509, University of Huddersfield.
+
+<li>  D. A. Norman (1988). <b>The Psychology of Everyday Things.</b>  Basic Books.
+
+<li>  S. J. Payne (1993). 
+<b>Understanding Calendar Use.</b>
+<i>Human-Computer Interaction.</i>
+<b>8</b>(2): 83-100.
+
+<li>  M. Rouncefield, J. A. Hughes, T. Rodden and S. Viller (1994). 
+<b>Working with &quot;Constant Interruption&quot; CSCW and the Small Office.</b>
+<i>Proceedings of CSCW'94,</i>
+Chapel Hill, North Carolina, ACM Press.
+
+<li>  T. Winograd and F. Flores (1986). 
+<b>Understanding computers and cognition : a new foundation for design.</b>
+New York, Addison-Wesley Publishing Company, Inc.
+
+</ol>
+<hr><!-- -------------------------------------------------------- -->
+<address>
+<a href="mailto:alan@zeus.hud.ac.uk">Alan Dix</a>
+</address>
+<hr><!-- -------------------------------------------------------- -->
+</body>
+

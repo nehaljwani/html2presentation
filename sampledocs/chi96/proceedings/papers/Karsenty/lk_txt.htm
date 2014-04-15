@@ -1,0 +1,606 @@
+<html><head><!-- This document was created from RTF source by rtftohtml version
+2.7.5 --><title>An Empirical
+Evaluation of Design Rationale Documents</title></head>
+<body>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<P><IMG SRC="./../../graphics/papers.JPG" ALT="papers" HEIGHT=35 WIDTH=249><A HREF="./../../papers.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<CENTER>
+<h1><b>An Empirical
+Evaluation of Design Rationale Documents</b><p>
+<b></b></h1><p>
+<b>Laurent Karsenty</b><i></i><p>
+<i></i>ARAMIIHS<p>
+31 rue des Cosmonautes, Z.I. du Palays<p>
+F-31077 Toulouse, FRANCE<p>
++33 62 24 75 55<p>
+karsenty@jazz.matra-espace.fr<p>
+<p>
+</CENTER>
+
+<h3>
+<a name="RTFToC2">Abstract</a></h3>
+While several studies propose methods and notations for "capturing" design
+rationale (DR), there is to date little data available on how useful this
+information is when a designer needs to reuse a previous design. This paper
+presents the results of an empirical evaluation of DR documents, carried out
+with six experienced professional designers who were asked to understand and to
+assess a past design. These designers were provided with documents that
+described the solution and documents describing the DR. These DR documents were
+constructed using the QOC method. To determine the usefulness of DR documents,
+we attempt to answer the three following questions: (1) Do designers confronted
+with an unknown design need to know the design rationales? (2) How designers
+use design rationale documents? (3) Do we succeed in capturing the rationales
+looked for by designers? The results provided by this study lead us to conclude
+that DR should be useful, at least for some designers who use it as a support
+to their reasoning, but not sufficient. Indeed, this study exhibits some
+limitations of the traditional approaches for recording DR. We discuss these
+limitations and some solutions needed to go beyond them.
+<h3>
+<a name="RTFToC2">Keywords</a></h3>
+Design Rationale, Design methodology, Reuse<p><p>
+
+<h2>
+<a name="RTFToC3">1.
+Introduction
+</a></h2>
+Recent studies have used methods, notations and tools for recording,
+representing and accessing design rationale [5, 2]. It is argued that design
+rationale (DR) is necessary for reusing past designs, coordinating people
+involved in a long project [6], promoting critical reflection during design
+[7], facilitating maintenance and the use of the artifact [3]. A commonly
+advocated framework for recording and representing design rationale is argument
+structure (e.g., gIBIS [6], DRL [11], QOC [12], DRCS [10]). This framework
+proposes to represent DR with a semi-structured approach, implying different
+nodes: <i>questions</i> or <i>issues</i>, <i>options</i> related to these
+issues, <i>arguments</i> or <i>criteria</i> involved in the assessment of these
+options, and <i>justifications</i>. <p>
+While this framework is claimed to be appropriate for the capture and
+subsequent use of DR, there is little empirical data on how useful DR documents
+constructed using this framework really are (but see [13] for a review related
+to this issue). By DR documents, we mean paper documents or electronic
+documents containing a semi-formal description of the DR. This paper presents a
+first experiment aimed at evaluating the usefulness of such documents.<p>
+The first requirement of this evaluation was to record the DR of a design
+project. This has been possible with the collaboration of a French aerospace
+company, Aerospatiale. We recorded the DR of a real industrial project
+conducted in a design office of this company. This design office specialises in
+mechanical engineering design. The goal of the design project was to evolve one
+of their products to meet new requirements (redesign). We examined the first
+phase of this project, which lasted for nine months. This study received the
+project manager's support, because he was convinced that a DR document could be
+a helpful information tool for those in charge of the next phases of the
+project.<p>
+To record the DR of this project, we used the QOC formalism [12]. Two reasons
+explain this choice: (1) to carry out a first experiment in an industrial
+setting, we needed a fairly simple method; IBIS (see [6]) and QOC meet this
+requirement; (2) one of the main differences between IBIS and QOC is that it is
+necessary to make <i>design criteria</i> explicit with QOC, while they may
+remain hidden in the <i>arguments</i> defending the <i>positions</i> with IBIS.
+The ability to be directly informed about the design criteria was judged by the
+project manager to be an indispensable requirement. Indeed, this makes it
+possible to immediately know the project objectives, and thus, to better assess
+the solution.<p>
+The record of the DR was ensured by two scribes, a company documentation
+specialist and the author. This was a condition required by the design office
+chief, who did not believe that the designers would take the time to document
+the DR themselves. Both scribes played a purely passive role in the design
+process. The DR record was based on the analysis of 4 audiotaped design
+meetings, bringing together mechanical engineers and technicians. Each design
+meeting lasted two hours.<p>
+The DR document was structured by reporting the new facts discussed at each new
+design meeting. After each formalization of a meeting using QOC, we asked the
+project team to review the new version of the DR document. The final document
+contains 31 questions, 46 options, 25 criteria, and 12 justifications of the
+option assessments.<p>
+This document was paper-based. Indeed, the company where the study was carried
+out preferred to first test the DR capturing method without any computer
+support, before investing in such a tool. One consequence of this choice is
+that the evaluation performed and presented in this paper does not cope with
+some aspects affecting the usefulness of DR documents. In particular, we do not
+evaluate how easy the access to the DR is, because this feature is completely
+dependant on the provided means for access.<p>
+Because the document was paper-based, we tried to respect the following rules
+intended to make it easier to read : (i) one problem per page; (ii) a recall of
+the origin of each question with a title at the top of each page, (iii) a
+graphic symbol for each type of node (questions were encircled, chosen options
+in a square frame, etc.), (iv) each node numbered to provide annexes with
+complete lists of each type of node (list of questions, list of criteria,
+etc.), with the number of each node and its wording.<p>
+In order to explore how useful DR documents are, three questions were
+addressed: (1) Do designers confronted with an unknown design need to know the
+design rationales? Depending on this answer, we will be able to say at least if
+DR documents should be useful; (2) Do designers use design rationale documents?
+Indeed, no matter what the designers' need for DR is, if they do not use DR
+documents, this would highlight serious limitations of our approach; (3) Do we
+succeed in capturing the rationales looked for by designers? Here too, if
+designers need DR, but if they do not find the facts that they are looking for
+in the DR documents, we will need to revise our approach. This paper presents
+the results of different analyses related to these three issues. We will
+finally conclude by recalling the lessons learned by this study.<p>
+The experiment presented in this paper was carried out in the field of
+mechanical engineering design. However, we believe that the lessons learned by
+this study should be valuable for other fields of design, because our
+conclusions are more concerned with the approach for capturing DR than with the
+application domain.<p><p>
+
+<h2>
+<a name="RTFToC4">2.
+Method
+</a></h2>
+In order to evaluate the usefulness of DR documents (for convenience, we will
+use "DR" to refer to "DR document"), we asked six experienced, professional
+designers (three engineers and three technicians), all external to the project
+that we examined, to understand and to assess the solution proposed by the
+project team. These tasks were chosen because they are considered by the
+designers themselves as the most important when they need to work on the
+results of a previous study.<p>
+During an evaluation meeting, a designer was provided with two kinds of
+information: (i) information describing the solution, and consisting mostly of
+blueprints; (ii) information describing the reasons for design decisions, and
+reported in a paper-document.<p>
+Designers were free to use blueprints and DR as they chose: this means that we
+did not force them to use the DR. This was necessary because we were interested
+in knowing how they would spontaneously use it. In addition, the documentation
+specialist and I were present to help find the information looked for by
+designers, or to answer their questions. Actually, our initial intention was to
+let the designers finding themselves their answers in the DR. However, because
+some of them systematically asked questions to us, we decided to give the
+appropriate answers, and thus, not to jam the natural process. One consequence
+of this decision is that we will not be able to draw conclusions about the
+usability of DR documents (but see [13], which reports some empirical data on
+usability of DR).<p>
+Each evaluation meeting proceeded as follows: we described the tasks assigned
+to the designer, and presented the documents available. Because the DR was a
+new type of document, we described its properties and how it should be
+interpreted. Then the designer began his/her tasks, without time constraints.
+At the end, we asked a few questions on his/her opinions concerning the
+usefulness of the DR. These evaluation meetings lasted about one hour each, and
+were all taped.<p><p>
+
+<h2>
+<a name="RTFToC5">3.
+Do designers confronted with an unknown design need to know the design rationale?
+</a></h2>
+In order to measure the importance of knowing the design rationales, we examine
+the <i>questions</i> raised by the designers confronted with a design solution
+during the evaluation meetings.<p>
+One hundred and thirty eight questions were extracted from the 6 evaluation
+meetings. These questions were coded according to the following categories:<p>
+1. <i>Blueprints questions</i>: they aim at clarifying the objects represented
+(e.g., pointing at a blueprint "what is this element?"); this category also
+includes requests for other blueprints.<p>
+2. <i>Structure questions: </i>they concern the material used, the forms and
+the size of the objects composing the whole artifact, and the properties of the
+interfaces between these objects (e.g., "how is the plate that carries the
+equipment fixed?")<p>
+3. <i>Behavior questions:</i> they focus on the way the artifact carries out
+its functions (e.g., "What are the moves allowed by this arm?")<p>
+4. <i>Design rationale questions: </i>they ask about the initial motivations of
+the project, the reasons for the design decisions, the different possible
+choices and the comparison between these different choices (e.g., "Why 6 fuel
+tanks, and not just 4 bigger ones?").<p>
+5. <i>History questions</i>: typically, they include questions about what has
+changed between the previous design and the new one, mostly concentrating on
+the structural aspect of the artifact ("Did you change the way the plate is
+fixed?")<p>
+6. <i>Document questions</i>: they aim at clarifying the terms used in the DR
+documents, and to better understand the way these documents were constructed
+(e.g., "How did you decide to link one criteria to one option?").<p>
+Figure 1 gives the percentages of occurrence that we found for each category of
+questions.<p>
+<p>
+<IMG SRC="lk_fig1.gif"><p>
+<b>Figure 1</b>. <i>Percentage of questions during evaluation meetings</i><p>
+<i></i><p>
+This diagram shows that <i>DR questions are by far the most frequent</i>. In
+addition, this result remains true whatever the designers' competence is (63%
+of DR questions for engineers; 49% for technicians).<p>
+
+<h3>
+<a name="RTFToC6">Discussion
+</a></h3>
+These results clearly establish that designers need to know the design
+rationale to understand and assess an unknown design.<p>
+However, one must note that these results contradict Herbsled and Kuwana's
+observations [8]: their analysis of questions in design meetings stated that
+design rationale questions (referred to as <i>why</i> questions) were rare.
+They then proposed different possible explanations of this result, among which:
+"the rationale behind decisions is simply relatively unimportant" (p.13). If
+this is true, how can we explain the high frequency of DR questions in our
+study ?<p>
+The discrepancy between our respective results might be due to the fact that
+<i>question asking is a situated, context-dependent activity</i>. In other
+words, questions observed in a specific situation, namely design meetings,
+cannot be considered as representative of questions asked in another situation,
+namely reuse situations. And indeed, there are two major differences between
+both situations:<p>
+1. Some previous studies [9] highlight the fact that explanations are most of
+the time given <i>spontaneously</i> in design dialogues, and not in response to
+a question. More precisely, in analyzing database design dialogues, it was
+found that 83% of the explanations were volunteered when one member of the
+group wanted to submit a proposal or to address a critic. As a consequence, one
+observes few explicit why questions in such design dialogues.<p>
+2. Furthermore, because participants in a project accumulate knowledge on this
+project (the requirements, constraints, problems with different alternatives,
+etc.), they are able to infer, in some cases, why such a proposal or such a
+criticism is relevant, without asking the corresponding why question. <p>
+Both aspects are present in the design meetings studied by Herbsleb and Kuwana,
+and missing from our evaluation meetings, where designers had to work with a
+previous design without having the historical knowledge of the project. Our
+conclusion is that knowing the design rationale is important, especially when
+the project team works on someone else's design.<p>
+This conclusion would appear as a strong argument for claiming the usefulness
+of DR documents if at least two conditions were satisfied: the first condition
+would be that designers want to use DR documents; the second condition would be
+that DR documents constructed with the QOC method contain the information
+looked for by designers. We test these conditions in the two following
+sections.<p><p>
+
+<h2>
+<a name="RTFToC7">4.
+Do designers use design rationale documents?
+</a></h2>
+The evaluation meetings have allowed us to identify two very distinctive ways
+of using the DR: an opportunistic use and an extensive use.<p>
+
+<h3>
+<a name="RTFToC8">The
+opportunistic use of DR
+</a></h3>
+The first way of using the DR is to look at it only when no other means allow a
+designer to answer his/her question. Among these other means are: the inference
+of the reasons for the decisions, and the verbal asking.<p>
+Indeed, very often when a designer raises a DR question, he/she first looks
+more precisely at the blueprints. In doing so, he/she tries to gain more
+information on the structural and functional aspects of the artifact. The new
+information found in this way (they also might ask a question) helps to infer
+the reasons for the design decisions. The following extract gives an example of
+how a better understanding of the artifact helps to discover the design
+rationale ("D" stands for designer, "DS" for documentation specialist, "* *"
+for personal comments):<p>
+<p>
+D: 	(talking to himself) <i>So, what lead to the choice of these tanks?</i>
+(Now, he turns towards us) <i>What is the principle of these tanks? Is the
+pressurization external or internal?</i><p>
+<i></i>DS: <i>Internal</i>.<p>
+D: 	<i>Ok, so one may assume that the cost was a criteria of choice in this
+case </i>(*in fact, internal pressurization is cheaper than external
+pressurization*).<p>
+<p>
+This extract highlights the fact that an improved understanding of the
+structure or of the behavior of the artifact makes it possible in numerous
+cases to answer DR questions. However, this is not always possible. The
+designer may then try to find the information looked for in the DR. This is
+what we call an opportunistic use of a document.<p>
+This kind of use could have been expected if we had related the use of DR with
+the use of manuals, guidelines, written instructions, etc. Indeed, several user
+studies (e.g., [4]) reported that users usually prefer to act before reading
+any documentation. This is what seems to happen with our designers.<p>
+No other study could have prepared us to observe the opposite way of using the
+DR, which we call an extensive use.<p>
+
+<h3>
+<a name="RTFToC9">The
+extensive use of DR
+</a></h3>
+All three engineers, and two of them more significantly, began to analyze the
+blueprints, then looked for information in the DR, and based their
+understanding of the design on an extensive reading of the DR. By extensive
+reading, we mean the attempt to understand each issue reported inside the
+document, one after the other. However, we also noted that these designers
+rarely used the DR alone: regularly, they went back to the blueprints. In doing
+so, they expressed not only the need for visualizing the chosen option referred
+to in the DR, but also their desire to make their own judgement. The following
+extract illustrates this sequence of behaviors:<p>
+<p>
+D: 	(reading a DR question) "<i>How can we reduce the vibrations at the DAAV
+level?"...first option "Design with DIAS"...ok, but it does not satisfy the
+weight criteria Right. "New design of the high level without DIAS</i>" (*this
+is the second option*) <i>... ok ...could we look at the blueprints now</i>
+(turning towards the blueprints) ...<i>Ah ok, so here, the bottom of the
+ferrule comes under the DAAV, doesn't it ? </i> (*this structural item explains
+how it is possible to reduce vibrations and weight at the same time by
+comparison with the previous design*).<p>
+DS : <i>Yes, that's it.</i><p>
+<i></i><p>
+In contrast to the opportunistic use, an extensive reading of the DR then
+mainly implies the following behavioral pattern: from DR to blueprints, or in
+other words, from design reasoning to the solution. <p>
+Note that for designers who extensively read the DR, a paper format of the DR
+might be more appropriate than a computerized format.<p>
+
+<h3>
+<a name="RTFToC10">Discussion:
+An explanation of why designers use the DR differently
+</a></h3>
+We asked one engineer why he seemed to prefer reading the DR over a deeper
+analysis of the blueprints. He commented: "With the blueprints, I can only
+notice that the new design is different from the previous one. But to
+understand why and to assess the results of the project, I need to know the
+problems raised by the previous design. This document (the DR) provides such
+information."  This comment suggests that some designers will use the DR not
+just as a punctual provider of information, but more significantly as a support
+for their reasoning. However this comment does not account for those designers
+who do not express the need to extensively read the DR, except if we consider
+that those designers have some <i>contextualization capacities</i> that others
+do not. By contextualization capacities, we mean the cognitive ability to
+create a context of information that will help in understanding and assessing a
+design. In fact, this is what we observed: the three designers who developed an
+opportunistic use of the DR found out by themselves (i.e., without reading the
+DR) numerous problems raised by the previous design once they knew the specific
+requirements for the new design; they evoked many alternatives, which helped
+them to make some comparisons with the presented design; and they constructed
+their own explanations of the choices made by deducing some possible criteria
+used by the project team. Probably because they were more experienced, and
+certainly because they were used to working on initial phases of projects where
+it is usual to search for and to balance many alternatives, they were able to
+provide by themselves a context sufficient to interpret the design
+rationales.<p>
+However, it is also important to stress the fact that the reasons found by
+these more experienced designers were not always right, even if they were
+satisfied by them[1]. This reveals that
+designers do not look for the<i> real reasons</i> for design decisions: finding
+out <i>some</i> <i>good reasons</i> seems sufficient. This also explains the
+fact that some designers rarely consult the DR, even if they are interested in
+the design rationales.<p>
+All these considerations lead us to revise our initial assumptions about DR
+documents: it is not because such documents (whether paper or electronic) are
+available that they will be consulted, even if they contain information needed
+by designers!<p>
+Our approach to circumvent this difficulty, at least partially, consists in
+including some facts which make up the design rationale such as comments on the
+blueprints (or any representation of the solution). Such an approach assumes
+that the documentation specialist will be able to select the important facts
+from the sets of facts composing the DR. It also assumes that designers will
+use an interface that offers them the possibility of hiding or showing the DR
+comments.<p><p>
+
+<h2>
+<a name="RTFToC11">5.
+Do we succeed in capturing the rationales looked for by designers?
+</a></h2>
+In order to evaluate the usefulness of DR documents, it is necessary to compare
+the designers' questions with the content of these documents. Indeed, it will
+be possible to claim that DR is useful only if designers' questions can be
+answered by such documents.<p>
+To address this issue, we accounted for the DR questions expressed by the
+designers that were answered by the DR. We considered that a designer's DR
+question was answered by the DR either if the designer found an answer in it,
+or if we provided him/her with a verbal answer which existed in the document.
+Seventy six DR questions were identified in this way. <p>
+We found that <i>41%</i> of the designers' DR questions (31 out of 76) were
+answered by the DR. In addition, we noticed that this result did not
+significantly vary according to the designers' competence (43% for the
+technicians, 38% for the engineers).<p>
+These results alone are difficult to judge: for some, they may be viewed as a
+good result, because nothing existed before! For others, they may be considered
+as insufficient. To better assess these results, an analysis of the causes
+explaining why some DR questions were not answered by the DR was performed.<p>
+
+<h3>
+<a name="RTFToC12">Analyzing
+the discrepancy between DR questions and the DR captured
+</a></h3>
+Four categories of causes were identified, each one including different types
+of causes (see table 1):<p>
+<p>
+
+
+<pre>
+                 Types of cause                     Frequency    
+                                                        of       
+                                                    occurrence   
+1. Causes related to the analysts:			14            
+	- Known justifications not reported			10       
+	- Known issues not reported				2        
+	- Known criteria not reported				2        
+2. Causes related to the QOC method:			1        
+	- Lack of weighted assessments				1        
+3. Causes related to the readers:			19       
+	- Misconceptions					12       
+	- Inappropriate questions (Need for formal		7        
+proofs)                                                          
+4. Causes related to the project team: 			11       
+	- Issue not handled					2        
+	- Criteria not taken into account			2        
+	- Option not considered					4        
+	- Lack of global assessment				3        
+
+</pre>
+<p>
+<b>Table 1.</b> <i>The causes and their frequencies explaining the discrepancy
+between designers' DR questions and the content of the DR document</i><p>
+<p>
+1. <i>Causes related to the DR analysts</i>: 14 designers' questions were not
+answered because the analysts had not reported some facts, even though these
+facts were discussed during the design meetings recorded. Looking at these
+facts more closely, we found that some of them were not reported because the
+analysts had simply forgotten to report them. Others were not reported because
+the analysts might decide, not always consciously, that given information was
+not important, because given the current state of design elaboration, it was
+not essential. For instance, during the project, the designers had decided to
+elaborate one alternative among three, simply because they wanted to quickly
+test one idea, and not because this alternative was judged better than the
+other ones; however, at the end of the first phase of the project, only this
+alternative was elaborated, and during the evaluation meetings, the designers
+were provided only with the blueprints of this solution. Some of them asked
+why. We knew the answer, but it was not reported in the DR. In short, for
+different reasons related to the analyst, some known facts may not be included
+in the DR document. This observation may induce two opposite reactions: one may
+want to reduce this number, for instance by asking the analyst to be more
+"rigorous", or by introducing more controls in the DR elaboration. We believe
+that such an approach will be inadequate. Indeed, one has to note that, because
+it was the first time that we tried to capture the DR, we were as "rigorous" as
+possible. Introducing more controls does not seem to be the solution either: we
+did ask the project team to review the DR document after each new meeting; this
+team was also motivated by the fact that it was the first time that such an
+experiment was attempted within the company. However, these review meetings
+also were not sufficient to ensure the completeness of our document.<p>
+Considering these arguments, another reaction is possible: we need to introduce
+an <i>iterative approach</i> to DR capture. We believe that a DR document must
+be conceived as something unfinished at the end of a project. This document
+should be improved with the questions raised by its subsequent use. This
+improvement process should be centralized at the level of the DR analyst:
+he/she should receive the designers' questions, then answer them, and at the
+same time decide if some facts need to be added to the existing documents or
+not. If a computer tool is introduced to access the design rationale, this
+means that we must provide the user with the possibility of asking questions
+and receiving answers through the system (electronic mail for instance).<p>
+<i>2. Causes related to the QOC method</i>: the only problem noticed with QOC
+concerned its relative inability to represent weighted evaluation (X is better
+than Y according to criteria Z). Actually, it is possible with the use of
+link-thickness, but readers often fail to correctly interpret it. As a
+consequence, it was not possible to answer questions like "According to
+criteria Z, is X or Y better?" Some authors (e.g., [11]) claim that this kind
+of information is necessary, and include it as a requirement for DR capture
+support tools. However, because this problem was noticed only once in our
+study, we did not decide to modify our original notation.<p>
+3. <i>Causes related to the readers</i>: this category contains the highest
+number of questions unanswered (19 out of 45 in all). It includes two different
+types of cause: <p>
+- <i>readers' misconceptions</i>: most of the time, a DR question based on a
+misconception has no DR answer. For instance, a question such as "Why did they
+change the whole structure?" has no answer if only some parts of the whole
+structure were changed. The most frequent misconceptions encountered in our
+data were due either to a misundertanding of the artifact structure (4/12), a
+misunderstanding of the artifact functions (3/12), an incomplete or incorrect
+knowledge of the previous design (2/12), or facts learned during the meeting
+that were forgotten (2/12). It is important to note that misconceptions
+represent one factor that contributes to making wrong decisions in design,
+especially when a designer has to choose between different alternatives. These
+misconceptions were often not due to a lack of information, but to an
+incomplete analysis of the blueprints provided. We then believe that these
+misconceptions will always exist, because it is difficult to change the way
+people work in their daily settings. If we accept this statement, we must look
+for mechanisms of detection and correction of these misconceptions. One
+possible approach that we choose to explore further consists in taking
+advantage of the internal network of the company. We have said that designers
+should be able to ask questions directly to the DR analyst. The analyst will
+then be able to correct some designers' misconceptions.<p>
+- the problem of <i>inappropriate questions</i> is specific to our study.
+Because the design presented was only the result of the first phase of the
+project, several formal proofs (calculations) were not yet available. The
+designers may ask for these formal proofs if they are not convinced by the
+justifications provided in the DR. These questions are inappropriate, given the
+current state of design development. However, they are not inappropriate with
+respect to the designer's needs. As a consequence, we have learned from this
+observation that we will need to include in the DR the formal proofs that will
+be established later. These formal proofs will be represented as justifications
+of evaluations.<p>
+4<i>. Causes related to the project team</i>: this last category of causes is
+one of the most interesting, because it highlights that some claims concerning
+the benefits gained with a DR documentation rely on a false assumption (which
+we shared at the beginning of this study). It is common to think that a design
+<i>has</i> a rationale. This is what makes the idea of "capture" possible. Some
+authors (e.g., [12]) also promote the idea that the <i>design space </i>(i.e.,
+the space of possibilities) can be analyzed by designers. All of these ideas
+have some limitations, because the space of possibilities is not fixed in time.
+Not only this space, which depends on the designers' background and experience,
+changes according to the designers involved in a project, but it also evolves
+with time (because technologies change, experience is growing, industrial
+strategies are different, etc.). This is what explains why some questions were
+not answered by the DR: some designers asked questions about issues, options or
+criteria not taken into account during the design. For instance, "why did they
+choose option X (reported in the DR) and not option Y (not handled during the
+project)?" It is then obvious that such questions have no answer in the DR, but
+it is also important to consider that it will never be possible to avoid such
+questions. Moreover, we can anticipate that the frequency of occurrence of this
+class of questions (currently 8/45) will increase, as the time goes by and
+designers' culture changes. We then speculate that long-term reuse of DR should
+be more problematic that short-term reuse.<p>
+In considering this problem, Terveen <i>et al</i>. [14] promoted the idea of a
+"living design memory". This approach consists of the creation of a design
+knowledge base and a design assistant program aimed at giving advice to the
+designer. The designer can accept or refuse the advice. The refused advice is
+discussed during a design review. These discussions may produce further
+knowledge which will be incorporated into the design knowledge base. This
+living approach to the design memory, while interesting, presents two
+limitations: firstly, Terveen <i>et al</i>.'s paper reports that many users
+still have problems with the current system; secondly, this approach radically
+changes the way designers are currently working. Designers at the design office
+where our study was conducted have rejected this approach for this reason.<p>
+Another possible approach exists, which acknowledges the intrinsic limitations
+of any memory system and develops a social approach to design memory [1].
+According to this approach, the emphasis must be on dialogue in work settings,
+because it is there that people collectively (re)interpret past experience and
+control others' interpretations. Putting this approach into practice means
+giving the opportunity to designers to collaborate more easily and more often.
+CSCW applications may be a technical solution to this problem. However, they
+will not be sufficient. New work organizations must also be defined. We are
+currently attempting to put these ideas into practice at Aerospatiale.<p>
+
+<h2>
+<a name="RTFToC13">6.
+Conclusion
+</a></h2>
+The goal of this study was to evaluate how useful DR documents are. The
+analyses presented here are not sufficient to give a complete answer to this
+question, in particular because we did not investigate the potential
+difficulties for accessing pieces of information composing the DR. However,
+given that (1) more than half of the designers' questions concern DR, and (2)
+some designers extensively use the DR document as a support for understanding
+and assessing a previous design, (3) less than half of the designers' DR
+questions were answered with the QOC-based document, our first conclusion is
+that DR documents <i>should be useful</i>, at least for the designers who want
+to extensively read it, but <i>not sufficient</i>.<p>
+This study highlights that traditional approaches for capturing DR exhibit some
+limitations. Possible adaptations of these approaches are then necessary. In
+this paper, we have considered (1) the integration of the DR with the
+information currently processed by designers (in our case, this means
+integrating DR with blueprints), (2) the introduction of an iterative approach
+to the DR capture, going beyond the design period, and (3) the need to promote
+collaboration between designers.<p>
+
+<h3>
+<a name="RTFToC2">Acknowledgments</a></h3>
+The author acknowledges support from Aerospatiale and the Ergonomics Laboratory
+of the CNAM (Paris) for funding this research. Thanks also to the design office
+team at Aerospatiale, Les Mureaux. This work was carried on while the author
+worked at EURISCO. Thanks to the EURISCO team, and more particularly to Martin
+Hollender, Helen Wilson, Guy Boy, and Markus Durstewitz, for their comments on
+the first drafts of this paper.<p>
+
+<h2>
+<a name="RTFToC2">References</a></h2>
+1. 	Bannon L.J. and Kuutti K. <i>Shifting Perspectives on Organizational
+Memory: From Storage to Active Remembering. </i>IEEE Hawaii Inteernational
+Conference on System Sciences (HICSS'96), January 1996.<p>
+2. 	Boose, J.H., Bradshaw, J., and Shema D.B. Knowledge-based Design Rationale
+Capture: Automating Engineering Trade Studies. In: Green M. (Ed.) <i>Knowledge
+Aided Design</i>, NY: Academic Press, 1992.<p>
+3. 	Boy, G. Supportability-based design rationale. In <i>Proceedings of the 6th
+IFAC Symposium on Analysis, Design and Evaluation of Man-Machine Systems</i>,
+1995.<p>
+4. 	Carroll, J.M. <i>The Nurberg Funnel: Designing minimalist instruction for
+practical computer skill</i>. Cambridge, MA: MIT Press, 1990.<p>
+5. 	Carroll J.M. and Moran T.P. (Eds.) <i>Human-Computer Interaction, Special
+Issue on Design Rationale</i>, 6(3&amp;4), 1991.<p>
+6.	Conklin, J.E. and Begeman, M.L. gIBIS: A Hypertext Tool for Exploratory
+Policy Discussion, <i>ACM Transactions on Office Information Systems</i>,
+6,303-331, 1988.<p>
+7. 	Fischer, G., McCall, R. and Morch A.I. Design environments for constructive
+and argumentative design. In <i>CHI'89</i>, 1989.<p>
+8. 	Herbsleb, J.D., and Kuwana, E. Preserving Knowledge in Design Projects:
+What Designers Need to Know. <i>INTERCHI'93</i>, 1993.<p>
+9.	Karsenty, L., and Br&eacute;zillon, P. Cooperative problem solving and
+explanation. <i>Expert Systems with Application, </i>8(4), 445-462, 1995.<p>
+10.	Klein, M. Capturing Design Rationale in Concurrent Engineering Teams.
+<i>IEEE Computer</i>, 26(1), 39-47, 1993.<p>
+11.	Lee J. and Lai K. What's in Design Rationale?. <i>Human-Computer
+Interaction</i>, 6(3&amp;4), 251-280, 1991.<p>
+12.	MacLean, A., Young, R.M., Bellotti, V. and Moran T.P., Questions, options
+and criteria: Elements of design space analysis, <i>Human-Computer
+Interaction</i>, 6(3&amp;4), 201-250, 1991.<p>
+13. 	Shum S. &amp; Hammond N., Argumentation-based design rationale: what use
+at what cost? <i>International Journal of Human-Computer Studies</i>, 40,
+603-652, 1994.<p>
+14.	Terveen, L.G., Selfridge, P.G. and Long, M.D. From "Folklore" to "Living
+Design Memory". In <i>INTERCHI'93</i>, 1993.<p>
+</body></html>

@@ -1,0 +1,270 @@
+<html>
+<head>
+<title>
+MMVIS:  A MultiMedia Visual Information Seeking 
+Environment for Video Analysis
+</title>
+</head>
+<body>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/demo.JPG" ALT="Demo" HEIGHT=35 WIDTH=249><A HREF="../../demos.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+
+<h1>MMVIS:  A MultiMedia Visual Information Seeking 
+Environment for Video Analysis</h1>
+
+<b><A HREF="http://www-personal.engin.umich.edu/~hibino/">Stacie Hibino</a>
+ and <A HREF="http://www.eecs.umich.edu/~rundenst/">Elke A. Rundensteiner</a></b><br>
+EECS Department, Software Systems Research Laboratory<br>
+The University of Michigan, 1301 Beal Avenue, Ann Arbor, MI  48109-2122 USA<br>
+E-mail:  <A HREF="mailto:hibino@eecs.umich.edu">hibino@eecs.umich.edu</a>, <A 
+HREF="mailto:rundenst@eecs.umich.edu">rundenst@eecs.umich.edu</a><p>
+
+<H2>ABSTRACT</H2>
+
+Our MultiMedia Visual Information Seeking (MMVIS) 
+environment is designed to support an <I>exploratory</I> 
+approach to video analysis.  Specialized subset, temporal, 
+spatial, and motion dynamic query filters are tightly 
+coupled with dynamic, user-customizable 
+<I>relationship</I> visualizations to aid users in the 
+discovery of data trends.  Users can select two subsets 
+(e.g., a subset of person P1 talking events) and then 
+<I>browse</I> various relationships between them (e.g., 
+browsing for temporal relationships such as whether 
+events of type A frequently start at the same time as events 
+of type B).  The visualization highlights the frequencies of 
+both the subsets and the relationships between them.  This 
+allows users to discover various relationships and trends 
+without having to explicitly pre-code them.  In this 
+demonstration, we will focus on temporal analysis aspects 
+of the system, presenting our temporal visual query 
+language, temporal visualization, and an application to 
+real CSCW data.<p>
+
+<h3>Keywords</h3>
+
+Video analysis, dynamic queries, temporal query filters, 
+interactive visualizations, trend discovery.<p>
+
+<H2>INTRODUCTION</H2>
+
+Visual Information Seeking (VIS) is a framework for 
+information exploration where users filter data through 
+direct manipulation of dynamic query filters [2].  A 
+visualization of the results is dynamically updated as users 
+adjust a query filter, thus allowing them to incrementally 
+specify and refine their queries.  In this way, users also see 
+the direct correlation between adjusting parameter values 
+and the corresponding changes in the visualization of 
+results.  This approach has been shown to aid users in 
+locating information, as well as for searching for trends 
+and exceptions to trends—and to accomplish such tasks 
+more efficiently than through traditional forms-based 
+methods [1].  We thus extend the VIS framework to 
+handle multimedia data sets, more specifically to perform 
+video analysis [5].  Our extensions give users the power to 
+explore various relationships between different types of 
+video events, in a way that was not previously possible 
+through other traditional means (e.g., timelines for 
+temporal analysis, statistically based approaches, etc.) [6]. 
+<p>
+
+<H2>THE MMVIS ENVIRONMENT</H2>
+
+Our MultiMedia Visual Information Seeking (MMVIS) 
+environment is a system designed to study such an 
+application of VIS to video analysis.  Several extensions to 
+the original VIS framework were made to accomplish 
+this:<br>
+
+<ul>
+<LI><I>subset query palettes</I> with multi-selection list 
+filters for specifying multiple subsets of different types 
+of events (e.g., all person P1 talking events)
+<LI><I>specialized temporal, spatial</I>, and 
+<I>motion</I> query filters for exploring the 
+corresponding types of relationships between the subsets 
+formed,
+<LI>user-customizable <I>spatio-temporal</I> 
+visualizations for highlighting the occurrence of the 
+selected subsets as well as the frequency of the specified 
+relationships.
+</ul>
+
+<h3>Sample Scenario  </h3>
+
+In our demo, we will use a sample scenario from a real 
+CSCW case study to provide some context.  Consider the 
+case where researchers collect CSCW video data to 
+analyze and characterize the process flow of a planning 
+meeting between three subjects (&quot;Carol,&quot; 
+&quot;Richard,&quot; and &quot;Gary&quot;) 
+collaborating from remote sites.  The data is coded to 
+indicate when each person speaks as well as to 
+characterize the design rationale of what is being said 
+(e.g., to indicate when criteria, alternatives, etc., take 
+place in the meeting).<p>
+
+<h3>Selecting and Visualizing Subsets</h3>
+
+In MMVIS, users first select two subsets (A and B) via 
+subset query palettes (see Figure 1, Subset A query 
+palette).  We designed multi-selection filters so that users 
+can select one or more items from a list of alpha-numeric 
+data.  Vertical bars along the side of the lists indicate the 
+last action taken and its impact on the values of other 
+parameters.  In Figure 1, the Subset A query palette selects 
+all Activity (Talking & NonVerbal) types of events while 
+Subset B selects all design rationales [6].  <p>
+
+Yellow transparent circles are displayed in the 
+visualization to highlight the corresponding A events, as 
+the user de/selects values from each parameter list.  
+Similarly, blue transparent squares indicate B events.  The 
+radius of these transparent overlays represent either 
+relative frequency (Figure 1), average duration, or total 
+duration, customized according to the user's preference.  
+Display options are available in the lower right corner of 
+the main MMVIS window.  By switching back and forth 
+between display options, the user can gain additional 
+information about the data (e.g., such as whether or not 
+events with low frequency have relatively high average 
+duration).<p>
+
+
+<a href="sh2fg1.jpg"><img src="sh2fg1.gif" alt="Figure 1. "></a><br>
+Figure 1.  MMVIS Environment.  Sample temporal analysis of CSCW video data 
+on planning meetings.<p>
+
+
+<h3>Exploring Relationships Between Event 
+Subsets</h3>
+
+Once users have selected subsets, they can then 
+<I>explore</I> various relationships between members of 
+these subsets using the specialized relationship query 
+filters.  Our temporal query filters, forming a temporal 
+visual query language (TVQL) [5], are presented to the 
+user on a single palette (see Figure 1, Temporal Query 
+palette).  TVQL can be used to specify any one of thirteen 
+temporal primitives (e.g., before, meets, equals) as well as 
+combinations of such primitives.  In Figure 1, TVQL 
+specifies the relationship where events of type A start at 
+the same time as events of type B, but A events can end 
+before, at the same time as, or after B events end.  This 
+represents a combination of the starts, equals and started-
+by temporal primitives. The temporal diagram at the 
+bottom of the palette visually confirms this, and is 
+dynamically updated as users adjust any one of the 
+temporal query filters. <p>
+
+As users manipulate the temporal query filters, they can 
+also review the visualization of results (and changes in it) 
+for trends and exceptions.  The existence of a relationship 
+between A and B events is visually indicated as a 
+connector drawn between their centers.  The width of the 
+connector indicates the relative frequency of the temporal 
+relationship.  For example, Figure 1 indicates that Gary 
+never starts talking at the same time as a Digression; and 
+NonVerbal events frequently start at the same time as a 
+Pause.  TVQL can be used to easily <I>browse</I> 
+variations on the temporal relationship specified.  For 
+example,  users could adjust the second temporal query 
+filter (endA-endB filter) to see how the visualization 
+changes when Activities (Talking and NonVerbals) end 
+before or at the same time as (but not after) Rationales 
+end.  This could be done simply by moving the right 
+thumb to zero.<p>
+
+<H2>COMPARISON TO SIMILAR SYSTEMS</H2>
+
+Although several video annotation and analysis systems 
+have been developed, they have focused on novel 
+approaches to video annotation, timeline-based formats for 
+video analysis, or pre-coding relationships rather than 
+searching for them [7, 4].  The novel approach to video 
+analysis presented in MMVIS empowers users to 
+<I>explore</I>  the data in search of trends and 
+exceptions to trends.<p>
+
+Other extensions to VIS have been done [3], but they do 
+not  address  the  spatio-temporal  and  <I>relative</I> 
+exploratory needs of video analysis.  MMVIS introduces 
+some new extensions to VIS—the use of specialized 
+temporal query filters and spatio-temporal visualizations, 
+tailored to highlight the strengths of <I>relationships</I> 
+between different types of subsets.<p>
+
+<H2>STATUS AND FUTURE WORK</H2>
+
+MMVIS has been implemented on a multimedia PC 
+(MPC) platform using a ToolBook interface to a database 
+library.  All temporal analysis components are fully 
+integrated and functional.  In the future, we plan to 
+continue work on several aspects of MMVIS, including 
+new visualizations and integration of spatial and motion 
+query filters.<p>
+
+<H2>ACKNOWLEDGMENTS</H2>
+
+This work was supported in part by UM Rackham 
+Fellowship, and NSF NYI #94-57609.  Special thanks to 
+Judy Olson for permission to use the sample CSCW 
+data.<p>
+
+<H2>REFERENCES</H2>
+<ol>
+<LI>Ahlberg, C., Williamson, C., & Shneiderman, B.  
+(1992).  Dynamic Queries for Information Exploration:  
+An Implementation and Evaluation.  <I>CHI'92 
+Conference Proceedings</I>. NY:ACM Press, pp. 
+619-626).
+<LI>Ahlberg, C., & Shneiderman, B.  (1994).  Visual 
+Information Seeking:  Tight Coupling of Dynamic 
+Query Filters with Starfield Displays.  <I>CHI'94 
+Conference Proceedings</I>.  NY:ACM Press, pp. 
+619-626.
+<LI>Fishkin, K. and Stone, M.C.  (1995).  Enhanced 
+Dynamic Queries via Movable Filters.  <I>CHI'95 
+Conference Proceedings</I>, 415-420.  ACM Press.
+<LI>Harrison, B.L., Owen, R., & Baecker, R.M.  (1994).  
+Timelines:  An Interactive System for the Collection of 
+Visualization of Temporal Data.  <I>Proc. of Graphics 
+Interface '94.  </I>Canadian Information Processing 
+Society.
+<LI>Hibino, S. & Rundensteiner, E.  (in press).  
+<A HREF="ftp://ftp.eecs.umich.edu/people/rundenst/papers/r-95-18.ps">
+A Visual Query Language for Temporal 
+Analysis of Video Data,</A>
+<I>The Design and Implementation of Multimedia 
+Database Systems</I> (K. Nwosu, Ed.), NY:  Kluwer 
+Books.
+<LI>Hibino, S. & Rundensteiner, E. (1995). 
+<A HREF="ftp://ftp.eecs.umich.edu/techreports/cse/1995/CSE-TR-272-95.ps.Z">
+Interactive Visualizations for Temporal Analysis: Application to 
+CSCW Multimedia Data.</a> UM Tech. Rep.#CSE-TR-272-95.
+<LI>Roschelle, J., Pea, R., & Trigg, R.  (1990).  
+VIDEONOTER:  A tool for exploratory analysis 
+(Research Rep. No. IRL90-0021).  Palo Alto, CA:  
+Institute for Research on Learning.
+</OL>
+
+Copyright on this material is held by the authors.<p>
+
+<address>
+MMVIS:  A MultiMedia Visual Information Seeking 
+Environment for Video Analysis / 
+<A HREF="mailto:hibino@eecs.umich.edu">hibino@eecs.umich.edu</a>, 
+<A HREF="mailto:rundenst@eecs.umich.edu">rundenst@eecs.umich.edu</a>
+</address>
+
+</body>
+</html>
+

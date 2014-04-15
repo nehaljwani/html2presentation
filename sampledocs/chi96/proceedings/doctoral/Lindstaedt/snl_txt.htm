@@ -1,0 +1,205 @@
+<HTML> 
+
+<HEAD>
+<TITLE>
+Towards Organizational Learning: Growing Group Memories in the Workplace
+</TITLE>
+</HEAD>
+
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/doctoral.JPG" ALT="Doctoral" HEIGHT=35 WIDTH=249><A HREF="../../doctoral.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<H1>
+<CENTER>
+Towards Organizational Learning: Growing Group Memories in the Workplace
+</CENTER>
+</H1>
+
+<PRE>
+
+</PRE>
+
+<CENTER>
+<A HREF="http://www.cs.colorado.edu/~stefanie/">
+Stefanie N. Lindstaedt
+</A> <BR>
+<A HREF="http://www.cs.colorado.edu/~l3d/">
+   Center for LifeLong Learning and Design (L3D)
+</A><BR>
+<A HREF="http://www.cs.colorado.edu/current/Home.html">
+   Dept. of Computer Science
+</A> and 
+Institute of Cognitive Science <BR>
+<A HREF="http://www.colorado.edu/">
+University of Colorado
+</A> <BR>
+Boulder, CO 80309-0430, USA<BR>
+(+1) (303) 492-1218<BR>
+<A HREF="mailto:stefanie@cs.colorado.edu">stefanie@cs.colorado.edu</A>
+</CENTER>
+
+<PRE>
+
+</PRE>
+
+
+<H2>Abstract</H2>
+Designing domain-oriented systems requires knowledge both in system design and in the domain to be supported. 
+Communication between domain experts and system developers is essential to elicit or activate this knowledge. 
+Contextualized information, conveyed in ongoing communication and evaluation, sheds light on problems and solutions that 
+may otherwise remain uncovered. This information is valuable beyond the particular situation in which it originates. 
+Experiences of our L3D research group with industries and universities have shown that the tasks of activating and capturing 
+communication about system design, relating it to prior experiences, and feeding new insights back into a group memory face 
+a number of challenges. I am developing an interactive group memory management system called GIMMe for growing diverse 
+group memories during software design to explore the issues surrounding these challenges.
+<P>
+
+<H3>Keywords</H3>
+Design, system design, design rationale, group memory, organizational learning, collaborative work, CSCW, participatory 
+design
+<P>
+
+<H2>Introduction</H2>
+Designing useful and usable domain-oriented systems is a highly demanding task. Such systems must account for the 
+interaction patterns specific to the application domain. The identification of those patterns and their ramification for a 
+computer system require knowledge and ongoing evaluation from both system designers and domain experts. Design activities 
+require collaboration among different stakeholders such as system developers, domain experts, and clients. This constraint is 
+due to a symmetry of ignorance, meaning that no individual stakeholder (or individual group of stakeholders) has all the 
+relevant knowledge. Much complexity in design arises from the need to: (1) synthesize different perspectives on a problem, 
+(2) manage large amounts of information potentially relevant to a design task, and (3) understand the design decisions that 
+have guided the long-term evolution of a designed artifact.
+Henninger [4] has emphasized the importance of organizational learning [5] for software design: &quot;An organizational learning 
+approach to software development uses an organization's accumulated knowledge of the development process and application 
+domains as the basis for design.&quot; Collecting all stakeholders' contributions in a group memory enables an organization to 
+acquire a body of knowledge that goes beyond each individual's limitations, in this sense organizational learning goes beyond 
+individual learning.
+<P>
+
+<H2>Problem</H2>
+Many approaches seem to assume that organizational learning is a stand-alone activity, separate from daily design work. 
+Grudin [3], in his cost/benefit analysis, pointed out that approaches are doomed to fail when they make individuals work 
+merely for the sake of others, without perceived benefit to themselves. Our own experiences in large projects at NYNEX 
+Science & Technology (S&T), led us to the conclusion that an integrated approach, combining actual design work with the 
+collection and usage of relevant information while designing, can drastically increase the perceived benefit of recording 
+information in a group memory. Our work is based on the observation that argumentation in the form of design discussions 
+must serve the design process [2]. In my work I address the following basic challenge: If organizational learning, in the form 
+of previous design experiences, is to inform system design, two seemingly disparate goals must be served simultaneously: (1) 
+designers must be supported in getting current design work done, and (2) designers must be supported to record information 
+about the current design for future use.
+
+<H2>Conceptual Framework</H2>
+Our experiences with industries and universities have shown that in order to reach both goals simultaneously an organization 
+needs to address a number of challenges as shown in Figure 1. Group processes and artifacts can address each of these 
+challenges and link them in a self-reinforcing feedback loop. The feedback should occur in the short run, i.e., within one 
+project, to produce organizational learning in the long run. Failing to meet any one of these challenges can endanger the 
+success of the entire effort. Breaking the reinforcing feedback loop at any point will have an adverse impact on all the other 
+activities. 
+<P>
+<img src="snl_fg1.gif" alt="Figure 1">
+<CENTER>
+Figure 1: Challenges/activities and their interrelations in a feedback loop.
+</CENTER>
+<P>
+The situation calls for an integrated approach. I have developed a system prototype, the Group Interactive Memory Manager 
+(GIMMe), which addresses all of the challenges in the feedback loop to various degrees. 
+<P>
+
+<H2>GIMMe</H2>
+GIMMe is a web-based group memory system.  It helps communities of practice (e.g., project teams, interest groups) to 
+capture, store, organize, share, and retrieve electronic mail conversations. Mail sent to a specific group alias is automatically 
+added to an information space and categorized according to its subject line. Group members can access the information space 
+via the internet. We implemented four retrieval mechanisms to this information space: (1) browsing in reverse chronological 
+order, (2) browsing according to project specific categories, (3) retrieval by free form text queries (using the Latent Semantic 
+Indexing algorithm [1]), and (4) information delivery of related mail messages. GIMMe supports users in creating, 
+rearranging, or deleting categories and the mail belonging to them. A more 
+<A HREF="http://www.cs.colorado.edu/~stefanie/GM_Info.html">detailed description of GIMMe</A> can be found here. GIMMe is designed to allow groups to create and negotiate domain conventions over 
+time, as well as to evolve categories that reflect the structure and vocabulary of the application domain. The information 
+delivery mechanism provides the users with information relevant to the task at hand. 
+<P>
+
+<H2>Related Work</H2>
+My approach differs from other systems in several ways. Early design rationale systems (such as gIBIS) required designers to 
+perform a nontrivial amount of cognitive and manual overhead in order to collect and organize design rationale. For instance, 
+Terveen and Ackerman describe &quot;expert systems&quot; that are able to answer questions about technical issues specific to an 
+organization. These systems are targeted at supporting downstream system development processes such as implementation and 
+maintenance rather than the upstream design processes (i.e., requirements elicitation and evolution) supported by GIMMe. 
+<P>
+
+<H2>Assessment in Practice</H2>
+GIMMe is currently employed by project and research groups in NYNEX S&T and at CU Boulder. The different groups have 
+been using GIMMe for periods of time ranging from three weeks to four months. My experience with the different work 
+practices, patterns of electronic mail use, project types, and project stages has shown that GIMMe can be usefully employed 
+in very different settings and with varying commitment levels. This property of GIMMe ensures that groups that put more 
+effort into their group memory (e.g., by carefully designing categories) are rewarded with more immediate value with respect 
+to their project and at the same time contribute in a more valuable way to the organizational memory [3]. The use of GIMMe 
+has changed work practices by reducing overhead for the individual group members (e.g., mail has not to be stored locally, 
+mail can be send directly to interested subgroups while other members can view it in GIMMe if the need arises and repeated 
+discussions about the same topic can be cut short because the previous discussion was stored and is accessible). The direct 
+communication and the fast feedback cycle enabled group members to activate relevant tacit knowledge from all stakeholders 
+and to keep them involved and interested. 
+<P>
+
+<H2>Future Work</H2>
+The goal of my thesis is to make argumentation serve design by interrelating actual design tasks with GIMMe. I am 
+embedding GIMMe into a software development environment in order to better integrate up-stream and down-stream design 
+activities. In addition I will improve GIMMe using the insights gained to better meet the discussed challenges. Evaluations of 
+the improved system will give further insights and will help to refine the underlying conceptual framework.
+<P>
+
+<H2>Acknowledgements</H2>
+I would like to thank Beatrix Zimmermann, the co-developer of GIMMe. She was of invaluable help during installation and 
+user interviews at NYNEX S&T. Special thanks also go to the L3D research group at CU and to Gerhard Fischer, my 
+advisor. This work is supported by NYNEX and NSF IRI-9311839.
+<P>
+
+<H2>References</H2>
+
+<OL>
+
+<LI>
+Deerwester, S., Dumais, S.T., Furnas G.W., Landauer, T.K., and Harshman R.:<BR>
+Indexing by Latent Semantic Analysis, <BR>
+in Journal of the American Society for Information Science, 41(6), 1990, <BR>
+pp. 391-407. <BR>
+<P>
+
+<LI>
+Fischer, G., Lemke, A.C., McCall, R., and Morch, A.: <BR>
+Making Argumentation Serve Design, <BR>
+Human Computer Interaction - Special Issue on Design Rationale, Vol. 6, <BR>
+No. 3-4, 1991, pp. 393-419. <BR>
+<P>
+
+<LI>
+Grudin, J.: <BR>
+Why CSCW Applications Fail: <BR>
+Problems in the Design and Evaluation of Organizational Interfaces, <BR>
+Proceedings of the Conference on Computer-Supported Cooperative Work <BR>
+(CSCW'88), New York, 1988, pp. 85-93. <BR>
+<P>
+
+<LI>
+Henninger, S., Haynes, K., and Reith, M.: <BR>
+A Framework for Developing Experience-Based Usability Guidelines, <BR>
+Symposium on Designing Interactive Systems (DIS'95), Ann Arbor, Michigan, <BR>
+1995, pp. 43-53. <BR>
+<P>
+
+<LI>
+Senge, P.M.: <BR>
+The Fifth Discipline, The Art and Practice of the Learning Organization, <BR>
+Currency Doubleday, New York, NY, 1990. <BR>
+<P>
+
+</OL>
+
+
+</BODY>
+

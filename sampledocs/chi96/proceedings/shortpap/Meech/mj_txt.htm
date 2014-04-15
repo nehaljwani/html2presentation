@@ -1,0 +1,91 @@
+<html>
+<head>
+<title>Getting a Grasp on Virtual Reality </title>
+</head>
+
+<body>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/shortpap.JPG" ALT="shortpap" HEIGHT=35 WIDTH=249><A HREF="../../shortpap.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<h1>Getting a Grasp on Virtual Reality </h1>
+<p>
+
+<em>Richard J. Aldridge*, Karen Carr**, Rupert  England**, John F. Meech*,Tony Solomonides* </em>
+<p>
+
+<dl>
+<dt>*Department of Computing, University of the West of England, Bristol, U.K.
+<dt>Interface Technology Research Limited, CRII DuPont Centre, Bristol, U.K.
+</dl>
+<p>
+<dl>
+<dt>**Human Factors Dept., Sowerby Research Centre, British Aerospace (Operations Ltd.) Bristol, U.K.
+<dt> Interface Technology Research Limited, CRII DuPont Centre, Bristol, U.K.
+</dl>
+<p>
+[r2-aldri,ktc,rde,jfm,aes]@csm.uwe.ac.uk
+<p>
+<hr>
+
+<h2>ABSTRACT</h2>
+This paper describes the development and initial evaluation of a novel system for providing force-feedback to a user's' hand in a virtual environment. The development addresses the problem of providing simple (robust and low cost) but effective sensory cues to assist a user in grasping virtual objects. The approach is to provide approximate but distinctive 'solidity' feedback, which together with visual cues creates the sensation of having grasped an object. The initial evaluations indicate that user response is very favourable.
+
+<h3>Keywords</h3>
+Evaluation, Input Devices, Interaction Technology, Touch and Force Feedback, Virtual Reality.
+
+<h2>INTRODUCTION</h2>
+Methods of providing visual and auditory feedback in virtual environments are relatively well developed and attract a great deal of research. In contrast, the feedback associated with touch remains a challenging research problem. There are two main categories of touch feedback: tactile (i.e. skin contact) and force (i.e. the 'solidity' felt when an object resists pressure from our fingers or body). Force feedback in particular could make a significant difference in making the grasping of virtual objects seem real. Currently it is very difficult to grasp and pick up virtual objects by hand in a 'natural' manner. This may not be important for some uses of virtual reality, but other uses where object manipulation is important (e.g. assessing maintainability of a prototype, simulating the assembly of a product) would become possible only if feedback can be provided to allow more realistic object grasping.  We approach this problem from a human-factors perspective, aiming to enable grasping and lifting of virtual objects in a 3D environment. We do not, therefore, take the approach of necessarily trying to make the feedback completely realistic or accurate, as this may not be required for achieving the desired performance on these tasks (It may of course be necessary to have realistic feedback for other tasks such as medical applications).
+
+<h2>Force-feedback technology</h2>
+Although there have been several publications addressing the development of devices for providing tactile [1] and force-feedback [2], the number and range of technologies (especially simple methods) available for the development of feedback devices still needs to be explored. In this paper we present one outcome of a project which is evaluating technologies for force-feedback devices. 
+
+<h2>A DEVICE FOR PROVIDING A SENSE OF GRASP</h2>
+Existing virtual reality systems which do not provide tactile or force-feedback rely on visual and auditory feedback to indicate whether a virtual object has come into contact with some representation of the user's hand. With such systems the grasp can be very unrealistic with no indication about the comfort or feasibility of that particular manner of picking up an object. It is also sometimes difficult to be sure that the object has been grasped. Previous research [3] has extended developments in teleoperation to provide force-feedback which simulates a wide range of object dynamics such as hardness, elasticity, surface texture, etc. These devices aim to be accurate but are expensive and complex. In this development we are primarily concerned with providing cues that indicate the binary state of a virtual object being either grasped or not grasped by a user.
+
+<h2>System design</h2>
+The principle of operation is that an amorphous 'blob' or bag is held against the fingers and is freely deformable when no object has been grasped in the virtual environment. When the user's fingers are sufficiently closed to grasp the object, the amorphous blob suddenly becomes hard, taking on the shape defined by the fingers. Thus the hand is now enclosing a solid object. The device has the capability to become extremely hard, or to take on various consistencies, such as clay-like or jelly-like. The blob can be held in the hand, strapped to the hand, or fixed on top of a mouse. The device consists of an elastic container filled with fine particles (Figure 1). The container is connected via a computer-controlled switch to a mechanism which can withdraw air to create a vacuum so that the fine particles are compacted and the blob feels solid. When air is reintroduced to the container, the particles become free flowing again. The system used to evaluate the first prototype consists of a non-immersive visual display showing a cube within a 3D virtual space and a representation of the user's hand. The user's fingers and hand are tracked using a 5DT dataglove and Polhemus 3space tracker (note that there is scope for integrating sensors within the blob).
+<p>
+<IMG SRC="mj_fg1.gif" ALT="Figure 1">
+<p>
+Figure 1: The device in an activated state.
+<hr>
+<p>
+<h2>EVALUATION</h2>
+The preliminary evaluation consisted of comparing picking up two sizes of virtual cube with picking up equivalent real cubes (made of polystyrene to minimise weight differences), and asking users to rate on an 8-point scale how easy or realistic the virtual version was. The rating questions were as follows (Where 1=positive, 8=negative):<p>
+
+Q1. How easy was it to pick up the cube?<br>
+Q2. Were you able to tell immediately when the cube was in your grasp? <br>
+Q3. Did you feel as though you had really grasped the cube? <br>
+Q4. Did the cube feel real? <br>
+Q5. Could you tell it's a cube just by feeling? <br>
+Q6. When you released the cube did it feel as though you had dropped it? <p>
+
+<h2>Comparing real and virtual grasping</h2>
+There was some difficulty in visually guiding the hand with the simple graphics, and this interfered with a fair assessment of the virtual grasping times and success rates. Nevertheless, the results are promising. Approximate time to grasp the virtual cube was at best similar to the real cube at around 3 seconds, but sometimes took longer. Virtual grasp success rate for first attempts was around 75% on average, with a higher success rate for the larger cube and a slightly lower one for the smaller cube (the choice of collision detection algorithm affects the estimate of successful grasps). The real cubes were always grasped successfully at the first attempt. The results of the rating exercise are shown in Table 1 below.<p>
+
+<img src="mj_tb1.gif" alt=table_1><p>
+
+<h2>Discussion</h2>
+Question 6, referring to dropping the object,  highlights a major feature of the device, namely that the blob does not disappear but simply returns to its amorphous state.  This is an unavoidable characteristic, and it is important to assess whether this is acceptable and that users can associate the amorphous blob with not grasping anything. The change to a solid shape was judged distinct enough to give the desired effect. It is interesting to note that the larger cube was rated as easier to handle in the real version as well as the virtual version. The change in feedback was described as positive and definite. The solid state was described as very solid, very hard. The deactivation of the blob, which occurs when the object is dropped, was described as feeling like the object dissolved. Some subjects commented on the definite difference between the large and the small virtual cubes, as the blob was 'fatter' when it went solid for the larger cube. There was general agreement that the visual representation of the cube has some effect in interpreting the touch feedback.  Further experiments need to be carried out with more effective graphics to explore the extent of such 'visual dominance' [4].
+
+<h2>CONCLUSIONS</h2>
+This device, while having the important virtues of being simple, robust and cheap to produce, is capable of being very effective in conveying a sense of having grasped an object in a virtual environment.  The 'residual' sensation of the free-flowing particles when the device is deactivated is acceptable to users. The fact that the feedback is approximate is compensated for by its positiveness. The method is considered promising, and further development will take place. It is suggested that with good visual representations, visual dominance may override the interpretation of what is being touched. This may mean that approximate force feedback, such as provided by this device, is perfectly sufficient for many virtual environment applications.  This issue will be part of our further research and development.
+
+<h2>ACKNOWLEDGMENTS</h2>
+This project was funded by a DTI SMART award to Interface Technology Research Limited, and by contributions from the University of the West of England, Bristol.. Intellectual property licence was granted by British Aerospace PLC. A patent for the device has been applied for. 
+
+<h2>REFERENCES</h2>
+<ol>
+<li>Foley, J.D., 1987, Interfaces for Advanced Computing, Scientific American, pp82-90, October 1987.
+<li>Durlach, N.I., and Mavor, A.S., (eds), 1995, Virtual Reality - Scientific and Technological Challenges, National Academy Press, Washington D.C.
+<li>Krueger, M.W., 1991, Artificial Reality II, 2nd ed., Addison-Wesley Publishing Company, Reading, Massachusetts. 
+<li>Posner, M.I., Nissen, M.J., and Klein, R., 1976, Visual Dominance: An Information-Processing Account of its Origins and Significance, Psychological Review, Vol.83, pp157-171.
+</ol>
+
+</body>

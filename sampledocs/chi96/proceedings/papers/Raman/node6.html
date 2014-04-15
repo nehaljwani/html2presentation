@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3O//DTD W3 HTML 2.0//EN">
+<!- Converted with LaTeX2HTML 0.6.4 (Tues Aug 30 1994) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds ->
+<P>
+<HEAD>
+<TITLE>2.2 Implementation</TITLE>
+<meta name="description" value="2.2 Implementation">
+<meta name="keywords" value="paper">
+<meta name="resource-type" value="document">
+<meta name="distribution" value="global">
+</HEAD>
+<BODY><P>
+ <BR> <HR><A NAME=tex2html86 HREF="node7.html">[Next]</A> <A NAME=tex2html84 HREF="node4.html">[Up]</A> <A NAME=tex2html80 HREF="node5.html">[Previous]</A> <BR>    <BR>
+<B> Next:</B> <A NAME=tex2html87 HREF="node7.html">3 Examples Of Common </A>
+<B>Up:</B> <A NAME=tex2html85 HREF="node4.html">2 A Different Approach</A>
+<B> Previous:</B> <A NAME=tex2html81 HREF="node5.html">2.1 Motivation </A>
+<BR> <HR> <P>
+<H2><A NAME=SECTION00022000000000000000>2.2 Implementation</A></H2>
+<P>
+<A NAME=secimplementation>&#160;</A>
+<P>
+We have motivated the design of Emacspeak with the help of the calendar
+example. However, Emacspeak is much more than a simple talking calendar; it
+extends all of GNU Emacs to provide full spoken feedback.  The author uses
+Emacspeak on his Alpha AXP<A NAME=tex2html4 HREF="footnode.html#71">[+]</A> workstation running Digital
+UNIX,    and  on his laptop running Linux.
+Emacspeak has been made available on the
+Internet<A NAME=tex2html5 HREF="footnode.html#182">[+]</A> and is currently
+being used by an increasing number of Digital's customers.
+<P>
+This paper will not go into implementation details -our purpose is to
+highlight the novel interface provided by Emacspeak. For the sake of
+completeness, here is a brief sketch of how the system is implemented.
+<P>
+Emacspeak consists of a core speech module that provides basic speech services
+to the rest of the system, <em>e.g.,</em> functions that speak characters, words and lines.
+The <em>advice</em> facility of Emacs Lisp is used to integrate the speech
+feedback provided by these functions into Emacs.  This facility allows us to
+specify program fragments that are to be run either <i>before</i>, <i>after</i>,
+or <i>around</i> any function.  Since the user interface level of GNU Emacs is
+implemented entirely in Emacs Lisp, the functions making up this interface can
+be <em>advised</em> to speak.  The primary advantage of this approach is that
+we have been able to speech-enable all of GNU Emacs -a large
+system- without modifying a single line of source code from the
+original Emacs distribution.
+<P>
+We conclude this  sketch with an example.
+Function <b>next-line</b>  implements movement of the editing cursor to the
+next line in GNU Emacs.  Emacspeak provides the following <em>advice</em> to
+this function:
+<PRE>(defadvice next-line (after emacspeak )
+  &quot;Speak the line you moved to.&quot;
+  (when (interactive-p)
+    (emacspeak-speak-line )))</PRE>
+<P>
+This advice specifies that if function <b>next-line</b> is called <em>interactively</em> (As the result of the user pressing a key.) then function
+<b>emacspeak-speak-line</b> should be called <b>after</b> <b>next-line</b> has
+done its work.
+<P>
+The next section  gives examples of the spoken interaction
+provided by Emacspeak when  performing several day-to-day computing
+tasks. All of the facilities described are implemented using the model
+described above.
+<P>
+<BR> <HR><A NAME=tex2html86 HREF="node7.html">[Next]</A> <A NAME=tex2html84 HREF="node4.html">[Up]</A> <A NAME=tex2html80 HREF="node5.html">[Previous]</A> <BR>    <BR>
+<B> Next:</B> <A NAME=tex2html87 HREF="node7.html">3 Examples Of Common </A>
+<B>Up:</B> <A NAME=tex2html85 HREF="node4.html">2 A Different Approach</A>
+<B> Previous:</B> <A NAME=tex2html81 HREF="node5.html">2.1 Motivation </A>
+<BR> <HR> <P>
+<BR> <HR>
+<P><ADDRESS>
+<I> Raman T. V. <BR>
+Tue Nov 21 15:57:11 PST 1995</I>
+</ADDRESS>
+</BODY>

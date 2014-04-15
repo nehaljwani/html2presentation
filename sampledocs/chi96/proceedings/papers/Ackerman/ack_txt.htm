@@ -1,0 +1,787 @@
+<html><head><!-- This document was created from RTF source by rtftohtml version
+2.7.5 --><title>zephyr.chi96</title>
+</head>
+
+<body>
+
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<P><IMG SRC="./../../graphics/papers.JPG" ALT="papers" HEIGHT=35 WIDTH=249><A HREF="./../../papers.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<h1>The Zephyr Help Instance:
+Promoting Ongoing Activity
+in a CSCW System</h1><p>
+<p>
+<b>Mark S. Ackerman</b><br>
+<b>Leysia Palen</b><br>
+Department of Information and Computer Science<br>
+University of California, Irvine<br>
+Irvine, CA  92717<br>
+ackerman, palen@ics.uci.edu<br>
+http://www.ics.uci.edu/CORPS/ackerman.html<p>
+<p>
+<h4>ABSTRACT</h4><p>
+<i>If Computer-Supported Cooperative Work (CSCW) systems are to be
+successful over time, it will be necessary to promote ongoing and continuing
+activity, not just initial adoption.  In this paper, we consider what technical
+and social affordances are required to encourage the continued use of a CSCW
+system.<p>
+To explore these issues, we examine a chat-like system, the Zephyr Help
+Instance, which is used extensively at MIT.  The Help Instance facilitates
+users asking questions of one another, and is an example of a distributed help
+and problem-solving system.  We provide an overview of the system's use as well
+as those mechanisms, both technical and social, that facilitate continuing its
+use over time.   <p>
+</i>
+<b>KEYWORDS</b>: computer-supported cooperative work, CSCW, help,
+computer-mediated communications, CMC, norms, organizational interfaces, social
+maintenance, electronic social spaces.<p>
+<h4>INTRODUCTION</h4><p>
+<p>
+<ul>
+Worlds are socially constructed and socially maintained.  Their continuing
+reality... depends on specific social processes, namely those processes that
+ongoingly reconstruct and maintain the particular worlds in question.  (Berger
+[2], p. 45)<p>
+</ul>
+If Computer-Supported Cooperative Work (CSCW) systems are to be successful, it
+will be necessary to promote ongoing, continuing activity.  Even once a CSCW
+system gets past the critical mass problem, users must continue to find it not
+only useful, but usable.  Only some CSCW systems will provide the social and
+technical affordances necessary to promote the social maintenance required for
+continued use.  <p>
+We examine this issue through the study of a particular system, the Zephyr Help
+Instance, at MIT.  The Zephyr Help Instance is a chat-like system that allows
+users to ask questions and other users to answer.  The Zephyr Help Instance
+serves as an interesting field study site for several reasons:
+<ul>
+<li>    Zephyr is a successful CSCW system in production use.  </ul>At CSCW'94, a
+call was made to find "real" CSCW systems in wide-scale use.  The Zephyr Help
+Instance has been in heavy use for 7 years (at over 30,000 messages per
+semester).  In its organizational setting, this computer-mediated communication
+(CMC) system is not monitored or maintained by any authority; its existence is
+sustained and organized solely by its users.  Because its use is discretionary,
+it serves as an excellent opportunity to study how users might organize their
+electronic social space.
+<ul>
+<li>    Zephyr ameliorates an important help problem by providing a mechanism for
+distributed help and problem-solving.  It does this by allowing users to help
+one another.  </ul>Relatively little is known about how people can best assist
+one another in a computationally distributed environment.  With the Zephyr Help
+Instance, users help one another in a cooperative environment to continue their
+work tasks.  There have been many times, some highlighted below, where no
+single person could answer the question posed, but a group of people could.  Of
+course, this type of help would be of little value if the system were not an
+ongoing source of answers.<p>
+<ul>
+<li>    Zephyr has a simple user interface, making it easier to determine the
+interaction of system affordances and social maintenance.</ul>Zephyr is a bit
+of a paradox.  The standard interface is rudimentary, consisting of either a
+text-based, tty interface or a simple X-based interface.  Yet, the system
+<i>is</i> used extensively for technical problem-solving, as well as other
+types of work and social communication.  The simplicity of the user interface
+allows us to more easily see the social affordances.  It is our contention that
+the system allows participants to invoke a rich set of social behaviors and
+adaptations.  Not only do these interactions allow them to problem-solve, it
+also allows them to maintain and organize their electronic social space.  This
+usability capability is partially dependent on the user interface, as normally
+construed, and partially on the organizational or external interface [14]. <p>
+Therefore, this system provides an interesting and important study.  Simply
+put, the Zephyr Help Instance highlights some critical CSCW requirements --
+requirements that have enabled it to be a success within its environment of use
+<i>over time.</i>  <p>
+We begin the paper with a brief examination of the CSCW literature concerning
+continued use over time.  Following this, we describe Zephyr in general and the
+Help Instance in particular.  With a firm base in the use of the system, we
+then analyze why the Zephyr Help Instance has continued to be used.  <p>
+<h4>CSCW SYSTEMS AND ONGOING ACTIVITY</h4><p>
+Numerous CSCW and information technology studies have examined the
+adoption of group and organizational systems (e.g., [9]).  The social impacts
+of computational systems have also been heavily studied (e.g., [16]).  <p>
+Determining the conditions of success and continuation has been much less
+clear.  One strand of research argues that within many organizations, where use
+may be mandated, continued use is dependent primarily on either coercion or
+user satisfaction.  The studies assume that with high user satisfaction,
+systems will be effectively used.  Many user involvement and participatory
+design studies fall within this research stream.<p>
+Another line of argument assumes that fit to the social situation provides for
+system success (or failure) over the long run.  In her study of Lotus Notes,
+Orlikowski [15] claimed that the system assumptions cannot be contrary to the
+reward schemes and mental maps of the organization or of key groups.  Bowers
+[3] came to similar conclusions in his study of a British government office.
+Both Orlikowski and Bowers acknowledge the necessity of organizational fit, but
+also paint a considerably more complex picture that requires a consideration of
+individuals' goals, shared understandings, and system affordances.
+Unfortunately, both studied implementations that were failures at the time of
+study, swaying their conclusions.<p>
+While there are few field-based studies of continuing use of computational
+systems, to our knowledge, there are no studies examining how CMC-based help
+systems maintain themselves over time.  Help has been extensively studied:
+There is a plethora of studies of technical systems (e.g., [4]), help
+information design (e.g., [13]), and face-to-face interactions between users
+and expert consultants (e.g., [1]).  Nonetheless, while CMCs have considerable
+potential for providing access to distributed colleagues for help and problem
+solving, there is mostly anecdotal evidence for this capability.  Sproull and
+Kiesler do report on a number of CMC uses, including the norms of use, in [17].
+Similarly, Finholt reported on the use of distribution lists and their archives
+in [7].  Outside of these studies, little attention has been paid to how groups
+using CMCs (particularly for help) organize themselves to maintain their social
+spaces.  <p>
+<h4>ZEPHYR MESSAGE SYSTEM AT MIT</h4><p>
+The Zephyr system is a synchronous chat facility supported on
+MIT/Project Athena workstations [6].  In Athena, users can use any
+public-access workstation in any location.  Zephyr provides a synchronous
+method of both communicating and finding other people in a geographically and
+computationally distributed environment.<p>
+Zephyr messages can be sent to a channel, called an "instance", to which
+multiple people are subscribed.  Messages can also be sent to individuals or
+groups of individuals.  (We are omitting description of some advanced features
+from our discussion here.)  Sending a message to an instance is the equivalent
+of participating in a chat channel; the message is sent to all the people who
+are subscribing to the instance at that time.  <p>
+<h4>Methods and data</h4><p>
+The analysis presented here was largely based on a qualitative
+examination of the publicly-available message log for one semester, Autumn,
+1993.  The log consists of 30,052 messages, providing data for 93 days of the
+105-day semester.  There are gaps of 9 days and of 4 days because of failures
+in the logging mechanism.  There are also some days with only partial data,
+although it is often difficult to determine when Zephyr was inactive, the
+logging application was broken, or the Athena system was down.  <p>
+In addition to our analysis of the message log, the first author has been a
+participant-observer on the system for approximately three years (and a casual
+participant for much longer).  We have also interviewed the people that started
+the Help Instance, and interviewed a small number of heavy and light users.  We
+conducted 19 interviews in total.  We have used this additional data to
+corroborate and inform our analysis.<p>
+The analysis followed qualitative techniques standardly used to examine
+small-scale interactions (as in [12]).  We were careful to triangulate among
+our data.<p>
+<h4>Users</h4><p>
+Help Instance users are entirely MIT affiliates, mostly  undergraduates,
+since they are the typical Athena user.  This does provide a different type of
+user population than in many organizations.  For example, undergraduates have
+more time and more willingness to engage new technologies.  Additionally, MIT
+has a distinct technical culture.  On the other hand, MIT undergraduates have a
+wide diversity of technical competence and interest.  In general, we believe
+that the Zephyr users are typical of many technical users, but we will discuss
+the impact of MIT as an organizational culture below.<p>
+In Autumn, 1993, there were 540 users.  Usage followed the familiar exponential
+curve of CMCs [10].  It is important to note that there were a number of user
+groups.  Based on our analyses of the message log, it is clear that there was a
+core group of "regulars" on the Help Instance (approximately 8% of users).
+Some people lived on the system.  One user had nearly 2400 messages on the Help
+Instance alone.  There was also an intermediate group of intermittent users
+(the middle of the exponential curve), who participated over the extent of the
+quarter but at a lower level.  Some appeared to stay subscribed to the Help
+Instance but participated at a lower level; others may have subscribed when
+they wanted to ask a question or had the time to answer.  There were a large
+number of users (39%) who sent four or fewer messages.  Our interview data
+suggest that the tire-kickers (the tail of the curve) subscribed only when they
+wanted to ask a question.<p>
+Although we have interview and observation evidence that person-to-person
+exchanges are more common than broadcasting to public instances, we are
+emphasizing one particular chat channel, the Help Instance, in this paper.  It
+should be noted that the Help Instance is only one channel on the system.
+Still, the Help Instance was enormously popular and useful.<p>
+<h4>Zephyr in use</h4><p>
+The following sections show how Zephyr is used.  Before discussing the
+technical and social mechanisms by which the Help Instance continues over time
+as a social space, we need to ground that discussion by describing what occurs
+on the system.  <p>
+In the following two message exchange, the user named <tt>azir</tt> asks a
+question, and <tt>clee</tt> answers it.  (All names and other identifiers have
+been changed in any data presented here.  Additionally, we have modified the
+headers and messages slightly for readability and because of page
+constraints.)<p>
+<tt>Time: 18:57:10 Date: Fri Oct 29 1993 </tt><br>
+<tt>From: @times(@b(@i( Course II ))) &lt;azir&gt;</tt><br>
+<tt>after i change a list to a group, how long</tt><br>
+<tt>before i can use it?</tt><br>
+<tt></tt><br>
+<tt>Time: 18:57:52 Date: Fri Oct 29 1993</tt><br>
+<tt>From: starlight on a moonless night &lt;clee&gt;</tt><br>
+<tt>you can use it immediately</tt><br>
+<tt><i></i></tt><br>
+<tt><i></i></tt>The rapidity and burstiness of interaction are impossible to
+duplicate in print, but long lulls are punctuated with frantic bursts of
+activity.  That these messages are only 42 seconds apart is normal.  This
+pacing gives the system a flavor very different from net news or e-mail.  <p>
+The pace of query and response is an extremely important feature of the system.
+Messages fly by.  If they are not answered within a few minutes, it is likely
+that they never will be.  In general, users ignore any older messages; the
+system is effectively memoryless.  <p>
+Several additional things about the messages should be noted.  First, the
+example messages above are unusually short, but the available editors as well
+as the rapidity of the exchanges tend to keep messages below 10 lines long.
+All of the lines arrive together.  Second, the user must keep track of the
+conversational threads to know how a message fits into potentially many
+simultaneous exchanges.  <p>
+Third, there is some identifying information in addition to the message itself.
+The timestamp, originating machine, and user id are provided by the system and
+guaranteed to be correct.  The signature on the From line, however, is set by
+the user.  These signatures, or "zsigs", are extremely interesting in their own
+right.  Unfortunately, the zsigs have been shortened here because of space
+constraints.  Finally, the messages are simple in format and flexible in
+structure.  As can be noted from the first From line, there are markup codes
+for fonts, font styles, and color.  (The formatting appears as only markup
+commands on the tty interface.)  There are no other embellishments to the
+messages.<p>
+As mentioned, the user interface for Zephyr is rudimentary.  Incoming messages
+pop up on the user's X screen or scroll by in a tty window; outgoing messages
+are written with a line-oriented editor.  More sophisticated interfaces exist,
+but are seldom used.  <p>
+<h4>Distributed use of the Help Instance</h4><p>
+Many exchanges are like the one presented above -- a single question
+followed by a single answer.  However, one of the advantages of distributed
+problem solving is that a community of people is involved and many people can
+attend to each question.  Some of the most interesting interactions on the Help
+Instance capitalize on its distributed nature; these interactions occur when an
+answer could not be readily provided, and it takes several people multiple
+iterations to arrive at a solution.  Below is an exchange where one person adds
+to the answer of another:<p>
+<tt>Time: 20:48:09 Date: Fri Oct 29 1993 </tt><br>
+<tt>From: @i[@(blue)Faded] &lt;chatter&gt;</tt><br>
+<tt>Thanks for helping me before, but now I have </tt><br>
+<tt>another problem.</tt><br>
+<tt>I'm trying to use ftp.</tt><br>
+<tt>I've gotten into another schools files, but </tt><br>
+<tt>how do you open them</tt><br>
+<tt></tt><br>
+<tt>Time: 20:48:38 Date: Fri Oct 29 1993 </tt><br>
+<tt>From: The Ranger &lt;ranger&gt;</tt><br>
+<tt>get filename</tt><br>
+<tt></tt><br>
+<tt>Time: 20:49:25 Date: Fri Oct 29 1993</tt><br>
+<tt>From: @tt{@i{The next zsig lies.}} &lt;phopkins&gt;</tt><br>
+<tt>that copies the file into your current directory</tt><br>
+<tt>"man ftp" at an athena prompt for more info</tt><br>
+<tt></tt><br>
+<tt>Time: 20:49:57 Date: Fri Oct 29 1993</tt><br>
+<tt>From: @i[@color (blue)Faded] &lt;chatter&gt;</tt><br>
+<tt>Thanks again!</tt><br>
+<tt><i></i></tt><br>
+<tt><i></i></tt>In this situation, <tt>chatter</tt> has asked a question about
+getting files from another site.  <tt>ranger</tt> answers succinctly but his
+answer "corrects" the naively formed question by <tt>chatter</tt>. <tt>
+ranger</tt>'s answer tells <tt>chatter</tt> how to retrieve files, but not to
+open them as <tt>chatter</tt> asks, because that cannot be done with ftp.
+After the time for a conversational turn for <tt>chatter</tt> has elapsed,
+<tt>phopkins</tt> decides to add more information that elaborates on<tt>
+ranger</tt>'s answer and provides more help for a novice's use of ftp.
+Finally, <tt>chatter</tt> thanks everyone for the help.<p>
+The CMC nature of the Help Instance also allows corrections and modifications
+where necessary.  In the following exchange, <tt>rpt</tt> corrects the initial
+response.  <p>
+<tt>Time: 06:27:32 Date: Thu Oct 14 93</tt><br>
+<tt>From: Health is merely the slowest possible </tt><br>
+<tt>rate at which one can die. &lt;elf&gt;</tt><br>
+<tt>Who wrote "Hallelujah!"?  Or is the author </tt><br>
+<tt>unknown?</tt><br>
+<tt></tt><br>
+<tt>Time: 06:28:27 Date: Thu Oct 14 93</tt><br>
+<tt>From: band-aid &lt;johnson&gt;</tt><br>
+<tt>If you're speaking of the Halleljuah chorus,</tt><br>
+<tt>it is from Hayden's Messiah.</tt><br>
+<tt></tt><br>
+<tt>Time: 06:28:36 Date: Thu Oct 14 93</tt><br>
+<tt>From: Robert Talbott &lt;rpt&gt;</tt><br>
+<tt>Handel, not Hayden</tt><br>
+<tt></tt><br>
+<tt></tt>In addition to multi-party answers, the chat-like nature of the Help
+Instance allows a user to ask for additional help if he doesn't understand the
+answer:<p>
+<tt>Time: 15:44:28 Date: Fri Oct 29 1993 </tt><br>
+<tt>From: Snoozin' &lt;felly&gt;</tt><br>
+<tt>Why is a load average made up of three </tt><br>
+<tt>numbers?  What do the numbers mean?</tt><br>
+<tt></tt><br>
+<tt>Time: 15:45:24 Date: Fri Oct 29 1993 </tt><br>
+<tt>From: Redhead at the wheel &lt;kat&gt;</tt><br>
+<tt>I think they are short, medium, and long-</tt><br>
+<tt>term numbers, but I'm not sure.  I think they </tt><br>
+<tt>mean nothing, but I'm not sure</tt><br>
+<tt></tt><br>
+<tt>Time: 15:46:05 Date: Fri Oct 29 1993 </tt><br>
+<tt>From: Mythical man-month at work &lt;dan&gt;</tt><br>
+<tt>1 5 15</tt><br>
+<tt></tt><br>
+<tt>Time: 15:46:35 Date: Fri Oct 29 1993 </tt><br>
+<tt>From: Snoozin' &lt;felly&gt;</tt><br>
+<tt>Huh?</tt><br>
+<tt></tt><br>
+<tt>Time: 15:47:07 Date: Fri Oct 29 1993 </tt><br>
+<tt>From: Synthetic syntax spoken &lt;descartes&gt;</tt><br>
+<tt>Load averaged over the last 1, 5, and 15 </tt><br>
+<tt>minutes,<i> </i>respectively </tt><br>
+<tt></tt><br>
+
+In this example, user <tt>felly</tt> posted a question; <tt>kat</tt>
+gave a partial response.  Another user <tt>dan</tt> gave a different
+partial response, perhaps in an effort to disambiguate <tt>kat</tt>'s.
+Yet another user, <tt>descartes</tt>, gave the final correct answer
+which disambiguated the previous partial responses. While <tt>kat</tt>
+made the initial effort to help <tt>felly</tt>, both <tt>dan</tt> and
+<tt>descartes</tt> joined the conversation in an attempt to make the
+answer as precise and helpful as possible.  This example is one kind
+of collaborative interaction that illustrates the distributed
+problem-solving that takes place on the Help Instance.  More complex
+problem-solving also takes place, with extensive iteration and
+negotiation among users to understand and define the problem.<p>
+
+Finally, many questions get posted that never receive an answer, while others
+receive responses from many people at once.  While this appears to be a failure
+of the system, it is expected by users.  Realizing that one might not get an
+answer is actually very important to the sustained functioning of the system.
+Additionally, some questions get a single response referring to a place where a
+"stock" answer or other information resources can be found.  <p>
+To summarize, the Zephyr Help Instance provides a mechanism by which users can
+answer one another's questions.  They do this in a distributed environment, and
+many people can listen and participate in the exchanges.  Because participation
+is always discretionary, users can answer, modify answers, or correct mistakes
+as they wish.  Furthermore, many users can simultaneously participate to solve
+complex problems.  The pace of the system provides immediate feedback and
+response.<p>
+The system capabilities must be augmented by social mechanisms for the system
+to actually work.  For example, the synchroneity of Zephyr promotes use when
+urgency matters, but a human consultant is not available.  However, there must
+also be enough people on the system to hear the request.  The next section
+examines the social conditions of use.<p>
+<h4>WHY ZEPHYR CONTINUES TO WORK</h4><p>
+Technically, Zephyr and its Help Instance are relatively simple.  What
+makes the Help Instance interesting is not its technical capabilities, but that
+it works so successfully.  Its viability is partially dependent on its
+technical affordances for social use and partially on the social mechanisms in
+place for maintaining the sociality.  We will discuss those social mechanisms
+in the following sections.<p>
+<h4>A shared understanding of the purpose</h4><p>
+The Help Instance was begun purposefully as a forum for user questions.
+It was begun in 1988 by a small group of technically expert undergraduates who
+were willing to answer questions, and it has maintained the same basic format
+since.<p>
+The Help Instance is now a well-known and well-defined place to ask questions
+and provide answers within the MIT community.  The regularity of activity
+reinforces that same activity [8].  On the Help Instance, asking questions and
+finding answers reinforces the actors' providing questions and answers in the
+same location.  Indeed, the actors would be disconcerted if they came to the
+Help Instance, and it did not contain questions and answers.  <p>
+Social policing removes wildly deviant behavior on the Help Instance.  This is
+made possible by a system affordance.  Because Zephyr has a number of
+channels--and even more can be created dynamically by any user--it is easy to
+take an exchange off the Help Instance and continue to exchange Zephyr messages
+elsewhere.  In fact, the Help.d Instance provides an established forum for
+discussing opinions, analyzing previous help responses, or flaming.  Users
+often tell people to take a dialog to the discussion channel:<p>
+<tt>Time: 14:32:17 Date: Fri Nov 19 1993</tt><br>
+<tt>From: Mike &lt;mavedon&gt;</tt><br>
+<tt>I can go faster not having to take my hands </tt><br>
+<tt>off the keybd to operate a mouse.  also, mousing</tt><br>
+<tt>bothers my wrist more than typing..</tt><br>
+<tt></tt><br>
+<tt>Time: 14:33:15 Date: Fri Nov 19 1993</tt><br>
+<tt>From: Andrew Topper &lt;andrew&gt;</tt><br>
+<tt>then use xrn, and stop flaming.</tt><br>
+<tt>the nature of this sort of thing is that there </tt><br>
+<tt>*cannot* be One Perfect Interface For Everyone.</tt><br>
+<tt></tt><br>
+<tt></tt><br>
+<tt>Time: 14:32:37 Date: Fri Nov 19 1993</tt><br>
+<tt>From: Mike &lt;mavedon&gt;</tt><br>
+<tt>(and this should really go to help.d) </tt><br>
+<tt></tt><br>
+<tt></tt>They also reinforce that users should stick to the proper content for
+a channel:<p>
+<tt>Time: 21:20:24 Date: Fri Oct 29 1993</tt><br>
+<tt>From: I'd explain it, but there's a </tt><br>
+<tt>lot of math. &lt;susan&gt;</tt><br>
+<tt>please, stick to the appropriate instance, </tt><br>
+<tt>chang, we're on help.d</tt><br>
+<tt></tt><br>
+<tt></tt>Like all the norms discussed here, the playing out of this norm is
+dependent on the situational context and on the players involved [18].  Flames
+and opinions do exist; users complain about print quotas, compilers, and their
+workloads.  Still, the content of the Help Instance is remarkably consistent.
+There is a "common-enough" understanding of the space's purpose.<p>
+<h4>Roles of asker and answerer</h4><p>
+The Help Instance, as a sociality, must reinforce the desire of people
+to ask questions and for people to answer.  While there are many potential
+questioners, users will not come to the Help Instance unless they can expect
+their questions to be answered in a manner that is not psychologically or
+socially problematic.  Likewise, potential answerers must find it socially or
+psychologically beneficial to expend the time and effort to answer questions.
+<p>
+If the system use is to be stable, the creation of potential benefits and the
+removal of potential liabilities for both questioners and answerers must be
+institutionalized through some norms and roles.  In this, we follow Strauss
+that these roles will not be extensively and consciously elaborated, and they
+are partially dependent on the specifics of the participants [18].<p>
+For the Help Instance participants, there appear to be two active roles, that
+of asker and that of answerer.  The role of asker is more elaborated in that
+there is a recognition that users progress from "frosh" (freshman) to more
+expert users, and this progression should be accounted for in potential
+answers.  <p>
+These two roles are heavily intertwined with the attribute of "cluefulness",
+where people range along a continuum of "clueless" (e.g., freshmen and other
+naive questioners) to "clueful" or "clued" (e.g., those who answer well).  This
+attribute of "cluefulness" is deeply rooted in the MIT culture, but is often
+found in technical organizations.  It is most often associated with a level of
+technical expertise and understanding, but it also connotes an internalization
+of specific institutional and professional norms such as deference to expert
+authority.  We will remark on those aspects "cluefulness" that are important to
+Zephyr use in our discussion below.<p>
+Socially, these two roles -- asker and answerer -- reinforce each other.
+Indeed, it is important to remember that participants move fluidly between the
+two.  Because of the link to "cluefulness", the roles are also socially
+reinforced by and are socially reinforcing with the organizational culture of
+MIT.  This process of reinforcement is key to the system's success.  However,
+system affordances make the reinforcements visible and possible. <p>
+In the following two sections, we discuss these roles, their norms, and the
+resulting reinforcements.  We will then be able to discuss the system
+affordances that enable these social mechanisms.  <p>
+<h4>Reducing burden:  the role of asker </h4><p>
+The information seeker creates a tension within the Help Instance.  The
+purpose of the Help Instance is to provide answers; however, this will be
+continued only if any burden on the answerers is minimal.  Since reciprocity
+(i.e., the returning an item of similar value) cannot always be met, this need
+often gets expressed through demands that the asker take the proper actions to
+seek out the answer through other means:<p>
+<tt>Time: 16:47:40 Date: Thu Oct  7 1993</tt><br>
+<tt>From: Brian Burke &lt;brian&gt;</tt><br>
+<tt>Can someone help me find the E-mail </tt><br>
+<tt>address of a friend of mine at another</tt><br>
+<tt>college?</tt><br>
+<tt></tt><br>
+<tt>Time: 16:48:10 Date: Thu Oct  7 1993</tt><br>
+<tt>From: May I help you? &lt;erikson&gt;</tt><br>
+<tt>You might add consult and look in </tt><br>
+<tt>/mit/consult/doc/college-email-* first.</tt><br>
+<tt></tt><br>
+<tt>Time: 16:48:28 Date: Thu Oct  7 1993</tt><br>
+<tt>From: in complete contrast &lt;mayabe&gt;</tt><br>
+<tt>if it's at cornell, maybe.  </tt><br>
+<tt>otherwise, read the stock answers.</tt><br>
+<tt>there's also a FAQ in news.answers</tt><br>
+<tt>about finding addresses for colleges.</tt><br>
+<tt></tt><br>
+<tt></tt>Knowing to first search the system and external sources of information
+is part of being "clueful", and therefore part of what distinguishes people
+capable of answering from those who are "clueless".  In the following message,
+<tt>bsutton</tt>, one of the more prolific providers of information, admonishes
+one of his colleagues who did not first search the Unix help pages:<p>
+<tt>Time: 14:35:55 Date: Wed Nov 10 1993 </tt><br>
+<tt>From: That is not my beautiful house. &lt;bsutton&gt;</tt><br>
+<tt>*you* I expect to read the manpage when you're</tt><br>
+<tt> dealing with something you don't know.</tt><br>
+<tt></tt><br>
+<tt></tt>This requirement to exhaust other information sources before coming to
+the Help Instance is not always invoked.  It is not invoked for "regulars" of
+the system, perhaps because they have been presumed to have searched or because
+they will reciprocally provide other information.  <p>
+Even when this norm is invoked, it is most often invoked gently.  The following
+exchange provides an example.  A freshman, <tt>diamond</tt>, wants to know how
+to use uuencode, a program that produces ascii output from binary data.  This
+program is a fairly common application, and on-line help exists in several
+forms.  Two users, <tt>arno</tt> and <tt>chang</tt>, tell him to consult
+external sources.  <tt>shasha</tt> tells him, unusually, to "rtfm", or to read
+the manuals.  Shortly afterwards, however, <tt>chang</tt> also gives him the
+answer.  In this manner, <tt>diamond</tt> gets his answer but is also provided
+with a sharp reminder to check other sources first.  He is not told to go away,
+but neither is his behavior completely tolerated:<p>
+<tt>Time: 02:12:50 Date: Fri Nov 12 1993 </tt><br>
+<tt>From: @color(red)Intuition refund &lt;diamond&gt;</tt><br>
+<tt>anyone knows how to use uuencode </tt><br>
+<tt>and then send it thru mail (which one)?</tt><br>
+<tt></tt><br>
+<tt>Time: 02:13:29 Date: Fri Nov 12 1993</tt><br>
+<tt>From: Sh! I'm hunting foah a rabbit! &lt;arno&gt;</tt><br>
+<tt>There is a stock answer on that, I think.</tt><br>
+<tt>Look under MAIL.</tt><br>
+<tt></tt><br>
+<tt>Time: 02:13:51 Date: Fri Nov 12 1993</tt><br>
+<tt>From: &lt;chang&gt;</tt><br>
+<tt>man uuencode</tt><br>
+<tt></tt><br>
+<tt>Time: 02:14:08 Date: Fri Nov 12 1993 </tt><br>
+<tt>From: @bold(Well!  morning to you, too.) &lt;shasha&gt;</tt><br>
+<tt>to summarize the answers, rtfm :-)</tt><br>
+<tt></tt><br>
+<tt>Time: 02:16:52 Date: Fri Nov 12 1993 </tt><br>
+<tt>From: &lt;chang&gt;</tt><br>
+<tt>uuencode &lt;filename | mhmail ......</tt><br>
+<tt></tt><br>
+<tt>Time: 02:17:12 Date: Fri Nov 12 1993 </tt><br>
+<tt>From: @color(red)Intuition refund &lt;diamond&gt;</tt><br>
+<tt>thanks</tt><br>
+<tt></tt><br>
+<tt></tt>Another part of being "clueful" is knowing how to phrase a question
+satisfactorily.  This is something that users have to learn, since Zephyr
+messages are relatively short.  In an exchange too long to reproduce here, a
+freshman regarded publicly as a "clueless frosh" has been told to seek out one
+of the experts for a face-to-face tutorial.  He asks whether it is really
+necessary, given the lateness of the hour.  <tt>cmkao</tt> comes back with:<p>
+<tt>Time: 02:02:01 Date: Sat Nov  6 1993</tt><br>
+<tt>From: Familiar Assonance &lt;cmkao&gt;</tt><br>
+<tt>Yes, but stop asking</tt><br>
+<tt>us questions that we're getting frustrated</tt><br>
+<tt>with in that case :-)</tt><br>
+<tt></tt><br>
+<tt></tt>The freshman asks why this is a problem repeatedly.  Finally,
+<tt>bsutton</tt> informs him:<p>
+<tt>Time: 02:03:27 Date: Sat Nov  6 1993</tt><br>
+<tt>From: Psycho killer, anyone? &lt;bsutton&gt;</tt><br>
+<tt>because, bluntly, you don't know enough</tt><br>
+<tt>to ask meaningfull questions or</tt><br>
+<tt>to realize why we can't give you answers </tt><br>
+<tt>when you ignore our questions to you</tt><br>
+<tt>or even to understand that you don't know </tt><br>
+<tt>some things and can't ignore some things.</tt><br>
+<tt></tt><br>
+<tt></tt>Of course, the role of the information seeker requires the
+complementary role of information provider.  We next turn to this role.<p>
+<h4>The role of provider</h4><p>
+Concurrently with the need to reduce potential burden on the answerers,
+the askers need to know that they can ask their questions without psychological
+or social cost.  To effectively continue the Help Instance as a sociality,
+then, the answerers must not belittle or berate the askers.  While being
+clueful provides the understanding necessary to provide answers, it does not
+necessarily result in suitable exchanges. Users must also learn how to answer
+appropriately for the social space.  <p>
+The responses are expected to be nuanced according to the asker's capabilities
+and to be polite.  In the following example, taken from a longer exchange,
+<tt>hasan</tt> has asked how to change permissions on a subdirectory so that
+other users can access it.  This is an arcane task in the Athena environment
+because of its complex access control.  The entire exchange takes 41 minutes
+(interwoven with several others) and has 9 participants.  At one point,
+<tt>sirius</tt> tries to be helpful and provides some elementary information.
+<tt>hasan</tt> gets indignant at the assumption, and <tt>sirius</tt> tells him
+that he was trying to be a helpful information provider.  The [...] indicates
+that several extraneous messages were omitted between <tt>hasan</tt>'s message
+and <tt>sirius</tt>'s response.  <p>
+<tt>Time: 10:49:17 Date: Mon Oct 18 1993</tt><br>
+<tt>From: he said, she said. &lt;sirius&gt;</tt><br>
+<tt>by the way, hasan,  ~ means your home </tt><br>
+<tt>directory, which, in your case, is</tt><br>
+<tt>/mit/hasan</tt><br>
+<tt></tt><br>
+<tt>Time: 10:50:18 Date: Mon Oct 18 1993</tt><br>
+<tt>From: Hasan &lt;hasan&gt;</tt><br>
+<tt>Bloody hell, I did know that. Humph.</tt><br>
+<tt></tt><br>
+<tt>[...]</tt><br>
+<tt>Time: 10:53:31 Date: Mon Oct 18 1993</tt><br>
+<tt>From: Moonlight reflects the rain. &lt;sirius&gt;</tt><br>
+<tt>hasan -- sorry if some of the things </tt><br>
+<tt>I'm telling you are things you</tt><br>
+<tt>already know ... but it's difficult to </tt><br>
+<tt>judge how much someone knows, and lots</tt><br>
+<tt>of people will not ask about confusing </tt><br>
+<tt>jargon even if it is meaningless t</tt><br>
+<tt>to them.</tt><br>
+<tt></tt><br>
+<tt></tt>Sharp or acerbic answers often bring a response from other answerers.
+After one answerer was curt with a naive questioner, he was taken to task not
+to be sharp:<p>
+<tt>Time: 16:15:02 Date: Sat Dec 11 1993</tt><br>
+<tt>From: Paul Su &lt;pauls&gt;</tt><br>
+<tt>Switch to help.d?</tt><br>
+<tt></tt><br>
+<tt>"Which word didn't you understand?" is one of my pet peeves. The true
+answer is typically "It is not a particular word, but how the word is related
+to the concepts under discussion". But almost always the person on the
+receiving end of this doesn't have the tolerance to formulate such a formal
+answer.</tt><br>
+<tt></tt><br>
+<tt></tt>We should note that the Help Instance is "polite enough."  There are
+no doubt users who find the tone dismissive, difficult, or problematic.
+Nonetheless, we have noted a usual tone of politeness in the Zephyr exchanges.
+Askers often send an extra message of thanks, and the answerers seldom are
+dismissive.  <p>
+<h4>The visibility of expertise</h4><p>
+The two roles of asker and answerer get played out in a very publicly
+visible environment.  Zephyr's user interface requires messages to be highly
+public and visible, which adds to the system's social reinforcement.  The
+visibility affords for public acceptance of an answerer's expertise, requires
+self-control over incorrect answers, as well as provides an easy path by which
+people can be recruited for the role of answerer.<p>
+Answering questions <i>correctly</i> is extremely self-reinforcing in the MIT
+culture.  With the culture's anchor in technical expertise (as is
+"cluefulness"), one can gain the admiration of colleagues for showing
+proficiency.  Said one interviewee, "I answer partially to be helpful, and I
+answer partially to show off."  One's performance on the Help Instance is
+public -- and visible to anyone subscribing.  If one is capable of correct
+answers, then the Help Instance is a good forum for garnering the attention
+most prized by the organizational culture.<p>
+For undergraduates, who form the major population of Help Instance users, this
+visibility and public performance have extra force.  As Davis found with his
+student nurses [5], students must articulate and rehearse their future
+professional roles to be successful within school and later in their careers.
+Successful students come to understand this need, and quickly begin to practice
+what Davis terms "role simulations" of "valued performances".<p>
+The public performance of one's Help Instance activity also diminishes the
+number of incorrect answers.  Since "cluefulness" or technical expertise is
+enacted (i.e., agreed upon by both the participant and his audience), providing
+incorrect answers detracts from one's preferred persona.  Information providers
+seldom answer when they are uncertain, and if they do (e.g., when directly
+asked) will mark uncertain answers appropriately.<p>
+The public performance, combined with the ease of response, also results in
+recruitment of new members.  The Help Instance "regulars" provide a stable
+collectivity which a new recruit may gradually join.  Seeing one's questions
+answered makes it more likely that one will ask questions.  Opportunities to
+correct or elaborate on another's answers provide a forum for slowly increasing
+one's answering without discomfort.  In a situation where no one is compelled
+to answer, the opportunity to correct or supplement another (politely and
+non-hostilely) is of high motivation.  New members, then, are gradually
+recruited.<p>
+<h4>Background attending and lightweightness</h4><p>
+While the roles and norms are elaborated to reduce psychological cost
+for users, participation might still be onerous or problematic without the
+ability to ignore the Help Instance while attending to one's work.<p>
+As mentioned, for people to ask questions, they must feel that they will find
+an answer.  In order for the Help Instance to support collaborative problem
+solving for its users, it must be attended by many users with various areas of
+expertise.  However, requiring that any given individual provide answers could
+be onerous, especially if that individual were a volunteer as in the case of
+the Help Instance.  Furthermore, answering or even attending could interfere
+with one's work performance, thus reducing the likelihood of participation.
+Consequently, the system must allow many people to follow the progress of a
+topic and join in the activity voluntarily, as they see fit.   Because the
+interactions are rapid, conversation topics change quickly, allowing users to
+phase in and out of attending without substantial loss.  The amount of work and
+time required of users to help other users is dictated only by the helper him-
+or herself.<p>
+It appears to be socially permissible to not answer a question, even if
+questions from other people are being answered.  We saw no evidence that this
+was problematic.  If someone doesn't know the answer to question, it is rarely
+said; the question simply goes unanswered.  These same guidelines enable others
+to not answer a question even if they might know the answer.  For this reason,
+answering a question is seen as a voluntary gesture, and users asking questions
+should not expect help.  In the following exchange, <tt>loy</tt> is told that
+he should be patient with not getting a response:<p>
+<tt>Time: 21:09:07 Date: Wed Oct  6 1993</tt><br>
+<tt>From: Why are wrong numbers never busy? &lt;loy&gt;</tt><br>
+<tt>anyone heard of a software company called </tt><br>
+<tt>metrowerks?</tt><br>
+<tt></tt><br>
+<tt>Time: 21:14:18 Date: Wed Oct  6 1993</tt><br>
+<tt>From: No hypothetical situations? &lt;loy&gt;</tt><br>
+<tt>has anyone heard of a company called </tt><br>
+<tt>metrowerks?</tt><br>
+<tt>(if this is the second time this went here, </tt><br>
+<tt>then I wasn't subbed before, out of practice, </tt><br>
+<tt>sorry)</tt><br>
+<tt></tt><br>
+<tt>Time: 21:14:44 Date: Wed Oct  6 1993</tt><br>
+<tt>From: Synthetic syntax spoken &lt;descartes&gt;</tt><br>
+<tt>No one answered the first time; presumably no</tt><br>
+<tt>one here has heard of it.</tt><br>
+<tt></tt><br>
+<tt></tt>Background attending of a large silent audience also works as a check
+on the quality of answers given by individuals.  As an earlier example showed,
+users will correct answers, and the large attendant audience serves as a safety
+net for people who ask questions.  Accordingly, there may be less fear of
+asking questions or of misinforming others.<p>
+The system capability for this lightweight attending assists in sustaining the
+Help Instance.  Interestingly, the technical features that afford lightweight
+attending include the limited display options.  The teletype window option lets
+the Help Instance messages scroll by.  The scrolling action allows the user to
+be conversationally current only on the messages that are still displayed on
+the screen, reducing the burden on the user to immerse him or herself in a
+longer-term context.  When Zephyr messages are displayed using pop-up windows,
+each message has its own window.  When someone chooses not to attend, the
+windows pile up on one another, with the most recent Zephyr message on top.
+Users can then attend to only the most recent message which appears on top.
+The system is largely memoryless.  This lack of memory and the possibility of
+background attending provide for lightweight help; users need answer only as
+they wish.<p>
+<h4>CONCLUSIONS</h4><p>
+The Zephyr Help Instance is a place where users can ask questions and
+get expert, but polite answers.  It is also a place where users can answer
+questions and feel satisfaction and social approval.  <p>
+To continue providing help, the Help Instance requires, like any sociality, a
+common-enough understanding of the space's purpose, a shared understanding of
+the key roles (i.e., questioners and answerers), some norms about acceptable
+and preferred behavior, and a positive adaptation to the organizational
+culture.  In other words, in order to continue as a social place, there must be
+a negotiated order of some sort.  The Zephyr Help Instance is a simple example
+of this, but one that is effective and successful. <p>
+These social mechanisms rely on several system features.  Zephyr is simple
+technically.  But, we have discussed the usefulness found in its capabilities
+for new instances (for policing of the topics), the system speed (for
+background attending), the public messages (for rewarding and recruiting
+answerers), as well as, paradoxically, the lack of memory and the poor display
+options (for background attending).  Most importantly, the generality of
+messaging allows users to negotiate their status and roles on the system.
+Perhaps because the system is so simple, the users are able to effectively
+negotiate their roles and statuses through the system.<p>
+Some of the particular social mechanisms described here are specific to MIT or
+similar organizations.  We would not expect to find "cluelessness" per se in
+many other organizations (although we might find similar labels for new and
+naive members).  Thus, these system affordances do not necessarily enable the
+social mechanisms.  Instead, we note that the users have made creative use of
+system affordances to organize and regulate their electronic social space.
+Users were able to seize upon the system features for their own social
+purposes.  The system affordances became resources in the users' world [11],
+allowing the users to create and maintain a socially useful and usable system
+over time.  Indeed, it is likely that other successful CSCW systems will have
+similar adaptations.<p>
+<h4>Acknowledgments</h4><p>
+This work continues the Answer Garden project.  This began when the
+first author was at Project Athena, and the authors are indebted to Wendy
+Mackay, Beth Anderson, and the many users and originators of the Help Instance.
+Wayne Lutters provided the usage statistics.  Bob Halperin, Lisa Covi,
+Christine Halverson, David Redmiles, and Jonathan Grudin provided additional
+help with this paper.<p>
+The MIT Center for Coordination Science provided continued assistance for this
+study.  This research was supported by grants from NASA (NRA-93-OSSA-09) and
+the UCI Committee on Research.  The second author was supported through an NSF
+graduate fellowship.  <p>
+<h4>References</h4><p>
+1.      Aaronson, A. and J. M. Carroll.  Intelligent Help in a One-Shot
+Dialog:  A Protocol Study. <i> Proceedings of CHI + GI'87</i>, 1987: 163-168.
+<p>
+2.      Berger, P. L. <i>The Sacred Canopy</i>.  Anchor, New York, 1967.<p>
+3.      Bowers, J.  The Work to Make a Network Work:  Studying CSCW in Action. <i>
+Proceedings of CSCW'94</i>, 1994: 287-298. <p>
+4.      Campagnoni, F. R. and K. Ehrlich.  Information Retrieval Using a
+Hypertext-Based Help System. <i> Proceedings of SIGIR `89</i>, 1989: 212-220.
+<p>
+5.      Davis, F.  Professional Socialization as Subjective Experience.  In Becker,
+H. S., B. Geer, D. Riesman and R. S. Weiss (ed). <i>Institutions and the
+Person:  Papers Presented to Everett C. Hughes</i>. Aldine, Chicago, 1968.<p>
+6.      DellaFera, C. A., M. W. Eichin, R. S. French, D. C. Jedlinsky, J. T. Kohl
+and W. E. Sommerfeld.  The Zephyr Notification Service. <i> Proceedings of the
+Usenix Technical Conference</i>, 1988: 213-220. <p>
+7.      Finholt, T. A.  Outsiders on the Inside:  Sharing Information through a
+Computer Archive.  Carnegie Mellon University, Ph.D. thesis, 1993.<p>
+8.      Garfinkel, H. <i>Studies in Ethnomethodology</i>.  Prentice-Hall, Englewood
+Cliffs, NJ, 1967.<p>
+9.      Grudin, J. and L. Palen.  Groupware Success Factors:  A Study of Meeting
+Scheduling. <i> Proceedings of European CSCW Conference</i>, 1995: forthcoming.
+<p>
+10.     Hiltz, S. R. and M. Turoff.  The Evolution of User Behavior in a
+Computerized Conferencing System. <i>Communications of the ACM</i>, 1981,
+24(11): 739-762.<p>
+11.     Hutchins, E. <i>Cognition in the Wild</i>.  MIT Press, Cambridge, MA,
+1995.<p>
+12.     Hutchins, E. and L. Palen.  Constructing Meaning from Space, Gesture and
+Talk. <i> Proceedings of NATO Workshop on Discourse, Tools and Reasoning</i> ,
+1993.<p>
+13.     Kearsley, G. <i>Online Help Systems : Design and Implementation</i>.
+Ablex, Norwood, NJ, 1988.<p>
+14.     Malone, T. W.  Designing Organizational Interfaces. <i> Proceedings of
+CHI'85</i>, 1985: 66-71. <p>
+15.     Orlikowski, W. J.  Learning from Notes:  Organizational Issues in Groupware
+Implementation. <i> Proceedings of CSCW`92</i>, 1992: 362-369. <p>
+16.     Randall, D. and J. A. Hughes.  Sociology, CSCW, and working with customers.
+In Thomas, P. J. (ed). <i>The Social and Interactional Dimensions of
+Human-Computer Interaction</i>. Cambridge University, New York, 1995.<p>
+17.     Sproull, L. and S. Kiesler. <i>Connections</i>.  MIT Press, Cambridge, MA,
+1991.<p>
+18.     Strauss, A. <i>Creating Sociological Awareness.</i>  Transaction, New
+Brunswick, 1991.<p>
+<p>
+</body></html>

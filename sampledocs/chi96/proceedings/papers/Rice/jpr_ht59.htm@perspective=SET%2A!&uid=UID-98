@@ -1,0 +1,136 @@
+<TITLE>Inspect something new</TITLE>
+
+     <BODY>
+     <FORM METHOD="GET" ACTION="jpr_ht15.htm">
+
+This data structure inspector was the first use we made of web
+browsers to provide an interactive interface to a non-trivial running
+system.  In this case we are using the web browser as a window system
+for an application that knows about how to display data structures
+within the system in a number of different perspectives.  The
+particular advantage of this approach is that the browser provides a
+very reliable substrate for an inspector tool.  We do not have to be
+concerned that bugs in the application will crash out the window
+system. <P>
+
+In this case we have typed in the expression <tt>(ol:find-ontology
+'ol-user::bibliographic-data)</tt> which will cause the inspector to
+look at the data structure used to encode the ontology called
+Bibliographic-data.  When we click on the <input type="submit"
+value="Inspect"> button we inspect the ontology in its default
+perspective.<P>
+
+<A HREF="jpr_txt.htm#inspector"><IMG SRC="jpr_fg85.gif" ALT="[Up]"></A>
+<A HREF="jpr_ht15.htm"><IMG SRC="jpr_fg56.gif" ALT="[Next]"></A> 
+<HR>
+
+
+
+<H1><img SRC="jpr_fg47.gif" ALT="[KSL logo]">Stanford KSL Inspector</H1>Inspect something new by typing it into the "Name" box.
+     For example, type in "FOO" to inspect the symbol 'FOO.
+     You may also type in an expression to be evaluated in the EVAL box.<P>If you select one of the perspectives in the menu then whatever
+     you choose to inspect will be inspected in that perspective
+     (if applicable).  Failing that the best perspective will be selected.
+
+
+
+     <DL compact>
+     <DT><b>Name</b>
+     <DD><TEXTAREA ROWS=1 COLS=50 name="name"></TEXTAREA>
+     <DT><b>Eval</b>
+         <DD><TEXTAREA ROWS=5 COLS=50 name="eval">(ol:find-ontology 'ol-user::bibliographic-data)</TEXTAREA>
+     <DT><b>Perspective</b>
+     <DD><SELECT size="5" name="perspective">
+     <OPTION> Alist
+     <OPTION> All-Generic-Functions
+     <OPTION> All-Methods
+     <OPTION> Class-Debug
+     <OPTION> Class-Details
+     <OPTION> Class-Inheritance
+     <OPTION> Class-Subclasses
+     <OPTION> Cml-Definition
+     <OPTION> Cml-Editor
+     <OPTION> Cml-Source
+     <OPTION> Cml-Subclasses
+     <OPTION> Cml-Subdefinitions-Partitioned
+     <OPTION> Cml-Superclasses
+     <OPTION> Combined-Method
+     <OPTION> Complete-Stack-Debugger
+     <OPTION> Dbclass-Facts
+     <OPTION> Debugger
+     <OPTION> Debugger-Dangerous
+     <OPTION> Default
+     <OPTION> Direct-Generic-Functions
+     <OPTION> Direct-Methods
+     <OPTION> Disassembled-Function
+     <OPTION> Epikit
+     <OPTION> Epikit-World
+     <OPTION> Equation-Model
+     <OPTION> Erring-Processes
+     <OPTION> Expression-In-Kb-Context
+     <OPTION> File-Contents
+     <OPTION> Function-Call-Tree
+     <OPTION> Function-Details
+     <OPTION> Generic-Function-Details
+     <OPTION> Generic-Functions-Method-Combinations
+     <OPTION> Generic-Functions-Sorted
+     <OPTION> Gfp-Frame
+     <OPTION> Gfp-Kb
+     <OPTION> Hash-Table-Sorted
+     <OPTION> Kb-All-Instances-By-Class
+     <OPTION> Kb-Alphabetical-All-Instances
+     <OPTION> Kb-Alphabetical-Entity-Instances
+     <OPTION> Kb-Alphabetical-Model-Fragment-Instances
+     <OPTION> Kb-Components
+     <OPTION> Kb-Entity-Instances-By-Class
+     <OPTION> Kb-Model-Fragment-Instances-By-Class
+     <OPTION> Kb-Profile
+     <OPTION> List-Of-Items
+     <OPTION> Macroexpansion
+     <OPTION> Methods-Sorted
+     <OPTION> Name
+     <OPTION> Offset-Plist
+     <OPTION> One-On-A-Line
+     <OPTION> One-On-A-Line-In-Kb-Context
+     <OPTION> Ontolingua
+     <OPTION> Ontolingua-Clips-Sentences-Translation
+     <OPTION> Ontolingua-Clips-Translation
+     <OPTION> Ontolingua-Cml-Re-Translation
+     <OPTION> Ontolingua-Definition-Objects
+     <OPTION> Ontolingua-Definitions
+     <OPTION> Ontolingua-Epikit-Translation
+     <OPTION> Ontolingua-Generic-Frame-Translation
+     <OPTION> Ontolingua-Idl-Translation
+     <OPTION> Ontolingua-Kif-Translation
+     <OPTION> Ontolingua-Loom-Translation
+     <OPTION> Ontolingua-Ontology
+     <OPTION> Ontolingua-Prolog-Syntax-Translation
+     <OPTION> Ontolingua-Re-Translation
+     <OPTION> Ontolingua-Words
+     <OPTION> Other-Symbols
+     <OPTION> Plist
+     <OPTION> Re-Instance-Facts
+     <OPTION> Re-Rule
+     <OPTION> Re-Rule-Instance
+     <OPTION> Re-Rule-Instance-With-Body
+     <OPTION> Slotd
+     <OPTION> Slots
+     <OPTION> Source-File
+     <OPTION> State-Of-Stepper
+     <OPTION> String-As-Array
+     <OPTION> T
+     <OPTION> Unencapsulated-Function
+     <OPTION> Xref-Ontology
+         </SELECT>
+     <DT> 
+     </DL>
+     <input type="submit" value="   Inspect    ">
+     <input type="reset" value="   Clear    ">
+     </FORM>
+     </BODY>
+<HR>
+
+<H6>Inspector by: Rice.  Some perspectives by Axf
+</H6>
+<HR>
+<B>Commands: </B><A HREF="/doc/inspector/help.html"><B>Help</B></A>, <A HREF="?perspective=APROPOS&uid=UID-96">Apropos</A>, <A HREF="?perspective=DESCRIBE-APPLICABLE-PERSPECTIVES&uid=UID-97">Describe applicable perspectives</A>, <A HREF="?perspective=SET*!&uid=UID-98">Set *!</A>, <A HREF="?perspective=SET-PARAMETERS&uid=UID-99">Set Parameters</A>

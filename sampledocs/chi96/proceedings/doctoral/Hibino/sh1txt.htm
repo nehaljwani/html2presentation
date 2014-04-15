@@ -1,0 +1,241 @@
+<html>
+<head>
+<title>
+Extending and Evaluating 
+Visual Information Seeking for Video Data
+</title>
+</head>
+<body>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/doctoral.JPG" ALT="Doctoral" HEIGHT=35 WIDTH=249><A HREF="../../doctoral.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+<h1>Extending and Evaluating 
+Visual Information Seeking for Video Data</h1>
+
+<b><A HREF="http://www-personal.engin.umich.edu/~hibino/">Stacie Hibino</A></b><br>
+EECS Department, Software Systems Research Laboratory<br>
+The University of Michigan, 1301 Beal Avenue, Ann Arbor, MI  48109-2122 USA<br>
+E-mail:  <A HREF="mailto:hibino@eecs.umich.edu">hibino@eecs.umich.edu</a><p>
+
+<H2>ABSTRACT</H2>
+Extending and adapting the visual information seeking 
+paradigm for video analysis would empower casual users 
+to <I>explore</I> temporal, spatial, and motion 
+<I>relationships</I> between video objects and events.  
+Several extensions are required to accomplish this:  
+extensions to dynamic queries to specify <I>multiple</I> 
+subsets, customized <I>temporal, spatial, </I>and<I> 
+motion</I> query filters, and the design of new <I>spatio-
+temporal</I> visualizations to highlight these 
+relationships.  In my thesis research, I am working on 
+these extensions by combining a new multimedia visual 
+query language with spatio-temporal visualizations into an 
+integrated MultiMedia Visual Information Seeking 
+(MMVIS) environment.  This research summary describes 
+my overall approach, research goals, and evaluation 
+plan.<p>
+
+<h3>Keywords</h3>
+Video analysis, dynamic queries, temporal query filters, 
+interactive visualizations.<p>
+
+<H2>INTRODUCTION</H2>
+Visual Information Seeking (VIS) is a framework for 
+information exploration where users filter data through 
+direct manipulation of dynamic query filters [2].  A 
+visualization of the results is dynamically updated as users 
+adjust a query filter, thus allowing them to incrementally 
+specify and refine their queries.  In this way, users also see 
+the direct correlation between adjusting parameter values 
+and the corresponding changes in the visualization of 
+results.  This approach has been shown to aid users in 
+locating information, as well as for searching for trends 
+and exceptions to trends—and to accomplish such tasks 
+more efficiently than through traditional forms-based 
+methods [1].  If the VIS paradigm was extended and 
+applied to video analysis, users would be empowered to 
+explore various relationships (e.g., temporal relationships 
+such as how often different types of events start or end at 
+the same time) in a way that was not previously possible 
+through other traditional means (e.g., timelines for 
+temporal analysis) or other video analysis approaches 
+(e.g., [3, 5]). <p>
+
+<H2>EXTENDING VIS FOR VIDEO DATA</H2>
+I have identified several extensions to the original VIS 
+framework that are necessary to adapt VIS for the analysis 
+of video data.  <p>
+
+These extensions include: <br>
+<UL>
+<LI>mechanisms for selecting <I>multiple</I> subsets of 
+different types of events,
+<LI>specialized <I>temporal, spatial, and motion query 
+filters</I> for exploring the corresponding types of 
+relationships between the subsets formed, and 
+<LI>user-customizable <I>spatio-temporal</I> 
+visualizations for highlighting, for example, the 
+occurrence or frequency of the specified relationships.
+</UL>
+
+In MMVIS, we provide subset query palettes (i.e., 
+duplicate sets of query filters placed on palettes) for 
+selecting multiple subsets.  We have designed specialized 
+temporal query filters [4], and have done some 
+preliminary work on spatial and motion query filters.   We 
+have focused initial visualization work on temporal 
+visualizations that cluster temporal relationships.  The 
+integrated MultiMedia Visual Information Seeking 
+(MMVIS) environment currently supports the features 
+listed above.<p>
+
+<h3>Scenario Applying MMVIS to CSCW Data</h3>
+
+In order to better understand how MMVIS would work, 
+consider the following scenario:  HCI researchers collect 
+CSCW video data to analyze and characterize the process 
+flow of a planning meeting between three subjects 
+(&quot;Carol,&quot; &quot;Richard,&quot; and 
+&quot;Gary&quot;) collaborating from remote sites.  The 
+data is coded to indicate when each person speaks as well 
+as to characterize the design rationale (DR) of what is 
+being said (e.g., to indicate when alternatives, digressions, 
+etc., take place in the meeting).  Researchers can use 
+subset query palettes to select two subsets:  A) talking and 
+non-verbal events and B) DRs.  They can then 
+<I>explore</I> various relationships between members of 
+these subsets using the specialized relationship query 
+filters.  Our temporal query filters form a temporal visual 
+query language (TVQL) [4] and are presented to the user 
+on a single palette (see Figure 1, Temporal Query palette).  
+Keeping within the VIS paradigm, the visualization of 
+results are dynamically updated as users specify the 
+subsets as well as the temporal and/or spatial relationships.  
+In Figure 1, TVQL specifies the relationship where A and 
+B events start at the same time, but A's end before or at 
+the same time as B's.<p>
+
+<a href="sh1fg1.jpg"><img src="sh1fg1.gif" alt="Figure 1. "></a><br>
+Figure 1.  MMVIS Environment.  Sample temporal analysis of CSCW video data collected during a planning meeting 
+study.<p>
+
+<H2>RESEARCH GOALS</H2>
+
+The research goals of this thesis work are:<br>
+<UL>
+<LI>to design a <I>multimedia visual query 
+language</I> for temporal, spatial, and motion queries 
+(via making significant extensions to dynamic query 
+filters),
+<LI>to enhance the visual query environment with user-
+customizable <I>spatio-temporal</I> visualizations 
+dynamically linked to the data for providing immediate, 
+contextual feedback about temporal and/or spatial 
+<I>relationships</I>,
+<LI>to develop optimized query processing and 
+incremental update strategies for MMVIS queries and 
+visualizations,
+<LI>to verify the feasibility of the proposed environment 
+through prototype implementation,
+<LI>to evaluate the functionality, performance, and 
+usability of the visual query language and integrated 
+MMVIS environment using case studies.
+</UL>
+
+<H2>EVALUATION</H2>
+
+Each component of the visual query language (i.e., 
+temporal, spatial, and motion filters) will be evaluated for 
+functionality, efficiency, and usability.  Functionality 
+testing will involve comparison to existing languages or 
+formal specifications, and identification of the expressive 
+power of the proposed query paradigm (i.e., what types of 
+queries can and cannot be made).  Efficiency testing will 
+be conducted to compare and contrast algorithms for 
+processing queries and updating the visualization.  We 
+will test the algorithms under different conditions (e.g., 
+data set size, data distribution) to determine under what 
+circumstances one performs better than another, as well as 
+to examine the feasibility of (dynamically) adapting query 
+processing to these different conditions.<p>
+
+Usability studies will be run to examine the <I>conceptual 
+understanding</I> of the query interface, as well as to 
+determine any increased user productivity over other 
+(traditional) query interfaces.  Usability evaluation will be 
+split into two types of studies, one to evaluate the query 
+language component, and the other to evaluate the 
+integrated query-visualization environment.  In the first 
+study, we will separate out the query interface and focus 
+on evaluating the users' conceptual understanding of it.  In 
+particular, the study will compare subjects' ability (speed 
+and accuracy) to specify and interpret various types of 
+queries using the visual query language (VQL) component 
+and a forms-based query language (FBQL) interface.  In 
+the second study, we will examine the users' ability to 
+interpret the visualizations as well as the efficiency of the 
+integrated environment over others to identify data trends 
+and outliers.<p>
+
+<H2>STATUS AND FUTURE WORK</H2>
+
+MMVIS has been implemented on a multimedia PC 
+(MPC) platform using a ToolBook interface to a database 
+library.  All temporal analysis components have been fully 
+integrated and are fully functional.  In the future, we plan 
+to continue work on several aspects of MMVIS, including:  
+alternative visualizations, additional presentation options 
+(e.g., to remove extra clutter), and integration of spatial 
+and motion query filters.  In addition, we will continue 
+formal evaluation of TVQL and query processing 
+optimizations.<p>
+
+<H2>ACKNOWLEDGMENTS</H2>
+
+This work was supported in part by UM Rackham 
+Fellowship, and NSF NYI #94-57609. <p>
+
+<H2>REFERENCES</H2>
+<OL>
+<LI>Ahlberg, C., Williamson, C., & Shneiderman, B.  
+(1992).  Dynamic Queries for Information Exploration:  
+An Implementation and Evaluation.  <I>CHI'92 
+Conference Proceedings</I>. NY:ACM Press, pp. 
+619-626).
+<LI>Ahlberg, C., & Shneiderman, B.  (1994).  Visual 
+Information Seeking:  Tight Coupling of Dynamic 
+Query Filters with Starfield Displays.  <I>CHI'94 
+Conference Proceedings</I>.  NY:ACM Press, pp. 
+619-626.
+<LI>Harrison, B.L., Owen, R., & Baecker, R.M.  (1994).  
+Timelines:  An Interactive System for the Collection of 
+Visualization of Temporal Data.  <I>Proc. of Graphics 
+Interface '94.  </I>Canadian Information Processing 
+Society.
+<LI>Hibino, S. & Rundensteiner, E.  (in press).  
+<A HREF="ftp://ftp.eecs.umich.edu/people/rundenst/papers/r-95-18.ps">
+A Visual Query Language for Temporal 
+Analysis of Video Data,</A>
+<I>The Design and Implementation of Multimedia 
+Database Systems</I> (K. Nwosu, Ed.), NY:  Kluwer 
+Books.
+<LI>Mackay, W. E.  (1989).  EVA:  An experimental 
+video annotator for symbolic analysis of video data.  
+<I>SIGCHI Bulletin</I>, 21(2), 68-71.
+</OL>
+
+Copyright on this material is held by the author.<p>
+
+<address>
+Extending and Evaluating Visual Information Seeking for Video Data / 
+<A HREF="mailto:hibino@eecs.umich.edu">hibino@eecs.umich.edu</a>
+</address>
+
+</body>
+</html>
+

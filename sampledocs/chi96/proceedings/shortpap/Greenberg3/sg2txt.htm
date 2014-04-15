@@ -1,0 +1,197 @@
+<HTML>
+<HEAD>
+<TITLE>A Fisheye Text Editor for Relaxed-WYSIWIS Groupware </TITLE>
+</HEAD>
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/shortpap.JPG" ALT="shortpap" HEIGHT=35 WIDTH=249><A HREF="../../shortpap.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+
+<H1>A Fisheye Text Editor for Relaxed-WYSIWIS Groupware</H1>
+<BR>
+<EM>Saul Greenberg</EM>
+<P>
+Department of Computer Science, University of Calgary<BR>
+Calgary, Alberta CANADA T2N 1N4<BR>
+Tel: +1-403-220-6087<BR>
+E-mail: saul@cpsc.ucalgary.ca<BR>
+
+<H2>ABSTRACT </H2>
+Participants in a real-time groupware conference require a sense
+of awareness about other people's interactions within a large
+shared workspace. Fisheye views can afford this awareness by assigning
+a focal point to each participant. The fisheye effect around these
+multiple focal points provides peripheral awareness by showing
+people's location in the global context, and by magnifying the
+area around their work to highlight interaction details. An adjustable
+magnification function lets people customize the awareness information
+to fit their collaboration needs. A fisheye text editor illustrates
+how this can be accomplished.
+<P>
+
+<H2>Keywords </H2>
+Groupware, fisheye views, awareness, visualization. 
+<P>
+
+<H2>INTRODUCTION </H2>
+Real-time distributed groupware typically provides a shared virtual
+workspace where people can see and manipulate work artifacts.
+Many systems now follow a relaxed &quot;what-you-see-is-what-I-see&quot;
+(<EM>relaxed-WYSIWIS</EM>) model, where people can have different
+viewports into the workspace. The problem is that groupware workspaces
+do not yet afford the richness of interaction available in their
+physical counterparts. In particular, it is more difficult to
+maintain a sense of <EM>workspace awareness</EM>: the up-to-the-minute
+knowledge about another person's interactions with the shared
+workspace [1]. In groupware, people's normal mechanisms for tracking
+what goes on around them, such as peripheral vision and quick
+glances, are ineffective since the required information may be
+absent from the display. People can lose the sense of awareness
+that is essential for coordinating interaction, such as where
+others are operating and what they are doing. 
+
+<P>One solution supplies users with two separate windows: a full
+sized viewport, and a <EM>radar overview</EM> that presents an active
+miniature of the workspace. Radar views typically overlay boxes
+atop the miniature to indicate other participant's viewport [1].
+However, radar views introduce a seam between local and global
+contexts. To gather awareness information, people must attend
+to and mentally integrate two displays that differ in both scale
+and physical location. As well, the actions shown in the miniature
+may not be useful due to the loss of resolution and detail. 
+
+<P>Applying fisheye visualization techniques to groupware can remove
+this seam. In conventional fisheye systems, multiple focal points
+magnify regions of personal interest within the global context
+[3]. A groupware fisheye twists this notion by assigning a focal
+point to each participant. Consequently, a person's view into
+the shared workspace will contain magnified regions showing others'
+work areas, seamlessly integrated into the global context. These
+regions provide awareness of the details of others' actions. If
+the magnification function is adjustable, a person can even customize
+the awareness information to suit their particular collaboration
+needs in the shared workspace.
+
+<P>
+<H2>A FISHEYE TEXT EDITOR USED BY ONE PERSON </H2>
+
+A fisheye view is a visualization technique that provides both
+local detail and global context in a single display. It takes
+its name from camera lenses that distort a scene to provide very
+wide angles of view. In a computational fisheye, the user chooses
+one or more points of focus where they wish to see local detail
+[3]. These areas are visually emphasized, with the surrounding
+regions de-emphasized by graphical scaling, filtering, or clustering.
+
+<P>The editor in Figure 1 uses a fisheye lens to present a text document.
+Most of the text is shown at a very small font, which gives the
+person a sense of the document's global structure. The user views
+local detail by selecting a focal point in the document with the
+mouse or scrollbar. Fisheye effects are customized through a novel
+<EM>lens widget</EM>-users can resize the background text, and modify
+the shape of the lens that magnifies text around their focal point.
+
+<P>
+<img src="sg2fg1.gif" alt="Figure 1">
+<BR>
+Figure 1. The Fisheye Text Viewer with one user.
+
+<H2>A GROUPWARE FISHEYE TEXT EDITOR </H2>
+
+<P>While valuable for single-user information visualization, fisheye
+views can be extended to support workspace awareness in groupware
+as well. The fisheye text editor above is actually a groupware
+application constructed in a groupware toolkit [2]. As groupware,
+the editor lets multiple people view the same document. People
+join into it through a session manager (Figure 2, top right).
+Although the same document is visible on all displays, views are
+relaxed-WYSIWIS: each person can set their own focal point and
+customize the fisheye effect.
+
+<P>Support for workspace awareness involves representing each participant's
+focus in the document. First, location information and user identification
+is presented by marking others' focal points with an assigned
+color. Second, the text around other participants' focal points
+is also magnified. Figure 2 shows three focal points with corresponding
+magnified regions; the center region belongs to the user and the
+surrounding two represent the other participants. Their locations
+in the global context and the details of their work are clearly
+visible.
+
+<P>As people move between loosely and tightly coupled collaborations,
+their awareness requirements will change. Because display space
+is at a premium, a person should be able to allocate screen space
+for their own work or for the display of awareness information,
+as required. In the fisheye editor, a person can customize the
+amount of awareness detail by altering the magnification function
+applied to others' focal points, by changing the background magnification,
+and by linking their views. 
+
+<UL>
+<LI>If only location information is desired, one can turn off
+the magnification of other participants' focal points. Others'
+locations remain visible through color, but no extra screen space
+is used.
+
+<LI>For finer-grained awareness, the detail visible can be progressively
+increased by growing the magnification around the other participant's
+focus, as well as the extent of the region being magnified. 
+
+<LI>When people are working far apart in the document, a &quot;split
+window&quot; effect can bring them closer together. The background
+font is made invisible, thus displaying only the regions surrounding
+each focal point. 
+
+<LI>For tightly-coupled collaboration, people can link their views,
+which lets all participants share a common focal point. If any
+user changes the focus, it will be changed on all other displays
+as well. 
+</UL>
+
+<P>
+<img src="sg2fg2.gif" alt="Figure 2">
+<BR>
+Figure 2. The viewer showing three participants.
+
+<H2>DISCUSSION AND SUMMARY </H2>
+
+There is more to awareness than knowing other's location and actions,
+and an appraisal of the fisheye editor against an awareness framework
+[1] has identified other requirement that need to be addressed.
+For example, because people need to be aware of others' movements
+and gestures in the workspace, we have added telepointers to the
+system. We also need a better way of identifying who belongs to
+a given focal point, as color is not a particularly good cue.
+However, the basic fisheye concept seems sound. 
+
+<P>We believe that fisheye views are a good approach to help people
+maintain workspace awareness. This remains to be confirmed by
+user-based studies. 
+
+<H2>REFERENCES </H2>
+<OL>
+
+<LI> Gutwin, C., Stark, G., and Greenberg, S. (1995) Support for
+group awareness in educational groupware. In <em>Proc Computer
+Supported Collaborative Learning</em>, pp. 147-156, Bloomington,
+IN, Oct 17-20, LEA Press.
+
+<LI>Roseman, M. and Greenberg, S. (1996) Building real time groupware
+with GroupKit, a groupware toolkit. <EM>ACM Trans Computer Human
+Interaction</EM>, in press. 
+
+<LI>Sarkar M., Snibbe S., Tversky O., and Reiss S. (1993) Stretching
+the rubber sheet: A metaphor for visualizing large layouts on
+small screens. In <EM>Proc ACM User Interface Software and Technology</EM>,
+pp. 81-91. 
+</OL>
+
+</BODY>
+
+</HTML>

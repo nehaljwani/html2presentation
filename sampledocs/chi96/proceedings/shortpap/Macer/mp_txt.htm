@@ -1,0 +1,109 @@
+<html>    
+<HEAD>     
+<TITLE>FINDING THE CUT OF THE WRONG TROUSERS: FAST VIDEO SEARCH USING AUTOMATIC STORYBOARD GENERATION</TITLE>     
+</HEAD>     
+<BODY>    
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/shortpap.JPG" ALT="shortpap" HEIGHT=35 WIDTH=249><A HREF="../../shortpap.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<H1>     
+FINDING THE CUT OF THE WRONG TROUSERS: FAST VIDEO SEARCH USING AUTOMATIC STORYBOARD GENERATION    
+</H1>     
+<P>     
+<em>     
+Peter J. Macer, Peter  J. Thomas, Nouhman Chalabi, John F. Meech
+</em>     
+<P>     
+<DL>     
+<DT>Centre for Personal Information Management     
+<DT>Faculty of Computer Studies and Mathematics     
+<DT>University of the West of England     
+<DT>Coldharbour Lane     
+<DT>Bristol, BS16 1QY, UK     
+<DT>Tel: +44 117 976 3973     
+</DL>     
+<DL>     
+<DT>Email: PIM@csm.uwe.ac.uk     
+</DL>     
+<p>
+<hr>
+<p>   
+<h2>ABSTRACT     
+</H2>     
+<P>     
+The development of high capacity storage media and moving image file format standards (e.g. MPEG-2) have improved the quality of digital video and provided the possibility of enhanced digital video browsing techniques. This paper describes an approach to search and navigation in video databases which automatically identifies shots in a video sequence to present a single frame from each shot that best represents the shot as a whole. Using the approach a storyboard is generated which can be either visually scanned by the user, or searched using automatic techniques such as query-by-visual-example (QVE).   
+<P>     
+<H2>     
+KEYWORDS     
+</H2>     
+<P>     
+Visual search; digital video; video database; query-by-visual-example; information management.
+<P>     
+<H2>     
+INTRODUCTION     
+</H2>     
+<P>     
+It is often necessary to locate individual video sequences, either from a database of many such sequences (e.g. from library footage), or from a much longer piece of sequential video (a particular scene in a movie). Traditionally, this has been achieved by users either having to remember the existence and location of particular clips in the video archive (or consulting a textual database), or by fast forwarding through a movie until the desired sequence is located.
+The introduction of digital storage media has opened up the possibility of using computer-based tools to enable easier, faster, and more reliable location and browsing of video information.
+<P>
+We have developed an approach which reduces the quantity of data which must be presented to the user. The result is a 'storyboard' consisting of a series of video stills representing a sequence of video footage. The storyboard may then be browsed manually, or automatically using techniques such as query-by-visual-example [3]. The approach, and its underlying algorithms, is designed to exploit the use of parallel processor architectures to allow real-time, or faster than real-time, storyboard generation.
+<P>
+<H2>     
+STORYBOARD GENERATION
+</H2>     
+<P>     
+Storyboards are used in the production of all types of film, video and animation. They consist of a series of sketches showing each shot in each scene as it will be filmed, and possibly some indication of the action taking place (e.g. an arrow showing the direction of movement). A 'shot' is defined as a section of action during which the camera films continuously without interruption (or, in the case of animation, appears to do so). Figure 1(a) shows part of the original storyboard for the Oscar-winning animation The Wrong Trousers (Aardman Animations, UK) which we have been using as test data. 
+<P>
+A storyboard allows writers and directors to plan the action to be shot and from what camera angle, and in essence provides a summary of the entire film. Normally, the storyboard is not available to a viewer.  However, if the storyboard for a piece of video, or a close approximation to it, could be generated from the video itself, then the viewer could be provided with an easy means of browsing and indexing an entire video sequence or collection of sequences.     
+<P>
+In order to reverse-engineer a storyboard from the finished video sequence, it is necessary to identify three properties of each shot in the sequence. These are: (1) the start point (first frame) of the shot, (2) the end point (last frame) of the shot, and (3) the picture that best represents the shot as a whole. The first two of these properties may be found by a process of transition detection, and the third by representative frame choice.
+<P>
+Transitions are the links between successive shots in sequences. The most frequently used type of transition is the cut, but effects such as fades, dissolves, and wipes are also used. Transitions are detected by comparing the amount and constancy of change between individual frames.  For the purposes of our work we have developed techniques, based on existing algorithms [1, 2], to do this.
+<P>
+Having identified the start and finish of each shot, an image must be produced that conveys the same meaning as the entire shot. Although work at MIT Media Lab on 'Salient Stills' [4] allows the production of a composite image showing everything visible in an entire sequence would seem to be ideal for storyboard generation, the algorithm is required to compute the camera motion from frame to frame with a high degree of accuracy, and is computationally intensive and cannot not be carried out in real-time. Additionally, since the resulting image is a composite of all the frames in the shot, it will generally be very different from any single frame. Although this may be unimportant for some applications, it is unacceptable in e.g. a professional video database application where assessment of the exact framing of the shot is needed.
+<P>
+<img src="figure1.gif">   
+<br>   
+<strong>FIGURE 1a (left) & FIGURE 1b (right).</strong>     
+<P>     
+Using our technique, a single frame from the shot is chosen as being representative. The algorithm compares each frame in the shot to an 'average frame' generated by simply finding the mean colour of the corresponding pixels in each frame of the shot. Originally, the algorithm was designed to then choose the frame that differs least from the average frame (i.e. the typical frame).  Better results can be obtained by choosing the frame that differs most from the average frame (i.e. the atypical frame).
+Figure 1(b) shows part of the storyboard generated from the video of The Wrong Trousers. Comparison with the original storyboard fragment in figure 1(a) reveals that application of our technique results in very similar key points as the original storyboard by the film's creator.  The main events in what is quite a complex visual sequence have been retained, and the story is still easily understood.
+<P>     
+<H2>     
+CONCLUSIONS
+</H2>     
+<P>     
+Just as the storyboard is a useful tool in the production of film and video, the techniques described herein and those currently under development make it a viable and potentially extremely useful method of navigation within, and classification of, completed video sequences.  By providing the viewer with a "map" of a video sequence that retains the semantic content, while removing extraneous information, the search time for an individual clip within the sequence will be greatly reduced.  Combining these storyboard generation techniques with more conventional text databases, and emerging image database querying strategies, such as query-by-visual-example [3],  the storyboard may provide an powerful means of classifying and searching for sequences in a large video library.
+<P>     
+We are currently developing a number of approaches to allow ease of information management of video data in application domains such as professional video editing, information retrieval and ubiquitous consumer video technologies. The aim is to simplify as far as possible the effort needed to manipulate video, and we are currently developing software user interfaces to allow users to exploit this approach.
+<P>     
+<H2>     
+ACKNOWLEDGMENTS
+</H2>     
+<P>     
+We gratefully acknowledge the support of Hewlett Packard Laboratories, Aardman Animations, and Partridge Films of Bristol, UK. 
+<P>     
+<H2>     
+REFERENCES     
+</H2>     
+<P> 
+1.	Agrain, P. and Joly, P. The Automatic Real-Time Analysis of Film Editing and Transition Effects and its Applications. <B>Computer & Graphics</B>, Vol. 18, No. 1, 1994, pp. 93-103.
+<P>
+2.	Corridoni, J.M. and Del Bimbo, A. Film Editing Reconstruction and Semantic Analysis.  <B>Proceedings of International Conference on Analysis of Images and Patterns 1995. (CAIP'95).</B> Springer Verlag.
+<P>
+3.	Kato, T. A Cognitive Approach to Visual Interaction. <B>Next Generation Human Interface Architecture</B>, Institute for Personalized Information Environment. FRIEND'21. pp. 150-155.
+<P>
+4.	Teodosia, L. and Bender, W. Salient Stills From Video. <B>ACM Multimedia '93</B>, Anaheim, California, August 1993. 
+<P>
+<hr>
+</BODY>    
+</html>     
+
+
+

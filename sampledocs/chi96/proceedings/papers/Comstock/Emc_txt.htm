@@ -1,0 +1,789 @@
+<HTML>
+<HEAD>
+
+<TITLE>Embed User Values in System Architecture</TITLE>
+
+<META NAME="AUTHOR" CONTENT="Betsy Comstock">
+</HEAD>
+
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<P><IMG SRC="./../../graphics/papers.JPG" ALT="papers" HEIGHT=35 WIDTH=249><A HREF="./../../papers.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<CENTER>
+<H1>Embed User Values in System Architecture:<BR>
+<I>The Declaration of System Usability</I></H1>
+</CENTER>
+<P>
+
+<CENTER>
+<TABLE>
+<TR>
+<TD>
+<CENTER>
+Elizabeth M. Comstock <BR>
+Consultant Usability Engineer<BR>
+<a href="http://www.digital.com/">Digital Equipment Corporation</a><BR>
+550 King Street<BR>
+Littleton MA 01460-1289 USA<BR>
++1 508 486 6275<BR>
+<a href="mailto:comstock@delni.enet.dec.com">comstock@delni.enet.dec.com</a><BR>
+</CENTER>   
+</TD>
+
+<TD>
+<CENTER>
+William M. Duane<BR>
+PATHWORKS Technical Director<BR>
+<a href="http://www.digital.com/">Digital Equipment Corporation</a><BR>
+550 King Street<BR>
+Littleton MA 01460-1289 USA<BR>
++1 508 486 7581<BR>
+<a href="mailto:duane@ranger.enet.dec.com">duane@ranger.enet.dec.com</a><br>
+</CENTER>
+</TD>
+</TR>
+</TABLE>
+</CENTER>
+
+<H2>ABSTRACT</H2>
+
+<P>
+The underlying architecture of complex software products profoundly
+influences their direction and usability. This paper shares an
+effort to embed usability within the architecture of complex network
+products. We began by attempting to build a conceptual model,
+but we ended by representing customers' and users' values in a
+<A Href="Emc_dec.htm"><I>Declaration of System Usability</I></a> to guide product direction
+and system architecture decisions.
+<H3>Keywords</H3>
+
+<P>
+System usability, complexity, system architecture, software architecture,
+design techniques, networks
+<H2>PURPOSE</H2>
+
+<P>
+In this paper, we share how a group of usability engineers and
+technical directors at Digital Equipment Corporation embed usability
+within software system architecture.
+<P>
+We begin with a description of the context for this work - a large,
+complex family of networking products. We describe traditional
+approaches to achieving cross-product usability and relate usability
+to system architecture. We then describe our search for usability
+design principles based on users' experiences with networked computing.
+We initially thought a conceptual model would encapsulate the
+design principles in a way that would allow system architects
+to embed usability across the product family. Instead, we found
+a different device<I>, </I>a 
+
+<A Href="Emc_dec.htm"><I>Declaration of System Usability</I></a>.
+
+The Declaration does not replace other usability approaches; it
+is a companion or precursor to other approaches. It establishes
+a usability policy that guides high-level product design decisions,
+tuned to a specific set of customer uses. The paper closes with
+a description of how developing the Declaration changed the culture
+and products developed in our organization.
+<P>
+We hope our experience will motivate others to examine the relationship
+between usability and system architecture.
+<H2>THE NETWORK COMPLEXITY PROBLEM</H2>
+
+<P>
+The <a href="http://www.digital.com:80/info/nis/">Network Integration Software (NIS)</a>
+group within Digital is
+the setting for the events related in this paper. NIS products
+like <a href="http://www.digital.com:80/info/nis/pw/pw_prod.htm">PATHWORKS</a> aim to make it easier for people to productively
+use and manage their personal computers in a network environment.
+<P>
+Producing software for the PC LAN integration market is a major
+undertaking because computer networks are inherently very complex.
+They are a mixture of devices developed by many different vendors,
+different networking protocols and standards, different operating
+systems, and different computer types. They serve applications
+ranging from simple mail exchange to complex synchronization of
+distributed directories. In NIS, over 200 developers design and
+build thousands of software modules that control everything from
+network hardware to applications for software developers, PC LAN
+administrators, and end users.
+<P>
+Usability is a central theme in the design and development of
+NIS products. Similar to Nielsen [8], we use a broad definition
+of usability, including learnability, efficiency, memorability,
+few errors, and user satisfaction. We consider the usability of
+all aspects of NIS products with which users may interact, and
+we consider the system's utility to be a precondition of its usability.
+<P>
+Usability work is generally well integrated into the development
+of individual NIS products, and members of the NIS Usability Team
+work at all stages of product development, from product requirements
+determination through product design, development, and release
+[2]. Nevertheless, in spite of persistent usability work, users
+were not satisfied with the usability of NIS products. They reported
+that the products were complex and somewhat inconsistent. Using
+and managing computer networks required too much knowledge of
+the underlying technology.
+<H2>TEXTBOOK APPROACHES</H2>
+
+<P>
+The NIS Usability Team began to look for additional approaches
+to ensuring usability across complex product sets. There is a
+large professional literature offering excellent advice on effective
+customer engagement, participatory design, usability engineering,
+and user interface design processes [11, 12]. These processes
+form the foundation for product usability. They are generally
+well-accepted and widely practiced in Digital [15].
+<P>
+One shortcoming of most usability methods is that they apply best
+during the development of <I>individual</I> software applications.
+As Nielsen [8, p. 71] says, &quot;Usability cannot be seen in
+isolation from the broader corporate product development context
+where one-shot projects are fairly rare. Indeed, usability applies
+to the development of entire product families and extended projects
+where products are released in several versions over time.&quot;
+<P>
+What approach might help bring usability to a complex family of
+products like that produced by NIS? Advice on achieving system-wide
+usability falls into three categories.
+<P>
+First, many people recommend process mandates or &quot;institutionalizing&quot;
+good usability practices within an organization's product development.
+The idea is that what works for one product should be done on
+all products; the result will be overall usability. For example,
+Bellcore has a user-centered design policy focused on the methods
+developers will use. It states, &quot;All producers of software
+products will apply user-centered design methods: task analysis,
+usability objectives, early prototyping, usability testing, and
+iterative design.&quot; [9, p. 493] Software development organizations
+in Digital have applied usability methods relatively effectively,
+and usability is represented in both formal and informal development
+practices [2,15].
+<P>
+A second general approach is to provide tools that allow individual
+developers to incorporate usability more easily and develop more
+consistent user interfaces. For example, Gould, Boies, and Lewis
+[5] describe a method of rapid prototyping that builds in guideline
+compliance. Other examples of this general approach are style
+guides [13], user interface standards, and terminology dictionaries
+[8]. The NIS group also recognizes the importance of consistency
+in achieving overall usability. As a parallel effort to the work
+described here, the NIS <I>User Interface Style Guide</I> was
+developed. It is now in use throughout NIS.
+<P>
+A third approach to system-wide usability is to find a unifying
+theme or conceptual model that provides developers with a common
+set of expectations about how final products should behave. Mayhew
+[7, p. 80] defines a conceptual model as &quot;the general conceptual
+framework through which the functionality is presented.&quot;
+Conceptual models are best if they match users' internal representation
+or mental models. Following the conceptual model will then unify
+the interfaces of the separate components.
+<P>
+An explicit metaphor can help users understand the conceptual
+model by providing a mapping or analogy between a familiar domain,
+such as &quot;the desktop,&quot; and the new domain, such as &quot;networked
+computers&quot; [1].
+<P>
+The third general approach, defining a conceptual model, is the
+one we considered most promising for addressing NIS system-wide
+usability issues. We set out to understand users' mental models
+and expectations for networked computing, intending to construct
+a conceptual model, and possibly an explicit metaphor, to guide
+design choices.
+<H2>SYSTEM ARCHITECTURE AND USABILITY</H2>
+
+<P>
+In analyzing the network complexity problem, we realized that
+how usable a product set will be depends strongly on the system
+architecture that underlies the products.
+<P>
+By &quot;system architecture&quot; we mean the top-level design
+of software solutions. System architecture is often described
+using the analogy of blueprints for a house. The analogy we like
+better compares system architecture to city planning, - &quot;there
+are multiple, relatively independent structures connected into
+a network over which people, goods (information), and services
+(utilities) flow. The structures are far from uniform and are
+at different points in their life cycle.&quot; The architecture
+activity is a &quot;coordination activity&quot; rather than a
+design blueprint [6, pp. xii-xiii].
+<P>
+System architectures typically persist far longer than the specific
+products designed with them. For example, the PATHWORKS architecture
+that was established in 1986 was replaced in 1995, but in that
+time span there were five major releases of the products based
+on that architecture.
+<P>
+At Digital, &quot;technical directors&quot; are responsible for
+system architecture. During the design of network products, technical
+directors make decisions that impact virtually every area. Starting
+with requirements gathering, technical directors look beyond the
+specific request the customer articulates and try to determine
+the underlying problem or opportunity. They use their understanding
+of how the technologies are evolving within the market to project
+which problems or opportunities will arise.
+<P>
+Once an opportunity has been identified, technical directors evaluate
+the wide spectrum of possible solutions to the problem. Each solution
+brings with it a series of tradeoffs that must be evaluated on
+a number of dimensions simultaneously in order to select an optimal
+solution. If the system architecture does not address usability
+in any form, the product components, each on a different schedule,
+and with different constraints, will be locally optimized around
+assumptions of the individual component developers. But the system
+as a whole will be chaotic and inconsistent.
+<P>
+Based on this understanding of the broad scope and long life of
+system architecture, we recognized that the NIS architecture should
+provide a rationale for making decisions that trade off usability
+against other considerations in product development. We expected
+that representing NIS-specific usability principles in the form
+of a conceptual model would form the basis of our &quot;usability
+architecture,&quot; and that it would be a useful tool for technical
+directors as they made architectural decisions.
+<H2>OUR EXPERIENCE</H2>
+
+<P>
+In the spring of 1994, Betsy Comstock, with support of several
+development managers and the NIS Usability Team, recruited a cross-functional
+team of seven senior contributors to serve on the &quot;Usability
+Architecture Team.&quot; The team consisted of four engineers
+and technical directors, including Bill Duane, two usability specialists,
+and a product business manager. Members were chosen for their
+passion around usability issues and their broad influence on product
+development.
+<P>
+From the beginning, it was clear that the Usability Architecture
+Team shared a strong sense of the usability problems faced by
+NIS. We readily agreed on many anecdotes from our own experiences,
+from customers reports, and from internal development practices.
+We agreed that we needed a high-leverage approach to ensuring
+product usability, and we described the need with words like,
+&quot;whole system,&quot; &quot;top down,&quot; &quot;strategic,&quot;
+and &quot;usability architecture.&quot; The team crafted a mission
+statement containing the goal, &quot;to develop, communicate,
+and ensure implementation of a usability architecture for future
+end user and system administration tasks.&quot; We expected to
+create a new conceptual model for computing in the network integration
+space, perhaps the next &quot;desktop metaphor.&quot;
+<H3>Goal of the Usability Architecture</H3>
+
+<P>
+Here's how the Usability Architecture Team summarized the characteristics
+of the conceptual model we were seeking: <I>The conceptual model
+is a set of design principles based on users' tasks and thought
+processes. When the conceptual model is used as the cornerstone
+of development, users will clearly experience an appropriate organization
+of functionality and a demonstrable reduction in the time it takes
+to learn and use the product family. The conceptual model aids
+high-level business and development decision-making by specifying
+how product components must appear to users to function and interrelate.
+The conceptual model is simple to communicate. It works like a
+&quot;magnet&quot; to provide a sense of development direction
+and to pull components toward a coherent whole for users.</I>
+
+<P>
+Two beliefs about our work were particularly salient - it needed
+to be based on users' tasks and thoughts, and it would influence
+product development over time, rather than all at once. Our primary
+criterion for success was that product development would move
+&quot;in the right direction.&quot;
+<H3>Developers' Assumptions</H3>
+
+<P>
+The Usability Architecture Team recognized that it was crucial
+to understand our own beliefs (as developers) about our customers
+and their requirements for our products. Therefore, at an early
+meeting, we conducted an extensive and humbling brainstorm session
+in which we discovered a number of &quot;tensions&quot; between
+the ideal and what we were actually doing. Here are a few examples:
+<UL>
+<LI>We develop as if we are like our customers, but we know they
+are more diverse.
+<LI>We develop for roles or levels of users, but we know it over-simplifies
+actual customer use.
+<LI>We integrate product technologies, but integration of users'
+tasks may be more important to customers.
+</UL>
+
+<P>
+The developers' assumptions contributed to the team's work by
+making us aware of the magnitude of the changes we were trying
+to cause, and our own roles in perpetuating certain less-effective
+beliefs and practices.
+<H3>Immersion in User Data </H3>
+
+<P>
+The bulk of the work of the Usability Architecture Team can be
+characterized as immersion in user data, followed by a series
+of steps to abstract and distill the data. The beginning steps
+were very close to the users' statements, and the later steps
+were closer to users' core values.
+<P>
+We did not generate new data for this work. Instead, we collected
+and &quot;re-used&quot; customer data that NIS had recently collected
+for other purposes. Most of the data came from direct customer
+and user studies conducted within the previous year, including
+usability tests, field test reports, quality assurance reports
+from recently-developed NIS products, and transcripts from three
+large sets of visits to customer sites to understand their work.
+Other sources were published reports by industry analysts, press
+articles, and Digital Equipment Computer Users Society reports.
+<P>
+The team scoured the data, picking out what we called &quot;customer
+assumptions,&quot; ideas and expectations in customer terms about
+what their networked environment should be like. We did <I>not</I>
+mean features or technologies, but rather how people wanted to
+think about and use their networked environment in the future.
+We found 231 customer assumptions such as the following:
+<UL>
+<LI>I want to print to anywhere from anywhere.
+<LI>I don't always work from the same location.
+<LI>I should have one user name and password to give me automatic
+access to everything I am entitled to use.
+<LI>I work on projects across departments.
+<LI>I want more meaningful names for network resources.
+<LI>Don't make me restart my machine when I want to rename something,
+move a user, or move a share.
+<LI>I rely on my knowledge of the current version to complete
+tasks on the new version.
+</UL>
+
+<P>
+From these we created 24 affinity groupings. They encapsulated
+the Usability Architecture Team's shared understanding of what
+we heard from customers and users about networked computing. Here
+are a few examples:
+<UL>
+<LI>Customers expect productivity improvements.
+<LI>Users come and go.
+<LI>Users expect to easily find anything connected to the network.
+<LI>Customers expect to be able to manage collections of similar
+objects as one object.
+<LI>Distributed resources should behave as personal resources.
+<LI>The administrator and user need to be insulated from changes
+in the network resources (such as their location, or which network
+operating system they use).
+<LI>Customers expect visual and behavioral consistency in user
+interfaces.
+</UL>
+
+<H3>Themes</H3>
+
+<P>
+The next stage in the usability architecture work involved identifying
+core themes in what we were learning from the customer assumptions
+and our own assumptions. We expected to use the themes as &quot;building
+blocks&quot; for the conceptual model. Themes such as the following
+emerged:
+<UL>
+<LI>Users need universal access, information on demand.
+<LI>Networks are chaotic, dynamic environments.
+<LI>Tasks should be performed independent of technology and physical
+location.
+<LI>Networked systems should behave &quot;naturally.&quot;
+<LI>Tasks should accommodate the concept of groupings treated
+as an individual item (groups of users, groups of systems, groups
+of tasks).
+</UL>
+
+<H3>Metaphors</H3>
+
+<P>
+Next, each team member chose metaphors for networked computing
+that they thought represented significant aspects of the customer
+assumptions and themes. Some of the metaphors we considered were
+the US highway system (&quot;See the USA in your Chevrolet&quot;),
+cable TV boxes and remote control devices, building a house with
+a general contractor, Federal Express, town government, musical
+scores and an orchestra, Amish barn-raising, family life in Eastern
+and native American cultures, baseball teams, and mitochondria
+in human cells.
+<P>
+The metaphor exercises were enjoyable, but the team was beginning
+to see that an explicit metaphor was not what we needed. Each
+metaphor had major flaws, and we couldn't imagine designing a
+system with these metaphors in mind. We realized that most NIS
+products were used in environments where other end-user products
+set the metaphor. Our products should not call attention to themselves
+with their own metaphor, but invisibly blend into the fabric of
+the users' work. A visible conceptual model no longer seemed appropriate.
+<H3>Essences</H3>
+
+<P>
+We made one additional step toward finding a conceptual model.
+We felt that each metaphor captured something of the <I>essence</I>
+of what networked computing should be like. Taken together, ideal
+network computing and all the metaphors shared significant characteristics.
+We identified 19 such characteristics that we called &quot;essences.&quot;
+Here are some examples:
+<UL>
+<LI>There is primacy of user intentions.
+<LI>Underlying complexity provides value to users without being
+difficult to use.
+<LI>Benefits outweigh the costs of system membership.
+<LI>Change is a natural part of the system. Throughout change,
+the system continues to provide benefit to group members.
+<LI>Resources exist for the benefit of all, with varying degrees
+of utilization.
+</UL>
+
+<H3>The Crisis</H3>
+
+<P>
+The previous steps occurred during about three months of weekly
+meetings. Frustration with the slow pace was rising. The team
+agreed, &quot;We are <I>done</I> brainstorming.&quot; We had exhausted
+our motivation for the current direction, but we had not arrived
+at a conceptual model or metaphor for our products, and it didn't
+look like we would. Nevertheless, the team strongly agreed that
+we had distilled something very important. If it wasn't a conceptual
+model we needed, then what <I>was</I> it?
+<H3>The Breakthrough to Declaration</H3>
+
+<P>
+We consulted with Dennis Wixon, Program Manager for Usability
+at Digital, who reviewed the work we had done and listened as
+we said we felt that a conceptual model was not emerging. We described
+how we were steeped in a set of beliefs about what our products
+needed to be to maximize usability, and that we had a sense of
+the higher-order principles that should guide product design.
+We felt we had uncovered something beyond users' expectations,
+something like users' values, or the ethical principles the products
+should embody. But we didn't see how to encapsulate our learning,
+to impel action, to fill the role we had intended for the conceptual
+model.
+<P>
+Dennis said, &quot;Perhaps you need to think of this knowledge
+in a different form. I think you are making a declaration.&quot;
+<P>
+The sense of a &quot;declaration&quot; is that it brings about
+a new state, or new behavior. Winograd and Flores [14, p. 59],
+defining the categories of speech act, say, &quot;Declarations
+bring about the correspondence between the propositional content
+of the speech act and reality, as illustrated by the example of
+pronouncing a couple married.&quot; The definition we like best
+is what Whiteside [10, p. 91] calls a transformational proclamation:
+&quot;...an expression in language that creates the possibility
+of a new future by virtue of its being expressed powerfully within
+a befitting context.&quot;
+<P>
+This was the breakthrough we needed! It wasn't a conceptual model,
+but rather a declaration. We were ready to <I>declare</I> that
+our organization would move its products in a direction in accordance
+with the customer values and principles we'd uncovered.
+<H2>THE DECLARATION OF SYSTEM USABILITY</H2>
+
+<P>
+We modeled the <A Href="Emc_dec.htm"><I>Declaration of System Usability</I></a> on the United
+States Declaration of Independence [3]. This was a convenient,
+memorable vehicle for our declaration, and it provided a format.
+We began with the &quot;truths,&quot; the essential characteristics
+of the users, their environments, and Digital's NIS business.
+We then abstracted six separate declaration points, listed in
+the second half of Figure 1.
+<P>
+The first declaration point states that we will integrate people's
+tasks and intentions, not underlying technology. This point should
+be familiar to usability professionals [c.f., 4]. It states the
+primacy of a task-based approach to system design that was clearly
+requested by our customers.
+<P>
+The second declaration point states that we will recognize the
+primacy of the person. People are not represented in today's networking;
+only their accounts or access points to the system are represented.
+One of the major sources of network complexity is that people
+use multiple machines, multiple accounts, multiple passwords,
+and multiple roles in their organizations. We believe that network
+system use and management will be simpler if the system &quot;understands&quot;
+the concept of a person, regardless of where they are and what
+resources they are trying to use.
+<P>
+The third declaration point recognizes that people use networked
+computers to work <I>with</I> other people. We pledge to facilitate
+group operations in the broadest sense, allowing groups of people
+to be treated as single entities, without requiring individuals
+to separately manage the groups. Similar to the second declaration
+point, we believe that network system use and management will
+be simpler if the system &quot;understands&quot; the concept of
+groups.
+<P>
+The fourth declaration point relates to the first. It recognizes
+that taking a task-based approach means <I>not</I> requiring knowledge
+of the underlying network technology.
+<P>
+The fifth declaration point establishes a new way to think about
+change in network environments. It recognizes that in most network
+environments, change is feared and avoided because it causes so
+many problems. We pledge to build products that recognize that
+change is the norm, in fact, often initiated for positive reasons,
+and we pledge to hide changes that are irrelevant to users' tasks.
+<P>
+The final declaration point recognizes the importance of cross-component
+user interface consistency and establishes the basis for the use
+of the NIS <I>User Interface Style Guide</I> described previously.
+<P>
+Since it is critical that the NIS technical directors support
+the Declaration at a fundamental level, we decided that its ongoing
+ownership did not belong with the team that created it, but rather
+with the technical directors themselves. We revised the Declaration
+until the following people were willing to sign it: every member
+of the Usability Architecture Team, every technical director,
+key development managers, and representatives of product management
+and marketing. Over the course of 3 months and dozens of meetings,
+the Declaration went through 10 major drafts. The final<I> Declaration
+of System Usability</I> was printed on parchment-like paper, made
+available in both Postscript and World-Wide Web formats on Digital's
+internal network, and distributed with each copy of the NIS <I>User
+Interface Style Guide</I>.
+<H2>EFFECTS OF THE DECLARATION</H2>
+
+<P>
+The Declaration has had a significant impact on the design and
+development of NIS products. Here are a few specific examples
+from the new architecture, of which the first product is the recently-released
+PATHWORKS V6.0:
+<P>
+Today, when multiple network operating systems (NOSs) are present
+in the same PC LAN environment, administrators use separate applications
+to perform the same task on different NOSs. For example, if an
+administrator needs to modify the password to the accounts of
+a particular user, the administrator will use a different tool
+to change the password for each NOS. This requires the administrator
+to know what type of NOS is supporting the various user accounts,
+and to do the same task in different ways in each of the NOS environments.
+<P>
+Based on the first declaration point, PATHWORKS re-aligned the
+administrative model of account management with the task the administrator
+is performing. The administrator can perform account maintenance
+without seeing the boundaries between the various NOS environments.
+For example, to manage passwords, the administrator need only
+select &quot;account maintenance&quot; for a particular user and
+then select &quot;change password.&quot; The system performs all
+the NOS specific functions needed to change the password. This
+task-based redesign of the management approach was driven by the
+Declaration.
+<P>
+A second example is the design of PATHWORKS Single Login, the
+ability for one password to give a person access to all their
+network resources. We were having difficulty deciding how far
+we should go to address the security issues in heterogeneous NOS
+environments. One option was a complex and comprehensive security
+solution including access control lists and encryption key administration
+policies. Another option was to abandon the entire strategy for
+Single Login. What was missing was guidance to help us bound what
+we wanted to achieve.
+<P>
+As the complete system architecture became better defined, we
+used the second declaration point to bound the design for Single
+Login. As a result, PATHWORKS decided to address the ease-of-use
+and location-independence problems associated with logging in
+to NOS environments, and to preserve the security from the existing
+NOS environments rather than create a new security solution.
+<P>
+Perhaps one of the most important impacts of the Declaration was
+on the design of Directory Assistant, our underlying distributed
+directory, and how it integrates with the Microsoft Windows and
+Windows 95 operating systems. When introducing a new technology,
+there is a pull to directly expose the new technology to the user.
+As PATHWORKS worked through the various alternatives for the distributed
+directory solution, we relied heavily on the Declaration to help
+prune the space of options for the system design. In particular,
+the third, fifth, and sixth declaration points had impact in this
+area.
+<P>
+PATHWORKS decided to develop a directory solution that was not
+visible directly to the user, but rather enhanced existing services
+to make them more robust, more scaleable, and NOS independent.
+PATHWORKS built the concepts of teams and groups into the system
+architecture from the start so that we can now address large and
+small collections of people and network resources as a single
+item. PATHWORKS also designed a solution that used existing distributed
+directories in the customer environment rather than require the
+customer to deploy a new directory. Lastly, PATHWORKS leveraged
+the fact that distributed directories create a level of indirection
+between the end user and the administrator so that administrators
+can change the underlying NOS environment and distributed services
+without impacting end users.
+<P>
+A final example from a different perspective is the way in which
+NIS technical directors present PATHWORKS V6.0 to customers. Initial
+presentations focused on the new technologies in the product and
+example applications. From an engineering point of view, the attempt
+was to educate customers on the benefits of the new technologies.
+The typical presentation assumed that customers would map the
+technologies into their environment and see the value for themselves.
+This approach did not work.
+<P>
+Based on the fourth declaration point, the presentation was inverted.
+It began with customer configurations and problems, and contrasted
+the way in which the customers are dealing with the problems now
+against the way in which they would deal with the problems when
+PATHWORKS was deployed. The scope was then expanded to give brief
+examples of how the same approach works for other problems. All
+discussion of the technical mechanisms used to effect this change
+in the work environment was deleted from the talk, and a set of
+backup slides was produced to address technical details in case
+questions arose. The presentation is now extremely well received,
+and the backup slides are rarely used.
+<P>
+As we have illustrated, the Declaration provides a clear user-centered
+product focus and everyday guidance for NIS technical directors
+as they consider questions such as: Are our products being developed
+in the &quot;right&quot; direction? Do the components interact
+properly? Does our system architecture support (&quot;afford&quot;)
+usability? In support of the notion that the Declaration is for
+architects is our observation that it doesn't mean much to line
+engineers, many of whom consider it &quot;gimmicky,&quot; not
+specific enough to their work tasks, and not clear enough about
+what the exact implications are for their work.
+<P>
+In addition to focusing the work of technical directors, the Declaration
+has subtly altered the work of usability specialists in NIS. It
+has established the role of usability in decisions about product
+family directions. And it has shifted the emphasis of our work
+toward the early conceptual stages of product development.
+<P>
+The success of the Declaration lies in its conceptual value to
+the participants -- it helps organize our experience in a meaningful
+way, somewhat like a theory does. Different from a theory, however,
+the Declaration also impels action, changing both products and
+behavior.
+<H2>CONCLUSION</H2>
+
+<P>
+In summary, we believe that a fundamental determinant of the usability
+of a set of products is its underlying system architecture. But
+system architects and other technical leaders have few tools or
+examples of ways that usability can be embedded in system design
+at the architecture level. We created a powerful declaration,
+driven by user data, as a new way to embed usability in system
+architecture.
+<P>
+The method we used to generate the Declaration contains elements
+of all the categories of textbook advice described above. Like
+the methods suited to the development of specific products, the
+Declaration is tied to users' real work and expectations. Like
+usability mandates, the Declaration sets a policy for product
+development, based on product content and values rather than usability
+processes. Like other tools for developers, the Declaration functions
+as a tool for system architects to use in their high-level decision-making.
+And, like a conceptual model, the Declaration identifies principles
+in users' expectations that must be represented in the products.
+<P>
+What is perhaps most different about the Declaration is the <I>level</I>
+at which it operates. As described in the previous section, the
+Declaration provides a clear product focus and everyday guidance
+for NIS technical directors.
+<H3>What Made this Approach Work</H3>
+
+<P>
+There were many aspects of the Usability Architecture Team that
+we believe made it function exceptionally well and that we'd recommend
+to others who consider a similar venture. First, the team was
+very diverse. About the only thing shared by all members was a
+passion for usability.
+<P>
+Second, the team became immersed in vast amounts of customer data
+from diverse sources in our business. We believe in the Declaration
+partly because it is so well-grounded and we spent so much time
+digesting the data.
+<P>
+Third, we continued abstracting and reconsidering the data long
+enough to allow the important ideas to emerge. This was very difficult,
+especially considering our busy, deliverable-driven schedules
+outside the team. But as we began to see that there was value
+in what we were finding, our impatience turned into recognition
+that we were generating a mind shift, a change in attitudes and
+beliefs. Change like this takes time.
+<P>
+And finally, we generated the support of the technical directors
+and managers. Without their support, the Declaration would not
+influence product development.
+<P>
+In searching for new ways to improve product development and enhance
+usability, we invite usability professionals to explore the form
+and level of the recommendations they make about usability. We
+urge other organizations to search for and share ways that fundamental
+user values can be embedded in the architectures of the systems
+we build.
+<H2>ACKNOWLEDGMENTS</H2>
+
+<P>
+The Declaration depended on gracious, thoughtful contributions
+of many people. Jean Proulx, NIS Vice President, sponsored the
+Usability Architecture Team and ensured its committed membership.
+John Adams, Networking Technical Director, sponsored the Declaration
+in the technical community. Michelle Chambers, Dennis Giokas,
+Neil Murray, Marlene Steger, Colin Strutt, and Sarah Webber were
+crucial to the work of the team. Minette Beabes helped define
+the team's process. Rick Frankosky and Nancy Clark headed the
+style guide effort. All the signers of the Declaration contributed
+wise comments in mapping it to their work. Pat Billingsley contributed
+insights based on her &quot;usability policy statements.&quot;
+George Casaday, Michael Good, Tom Graefe, Deborah Mayhew, Anne
+Parshall, Mary Beth Raven, Colin Strutt, Dennis Wixon, and Sarah
+Webber made valuable comments on an earlier draft of this paper.
+And most significantly, Dennis Wixon enabled our breakthrough
+with the concept of a declaration and inspired the work described
+in this paper.
+<H2>REFERENCES</H2>
+
+<OL>
+<LI>Carroll, J. M., Mack, R. L., and Kellogg, W. A. Interface
+metaphors and user interface design. In M. Helander, Ed.,<I> Handbook
+of Human-Computer Interaction</I>, North Holland, Amsterdam, The
+Netherlands, 1988, 67-85.
+<LI>Comstock, E. M., and Wixon, D. R. Usability at Digital after
+15 years: Principles and pitfalls. In<I> CHI '94 Conference Companion</I>,
+ACM, New York, NY, 1994, 157-158.
+<LI>The Declaration of Independence. In <I>Encyclopaedia Britannica</I>,
+6, Chicago, IL, 1989, 282-284.
+<LI>Gentner, D. R., and Grudin, J. Why good engineers (sometimes)
+create bad interfaces. In <I>CHI '90 Proceedings</I>, ACM, New
+York, NY, 1990, 277-282.
+<LI>Gould, J. D., Boies, S. J., and Lewis, C. Making usable, useful,
+productivity-enhancing computer applications. <I>Commun. ACM</I>
+<I>34</I>, 1 (January, 1991), 74-85.
+<LI>Laverdure, L., Srite, P., and Colonna-Romano, J. <I>NAS Architecture
+Reference Manual</I>. Digital Press, Maynard, MA, 1993.
+<LI>Mayhew, D. J. <I>Principles and Guidelines in Software User
+Interface Design</I>. Prentice-Hall, Englewood Cliffs, NJ, 1992.
+<LI>Nielsen, J. <I>Usability Engineering</I>. Academic Press,
+Boston, MA, 1993.
+<LI>Salasoo, A., White, E. A., Dayton, T., Burkhart, B. J., and
+Root, R. W. Bellcore's user-centered design approach. In M. E.
+Wiklund, Ed, <I>Usability in Practice</I>. Academic Press, Cambridge,
+MA, 1994, 489-515.
+<LI>Whiteside, J. <I>The Phoenix Agenda</I>. Oliver Wright Publications,
+Essex Junction, VT, 1993.
+<LI>Whiteside, J., Bennett, J., and Holtzblatt, K. Usability engineering:
+Our experience and evolution. In M. Helander, Ed.,<I> Handbook
+of Human-Computer Interaction</I>, North Holland, Amsterdam, The
+Netherlands, 1988, 791-817.
+<LI>Wiklund, M. E., Ed., <I>Usability in Practice</I>. Academic
+Press, Cambridge, MA, 1994.
+<LI>Wilson, C. E., Loring, B. A., Conte, L., and Stanley, K. Usability
+engineering at Dun &amp; Bradstreet Software. In Wiklund, M. E.,
+Ed., <I>Usability in Practice</I>. Academic Press, Cambridge,
+MA, 1994,389-425.
+<LI>Winograd, T., and Flores, F. <I>Understanding Computers and
+Cognition</I>. Ablex Publishing Corporation, Norwood, NJ, 1986.
+<LI>Wixon, D. R., and Comstock, E. M. Evolution of usability at
+Digital Equipment Corporation. In Wiklund, M. E., Ed., <I>Usability
+in Practice</I>. Academic Press, Cambridge, MA, 1994, 147-193.
+</OL>
+
+<P>
+
+</BODY>
+
+</HTML>

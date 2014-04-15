@@ -1,0 +1,319 @@
+This an example of the current preferences dialog within the ontology
+editor.  The dialog, like everything else in the ontology editor, is
+dynamically generated from the set of preference variables.
+Negligible programming effort has been spent on the interface to the
+preferences.  This is clearly an area in need of improvement. <P>
+
+<A HREF="jpr_txt.htm#prefs-example"><IMG SRC="jpr_fg85.gif"
+ALT="[Up]"></A> <HR>
+
+<HR>
+<TITLE>User Preferences</TITLE>
+
+<H1> <A HREF="jpr_ht64.htm" ALT="Home"><IMG SRC="jpr_fg46.gif" ALT="Home"></A> User Preferences</H1>
+<form method="GET" action="jpr_ht64.htm">
+<input type="submit" name="save" value="Save">
+<input type="submit" value="Cancel" name="CANCEL">
+<input type="submit" name="use-defaults" value="Use Default Preferences">
+<input type="reset" value="Reset">
+<HR>
+
+<HR>
+
+<H2>Ontology Editor Preferences</H2>
+<DL>
+<DT><B><A NAME="*SHOW-INSTANCES-IN-CLASS-BROWSER-P*">Browser, instances</A></B>:<BR> Show instances in the ontology browser: <INPUT TYPE="checkbox" NAME="PREF-42" VALUE="PREF-42" checked>
+<HR>
+
+<DT><B><A NAME="*SHOW-GO-TO-BUTTONS-P*">Button, GO</A></B>:<BR> Show GO buttons: <INPUT TYPE="checkbox" NAME="PREF-41" VALUE="PREF-41" checked>
+<HR>
+
+<DT><B><A NAME="*SHOW-USER-PREFS-BUTTON-P*">Button, Preferences</A></B>:<BR> Show an icon on the tool bar that takes you to this preferences dialogue: <INPUT TYPE="checkbox" NAME="PREF-40" VALUE="PREF-40" checked>
+<HR>
+
+<DT><B><A NAME="*SHOW-SAVE-ALL-ICON-P*">Button, Save</A></B>:<BR> Show a save all icon on the menu bar.  Once you save, you are given the
+   option of quitting the session: <INPUT TYPE="checkbox" NAME="PREF-35" VALUE="PREF-35" checked>
+<HR>
+
+<DT><B><A NAME="*DICTIONARY-URL*">Dictionary, URL</A></B>:<BR> A URL to take you to a useful dictionary server.  If not supplied, no
+   dictionary button will be shown: <TEXTAREA NAME="PREF-47" ROWS=1 COLS=60>/webster/</TEXTAREA>
+<HR>
+
+<DT><B><A NAME="*MAIL-ONTOLOGY-OR-FRAME-ACTION*">EMail destination</A></B>:<BR> What to do when an EMail command is selected:<SELECT  name="PREF-44">
+<OPTION SELECTED>Prompt for destination
+<OPTION>Just send straight to me
+</SELECT>
+<HR>
+
+<DT><B><A NAME="*COMPLETION-ELLIPSIS-BOUNDARY*">Ellipses, Find</A></B>:<BR> Number of terms to display with the "Find" command before going into
+   ellipses  [<I>Positive integer</I>]: <INPUT TYPE="text" NAME="PREF-45" VALUE="5      ">
+<HR>
+
+<DT><B><A NAME="*INTERNAL-AXIOM-ELLIPSIS-BOUNDARY*">Ellipses, axioms</A></B>:<BR> Total number of any given type of axiom to display before going into
+   ellipses  [<I>Positive integer or ALL</I>]: <INPUT TYPE="text" NAME="PREF-55" VALUE="5      ">
+<HR>
+
+<DT><B><A NAME="*OTHER-AXIOM-ELLIPSIS-BOUNDARY*">Ellipses, axioms, other related</A></B>:<BR> Total number of any given type of "Other Related" axiom (axioms defined
+  on other frames that reference the current frame) to display before going
+  into ellipses  [<I>Positive integer or ALL</I>]: <INPUT TYPE="text" NAME="PREF-54" VALUE="5      ">
+<HR>
+
+<DT><B><A NAME="*TEMPLATE-SLOT-ALL-FACET-VALUE-ELLIPSIS-BOUNDARY*">Ellipses, facet values, instance</A></B>:<BR> Total number of instance slot facet values to display before going into
+  ellipses  [<I>Positive integer or ALL</I>]: <INPUT TYPE="text" NAME="PREF-52" VALUE="5      ">
+<HR>
+
+<DT><B><A NAME="*OWN-SLOT-ALL-FACET-VALUE-ELLIPSIS-BOUNDARY*">Ellipses, facet values, own</A></B>:<BR> Total number of <A HREF="jpr_ht64.htm">
+  own slot</A> facet values to display before going into ellipses   [<I>Positive integer or ALL</I>]: <INPUT TYPE="text" NAME="PREF-53" VALUE="5      ">
+<HR>
+
+<DT><B><A NAME="*ELLIPSIS-GROW-EXPRESSION*">Ellipses, grow expression</A></B>:<BR> The expression (of x) to evaluate to determine a larger ellipsis margin
+   when you click on a "...".  For example, you might say (* x 2), which
+   would mean double the number of values shown, or (+ x 5), which would mean
+   show five more  [<I>Expression mentioning X</I>]: <INPUT TYPE="text" NAME="PREF-46" VALUE="(* X 2)                                                     ">
+<HR>
+
+<DT><B><A NAME="*TEMPLATE-SLOT-ALL-VALUE-ELLIPSIS-BOUNDARY*">Ellipses, slot values, instance</A></B>:<BR> Total number of instance slot values to display before going into ellipses  [<I>Positive integer or ALL</I>]: <INPUT TYPE="text" NAME="PREF-50" VALUE="5      ">
+<HR>
+
+<DT><B><A NAME="*OWN-SLOT-ALL-VALUE-ELLIPSIS-BOUNDARY*">Ellipses, slot values, own</A></B>:<BR> Total number of <A HREF="jpr_ht64.htm">
+  own slot</A> values to display before going into ellipses  [<I>Positive integer or ALL</I>]: <INPUT TYPE="text" NAME="PREF-51" VALUE="5      ">
+<HR>
+
+<DT><B><A NAME="*DEFAULT-FIND-IN-ALL-ONTOLOGIES-P*">Find, all ontologies</A></B>:<BR> When executing a find command, set the default value of the
+   "Search all ontologies" checkbox to true: <INPUT TYPE="checkbox" NAME="PREF-43" VALUE="PREF-43">
+<HR>
+
+<DT><B><A NAME="*PUT-PAGE-HELP-AT-TOP-P*">Help, put page description at top</A></B>:<BR> When true causes the page description help to be put at the top of
+   the help page, before the description of the menu items etc.: <INPUT TYPE="checkbox" NAME="PREF-30" VALUE="PREF-30" checked>
+<HR>
+
+<DT><B><A NAME="*SHOW-ONTOLOGY-TOC-HEADER-P*">Library, show accessible ontologies as header</A></B>:<BR> When true causes ontology library page to print out with a list of the
+   accessible (writable or loadable) ontologies above the alphabetical
+   list of ontologies: <INPUT TYPE="checkbox" NAME="PREF-28" VALUE="PREF-28" checked>
+<HR>
+
+<DT><B><A NAME="*SHOW-ONLY-SESSION-ONTOLOGIES-IN-HEADER-P*">Library, show only session-accessible ontologies in header</A></B>:<BR> When true, and you have selected "Library, show accessible ontologies
+   as header" also as true, causes ontology library header to include
+   only those ontologies that are accessible to the group that owns the
+   current session: <INPUT TYPE="checkbox" NAME="PREF-29" VALUE="PREF-29" checked>
+<HR>
+
+<DT><B><A NAME="*LOG-FORMS-ON-LOAD-P*">Load, log definitions as they load</A></B>:<BR> When true the ontology loader to print out the name of each definition
+   as it loads it as the result of the Import Ontology or Import Definitions
+   command: <INPUT TYPE="checkbox" NAME="PREF-31" VALUE="PREF-31" checked>
+<HR>
+
+<DT><B><A NAME="*SHOW-BOTTOM-MENU-BAR-P*">Menu bar, show on bottom of page too</A></B>:<BR> <IMG SRC="jpr_fg06.gif" ALT="BAUD">
+   When true causes the ontology editor to show a second menu bar at the
+   bottom of the page as well.  Users with low bandwidth may choose to unset
+   this option: <INPUT TYPE="checkbox" NAME="PREF-27" VALUE="PREF-27" checked>
+<HR>
+
+<DT><B><A NAME="*ALWAYS-SHOW-ICON-STRIP-P*">Menus, always show icon strip</A></B>:<BR> Always show the icon strip, even on "modal" pages, such as class creation
+   forms: <INPUT TYPE="checkbox" NAME="PREF-32" VALUE="PREF-32" checked>
+<HR>
+
+<DT><B><A NAME="*ALWAYS-SHOW-COMMAND-MENU-P*">Menus, commands, always show</A></B>:<BR> Always show the menu commands, even on "modal" pages,
+   such as class creation forms: <INPUT TYPE="checkbox" NAME="PREF-33" VALUE="PREF-33">
+<HR>
+
+<DT><B><A NAME="*FULL-MENUS-P*">Menus, full</A></B>:<BR> Allow menu items from higher levels.  For example, when editing
+   a frame this will allow you access to Ontology-level commands too: <INPUT TYPE="checkbox" NAME="PREF-37" VALUE="PREF-37">
+<HR>
+
+<DT><B><A NAME="*NEWLINES-BETWEEN-MENU-BAR-ITEMS-P*">Menus, newlines</A></B>:<BR> Insert a newline for each command menu (easier to read, but takes
+   up more screen space): <INPUT TYPE="checkbox" NAME="PREF-38" VALUE="PREF-38" checked>
+<HR>
+
+<DT><B><A NAME="*USE-SUBMENUS-P*">Menus, submenus</A></B>:<BR> Group menu commands into submenus.  If not selected,
+   each menu bar command will be shown as a button: <INPUT TYPE="checkbox" NAME="PREF-34" VALUE="PREF-34" checked>
+<HR>
+
+<DT><B><A NAME="*SHOW-ONTOLOGY-INCLUSION-AS-A-TREE?*">Ontologies, inclusion lattice</A></B>:<BR> Print including/included ontologies as a lattice: <INPUT TYPE="checkbox" NAME="PREF-49" VALUE="PREF-49" checked>
+<HR>
+
+<DT><B><A NAME="*SHORT-FORM-ONTOLOGY-DISPLAY-BY-DEFAULT-ACTION*">Ontologies, show a synopsis by default</A></B>:<BR> <IMG SRC="jpr_fg06.gif" ALT="BAUD">
+   When true causes the ontology editor to show ontologies as a synopsis
+   of the content, rather than displaying the whole content.  Users with
+   low bandwidth may choose to set this option:<SELECT  name="PREF-25">
+<OPTION SELECTED>If the ontology is large
+<OPTION>Yes
+<OPTION>No
+</SELECT>
+<HR>
+
+<DT><B><A NAME="*ONTOLOGY-DISPLAY-LARGE-P-MARGIN*">Ontology, what counts as large</A></B>:<BR> <IMG SRC="jpr_fg06.gif" ALT="BAUD">
+   Number of definnitions in an ontology before it is considered to
+   be "large" for the purpose of displaying it in the editor  [<I>Positive integer</I>]: <INPUT TYPE="text" NAME="PREF-26" VALUE="100    ">
+<HR>
+
+<DT><B><A NAME="*POWER-USER-P*">Power user</A></B>:<BR> <A HREF="jpr_ht64.htm">
+   Enable power user mode</A> (don't use this unless you really understand
+   things like the difference between ontology "use" and "inclusion".
+   This exposes a lot of internal stuff to Ontolingua that is unimportant
+   to the average user, and may just confuse you): <INPUT TYPE="checkbox" NAME="PREF-39" VALUE="PREF-39">
+<HR>
+
+<DT><B><A NAME="*PRETTY-PRINT-FILES-P*">Pretty print</A></B>:<BR> When files are writen out by the ontology editor should they be pretty
+   printed?  <BR>Pretty printing is slower and is probably undesirable if you
+   do not have access to the file system.  <BR>Definitions are always pretty
+   printed to EMail: <INPUT TYPE="checkbox" NAME="PREF-36" VALUE="PREF-36">
+<HR>
+
+<DT><B><A NAME="*PRINT-AND-READ-EXPRESSIONS-IN-INFIX-P*">Printing/reading, infixify</A></B>:<BR> When set, this parameter causes the user interface to print and read
+  expressions, such as KIF sentences or arithmetic expressions, as infix
+  expressions: <INPUT TYPE="checkbox" NAME="PREF-59" VALUE="PREF-59">
+<HR>
+
+<DT><B><A NAME="*DEFAULT-TRANSLATION-TARGET*">Translation target</A></B>:<BR> The default target for Ontolingua translations:<SELECT  name="PREF-48">
+<OPTION>Cml Re
+<OPTION>Idl
+<OPTION>Re
+<OPTION>Clips Sentences
+<OPTION>Clips
+<OPTION>Prolog Syntax
+<OPTION>Loom
+<OPTION>Generic Frame
+<OPTION>Epikit
+<OPTION SELECTED>Kif
+</SELECT>
+<HR>
+
+<DT><B><A NAME="*SLOT-VALUE-COUNT-CAUSING-INITIAL-NEWLINE*">Values, number on same line as slot name</A></B>:<BR> The number of slot (or facet) values that can be printed out on the same
+  line as the slot (or facet) name before the user interface throws a newline
+  and indents.  The wider your display, the larger this number can be.  If
+  this parameter it set too high, lines will wrap and will be harder to read  [<I>Positive integer</I>]: <INPUT TYPE="text" NAME="PREF-57" VALUE="3      ">
+<HR>
+
+<DT><B><A NAME="*SINGLE-LINE-STRING-PRINT-LENGTH*">Values, string length on a line</A></B>:<BR> The length that a string type slot value is allowed to be before forcing
+  the user interface to throw a newline and go into blockquote mode  [<I>Positive integer</I>]: <INPUT TYPE="text" NAME="PREF-56" VALUE="80     ">
+<HR>
+
+<DT><B><A NAME="*VSPACE-MISERLINESS*">Vertical space, be miserly</A></B>:<BR> When set, this parameter causes the user interface to be as miserly as
+  possible with its use of vertical space.  This is a useful parameter to set
+  if you use a browser such as Netscape, which is very wasteful of space: <INPUT TYPE="checkbox" NAME="PREF-58" VALUE="PREF-58">
+</DL>
+<HR>
+
+<HR>
+
+<H2>General network services preferences</H2>
+<DL>
+<DT><B><A NAME="*GROUP-SEARCH-ORDER*">Group search order</A></B>:<BR> The order in which to search groups for files  [<I>Smaller is better, numbers must be unique</I>]:<BR>
+ JUST-ME:<SELECT name="PREF-22-JUST-ME">
+<OPTION SELECTED>0
+<OPTION>1</SELECT> UNIVERSE:<SELECT name="PREF-22-UNIVERSE">
+<OPTION>0
+<OPTION SELECTED>1</SELECT>
+<HR>
+
+<DT><B><A NAME="*DEFAULT-GROUP-FOR-SESSIONS*">Group, default for sessions</A></B>:<BR> The default value in the group selection menu on the session selection page: <SELECT NAME="PREF-21"><OPTION>Universe<OPTION SELECTED>Just-Me</SELECT>
+<HR>
+
+<DT><B><A NAME="*SUPPORTED-IMAGE-FORMATS*">Image, formats</A></B>:<BR> Supported image formats (sometimes your browser doesn't tell us.
+   Sometimes it lies):
+<DD><SELECT  name="PREF-14" MULTIPLE>
+<OPTION>GIF
+<OPTION>JPEG
+<OPTION SELECTED>Heuristic
+</SELECT>
+<HR>
+
+<DT><B><A NAME="*PREFERED-IMAGE-TO-GET*">Image, prettiness</A></B>:<BR> <IMG SRC="jpr_fg06.gif" ALT="[BAUD]">
+   Prefered image to get if there's a choice:<SELECT  name="PREF-16">
+<OPTION SELECTED>Prettiest
+<OPTION>Smallest file size
+</SELECT>
+<HR>
+
+<DT><B><A NAME="*IMAGE-TRANSMISSION-SIZE-BOUNDARY*">Image, size limit</A></B>:<BR> <IMG SRC="jpr_fg06.gif" ALT="[BAUD]">
+   Transmit only images smaller than this size (if you are working with a
+   slow machine or slow connection, use this to prevent the transmission of
+   large bitmapped images where possible.  This feature allows you still
+   to get all of the edit gadgets that are represented as small images
+   of around 1600 bytes)  [<I>Positive integer or ALL</I>]: <INPUT TYPE="text" NAME="PREF-12" VALUE="ALL    ">
+<HR>
+
+<DT><B><A NAME="*INHIBIT-GRATUITOUS-GRAPHICS-P*">Images, gratuitous</A></B>:<BR> <IMG SRC="jpr_fg06.gif" ALT="[BAUD]">
+   Inhibit gratuitous banner graphics: <INPUT TYPE="checkbox" NAME="PREF-13" VALUE="PREF-13">
+<HR>
+
+<DT><B><A NAME="*USE-TRANSPARENT-IMAGES-WHERE-APPROPRIATE-P*">Images, show unbordered icons</A></B> <IMG SRC="jpr_fg55.gif" ALT="NEW!"> :<BR> <IMG SRC="jpr_fg06.gif" ALT="BAUD">
+   When true causes the system to display some icons without borders and
+   transparent backgrounds on those browsers that support unbordered images.
+   This results in a cleaner looking image, but causes you not to be able
+   to see that an image is anchored: <INPUT TYPE="checkbox" NAME="PREF-15" VALUE="PREF-15">
+<HR>
+
+<DT><B><A NAME="*CC-BUG-REPORTS-TO-ME-BY-DEFAULT-P*">Mail, CC me too</A></B>:<BR> CCs you by default on all bug reports and comments you send: <INPUT TYPE="checkbox" NAME="PREF-20" VALUE="PREF-20" checked>
+<HR>
+
+<DT><B><A NAME="*VISIBLE-ICON-STRIP-ICONS*">Menus, icons to show</A></B> <IMG SRC="jpr_fg55.gif" ALT="NEW!"> :<BR> Allows you to select which icons to show or suppress in menu bars.  Commands
+   appear on menu bars only when they are applicable, so selecting a command
+   in this preference does not guarantee that the icon will appear, because
+   the command in question might not be applicable, or you might not have
+   sufficient privilege to access it, but deselecting any command guarantees
+   that the command will not appear
+<DD><SELECT size="10" name="PREF-23" MULTIPLE>
+<OPTION SELECTED>Global: Edit Preferences
+<OPTION SELECTED>Global: File Maintenance
+<OPTION SELECTED>Global: Home
+<OPTION SELECTED>Global: Make comment
+<OPTION SELECTED>Global: Network Services Commands
+<OPTION SELECTED>Global: Open or select session
+<OPTION SELECTED>Ontology editor [Frame]: Allow edit gadgets
+<OPTION SELECTED>Ontology editor [Frame]: Suppress edit gadgets
+<OPTION SELECTED>Ontology editor [Global]: Can't Undo
+<OPTION SELECTED>Ontology editor [Global]: Dictionary
+<OPTION SELECTED>Ontology editor [Global]: Documentation
+<OPTION SELECTED>Ontology editor [Global]: EMail Bug Report
+<OPTION SELECTED>Ontology editor [Global]: Find Name
+<OPTION SELECTED>Ontology editor [Global]: Help
+<OPTION SELECTED>Ontology editor [Global]: Notify
+<OPTION SELECTED>Ontology editor [Global]: Ontology Library
+<OPTION SELECTED>Ontology editor [Global]: Parent Ontology
+<OPTION SELECTED>Ontology editor [Global]: Redo
+<OPTION SELECTED>Ontology editor [Global]: Reload
+<OPTION SELECTED>Ontology editor [Global]: Save all and quit session
+<OPTION SELECTED>Ontology editor [Global]: Undo
+<OPTION SELECTED>Ontology editor [Ontology]: Allow edit gadgets
+<OPTION SELECTED>Ontology editor [Ontology]: Make Private by Default
+<OPTION SELECTED>Ontology editor [Ontology]: Make Public by Default
+<OPTION SELECTED>Ontology editor [Ontology]: Suppress edit gadgets
+</SELECT>
+<HR>
+
+<DT><B><A NAME="*DEFAULT-MODULE*">Service, go straight to</A></B>:<BR> <IMG SRC="jpr_fg06.gif" ALT="BAUD">
+   If a service is selected here, you will be taken directly to the service
+   from the session selection page, without going through the home page.  This
+   is useful either if you only ever use one service, or you want to make an
+   account more turnkey.  This option only works if
+   <A HREF="jpr_ht64.htm">URL redirection</A>
+   works on your browser: <SELECT NAME="PREF-19">
+    <OPTION SELECTED>None
+    <OPTION>General purpose data structure inspector
+    <OPTION>Ontology Editor
+    <OPTION>Webster</SELECT>
+<HR>
+
+<DT><B><A NAME="*DEFEAT-MODULE-START-PAGES-P*">Services, jump past start page</A></B>:<BR> <IMG SRC="jpr_fg06.gif" ALT="BAUD">
+   Lets you jump past the start page for services accessed from the home page.
+   This is useful if you are an experienced user and don't need any
+   introductions: <INPUT TYPE="checkbox" NAME="PREF-18" VALUE="PREF-18">
+<HR>
+
+<DT><B><A NAME="*ALLOW-URL-REDIRECTION-P*">URL Redirection</A></B>:<BR> <A HREF="jpr_ht64.htm">Allow URL Redirection</A>:<SELECT  name="PREF-17">
+<OPTION>No
+<OPTION>Yes
+<OPTION SELECTED>Heuristic
+</SELECT>
+</DL>
+<HR>
+
+<HR>
+
+<input type="submit" name="save" value="Save">
+<input type="submit" value="Cancel" name="CANCEL">
+<input type="submit" name="use-defaults" value="Use Default Preferences">
+<input type="reset" value="Reset">
+</FORM>

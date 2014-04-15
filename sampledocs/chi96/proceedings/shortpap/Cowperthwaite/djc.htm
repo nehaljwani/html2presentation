@@ -1,0 +1,157 @@
+<html><head><title>Visual Access</title></head>    
+<!-- Changed by: David Cowperthwaite, 14-Dec-1995 -->
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/shortpap.JPG" ALT="shortpap" HEIGHT=35 WIDTH=249><A HREF="../../shortpap.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<h1>       
+Visual Access for 3D Data
+</h1>    
+<DL>    
+<DT><em>David J. Cowperthwaite, M. Sheelagh T. Carpendale, F. David Fracchia</em>    
+<DT>School of Computing Science, Simon Fraser University
+<DT>Burnaby, B.C. V5A 1S6 Canada
+<DT>cowperth@cs.sfu.ca
+</DL>    
+ 
+<P>
+<A HREF="../../acmcopy.htm">&copy; ACM</A>
+<P>
+<p>
+<a name="intro">    
+<h2>Abstract</h2>    
+We describe a novel solution to the problem of occlusion in viewing
+three-dimensional data.  A distortion function is used to clear a 
+line of sight to previously obscured interior elements.
+<p>    
+<p>    
+<h2>Keywords:     </h2> Distortion viewing, 3D interaction<p>    
+<p>    
+<h2>INTRODUCTION</H2>    
+There is accumulating evidence [1] supporting the 
+idea that three-dimensional representations of data are advantageous.
+Unlike 2D techniques, 3D viewing encounters a fundamental 
+problem in the display of information in  that it is  possible for an
+object of interest to be partially or wholly occluded by  other
+objects.  Current solutions provide access to such internal details
+through the use of cutting planes, layer removal, fly-through, and
+transparency.  However, such techniques result in the loss of
+contextual information.
+<p>
+The recent desire to integrate knowledge and experience from the field 
+of cognitive science into the design of user interfaces and new
+interaction paradigms has led to an appreciation of the importance of
+presenting data within its context [3][4].  Our goal is
+to allow interactive access to 3D information spaces while maintaining
+context. This is achieved by providing a viewer aligned visual access
+distortion which clears a line of sight to the object of interest,
+permitting examination from all angles.
+<p>    
+<IMG SRC="djc_fg1.gif" ALT="Figure1"><p>    
+<strong>    
+Figure 1. 3D Lattice with central focus made visible</strong>    
+<p>    
+<h2>VISUAL ACCESS DISTORTION</h2>    
+
+The problem of occlusion arises when objects lie on or near the line
+of sight, between the viewpoint and the focus.  The solution is to
+move data objects away from the line of sight where necessary,
+clearing a path to the focus.  A distortion is applied radially about
+the line of sight, displacing data items in gradually decreasing
+amounts as their distance from the line of sight increases (Figure 1).
+Here the scale and hue of the focal node have been adjusted to
+distinguish it from the other nodes.  
+<p>
+This method extends the ideas and techniques that to deal with
+occlusion in 3DPS [2].  Our algorithm proceeds as follows. Let <em>L</em>
+be a line segment extending from the focal object or region to the
+viewpoint (the line of sight), and a vector <em>v</em> be the shortest
+vector from any other object <em>O</em> at position <em>P</em> to a point <em>N</em> on the
+line <em>L</em> (used to establish the direction of the displacement).  A
+gaussian distribution is used to calculate the magnitude of the displacement
+based on the length of <em>v</em>.
+<p>
+For a given value of |<em>v</em>| we determine the height <em>h</em> of the
+gaussian.  The characteristic bell-curve of the gaussian means that
+for points near the line of sight (when |<em>v</em>| is small)  <em>h</em>,
+will be greatest.  Points  further  from the line of sight will have
+progressively  smaller displacement values (Figure
+\ref{crossection}). The distribution of the distortion can be
+controlled  by adjusting the height and standard deviation of the
+curve.  Since the viewing direction is along the line of sight the
+resulting distortions will appear to  be radially symmetrical about
+the focus. 
+<p>
+<IMG SRC="djc_fg2.gif" ALT="Figure2"><p>    
+<strong>    
+Figure 2. Cross section of expanding access distortion</strong>
+<p>    
+Furthermore, the visibility of the focus will be maintained under
+rotation of the data or motion of the viewpoint, smoothly deflecting
+potentially occluding nodes away from the line of sight as they
+approach it and returning them smoothly to their original positions (Figure 3).
+<p>
+<A HREF="djc_vid1.mov"> <IMG SRC="djc_fg3.gif" ALT="Figure3"><p></A>
+<strong>    
+Figure 3. The distortion remains aligned to the viewer as the data is rotated </strong><A HREF="djc_vid1.mov"> (Quicktime)</A>
+<p>    
+<IMG SRC="djc_fg4.gif" ALT="Figure4"><p>    
+<strong>    
+Figure 4. The  access function may be applied simultaneously to
+more than one focus</strong>
+<p>    
+This method scales well to multiple focal points. Here the 
+displacement <em>D</em> of any point <em>P</em> relative to a set of <em>n</em> line
+segments <em>Li</em>, where each segment <em>Li</em> begins at an object of 
+interest <em>Oi</em> and terminates at the viewpoint <em>V</em>, may be
+summarized as follows:
+<p>
+<IMG SRC="djc_eqn.gif" ALT="Equation1"><p>    
+<p>
+where <em>Ni</em> is the point on the <em>ith</em> line segment nearest the
+point <em>P</em> and <em>g()</em> is the function that returns the height of
+a gaussian given the distance from the point <em>P</em> to the line <em>Li</em>.
+The resulting displacement is the average of several independant
+distortions, each in a radial direction  away from the line segment
+<em>Li</em>. Thus it is possible to clear lines of sight to several objects
+simultaneously. For example in Figure 4 the upper left
+object is one layer deep into the 9x9x9 cube and the lower right one
+is 8 layers deep, but still visible. 
+<p>
+    
+<h2>CONCLUSION</h2>    
+<p>    
+The viewer aligned visual access distortion provides a clear line of
+sight to the internal structures of 3D data sets while maintaining
+ smooth integration within its context. It is view rather than data
+aligned and provides control over the degree and extent of the
+distortion. 
+<p>
+Future research includes the application of this method to both
+general 3D graph structures and solid 3D data, and  an examination of
+the potential use of perceptual cues  to reveal the nature of the distortions.<p>
+<p>    
+<h2>Acknowledgments</b></h2>    
+<p>    
+This research was suported by NSERC and the Algorithms Lab, Graphics
+and Multimedia Research Lab and the School of Computing Science,
+S.F.U. <p>    
+<h2>References</h2>    
+
+1. K.W. Arthur, K.S. Booth, and C.Ware. Evaluating 3d task performance for fish tank virtual worlds. In <em>ACM Transactions on Information Systems</em>, 11(3):239--265, 1993.<p>
+<p>
+2. M.S.T. Carpendale, D.J. Cowperthwaite, and F.D. Fracchia. 3-dimensional pliable surfaces: For effective presentation of visual information. In <em> UIST: Proceedings of the ACM Symposium on User Interface
+  Software and Technology</em>, pages 217--226, 1995.<p>
+<p>
+3. E.G. Noik. A space of presentation emphasis techniques for visualizing graphs. In <em>Graphics Interface'94</em>, pages 225--233, 1994.<p>
+<p>
+4. R.Spence. A taxonomy of graphical presentation. Information Engineering Section report 93/3, Imperial College of Science, Technology and Medicine, 1993.<p>
+<p>
+</body></html>    
+

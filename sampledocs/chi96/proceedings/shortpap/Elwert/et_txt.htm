@@ -1,0 +1,106 @@
+<html>
+<head>
+<title>
+Continuous and Explicit Dialogue Modelling
+</title>
+</head>
+
+<body>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/shortpap.JPG" ALT="shortpap" HEIGHT=35 WIDTH=249><A HREF="../../shortpap.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<h1>
+Continuous and Explicit Dialogue Modelling
+</h1>
+<p>
+
+<em>Thomas Elwert</em>
+<p>
+
+<dl>
+<dt>Dept of Computer Science
+<dt>University of Rostock
+<dt>Albert-Einstein-Str. 21
+<dt>D-18051 Rostock, Germany
+<dt>Tel: +49 381 4983418
+<dt>E-mail: telwert@informatik.uni-rostock.de
+</dl>
+<p>
+<hr>
+
+<h2>ABSTRACT</h2>
+Dialogue modelling represents an important stage in the User Interface (UI) development process. Existing UI development methodologies do not reflect sufficiently this importance by including an explicit dialogue model which covers all levels of dialogue modelling and uses a uniform notation. The paper argues the need for an explicit dialogue model and its continuous development to improve the homogeneity of the entire UI development process. Further, the paper outlines such a model-based approach which supports continuous and explicit dialogue modelling.
+
+<h3>Keywords</h3>
+Human-computer interaction, user interface design, dialogue model, graphical dialogue notation
+
+<h2>INTRODUCTION</h2>
+A dialogue model represents important information about the static and dynamic structure of the conversation between the user and the computer system, and exemplifies the use of models in design in the field of HCI. Ultimately, this information supports the development of a concrete user interface. Dialogue modelling appears either more or less explicitly in UI development methodologies. However, using a continuously developed, explicit dialogue model can ensure the consistency between different levels of interface modelling, can support the evaluation of design decisions and can provide a common ground for communication between end-user and designer [2]. 
+The following sections of this paper motivate the need for continuous and explicit dialogue modelling and give a short description of an approach allowing this kind of modelling.
+
+<h2>Continuous and explicit Dialogue Modelling</h2>
+Existing UI development methodologies emphasise dialogue modelling in different forms. For example, TRIDENT integrates dialogue knowledge into the Activity Chaining Graph, mixing it with task modelling [1]. In ADEPT, dialogue knowledge appears in two models, the Abstract Interface Model and the Concrete Interface Model, creating a gap in the dialogue modelling process [4].  These problems can be overcome by an explicit dialogue model considering three levels of dialogue modelling (table 1). Such a model can support continuous dialogue modelling and provide a separation of task and dialogue information.
+<p>
+<TABLE COLSPEC="L20 L20" BORDER=1>
+<TR><TH>level</TH><TH>task</TH></TR>
+<TR><TD>lexical</TD><TD>description of shape of icons, objects and keys in the UI</TD></TR>
+<TR><TD>syntactic</TD><TD>description of order and structure of methods/services used to satisfy a main goal</TD></TR>
+<TR><TD>semantic</TD><TD>description of dialogue in terms of its effect on the functional application core</TD></TR>
+</TABLE>
+Table 1: Levels of dialogue modelling (adapted from [2])
+<p>
+Dialogue models can be described by diagrammatic as well as textual notations. The notations vary in expressiveness and granularity. In general, current use of dialogue notations emphasises the syntactic level but largely ignores the lexical and semantic levels [2]. In order to allow continuous dialogue modelling, the designer needs a dialogue model with a uniform notation for all levels of dialogue modelling. This reduction in the notations and models used for dialogue modelling can provide:
+<ol>
+<li>reduced probability of losing information during transformations between models representing information of different levels of dialogue modelling,
+<li>better support for dialogue refinement from an abstract level to a concrete dialogue level,
+<li>a continuous dialogue modelling process smoothing out the UI development process,
+<li>a simplification of the verification process.
+</ol>
+The TADEUS approach [3] attempts to support such an approach to dialogue modelling as a part of a UI development methodology. The approach recommends the development of a set of information-representing models to support the UI development. The set is a compromise between all the models that might possibly be used in the UI development process and what we, the TADEUS development team, see as essential for the development of a user interface currently.
+dialogue modelling In TADEUS
+<h2>The dialogue model plays an important role in TADEUS.</h2>
+It is integrated into a UI development process as shown in figure 1. The TADEUS approach recommends a CPN-based diagrammatic dialogue notation (CPN - Coloured Petri Net), called Dialogue Graph (DG), which can be used in all levels of dialogue modelling (table 1). The TADEUS dialogue model is built up on the basis of task and domain-object information from the given domain. 
+<p>
+<img src="et_fg1.gif" ALT="Figure 1">
+<p>
+Figure 1: UI development process with TADEUS
+<hr>
+<p>
+During the syntactic level of dialogue modelling the dialogue model represents the structure and order of methods/services used to satisfy a main goal. Figure 2 shows a dialogue model derived from the task model of the task email administration. It describes which method/ service, represented here as a transition, is related to which domain-object, represented as a node. A transition describes the effects of its firing on the visibility, activity and manipulability of a domain-object. The domain-objects are placed in a view covering methods/services and domain-objects which can be presented in the desired user interface simultaneously [3].
+<p>
+<img src="et_fg2.gif" ALT="Figure 2">
+<p>
+Figure 1: UI development process with TADEUS
+<hr>
+<p>
+Based on information gathered in the syntactic level, the dialogue designer can get a first abstract overview of the dialogue. At this stage a first verification and evaluation of the dialogue model can be simplified by using simulation and analysis facilities for Petri nets for checking properties like reachability or liveness.
+If the syntactic level of dialogue modelling is verified, it can provide the starting point for the development of the lexical level of dialogue modelling. The latter involves finding of one or more Abstract Interaction Objects (AIO) and Concrete Interaction Objects (CIO) [1] for each domain-object. The use of the same notation as in the syntactic level and the reuse of existing main transitions can support the refinement from an abstract level to a concrete level and can smooth out the UI development process. The dialogue designer has only to change the granularity but not the model or the notation. For example, the domain-object mailbox is refined to the AIOs container and two action triggers (see figure 3) which can be mapped to a suitable CIOs. On the basis of the dialogue model now covering the lexical and syntactic dialogue levels, the designer can simulate and analyse the desired UI again for evaluation and verification.
+<p>
+<img src="et_fg2.gif" ALT="Figure 2">
+<p>
+Figure 3: Lexical level of dialogue modelling
+<hr>
+<p>
+The third level of dialogue modelling covers the extension of the dialogue model by semantic links for each transition in the dialogue model. That means that each transition is linked to a function residing in the functional application core which is derived from the TADEUS task and problem domain model. This level finishes the dialogue modelling and combines the desired UI with the functional application core. Thus, the designer has a dialogue model represented by a Dialogue Graph which may readily be translated to a UI prototype.
+
+<h2>Conclusion and further work</h2>
+The paper has highlighted the ideas of continuous and explicit dialogue modelling. Further work is required to improve this approach. An evaluation of a UI development tool that supports this approach is planned, and will be carried out in the context of a real design project.
+
+<h2>Acknowledgements</h2>
+The author would like to acknowledge the support of the HCI group at Queen Mary and Westfield College, University of London and of my Rostock colleague Egbert Schlungbaum in the preparation of this paper. 
+
+<h2>REFERENCES</h2>
+<ol>
+<li>Bodart F., Hennebert A.-M., Leheureux J.-M., 
+Provot I., Sacr‚ B. and Vanderdonckt J. Towards a Systematic Building of Software Architecture: The TRIDENT Methodological Guide, in Palanque P. and Bastide R. Design, Specification and Verification of Interactive Systems'95. Springer, Wien, 1995, 262-277.
+<li>Dix A., Finlay J., Abowd G. and Beale R. Human-Computer Interaction. Prentice Hall, London, 1993.
+<li>Elwert T. and Schlungbaum E. Modelling and Generation of Graphical User Interfaces in the TADEUS Approach, in Palanque P. and Bastide R. Design, Specification and Verification of Interactive Systems'95. Springer, Wien, 1995, 193-208.
+<li>Johnson P., Johnson H. and Wilson S. Rapid Prototyping of User Interfaces Driven by Task Models. in Carroll J. Scenario-Based Design. John Wiley & Sons, London, 1995, 209-246.
+</ol>
+</body>

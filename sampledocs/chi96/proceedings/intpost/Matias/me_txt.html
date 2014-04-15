@@ -1,0 +1,128 @@
+<html>
+
+<head>
+<title>A Wearable Computer for Use in Microgravity Space and Other Non-Desktop Environments</title>
+<link rev="made" href="mailto:ematias@dgp.toronto.edu">
+</head>
+
+<body>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<P><IMG SRC="./../../graphics/intpost.JPG" ALT="intpost" HEIGHT=35 WIDTH=249><A HREF="./../../intpost.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<center>
+<h1>A Wearable Computer for Use in Microgravity Space <br>
+and Other Non-Desktop Environments</h1>
+<br>
+<a href = "http://www.dgp.toronto.edu/people/ematias/edgar.html"><i>Edgar Matias</i></a><br>
+The Matias Corporation<br>
+178 Thistledown Boulevard<br>
+Rexdale, Ontario, Canada  M9V 1K1<br>
+(416) 749-3124 <br>
+<a href = "mailto:ematias@dgp.toronto.edu">ematias@dgp.toronto.edu</a><br>
+<br><br>
+<a href = "http://www.cis.uoguelph.ca/~mac"><i>I. Scott MacKenzie</i></a><br>
+Dept. of Computing and Information Science<br>
+University of Guelph<br>
+Guelph, Ontario, Canada  N1G 2W1<br>
+(519) 824-4120<br>
+<a href = "mailto:mac@snowhite.cis.uoguelph.ca">mac@snowhite.cis.uoguelph.ca</a><br>
+<br><br>
+<a href = "http://www.dgp.toronto.edu/people/BillBuxton/billbuxton.html"><i>William Buxton</i></a><br>
+University of Toronto &amp; Xerox PARC<br>
+c/o Computer Systems Research Institute<br>
+University of Toronto<br>
+Toronto, Ontario, Canada  M5S 1A4<br>
+(416) 978-1961<br>
+<a href = "mailto:buxton@dgp.toronto.edu">buxton@dgp.toronto.edu</a>
+</center>
+<h2>ABSTRACT</h2>
+We present one possible design for a &quot;wearable&quot; computer--a computer that is worn.  Our prototype permits text entry without the need of a table or other supporting surface.  Typing can be performed while standing or even walking.  Possible applications for this device are also discussed.  
+
+<h2>KEYWORDS:</h2>
+Input devices, input tasks, wearable computers, portable computers, Half-QWERTY, one-handed keyboard, skill transfer.
+
+<h2>INTRODUCTION</h2>
+The tremendous and increasing popularity of notebook computers over the past several years has encouraged manufacturers to push the envelope ever further.  This has led to the development of palmtops and PDAs, devices small enough to fit in the palm of your hand.  In an interesting spin-off, the technologies which make these devices possible are being used to push portability even further, creating a new breed of computer known as a &quot;wearable.&quot;  While not yet common, their eventual success relies on finding niche applications to pave the way for more general use.  In this paper we present one possible design for a wearable, and explore a few possible niches.
+
+<h2>DESIGN PROTOTYPE</h2>
+Our prototype wearable consists of three modules (<a href="fig1.gif">Figure 1</a>): keyboard <a name = "refcallout1" href = "#ref1">[1]</a>, display, and computer.  The keyboard and display modules are strapped to the operator's forearms.  The computer module can be carried in a waist pouch or backpack, along with batteries for power.  By assuming the typing posture in <a href="fig2.gif">Figure 2</a>, the operator can enter text information.  At other times, the operator's hands are free to perform other tasks.  In mobile applications, this is often important.
+<p>
+<center><img src = "fig1.gif"></center>
+</p>
+<p>
+<b>Figure 1.</b>  Keyboard and display modules of prototype wearable computer.  The computer and battery module is not shown.
+</p>
+<h3>Design Factors</h3>
+We had four main goals in mind while designing our wearable:
+<p>
+<ol>
+<li>Minimize training</li>
+<li>Minimize fatigue</li>
+<li>Minimize weight</li>
+<li>Minimize power consumption</li>
+</ol>
+</p>
+<p>
+Training was minimized by using a Half-QWERTY one-handed keyboard as the primary input device.  This keyboard allows touch-typists to type one-handed using their existing typing skills <a href = "#ref1">[1]</a>.  
+</p>
+<p>
+To minimize fatigue, we balanced the weight distribution of the device.  The keyboard (170 g) and display (175 g) modules are roughly the same weight, and are light enough to avoid undue fatigue on the arms.  The heavier batteries and computer module (180 g) are worn on the waist or in a backpack, where their weight is less fatigue inducing.
+</p>
+<p>
+Much as with normal computer use, posture plays an important part in minimizing the fatigue of using a wearable.  Proper typing posture is shown in <a href="fig2.gif">Figure 2</a>.  The operator's arms rest against the body, with the shoulders relaxed.  The elbows are bent at 90 degree angles, and the wrists are kept straight.  This posture can be maintained for the short time periods typical of most mobile text entry tasks.  When not performing such tasks, the operator's arms can rest at their sides.
+</p>
+<p>
+<center><img src = "fig2.gif"></center>
+</p>
+<p>
+<b>Figure 2.</b>  Wearable worn by an operator.  Proper typing posture is shown.  Operator's arms rest against the body, with shoulders relaxed.  Elbows are bent at 90 degree angles, and wrists are kept straight.  
+</p>
+<p>
+We minimized weight and power consumption by building our prototype out of a palmtop computer.  It weighed 325 g, before we started our modifications.  The final wearable (including belt pouch) weighs 655 g.  It runs on two AA batteries and uses various means of conserving power.  For example, instead of using a backlit grey-scale LCD, it uses a monochrome (1-bit) non-backlit LCD and relies on ambient light.  The result is a clear display with minimal power consumption.
+</p>
+
+<h2>APPLICATIONS &amp; 
+ENVIRONMENTAL CONSTRAINTS</h2>
+The environment in which a wearable is to be used places certain constraints on its design, operation, and application.  As a starting point, the following four facilities, normally taken for granted in an office environment, are not generally supplied by the environments in which wearable computers are useful:
+<p>
+<ol>
+<li>No desk</li>
+<li>Gravity not as useful</li>
+<li>No communications link</li>
+<li>No power</li>
+</ol>
+</p>
+<p>
+Below we consider possible applications of wearables in two environments, given the constraints listed above: 
+</p>
+<h4>In-Shuttle Microgravity Space</h4>
+In space, gravity is so weak that anything you push against projects you away from it.  This makes typing understandably difficult.  It also makes it an ideal environment for using a wearable computer.  Since nothing external is being pushed against, the &quot;flying typist&quot; problem is avoided.  Astronauts working inside a spacecraft could wear the units and use them for entering and retrieving data.  A wireless link could be established between the wearable and the spacecraft's main computer, permitting the exchange and storage of information.
+
+<h4>Earth-Bound Non-Desktop Environments</h4>
+A wearable is also well suited to work &quot;in the field.&quot;  This includes data collection and retrieval in out-of-doors situations, such as: field service, inventory, surveying, etc.  As well, highly mobile in-door work can also benefit from having a wearable.  For example, inspectors performing on-site evaluations of factories can take notes and call-up information on past evaluations.  When not entering information, their hands are still free to point at things, grasp objects, make hand gestures, etc.
+
+<h3>Operator Capacities</h3>
+The environment can also limit or enhance an operator's capacity to perform certain general functions.  They include:
+<p>
+<ol>
+<li>Holding capacity</li>
+<li>Manipulation capacity</li>
+<li>Carry/storage capacity</li>
+<li>Rest capacity</li>
+</ol>
+</p>
+<p>
+For example, in space an operator's holding capacity is enhanced due to the lack of gravity.  A tool released in mid-air will remain suspended until it is needed again.  Such feats are not possible on Earth.  These capacities will also affect the net usability of wearables.
+</p>
+
+<h2>REFERENCES</h2>
+<a href = "#refcallout1">[1]</a>  <a name = "ref1">Matias, E., MacKenzie, I. S., &amp; Buxton, W. (1994).  Half-QWERTY: Typing with one hand using your two-handed skills.  <i>Companion of the CHI '94 Conference on Human Factors in Computing Systems</i> (pp. 51-52).  New York: ACM.</a>  <a href = "http://www.dgp.toronto.edu/people/ematias/papers/chi94/chi94_intexp7.html">Available online (43K)</a>.
+
+</body>
+</html>

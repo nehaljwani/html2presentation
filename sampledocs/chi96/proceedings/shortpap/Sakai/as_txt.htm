@@ -1,0 +1,112 @@
+<html><head>
+<TITLE>Flying Fingers</TITLE>
+</head>
+
+<body>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/shortpap.JPG" ALT="shortpap" HEIGHT=35 WIDTH=249><A HREF="../../shortpap.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<H1>Flying Fingers:<BR>
+A tool for three-dimentional shared workspace</H1>
+<P>
+
+<i>Akira Sakai</i>
+<dl>
+<dt>NEC Design, Ltd.
+<dt>20-36, 2-Chome, Takanawa, Minato-Ku, Tokyo 108, Japan
+<dt>+81 3 5449 3289
+<dt>a_sakai@design.nec.co.jp
+</dl><p><hr>
+
+<H2>ABSTRACT</H2>
+This paper describes Flying Fingers, which is a tool designed for remote collaboration, such as reviewing mock-ups generated in CAD system between designers in remote places. Flying Fingers can potentially be controlled by two-dimensional pointing devices such as mice, because it employs a spherical coordinate system. Moreover, it can be implemented using narrow bandwidth communication.<P>
+
+<H3>Keywords</H3>
+CSCW, shared workspace, spherical coordinates, WYSIWIS<P><P>
+
+Remote meetings between industrial designers and clients or manufacturers require precise communications, often centered around three-dimensional models. They need to share a focus  on the object which they are talking about, but sharing a focus can conflict with the ability to work independently. In addition, it is desirable that these functions  be provided using wide-spread communication channels such as the Internet.<BR>
+To explore these issues, I built a  prototype of a collaborative system using Macromedia Director, and used two simple experiments to examine characteristics of interactions about two configurations such as &quot;free view&quot; and the &quot;common view.&quot;<P>
+
+<H2>FLYING FINGERS</H2>
+Users share a 360 degree rotating view of an object in each of two views, named RED and BLUE respectively. Users are represented by animated hands in the view, and can also move their hands by moving the mouse. Simple gestures, such as moving the hand towards the object, can be made, though orientation of the hand is always directed to the object. The object is turned according to the position of the hand.<P>
+
+<IMG SRC="as_fg1.gif" ALT="fig. 1"><BR>
+
+<B>Fig. 1: A conceptual sketch of the system</B><P>
+
+<H2>Two configurations of views</H2>
+Two methods are possible for configuring the views. One is the &quot;free view&quot; configuration, which allows users to rotate the object without affecting the other user, because while one user rotates the object, the other sees his/her hand turning around it. The other is the &quot;common view&quot;, which forces both users to see completely same view. Conflicts may occur when they turn the table to opposite directions simultaneously in this configuration.<P>
+
+Some existing studies suggest characteristics of interactions that might be affected by these kinds of configurations. [2] referred to opposite views and common views.  Opposite views are suitable for explaining and training, while common view configurations are useful for tasks which require observations from different points of view. Moreover, [1] suggested independent points of view between designers optimize parallel activity. <P>
+Referring to [2] and [1], the &quot;common view&quot; may be suitable for  task-like instructions, while  &quot;free views&quot; may fit better to more independent tasks, such as investigation.<P>
+
+<H2>PROTOTYPE</H2>
+The prototype was developed to explore interactional characteristics of each configuration focusing on issues as follows.<BR>
+<UL><LI>      Which configuration is better  for realistic remote work?<BR>
+<LI>
+      Should users be allowed to move their &quot;hands&quot; over a wide area, or be constrained in the &quot;free view&quot; configuration?<BR>
+<LI>
+      Can a simple prototype based on animation be used for exploration of issues in 3-D shared workspace?<BR>
+</UL>
+
+Flying Fingers was implemented on two personal computers connected through the serial port. The two computers were set on desks separated by a partition, so that users could talk freely. (fig. 2) The object shown in the display was a half sphere, resting on a table and 24 alphabetical characters were applied on the surface.<A HREF="#image4">(fig. 4)</A> Each &quot;hand&quot; was controlled by a mouse.<P><IMG SRC="as_fg2.gif" ALT="fig. 2"><BR>
+
+<B>Fig. 2: Configuration of the system</B><P>
+
+The prototype had three variations of interaction such as A: &quot;wide angle&quot;, B: &quot;narrow angle&quot;, C: &quot;common view&quot;. A and B employed the &quot;free view&quot; configuration. Users cause the &quot;table&quot; to turn when they move their hands to a right angle from the viewers orientation in A, and approximately 45 degrees from the viewer's orientation in B. (fig. 3) Users see completely same view in C. In case of conflict in C, the object shakes in both views. C was implemented by centralized architecture, while A and B were replicated. Speed and smoothness of movement in each version were made as  equal as possible, however RED in C had a small delay because of the difference of architecture.<P><IMG SRC="as_fg3.gif" ALT="fig. 3"><BR>
+
+<B>Fig. 3: Variations of configuration</B><P>
+
+<H2>EXPERIMENT</H2>
+Two types of tasks were used to investigate the role of the two configurations in different sorts of interactions. Task 1 was a simple instructional task, while task 2 was for collaborative problem solving. The experiment used six groups of two users&#59; participants included industrial designers, interface designers and other workers from NEC Design, Ltd.<P>
+
+<A NAME="image4"><IMG SRC="as_fg4.gif" ALT="fig. 4"></A><BR>
+
+<B>Fig. 4: An example of task 1 (Left: BLUE, Right: RED)</B><P>
+
+<H2>Task 1: Instructional</H2>
+Users were given 10 random characters avoiding repeats. The five even numbered characters were shown to the BLUE participant, but not the RED one&#59; the five odd numbered ones were given to RED, but not BLUE.  BLUE pointed to the character on the object for RED, then RED typed the character. Next RED pointed to the character, and so on. They got one point if the answer was correct. They were allowed to talk except for naming the character itself. After 10 characters, the total time and the points were displayed and recorded.<BR>
+
+<H2>Task 2: Problem Solving</H2>
+Users were given a print out of ten random characters with colored back grounds like ones on the object, but four in ten had the wrong color combination. Users worked together to find the wrong characters then typed them. They were allowed to type only four character (but repeats were ignored by the system). They were shown the total time and score after they typed four characters.<BR>
+
+<H2>Observation</H2>
+None of the users had major difficulties using the system. However, users were sometimes confused using configuration C in task 2 when the object were suddenly rotated by the other user. Several users gave up turning the object and let the other user control turning.<BR>
+Some users moved the mouse as if they were drawing the circle to turn the object. This problem was caused by confusions in mapping the spherical coordinates in the view to the plain coordinates of the mouse.<BR>
+
+<H2>Results</H2>
+Fig. 5 and Fig. 6 show C is the best configuration in task 1, especially in their correct scores. However, configuration C is the worst in task 2. Configuration B produced better scores than A (Fig. 8), but took longer to use (Fig. 7).<BR>
+
+<IMG SRC="as_fg5.gif" ALT="Fig. 5 and Fig. 6"><P>
+
+<B>Fig. 5: Average time of task 1	         Fig. 6: Average scores of task 1</B><P>
+
+<IMG SRC="as_fg7.gif" ALT="Fig. 7 and Fig. 8"><P>
+
+<B>Fig. 7: Average time of task 2	         Fig. 8: Average scores of task 2</B><BR>
+
+<H2>CONCLUSIONS</H2>
+The experiment suggests that the &quot;common view&quot; configuration is suitable for the instructional task, but not for problem solving. The &quot;free view&quot; is better than the &quot;common view&quot; in the problem solving task, and moreover, it may be improved by subtle changes such as constraint of movement of the hand.<BR>
+Meeting sessions in real situations have various phases, participants sometimes explain objects or ideas, and sometimes work on one object from different points of view. Tools for this kind of meeting between remote places should be flexible and may have to fit those phases without changing  modes. The simple spherical coordinate discussed here might extend the effectiveness of remote meetings with fewer difficulties than more complex systems.<P>
+
+<H2>SUMMARY AND FUTURE WORKS</H2>
+I have presented a design for a 3-D shared workspace based on controlling a view based on spherical coordinates from a linear mouse. I investigated this design using two configurations of interactions that might apply to this system. I also found it is possible to explore issues relevant for a 3-D shared space using a simple animation based prototype, though it had some limitations.<BR>
+Future work will investigate mapping between spherical and plain coordinates. Development of a spherical coordinate pointer is now in progress for this purpose. Integrating the two configurations will also be a future goal.<P>
+
+<H2>ACKNOWLEDGMENTS</H2>
+This study was started as a college project in Royal College of Art in London in which I have been participating last year. I will thank Dr. Gaver for instruction. I also thank colleague students and colleagues in NEC Design, Ltd.<P>
+
+<H2>REFERENCES</H2>
+<ol>
+<li>Takemura, H. and Kishino, F. Cooperative Work Environment Using Virtual Workspace, in CSCW 92 Proceedings, 1992, pp. 226-232.<BR>
+
+<li>Shu, L. and Flowers, W. Groupware Experiences in Three-Dimensional Computer-Aided Design, in CSCW 92 Proceedings, 1992, pp. 179-186.<P>
+</ol>
+
+</body></html>

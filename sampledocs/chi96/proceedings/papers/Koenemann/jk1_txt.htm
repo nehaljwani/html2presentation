@@ -1,0 +1,830 @@
+<!DOCTYPE HTML PUBLIC "-//W3O//DTD W3 HTML 2.0//EN">
+<!Converted with LaTeX2HTML 95.1 (Fri Jan 20 1995) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds >
+<HEAD>
+<TITLE>A Case for Interaction: A Study of Interactive Information Retrieval Behavior and Effectiveness</TITLE>
+</HEAD>
+<BODY>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<P><IMG SRC="./../../graphics/papers.JPG" ALT="papers" HEIGHT=35 WIDTH=249><A HREF="./../../papers.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<Center>
+<P>
+  <H1>A Case For Interaction: A Study of Interactive Information
+Retrieval Behavior and Effectiveness</H1>
+<P><STRONG>
+<b>J&#252;rgen Koenemann</b></STRONG><BR> 
+Center for Cognitive Science<BR> 
+Rutgers University<BR> 
+Psychology Bldg.<BR> 
+Frelinghuysen Rd.<BR> 
+Piscataway, NJ 08855 USA<BR> 
++1 908 445 6122<BR> 
+koeneman@ruccs.rutgers.edu
+<P>
+<STRONG><b>Nicholas J. Belkin</b></STRONG><BR> 
+School of Communication,<BR> 
+Information, and Library Studies<BR> 
+Rutgers University<BR> 
+4 Huntington Street<BR> 
+New Brunswick, NJ 08901-1071 USA<BR> 
++1 908 932 8585<BR> 
+nick@belkin.rutgers.edu
+</center>
+<P>
+<P>
+<H2><A NAME=SECTION00010000000000000000> ABSTRACT</A></H2>
+<P>
+This study investigates the use and effectiveness of an advanced
+information retrieval (IR) system (INQUERY).
+64 novice IR system users were studied in their use of a baseline
+version of INQUERY compared with one of three
+experimental versions, each offering 
+a different level of interaction with a relevance
+feedback facility for automatic query reformulation.  
+Results,
+in an information filtering task, indicate that: these subjects,
+after minimal training, were able to use the baseline system
+reasonably effectively; availability and use of relevance
+feedback increased retrieval effectiveness; and 
+increased opportunity for user interaction with and control of
+relevance feedback made the interactions more efficient and 
+usable while maintaining or increasing effectiveness.
+<P>
+<b>Keywords:</b>
+<P>
+information retrieval, user
+interfaces, evaluation, empirical studies, relevance
+feedback
+<P>
+<H2><A NAME=SECTION00020000000000000000> INTRODUCTION</A></H2>
+<P>
+We are experiencing in our work and home environments a dramatic
+explosion  of information sources that become available to 
+an exponentially growing number of users. This has resulted in a shift in the
+profiles of users of online information systems: more
+ users with no or minimal training in information retrieval (IR) have
+gained access to tools that were once 
+the almost exclusive domain of librarians who served as
+intermediaries between end-users with their particular information
+needs  and the  information retrieval tools.
+<P>
+This situation has stimulated increasing interest in computerized tools
+that support end-users in their information seeking tasks. 
+
+   One  important  such  situation  is  the  information
+filtering
+(or <em> routing</em>) task, in which streams of information (such as email 
+messages, newswire articles, or 
+net news postings) are automatically filtered by a program
+based on specifications
+that are directly or indirectly obtained from the user. 
+How these
+specifications should be obtained and used, and in particular, whether
+such programs should be autonomous or interactive are unresolved and
+controversial issues, which are explicitly addressed in the study
+reported here.
+This paper describes an experiment investigating the information seeking 
+behavior of 64 novice searchers who used one of four versions of an
+advanced IR system to formulate routing queries for two given search
+topics. Each version offered a different level of interaction with
+a query formulation support mechanism called <em> relevance feedback</em>.
+<P>
+The paper is organized as follows: we first present the rationale
+for using an interactive,  best-match, ranked-output, unstructured
+input, full-text IR system (INQUERY), and we discuss relevance feedback as a 
+support tool for query reformulation. We then detail the 
+design of the four different interfaces employed in our
+study, and describe the experiment which we conducted.
+The major portion of the paper focuses on a comparative description of the
+information retrieval behavior and effectiveness we observed in the
+use of these systems. We
+conclude with  some 
+general recommendations for the design of effective interfaces for
+information retrieval suggested by our results.
+<P>
+<H2><A NAME=SECTION00030000000000000000> SUPPORTING END USERS</A></H2>
+<P>
+Users in all types of IR systems face the
+central difficulty of effective, interactive (re)formulation of
+queries which represent their information problems. Professional
+searchers using commercial IR systems have developed a variety of
+techniques and heuristics for addressing this difficulty in the
+context of Boolean query languages for exact-match, set-based
+retrieval from databases of indexed citations and abstracts of
+documents. Conversely, the difficulties faced by end-users with no
+training or experience in the use of these systems have been well
+documented.
+From experimental studies it has been known for some time that
+best-match, ranked-output retrieval techniques are in general superior
+in non-interactive settings to exact-match systems, such as commercial
+Boolean IR systems,  in terms of recall and precision performance
+measures [<A NAME="BelkinCroft87back" HREF="#BelkinCroft87">2</A>].
+<P>
+In response to such results,
+our study used the INQUERY retrieval engine developed at the
+University of Massachusetts [<A NAME="CallanEtAl92back" HREF="#CallanEtAl92">3</A>]. The underlying
+mechanism of INQUERY is a Bayesian probabilistic inference network
+which provides rules for
+the computation of probabilistic belief values for each document in
+the collection. These belief values are based on the terms that are
+shared by the query and the <em> full text</em> of the document,
+and on the operators used to combine these terms.
+The system
+returns a <em> ranked</em> list of documents with documents that 
+<em> best match</em> a given query being ranked at the top.
+<P>
+Research has
+shown that end-users with little or no training in query
+formulation have severe difficulties in making use of
+available operators and in mapping their intent to the appropriate logical
+query structure; it seems that systems
+which allow queries to be put in unstructured form allow easier query
+formulation than those which require Boolean structure, and are, at
+least for end-users, more effective [<A NAME="FreiQiu93back" HREF="#FreiQiu93">5</A>,<A NAME="Turtle94back" HREF="#Turtle94">13</A>].
+We therefore restricted queries to simple
+lists of terms. The only (implicit) operator allowed was the
+concatenation of terms to form multi-term phrases such as ``automobile recall''.
+<P>
+One particularly interesting and promising  tool to support (or even
+replace) query reformulation in the context of these systems is <em>
+relevance feedback</em>. Relevance feedback modifies an existing query
+based on available relevance judgements for previously retrieved
+documents.  For example, the system may add key terms from documents
+that the user has  
+indicated as being relevant to the list of query terms, or the system
+may assign higher weights to terms in a user query that also appear in
+documents that have been marked ``relevant'' by the user. The goal of 
+relevance feedback is to retrieve  and rank highly those documents
+that are similar to the document(s) the user found to be relevant.
+<P>
+It is quite clear that
+automatic relevance feedback
+significantly improves retrieval performance 
+in <em> fully automated</em> retrieval systems without user interaction, and 
+with many relevance judgments[<A NAME="SaltonBuckley90back" HREF="#SaltonBuckley90">11</A>]. 
+Our concern is with determining how
+a relevance feedback component  impacts the information seeking
+behavior and effectiveness of <em> novice</em> searchers in an <em> interactive</em>
+environment, and therefore with relatively few relevance judgments.
+<P>
+There have been many studies of user interaction with
+traditional boolean systems (e.g.
+[<A NAME="HewettScott87back" HREF="#HewettScott87">8</A>]) and some studies that 
+have focused on novel interaction techniques (e.g.
+[<A NAME="AhlbergShneiderman94back" HREF="#AhlbergShneiderman94">1</A>,<A NAME="LandauerEtAl93back" HREF="#LandauerEtAl93">10</A>]). A few observational
+studies are concerned with relevance feedback
+[<A NAME="Efthimiadis92back" HREF="#Efthimiadis92">4</A>,<A NAME="HancockWalker92back" HREF="#HancockWalker92">6</A>] but we are not
+aware of studies that have looked at relevance feedback in an
+experimental setting except for our own work in the context of 
+the interactive track of TREC-3
+[<A NAME="KoenemannEtAl95back1" HREF="#KoenemannEtAl95">9</A>].
+<P>
+A central question for the design of interactive systems in general is
+the amount of knowledge a user is required or expected to have about
+the functioning of the system and the level of control a user can
+exert. We share the ``task-centered'' view that interfaces for
+the occasional user should hide as much
+as possible of the inner workings of a system and should instead
+present users with a view that focuses on the user's task. However,
+the question arises of <em> how much</em> knowledge and control a user
+should have in order to best interact with components such as relevance
+feedback that are central to the user task, here the formulation of an 
+information need. At one extreme, the existence of such a tool can be completely hidden
+from the user: the set of ``relevant'' documents could be
+determined by some algorithm that takes as input
+a user's behavior such as the viewing, saving, or printing of
+documents.  The other extreme would be
+a system that provides the user with complete control over the
+feedback mechanism: a  user could provide lists of ``good''
+documents to the mechanism, manipulate the query modifications
+(changed weights and added terms) suggested by the relevance feedback 
+component, and even adjust internal parameters such as belief thresholds.
+Between these two extremes there is a large space of possible
+designs; the goal of this study was to explore this space through the
+design of four interfaces described in the next section.
+<P><A NAME=fg1>&#160;</A> <A HREF="jk1_fg1.gif">[Figure 1]</A>
+<BR><STRONG>Figure 1:</STRONG> The RU-INQUERY Interface: Base Version Without Relevance
+Feedback<BR>
+<P><H2><A NAME=SECTION00040000000000000000> THE SYSTEMS</A></H2>
+<P>
+We designed and implemented (Tcl/Tk) a <b> baseline</b> interface to
+the INQUERY (V.2.1) 
+retrieval engine, 
+RU-INQUERY, (Figure <A HREF="#fg1">1</A>) that
+allowed users to enter queries and to view the results. 
+Users entered one-by-one single or compound terms (phrases) into the term entry
+window. An entered term was checked against the
+database and was either rejected if it did not appear in the
+collection or added in its stemmed form to the query term list.
+Words that appeared on a stop word list were ignored. 
+Subjects submitted a query
+for retrieval by hitting the <tt> Run Query</tt> button. The total number
+of retrieved documents and the titles of the
+top five (5) ranked retrieved documents were displayed. Users could scroll
+through the entire list of titles and look at the full text of any document by
+double-clicking on its title. A check box next to
+each title allowed keeping track of documents between iterations. A
+single-step undo mechanism allowed users to return to the previously
+run query. The system
+blocked most inappropriate user activities in order to prevent error
+episodes. Subjects could
+view the results of a query, and then reformulate the query
+by manually adding or deleting terms.
+<P>
+Performance in
+this baseline system was compared with one of three
+experimental versions, each offering (in addition to the baseline
+facilities) a different level of interaction with a relevance
+feedback facility for automatic query reformulation.
+<P>
+In the <b> opaque</b> interface  relevance feedback was treated as a
+black-box, a ``magical'' tool that hid the functionality of the
+relevance 
+feedback component from the user. Searchers were simply told that
+marking documents as relevant would cause the system to retrieve
+additional documents that were  similar to the ones marked as relevant
+and/or that similar documents would be ranked higher. Thus, users
+only needed to acquire minimal knowledge about the feedback tool and could
+focus on the 
+evaluation of documents rather than on the resulting reformulation of
+queries. Users marked a document ``relevant'' by clicking on
+the check box next to its title. Relevance feedback took effect the
+next time a query was run.
+<P>
+The <b> transparent</b> relevance feedback
+interface had the same functionality as the opaque version with the
+following addition: after a relevance feedback query
+had been executed searchers were shown the list of terms that had been
+added to the user-entered terms  by the relevance feedback component. 
+This additional information could be used to develop a more accurate model
+of the tool. Feedback terms could also be used as a source for future queries.
+<P>
+<A NAME=fg2>&#160;</A><A HREF="jk1_fg2.gif">[Figure 2]</A>
+<BR><STRONG>Figure 2:</STRONG> <b> Penetrable Relevance Feedback Version</b>
+(View of Feedback Component) <BR>
+<P>
+<P>
+The <b> penetrable</b> relevance feedback interface (Figure
+<A HREF="#fg2">2</A>) took the transparent
+version  one step further: in addition to providing information about
+the functioning of the relevance feedback mechanism it provided
+the ability to manipulate the output of the relevance feedback
+component <em> prior</em> to query evaluation. The execution of the
+query was interrupted and the user was presented with the list of
+terms suggested by the feedback component. Users had the opportunity to add 
+none, some, or all of the suggested terms prior to the continuation of
+the query evaluation. For example, the user might select only terms
+that appear to be central to the search topic.
+<P>
+<H2><A NAME=SECTION00050000000000000000> THE EXPERIMENT</A></H2>
+<P>
+Given the research results and considerations discussed above, our experiment
+was designed to investigate the following questions:
+<P>
+<UL><LI> Can  best-match, ranked-output, full-text retrieval systems 
+combined with an operator-free query language be used in an effective
+way by end-users with little training?
+<P>
+<LI> Is relevance feedback effective? That is, do users using one of the three
+systems with relevance feedback perform better on the routing task
+compared to subjects who use the baseline system without relevance
+feedback?
+<P>
+<LI> Is user knowledge about the output of the relevance feedback
+system helpful? If so, users in the transparent and penetrable
+conditions should perform better than subjects using the opaque
+relevance feedback system.
+<P>
+<LI> Is user control over the operation of the relevance feedback
+system helpful? If so, users in the penetrable
+condition should perform better than subjects using the transparent
+feedback system and better than users using the opaque system.
+<P>
+<LI> How do different levels of interaction impact the information 
+seeking behavior of users such as the number of queries developed and
+the way these queries are formed? 
+</UL><H2><A NAME=SECTION00051000000000000000> Subjects</A></H2>
+<P>
+64 Rutgers University Undergraduates (43 females, 21 males) with
+(self-reported) native-like English competence
+participated in the study. None of the
+subjects had any formal training in library and information science.
+Their IR searching experience was limited to the occasional use of a
+computerized library card catalog. In addition, a few isolated instances of
+Psych-Lit searches and WorldWideWeb  browsing were reported.
+<P>
+<H2><A NAME=SECTION00052000000000000000> Materials</A></H2>
+<P>
+The system and interfaces used are described in the previous section.
+The INQUERY system and the RU-INQUERY interfaces were installed on 
+a SPARC 2 workstation and users interacted with it via a networked SUN
+3/50 with monochrome monitor, standard keyboard, and mouse.
+<P>
+Recently, in the context of the ARPA-sponsored TIPSTER project and the
+ARPA/NIST TREC studies [<A NAME="Harman95aback" HREF="#HARMAN95a">7</A>], a test collection of reasonably
+realistic information problems, together with a large database (ca. 3GB)
+of the full texts of a wide variety of documents, and relevance 
+judgments on up to 2000 documents per information problem has become
+available. For our experiment, we used a subset of the TREC test
+collection, consisting of 74,520 articles from the Wall Street Journal
+between 1990 and 1992.
+<P>
+Two search topics (162 - <em> Automobile Recalls</em> and 165 - <em> Tobacco
+Advertising and the Young</em>) were selected from the set of TREC search
+topics. Each topic consisted of a title, a short description, and
+narrative that spelled out what would 
+constitute a relevant article (figure <A HREF="jk1_fg3.gif">3</A>). 
+<P><A NAME=fg3&#160;</A><A HREF="jk1_fg3.gif">[Figure 3]</A>
+<BR><STRONG>Figure 3:</STRONG> Search Topic Definition For Topic 165<BR>
+<P>
+<P>
+Each of the unique 2000 retrieved documents was rated by the first
+author as being relevant or not relevant to the topic on hand.
+These ratings were 
+compared to TREC relevance judgments made by the originators of the
+topic descriptions that were available for a subset
+of about 560 of the 2000 retrieved documents.
+The inter-rater agreement between the experimenter and the TREC evaluators
+was almost perfect (98%) for topic 162 and  very good for topic 165
+(94%); cases of disagreement were resolved by careful reexamination
+of the documents. These judgements served as the basis for the
+performance evaluation.
+<P>
+The task for this study was a query construction task, i.e. subjects had to
+develop a final routing query for a given information problem, or <em> topic</em>,
+that could be run repeatedly against changing document collections. 
+Specifically, we asked subjects to
+devise a single final query that retrieved at least 30 documents from
+the current collection, of which as many documents as possible in the top 30
+were relevant to the provided topic. A focus on the top 30 articles
+mirrors realistic retrieval situations in which  users
+are only interested in a small number of documents.
+We focused on retrieval for the current collection because a previous
+study [<A NAME="KoenemannEtAl95back2" HREF="#KoenemannEtAl95">9</A>] had shown that even experienced searchers
+did not reason about the effect of changing
+collection content and collection characteristics on query effectiveness.
+The task of developing a final query is different from a standard
+adhoc retrieval task in which users focus on finding relevant
+documents throughout the interaction and across multiple queries and
+where the end result is a set of documents, not a single final query.
+Our routing task is typical of a situation where a user wants to
+develop a profile for the filtering of information and uses an
+existing current collection to develop and
+test this profile.
+<P>
+A short (30-40 minutes long) interactive tutorial was
+integrated into the interface. It guided subjects through a sequence
+of exercises using the baseline system without relevance feedback 
+in the form of a sample search. Three additional, very short online tutorials
+were developed that taught the use of the respective relevance
+feedback interface.
+<P>
+<H2><A NAME=SECTION00053000000000000000> Experimental Design and Procedure</A></H2>
+<P>
+Subjects performed two
+(2) searches: all subjects used the baseline system without relevance
+feedback for their first search, followed by a second search on a
+different topic using either one of the three relevance feedback
+systems or continuing the use of the baseline system (control group). 
+The order of topics was counterbalanced between searches, leading to
+eight (8) different conditions based on the topic order employed (2) and
+the type of system used during the second search (4). Subjects were
+assigned to one of the eight conditions in a block-randomized fashion.
+<P>
+After giving their informed consent and filling out the online
+questionnaire subjects worked through the online tutorial at their own
+pace. 
+After subjects ended the tutorial or after the allotted time of 45 minutes
+had expired they were given twenty minutes to
+formulate a routing query for their first topic. At the
+twenty minute mark subjects were told that time was up and that they
+should wrap up the current action.  After a short break subjects
+worked for up to ten minutes either through one of the three
+relevance feedback tutorials (experimental groups) or returned to a
+review of the original baseline tutorial (control group). 
+Next, subjects were again given twenty minutes to
+formulate a routing query for the second topic, using the 
+system and interface they just had learned about.
+A short interview concluded the experiment. Users were asked 
+to comment on their overall experience and to state which interface
+they liked better.
+<P>
+All interactions with
+the system were automatically recorded by the system,
+creating a timed log of user and system actions. Subjects were
+instructed to think aloud during their two searches and the utterances
+were video-taped along with the current screen image. Independent of
+actual performance, subjects were told that they did well.
+<P>
+<H2><A NAME=SECTION00060000000000000000> RESULTS AND DISCUSSION</A></H2>
+<P>
+<H2><A NAME=SECTION00061000000000000000> Information Retrieval Evaluation</A></H2>
+<P>
+Although IR has a long history and extensive experience of evaluation
+(see, e.g. [<A NAME="SparckJones81back" HREF="#SPARCKJONES81">12</A>]), evaluation of interactive IR systems
+is still in its infancy. The two standard measures of retrieval
+effectiveness are <b> precision</b>,
+the number of relevant retrieved documents over the total
+number of retrieved documents, and <b> recall</b>,
+the ratio of relevant retrieved documents to the total number of
+(known) relevant documents.
+
+<P>
+For the purposes of this paper we use <em> precision
+at 30 retrieved documents</em>, the cut-off level determined by the task that
+we set for our searchers in the experiment.
+<P>
+We used the non-parametric
+Kruskal-Wallis and Mann-Whitney U tests 
+with corrections for tied ranks to analyze precision results since the
+normality and homogeneity assumptions for an ANOVA were violated.
+We report medians (M), the interquartile range (IQR),
+means (Mean), and standard deviations (s) for descriptive
+purposes.
+<P>
+<H2><A NAME=SECTION00062000000000000000> Training</A></H2>
+<P>
+Searchers trained on the baseline system on average about 26 minutes;
+the fastest subject finished the tutorial in 9.5 minutes whereas one
+subject had to be stopped after 45 minutes. There were no differences
+in training time between conditions. 
+There was no correlation between training
+times and performance on the first search topic (r=.08, p &gt;.5).
+<P>
+Note that we designed the training to ensure (for experimental purposes)
+that all subjects were comfortable with the baseline system and had
+used all its features. Thus, the training times we
+observed do not reflect the minimum time that would be required to  
+make use of the system in a walk-up situation. Indeed, a few
+subjects &quot; jumped the gun &quot; and issued quite successful queries
+prior to studying the tutorial.
+<P>
+<H2><A NAME=SECTION00063000000000000000> Baseline: Search Task 1</A></H2>
+<P>
+There were no differences in mean search-times for the first search
+by topic or experimental condition. All subjects used up (most of)
+the allotted time (17-21 minutes).
+<P>
+Three quarters of all subjects
+retrieved at least 8 relevant documents and half the subjects located
+over 12 relevant documents in the top 30 with the baseline system
+(M=.40, IQR=.27-.67, Mean=.45, s=.24). The
+lowest precision was 0, i.e. no relevant documents were ranked in
+the top 30 (but appeared in lower ranks); the best final queries
+had a precision of .87.
+Topic 162 on ``Automobile Recall''
+had 2.5 times as many relevant documents in the collection compared to
+topic 165 on ``Tobacco Advertising And the Young'' (83 versus 33). As a
+result, finding relevant documents and ranking them high was
+significantly more 
+difficult for the latter: the median precision for topic 162 was
+M=.67 (IQR=.28-.78, Mean=.56, s=.28) as compared to a
+median precision of M=.33 
+(IQR=.27-.42, Mean=.34, s=.09) for topic 165 (Kruskal-Wallis
+H'=10.17, df=1, p&lt;.01).
+The average
+and median performance on the first search did not differ for the four
+experimental groups that searched for topic 165 in their baseline
+search. Among the groups that were given topic 162 first, only the group
+that would later use the opaque relevance feedback version performed
+on a level that was borderline significantly lower than the other groups.
+<P>
+<H2><A NAME=SECTION00064000000000000000> Relevance Feedback Training</A></H2>
+<P>
+After completion of the first search subjects were trained on the
+feedback mechanism or reviewed the baseline tutorial (control).
+Subjects completed the second part of the tutorial on average within 8
+minutes. Subjects in the control group finished their review on average
+in 6.5 minutes; the opaque feedback group who had only to learn about
+the marking of documents for relevance feedback but not about
+interaction with the output of the relevance feedback mechanism
+finished equally 
+fast (Mean=6.5 minutes). Subjects in the transparent and
+penetrable condition used the allotted 10 minutes to finish the tutorial.
+<P>
+<H2><A NAME=SECTION00065000000000000000> Second Search Task - Effectiveness</A></H2>
+<P>
+<P><A NAME=fg4>&#160;</A><A  HREF="jk1_fg4.gif">[Figure 4]</A>
+<BR><STRONG>Figure 4:</STRONG> <b> Retrieval
+Precision at 30 Documents for Final Queries</b>.
+Given are median precision (Squares), mean (Diamonds), and the
+interquartile range for search task 1 (No RF, n=64) and for each of the
+four conditions used for search task 2 (n=16).<BR>
+<P>
+<P>
+At the top 30 cutoff level we found (see Figure <A HREF="#fg4">4</A>) that 
+overall retrieval performance differed significantly between conditions
+(Kruskal-Wallis test, H'=8.27, df=3, p&lt;.05). Subjects who used
+relevance feedback had 17% to 34% better
+performance than subjects who continued in the control condition.
+Subjects in the penetrable feedback condition performed as a group
+15% better than subjects in the opaque and transparent feedback
+conditions. Pairwise comparisons were, however, not significant except
+for the difference between the penetrable and baseline conditions
+(Mann-Whitney U'=72, p &lt;.05) due to large within-group
+variations and the relatively small sample size. 
+The same general pattern held when data
+were analyzed separately for both topics. 
+Again, topic 165 proved to
+be more difficult compared to topic 162, but the difference was less
+pronounced compared to the baseline  search (M_165=.50 vs. M_162=.63,
+Mann-Whitney U'=212, p&lt;.05).
+<P>
+This overall performance is quite
+impressive, considering that our 
+users had no search experience. The median performance
+exceeded the performance of INQUERY in fully automated mode
+(.23 for topic 162 and .40 for topic 165 on this collection), INQUERY
+being one of the best performing systems in the TREC context.
+<P>
+We can compare the performance on the
+two topics by considering R-precision, the proportion  of relevant
+retrieved documents at the number of relevant documents in the
+collection, i.e. precision at the point where 100% recall would be possible. 
+Topic 162 had 83 relevant documents compared to only 33
+relevant documents for topic 165. The median R-precision for all
+subjects searching on topic 162 was .39 as compared to .48 for
+all subjects working on topic 165. Thus,
+subjects who searched on topic 165 were able to retrieve a larger
+proportion of those relevant documents known to be in the collection
+<P>
+Although the task specified 30 documents as the cutoff level, it is
+instructive to note the performance at other cutoffs as well. At 100
+retrieved documents the relative performances mirror the
+results from the top 30 cutoff: the control group did worst (M=.22),
+the penetrable group did almost 50% better (M=.32), and the groups
+in the opaque and transparent condition fell in between (M=.27 and
+M=.26, respectively). If one only considers the top 5 and top 10
+ranked documents, an even more dramatic (and significant) difference
+in favor of relevance 
+feedback materializes: typically 5 out of 5 and 9 out of the top 10
+documents were relevant for subjects in the feedback conditions
+whereas subjects in the control group managed to manually design final
+queries that had 3 out of the top 5 and 7 out of the top 10 being
+relevant.
+<P>
+A potential limitation of our study is the use of relevance
+feedback as a simple query
+expansion tool without a re-weighting of user terms. 
+It remains an open issue whether or not the more massive query expansion
+through automatic, opaque relevance feedback may do better under
+particular term re-weighting schemes and how search tasks and collection
+characteristics impact performance of the various interfaces.
+<P>
+<H2><A NAME=SECTION00066000000000000000> Second Search Task -- Behavior</A></H2>
+<P>
+Search times for the second search did not differ significantly for either
+topics or conditions: 80% of the subjects used up the allotted
+time of 20 minutes, 19% searched for 16-19 min., and one
+subject stopped after 11 minutes, having found a very good query.
+<P>
+<P><A NAME=fg5>&#160;</A><A HREF="jk1_fg5.gif">[Figure 5]</A>
+<BR><STRONG>Figure 5:</STRONG> <b> Number of Iterations</b> (Number of Unique
+Queries Developed, Run, and Evaluated); both
+topics combined. Given are median number of iterations (Squares), the mean (Diamonds),
+and the interquartile range for search task 1 (No RF, n=64) and for each of the
+four search task 2 conditions (n=16).<BR>
+<P>
+<P>
+Interactive query formulation is an iterative process of query design
+and entry, query execution, and query evaluation. The number of
+iterations for each condition is depicted in figure <A HREF="#fg5">5</A>.
+There were significant differences in the number of iterations
+(Kruskal Wallis H'=8.52, p&lt;.05). The control group
+(M=7, Mean=8.2) and opaque
+feedback group (M=7, Mean=7.7) went through roughly the same number of iterations,
+whereas subjects in the transparent condition performed an extra
+iteration (M=8, Mean=8.8). The penetrable feedback group
+needed less iterations
+(M=6, Mean=5.8) to develop equally good or better queries.  
+Interaction was clearly beneficial: initial queries had
+much lower precision (Topic 162: M_1=.06 vs. M=.63, Topic
+165: M_1=.33 vs. M=.50) and on average precision increased with the
+first few iterations.
+<P>
+The four different interfaces shaped how subjects
+constructed their final queries over the course of the interaction. 
+<P><A NAME=tb1>&#160;</A><A HREF="jk1_tb1.gif">[Table 1]</A>
+<BR><STRONG>Table 1:</STRONG> Number and Sources of Query Terms in
+Final Queries for Second Search, Both Topics. Given are the mean
+number of query terms for each of three possible sources: user entry,
+copied by user from relevance feedback output, and automatic query
+expansion through relevance feedback.<BR>
+<P>
+Table <A HREF="#tb1">1</A> provides a summary of the analysis of final
+queries and their constituent terms. The rightmost column lists the
+total number of query terms for each of the four conditions and for
+the two search topics separately and combined. Users in the baseline
+condition without relevance feedback entered on average 6.4 terms
+(s=4.2), 1.8 of which were compound terms of 2 or 3 words each.
+The use of relevance feedback led to a dramatic increase in query
+length. In the opaque condition, the final query comprised 
+ on average 35.5 terms (s=17.92). This was not a result of
+users entering more terms (Mean=7.3,s=9.36), but a result
+of the automatic query expansion through relevance feedback which
+added on average 28.2 terms (s=15.38). This expansion was caused by
+searchers having marked on average 12.6 documents as being
+relevant when running the final query. The average query length for
+queries  by subjects in the transparent condition is even larger:
+final queries had on average 41.2 terms, 30.3 of which were
+automatically added by the feedback component based on an average of
+13.6 documents being marked as relevant. User queries had on
+average about 11 terms; only 3.8 of these terms were
+entered by the user, almost twice that many (Mean=7.2) were
+terms the user had copied from the display of automatically added
+terms or through relevance feedback expansion during prior iterations.
+<P>
+Finally, the average length of final queries by subjects in the
+penetrable feedback condition was 21.7 (s=29.4). This number is
+lower compared to the other feedback conditions because on average
+final queries contained only 16.9 terms (s=27.3) 
+suggested by the feedback component. Subjects in the penetrable
+condition marked a comparable number of documents as being relevant
+but were quite selective in using suggested feedback terms: throughout
+the search they used
+only 349 of a total of 1259 suggested terms. Furthermore, five (5)
+instances in which users copied all suggested terms in one step
+accounted for 233 of 
+these terms. An initial content analysis of copied terms suggests that users primarily
+copied those terms which had a clear and central semantic relation to
+the search topic. At the same time, subjects entered fewer terms
+(Mean=4.8,s=3.94) manually. Indeed, subjects commented
+that they preferred the ``lazy'' approach of term selection over term
+generation.
+<P>
+Given that relevance feedback depends on the
+marking of relevant documents and that topic 165 was much harder than
+topic 162, it is not surprising that there were significant differences
+in query length between the two topics (F(1,56)=16.3,p&lt;.001).
+However, table <A HREF="#tb1">1</A> shows that the pattern described above
+also holds for each topic in isolation.
+<P>
+<H2><A NAME=SECTION00070000000000000000> CONCLUSIONS</A></H2>
+<P>
+Subjects used our system and interface quite effectively and very few
+usability problems surfaced. Users had little problem formulating
+their queries and the observed retrieval effectiveness of final
+queries supports the view that interactive best-match, ranked-output,
+unstructured input,
+full-text retrieval systems are suitable tools for end users with
+limited search experience. Users clearly benefited from the
+opportunity to revise queries in an iterative process.
+<P>
+Overall, relevance feedback appears to be a beneficial mechanism.
+All users declared their preference for the relevance
+feedback mechanism over the baseline system in a post-search
+interview. Relevance Feedback did improve median performance by  10%
+(or more) at 30 retrieved documents. Even larger 
+gains were observed if one only considers the top 10 or top 20
+documents retrieved, a situation quite common in many application
+domains. However, substantial subject and topic variation precluded 
+statistical significant findings at the chosen level of p&lt;.05.
+<P>
+Subjects that interacted with the penetrable version of relevance
+feedback did best in our study overall and significantly better than 
+users of the baseline system without relevance feedback.
+<P>
+Perceived performance, trust in the
+system, and subjective usability are important issues, in particular for
+such sensitive domains as the filtering of one's personal email or
+news. Subjects really ``liked'' the penetrable version that allowed them to
+manipulate the list of suggested terms. Indeed, subjects in the opaque
+condition and in another study currently in progress routinely
+expressed their desire to ``see and control'' what the feedback 
+component did to
+their queries. People commented that using the feedback component as a
+suggestion device made them ``lazy'': the task of generating terms was
+replaced by the easier task of term selection.
+Furthermore, users in the penetrable condition needed fewer iterations
+to achieve results comparable to, or better than the  
+other, less interactive, feedback conditions.
+<P>
+Although a number of issues need to be further addressed, these 
+results suggest that interfaces for IR systems for
+end users should be designed to support interactive collaboration
+in query formulation and reformulation between the users and the
+``intelligent'' programs which support them.
+<P>
+<H2><A NAME=SECTION00080000000000000000> ACKNOWLEDGMENTS</A></H2>
+<P>
+This work is supported  by NIST Cooperative Agreement 70NANB5H0050. 
+Thanks to the Rutgers University Center for
+Cognitive Science (RuCCS) for providing equipment loans and infrastructure
+support and to Jamie Callan, Bruce Croft, and Steve Harding of the
+Center for Intelligent Information Retrieval at the University of
+Massachusetts at Amherst for their unstinting support of our use of
+INQUERY. 
+<P><A NAME=SECTIONREF><H2>REFERENCES</H2></A><P>
+<DL COMPACT>
+<DT><A NAME=AhlbergShneiderman94><STRONG>1</STRONG></A><DD>
+AHLBERG, C., AND SHNEIDERMAN, B.
+ Visual information seeking: Tight coupling of dynamic query filters
+  with starfield displays.
+ In <em> Proceedings of the Human Factors in Computing Systems
+  Conference (CHI'94)</em>. ACM Press, New York, (Boston, MA (April 24-28) 1994,
+  pp. 313--317.
+<A HREF="#AhlbergShneiderman94back">[back]</a>
+<P>
+<DT><A NAME=BelkinCroft87><STRONG>2</STRONG></A><DD>
+BELKIN, N. J., AND CROFT, W. B.
+ Retrieval techniques.
+ In <em> ARIST</em>, M. E. Williams, Ed. Elsevier, 1987, ch. 4,
+  pp. 109--145.
+<A HREF="#BelkinCroft87back">[back]</a>
+<P>
+<DT><A NAME=CallanEtAl92><STRONG>3</STRONG></A><DD>
+CALLAN, J. P., CROFT, W. B., AND HARDING, S. M.
+ The inquery retrieval system.
+ In <em> DEXA 3: Proceedings of the Third International Conference on
+  Database and Expert Systems Applications</em> (Berlin, 1992), Springer Verlag,
+  pp. 83--87.
+<A HREF="#CallanEtAl92back">[back]</a>
+<P>
+<DT><A NAME=Efthimiadis92><STRONG>4</STRONG></A><DD>
+EFTHIMIADIS, E.
+ <em> Interactive Query expansion and Relevance Feedback for document
+  Retrieval Systems</em>.
+ PhD thesis, City University, London, UK, 1992.
+<A HREF="#Efthimiadis92back">[back]</a>
+<P>
+<DT><A NAME=FreiQiu93><STRONG>5</STRONG></A><DD>
+FREI, H., AND QIU, Y.
+ Effectiveness of weighted searching in an operational ir environment.
+ In <em> Information Retrieval 93: von der Modellierung zur Anwendung;
+  Proceedings der 1. Tagung Information Retrieval '93</em> (Konstanz, 1993),
+  Universit&#228;tsverlag Konstanz, pp. 41--54.
+<A HREF="#FreiQiu93back">[back]</a>
+<P>
+<DT><A NAME=HancockWalker92><STRONG>6</STRONG></A><DD>
+HANCOCK-BEAULIEU, M., AND WALKER, S.
+ An evaluation of automatic query expansion in an online library
+  catalogue.
+ <em> Journal of Documentation 48</em>, 4 (1992), 406--421.
+<A HREF="#HancockWalker92back">[back]</a>
+<P>
+<DT><A NAME=HARMAN95a><STRONG>7</STRONG></A><DD>
+HARMAN, D.
+ Overview of the second text retrieval conference.
+ <em> IPM 31</em>, 3 (1995), 271--289.
+<A HREF="#Harman95aback">[back]</a>
+<P>
+<DT><A NAME=HewettScott87><STRONG>8</STRONG></A><DD>
+HEWETT, T., AND SCOTT, S.
+ The use of thinking-out-loud and protocol analysis in development of
+  a process model of interactive database searching.
+ In <em> Proceedings of INTERACT'87</em> (Amsterdam, 1987), Elsevier,
+  pp. 51--56.
+<A HREF="#HewettScott87back">[back]</a>
+<P>
+<DT><A NAME=KoenemannEtAl95><STRONG>9</STRONG></A><DD>
+KOENEMANN, J., QUATRAIN, R., COOL, C., AND BELKIN, N. J.
+ New tools and old habits: The interactive searching behavior of
+  expert online searchers using inquery.
+ In <em> TREC-3. Proceedings of the Third Text REtrieval Conference</em>
+  (Washington, D.C., 1995), D. Harman, Ed., GPO, pp. 144--177.
+<A HREF="#KoenemannEtAl95back1">[back Supporting End Users]</a>
+<A HREF="#KoenemannEtAl95back2">[back Materials]</a>
+<P>
+<DT><A NAME=LandauerEtAl93><STRONG>10</STRONG></A><DD>
+LANDAUER, T., EGAN, D., REMDE, J., LESK, M., LOCHBAUM, C., AND KETCHUM, D.
+ Enhancing the usability of text through computer delivery.
+ In <em> Hypertext: A psychological perspective</em>, C. McKnight,
+  A. Dillon, and J. Richardson, Eds. Ellis Horwood, New York:, 1993,
+  pp. 72--136.
+<A HREF="#LandauerEtAl93back">[back]</a>
+<P>
+<DT><A NAME=SaltonBuckley90><STRONG>11</STRONG></A><DD>
+SALTON, G., AND BUCKLEY, C.
+ Improving retrieval performance by relevance feedback.
+ <em> JASIS 41</em>, 4 (1990), 288--297.
+<A HREF="#SaltonBuckley90back">[back]</a>
+<P>
+<DT><A NAME=SPARCKJONES81><STRONG>12</STRONG></A><DD>
+SPARCK JONES, K.
+ <em> Information Retrieval Experiment</em>.
+ Butterworths, London, 1981.
+<A HREF="#SparckJones81back">[back]</a>
+<P>
+<DT><A NAME=Turtle94><STRONG>13</STRONG></A><DD>
+TURTLE, H.
+ Natural language vs. boolean query evaluation: A comparison of
+  retrieval performance.
+ In <em> SIGIR'94. Proc. of the Seventeenth Annual ACM SIGIR
+  Conference on Research and Development in Information Retrieval</em> (London,
+  1994), Springer Verlag, pp. 212--220.
+<A HREF="#Turtle94back">[back]</a>
+</DL>
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>A Case for Interaction: A Study of Interactive Information Retrieval Behavior and Effectiveness<BR>
+J&#252;rgen Koenemann, <A HREF="mailto:koeneman@ruccs.rutgers.edu">koeneman@ruccs.rutgers.edu</A>, January 9, 1996</I>
+</ADDRESS>
+</BODY>
+

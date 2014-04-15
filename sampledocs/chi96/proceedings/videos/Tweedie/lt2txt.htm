@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>
+The Influence Explorer (video) - a tool for design</center></title>
+</head>
+<body>
+<TABLE WIDTH="100%" >
+<TR>
+<TD valign="top"><IMG SRC="./../../graphics/logo_a.JPG" ALT="Logo A" HEIGHT=25 WIDTH=256><A HREF="../../index.htm"><IMG SRC="./../../graphics/home.JPG" ALT="Home" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_b.JPG" ALT="Logo B" HEIGHT=25 WIDTH=256><A HREF="../../indexes.htm"><IMG SRC="./../../graphics/index.JPG" ALT="Index" BORDER=0 HEIGHT=25 WIDTH=98></A><BR><IMG SRC="./../../graphics/logo_c.JPG" ALT="Logo C" HEIGHT=24 WIDTH=256><A HREF="../../acmcopy.htm"><IMG SRC="./../../graphics/acmcopy.JPG" ALT="ACM Copy" BORDER=0 HEIGHT=24 WIDTH=98></A>
+<p><IMG SRC="./../../graphics/videos.JPG" ALT="videos" HEIGHT=35 WIDTH=249><A HREF="../../videos.htm"><IMG SRC="./../../graphics/toc.JPG" ALT="Table of Contents" BORDER=0 HEIGHT=35 WIDTH=105></A>
+</TD>
+</TR>
+</TABLE>
+<HR width="100%">
+
+<center><H1>The Influence Explorer (video) <br>
+- a tool for design</H1><P></center>
+<center><H3><I>Lisa Tweedie,  Bob Spence, Huw Dawkes and Hua Su</I></H3></center>
+
+<P>
+
+<center><H3>Department of Electrical and Electronic Engineering,<BR>
+Imperial College of Science, Technology and Medicine<BR>
+South Kensington ,  London,  SW7 2BT<BR>
+Tel: +44 171 594 6261 <BR>
+l.tweedie@ic.ac.uk<P></H3></center>
+
+<H2>Abstract</H2>
+
+
+ <BR>
+This video demonstrates the Influence Explorer, an interactive visualisation tool to support engineering design.  The video uses a simplified example related to light bulb design to demonstrate the complex multivariate nature of such problems. We then try to show how interactive visualisation allows fluent exploration of this problem and subsequent acquisition of insight. <BR>
+
+<H2>Introduction</H2>
+<P>
+
+This video introduces the Influence Explorer an interactive visualisation tool  for engineering design, in this paper we provide a summary of the video.<P>
+
+<H2>Video Summary</H2><P>
+
+
+Engineering design is difficult,  in fact extremely difficult. For any product a customer requires a certain level of performance, so the designer needs to explore many options and complex trade offs before finding a good solution. Take the design of a light bulb. This is described by a number of parameters, for example its filament diameter, its filament length, the material used and the number of coils in the filament. Each of these can influence a performance, for example the working life of the bulb. If we know the parameter values for a bulb we can easily compute its working life. What we really want of course is the reverse of this process&#59; in other words, given a performance specification by the customer we want to know what set of parameter values is needed. That's design .<P>
+
+Now unfortunately - and here is the reason why engineering design is so difficult - there is no direct way of computing the parameter values needed to achieve a desired performance. Nevertheless, this reverse relationship can be explored by computing the performance values for a number of bulbs. <P>
+
+At Imperial College a multi-disciplinary team has been doing research into interactive visualisation [1],[2]. Recently we've designed the Influence Explorer to help engineering design. This uses a mathematical model, in this case for a light bulb, to compute the performances for a range of different parameter values. This data is displayed in the form of histograms with which the designer can interact to explore its internal relationships. <P>
+
+As we can see in Figure 1, the histograms display the distribution of two performances and four parameters. Each rectangle within a histogram corresponds to a single bulb. Selecting a bulb on one scale shows its corresponding values on the others. The use of lines joining a bulb on each scale allows comparisons to be made [3]. In the early stages <P>
+
+<center><IMG SRC="lt2fg1.gif" alt="selecting a range on the Influence Explorer (greyscale)" ><P></center>
+
+of design it is useful to gain insight into the general trends within the data. By selecting a window, or range on one scale, bulbs within that range are highlighted on all the other scales. By moving this range we may discover a trade off between two performances, here for example between brightness and working life. Sometimes to see general trends it is useful to show the mean of the selected bulbs, as shown  here by the circles (see figure 1).<P>
+
+As well as helping to explore general trends within the data the Influence Explorer can be used to design a bulb to meet the customers requirements. Upper and lower limits can be set on all the performance scales (see figure 2). Whereupon colour coding indicates how the bulb satisfies those requirements. White bulbs satisfy all the specifications, black bulbs fail one and dark grey fail two requirements. In this example we've simulated 800 bulbs and we can see that there are some white bulbs, but there are several black bulbs lying just outside the selected range. So by moving the limits to accommodate these, more white points would instantly appear. When the designer is satisfied with the performance requirements a set of suitable parameter values is instantly available. <P>
+
+<center><IMG SRC="lt2fg2.gif" alt="setting a specification (greyscale)"><P></center>
+
+
+
+But that is not the end of the design process, because in practice things cannot be made with precision. In other words if we are mass producing bulbs we cannot guarantee they will all have the same parameter values. To overcome this problem the designer has to work with a range of parameter values rather than a single value. We can set up these ranges just as we did for the performances. So for example we can set up a tolerance range (see figure 3). The white bulbs are still the useful bulbs: they fall within both sets of performance limits. The new cross coding indicates bulbs that fall within the parameter limits but fail the performance requirements. These are the bulbs that will fail during the manufacturing process. A simple aim for the designer at this stage might be to maximise the percentage of bulbs  found to be satisfactory when manufacturing - in other words the white bulbs. This percentage is called the manufacturing yield. In visual terms this means we would like to increase the ratio of white to crossed bulbs. Thus by narrowing the parameter ranges we will see the yield increasing from 6% to 20 % (see video).
+
+<center><P><IMG SRC="lt2fg3.gif" alt = "setting up tolerances (greyscale) "><P></center>
+
+
+
+
+These few examples have shown how the Influence Explorer allows the human designer to explore and thereby gain insight conducive to the design process, but that doesn't exclude the possibility of it allowing human expertise to be complemented by algorithmic procedures. In the video we see the result of the computer rather than the designer adjusting parameter values in order to increase the manufacturing yield. The most effective way of marrying human algorithmic procedures in this manner remains to be explored and exploited.<P>
+
+Overall the Influence Explorer is a tool appropriate for any design problem in which performances can be computed from a knowledge of parameter values. We hope that the ideas it embodies will influence the development of computer aided design tools. <P><H2>References</H2>
+
+<P>
+[1] Tweedie L.A. , Spence R., Williams D., and Bhogal R. (1994)&quot;The Attribute Explorer&quot; Video Proceedings CHI'94 Boston, April 24th - 28th , ACM Press <P>
+[2] Tweedie L.A, Spence R., Dawkes H. and Su. H.  (1996) &quot;Externalising  Abstract Mathematical models&quot;  Proceedings of CHI'96, Vancouver, ACM Press<P>
+[3] Inselberg A. (1985) &quot;The plane with parallel co-ordinates&quot; The Visual Computer 1, pp 69-91 <P>
+
+<Address> The Influence Explorer (video) - a tool for design       l.tweedie@ic.ac.uk
