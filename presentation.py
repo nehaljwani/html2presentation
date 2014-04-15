@@ -1,3 +1,7 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import json
 import latexslides
 import os
 import sys
@@ -5,20 +9,22 @@ sys.path.append('summarizer')
 import summarize
 
 def sanitize(text):
-    """Strips newlines '\n' and '\r'"""
+    """Strips newlines '\n', '\t' and '\r'."""
     text.replace('\n','')
     text.replace('\r','')
+    text.replace('\t','')
     return text
 
-def getSections():
-    arr = [
-            {"title": "Titl1", "text": "text", "section": "1"},
-            {"title": "Titl1", "text": "text", "section": "1"},
-            {"title": "Titl1", "text": "text", "section": "2"},
-            {"title": "Titl1", "text": "text", "section": "2"},
-            {"title": "Titl1", "text": "text", "section": "3"},
-            ]
-    return arr
+def runParser(pathToPaper):
+    """Executes the HTML parser."""
+    cmd = "parser/parser " + pathToPaper + " > sections2.json"
+    os.system(cmd)
+
+def getSections(filename, pathToPaper):
+    runParser(pathToPaper)
+    lines = open(filename).read()
+    sections = json.loads(lines,  "ISO-8859-1")
+    return sections
 
 def joinSections(raw_sections):
     """Joins sections with same Section IDs"""
@@ -30,8 +36,11 @@ def joinSections(raw_sections):
     tmpSec = {}
     for section in raw_sections:
         ID = section['section']
-        text = sanitize(section['text'])
         title = sanitize(section['title'])
+        if 'text' in section:
+            text = sanitize(section['text'])
+        else:
+            text = ""
 
         if ID != prevID:
             # Dump previous section if not null
@@ -64,7 +73,7 @@ def joinSections(raw_sections):
 
 def genTextSlide(ID, title, text):
     """Generates individual text slide."""
-    secID = "Section " + ID
+    secID = ID
     bullets = summarize.summarize_page(text)
     slide = latexslides.BulletSlide(secID, bullets, block_heading = title)
     return slide
@@ -84,15 +93,23 @@ def genLatex(collection, filename):
 
 def genPDF(filename):
     """Generates PDF of the TeX file whose name is supplied as argument."""
-    cmd = "pdflatex " + filename + " --shell-escape"
+    newlines = 'echo -e "' + '\\n' * 100 + '"' # Hack to continue when pdflatex halts.
+    cmd = newlines + " | pdflatex " + filename + " --shell-escape 2>/dev/null >/dev/null"
     os.system(cmd)
 
 def getPresentation():
     """Main function to get presentations. Wrapper for all other functions."""
-    raw_sections = getSections()
+    if len(sys.argv) != 2:
+        return "Proper arguments not provided. Aborting!!"
+
+    pathToPaper = sys.argv[1]
+
+    if os.path.isfile(pathToPaper) is False:
+        return "Specified file does not exists. Aborting!!"
+
+    raw_sections = getSections("sections.json", pathToPaper)
     sections = joinSections(raw_sections)
 
-    
     collection = []
     for section in sections:
         ID = section['section']
@@ -105,5 +122,7 @@ def getPresentation():
     filename = "presentation.tex"
     genLatex(collection, filename)
     genPDF(filename)
+    
+    return "PDF successfully printed to `presentation.pdf`."
 
-getPresentation()
+print getPresentation()
