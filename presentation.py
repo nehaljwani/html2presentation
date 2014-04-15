@@ -40,7 +40,7 @@ def joinSections(raw_sections):
     for section in raw_sections:
         # Check for tables
         if 'table' in section:
-            tables.append(section['table'])
+            tables.append(section)
             continue
 
         ID = section['section']
@@ -113,6 +113,13 @@ def genImgSlide(image):
             left_column_width=0.8)
     return slide
 
+def genTableSlide(table):
+    slide = latexslides.TableSlide(
+            table = [["1","2"],["3","4"]],
+            block_heading = "Testing",
+            )
+    return slide
+
 def genLatex(collection, filename):
     """Generates laTeX file from given collection of slides."""
     author_and_inst = [("HTML2Presentation", "IIIT Hyderabad")]
@@ -159,6 +166,13 @@ def getPresentation():
             if image['section'] == ID:
                 #image belongs to this section. Add its slide
                 slide = genImgSlide(image)
+                collection.append(slide)
+        
+        # Check if any tables exist for this section.
+        for table in tables:
+            if table['section'] == ID:
+                #table belongs to this section. Add its slide
+                slide = genTableSlide(table)
                 collection.append(slide)
         
 

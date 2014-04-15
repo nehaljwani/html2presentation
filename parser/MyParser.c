@@ -261,6 +261,8 @@ printHeaders(ptrStore *myPtrStore, section *mySection)
                 if (jarray_rows) {
                     json_object *jobj = json_object_new_object();
                     json_object_object_add(jobj, "table", jarray_rows);
+                    json_object *jsection = json_object_new_string(secBuf);
+                    json_object_object_add(jobj, "section", jsection);
                     json_object_array_add(jarray, jobj);
                 }
                 mySection = tmpSection;
