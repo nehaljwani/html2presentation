@@ -3,7 +3,6 @@
 import nltk
 from nltk.corpus import stopwords
 import string
-import bs4
 import re
 
 stop_words = stopwords.words('english')
@@ -85,34 +84,8 @@ class Summary(object):
             return u"{0} - {1}\n\n{2}".format(self.title, self.url, '\n'.join(self.summaries))
 
 
-def summarize_page():
-
-    text = '''
-    The International Institute of Information Technology, Hyderabad (IIIT Hyderabad) is an autonomous university in Hyderabad, Andhra Pradesh, India. 
-    It was established in 1998, and is one of the most prestigious institutes of the country. 
-    It emphasizes research from the undergraduate level, which makes it different from the other leading engineering institutes in India. 
-    It has been a consistent performer from India in ACM International Collegiate Programming Contest (ICPC) and finished at #18 last year.[1] Raj Reddy, 
-    \the only Indian to win the Turing Award, is chairman of the board of governors.
-
-The institute runs CS courses and research projects and is focused on research. 
-It gives the students interaction with industry, preparation in entrepreneurship and personality development courses. 
-IIIT Hyderabad the mentor institute to Indian Institute of Information Technology, Sri City[2]
-IIIT Hyderabad was set up in 1998. 
-It was envisioned by Nara Chandrababu Naidu, Chief Minister of the Andhra Pradesh from 1995 to 2004. 
-The government of Andhra Pradesh lent support to the institute by grant of land and buildings.
- A Governing Council consisting of people from academia, industry and government presides over the governance of the institution.
-  Rajeev Sangal, former Head of Department of Computer Science, IIT Kanpur, designed the syllabus. He was the director of the institute 
-  till April 10 2013. P. J. Narayanan, the former Dean R&D and current President of Association for Computing Machinery (ACM India) is the current Director.
-Admissions for undergraduate and dual degrees were taken through AIEEE i.e. CCB (Central Counseling board) counseling until the year 2009.
-
-From the academic batch 2010, the institute revised the admission procedure and decided on independent selection students though still 
-considering the merit achievements of AIEEE. The institute also selects students based on interviews and Kishore Vaigyanik Protsahan www.iiit.ac.in Yojana (KVPY).
-
-Admissions for postgraduate studies are on the basis of the Postgraduate Entrance Exam (PGEE) conducted by IIIT Hyderabad.
-Admissions to the MSIT programme run at this institute are based on a test conducted every year from April to May.
-
-'''
-
+def summarize_page(text):
+    """Summarize the given block and return a max of 4 sentences."""
     sentences = []
     d = summarize_block(text)
     keys = d.keys()
@@ -126,7 +99,5 @@ Admissions to the MSIT programme run at this institute are based on a test condu
     else:
         lenght = 4
     for i in range(lenght):	
-        s=s+sentences[i]	
-    print s
-
-summarize_page()
+        s = s + " " + sentences[i]	
+    return s
