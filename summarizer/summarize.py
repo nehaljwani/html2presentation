@@ -94,10 +94,10 @@ def summarize_page(text):
     for key in keys:
         sentences.append(d[key])
     s = []
-    if len(sentences) < 4:
+    if len(sentences) < 5:
         length = len(sentences)
     else:
-        length = 4
+        length = 5
     for i in range(length):
         s.append(sentences[i])
     return s
