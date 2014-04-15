@@ -128,6 +128,7 @@ void printHeaders(ptrStore *myPtrStore) {
             if (!strcmp(mySection->tag, "img")) {
                 fflush(stdout);
                 char srcBuf[255];
+                char realPath[1000];
                 char *src_begin = strchr(mySection->content, '"');
                 char *src_end = strchr(src_begin + 1, '"');
                 char *alt_begin = mySection->content;
@@ -149,12 +150,13 @@ void printHeaders(ptrStore *myPtrStore) {
                 snprintf(pathBuf, path_end - path_begin + 2, "%s", path_begin);
                 snprintf(srcBuf, src_end - src_begin, "%s", src_begin + 1);
                 strcat(pathBuf, srcBuf);
+                realpath(pathBuf, realPath);
                 json_object *jobj = json_object_new_object();
                 json_object *jstring1 = json_object_new_string(titleBuf);
                 json_object *jstring2 = json_object_new_string(alt ? textBuf: "none");
                 json_object *jstring3 = json_object_new_string(secBuf);
                 json_object *jstring4 = json_object_new_string("img");
-                json_object *jstring5 = json_object_new_string(pathBuf);
+                json_object *jstring5 = json_object_new_string(realPath);
                 json_object_object_add(jobj,"title", jstring1);
                 json_object_object_add(jobj,"text", jstring2);
                 json_object_object_add(jobj,"section", jstring3);
