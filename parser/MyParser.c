@@ -181,7 +181,6 @@ char *createDaddy(char *str, long *osize, char *files, char *basedir) {
                     sprintf(newPath, "%s/%s", basedir, path);
                     *tmp = '/';
                     realpath(newPath, realPath);
-                    printf("%s\n", realPath);
                     FILE *fp = fopen(realPath, "r");
                     if (!fp)
                         continue;
