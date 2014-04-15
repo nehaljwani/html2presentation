@@ -4,7 +4,6 @@
 
 #include<json/json.h>
 
-
 #define MAX_TAGS 250
 #define MAX_TAG_OCCURENCE 50
 #define MAX_H_TAG 5
@@ -37,7 +36,8 @@ unsigned int m_size = MAX_TAGS;
  *
  * Returns the hash of the key using djb2 algorithm
  */
-unsigned int djb2(const char* key) {
+unsigned int djb2(const char* key)
+{
     unsigned int i, hash = 5381;
 
     for (i = 0; i < strlen(key); i++)
@@ -54,19 +54,36 @@ unsigned int djb2(const char* key) {
  * Returns pointer to the in memory buffer
  * which holds the entire file contents
  */
-char *readFile(FILE *fp, long size) {
+char *
+readFile(FILE *fp,
+         long size)
+{
     int c;
     size_t n = 0;
     if (fp == NULL)
         return NULL;
     char *code = (char *)malloc(size * sizeof(char));
-    while ((c = fgetc(fp)) != EOF)
-        code[n++] = (char) c;
+    while ((c = fgetc(fp)) != EOF) {
+        if ((char)c != '\r' && (char)c != '\n')
+            code[n++] = (char) c;
+    }
     code[n] = '\0';
     return code;
 }
 
-json_object *text2json(section *mySection, char *secBuf, section *currTitle) {
+/*
+ * text2json:
+ * @mySection: pointer to file sections
+ * @secBuf: string holdingc current section number
+ * @curTitle: pointer to the current section title
+ *
+ * Returns a json formatted object of the content
+ */
+json_object *
+text2json(section *mySection,
+          char *secBuf,
+          section *currTitle)
+{
     bool isImg = false;
     bool isTable = false;
     char titleBuf[200];
@@ -152,9 +169,11 @@ json_object *text2json(section *mySection, char *secBuf, section *currTitle) {
  * Section 1.2 <Blah>
  * Section 1.2.1 <Blah>
  * Section 1.2.2 <Blah>
- * Section 1.3 <Blah>
+ * Section 1.3 <Blah> .... json format :)
  */
-void printHeaders(ptrStore *myPtrStore) {
+void
+printHeaders(ptrStore *myPtrStore)
+{
     int headers[MAX_H_TAG + 1];
     ptrStore *tmpStore = &myPtrStore[djb2("title")];
     int currTag = 1;
@@ -175,7 +194,10 @@ void printHeaders(ptrStore *myPtrStore) {
                 && (mySection->tag[0] == 'H'
                     || mySection->tag[0] == 'h')) {
                 int tmpTag = atoi(&mySection->tag[1]);
-                currTitle = mySection->next;
+                section *tmpSection = mySection;
+                while(tmpSection->isTag)
+                    tmpSection = tmpSection->next;
+                currTitle = tmpSection;
                 if (tmpTag) {
                     if (tmpTag < currTag) {
                         for (i = tmpTag + 1; i <= currTag; i++)
@@ -198,9 +220,12 @@ void printHeaders(ptrStore *myPtrStore) {
                             while (1) {
                                 if (tmpSection->isTag) {
                                     json_object *jarray_cell = json_object_new_array();
-                                    if (!strcmp(tmpSection->tag, "td") || !strcmp(tmpSection->tag, "th")) {
+                                    if (!strcmp(tmpSection->tag, "td")
+                                        || !strcmp(tmpSection->tag, "th")) {
                                         while(1) {
-                                            if (tmpSection->isTag && (!strcmp(tmpSection->tag, "/td") || !strcmp(tmpSection->tag, "/th"))) {
+                                            if (tmpSection->isTag
+                                                && (!strcmp(tmpSection->tag, "/td")
+                                                    || !strcmp(tmpSection->tag, "/th"))) {
                                                 json_object_array_add(jarray_cols, jarray_cell);
                                                 break;
                                             }
@@ -239,7 +264,8 @@ void printHeaders(ptrStore *myPtrStore) {
     printf ("%s\n", json_object_to_json_string_ext(jarray, JSON_C_TO_STRING_PRETTY));
 }
 
-int main(int argc, char **argv) {
+int main(int argc, char **argv)
+{
 
     if (argc != 2) {
         printf("Usage %s <html_file>\n", argv[0]);
@@ -309,18 +335,18 @@ int main(int argc, char **argv) {
         curr = curr->next;
     }
 
-    /* Just to make sure we got the contents right *//*
-                                                        section *print = mySections->next;
-                                                        while (print->next != NULL) {
-                                                        printf("\nTag: %s\n", print->isTag ? "Yes" : "No");
-                                                        fflush(stdout);
-                                                        write(fileno(stdout), print->content, print->length);
-                                                        print = print->next;
-                                                        }*/
+    /* Just to make sure we got the contents right
+       section *print = mySections->next;
+       while (print->next != NULL) {
+       printf("\nTag: %s\n", print->isTag ? "Yes" : "No");
+       fflush(stdout);
+       write(fileno(stdout), print->content, print->length);
+       print = print->next;
+       }*/
 
-    /* Just to make sure hashed values point to right things correct *//*
-                                                                          ptrStore *tmp = &myPtrStore[djb2("HTML")];
-                                                                          printf("%d\n", tmp->count);*/
+    /* Just to make sure hashed values point to right things correct
+       ptrStore *tmp = &myPtrStore[djb2("HTML")];
+       printf("%d\n", tmp->count);*/
 
     printHeaders(myPtrStore);
 
