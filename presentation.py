@@ -12,9 +12,9 @@ images = []
 
 def sanitize(text):
     """Strips newlines '\n', '\t' and '\r'."""
-    text.replace('\n','')
+    text.replace('\n',' ')
     text.replace('\r','')
-    text.replace('\t','')
+    text.replace('\t',' ')
     return text
 
 def runParser(pathToPaper):
@@ -73,7 +73,7 @@ def joinSections(raw_sections):
         else:
             # Just append text to previous section
             if text:
-                secText += text
+                secText += " " + text
         
         prevID = ID
 
