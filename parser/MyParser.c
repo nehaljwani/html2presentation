@@ -1,10 +1,12 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+#include<ctype.h>
+#include<ctype.h>
 
 #include<json/json.h>
 
-#define MAX_TAGS 1100
+#define MAX_TAGS 11000
 #define MAX_TAG_OCCURENCE 1000
 #define MAX_H_TAG 1000
 
@@ -64,7 +66,7 @@ readFile(FILE *fp,
         return NULL;
     char *code = (char *)malloc(size * sizeof(char));
     while ((c = fgetc(fp)) != EOF) {
-        if ((char)c != '\r' && (char)c != '\n')
+        if ((char)c != '\r' && (char)c != '\n' && c < 128)
             code[n++] = (char) c;
     }
     code[n] = '\0';
@@ -85,10 +87,9 @@ text2json(section *mySection,
           section *currTitle)
 {
     bool isImg = false;
-    bool isTable = false;
     char titleBuf[1000];
     char textBuf[20000];
-    char attrBuf[250];
+    char attrBuf[2500];
     char pathBuf[2000];
     char srcBuf[1000];
     char realPath[2000];
@@ -135,7 +136,7 @@ text2json(section *mySection,
     json_object *jobj = json_object_new_object();
     json_object *jstring1 = json_object_new_string(titleBuf);
     json_object_object_add(jobj,"title", jstring1);
-    if (mySection->isTag && alt || !mySection->tag) {
+    if ((mySection->isTag && alt) || !mySection->tag) {
         json_object *jstring2 = json_object_new_string(textBuf);
         json_object_object_add(jobj,"text", jstring2);
     }
@@ -195,11 +196,12 @@ printHeaders(ptrStore *myPtrStore, section *mySection)
                 && (mySection->tag[0] == 'H'
                     || mySection->tag[0] == 'h')) {
                 int tmpTag = atoi(&mySection->tag[1]);
-                section *tmpSection = mySection;
-                while(tmpSection->isTag)
-                    tmpSection = tmpSection->next;
-                currTitle = tmpSection;
                 if (tmpTag) {
+                    section *tmpSection = mySection;
+                    while(tmpSection->isTag)
+                        tmpSection = tmpSection->next;
+                    currTitle = tmpSection;
+
                     if (tmpTag < currTag) {
                         for (i = tmpTag + 1; i <= currTag; i++)
                             headers[i] = 0;
@@ -307,7 +309,7 @@ int main(int argc, char **argv)
         myPtrStore[i].count = 0;
 
     /* Parse the whole file */
-    while (traversal <= size) {
+    while (traversal <= size && *parser) {
         curr->next = (section *)malloc(sizeof(section));
         curr->next->content = parser;
         curr->next->length = 0;
@@ -350,13 +352,13 @@ int main(int argc, char **argv)
     }
 
     /* Just to make sure we got the contents right
-       section *print = mySections->next;
-       while (print->next != NULL) {
-       printf("\nTag: %s\n", print->isTag ? "Yes" : "No");
-       fflush(stdout);
-       write(fileno(stdout), print->content, print->length);
-       print = print->next;
-       }*/
+    section *print = mySections->next;
+    while (print->next != NULL) {
+        printf("\nTag: %s\n", print->isTag ? "Yes" : "No");
+        fflush(stdout);
+        write(fileno(stdout), print->content, print->length);
+        print = print->next;
+    }*/
 
     /* Just to make sure hashed values point to right things correct
        ptrStore *tmp = &myPtrStore[djb2("HTML")];
