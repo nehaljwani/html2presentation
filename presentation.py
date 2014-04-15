@@ -8,6 +8,9 @@ import sys
 sys.path.append('summarizer')
 import summarize
 
+tables = []
+images = []
+
 def sanitize(text):
     """Strips newlines '\n', '\t' and '\r'."""
     text.replace('\n','')
@@ -37,6 +40,7 @@ def joinSections(raw_sections):
     for section in raw_sections:
         # Check for tables
         if 'table' in section:
+            tables.append(section['table'])
             continue
 
         ID = section['section']
@@ -45,6 +49,7 @@ def joinSections(raw_sections):
         # Check for images
         if 'attr' in section:
             if section['attr'] == 'img':
+                images.append(section)
                 continue
 
         if 'text' in section:
@@ -90,6 +95,24 @@ def genTextSlide(ID, title, text):
     slide = latexslides.BulletSlide(secID, bullets, block_heading = title)
     return slide
 
+def convertToJPG(path):
+    extension = path.split('.')[-1]
+    if extension == 'gif':
+        cmd = 'i=' + path + ';convert $i ${i%.gif}.jpg'
+        os.system(cmd)
+        newPath = path[:-4] + '.jpg'
+        return newPath
+    else:
+        return path
+
+def genImgSlide(image):
+    slide = latexslides.Slide(image['title'],
+            figure=convertToJPG(image['path']),
+            figure_pos='w',
+            figure_fraction_width=0.3,
+            left_column_width=0.8)
+    return slide
+
 def genLatex(collection, filename):
     """Generates laTeX file from given collection of slides."""
     author_and_inst = [("HTML2Presentation", "IIIT Hyderabad")]
@@ -131,10 +154,19 @@ def getPresentation():
         slide = genTextSlide(ID, title, text)
         collection.append(slide)
 
+        # Check if any images exist for this section.
+        for image in images:
+            if image['section'] == ID:
+                #image belongs to this section. Add its slide
+                slide = genImgSlide(image)
+                collection.append(slide)
+        
+
     filename = "presentation.tex"
     genLatex(collection, filename)
     genPDF(filename)
     
     return "PDF successfully printed to `presentation.pdf`."
 
-print getPresentation()
+if __name__ == "__main__":
+    print getPresentation()
