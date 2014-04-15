@@ -93,11 +93,14 @@ def summarize_page(text):
     keys.reverse()
     for key in keys:
         sentences.append(d[key])
-    s = ""
+    s = []
     if len(sentences) < 4:
         length = len(sentences)
     else:
-        lenght = 4
-    for i in range(lenght):	
-        s = s + " " + sentences[i]	
+        length = 4
+    for i in range(length):
+        s.append(sentences[i])
     return s
+
+if __name__ == "__main__":
+    print summarize_page("This is a test. It works.")
