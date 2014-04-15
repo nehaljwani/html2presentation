@@ -156,16 +156,17 @@ json_object *text2json(section *mySection, char *secBuf, section *currTitle) {
  */
 void printHeaders(ptrStore *myPtrStore) {
     int headers[MAX_H_TAG + 1];
-    ptrStore *tmpStore = &myPtrStore[djb2("H1")];
+    ptrStore *tmpStore = &myPtrStore[djb2("title")];
     int currTag = 1;
     size_t i = 0;
     char secBuf[150];
+    sprintf(secBuf, "Section :0");
 
     for (i = 0; i <= MAX_H_TAG; i++)
         headers[i] = 0;
 
     section *mySection = tmpStore->ptrs[0];
-    section *currTitle = NULL;
+    section *currTitle = mySection->next;
     json_object *jarray = json_object_new_array();
 
     while (mySection->next != NULL) {
@@ -187,7 +188,49 @@ void printHeaders(ptrStore *myPtrStore) {
                         sprintf(secBuf + strlen(secBuf), ".%d", headers[i]);
                 }
             }
+            if (!strcmp(mySection->tag, "table")) {
+                section *tmpSection = mySection->next;
+                json_object *jarray_rows = json_object_new_array();
+                while(1) {
+                    if (tmpSection->isTag) {
+                        if (!strcmp(tmpSection->tag, "tr")) {
+                            json_object *jarray_cols = json_object_new_array();
+                            while (1) {
+                                if (tmpSection->isTag) {
+                                    json_object *jarray_cell = json_object_new_array();
+                                    if (!strcmp(tmpSection->tag, "td") || !strcmp(tmpSection->tag, "th")) {
+                                        while(1) {
+                                            if (tmpSection->isTag && (!strcmp(tmpSection->tag, "/td") || !strcmp(tmpSection->tag, "/th"))) {
+                                                json_object_array_add(jarray_cols, jarray_cell);
+                                                break;
+                                            }
+                                            else {
+                                                json_object *jobj = text2json(tmpSection, secBuf, currTitle);
+                                                if (jobj)
+                                                    json_object_array_add(jarray_cell, jobj);
+                                                tmpSection = tmpSection->next;
+                                            }
+                                        }
+                                    }
+                                    if (!strcmp(tmpSection->tag, "/tr"))
+                                        break;
+                                }
+                                tmpSection = tmpSection->next;
+                            }
+                            if (jarray_cols)
+                                json_object_array_add(jarray_rows, jarray_cols);
+                        }
+                        if (!strcmp(tmpSection->tag, "/table"))
+                            break;
+                    }
+                    tmpSection = tmpSection->next;
+                }
+                if (jarray_rows)
+                    json_object_array_add(jarray, jarray_rows);
+                mySection = tmpSection;
+            }
         }
+
         json_object *jobj = text2json(mySection, secBuf, currTitle);
         if (jobj)
             json_object_array_add(jarray, jobj);
@@ -243,6 +286,8 @@ int main(int argc, char **argv) {
                     ptrStore *tmpStore = &myPtrStore[djb2(tag)];
                     tmpStore->ptrs[tmpStore->count++] = curr->next;
                     flag = !flag;
+                    for (i = 0; i <= curr->next->length; i++)
+                        tag[i] = tolower(tag[i]);
                     curr->next->tag = tag;
                 }
                 curr->next->length++;
