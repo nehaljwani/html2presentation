@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
 import json
 import latexslides
@@ -117,12 +116,14 @@ def extractTable(rawTable):
     table = []
 
     for row in rawTable:
+        tmpRow = []
         for col in row:
-            tmpRow = ""
+            tmpCol = ""
             for element in col:
-                if 'text' in element:
-                    tmpRow += element['text']
-            table.append(tmpRow)
+                if 'text' in element and 'attr' not in element:
+                    tmpCol += element['text']
+            tmpRow.append(tmpCol)
+        table.append(tmpRow)
 
     return table
 
