@@ -227,26 +227,23 @@ printHeaders(ptrStore *myPtrStore, section *mySection)
                                             if ((tmpSection->isTag
                                                  && (!strcmp(tmpSection->tag, "/td")
                                                      || !strcmp(tmpSection->tag, "/th")))
-                                                || (tmpSection->next->isTag)
-                                                && ( !strcmp(tmpSection->next->tag, "tr")
-                                                     || !strcmp(tmpSection->next->tag, "/tr")
-                                                     || !strcmp(tmpSection->next->tag, "/table"))
-                                               ) {
+                                                || ((tmpSection->next->isTag)
+                                                    && (!strcmp(tmpSection->next->tag, "tr")
+                                                        || !strcmp(tmpSection->next->tag, "/tr")
+                                                        || !strcmp(tmpSection->next->tag, "/table")))) {
                                                 json_object_array_add(jarray_cols, jarray_cell);
                                                 break;
                                             }
-                                            else {
-                                                json_object *jobj = text2json(tmpSection, secBuf, currTitle);
-                                                if (jobj)
-                                                    json_object_array_add(jarray_cell, jobj);
-                                                tmpSection = tmpSection->next;
+                                            json_object *jobj = text2json(tmpSection, secBuf, currTitle);
+                                            if (jobj) {
+                                                json_object_array_add(jarray_cell, jobj);
                                             }
+                                            tmpSection = tmpSection->next;
                                         }
                                     }
-                                    if (!strcmp(tmpSection->tag, "/tr")
-                                        || (tmpSection->next->isTag
-                                            && !strcmp(tmpSection->next->tag, "td")))
+                                    if (!strcmp(tmpSection->tag, "/tr")) {
                                         break;
+                                    }
                                 }
                                 tmpSection = tmpSection->next;
                             }
