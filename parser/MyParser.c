@@ -3,6 +3,7 @@
 #include<string.h>
 #include<ctype.h>
 #include<ctype.h>
+#include<unistd.h>
 
 #include<json/json.h>
 
@@ -150,6 +151,63 @@ text2json(section *mySection,
     }
 
     return jobj;
+}
+
+char *createDaddy(char *str, long *osize, char *files, char *basedir) {
+    char *pch = str;
+    char path[320];
+    char realPath[320];
+    char newPath[320];
+    while (*pch) {
+        if (!strncasecmp("href", pch, 4)) {
+            char *begin = strchr(pch, '"');
+            char *end = strchr(begin + 1, '"');
+            snprintf(path, end - begin, "%s\n", begin + 1);
+            path[end - begin] = '\0';
+            end = strchr(path, '#');
+            if (end != NULL)
+                *end = '\0';
+            if (path[0] != '#'
+                && strncasecmp(path, "http", 4)
+                && strncasecmp(path, "ftp", 3)
+                && strncasecmp(path, "../../", 6)
+                && strncasecmp(path, "./../../", 7)
+                && (!strncasecmp(path + strlen(path) - 4, ".htm", 4)
+                    || !strncasecmp(path + strlen(path) - 5, ".html", 5))) {
+                if(!files[djb2(path) % 100]) {
+                    files[djb2(path) % 100] = 1;
+                    char *tmp = strrchr(basedir, '/');
+                    *tmp = '\0';
+                    sprintf(newPath, "%s/%s", basedir, path);
+                    *tmp = '/';
+                    realpath(newPath, realPath);
+                    printf("%s\n", realPath);
+                    FILE *fp = fopen(realPath, "r");
+                    if (!fp)
+                        continue;
+                    fseek(fp, 0L, SEEK_END);
+                    long size = ftell(fp);
+                    fseek(fp, 0L, SEEK_SET);
+
+                    /* Since we have the file size, lets read the complete file in memory */
+                    char *fileContent = readFile(fp, size);
+                    fclose(fp);
+                    while(*pch != '>') pch++;
+                    char *newStr = (char *) malloc(sizeof(char) * size + *osize);
+                    snprintf(newStr, (long)pch - (long)str, "%s", str);
+                    strcat(newStr, fileContent);
+                    strcat(newStr, pch + 1);
+                    free(fileContent);
+                    free(str);
+                    *osize += size;
+                    pch = newStr + (long)pch - (long)str;
+                    str = newStr;
+                }
+            }
+        }
+        pch++;
+    }
+    return str;
 }
 
 /*
@@ -305,6 +363,10 @@ int main(int argc, char **argv)
     char *fileContent = readFile(fp, size);
     fclose(fp);
 
+    char refFiles[100];
+    memset(refFiles, 0, 100);
+    fileContent = createDaddy(fileContent, &size, refFiles, argv[1]);
+
     htmlFile = argv[1];
 
     size_t i;
@@ -376,6 +438,5 @@ int main(int argc, char **argv)
 
     free(myPtrStore);
     free(mySections);
-    free(fileContent);
     return 0;
 }
