@@ -66,6 +66,74 @@ char *readFile(FILE *fp, long size) {
     return code;
 }
 
+json_object *text2json(section *mySection, char *secBuf, section *currTitle) {
+    bool isImg = false;
+    bool isTable = false;
+    char titleBuf[200];
+    char textBuf[10000];
+    char attrBuf[25];
+    char pathBuf[1000];
+    char srcBuf[100];
+    char realPath[1000];
+    bool alt = false;
+    size_t i = 0;
+
+    if (mySection->isTag) {
+        if (!strcmp(mySection->tag, "img"))
+            isImg = true;
+        else
+            return NULL;
+    }
+
+    /* Do the dew for images */
+    if (isImg) {
+        char *src_begin = strchr(mySection->content, '"');
+        char *src_end = strchr(src_begin + 1, '"');
+        char *alt_begin = mySection->content;
+        for (i = 0; i < mySection->length; i++) {
+            if (!strncmp(alt_begin, "alt", 3)) {
+                alt_begin += 5;
+                alt = true;             /*alt="*/
+                break;
+            }
+            alt_begin++;
+        }
+        char *alt_end = strchr(alt_begin + 1, '"');
+        snprintf(titleBuf, currTitle->length + 1, "%s", currTitle->content);
+        snprintf(textBuf, alt_end - alt_begin + 1, "%s", alt_begin);
+        sprintf(attrBuf, "image");
+        char *path_begin = htmlFile;
+        char *path_end = strrchr(htmlFile, '/');
+        snprintf(pathBuf, path_end - path_begin + 2, "%s", path_begin);
+        snprintf(srcBuf, src_end - src_begin, "%s", src_begin + 1);
+        strcat(pathBuf, srcBuf);
+        realpath(pathBuf, realPath);
+    }
+    /* Do the dew for normal */
+    else {
+        snprintf(titleBuf, currTitle->length + 1, "%s", currTitle->content);
+        snprintf(textBuf, mySection->length + 1, "%s", mySection->content);
+    }
+
+    json_object *jobj = json_object_new_object();
+    json_object *jstring1 = json_object_new_string(titleBuf);
+    json_object_object_add(jobj,"title", jstring1);
+    if (mySection->isTag && alt || !mySection->tag) {
+        json_object *jstring2 = json_object_new_string(textBuf);
+        json_object_object_add(jobj,"text", jstring2);
+    }
+    json_object *jstring3 = json_object_new_string(secBuf);
+    json_object_object_add(jobj,"section", jstring3);
+    if (isImg) {
+        json_object *jstring4 = json_object_new_string("img");
+        json_object_object_add(jobj,"attr", jstring4);
+        json_object *jstring5 = json_object_new_string(realPath);
+        json_object_object_add(jobj,"path", jstring5);
+    }
+
+    return jobj;
+}
+
 /*
  * printHeaders:
  *
@@ -88,21 +156,17 @@ char *readFile(FILE *fp, long size) {
  */
 void printHeaders(ptrStore *myPtrStore) {
     int headers[MAX_H_TAG + 1];
-    ptrStore *tmpStore = &myPtrStore[djb2("H1")];
+    ptrStore *tmpStore = &myPtrStore[djb2("title")];
     int currTag = 1;
     size_t i = 0;
+    char secBuf[150];
+    sprintf(secBuf, "Section :0");
 
     for (i = 0; i <= MAX_H_TAG; i++)
         headers[i] = 0;
 
-    char titleBuf[200];
-    char textBuf[10000];
-    char attrBuf[25];
-    char pathBuf[1000];
-    char secBuf[150];
-
     section *mySection = tmpStore->ptrs[0];
-    section *currTitle = NULL;
+    section *currTitle = mySection->next;
     json_object *jarray = json_object_new_array();
 
     while (mySection->next != NULL) {
@@ -122,73 +186,54 @@ void printHeaders(ptrStore *myPtrStore) {
                     sprintf(secBuf, "Section :1");
                     for (i = 2; i <= currTag; i++)
                         sprintf(secBuf + strlen(secBuf), ".%d", headers[i]);
-                    printf("\n");
                 }
             }
-            if (!strcmp(mySection->tag, "img")) {
-                fflush(stdout);
-                char srcBuf[255];
-                char realPath[1000];
-                char *src_begin = strchr(mySection->content, '"');
-                char *src_end = strchr(src_begin + 1, '"');
-                char *alt_begin = mySection->content;
-                bool alt = false;
-                for (i = 0; i < mySection->length; i++) {
-                    if (!strncmp(alt_begin, "alt", 3)) {
-                        alt_begin += 5;
-                        alt = true;             /*alt="*/
-                        break;
+            if (!strcmp(mySection->tag, "table")) {
+                section *tmpSection = mySection->next;
+                json_object *jarray_rows = json_object_new_array();
+                while(1) {
+                    if (tmpSection->isTag) {
+                        if (!strcmp(tmpSection->tag, "tr")) {
+                            json_object *jarray_cols = json_object_new_array();
+                            while (1) {
+                                if (tmpSection->isTag) {
+                                    json_object *jarray_cell = json_object_new_array();
+                                    if (!strcmp(tmpSection->tag, "td") || !strcmp(tmpSection->tag, "th")) {
+                                        while(1) {
+                                            if (tmpSection->isTag && (!strcmp(tmpSection->tag, "/td") || !strcmp(tmpSection->tag, "/th"))) {
+                                                json_object_array_add(jarray_cols, jarray_cell);
+                                                break;
+                                            }
+                                            else {
+                                                json_object *jobj = text2json(tmpSection, secBuf, currTitle);
+                                                if (jobj)
+                                                    json_object_array_add(jarray_cell, jobj);
+                                                tmpSection = tmpSection->next;
+                                            }
+                                        }
+                                    }
+                                    if (!strcmp(tmpSection->tag, "/tr"))
+                                        break;
+                                }
+                                tmpSection = tmpSection->next;
+                            }
+                            if (jarray_cols)
+                                json_object_array_add(jarray_rows, jarray_cols);
+                        }
+                        if (!strcmp(tmpSection->tag, "/table"))
+                            break;
                     }
-                    alt_begin++;
+                    tmpSection = tmpSection->next;
                 }
-                char *alt_end = strchr(alt_begin + 1, '"');
-                snprintf(titleBuf, currTitle->length + 1, "%s", currTitle->content);
-                snprintf(textBuf, alt_end - alt_begin + 1, "%s", alt_begin);
-                sprintf(attrBuf, "image");
-                char *path_begin = htmlFile;
-                char *path_end = strrchr(htmlFile, '/');
-                snprintf(pathBuf, path_end - path_begin + 2, "%s", path_begin);
-                snprintf(srcBuf, src_end - src_begin, "%s", src_begin + 1);
-                strcat(pathBuf, srcBuf);
-                realpath(pathBuf, realPath);
-                json_object *jobj = json_object_new_object();
-                json_object *jstring1 = json_object_new_string(titleBuf);
-                json_object *jstring2 = json_object_new_string(alt ? textBuf: "none");
-                json_object *jstring3 = json_object_new_string(secBuf);
-                json_object *jstring4 = json_object_new_string("img");
-                json_object *jstring5 = json_object_new_string(realPath);
-                json_object_object_add(jobj,"title", jstring1);
-                json_object_object_add(jobj,"text", jstring2);
-                json_object_object_add(jobj,"section", jstring3);
-                json_object_object_add(jobj,"attr", jstring4);
-                json_object_object_add(jobj,"path", jstring5);
-                json_object_array_add(jarray, jobj);
+                if (jarray_rows)
+                    json_object_array_add(jarray, jarray_rows);
+                mySection = tmpSection;
             }
         }
-        else {
-            fflush(stdout);
-            snprintf(titleBuf, currTitle->length + 1, "%s", currTitle->content);
-            snprintf(textBuf, mySection->length + 1, "%s", mySection->content);
-            sprintf(attrBuf, "none");
-            sprintf(pathBuf, "none");
-            json_object *jobj = json_object_new_object();
-            json_object *jstring1 = json_object_new_string(titleBuf);
-            json_object *jstring2 = json_object_new_string(textBuf);
-            json_object *jstring3 = json_object_new_string(secBuf);
-            json_object *jstring4 = json_object_new_string("none");
-            json_object *jstring5 = json_object_new_string("none");
-            json_object_object_add(jobj,"title", jstring1);
-            json_object_object_add(jobj,"text", jstring2);
-            json_object_object_add(jobj,"section", jstring3);
-            json_object_object_add(jobj,"attr", jstring4);
-            json_object_object_add(jobj,"path", jstring5);
+
+        json_object *jobj = text2json(mySection, secBuf, currTitle);
+        if (jobj)
             json_object_array_add(jarray, jobj);
-            //write(fileno(stdout), mySection->content, mySection->length);
-        }
-        memset(titleBuf, 0, 200);
-        memset(textBuf, 0, 10000);
-        memset(attrBuf, 0, 25);
-        memset(pathBuf, 0, 1000);
         mySection = mySection->next;
     }
     printf ("%s\n", json_object_to_json_string_ext(jarray, JSON_C_TO_STRING_PRETTY));
@@ -241,6 +286,8 @@ int main(int argc, char **argv) {
                     ptrStore *tmpStore = &myPtrStore[djb2(tag)];
                     tmpStore->ptrs[tmpStore->count++] = curr->next;
                     flag = !flag;
+                    for (i = 0; i <= curr->next->length; i++)
+                        tag[i] = tolower(tag[i]);
                     curr->next->tag = tag;
                 }
                 curr->next->length++;
@@ -263,17 +310,17 @@ int main(int argc, char **argv) {
     }
 
     /* Just to make sure we got the contents right *//*
-    section *print = mySections->next;
-    while (print->next != NULL) {
-        printf("\nTag: %s\n", print->isTag ? "Yes" : "No");
-        fflush(stdout);
-        write(fileno(stdout), print->content, print->length);
-        print = print->next;
-    }*/
+                                                        section *print = mySections->next;
+                                                        while (print->next != NULL) {
+                                                        printf("\nTag: %s\n", print->isTag ? "Yes" : "No");
+                                                        fflush(stdout);
+                                                        write(fileno(stdout), print->content, print->length);
+                                                        print = print->next;
+                                                        }*/
 
     /* Just to make sure hashed values point to right things correct *//*
-    ptrStore *tmp = &myPtrStore[djb2("HTML")];
-    printf("%d\n", tmp->count);*/
+                                                                          ptrStore *tmp = &myPtrStore[djb2("HTML")];
+                                                                          printf("%d\n", tmp->count);*/
 
     printHeaders(myPtrStore);
 
