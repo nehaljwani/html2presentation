@@ -122,15 +122,20 @@ def extractTable(rawTable):
             for element in col:
                 if 'text' in element and 'attr' not in element:
                     tmpCol += element['text']
+            if tmpCol == "":
+                return []
             tmpRow.append(tmpCol)
         table.append(tmpRow)
 
     return table
 
 def genTableSlide(table):
+    formattedTable = extractTable(table['table'])
+    if formattedTable == []:
+        return None
     slide = latexslides.TableSlide(
             title = table['section'],
-            table = extractTable(table['table']),
+            table = formattedTable,
             block_heading = table['title'],
             )
     return slide
@@ -188,8 +193,9 @@ def getPresentation():
             if table['section'] == ID:
                 #table belongs to this section. Add its slide
                 slide = genTableSlide(table)
-                collection.append(slide)
-        
+                if slide is not None:
+                    collection.append(slide)
+
 
     filename = "presentation.tex"
     genLatex(collection, filename)
