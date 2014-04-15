@@ -12,9 +12,9 @@ images = []
 
 def sanitize(text):
     """Strips newlines '\n', '\t' and '\r'."""
-    text.replace('\n','')
+    text.replace('\n',' ')
     text.replace('\r','')
-    text.replace('\t','')
+    text.replace('\t',' ')
     return text
 
 def runParser(pathToPaper):
@@ -73,7 +73,7 @@ def joinSections(raw_sections):
         else:
             # Just append text to previous section
             if text:
-                secText += text
+                secText += " " + text
         
         prevID = ID
 
@@ -85,11 +85,21 @@ def joinSections(raw_sections):
 
     return sections
 
+def genTitleSlide(title):
+    """Generates the title slide that appears on first page."""
+    slide = latexslides.TextSlide(
+            title = title,
+            block_heading = title,
+            )
+    return slide
+
 def genTextSlide(ID, title, text):
     """Generates individual text slide."""
     secID = ID
-    if text == None or text == "":
-        text = "No Description available."
+    rawText = text
+    rawText.replace(' ', '')
+    if rawText == "":
+        return None
     bullets = summarize.summarize_page(text)
     slide = latexslides.BulletSlide(secID, bullets, block_heading = title)
     return slide
@@ -122,15 +132,20 @@ def extractTable(rawTable):
             for element in col:
                 if 'text' in element and 'attr' not in element:
                     tmpCol += element['text']
+            if tmpCol == "":
+                return []
             tmpRow.append(tmpCol)
         table.append(tmpRow)
 
     return table
 
 def genTableSlide(table):
+    formattedTable = extractTable(table['table'])
+    if formattedTable == []:
+        return None
     slide = latexslides.TableSlide(
             title = table['section'],
-            table = extractTable(table['table']),
+            table = formattedTable,
             block_heading = table['title'],
             )
     return slide
@@ -173,8 +188,12 @@ def getPresentation():
         title = section['title']
         text = section['text']
 
-        slide = genTextSlide(ID, title, text)
-        collection.append(slide)
+        if ID == "Section: 0":
+            slide = genTitleSlide(title)
+        else:
+            slide = genTextSlide(ID, title, text)
+        if slide is not None:
+            collection.append(slide)
 
         # Check if any images exist for this section.
         for image in images:
@@ -188,8 +207,9 @@ def getPresentation():
             if table['section'] == ID:
                 #table belongs to this section. Add its slide
                 slide = genTableSlide(table)
-                collection.append(slide)
-        
+                if slide is not None:
+                    collection.append(slide)
+
 
     filename = "presentation.tex"
     genLatex(collection, filename)
