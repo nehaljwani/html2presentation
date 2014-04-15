@@ -4,9 +4,9 @@
 
 #include<json/json.h>
 
-#define MAX_TAGS 250
-#define MAX_TAG_OCCURENCE 50
-#define MAX_H_TAG 5
+#define MAX_TAGS 2500
+#define MAX_TAG_OCCURENCE 500
+#define MAX_H_TAG 50
 
 /* Stupid global pointing to filepath */
 char *htmlFile = NULL;
