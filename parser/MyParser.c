@@ -2,9 +2,15 @@
 #include<stdlib.h>
 #include<string.h>
 
+#include<json/json.h>
+
+
 #define MAX_TAGS 250
 #define MAX_TAG_OCCURENCE 50
 #define MAX_H_TAG 5
+
+/* Stupid global pointing to filepath */
+char *htmlFile = NULL;
 
 /* bool is not available in C */
 typedef enum { false, true } bool;
@@ -89,13 +95,23 @@ void printHeaders(ptrStore *myPtrStore) {
     for (i = 0; i <= MAX_H_TAG; i++)
         headers[i] = 0;
 
+    char titleBuf[200];
+    char textBuf[10000];
+    char attrBuf[25];
+    char pathBuf[1000];
+    char secBuf[150];
+
     section *mySection = tmpStore->ptrs[0];
+    section *currTitle = NULL;
+    json_object *jarray = json_object_new_array();
+
     while (mySection->next != NULL) {
         if (mySection->isTag) {
             if (strlen(mySection->tag) == 2
                 && (mySection->tag[0] == 'H'
                     || mySection->tag[0] == 'h')) {
                 int tmpTag = atoi(&mySection->tag[1]);
+                currTitle = mySection->next;
                 if (tmpTag) {
                     if (tmpTag < currTag) {
                         for (i = tmpTag + 1; i <= currTag; i++)
@@ -103,22 +119,86 @@ void printHeaders(ptrStore *myPtrStore) {
                     }
                     currTag = tmpTag;
                     headers[currTag]++;
-                    printf("\nSection :1");
+                    sprintf(secBuf, "Section :1");
                     for (i = 2; i <= currTag; i++)
-                        printf(".%d", headers[i]);
+                        sprintf(secBuf + strlen(secBuf), ".%d", headers[i]);
                     printf("\n");
                 }
+            }
+            if (!strcmp(mySection->tag, "img")) {
+                fflush(stdout);
+                char srcBuf[255];
+                char *src_begin = strchr(mySection->content, '"');
+                char *src_end = strchr(src_begin + 1, '"');
+                char *alt_begin = mySection->content;
+                bool alt = false;
+                for (i = 0; i < mySection->length; i++) {
+                    if (!strncmp(alt_begin, "alt", 3)) {
+                        alt_begin += 5;
+                        alt = true;             /*alt="*/
+                        break;
+                    }
+                    alt_begin++;
+                }
+                char *alt_end = strchr(alt_begin + 1, '"');
+                snprintf(titleBuf, currTitle->length + 1, "%s", currTitle->content);
+                snprintf(textBuf, alt_end - alt_begin + 1, "%s", alt_begin);
+                sprintf(attrBuf, "image");
+                char *path_begin = htmlFile;
+                char *path_end = strrchr(htmlFile, '/');
+                snprintf(pathBuf, path_end - path_begin + 2, "%s", path_begin);
+                snprintf(srcBuf, src_end - src_begin, "%s", src_begin + 1);
+                strcat(pathBuf, srcBuf);
+                json_object *jobj = json_object_new_object();
+                json_object *jstring1 = json_object_new_string(titleBuf);
+                json_object *jstring2 = json_object_new_string(alt ? textBuf: "none");
+                json_object *jstring3 = json_object_new_string(secBuf);
+                json_object *jstring4 = json_object_new_string("img");
+                json_object *jstring5 = json_object_new_string(pathBuf);
+                json_object_object_add(jobj,"title", jstring1);
+                json_object_object_add(jobj,"text", jstring2);
+                json_object_object_add(jobj,"section", jstring3);
+                json_object_object_add(jobj,"attr", jstring4);
+                json_object_object_add(jobj,"path", jstring5);
+                json_object_array_add(jarray, jobj);
             }
         }
         else {
             fflush(stdout);
-            write(fileno(stdout), mySection->content, mySection->length);
+            snprintf(titleBuf, currTitle->length + 1, "%s", currTitle->content);
+            snprintf(textBuf, mySection->length + 1, "%s", mySection->content);
+            sprintf(attrBuf, "none");
+            sprintf(pathBuf, "none");
+            json_object *jobj = json_object_new_object();
+            json_object *jstring1 = json_object_new_string(titleBuf);
+            json_object *jstring2 = json_object_new_string(textBuf);
+            json_object *jstring3 = json_object_new_string(secBuf);
+            json_object *jstring4 = json_object_new_string("none");
+            json_object *jstring5 = json_object_new_string("none");
+            json_object_object_add(jobj,"title", jstring1);
+            json_object_object_add(jobj,"text", jstring2);
+            json_object_object_add(jobj,"section", jstring3);
+            json_object_object_add(jobj,"attr", jstring4);
+            json_object_object_add(jobj,"path", jstring5);
+            json_object_array_add(jarray, jobj);
+            //write(fileno(stdout), mySection->content, mySection->length);
         }
+        memset(titleBuf, 0, 200);
+        memset(textBuf, 0, 10000);
+        memset(attrBuf, 0, 25);
+        memset(pathBuf, 0, 1000);
         mySection = mySection->next;
     }
+    printf ("%s\n", json_object_to_json_string_ext(jarray, JSON_C_TO_STRING_PRETTY));
 }
 
 int main(int argc, char **argv) {
+
+    if (argc != 2) {
+        printf("Usage %s <html_file>\n", argv[0]);
+        exit(-1);
+    }
+
     FILE *fp = fopen(argv[1], "r");
     fseek(fp, 0L, SEEK_END);
     long size = ftell(fp);
@@ -127,6 +207,8 @@ int main(int argc, char **argv) {
     /* Since we have the file size, lets read the complete file in memory */
     char *fileContent = readFile(fp, size);
     fclose(fp);
+
+    htmlFile = argv[1];
 
     size_t i;
     char *parser = fileContent;
