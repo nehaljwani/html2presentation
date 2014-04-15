@@ -256,10 +256,14 @@ printHeaders(ptrStore *myPtrStore, section *mySection)
                     tmpSection = tmpSection->next;
                 }
                 if (jarray_rows) {
+                    char titleBuf[255];
                     json_object *jobj = json_object_new_object();
                     json_object_object_add(jobj, "table", jarray_rows);
                     json_object *jsection = json_object_new_string(secBuf);
                     json_object_object_add(jobj, "section", jsection);
+                    snprintf(titleBuf, currTitle->length + 1, "%s", currTitle->content);
+                    json_object *jtitle = json_object_new_string(titleBuf);
+                    json_object_object_add(jobj, "title", jtitle);
                     json_object_array_add(jarray, jobj);
                 }
                 mySection = tmpSection;
