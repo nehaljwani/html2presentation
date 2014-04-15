@@ -17,7 +17,7 @@ def sanitize(text):
 
 def runParser(pathToPaper):
     """Executes the HTML parser."""
-    cmd = "parser/parser " + pathToPaper + " > sections2.json"
+    cmd = "parser/parser " + pathToPaper + " > sections.json"
     os.system(cmd)
 
 def getSections(filename, pathToPaper):
@@ -35,8 +35,18 @@ def joinSections(raw_sections):
     secID = ""
     tmpSec = {}
     for section in raw_sections:
+        # Check for tables
+        if 'table' in section:
+            continue
+
         ID = section['section']
         title = sanitize(section['title'])
+
+        # Check for images
+        if 'attr' in section:
+            if section['attr'] == 'img':
+                continue
+
         if 'text' in section:
             text = sanitize(section['text'])
         else:
@@ -74,6 +84,8 @@ def joinSections(raw_sections):
 def genTextSlide(ID, title, text):
     """Generates individual text slide."""
     secID = ID
+    if text == None or text == "":
+        text = "No Description available."
     bullets = summarize.summarize_page(text)
     slide = latexslides.BulletSlide(secID, bullets, block_heading = title)
     return slide
