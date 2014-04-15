@@ -96,8 +96,10 @@ def genTitleSlide(title):
 def genTextSlide(ID, title, text):
     """Generates individual text slide."""
     secID = ID
-    if text == None or text == "":
-        text = "No Description available."
+    rawText = text
+    rawText.replace(' ', '')
+    if rawText == "":
+        return None
     bullets = summarize.summarize_page(text)
     slide = latexslides.BulletSlide(secID, bullets, block_heading = title)
     return slide
@@ -190,7 +192,8 @@ def getPresentation():
             slide = genTitleSlide(title)
         else:
             slide = genTextSlide(ID, title, text)
-        collection.append(slide)
+        if slide is not None:
+            collection.append(slide)
 
         # Check if any images exist for this section.
         for image in images:
