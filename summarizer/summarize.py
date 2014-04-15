@@ -3,6 +3,8 @@
 import nltk
 from nltk.corpus import stopwords
 import string
+import bs4
+import re
 
 stop_words = stopwords.words('english')
 
@@ -51,12 +53,15 @@ def compute_score(sent, sents):
 
 def summarize_block(block):
     """Return the sentence that best summarizes block"""
+    #print "jkj" 
     if not block:
         return None
+    #print "jkj"   
     sents = nltk.sent_tokenize(block)
     word_sents = map(nltk.word_tokenize, sents)
+    #print word_sents
     d = dict((compute_score(word_sent, word_sents), sent) for sent, word_sent in zip(sents, word_sents))
-    return d[max(d.keys())]
+    return d;
 
 
 def find_likely_body(b):
@@ -73,34 +78,55 @@ class Summary(object):
 
     def __repr__(self):
         return 'Summary({0}, {1}, {2}, {3})'.format(
-            repr(self.url), repr(self.article_html), repr(self.title), repr(self.summaries)
-        )
+                repr(self.url), repr(self.article_html), repr(self.title), repr(self.summaries)
+                )
 
-    def __str__(self):
-        return u"{0} - {1}\n\n{2}".format(self.title, self.url, '\n'.join(self.summaries))
+        def __str__(self):
+            return u"{0} - {1}\n\n{2}".format(self.title, self.url, '\n'.join(self.summaries))
 
 
-def summarize_page(url):
-    import bs4
-    import re
-    import requests
+def summarize_page():
 
-    #html = bs4.BeautifulSoup(requests.get(url).text)
-    html = bs4.BeautifulSoup(open(url, "r").read())
-    b = find_likely_body(html)
-    summaries = map(lambda p: re.sub('\s+', ' ', summarize_block(p.text) or '').strip(), b.find_all('p'))
-    summaries = sorted(set(summaries), key=summaries.index)  # deduplicate and preserve order
-    summaries = [re.sub('\s+', ' ', summary.strip())
-                 for summary in summaries
-                 if filter(lambda c: c.lower() in string.letters, summary)]
-    return Summary(url, b, html.title.text if html.title else None, summaries)
+    text = '''
+    The International Institute of Information Technology, Hyderabad (IIIT Hyderabad) is an autonomous university in Hyderabad, Andhra Pradesh, India. 
+    It was established in 1998, and is one of the most prestigious institutes of the country. 
+    It emphasizes research from the undergraduate level, which makes it different from the other leading engineering institutes in India. 
+    It has been a consistent performer from India in ACM International Collegiate Programming Contest (ICPC) and finished at #18 last year.[1] Raj Reddy, 
+    \the only Indian to win the Turing Award, is chairman of the board of governors.
 
-if __name__ == '__main__':
-    import sys
+The institute runs CS courses and research projects and is focused on research. 
+It gives the students interaction with industry, preparation in entrepreneurship and personality development courses. 
+IIIT Hyderabad the mentor institute to Indian Institute of Information Technology, Sri City[2]
+IIIT Hyderabad was set up in 1998. 
+It was envisioned by Nara Chandrababu Naidu, Chief Minister of the Andhra Pradesh from 1995 to 2004. 
+The government of Andhra Pradesh lent support to the institute by grant of land and buildings.
+ A Governing Council consisting of people from academia, industry and government presides over the governance of the institution.
+  Rajeev Sangal, former Head of Department of Computer Science, IIT Kanpur, designed the syllabus. He was the director of the institute 
+  till April 10 2013. P. J. Narayanan, the former Dean R&D and current President of Association for Computing Machinery (ACM India) is the current Director.
+Admissions for undergraduate and dual degrees were taken through AIEEE i.e. CCB (Central Counseling board) counseling until the year 2009.
 
-    if len(sys.argv) > 0:
-        print (u"%s" % summarize_page(sys.argv[1])).encode('ascii','replace')
-        sys.exit(0)
+From the academic batch 2010, the institute revised the admission procedure and decided on independent selection students though still 
+considering the merit achievements of AIEEE. The institute also selects students based on interviews and Kishore Vaigyanik Protsahan www.iiit.ac.in Yojana (KVPY).
 
-    print "Usage summarize.py <URL>"
-    sys.exit(1)
+Admissions for postgraduate studies are on the basis of the Postgraduate Entrance Exam (PGEE) conducted by IIIT Hyderabad.
+Admissions to the MSIT programme run at this institute are based on a test conducted every year from April to May.
+
+'''
+
+    sentences = []
+    d = summarize_block(text)
+    keys = d.keys()
+    keys.sort()
+    keys.reverse()
+    for key in keys:
+        sentences.append(d[key])
+    s = ""
+    if len(sentences) < 4:
+        length = len(sentences)
+    else:
+        lenght = 4
+    for i in range(lenght):	
+        s=s+sentences[i]	
+    print s
+
+summarize_page()
