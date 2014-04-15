@@ -85,6 +85,14 @@ def joinSections(raw_sections):
 
     return sections
 
+def genTitleSlide(title):
+    """Generates the title slide that appears on first page."""
+    slide = latexslides.TextSlide(
+            title = title,
+            block_heading = title,
+            )
+    return slide
+
 def genTextSlide(ID, title, text):
     """Generates individual text slide."""
     secID = ID
@@ -178,7 +186,10 @@ def getPresentation():
         title = section['title']
         text = section['text']
 
-        slide = genTextSlide(ID, title, text)
+        if ID == "Section: 0":
+            slide = genTitleSlide(title)
+        else:
+            slide = genTextSlide(ID, title, text)
         collection.append(slide)
 
         # Check if any images exist for this section.
